@@ -1,0 +1,107 @@
+﻿≡ƒöì Exploring R2 Bucket: shortlovers
+============================================================
+
+≡ƒôä Fetching page 1...
+Γ£à Processed 1000 objects
+
+≡ƒôä Fetching page 2...
+Γ£à Processed 1000 objects
+
+≡ƒôä Fetching page 3...
+Γ£à Processed 1000 objects
+
+≡ƒôä Fetching page 4...
+Γ£à Processed 230 objects
+
+
+============================================================
+≡ƒôè BUCKET ANALYSIS REPORT
+============================================================
+
+≡ƒôª Total Objects: 3.230
+≡ƒÆ╛ Total Size: 1.24 GB
+
+≡ƒôü Top-Level Folders:
+   - setelah_nikah,_aku_tiap_hari_dimanjakan: 332 files
+   - si_kembar_lima_bantu_ayah_kejar_ibu: 276 files
+   - tanda_persik_pemersatu: 232 files
+   - istri_hamil_kesayangan_suami: 214 files
+   - istriku_ternyata_bos: 201 files
+   - teknisi_hati_ceo_kaya: 197 files
+   - kembalinya_nona_besar: 190 files
+   - terjebak_di_tahun_70-an_sebagai_antagonis: 181 files
+   - [sulih_suara]_suamiku_ternyata_ceo: 175 files
+   - suamiku_ternyata_ceo: 173 files
+   - kontrak_dengan_raja_mafia: 171 files
+   - cinta_di_titik_akhir: 168 files
+   - suami_mafia_tercintaku: 162 files
+   - [sulih_suara]_takdir_di_balik_sandiwara: 144 files
+   - takdir_di_balik_sandiwara: 143 files
+   - mendadak_jadi_istri_miliuner: 138 files
+   - istri_ceo-ku_keren_sekali: 133 files
+
+≡ƒôä File Types Distribution:
+   - .ts: 3039 files
+   - .jpg: 191 files
+
+≡ƒùé∩╕Å Sample Structure (first 50 files):
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/cover.jpg (62.42 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000000.ts (438.61 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000001.ts (346.99 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000002.ts (360.58 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000003.ts (512.96 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000004.ts (588.6 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000005.ts (590.62 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000006.ts (417.86 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000007.ts (518.29 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000008.ts (346.07 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000009.ts (552.98 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000010.ts (495.89 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000011.ts (546.74 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000012.ts (574.46 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000013.ts (564.18 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000014.ts (570.79 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000015.ts (515.16 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000016.ts (590.8 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000017.ts (614.3 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_1/shortlovers_000018.ts (463.39 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/cover.jpg (52.55 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000000.ts (282.55 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000001.ts (354.34 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000002.ts (336.16 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000003.ts (436.22 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000004.ts (340.02 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000005.ts (365.72 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000006.ts (343.14 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000007.ts (421.9 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000008.ts (444.48 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000009.ts (460.27 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000010.ts (461.92 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000011.ts (462.47 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000012.ts (421.35 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000013.ts (359.48 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000014.ts (376.73 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000015.ts (452.19 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000016.ts (497.36 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000017.ts (514.43 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_2/shortlovers_000018.ts (458.8 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/cover.jpg (91.7 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000000.ts (438.42 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000001.ts (420.8 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000002.ts (388.3 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000003.ts (369.76 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000004.ts (423.92 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000005.ts (437.14 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000006.ts (466.51 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000007.ts (442.09 KB)
+   [sulih_suara]_suamiku_ternyata_ceo/[sulih_suara]_suamiku_ternyata_ceo_ep_3/shortlovers_000008.ts (364.07 KB)
+
+
+============================================================
+Γ£à EXPLORATION COMPLETE
+============================================================
+
+≡ƒÆí Next Steps:
+1. Review the structure above
+2. Update import script based on actual folder structure
+3. Run import script to populate database

@@ -1,0 +1,141 @@
+  [ 1] ✅ COMPLETE      Ahli Pengobatan Sakti                       eps:124/123  files: 3132 (  3090.0MB) cover:✅
+  [ 2] ✅ COMPLETE      Aku Kaya dari Giok                          eps:113/112  files: 2449 (  1905.1MB) cover:✅
+  [ 3] ✅ COMPLETE      Anak Ajaib Ahli Barang Antik                eps:118/117  files: 2570 (  2204.5MB) cover:✅
+  [ 4] ✅ COMPLETE      Balas Budi Jadi Cinta                       eps:155/154  files: 3744 (  3383.6MB) cover:❌
+  [ 5] ✅ COMPLETE      Bangkit dari Neraka                         eps:164/164  files: 1905 (  1717.9MB) cover:❌
+  [ 6] ✅ COMPLETE      Bangkit, Kuasai Pasar Saham                 eps:124/123  files: 2765 (  1596.7MB) cover:✅
+  [ 7] ✅ COMPLETE      Bisnis Kaya Bareng Hewan                    eps:115/114  files: 2524 (  2126.5MB) cover:❌
+  [ 8] ✅ COMPLETE      Cinta Sang Komandan                         eps:131/130  files: 3378 (  2549.6MB) cover:❌
+  [ 9] ✅ COMPLETE      Cintamu meluluhkan hatiku                   eps:112/112  files: 4304 (  3236.3MB) cover:✅
+  [10] ✅ COMPLETE      Dari Miskin Jadi Sultan                     eps:111/110  files: 2409 (  2583.5MB) cover:✅
+  [11] ✅ COMPLETE      Rivan terlahir kembali di tahun 1998, teri  eps:161/161  files: 3834 (  3067.4MB) cover:❌
+  [12] ⚠️ 64%          Dokter Genius Pujaan Hati                   eps:114/177  files: 1421 (  1321.0MB) cover:❌
+  [13] ✅ COMPLETE      Guci Ajaib di Hari Kiamat                   eps:114/114  files: 1445 (  1395.1MB) cover:❌
+  [14] ✅ COMPLETE      Faisal Pratama yang dulu diabaikan terlahi  eps: 70/70   files: 1653 (  1407.0MB) cover:✅
+  [15] ✅ COMPLETE      Investor Hoki Abadi                         eps: 80/80   files: 1525 (  1264.6MB) cover:✅
+  [16] ✅ COMPLETE      Istri Desa Si Kapten                        eps:150/150  files: 2036 (  1585.8MB) cover:❌
+  [17] ✅ COMPLETE      Istri Kesayangan Galak                      eps:126/126  files: 1694 (  1399.7MB) cover:❌
+  [18] ✅ COMPLETE      Jam Pasir Tanpa Suara                       eps: 52/52   files: 1104 (   871.4MB) cover:✅
+  [19] ✅ COMPLETE      Jasa Kakak Tiada Tara                       eps: 80/80   files: 1534 (  1359.8MB) cover:✅
+  [20] ✅ COMPLETE      Kakek 10 Tahun Tak Terkalahkan              eps: 73/73   files: 1398 (  1112.2MB) cover:✅
+  [21] ✅ COMPLETE      Kakek Muda Pembawa Berkah                   eps: 80/80   files: 1881 (  1511.6MB) cover:✅
+  [22] ✅ COMPLETE      Kasim Palsu Penguasa Istana                 eps: 88/88   files: 1532 (  1561.2MB) cover:✅
+  [23] ✅ COMPLETE      Kau adalah Cahaya Hidupku                   eps: 75/75   files: 1728 (  1157.1MB) cover:✅
+  [24] ✅ COMPLETE      Kaya Raya di Era 1992                       eps: 86/85   files: 1627 (  1527.9MB) cover:✅
+  [25] ✅ COMPLETE      Kegagalan dan Kerajaan Bisnisku             eps:100/100  files: 1666 (  1385.2MB) cover:✅
+  [26] ✅ COMPLETE      Yusri tiba-tiba berpindah ke dunia lain da  eps:140/140  files: 2145 (  3008.9MB) cover:✅
+  [27] ✅ COMPLETE      Kekasihku, Pengawalku                       eps: 77/77   files: 1342 (  1007.7MB) cover:✅
+  [28] ✅ COMPLETE      Kembali Pulang                              eps: 78/78   files: 1382 (  1308.6MB) cover:✅
+  [29] ✅ COMPLETE      Kultivator Kuno di Era Digital              eps: 79/79   files: 1356 (  1151.0MB) cover:✅
+  [30] ✅ COMPLETE      Lahir Kembali Untuk Sukses                  eps: 80/80   files: 1042 (   874.7MB) cover:✅
+  [31] ✅ COMPLETE      Levelku 9999, Tetua Baru 100                eps: 76/76   files: 1383 (  1603.0MB) cover:✅
+  [32] ✅ COMPLETE      Luka Masa Lalu                              eps: 70/70   files: 1360 (  1356.4MB) cover:✅
+  [33] ✅ COMPLETE      Mantan Dikejar Pacar Imut                   eps: 79/79   files: 1507 (  1204.1MB) cover:✅
+  [34] ✅ COMPLETE      Hidup Erick Breno mendadak berubah setelah  eps:160/160  files: 1822 (  3241.6MB) cover:✅
+  [35] ✅ COMPLETE      Mata Pengubah Nasib                         eps: 80/80   files: 1187 (  1184.1MB) cover:✅
+  [36] ✅ COMPLETE      Mata Tembus Pandang                         eps: 87/87   files: 1745 (  1413.2MB) cover:✅
+  [37] ✅ COMPLETE      Mau Cerai,Masih Cinta                       eps: 80/80   files: 1467 (  1379.9MB) cover:✅
+  [38] ✅ COMPLETE      Memperbaiki Masa Lalu                       eps: 88/88   files: 1405 (  1163.0MB) cover:✅
+  [39] ✅ COMPLETE      Yandi Likur, kurir Grup Metha, tiba-tiba t  eps:118/118  files: 1831 (  2693.7MB) cover:✅
+  [40] ✅ COMPLETE      Nembak Emak-Emak Demi Hadiah                eps: 70/70   files: 1382 (  1079.8MB) cover:✅
+  [41] ✅ COMPLETE      Reza kembali ke masa dia diceraikan oleh i  eps: 73/73   files: 1592 (  1341.7MB) cover:✅
+  [42] ✅ COMPLETE      Pemuda Desa Menguasai Kota                  eps: 90/90   files: 1879 (  1832.1MB) cover:✅
+  [43] ✅ COMPLETE      Penantian Cinta Sang Suami                  eps: 60/60   files: 1179 (   963.6MB) cover:✅
+  [44] ✅ COMPLETE      Pendekar Tanpa Batas                        eps: 80/80   files: 1743 (  1885.6MB) cover:✅
+  [45] ✅ COMPLETE      Penglihat Abadi                             eps: 79/79   files: 1540 (  1095.9MB) cover:✅
+  [46] ✅ COMPLETE      Penglihatan Ilahi                           eps:100/100  files: 1118 (   947.0MB) cover:✅
+  [47] ✅ COMPLETE      Penyesalan Mantan Tunangan                  eps: 60/60   files:  959 (   869.9MB) cover:✅
+  [48] ✅ COMPLETE      Pewaris Konglomerat Dihina Mantan           eps: 98/98   files: 1142 (   975.8MB) cover:✅
+  [49] ✅ COMPLETE      Putus Cinta, Dunia Memihakku                eps: 84/84   files: 1536 (  1238.4MB) cover:✅
+  [50] ⚠️ 79%          Rahasia di Balik Kedai Pangsit              eps: 50/63   files: 1233 (  1130.9MB) cover:✅
+  [51] ⚠️ 37%          Reinkarnasi Sang Konglomerat                eps: 31/84   files:  712 (   736.0MB) cover:✅
+  [52] 🟡 COVER         Saat Mantan Memohon Kembali                 eps:  0/80   files:    2 (     0.1MB) cover:✅
+  [53] 🟡 COVER         Salah Nyatakan Cinta                        eps:  0/79   files:    2 (     0.1MB) cover:✅
+  [54] 🟡 COVER         Sang Dewa Judi                              eps:  0/94   files:    2 (     0.1MB) cover:✅
+  [55] 🟡 COVER         Sang Master Turun Gunung                    eps:  0/66   files:    2 (     0.1MB) cover:✅
+  [56] 🟡 COVER         Satpam Jadi Suami Bos                       eps:  0/69   files:    2 (     0.1MB) cover:✅
+  [57] 🟡 COVER         Sekali Lihat, Jadi Sultan                   eps:  0/80   files:    2 (     0.1MB) cover:✅
+  [58] 🟡 COVER         Sesepuh Tertua yang Masih Muda              eps:  0/91   files:    2 (     0.1MB) cover:✅
+  [59] 🟡 COVER         Setelah Cerai Makin Baik                    eps:  0/100  files:    2 (     0.1MB) cover:✅
+  [60] 🟡 COVER         Siaran Langsung Bedah Mahadewa              eps:  0/74   files:    2 (     0.1MB) cover:✅
+  [61] 🟡 COVER         Sistem Ajaib dan Puncak Hidupku             eps:  0/72   files:    2 (     0.1MB) cover:✅
+  [62] 🟡 COVER         Suara Hati Anak Angkat                      eps:  0/88   files:    2 (     0.1MB) cover:✅
+  [63] 🟡 COVER         Tabel Perkalian Sembilan                    eps:  0/75   files:    2 (     0.1MB) cover:✅
+  [64] 🟡 COVER         Takdir Pedang dan Gadis Kesepian            eps:  0/67   files:    2 (     0.1MB) cover:✅
+  [65] ⚠️ 20%          Tangan Kiri Sakti Kuli Tambang              eps: 24/119  files:  408 (  1231.7MB) cover:✅
+  [66] 🟡 COVER         Tangi Penyesalan Bos Cantik                 eps:  0/100  files:    2 (     0.1MB) cover:✅
+  [67] 🟡 COVER         Tangkap Harta Karun di Kampung              eps:  0/81   files:    2 (     0.1MB) cover:✅
+  [68] ⚠️ 2%           Vila Portal Dunia Lain                      eps:  2/127  files:   98 (   591.6MB) cover:✅
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total non-DB dramas:      68
+  ✅ Complete (all eps):     48
+  ⚠️ Partial (some eps):     5
+  🟡 Has data (undetected): 0
+  🟡 Cover only:            15
+  ❌ Empty/Error:           0
+
+  Total episodes detected:  4,909
+  Total R2 files:           92,783
+  Total R2 size:            84,832.2 MB (82.84 GB)
+
+  🚀 READY TO IMPORT: 40 dramas
+
+--- ✅ COMPLETE (48) ---
+  Ahli Pengobatan Sakti                                    124 eps    3090.0MB
+  Aku Kaya dari Giok                                       113 eps    1905.1MB
+  Anak Ajaib Ahli Barang Antik                             118 eps    2204.5MB
+  Balas Budi Jadi Cinta                                    155 eps    3383.6MB
+  Bangkit dari Neraka                                      164 eps    1717.9MB
+  Bangkit, Kuasai Pasar Saham                              124 eps    1596.7MB
+  Bisnis Kaya Bareng Hewan                                 115 eps    2126.5MB
+  Cinta Sang Komandan                                      131 eps    2549.6MB
+  Cintamu meluluhkan hatiku                                112 eps    3236.3MB
+  Dari Miskin Jadi Sultan                                  111 eps    2583.5MB
+  Rivan terlahir kembali di tahun 1998, terikat sistem De  161 eps    3067.4MB
+  Guci Ajaib di Hari Kiamat                                114 eps    1395.1MB
+  Faisal Pratama yang dulu diabaikan terlahir kembali dan   70 eps    1407.0MB
+  Investor Hoki Abadi                                       80 eps    1264.6MB
+  Istri Desa Si Kapten                                     150 eps    1585.8MB
+  Istri Kesayangan Galak                                   126 eps    1399.7MB
+  Jam Pasir Tanpa Suara                                     52 eps     871.4MB
+  Jasa Kakak Tiada Tara                                     80 eps    1359.8MB
+  Kakek 10 Tahun Tak Terkalahkan                            73 eps    1112.2MB
+  Kakek Muda Pembawa Berkah                                 80 eps    1511.6MB
+  Kasim Palsu Penguasa Istana                               88 eps    1561.2MB
+  Kau adalah Cahaya Hidupku                                 75 eps    1157.1MB
+  Kaya Raya di Era 1992                                     86 eps    1527.9MB
+  Kegagalan dan Kerajaan Bisnisku                          100 eps    1385.2MB
+  Yusri tiba-tiba berpindah ke dunia lain dan mendapatkan  140 eps    3008.9MB
+  Kekasihku, Pengawalku                                     77 eps    1007.7MB
+  Kembali Pulang                                            78 eps    1308.6MB
+  Kultivator Kuno di Era Digital                            79 eps    1151.0MB
+  Lahir Kembali Untuk Sukses                                80 eps     874.7MB
+  Levelku 9999, Tetua Baru 100                              76 eps    1603.0MB
+  Luka Masa Lalu                                            70 eps    1356.4MB
+  Mantan Dikejar Pacar Imut                                 79 eps    1204.1MB
+  Hidup Erick Breno mendadak berubah setelah sebuah tempa  160 eps    3241.6MB
+  Mata Pengubah Nasib                                       80 eps    1184.1MB
+  Mata Tembus Pandang                                       87 eps    1413.2MB
+  Mau Cerai,Masih Cinta                                     80 eps    1379.9MB
+  Memperbaiki Masa Lalu                                     88 eps    1163.0MB
+  Yandi Likur, kurir Grup Metha, tiba-tiba terikat sistem  118 eps    2693.7MB
+  Nembak Emak-Emak Demi Hadiah                              70 eps    1079.8MB
+  Reza kembali ke masa dia diceraikan oleh istrinya, Kell   73 eps    1341.7MB
+  Pemuda Desa Menguasai Kota                                90 eps    1832.1MB
+  Penantian Cinta Sang Suami                                60 eps     963.6MB
+  Pendekar Tanpa Batas                                      80 eps    1885.6MB
+  Penglihat Abadi                                           79 eps    1095.9MB
+  Penglihatan Ilahi                                        100 eps     947.0MB
+  Penyesalan Mantan Tunangan                                60 eps     869.9MB
+  Pewaris Konglomerat Dihina Mantan                         98 eps     975.8MB
+  Putus Cinta, Dunia Memihakku                              84 eps    1238.4MB
+
+--- ⚠️ PARTIAL (5) ---
+  Dokter Genius Pujaan Hati                                114/177  eps    1321.0MB  cover:❌
+  Rahasia di Balik Kedai Pangsit                            50/63   eps    1130.9MB  cover:✅
+  Reinkarnasi Sang Konglomerat                              31/84   eps     736.0MB  cover:✅
+  Tangan Kiri Sakti Kuli Tambang                            24/119  eps    1231.7MB  cover:✅
+  Vila Portal Dunia Lain                                     2/127  eps     591.6MB  cover:✅

@@ -1,0 +1,18 @@
+{
+    "dramas": {
+        "31000908479": {
+            "bookId": "31000908479",
+            "title": "Drama 1 (Captured)",
+            "cover": "https://acf.goodreels.com/videobook/31000908479/202509/cover-pP6DgqN9ro.jpg",
+            "episodes": {
+                "411618": {
+                    "chapterId": "411618",
+                    "token": "vm7tuebria",
+                    "videoId": "7o2ifsxecm",
+                    "resolution": "720p"
+                }
+            }
+        }
+    },
+    "lastUpdate": "2026-01-31T18:06:00Z"
+}

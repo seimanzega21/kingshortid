@@ -1,0 +1,9 @@
+{
+    "gaid": "3a527bd0-4a98-47e7-ac47-f592c165d870",
+    "androidId": "ffffffffcf4ce71dcf4ce71d00000000",
+    "packageName": "com.newreading.goodreels",
+    "userToken": "CAPTURED_BUT_HIDDEN",
+    "appSignatureMD5": "PENDING_EXTRACTION",
+    "timestamp": "2026-01-31T16:51:30.000Z",
+    "note": "APK Signature MD5 needs manual extraction or app navigation to trigger d.a(context) hook"
+}

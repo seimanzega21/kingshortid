@@ -1,0 +1,26 @@
+Vidrama: 123 episodes
+Our DB: 123 episodes
+
+VIDRAMA (first 5):
+  EP1: duration=62s
+  EP2: duration=110s
+  EP3: duration=47s
+  EP4: duration=102s
+  EP5: duration=42s
+
+OUR DB (first 5):
+  EP1: duration=0s, folder=ep002
+    url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/ep002/playlist.m3u8
+  EP2: duration=0s, folder=ep003
+    url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/ep003/playlist.m3u8
+  EP3: duration=0s, folder=ep004
+    url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/ep004/playlist.m3u8
+  EP4: duration=0s, folder=ep005
+    url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/ep005/playlist.m3u8
+  EP5: duration=0s, folder=ep006
+    url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/ep006/playlist.m3u8
+
+VIDEO ACCESSIBILITY:
+  EP1: HTTP 200 (611 bytes)
+  EP2: HTTP 200 (320 bytes)
+  EP3: HTTP 200 (583 bytes)

@@ -1,0 +1,14 @@
+{
+  "episodeNumber": 1,
+  "episodeId": "469570",
+  "title": "Pertemuan Pertama",
+  "order": 1,
+  "duration": 120,
+  "isFree": true,
+  "hlsUrl": "https://v2-akm.goodreels.com/mts/books/502/31000991502/469570/pkck6km31v/720p/8r5aonu6g0_720p.m3u8",
+  "thumbnail": null,
+  "drama": {
+    "bookId": "31000991502",
+    "title": "Jenderal Jadi Tukang"
+  }
+}

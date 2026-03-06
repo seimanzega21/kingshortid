@@ -1,0 +1,23 @@
+[
+  {
+    "id": "p1",
+    "coins": 100,
+    "price": 15000,
+    "bonus": 0,
+    "label": "Starter"
+  },
+  {
+    "id": "p2",
+    "coins": 500,
+    "price": 75000,
+    "bonus": 50,
+    "label": "Popular"
+  },
+  {
+    "id": "p3",
+    "coins": 1000,
+    "price": 150000,
+    "bonus": 150,
+    "label": "Best Value"
+  }
+]

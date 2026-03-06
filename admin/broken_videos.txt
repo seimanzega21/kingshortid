@@ -1,0 +1,172 @@
+Investor Hoki Abadi: 404 -> 200
+... checked 20/112
+Lahir Kembali Untuk Sukses: 404 -> 200
+Jasa Kakak Tiada Tara: 404 -> 200
+Kakek 10 Tahun Tak Terkalahkan: 404 -> 200
+Levelku 9999, Tetua Baru 100: 404 -> 200
+Kegagalan dan Kerajaan Bisnisku: 404 -> 200
+Kau adalah Cahaya Hidupku: 404 -> 200
+Kekasihku, Pengawalku: 404 -> 200
+Kasim Palsu Penguasa Istana: 404 -> 200
+... checked 40/112
+Kakek Muda Pembawa Berkah: 404 -> 200
+Kaya Raya di Era 1992: 404 -> 200
+Kultivator Kuno di Era Digital: 404 -> 200
+Penglihat Abadi: 404 -> 200
+Mantan Dikejar Pacar Imut: 404 -> 200
+Penantian Cinta Sang Suami: 404 -> 200
+Mata Pengubah Nasib: 404 -> 200
+Memperbaiki Masa Lalu: 404 -> 200
+Pemuda Desa Menguasai Kota: 404 -> 200
+Nembak Emak-Emak Demi Hadiah: 404 -> 200
+Mau Cerai,Masih Cinta: 404 -> 200
+Mata Tembus Pandang: 404 -> 200
+Pendekar Tanpa Batas: 404 -> 200
+Penyesalan Mantan Tunangan: 404 -> 200
+Sang Dewa Judi: 404 -> 200
+Rahasia di Balik Kedai Pangsit: 404 -> 200
+Putus Cinta, Dunia Memihakku: 404 -> 200
+Reinkarnasi Sang Konglomerat: 404 -> 200
+Saat Mantan Memohon Kembali: 404 -> 200
+Salah Nyatakan Cinta: 404 -> 200
+... checked 60/112
+Sang Master Turun Gunung: 404 -> 200
+Satpam Jadi Suami Bos: 404 -> 200
+Penglihatan Ilahi: 404 -> 200
+Pewaris Konglomerat Dihina Mantan: 404 -> 200
+Sesepuh Tertua yang Masih Muda: 404 -> 200
+Sekali Lihat, Jadi Sultan: 404 -> 200
+Jam Pasir Tanpa Suara: 404 -> 200
+Kembali Pulang: 404 -> 200
+... checked 80/112
+Luka Masa Lalu: 404 -> 200
+Bangkit dari Neraka: 404 -> 200
+Dokter Genius Pujaan Hati: 404 -> 404
+... checked 100/112
+Pacari Musuh Mantan Istri: 404 -> 200
+
+TOTAL BROKEN: 41
+
+Investor Hoki Abadi: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/investor-hoki-abadi/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/investor-hoki-abadi/episodes/002/playlist.m3u8
+Lahir Kembali Untuk Sukses: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/lahir-kembali-untuk-sukses/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/lahir-kembali-untuk-sukses/episodes/002/playlist.m3u8
+Jasa Kakak Tiada Tara: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/jasa-kakak-tiada-tara/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/jasa-kakak-tiada-tara/episodes/002/playlist.m3u8
+Kakek 10 Tahun Tak Terkalahkan: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kakek-10-tahun-tak-terkalahkan/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kakek-10-tahun-tak-terkalahkan/episodes/002/playlist.m3u8
+Levelku 9999, Tetua Baru 100: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/levelku-9999-tetua-baru-100/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/levelku-9999-tetua-baru-100/episodes/002/playlist.m3u8
+Kegagalan dan Kerajaan Bisnisku: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kegagalan-dan-kerajaan-bisnisku/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kegagalan-dan-kerajaan-bisnisku/episodes/002/playlist.m3u8
+Kau adalah Cahaya Hidupku: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kau-adalah-cahaya-hidupku/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kau-adalah-cahaya-hidupku/episodes/002/playlist.m3u8
+Kekasihku, Pengawalku: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kekasihku-pengawalku/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kekasihku-pengawalku/episodes/002/playlist.m3u8
+Kasim Palsu Penguasa Istana: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kasim-palsu-penguasa-istana/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kasim-palsu-penguasa-istana/episodes/002/playlist.m3u8
+Kakek Muda Pembawa Berkah: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kakek-muda-pembawa-berkah/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kakek-muda-pembawa-berkah/episodes/002/playlist.m3u8
+Kaya Raya di Era 1992: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kaya-raya-di-era-1992/ep001/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kaya-raya-di-era-1992/episodes/001/playlist.m3u8
+Kultivator Kuno di Era Digital: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kultivator-kuno-di-era-digital/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kultivator-kuno-di-era-digital/episodes/002/playlist.m3u8
+Penglihat Abadi: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/penglihat-abadi/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/penglihat-abadi/episodes/002/playlist.m3u8
+Mantan Dikejar Pacar Imut: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/mantan-dikejar-pacar-imut/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/mantan-dikejar-pacar-imut/episodes/002/playlist.m3u8
+Penantian Cinta Sang Suami: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/penantian-cinta-sang-suami/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/penantian-cinta-sang-suami/episodes/002/playlist.m3u8
+Mata Pengubah Nasib: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/mata-pengubah-nasib/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/mata-pengubah-nasib/episodes/002/playlist.m3u8
+Memperbaiki Masa Lalu: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/memperbaiki-masa-lalu/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/memperbaiki-masa-lalu/episodes/002/playlist.m3u8
+Pemuda Desa Menguasai Kota: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/pemuda-desa-menguasai-kota/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/pemuda-desa-menguasai-kota/episodes/002/playlist.m3u8
+Nembak Emak-Emak Demi Hadiah: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/nembak-emak-emak-demi-hadiah/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/nembak-emak-emak-demi-hadiah/episodes/002/playlist.m3u8
+Mau Cerai,Masih Cinta: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/mau-ceraimasih-cinta/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/mau-ceraimasih-cinta/episodes/002/playlist.m3u8
+Mata Tembus Pandang: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/mata-tembus-pandang/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/mata-tembus-pandang/episodes/002/playlist.m3u8
+Pendekar Tanpa Batas: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/pendekar-tanpa-batas/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/pendekar-tanpa-batas/episodes/002/playlist.m3u8
+Penyesalan Mantan Tunangan: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/penyesalan-mantan-tunangan/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/penyesalan-mantan-tunangan/episodes/002/playlist.m3u8
+Sang Dewa Judi: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/sang-dewa-judi/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/sang-dewa-judi/episodes/002/playlist.m3u8
+Rahasia di Balik Kedai Pangsit: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/rahasia-di-balik-kedai-pangsit/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/rahasia-di-balik-kedai-pangsit/episodes/002/playlist.m3u8
+Putus Cinta, Dunia Memihakku: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/putus-cinta-dunia-memihakku/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/putus-cinta-dunia-memihakku/episodes/002/playlist.m3u8
+Reinkarnasi Sang Konglomerat: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/reinkarnasi-sang-konglomerat/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/reinkarnasi-sang-konglomerat/episodes/002/playlist.m3u8
+Saat Mantan Memohon Kembali: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/saat-mantan-memohon-kembali/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/saat-mantan-memohon-kembali/episodes/002/playlist.m3u8
+Salah Nyatakan Cinta: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/salah-nyatakan-cinta/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/salah-nyatakan-cinta/episodes/002/playlist.m3u8
+Sang Master Turun Gunung: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/sang-master-turun-gunung/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/sang-master-turun-gunung/episodes/002/playlist.m3u8
+Satpam Jadi Suami Bos: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/satpam-jadi-suami-bos/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/satpam-jadi-suami-bos/episodes/002/playlist.m3u8
+Penglihatan Ilahi: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/penglihatan-ilahi/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/penglihatan-ilahi/episodes/002/playlist.m3u8
+Pewaris Konglomerat Dihina Mantan: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/pewaris-konglomerat-dihina-mantan/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/pewaris-konglomerat-dihina-mantan/episodes/002/playlist.m3u8
+Sesepuh Tertua yang Masih Muda: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/sesepuh-tertua-yang-masih-muda/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/sesepuh-tertua-yang-masih-muda/episodes/002/playlist.m3u8
+Sekali Lihat, Jadi Sultan: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/sekali-lihat-jadi-sultan/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/sekali-lihat-jadi-sultan/episodes/002/playlist.m3u8
+Jam Pasir Tanpa Suara: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/jam-pasir-tanpa-suara/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/jam-pasir-tanpa-suara/episodes/002/playlist.m3u8
+Kembali Pulang: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/kembali-pulang/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/kembali-pulang/episodes/002/playlist.m3u8
+Luka Masa Lalu: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/luka-masa-lalu/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/luka-masa-lalu/episodes/002/playlist.m3u8
+Bangkit dari Neraka: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/bangkit-dari-neraka/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/bangkit-dari-neraka/episodes/002/playlist.m3u8
+Dokter Genius Pujaan Hati: 404 -> 404
+  FROM: https://stream.shortlovers.id/melolo/dokter-genius-pujaan-hati/ep001/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/dokter-genius-pujaan-hati/episodes/001/playlist.m3u8
+Pacari Musuh Mantan Istri: 404 -> 200
+  FROM: https://stream.shortlovers.id/melolo/pacari-musuh-mantan-istri/ep002/playlist.m3u8
+  TO:   https://stream.shortlovers.id/melolo/pacari-musuh-mantan-istri/episodes/002/playlist.m3u8

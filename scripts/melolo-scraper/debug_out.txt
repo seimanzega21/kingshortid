@@ -1,0 +1,32 @@
+﻿
+============================================================
+  melolo2.har - video_detail inspection
+============================================================
+
+  Endpoint: /novel/player/video_detail/v1/
+  MIME: application/json
+  Response length: 66258
+  Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data keys: ['lock_data', 'video_data']
+    data[lock_data] type: dict
+    data[lock_data] keys: ['lock_threshold_order', 'once_unlock_num']
+    video_data: NoneType = None
+    data[video_data] type: dict
+    data[video_data] keys: ['abstract_tags', 'age_gate_info', 'audit_status', 'category_schema', 'content_type', 'digg_cnt', 'disable_insert_ad', 'download_config', 'duration', 'enable_vision_product']
+    video_data: NoneType = None
+
+============================================================
+  melolo3.har - video_detail inspection
+============================================================
+
+  Endpoint: /novel/player/video_detail/v1/
+  MIME: application/json
+  Response length: 87940
+  Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data keys: ['lock_data', 'video_data']
+    data[lock_data] type: dict
+    data[lock_data] keys: ['lock_threshold_order', 'once_unlock_num']
+    video_data: NoneType = None
+    data[video_data] type: dict
+    data[video_data] keys: ['abstract_tags', 'age_gate_info', 'audit_status', 'category_schema', 'content_type', 'digg_cnt', 'disable_insert_ad', 'download_config', 'enable_vision_product', 'episode']
+    video_data: NoneType = None

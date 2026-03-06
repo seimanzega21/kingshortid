@@ -1,0 +1,93 @@
+﻿Sampling actual API response data...
+
+=== CHAPTER LIST RESPONSE ===
+{
+  "data": {
+    "list": [
+      {
+        "id": 16734781,
+        "bookId": "31001278701",
+        "volumeId": 653147,
+        "chapterName": "001",
+        "playTime": 118,
+        "price": 0,
+        "prevChapterId": 0,
+        "nextChapterId": 16734782,
+        "nextChapterName": "002",
+        "status": 1,
+        "index": 0,
+        "cdnList": [
+          {
+            "cdnDomain": "https://v3.goodshort.com",
+            "videoPath": "https://v3.goodshort.com/mts/books/701/31001278701/653147/osjncnfvj4/720p/pvzvxwdfkv_720p.m3u8?expiredTime=1771404184&tul=16fb151c0238034954aaaa6301ce5c2e2e95c1eac7a3de293eda97bbc64607e4fcedf3966e3bb90cb55d5d6e01eb9ed2a13b69ce227ea1f38675389a0f82d908"
+          }
+        ],
+        "type": 0,
+        "charged": false,
+        "consumeType": 0,
+        "image": "https://acf.goodreels.com/videobook/31001278701/202601/cover-oKqtpCEjrt.jpg?a=webp",
+        "playCount": 914,
+        "multiVideos": [
+          {
+            "type": "720p",
+            "filePath": "https://v2-akm.goodreels.com/mts/books/701/31001278701/653147/osjncnfvj4/720p/pvzvxwdfkv_720p.m3u8?__token__=exp=1771404184~hmac=4a4e615a4adbed493be2d325816faa1c58937bb493ebae0af6970a5d80aea5da",
+            "cdnList": [
+              {
+                "cdnDomain": "https://v3.goodshort.com",
+                "videoPath": "https://v3.goodshort.com/mts/books/701/31001278701/653147/osjncnfvj4/720p/pvzvxwdfkv_720p.m3u8?expiredTime=1771404184&tul=16fb151c0238034954aaaa6301ce5c2e2e95c1eac7a3de293eda97bbc64607e4fcedf3966e3bb90cb55d5d6e01eb9ed2a13b69ce227ea1f38675389a0f82d908"
+              }
+            ]
+          },
+          {
+            "type": "540p",
+            "filePath": "https://v2-akm.goodreels.com/mts/books/701/31001278701/653147/osjncnfvj4/540p/pvzvxwdfkv_540p.m3u8?__token__=exp=1771404184~hmac=93850f65950258716d32aa78eb23b6fafc638628982f5d46d8f47396bf197a6a",
+            "cdnList": [
+              {
+                "cdnDomain": "https://v3.goodshort.com",
+           
+
+
+=== BOOK/HOME RESPONSE ===
+{
+  "data": {
+    "recommentList": [
+      {
+        "book": {
+          "bookId": "31000708485",
+          "bookName": "Jatuh Cinta dengan Istri Kontrakku",
+          "pseudonym": "Sherry",
+          "cover": "https://acf.goodreels.com/videobook/202403/cover-00nlRCdR7X.jpg",
+          "bookDetailCover": "https://acf.goodreels.com/videobook/202403/cover-00nlRCdR7X.jpg",
+          "viewCount": 354764,
+          "ratings": 0.0,
+          "introduction": "Vika disuruh ibu tirinya kencan buta, dia asal menarik seorang pria tampan yang bernama Fredi, lalu mencium Fredi di depan pasangan kencan butanya.Meski dia berhasil membuat pasangan kencan buta itu pergi, dirinya malah terlibat dalam masalah lebih besar.Tak disangka, pria itu adalah CEO Grup Lajuna yang datang ke kafe untuk mencari istri kontrakan demi kakeknya yang berharap dia cepat nikah.Alhasil, ciuman pertamanya malah diambil oleh Vika. Lalu, Vika juga diseret Fredi ke tempat tunangan. Dengan begitu, mereka pun melakukan janji kontrak nikah selama tiga bulan.",
+          "commentCount": 0,
+          "followCount": 0,
+          "chapterCount": 90,
+          "totalWords": 7468,
+          "lastChapterId": 7605708,
+          "lastChapterTime": 1757302252000,
+          "lastChapterName": "090",
+          "firstRate": 10,
+          "ctime": 1709021563000,
+          "unit": "CHAPTER",
+          "shareUrl": "https://www.goodshort.com/share/31000708485/Pernikahan/Jatuh-Cinta-dengan-Istri-Kontrakku?shareuser=160058417&ch=apps",
+          "grade": "PLUS4",
+          "writeStatus": "COMPLETE",
+          "labels": [
+            "Manis",
+            "Pernikahan",
+            "CEO",
+            "Pembalasan",
+            "Nikah Kontrak"
+          ],
+          "language": "BAHASA_INDONESIA",
+          "languageDisplay": "Bahasa Indonesia",
+          "free": 2,
+          "member": 0,
+          "bookType": 5,
+          "typeTwoNames": [
+            "Pernikahan"
+          ],
+          "producer": "Sherry",
+          "playwright": "

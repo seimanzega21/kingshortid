@@ -1,0 +1,25 @@
+﻿=== CDN Headers Check (ep001 - legenda-naga-kembali) ===
+HTTP: 200
+Accept-Ranges : bytes
+Content-Length: 38.73 MB
+CF-Cache      : HIT
+Content-Type  : video/mp4
+Cache-Control : public, max-age=31536000, immutable
+
+=== Sample Episode Sizes & Est. Bitrate ===
+  Ep |  Size MB | Bitrate kbps | 4G OK?
+----------------------------------------
+   1 |    38.73 |         3525 | NO (too big)
+   5 |    24.60 |         2239 | NO (too big)
+  10 |     9.18 |          835 |    YES
+  16 |     9.89 |          901 |    YES
+  20 |     8.51 |          775 |    YES
+  30 |     6.79 |          618 |    YES
+  34 |    10.13 |          922 |    YES
+  40 |     6.29 |          573 |    YES
+  50 |     8.83 |          803 |    YES
+
+=== Range Request Test ===
+Range request HTTP: 206
+Content-Range: bytes 0-1023/40611177
+Range Request: OK (206 Partial Content) - player can seek!

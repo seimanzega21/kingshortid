@@ -1,0 +1,1253 @@
+{
+  "summary": {
+    "total": 120,
+    "ok": 43,
+    "warnings": 16,
+    "critical": 61
+  },
+  "dramas": [
+    {
+      "slug": "800-ribu-beli-dunia-kultivasi",
+      "title": "800 Ribu Beli Dunia Kultivasi",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "ahli-pengobatan-sakti",
+      "title": "Ahli Pengobatan Sakti",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 123,
+      "expected": 123
+    },
+    {
+      "slug": "aku-kaya-dari-giok",
+      "title": "Aku Kaya dari Giok",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 112,
+      "expected": 112
+    },
+    {
+      "slug": "aku-tak-akan-mengejarmu-lagi",
+      "title": "Aku Tak Akan Mengejarmu Lagi",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 73,
+      "expected": 73
+    },
+    {
+      "slug": "aku-tersesat-di-dunia-kultivasi",
+      "title": "Aku Tersesat di Dunia Kultivasi",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 81,
+      "expected": 81
+    },
+    {
+      "slug": "anak-ajaib-ahli-barang-antik",
+      "title": "Anak Ajaib Ahli Barang Antik",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 117,
+      "expected": 117
+    },
+    {
+      "slug": "antara-ambisi-dan-cinta",
+      "title": "Antara Ambisi dan Cinta",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 147,
+      "expected": 147
+    },
+    {
+      "slug": "ayah-berandalan-jadi-ceo",
+      "title": "Ayah Berandalan jadi CEO",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 66,
+      "expected": 66
+    },
+    {
+      "slug": "ayah-tiri-baru-lindungi-6-anak",
+      "title": "Ayah Tiri Baru, Lindungi 6 Anak",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "balas-budi-jadi-cinta",
+      "title": "Balas Budi Jadi Cinta",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 154,
+      "expected": 154
+    },
+    {
+      "slug": "balas-dendam-pada-anak-angkat",
+      "title": "Balas Dendam pada Anak Angkat",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 97,
+      "expected": 97
+    },
+    {
+      "slug": "balas-dendam-sang-putri-genius",
+      "title": "Balas Dendam Sang Putri Genius",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 52,
+      "expected": 52
+    },
+    {
+      "slug": "bangkit-dari-neraka",
+      "title": "Bangkit dari Neraka",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 164,
+      "expected": 164
+    },
+    {
+      "slug": "bangkit-kuasai-pasar-saham",
+      "title": "Bangkit, Kuasai Pasar Saham",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 123,
+      "expected": 123
+    },
+    {
+      "slug": "bangkit-setelah-ditinggalkan",
+      "title": "Bangkit Setelah Ditinggalkan",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "barang-supermarket-di-dunia-kuno",
+      "title": "Barang Supermarket di Dunia Kuno",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 72,
+      "expected": 72
+    },
+    {
+      "slug": "bersinar-setelah-cerai",
+      "title": "Bersinar Setelah Cerai",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "bisnis-kaya-bareng-hewan",
+      "title": "Bisnis Kaya Bareng Hewan",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 114,
+      "expected": 114
+    },
+    {
+      "slug": "bos-datang-malah-diajak-nguli",
+      "title": "Bos Datang Malah diajak Nguli",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "bos-supermarket-yang-hebat",
+      "title": "Bos Supermarket yang Hebat",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "bukan-lagi-budak-cintamu",
+      "title": "Bukan Lagi Budak Cintamu",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 89,
+      "expected": 89
+    },
+    {
+      "slug": "cindy-si-cerdik",
+      "title": "Cindy si Cerdik",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 60,
+      "expected": 60
+    },
+    {
+      "slug": "cinta-sang-komandan",
+      "title": "Cinta Sang Komandan",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 130,
+      "expected": 130
+    },
+    {
+      "slug": "cintamu-meluluhkan-hatiku",
+      "title": "Cintamu meluluhkan hatiku",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 87,
+      "expected": 0
+    },
+    {
+      "slug": "dari-memancing-menjadi-kaya",
+      "title": "Dari Memancing Menjadi Kaya",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 79,
+      "expected": 79
+    },
+    {
+      "slug": "dari-miskin-jadi-sultan",
+      "title": "Dari Miskin Jadi Sultan",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 110,
+      "expected": 110
+    },
+    {
+      "slug": "dendam-di-atas-luka",
+      "title": "Dendam di Atas Luka",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 60,
+      "expected": 60
+    },
+    {
+      "slug": "dewa-balapan",
+      "title": "Dewa Balapan",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 71,
+      "expected": 71
+    },
+    {
+      "slug": "dewa-judi-era-90-an",
+      "title": "Rivan terlahir kembali di tahun 1998, terikat sistem Dewa Judi dan menghasilkan uang banyak. Rivan melawan Hansen, mengandalkan sistem untuk menang. Diadaptasi dari novel asli Tomato, \"Modifikasi Tingkat Taruhan! Akulah Dewa Judi di 1990-an!\"",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 127,
+      "expected": 0
+    },
+    {
+      "slug": "dewa-mahjong",
+      "title": "Dewa Mahjong",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 79,
+      "expected": 79
+    },
+    {
+      "slug": "dikurung-aku-memanggil-petir",
+      "title": "Dikurung, Aku Memanggil Petir",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 79,
+      "expected": 79
+    },
+    {
+      "slug": "disangka-cowok-matre",
+      "title": "Disangka Cowok Matre",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 60,
+      "expected": 60
+    },
+    {
+      "slug": "dokter-genius-pujaan-hati",
+      "title": "Dokter Genius Pujaan Hati",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 114,
+      "expected": 0
+    },
+    {
+      "slug": "dokter-sakti-jadi-rebutan",
+      "title": "Dokter Sakti Jadi Rebutan",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "drama-09750069",
+      "title": "Jenderal Terakhir",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 72,
+      "expected": 72
+    },
+    {
+      "slug": "dunia-menyayangiku-penuh-kelembutan",
+      "title": "Dunia Menyayangiku Penuh Kelembutan",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 95,
+      "expected": 95
+    },
+    {
+      "slug": "gadis-lemah-itu-sudah-mati",
+      "title": "Gadis Lemah itu Sudah Mati",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 100,
+      "expected": 100
+    },
+    {
+      "slug": "gagal-ujian-jadi-playboy-istana",
+      "title": "Gagal Ujian Jadi Playboy Istana",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 82,
+      "expected": 82
+    },
+    {
+      "slug": "guci-ajaib-di-hari-kiamat",
+      "title": "Guci Ajaib di Hari Kiamat",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 6,
+      "expected": 0
+    },
+    {
+      "slug": "guru-kecil-genius",
+      "title": "Guru Kecil Genius",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 87,
+      "expected": 87
+    },
+    {
+      "slug": "habis-wabah-lumbungku-penuh",
+      "title": "Habis Wabah, Lumbungku Penuh",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 90,
+      "expected": 90
+    },
+    {
+      "slug": "hidup-baru-ayah-pecundang",
+      "title": "Hidup Baru Ayah Pecundang",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 66,
+      "expected": 66
+    },
+    {
+      "slug": "hidup-berjaya-anak-terbuang",
+      "title": "Faisal Pratama yang dulu diabaikan terlahir kembali dan memutus hubungan dengan Keluarga Pratama. Ia sukses berbisnis, sementara Hansen Pratama gagal hingga keluarga terpuruk. Meski para saudari menyesal, Faisal menolak kembali. Terungkap Faisal anak kandung dan Hansen anak tertukar, Faisal pun memulai hidup baru di ibu kota.",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 70,
+      "expected": 70
+    },
+    {
+      "slug": "ibu-kembali-anak-berebut-kasih",
+      "title": "Ibu Kembali, Anak Berebut Kasih",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 68,
+      "expected": 68
+    },
+    {
+      "slug": "identitas-rahasia-suamiku",
+      "title": "Identitas Rahasia Suamiku",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 67,
+      "expected": 67
+    },
+    {
+      "slug": "investor-hoki-abadi",
+      "title": "Investor Hoki Abadi",
+      "status": "WARNING",
+      "issues": [
+        "Ep 030: no playlist.m3u8"
+      ],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "istri-desa-si-kapten",
+      "title": "Istri Desa Si Kapten",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 3,
+      "expected": 0
+    },
+    {
+      "slug": "istri-kesayangan-galak",
+      "title": "Istri Kesayangan Galak",
+      "status": "WARNING",
+      "issues": [
+        "Missing cover image"
+      ],
+      "warnings": [],
+      "episodes": 3,
+      "expected": 0
+    },
+    {
+      "slug": "jam-pasir-tanpa-suara",
+      "title": "Jam Pasir Tanpa Suara",
+      "status": "WARNING",
+      "issues": [
+        "Ep 036: no playlist.m3u8",
+        "Ep 038: no playlist.m3u8"
+      ],
+      "warnings": [],
+      "episodes": 52,
+      "expected": 52
+    },
+    {
+      "slug": "jasa-kakak-tiada-tara",
+      "title": "Jasa Kakak Tiada Tara",
+      "status": "WARNING",
+      "issues": [
+        "Ep 006: no playlist.m3u8",
+        "Ep 008: no playlist.m3u8"
+      ],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "kaisar-naga-seluruh-ajaran",
+      "title": "Kaisar Naga Seluruh Ajaran",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 141
+    },
+    {
+      "slug": "kakek-10-tahun-tak-terkalahkan",
+      "title": "Kakek 10 Tahun Tak Terkalahkan",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 73,
+      "expected": 73
+    },
+    {
+      "slug": "kakek-muda-pembawa-berkah",
+      "title": "Kakek Muda Pembawa Berkah",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 80,
+      "expected": 80
+    },
+    {
+      "slug": "kasim-palsu-penguasa-istana",
+      "title": "Kasim Palsu Penguasa Istana",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 88,
+      "expected": 88
+    },
+    {
+      "slug": "kau-adalah-cahaya-hidupku",
+      "title": "Kau adalah Cahaya Hidupku",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 75,
+      "expected": 75
+    },
+    {
+      "slug": "kaya-dari-memanggil-leluhur-dewasa",
+      "title": "Kaya dari Memanggil Leluhur Dewasa",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 137
+    },
+    {
+      "slug": "kaya-raya-di-era-1992",
+      "title": "Kaya Raya di Era 1992",
+      "status": "WARNING",
+      "issues": [
+        "Missing 32 episodes (has 53/85)"
+      ],
+      "warnings": [],
+      "episodes": 53,
+      "expected": 85
+    },
+    {
+      "slug": "kebangkitan-dewa-pedang",
+      "title": "Kebangkitan Dewa Pedang",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 123
+    },
+    {
+      "slug": "kebangkitan-dewi-giok",
+      "title": "Kebangkitan Dewi Giok",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 123
+    },
+    {
+      "slug": "kegagalan-dan-kerajaan-bisnisku",
+      "title": "Kegagalan dan Kerajaan Bisnisku",
+      "status": "WARNING",
+      "issues": [
+        "Missing 16 episodes (has 84/100)"
+      ],
+      "warnings": [],
+      "episodes": 84,
+      "expected": 100
+    },
+    {
+      "slug": "kehadiran-cinta-dari-masa-lalu",
+      "title": "Yusri tiba-tiba berpindah ke dunia lain dan mendapatkan sebuah sistem ajaib. Yusri lalu fokus berlatih bela diri. Karena dijebak oleh mantan pacarnya dan seorang anak dari keluarga kaya, dia dipenjara. Lima tahun kemudian, keahliannya menembus level master dan sistem pun diaktifkan. Saat bersiap untuk meniti jalan hidupnya, dia justru dihadapkan pada kenyataan bahwa putrinya terluka. Hal ini mengingatkannya kembali pada hubungan semalam bersama Jihan empat tahun lalu.",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 140
+    },
+    {
+      "slug": "kekasihku-pengawalku",
+      "title": "Kekasihku, Pengawalku",
+      "status": "OK",
+      "issues": [],
+      "warnings": [],
+      "episodes": 77,
+      "expected": 77
+    },
+    {
+      "slug": "kembali-pulang",
+      "title": "Kembali Pulang",
+      "status": "WARNING",
+      "issues": [
+        "Missing 51 episodes (has 27/78)"
+      ],
+      "warnings": [],
+      "episodes": 27,
+      "expected": 78
+    },
+    {
+      "slug": "kepala-desa-pembawa-kemakmuran",
+      "title": "Kepala Desa Pembawa Kemakmuran",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 109
+    },
+    {
+      "slug": "kultivator-kuno-di-era-digital",
+      "title": "Kultivator Kuno di Era Digital",
+      "status": "WARNING",
+      "issues": [
+        "Missing 74 episodes (has 5/79)"
+      ],
+      "warnings": [],
+      "episodes": 5,
+      "expected": 79
+    },
+    {
+      "slug": "lahir-kembali-jadi-raja-hutan",
+      "title": "Lahir Kembali, Jadi Raja Hutan",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 79
+    },
+    {
+      "slug": "lahir-kembali-untuk-sukses",
+      "title": "Lahir Kembali Untuk Sukses",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 80
+    },
+    {
+      "slug": "lelaki-bermata-dewa",
+      "title": "Lelaki Bermata Dewa",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 136
+    },
+    {
+      "slug": "levelku-9999-tetua-baru-100",
+      "title": "Levelku 9999, Tetua Baru 100",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 76
+    },
+    {
+      "slug": "luka-masa-lalu",
+      "title": "Luka Masa Lalu",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 70
+    },
+    {
+      "slug": "mantan-dikejar-pacar-imut",
+      "title": "Mantan Dikejar Pacar Imut",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 79
+    },
+    {
+      "slug": "mata-ajaib-di-pasar-barang-antik",
+      "title": "Mata Ajaib di Pasar Barang Antik",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 130
+    },
+    {
+      "slug": "mata-kiri-ajaibku",
+      "title": "Hidup Erick Breno mendadak berubah setelah sebuah tempat dupa ajaib melukai mata kirinya, menganugerahinya dengan kekuatan tembus pandang dan mengidentifikasi harta karun. Tidak hanya itu, tempat dupa itu juga memiliki banyak fungsi ajaib lainnya. Erick siap menjemput kesuksesan dalam hidupnya!",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 160
+    },
+    {
+      "slug": "mata-pengubah-nasib",
+      "title": "Mata Pengubah Nasib",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 80
+    },
+    {
+      "slug": "mata-sakti-mengungkap-rahasia",
+      "title": "Mata Sakti Mengungkap Rahasia",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 119
+    },
+    {
+      "slug": "mata-tembus-pandang",
+      "title": "Mata Tembus Pandang",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 87
+    },
+    {
+      "slug": "mau-ceraimasih-cinta",
+      "title": "Mau Cerai,Masih Cinta",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 80
+    },
+    {
+      "slug": "memperbaiki-masa-lalu",
+      "title": "Memperbaiki Masa Lalu",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 88
+    },
+    {
+      "slug": "menyesali-batalnya-pernikahan",
+      "title": "Menyesali Batalnya Pernikahan",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 99
+    },
+    {
+      "slug": "misi-cinta-sang-kurir",
+      "title": "Yandi Likur, kurir Grup Metha, tiba-tiba terikat sistem penakluk dewi. Targetnya? Polisi cantik berhati dingin, Yuna Silka! Aksi heroiknya tangkap perampok di jalan bikin dia viral dan langsung diangkat jadi polisi magang. Awalnya Yuna ilfeel, tapi lama-lama luluh juga. Dari cuek jadi cinta, akhirnya mereka temukan cinta sejati!",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 117
+    },
+    {
+      "slug": "nembak-emak-emak-demi-hadiah",
+      "title": "Nembak Emak-Emak Demi Hadiah",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 70
+    },
+    {
+      "slug": "nona-riley-beraksi",
+      "title": "Nona Riley Beraksi",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 144
+    },
+    {
+      "slug": "pacari-musuh-mantan-istri",
+      "title": "Reza kembali ke masa dia diceraikan oleh istrinya, Kelly Stanley, yang memilih cinta pertamanya. Reza pun dengan lapang dada melepaskannya. Tidak disangka Kelly menyesal melepaskan Reza.Lalu, dia kembali mengejar Reza. Namun, ternyata Reza sudah berpacaran dengan musuh besarnya, Tania Sadikin.",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 73
+    },
+    {
+      "slug": "palu-ajaib-pengubah-segalanya",
+      "title": "Palu Ajaib Pengubah Segalanya",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 109
+    },
+    {
+      "slug": "pemuda-desa-menguasai-kota",
+      "title": "Pemuda Desa Menguasai Kota",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 90
+    },
+    {
+      "slug": "penantian-cinta-sang-suami",
+      "title": "Penantian Cinta Sang Suami",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 60
+    },
+    {
+      "slug": "pendekar-tanpa-batas",
+      "title": "Pendekar Tanpa Batas",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 80
+    },
+    {
+      "slug": "penglihat-abadi",
+      "title": "Penglihat Abadi",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 79
+    },
+    {
+      "slug": "penglihatan-ilahi",
+      "title": "Penglihatan Ilahi",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 100
+    },
+    {
+      "slug": "penyesalan-mantan-tunangan",
+      "title": "Penyesalan Mantan Tunangan",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 60
+    },
+    {
+      "slug": "perjalanan-naga-muda",
+      "title": "Perjalanan Naga Muda",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 111
+    },
+    {
+      "slug": "pewaris-konglomerat-dihina-mantan",
+      "title": "Pewaris Konglomerat Dihina Mantan",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 98
+    },
+    {
+      "slug": "pulang-kampung-bawa-ceo",
+      "title": "Pulang Kampung Bawa CEO",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 109
+    },
+    {
+      "slug": "putus-cinta-dunia-memihakku",
+      "title": "Putus Cinta, Dunia Memihakku",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 84
+    },
+    {
+      "slug": "rahasia-di-balik-kedai-pangsit",
+      "title": "Rahasia di Balik Kedai Pangsit",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 63
+    },
+    {
+      "slug": "reinkarnasi-sang-konglomerat",
+      "title": "Reinkarnasi Sang Konglomerat",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 84
+    },
+    {
+      "slug": "ruang-sistem-putri-jenderal",
+      "title": "Ruang Sistem Putri Jenderal",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 72
+    },
+    {
+      "slug": "saat-mantan-memohon-kembali",
+      "title": "Saat Mantan Memohon Kembali",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 80
+    },
+    {
+      "slug": "salah-nyatakan-cinta",
+      "title": "Salah Nyatakan Cinta",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 79
+    },
+    {
+      "slug": "sang-dewa-judi",
+      "title": "Sang Dewa Judi",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 94
+    },
+    {
+      "slug": "sang-master-turun-gunung",
+      "title": "Sang Master Turun Gunung",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 66
+    },
+    {
+      "slug": "satpam-jadi-suami-bos",
+      "title": "Satpam Jadi Suami Bos",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 69
+    },
+    {
+      "slug": "sekali-lihat-jadi-sultan",
+      "title": "Sekali Lihat, Jadi Sultan",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 80
+    },
+    {
+      "slug": "sesepuh-tertua-yang-masih-muda",
+      "title": "Sesepuh Tertua yang Masih Muda",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 91
+    },
+    {
+      "slug": "setelah-bertapa-kutaklukkan-dunia",
+      "title": "Setelah Bertapa, Kutaklukkan Dunia",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 148
+    },
+    {
+      "slug": "setelah-cerai-makin-baik",
+      "title": "Setelah Cerai Makin Baik",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 100
+    },
+    {
+      "slug": "siapa-yang-sedang-membicarakan-kaisar",
+      "title": "Siapa yang Sedang Membicarakan Kaisar",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 114
+    },
+    {
+      "slug": "siaran-langsung-bedah-mahadewa",
+      "title": "Siaran Langsung Bedah Mahadewa",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 74
+    },
+    {
+      "slug": "sistem-ajaib-dan-puncak-hidupku",
+      "title": "Sistem Ajaib dan Puncak Hidupku",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 72
+    },
+    {
+      "slug": "sistem-harta-tersembunyi",
+      "title": "Sistem Harta Tersembunyi",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 109
+    },
+    {
+      "slug": "sistem-perubah-nasib",
+      "title": "Sistem Perubah Nasib",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 116
+    },
+    {
+      "slug": "sistem-suami-sultan",
+      "title": "Sistem Suami Sultan",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 135
+    },
+    {
+      "slug": "suara-hati-anak-angkat",
+      "title": "Suara Hati Anak Angkat",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 88
+    },
+    {
+      "slug": "tabel-perkalian-sembilan",
+      "title": "Tabel Perkalian Sembilan",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 75
+    },
+    {
+      "slug": "tahun-1977-penuh-peluang",
+      "title": "Tahun 1977 Penuh Peluang",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing cover image",
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 113
+    },
+    {
+      "slug": "takdir-pedang-dan-gadis-kesepian",
+      "title": "Takdir Pedang dan Gadis Kesepian",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 67
+    },
+    {
+      "slug": "tangan-kiri-sakti-kuli-tambang",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing metadata.json"
+      ],
+      "warnings": [],
+      "episodes": 0
+    },
+    {
+      "slug": "tangi-penyesalan-bos-cantik",
+      "title": "Tangi Penyesalan Bos Cantik",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 100
+    },
+    {
+      "slug": "tangkap-harta-karun-di-kampung",
+      "title": "Tangkap Harta Karun di Kampung",
+      "status": "CRITICAL",
+      "issues": [
+        "No episodes found"
+      ],
+      "warnings": [],
+      "episodes": 0,
+      "expected": 81
+    },
+    {
+      "slug": "vila-portal-dunia-lain",
+      "status": "CRITICAL",
+      "issues": [
+        "Missing metadata.json"
+      ],
+      "warnings": [],
+      "episodes": 0
+    }
+  ]
+}

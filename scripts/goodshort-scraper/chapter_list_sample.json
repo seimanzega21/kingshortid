@@ -1,0 +1,33 @@
+{
+  "data": {
+    "list": [
+      {
+        "id": 16515980,
+        "bookId": "31001268925",
+        "volumeId": 646483,
+        "chapterName": "084",
+        "playTime": 152,
+        "price": 20,
+        "prevChapterId": 16515979,
+        "prevChapterName": "083",
+        "nextChapterId": 0,
+        "status": 1,
+        "index": 83,
+        "type": 0,
+        "charged": false,
+        "consumeType": 0,
+        "image": "https://acf.goodreels.com/videobook/31001268925/202601/cover-bP7G5uBvYV.jpg?a=webp",
+        "playCount": 4144,
+        "playCountDisplay": "4.1K"
+      }
+    ],
+    "cdnExpireTime": 1770715721000
+  },
+  "status": 0,
+  "message": "success",
+  "timestamp": 1770110921620,
+  "ip": "36.83.190.171",
+  "region": "ID",
+  "path": "/chapter/list",
+  "success": true
+}

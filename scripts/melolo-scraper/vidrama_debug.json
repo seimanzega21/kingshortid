@@ -1,0 +1,647 @@
+{
+  "drama_links": [],
+  "api_calls": [
+    {
+      "url": "https://vidrama.asia/provider/melolo",
+      "status": 200,
+      "ct": "text/html; charset=utf-8",
+      "body_length": 27269,
+      "body_preview": "<!DOCTYPE html><html lang=\"id\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/82602212a397e719.css\""
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/82602212a397e719.css",
+      "status": 200,
+      "ct": "text/css; charset=UTF-8",
+      "body_length": 4402,
+      "body_preview": "*{box-sizing:border-box;margin:0;padding:0}:root{--bg-primary:#121212;--bg-secondary:#181818;--bg-tertiary:#1e1e1e;--bg-input:#2a2a2a;--accent-green:#00e676;--text-primary:#fff;--text-secondary:#b3b3b3;--card-bg:#333;--card-bg-alt:#444}html,body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;height:100%;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif}body{background-color:var(--bg-primary);c"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/2d7e1c3cc87273f7.css",
+      "status": 200,
+      "ct": "text/css; charset=UTF-8",
+      "body_length": 112445,
+      "body_preview": ".HeroSection-module__2k8MBW__hero{width:100%;height:80vh;min-height:500px;max-height:800px;margin-bottom:0;position:relative;overflow:hidden}.HeroSection-module__2k8MBW__heroBackground{filter:brightne"
+    },
+    {
+      "url": "https://vidrama.asia/cdn-cgi/speculation",
+      "status": 200,
+      "ct": "application/speculationrules+json",
+      "body_length": 128,
+      "body_preview": "{\"prefetch\":[{\"eagerness\":\"conservative\",\"source\":\"document\",\"where\":{\"and\":[{\"href_matches\":\"/*\",\"relative_to\":\"document\"}]}}]}"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/66a8c16702b8a250.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 2529,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,42732,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.defineProperty(r,\"HeadManagerContext\",{enumerable:!0,get:function(){return o}});let o=e.r(55682)._(e.r(71645)).default.createContext({})},68027,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.defineProperty(r,\"default\",{enumerable:!0,get:function(){return s}});let o=e.r(4"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/6069fc0ba16c63db.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 29406,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,90373,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.def"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/0ad7c0834cf0710a.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 33299,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,12718,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.def"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/af1fc7e8eed751b7.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 111154,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,64893,(e,t,r)=>{\"use strict\";var n=e.r(74080),a={stream:!0},l=Object.prototype.hasOwnPro"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/turbopack-28b9389d34a15fc7.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 10268,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,{otherChunks:[\"static/chunks/66a8c16702b8a250.js\",\"static/chunks/6069fc0ba16c63db.js\",\"s"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/ceb4e2cc20a33317.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 26601,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,33525,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.def"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/0eea1e57239c4955.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 223454,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,74575,(e,t,n)=>{\"use strict\";Object.defineProperty(n,\"__esModule\",{value:!0}),Object.def"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/ff1a16fafef87110.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 282,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,33525,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.defineProperty(r,\"warnOnce\",{enumerable:!0,get:function(){return n}});let n=e=>{}}]);"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/7709d74854063ffa.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 30679,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,91915,(e,t,r)=>{\"use strict\";function n(e,t={}){if(t.onlyHashChange)return void e();let "
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/28e82c21cd2da9a2.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 32786,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,72234,e=>{e.v({brand:\"Header-module__arFiJq__brand\",brandLink:\"Header-module__arFiJq__br"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/789822bbd8f32b54.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 29195,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,64659,e=>{\"use strict\";let t=(0,e.i(75254).default)(\"chevron-down\",[[\"path\",{d:\"m6 9 6 6"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/7649b8c24c867f4d.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 20648,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,97804,e=>{\"use strict\";function t(){return\"/api/flickreels\"}async function r(){try{let e"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/190b1424e2c357df.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 5260,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,84828,t=>{\"use strict\";var e=t.i(71645),r={color:void 0,size:void 0,className:void 0,sty"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/f832a6541f55ac9b.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 41762,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,61400,e=>{\"use strict\";let t=(0,e.i(59497).createLogger)(\"NetShort\"),r=\"https://netshort"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/a42a5901b72b4d8a.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 190332,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,67034,(e,t,r)=>{var s={675:function(e,t){\"use strict\";t.byteLength=function(e){var t=l(e"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/484d18357ed554ae.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 424399,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,19298,(t,e,r)=>{\"use strict\";var i,n=\"object\"==typeof Reflect?Reflect:null,a=n&&\"functio"
+    },
+    {
+      "url": "https://vidrama.asia/api/admin/social-links",
+      "status": 200,
+      "ct": "application/json",
+      "body_length": 82,
+      "body_preview": "{\"telegram\":\"https://t.me/vidrama_asia\",\"facebook\":\"#\",\"tiktok\":\"#\",\"threads\":\"#\"}"
+    },
+    {
+      "url": "https://vidrama.asia/api/identity",
+      "status": 200,
+      "ct": "application/json",
+      "body_length": 843,
+      "body_preview": "{\"data\":{\"site_title\":\"VIDRAMA - Nonton Film Drama Gratis\",\"site_description\":\"Nonton Drama Cina terbaru Sub Indo di Vidrama.asia. Update episode tiap hari, kualitas HD, dan akses gratis. Streaming Dracin favoritmu sekarang!!\",\"site_keywords\":\"vidrama, vidrama asia, vidrama.asia, nonton drama china, streaming drama china, drama china sub indo, dracin sub indo, c-drama sub indo, nonton dracin gratis, web streaming drama asia, drama china terbaru 2026, download drama china, nonton online drama chi"
+    },
+    {
+      "url": "https://vidrama.asia/api/melolo?action=search&keyword=ceo%20pewaris%20romansa%20lainnya&limit=18&offset=0",
+      "status": 200,
+      "ct": "application/json",
+      "body_length": 22198,
+      "body_preview": "{\"success\":true,\"data\":[{\"id\":\"7596643827113266229\",\"title\":\"Serangan Balik Sang Pewaris\",\"name\":\"Serangan Balik Sang Pewaris\",\"image\":\"https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.or"
+    },
+    {
+      "url": "https://vidrama.asia/provider/velolo?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 658,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"provider\",\"paramType\":null,\"paramKey\":\"provider\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"velolo\",\"paramType\":null,\"paramKey\":\"velolo\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"paramKey\":"
+    },
+    {
+      "url": "https://vidrama.asia/provider/shortmax?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 344,
+      "body_preview": "0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"provider\",{\"children\":[[\"name\",\"shortmax\",\"d\"],{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",true,1],null,[null,null],true]],\"q\":\"\",\"i\":false,\"S\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/provider/dramawave?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 664,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"provider\",\"paramType\":null,\"paramKey\":\"provider\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"dramawave\",\"paramType\":null,\"paramKey\":\"dramawave\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"para"
+    },
+    {
+      "url": "https://vidrama.asia/provider/stardusttv?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 346,
+      "body_preview": "0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"provider\",{\"children\":[[\"name\",\"stardusttv\",\"d\"],{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",true,1],null,[null,null],true]],\"q\":\"\",\"i\":false,\"S\":false}\n"
+    },
+    {
+      "url": "https://connect.facebook.net/signals/config/25725740830379044?v=2.9.261&r=stable&domain=vidrama.asia&hme=20296eac3bb30511174edf43e83f1c9e303df926d3c833283a366d6f5480f82a&ex_m=95%2C158%2C135%2C20%2C67%2C68%2C128%2C63%2C42%2C129%2C72%2C62%2C10%2C142%2C81%2C15%2C94%2C123%2C116%2C70%2C73%2C122%2C139%2C103%2C144%2C7%2C3%2C4%2C6%2C5%2C2%2C82%2C92%2C145%2C226%2C170%2C56%2C228%2C229%2C49%2C185%2C27%2C69%2C234%2C233%2C173%2C29%2C55%2C9%2C58%2C88%2C89%2C90%2C96%2C119%2C28%2C26%2C121%2C118%2C117%2C136%2C71%2C138%2C137%2C44%2C54%2C112%2C14%2C141%2C39%2C215%2C217%2C180%2C23%2C24%2C25%2C17%2C18%2C38%2C34%2C36%2C35%2C77%2C83%2C87%2C101%2C127%2C130%2C40%2C102%2C21%2C19%2C108%2C64%2C32%2C132%2C131%2C133%2C124%2C22%2C31%2C53%2C100%2C140%2C65%2C16%2C134%2C105%2C76%2C61%2C30%2C195%2C165%2C287%2C213%2C156%2C198%2C191%2C166%2C98%2C120%2C75%2C110%2C48%2C41%2C43%2C104%2C109%2C115%2C52%2C59%2C114%2C47%2C50%2C46%2C91%2C143%2C0%2C113%2C13%2C111%2C11%2C1%2C51%2C84%2C57%2C60%2C107%2C80%2C79%2C146%2C147%2C85%2C86%2C8%2C93%2C45%2C125%2C78%2C74%2C66%2C106%2C97%2C37%2C126%2C33%2C99%2C12%2C148",
+      "status": 200,
+      "ct": "application/x-javascript; charset=utf-8",
+      "body_length": 401443,
+      "body_preview": "/**\n* Copyright (c) 2017-present, Facebook, Inc. All rights reserved.\n*\n* You are hereby granted a non-exclusive, worldwide, royalty-free license to use,\n* copy, modify, and distribute this software i"
+    },
+    {
+      "url": "https://mpc-prod-25-s6uit34pua-wl.a.run.app/events?cee=no",
+      "status": 200,
+      "ct": "application/json"
+    },
+    {
+      "url": "https://vidrama.asia/provider/flickreels?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 666,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"provider\",\"paramType\":null,\"paramKey\":\"provider\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"flickreels\",\"paramType\":null,\"paramKey\":\"flickreels\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"pa"
+    },
+    {
+      "url": "https://vidrama.asia/provider/reelshort?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 664,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"provider\",\"paramType\":null,\"paramKey\":\"provider\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"reelshort\",\"paramType\":null,\"paramKey\":\"reelshort\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"para"
+    },
+    {
+      "url": "https://vidrama.asia/provider/idrama?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 658,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"provider\",\"paramType\":null,\"paramKey\":\"provider\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"idrama\",\"paramType\":null,\"paramKey\":\"idrama\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"paramKey\":"
+    },
+    {
+      "url": "https://www.facebook.com/tr/?id=25725740830379044&ev=PageView&dl=https%3A%2F%2Fvidrama.asia%2Fprovider%2Fmelolo&rl=&if=false&ts=1770668654400&sw=1280&sh=800&v=2.9.261&r=stable&ec=0&o=4126&fbp=fb.1.1770668654392.32912079246038605&eid=ob3_plugin-set_674c1e36b407b67c11a908cf7f6ebee49a0084fc36c7e2388cbc9f25c03289e7&ler=empty&cdl=API_unavailable&pmd[title]=Melolo%20-%20Drama%20Collection%20%7C%20VIDRAMA%20-%20Nonton%20Film%20Drama%20Gratis&pmd[description]=Browse%20and%20watch%20drama%20series%20from%20Melolo%20on%20Vidrama&pmd[keywords]=vidrama%2Cvidrama%20asia%2Cvidrama.asia%2Cnonton%20drama%20china%2Cstreaming%20drama%20china%2Cdrama%20china%20sub%20indo%2Cdracin%20sub%20indo%2Cc-drama%20sub%20indo%2Cnonton%20dracin%20gratis%2Cweb%20streaming%20drama%20asia%2Cdrama%20china%20terbaru%202026%2Cdownload%20drama%20china%2Cnonton%20online%20drama%20china%2Cstreaming%20dracin%20hd%2Cdrama%20china%20romantis%2Cdrama%20china%20wuxia%2Cdrama%20china%20xianxia%2Cdrama%20china%20kerajaan%2Cnonton%20film%20mandarin%2Cdownload%20dracin%20batch%2Csitus%20nonton%20drama%20china%20terlengkap%2Cupdate%20drama%20china%20hari%20ini%2Crekomendasi%20dracin%202026%2Cdrama%20china%20ongoing%2Cst&plt=5736.399999991059&it=1770668653596&coo=false&cf=1&expv2[0]=pl0&expv2[1]=el3&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im1&expv2[6]=hf2&expv2[7]=pt0&rqm=GET",
+      "status": 200,
+      "ct": "text/plain",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/provider/dramadash?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 345,
+      "body_preview": "0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"provider\",{\"children\":[[\"name\",\"dramadash\",\"d\"],{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",true,1],null,[null,null],true]],\"q\":\"\",\"i\":false,\"S\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 197,
+      "body_preview": "0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",\"$undefined\",3]},\"$undefined\",\"$undefined\",true,1],null,[null,null],true]],\"q\":\"\",\"i\":false,\"S\":false}\n"
+    },
+    {
+      "url": "https://i.ibb.co.com/5WDvJ13N/vidrama-logo.webp",
+      "status": 200,
+      "ct": "image/webp"
+    },
+    {
+      "url": "https://www.facebook.com/privacy_sandbox/pixel/register/trigger/?id=25725740830379044&ev=PageView&dl=https%3A%2F%2Fvidrama.asia%2Fprovider%2Fmelolo&rl=&if=false&ts=1770668654400&sw=1280&sh=800&v=2.9.261&r=stable&ec=0&o=4126&fbp=fb.1.1770668654392.32912079246038605&eid=ob3_plugin-set_674c1e36b407b67c11a908cf7f6ebee49a0084fc36c7e2388cbc9f25c03289e7&ler=empty&cdl=API_unavailable&pmd[title]=Melolo%20-%20Drama%20Collection%20%7C%20VIDRAMA%20-%20Nonton%20Film%20Drama%20Gratis&pmd[description]=Browse%20and%20watch%20drama%20series%20from%20Melolo%20on%20Vidrama&pmd[keywords]=vidrama%2Cvidrama%20asia%2Cvidrama.asia%2Cnonton%20drama%20china%2Cstreaming%20drama%20china%2Cdrama%20china%20sub%20indo%2Cdracin%20sub%20indo%2Cc-drama%20sub%20indo%2Cnonton%20dracin%20gratis%2Cweb%20streaming%20drama%20asia%2Cdrama%20china%20terbaru%202026%2Cdownload%20drama%20china%2Cnonton%20online%20drama%20china%2Cstreaming%20dracin%20hd%2Cdrama%20china%20romantis%2Cdrama%20china%20wuxia%2Cdrama%20china%20xianxia%2Cdrama%20china%20kerajaan%2Cnonton%20film%20mandarin%2Cdownload%20dracin%20batch%2Csitus%20nonton%20drama%20china%20terlengkap%2Cupdate%20drama%20china%20hari%20ini%2Crekomendasi%20dracin%202026%2Cdrama%20china%20ongoing%2Cst&plt=5736.399999991059&it=1770668653596&coo=false&cf=1&expv2[0]=pl0&expv2[1]=el3&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im1&expv2[6]=hf2&expv2[7]=pt0&rqm=FGET",
+      "status": 200,
+      "ct": "image/png"
+    },
+    {
+      "url": "https://vidrama.asia/provider/velolo?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3527,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/provider/velolo?_rsc=17i40",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 13155,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[42132,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a."
+    },
+    {
+      "url": "https://vidrama.asia/provider/velolo?_rsc=12eg0",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/vip?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 581,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n:HL[\"/_next/static/chunks/130830757855d5bd.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"vip\",\"paramType\":null,\"paramKey\":\"vip\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"paramKey\":\"__PAGE__\",\"hasRuntimePrefetch\":false,\"slots\":null,\"is"
+    },
+    {
+      "url": "https://vidrama.asia/provider/velolo?_rsc=12lh5",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/cdn-cgi/rum?",
+      "status": 204,
+      "ct": "text/plain",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/provider/velolo?_rsc=1db2j",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 1127,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[3558,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/22a8ea621d367e3c.js\",\"/_next/static/chunks/789822bbd8f32b54.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/130830757855d5bd.css",
+      "status": 200,
+      "ct": "text/css; charset=UTF-8",
+      "body_length": 9257,
+      "body_preview": ".VIP-module__jH7Jya__vipPage{background:#0a0a0a;min-height:100vh;padding-bottom:80px}.VIP-module__jH7Jya__hero{text-align:center;background:linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 100%);border-botto"
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/provider/shortmax?_rsc=1yaae",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3752,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n4:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n5:\"$Sreact.suspense\"\n0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"provider\",{\"children\":[[\"name\",\"shortmax\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],null,[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",\"VPRRwC"
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/vip?_rsc=pkgk2",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/vip?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3659,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/vip?_rsc=wfaz2",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 1161,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[10204,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/3bdd8394df0622e2.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"OutletBoundary\"]\n7:\"$Sreac"
+    },
+    {
+      "url": "https://vidrama.asia/provider/dramawave?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3551,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/3bdd8394df0622e2.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 16835,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,43531,e=>{\"use strict\";let a=(0,e.i(75254).default)(\"check\",[[\"path\",{d:\"M20 6 9 17l-5-5"
+    },
+    {
+      "url": "https://vidrama.asia/provider/dramawave?_rsc=1iabz",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel/act",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/22a8ea621d367e3c.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 6864,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,59497,e=>{\"use strict\";class t{constructor(e=\"\"){this.namespace=e}_format(e,...t){let a="
+    },
+    {
+      "url": "https://vidrama.asia/provider/dramadash?_rsc=1yaae",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3761,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n4:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n5:\"$Sreact.suspense\"\n0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"provider\",{\"children\":[[\"name\",\"dramadash\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],null,[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",\"TVfl4"
+    },
+    {
+      "url": "https://vidrama.asia/provider/flickreels?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3559,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/provider/dramawave?_rsc=1cq86",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 1128,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[48913,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/6768f002c3fa9929.js\",\"/_next/static/chunks/789822bbd8f32b54.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d7"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/6768f002c3fa9929.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 7289,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,59497,e=>{\"use strict\";class r{constructor(e=\"\"){this.namespace=e}_format(e,...r){let a="
+    },
+    {
+      "url": "https://vidrama.asia/provider/flickreels?_rsc=uza1w",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/provider/flickreels?_rsc=numyc",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 1128,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[37814,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/ef4b83521483ef30.js\",\"/_next/static/chunks/789822bbd8f32b54.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d7"
+    },
+    {
+      "url": "https://vidrama.asia/provider/idrama?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3527,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/ef4b83521483ef30.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 7442,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,97804,e=>{\"use strict\";function a(){return\"/api/flickreels\"}async function t(){try{let e"
+    },
+    {
+      "url": "https://vidrama.asia/provider/stardusttv?_rsc=1yaae",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3770,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n4:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n5:\"$Sreact.suspense\"\n0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"provider\",{\"children\":[[\"name\",\"stardusttv\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],null,[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",\"0xqW"
+    },
+    {
+      "url": "https://vidrama.asia/provider/idrama?_rsc=1nt9c",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 1128,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[81691,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/80f6a32508c4cd30.js\",\"/_next/static/chunks/789822bbd8f32b54.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d7"
+    },
+    {
+      "url": "https://vidrama.asia/register?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 591,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n:HL[\"/_next/static/chunks/a752bfcdcdce32cb.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"register\",\"paramType\":null,\"paramKey\":\"register\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"paramKey\":\"__PAGE__\",\"hasRuntimePrefetch\":false,\"slots"
+    },
+    {
+      "url": "https://vidrama.asia/login?_rsc=1j8uo",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 528,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"login\",\"paramType\":null,\"paramKey\":\"login\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"paramKey\":\"__PAGE__\",\"hasRuntimePrefetch\":false,\"slots\":null,\"isRootLayout\":false}},\"isRootLayout\":false}},\"isRootLay"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/80f6a32508c4cd30.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 9691,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,59497,e=>{\"use strict\";class t{constructor(e=\"\"){this.namespace=e}_format(e,...t){let a="
+    },
+    {
+      "url": "https://vidrama.asia/provider/idrama?_rsc=14fcs",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/register?_rsc=sj5l3",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/a752bfcdcdce32cb.css",
+      "status": 200,
+      "ct": "text/css; charset=UTF-8",
+      "body_length": 3464,
+      "body_preview": ".SuccessModal-module__6OTRPa__modalOverlay{-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);z-index:9999;background:#000000d9;justify-content:center;align-items:center;padding:20px;animation:.3s ease-out SuccessModal-module__6OTRPa__fadeIn;display:flex;position:fixed;inset:0}@keyframes SuccessModal-module__6OTRPa__fadeIn{0%{opacity:0}to{opacity:1}}.SuccessModal-module__6OTRPa__modalContent{background:#1a1a1a;border:1px solid #4ade80;border-radius:16px;width:100%;max-width:480px;animat"
+    },
+    {
+      "url": "https://vidrama.asia/register?_rsc=n9z9d",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 1161,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[28034,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/49cdff6c3cd63721.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"OutletBoundary\"]\n7:\"$Sreac"
+    },
+    {
+      "url": "https://vidrama.asia/login?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3396,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/?_rsc=1yaae",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 4404,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n4:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n5:\"$Sreact.suspense\"\n0:{\"b\":\"IzBVDISpF2jvZe5pxQ9MM\",\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],null,[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",\"F2AXltgR1MFYqyq4fYc5jv\",{\"children\":\"$L3\"}],[\"$\",\"div\",\"F2AXltgR1MFYqyq"
+    },
+    {
+      "url": "https://vidrama.asia/register?_rsc=zxgay",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3399,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/login?_rsc=1rado",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://vidrama.asia/login?_rsc=1g6mi",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 995,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[76359,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/a3828115308d52b6.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"OutletBoundary\"]\n7:\"$Sreac"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/49cdff6c3cd63721.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 8229,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,43531,e=>{\"use strict\";let a=(0,e.i(75254).default)(\"check\",[[\"path\",{d:\"M20 6 9 17l-5-5"
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/a3828115308d52b6.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 4809,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,73833,e=>{\"use strict\";let a=(e,a={})=>{\"function\"==typeof window.fbq?window.fbq(\"track\",e,a):console.warn(\"Facebook Pixel: fbq function not available\")};e.s([\"trackInitiateCheckout\",0,(e={})=>{let{value:s=0,currency:t=\"IDR\",content_name:l=\"VIP Package\",...r}=e;a(\"InitiateCheckout\",{value:s,currency:t,content_name:l,content_type:\"subscription\",...r})},\"trackLogin\",0,(e={})=>{a(\"Lead\",{"
+    },
+    {
+      "url": "https://www.facebook.com/tr/?id=25725740830379044&ev=PageView&dl=https%3A%2F%2Fvidrama.asia%2Flogin&rl=&if=false&ts=1770668662651&sw=1280&sh=800&v=2.9.261&r=stable&ec=1&o=4126&fbp=fb.1.1770668654392.32912079246038605&eid=ob3_plugin-set_8ded2da41d2191298c47c7bc77f0c90bf1193341f275d0ca29709994a22db7ba&ler=empty&cdl=API_unavailable&pmd[title]=Melolo%20-%20Drama%20Collection%20%7C%20VIDRAMA%20-%20Nonton%20Film%20Drama%20Gratis&pmd[description]=Browse%20and%20watch%20drama%20series%20from%20Melolo%20on%20Vidrama&pmd[keywords]=vidrama%2Cvidrama%20asia%2Cvidrama.asia%2Cnonton%20drama%20china%2Cstreaming%20drama%20china%2Cdrama%20china%20sub%20indo%2Cdracin%20sub%20indo%2Cc-drama%20sub%20indo%2Cnonton%20dracin%20gratis%2Cweb%20streaming%20drama%20asia%2Cdrama%20china%20terbaru%202026%2Cdownload%20drama%20china%2Cnonton%20online%20drama%20china%2Cstreaming%20dracin%20hd%2Cdrama%20china%20romantis%2Cdrama%20china%20wuxia%2Cdrama%20china%20xianxia%2Cdrama%20china%20kerajaan%2Cnonton%20film%20mandarin%2Cdownload%20dracin%20batch%2Csitus%20nonton%20drama%20china%20terlengkap%2Cupdate%20drama%20china%20hari%20ini%2Crekomendasi%20dracin%202026%2Cdrama%20china%20ongoing%2Cst&plt=5736.399999991059&it=1770668662648&coo=false&cf=1&expv2[0]=pl0&expv2[1]=el3&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im1&expv2[6]=hf2&rqm=GET",
+      "status": 200,
+      "ct": "text/plain",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://mpc-prod-25-s6uit34pua-wl.a.run.app/events?cee=no",
+      "status": 200,
+      "ct": "application/json"
+    },
+    {
+      "url": "https://www.facebook.com/privacy_sandbox/pixel/register/trigger/?id=25725740830379044&ev=PageView&dl=https%3A%2F%2Fvidrama.asia%2Flogin&rl=&if=false&ts=1770668662651&sw=1280&sh=800&v=2.9.261&r=stable&ec=1&o=4126&fbp=fb.1.1770668654392.32912079246038605&eid=ob3_plugin-set_8ded2da41d2191298c47c7bc77f0c90bf1193341f275d0ca29709994a22db7ba&ler=empty&cdl=API_unavailable&pmd[title]=Melolo%20-%20Drama%20Collection%20%7C%20VIDRAMA%20-%20Nonton%20Film%20Drama%20Gratis&pmd[description]=Browse%20and%20watch%20drama%20series%20from%20Melolo%20on%20Vidrama&pmd[keywords]=vidrama%2Cvidrama%20asia%2Cvidrama.asia%2Cnonton%20drama%20china%2Cstreaming%20drama%20china%2Cdrama%20china%20sub%20indo%2Cdracin%20sub%20indo%2Cc-drama%20sub%20indo%2Cnonton%20dracin%20gratis%2Cweb%20streaming%20drama%20asia%2Cdrama%20china%20terbaru%202026%2Cdownload%20drama%20china%2Cnonton%20online%20drama%20china%2Cstreaming%20dracin%20hd%2Cdrama%20china%20romantis%2Cdrama%20china%20wuxia%2Cdrama%20china%20xianxia%2Cdrama%20china%20kerajaan%2Cnonton%20film%20mandarin%2Cdownload%20dracin%20batch%2Csitus%20nonton%20drama%20china%20terlengkap%2Cupdate%20drama%20china%20hari%20ini%2Crekomendasi%20dracin%202026%2Cdrama%20china%20ongoing%2Cst&plt=5736.399999991059&it=1770668662648&coo=false&cf=1&expv2[0]=pl0&expv2[1]=el3&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im1&expv2[6]=hf2&rqm=FGET",
+      "status": 200,
+      "ct": "image/png"
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel/act",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/forgot-password?_rsc=17yrj",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 548,
+      "body_preview": ":HL[\"/_next/static/chunks/82602212a397e719.css\",\"style\"]\n:HL[\"/_next/static/chunks/2d7e1c3cc87273f7.css\",\"style\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"tree\":{\"name\":\"\",\"paramType\":null,\"paramKey\":\"\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"forgot-password\",\"paramType\":null,\"paramKey\":\"forgot-password\",\"hasRuntimePrefetch\":false,\"slots\":{\"children\":{\"name\":\"__PAGE__\",\"paramType\":null,\"paramKey\":\"__PAGE__\",\"hasRuntimePrefetch\":false,\"slots\":null,\"isRootLayout\":false}},\"isRootLayout"
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/forgot-password?_rsc=m8m8p",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 3338,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ViewportBoundary\"]\n3:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"MetadataBoundary\"]\n4:\"$Sreact.suspense\"\n5:I[27201,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"IconMark\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L2\",null,{\"children\":[[\"$\",\"me"
+    },
+    {
+      "url": "https://vidrama.asia/forgot-password?_rsc=o9sor",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 995,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[47257,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"ClientPageRoot\"]\n3:I[25790,[\"/_next/static/chunks/28e82c21cd2da9a2.js\",\"/_next/static/chunks/ceb4e2cc20a33317.js\",\"/_next/static/chunks/190b1424e2c357df.js\",\"/_next/static/chunks/a42a5901b72b4d8a.js\",\"/_next/static/chunks/2ddc4076430c258b.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"OutletBoundary\"]\n7:\"$Sreac"
+    },
+    {
+      "url": "https://vidrama.asia/forgot-password?_rsc=9tuxt",
+      "status": 200,
+      "ct": "text/x-component",
+      "body_length": 432,
+      "body_preview": "1:\"$Sreact.fragment\"\n2:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n3:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7709d74854063ffa.js\"],\"default\"]\n0:{\"buildId\":\"IzBVDISpF2jvZe5pxQ9MM\",\"rsc\":[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"template\":[\"$\",\"$L3\",null,{}]}]]}],\"loading\":null,\"isPartial\":false}\n"
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://analytics.tiktok.com/api/v2/pixel/act",
+      "status": 200,
+      "ct": "",
+      "body_length": 0,
+      "body_preview": ""
+    },
+    {
+      "url": "https://vidrama.asia/_next/static/chunks/2ddc4076430c258b.js",
+      "status": 200,
+      "ct": "application/javascript; charset=UTF-8",
+      "body_length": 3765,
+      "body_preview": "(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push([\"object\"==typeof document?document.currentScript:void 0,69638,e=>{\"use strict\";let a=(0,e.i(75254).default)(\"circle-check-big\",[[\"path\",{d:\"M21.801 10A10 10 0 1 1 17 3.335\",key:\"yps3ct\"}],[\"path\",{d:\"m9 11 3 3L22 4\",key:\"1pflzl\"}]]);e.s([\"CheckCircle\",()=>a],69638)},63488,e=>{\"use strict\";let a=(0,e.i(75254).default)(\"mail\",[[\"path\",{d:\"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7\",key:\"132q7q\"}],[\"rect\",{x:\"2\",y:\"4\",width:\"20\",height:\"16\",rx:\"2"
+    }
+  ],
+  "page_content_length": 32956
+}

@@ -1,0 +1,70 @@
+﻿=== GoodShort API Calls: 86 ===
+
+API Endpoints:
+   17x  /hwycclientreels/chapter/end/recommend
+   16x  /hwycclientreels/book/read/status/update
+    6x  /hwycclientreels/app/custom/conf
+    6x  /hwycclientreels/chapter/list
+    6x  /hwycclientreels/book/share/url
+    3x  /hwycclientreels/app/activity
+    3x  /hwycclientreels/profile/user/info
+    3x  /hwycclientreels/home/index
+    3x  /hwycclientreels/chapter/exit/recommend
+    3x  /hwycclientreels/reader/init
+    3x  /hwycclientreels/book/quick/open
+    3x  /hwycclientreels/shelf/add
+    2x  /hwycclientreels/home/nav/list
+    2x  /hwycclientreels/chapter/load
+    1x  /hwycclientreels/pay/sku/list
+    1x  /hwycclientreels/app/async
+    1x  /hwycclientreels/app/bootstrap
+    1x  /hwycclientreels/app/global
+    1x  /hwycclientreels/app/device/update
+    1x  /hwycclientreels/book/search/hot/words
+    1x  /hwycclientreels/app/functional-notify
+    1x  /hwycclientreels/app/common/conf
+    1x  /hwycclientreels/shelf/sync
+    1x  /hwycclientreels/book/recommend
+
+=== DETAILED REQUEST ANALYSIS ===
+
+
+======================================================================
+ENDPOINT: /hwycclientreels/chapter/list
+======================================================================
+Full URL: https://api-akm.goodreels.com/hwycclientreels/chapter/list?timestamp=1770003621661
+Method: POST
+
+Key Headers:
+  sign: Xr8OkXZ8VAYRjOffxgzMy3SLM3Ix5h+uJIKKvyV1NKa3WFG2fmbXMkvkoAgAYHkNWzr6ARO4ofNDIREfPfAhfJu9ieAtP4FEOJcF...
+  authorization: Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGV...
+  content-type: application/json; charset=UTF-8
+  user-agent: okhttp/4.10.0
+
+POST Data:
+  {"latestChapterId":0,"chapterCount":0,"needBookInfo":false,"bookId":"31001221963"}
+
+Query Parameters:
+  timestamp: 1770003621661
+
+Response Status: 200
+Response Sample:
+  {
+  "data": {
+    "list": [
+      {
+        "id": 15807247,
+        "bookId": "31001221963",
+        "volumeId": 614590,
+        "chapterName": "001",
+        "playTime": 156,
+        "price": 0,
+        "prevChapterId": 0,
+        "nextChapterId": 15807248,
+        "nextChapterName": "002",
+        "status": 1,
+        "index": 0,
+        "cdnList": [
+          {
+            "cdnDomain": "https://v3.goodshort.com",
+            "videoPath": "https://v3.goodshort.com/mts/books/963/31001221963/614...

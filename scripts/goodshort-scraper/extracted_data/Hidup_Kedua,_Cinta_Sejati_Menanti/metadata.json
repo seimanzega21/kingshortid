@@ -1,0 +1,571 @@
+{
+  "bookId": "31001070612",
+  "title": "Hidup Kedua, Cinta Sejati Menanti",
+  "description": "",
+  "coverUrl": "https://acf.goodreels.com/videobook/202507/cover-E5DBJRsUDN.jpg",
+  "totalEpisodes": 70,
+  "tags": [],
+  "score": 0,
+  "episodes": [
+    {
+      "chapterId": "13366398",
+      "index": 0,
+      "name": "001",
+      "duration": 141,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366399",
+      "index": 1,
+      "name": "002",
+      "duration": 179,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366400",
+      "index": 2,
+      "name": "003",
+      "duration": 119,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366401",
+      "index": 3,
+      "name": "004",
+      "duration": 104,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366402",
+      "index": 4,
+      "name": "005",
+      "duration": 97,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366403",
+      "index": 5,
+      "name": "006",
+      "duration": 130,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366404",
+      "index": 6,
+      "name": "007",
+      "duration": 88,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366405",
+      "index": 7,
+      "name": "008",
+      "duration": 169,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366406",
+      "index": 8,
+      "name": "009",
+      "duration": 119,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366407",
+      "index": 9,
+      "name": "010",
+      "duration": 125,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366408",
+      "index": 10,
+      "name": "011",
+      "duration": 83,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366409",
+      "index": 11,
+      "name": "012",
+      "duration": 90,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366410",
+      "index": 12,
+      "name": "013",
+      "duration": 104,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366411",
+      "index": 13,
+      "name": "014",
+      "duration": 88,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366412",
+      "index": 14,
+      "name": "015",
+      "duration": 143,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366413",
+      "index": 15,
+      "name": "016",
+      "duration": 85,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366414",
+      "index": 16,
+      "name": "017",
+      "duration": 90,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366415",
+      "index": 17,
+      "name": "018",
+      "duration": 118,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366416",
+      "index": 18,
+      "name": "019",
+      "duration": 96,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366417",
+      "index": 19,
+      "name": "020",
+      "duration": 128,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366418",
+      "index": 20,
+      "name": "021",
+      "duration": 99,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366419",
+      "index": 21,
+      "name": "022",
+      "duration": 80,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366420",
+      "index": 22,
+      "name": "023",
+      "duration": 84,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366421",
+      "index": 23,
+      "name": "024",
+      "duration": 71,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366422",
+      "index": 24,
+      "name": "025",
+      "duration": 85,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366423",
+      "index": 25,
+      "name": "026",
+      "duration": 98,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366424",
+      "index": 26,
+      "name": "027",
+      "duration": 96,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366425",
+      "index": 27,
+      "name": "028",
+      "duration": 74,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366426",
+      "index": 28,
+      "name": "029",
+      "duration": 141,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366427",
+      "index": 29,
+      "name": "030",
+      "duration": 115,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366428",
+      "index": 30,
+      "name": "031",
+      "duration": 91,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366429",
+      "index": 31,
+      "name": "032",
+      "duration": 87,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366430",
+      "index": 32,
+      "name": "033",
+      "duration": 89,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366431",
+      "index": 33,
+      "name": "034",
+      "duration": 75,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366432",
+      "index": 34,
+      "name": "035",
+      "duration": 94,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366433",
+      "index": 35,
+      "name": "036",
+      "duration": 80,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366434",
+      "index": 36,
+      "name": "037",
+      "duration": 73,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366435",
+      "index": 37,
+      "name": "038",
+      "duration": 128,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366436",
+      "index": 38,
+      "name": "039",
+      "duration": 103,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366437",
+      "index": 39,
+      "name": "040",
+      "duration": 118,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366438",
+      "index": 40,
+      "name": "041",
+      "duration": 96,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366439",
+      "index": 41,
+      "name": "042",
+      "duration": 105,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366440",
+      "index": 42,
+      "name": "043",
+      "duration": 58,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366441",
+      "index": 43,
+      "name": "044",
+      "duration": 65,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366442",
+      "index": 44,
+      "name": "045",
+      "duration": 86,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366443",
+      "index": 45,
+      "name": "046",
+      "duration": 73,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366444",
+      "index": 46,
+      "name": "047",
+      "duration": 83,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366445",
+      "index": 47,
+      "name": "048",
+      "duration": 80,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366446",
+      "index": 48,
+      "name": "049",
+      "duration": 124,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366447",
+      "index": 49,
+      "name": "050",
+      "duration": 84,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366448",
+      "index": 50,
+      "name": "051",
+      "duration": 97,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366449",
+      "index": 51,
+      "name": "052",
+      "duration": 102,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366450",
+      "index": 52,
+      "name": "053",
+      "duration": 103,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366451",
+      "index": 53,
+      "name": "054",
+      "duration": 86,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366452",
+      "index": 54,
+      "name": "055",
+      "duration": 86,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366453",
+      "index": 55,
+      "name": "056",
+      "duration": 71,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366454",
+      "index": 56,
+      "name": "057",
+      "duration": 126,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366455",
+      "index": 57,
+      "name": "058",
+      "duration": 115,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366456",
+      "index": 58,
+      "name": "059",
+      "duration": 107,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366457",
+      "index": 59,
+      "name": "060",
+      "duration": 128,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366458",
+      "index": 60,
+      "name": "061",
+      "duration": 81,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366459",
+      "index": 61,
+      "name": "062",
+      "duration": 86,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366460",
+      "index": 62,
+      "name": "063",
+      "duration": 79,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366461",
+      "index": 63,
+      "name": "064",
+      "duration": 101,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366462",
+      "index": 64,
+      "name": "065",
+      "duration": 92,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366463",
+      "index": 65,
+      "name": "066",
+      "duration": 64,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366464",
+      "index": 66,
+      "name": "067",
+      "duration": 117,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366465",
+      "index": 67,
+      "name": "068",
+      "duration": 151,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366466",
+      "index": 68,
+      "name": "069",
+      "duration": 152,
+      "videoUrl": null,
+      "cover": ""
+    },
+    {
+      "chapterId": "13366467",
+      "index": 69,
+      "name": "070",
+      "duration": 174,
+      "videoUrl": null,
+      "cover": ""
+    }
+  ]
+}

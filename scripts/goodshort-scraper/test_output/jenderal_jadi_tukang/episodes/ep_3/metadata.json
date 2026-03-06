@@ -1,0 +1,14 @@
+{
+  "episodeNumber": 3,
+  "episodeId": "469572",
+  "title": "Episode 3",
+  "order": 3,
+  "duration": 120,
+  "isFree": false,
+  "hlsUrl": null,
+  "thumbnail": null,
+  "drama": {
+    "bookId": "31000991502",
+    "title": "Jenderal Jadi Tukang"
+  }
+}

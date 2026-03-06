@@ -1,0 +1,10 @@
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkjd5ag0007cwo35kdfblnf', 'Wanita Kuat', 'Wanita Kuat', NULL, 0);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkj9rhm0000cwo34x37nmfb', 'Aksi', 'Aksi', NULL, 1);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkja4gb0001cwo3sy0stqtc', 'CEO', 'CEO', NULL, 2);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkjaj9m0002cwo30pur7ynl', 'Dewa Perang', 'Dewa Perang', NULL, 3);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkjb3gd0003cwo3fwqdxffw', 'Drama', 'Drama', NULL, 4);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkjbz770004cwo3l10lsugi', 'Sulih Suara', 'Sulih Suara', NULL, 5);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkjcf170005cwo3z87bsfxw', 'Romastis', 'Romantis', NULL, 6);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkjcsb50006cwo34uwgmc1p', 'Sakti', 'Sakti', NULL, 7);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmln3q4pm003ubvgsckmigp8h', 'Balas Dendam', 'Balas Dendam', NULL, 8);
+INSERT OR IGNORE INTO categories (id, name, slug, icon, "order") VALUES ('cmlkpzx4o0009cwo383r5gvmh', 'Sistem', 'Sistem', NULL, 9);

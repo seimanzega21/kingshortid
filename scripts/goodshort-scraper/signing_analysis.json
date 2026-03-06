@@ -1,0 +1,120 @@
+{
+  "total_requests": 403,
+  "sample_requests": [
+    {
+      "url": "https://api-akm.goodreels.com/hwycclientreels/shelf/sync?timestamp=1770054370944",
+      "path": "/hwycclientreels/shelf/sync",
+      "method": "POST",
+      "sign": "kb7oNFz+t7KA0iHufJmnVQvL+wDa7gdWFSvzyY6sYYktDpcVTAIW87HuDA3jLowWwD3DR71cMt+Fd7a6IJqJxHxffCztyzghvU8dD9ufG6DErOTB6N1W9PGuzCWCNADbm+GQHxKeiiRtBeZkLif63NAc6X8ojWOdaLVSJvz2PQQcUmU5dke9YLiT2GfRZcw8e+Q0VNcrloW38dDgV7qks8vMwIw5N2f/xF5HkKNq5tuqFplSt2IwcOnnfjzB9cJBxMgMXhFbRCQ3QBSZ23Ku5cz+Z2ilyARoDVzg9t0dInAc9efKb9fHJL4mvrmUGyukXLhAOi64FWwWiuQw+3d5jA==",
+      "timestamp": "",
+      "auth": "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF",
+      "post_data": "{\"marketingBooks\":[],\"bookChapters\":[{\"addShelfType\":2,\"bookId\":\"31001070612\",\"chapterId\":13366467,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000871995\",\"chapterId\":10380780,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000900667\",\"chapterId\":10874762,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000708476\",\"chapterId\":7728607,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001045572\",\"chapterId\":12989152,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001011163\",\"chapterId\":12484417,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001072673\",\"chapterId\":13414064,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001033249\",\"chapterId\":12883102,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001112170\",\"chapterId\":13991936,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708485\",\"chapterId\":7605708,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000908479\",\"chapterId\":10991723,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000856120\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001221963\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001259393\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250396\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250366\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001260347\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000746907\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001050887\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708475\",\"chapterId\":0,\"read\":false}],\"queryExpireBonus\":false,\"normalBooks\":[{\"addShelfType\":2,\"bookId\":\"31001070612\",\"chapterId\":0,\"lastReadTime\":\"1770054333618\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000871995\",\"chapterId\":0,\"lastReadTime\":\"1770053436100\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000900667\",\"chapterId\":0,\"lastReadTime\":\"1770053398082\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000708476\",\"chapterId\":0,\"lastReadTime\":\"1770051629574\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001045572\",\"chapterId\":0,\"lastReadTime\":\"1770049300334\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001011163\",\"chapterId\":0,\"lastReadTime\":\"1770047512570\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001072673\",\"chapterId\":0,\"lastReadTime\":\"1770045869059\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001033249\",\"chapterId\":0,\"lastReadTime\":\"1770045841672\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001112170\",\"chapterId\":0,\"lastReadTime\":\"1770045773504\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708485\",\"chapterId\":0,\"lastReadTime\":\"1770044063835\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000908479\",\"chapterId\":0,\"lastReadTime\":\"1770044013224\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000856120\",\"chapterId\":0,\"lastReadTime\":\"1770004174000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001221963\",\"chapterId\":0,\"lastReadTime\":\"1770003729000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001259393\",\"chapterId\":0,\"lastReadTime\":\"1770003135000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250396\",\"chapterId\":0,\"lastReadTime\":\"1770001835000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250366\",\"chapterId\":0,\"lastReadTime\":\"1770001735000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001260347\",\"chapterId\":0,\"lastReadTime\":\"1770001525000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000746907\",\"chapterId\":0,\"lastReadTime\":\"1770000275000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001050887\",\"chapterId\":0,\"lastReadTime\":\"1770000032000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708475\",\"chapterId\":0,\"lastReadTime\":\"1769999886000\",\"read\":false}],\"recommendBooks\":[],\"innerBooks\":[],\"shelfStyleType\":1}",
+      "query_params": {
+        "timestamp": [
+          "1770054370944"
+        ]
+      },
+      "user_agent": "okhttp/4.10.0",
+      "content_type": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://api-akm.goodreels.com/hwycclientreels/shelf/sync?timestamp=1770054374901",
+      "path": "/hwycclientreels/shelf/sync",
+      "method": "POST",
+      "sign": "RMmD0GtUn7UuEufygX4c4ttvIhHqTjf35Nj0H5Rg4/EKfujw/E7Du5ymR5Dur8zgIVjUxGfXP8cTp7LvSQGlEG79TSM5hcNRYwBuGN9dE/kc7b+FXiWSaAkMpC98gbx+AuFrf1KrHG5oGtHizynkinlm7xnxIDM/bNt2BbTe2ff/8jrccIEIwNS4L2leIxlw3d5oSa7Muaa/yxIIFW9OEOgZ0ZJQn7nYf086k5FZg8cXHJwgnLwmC44m79pLRVUkXwW/MB48IfNXQbT0qNIpX9i8kGF79Z7yGe6yhBXY0QGfZs4Vg7TsOmgP1NYltAK2YNuktO/nVulnTElZRz2+ew==",
+      "timestamp": "",
+      "auth": "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF",
+      "post_data": "{\"marketingBooks\":[],\"bookChapters\":[{\"addShelfType\":2,\"bookId\":\"31001070612\",\"chapterId\":13366467,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000871995\",\"chapterId\":10380780,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000900667\",\"chapterId\":10874762,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000708476\",\"chapterId\":7728607,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001045572\",\"chapterId\":12989152,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001011163\",\"chapterId\":12484417,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001072673\",\"chapterId\":13414064,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001033249\",\"chapterId\":12883102,\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001112170\",\"chapterId\":13991936,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708485\",\"chapterId\":7605708,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000908479\",\"chapterId\":10991723,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000856120\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001221963\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001259393\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250396\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250366\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001260347\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000746907\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001050887\",\"chapterId\":0,\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708475\",\"chapterId\":0,\"read\":false}],\"queryExpireBonus\":false,\"normalBooks\":[{\"addShelfType\":2,\"bookId\":\"31001070612\",\"chapterId\":0,\"lastReadTime\":\"1770054333618\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000871995\",\"chapterId\":0,\"lastReadTime\":\"1770053436100\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000900667\",\"chapterId\":0,\"lastReadTime\":\"1770053398082\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31000708476\",\"chapterId\":0,\"lastReadTime\":\"1770051629574\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001045572\",\"chapterId\":0,\"lastReadTime\":\"1770049300334\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001011163\",\"chapterId\":0,\"lastReadTime\":\"1770047512570\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001072673\",\"chapterId\":0,\"lastReadTime\":\"1770045869059\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001033249\",\"chapterId\":0,\"lastReadTime\":\"1770045841672\",\"read\":true},{\"addShelfType\":2,\"bookId\":\"31001112170\",\"chapterId\":0,\"lastReadTime\":\"1770045773504\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708485\",\"chapterId\":0,\"lastReadTime\":\"1770044063835\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000908479\",\"chapterId\":0,\"lastReadTime\":\"1770044013224\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000856120\",\"chapterId\":0,\"lastReadTime\":\"1770004174000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001221963\",\"chapterId\":0,\"lastReadTime\":\"1770003729000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001259393\",\"chapterId\":0,\"lastReadTime\":\"1770003135000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250396\",\"chapterId\":0,\"lastReadTime\":\"1770001835000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001250366\",\"chapterId\":0,\"lastReadTime\":\"1770001735000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001260347\",\"chapterId\":0,\"lastReadTime\":\"1770001525000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000746907\",\"chapterId\":0,\"lastReadTime\":\"1770000275000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31001050887\",\"chapterId\":0,\"lastReadTime\":\"1770000032000\",\"read\":false},{\"addShelfType\":2,\"bookId\":\"31000708475\",\"chapterId\":0,\"lastReadTime\":\"1769999886000\",\"read\":false}],\"recommendBooks\":[],\"innerBooks\":[],\"shelfStyleType\":1}",
+      "query_params": {
+        "timestamp": [
+          "1770054374901"
+        ]
+      },
+      "user_agent": "okhttp/4.10.0",
+      "content_type": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://api-akm.goodreels.com/hwycclientreels/chapter/exit/recommend?timestamp=1770054380674",
+      "path": "/hwycclientreels/chapter/exit/recommend",
+      "method": "POST",
+      "sign": "naGAQZTXZNUZg+YWO1o7kr6d3F48drjDa7vNxDIoHCcREqhrfqCLOK1RZneCxmeN8FfsXFrSkXFbLLoTwXtoTUPUQt8l3xmRgHFpYU/3tAQ61pwi3MnoChEB/l2nzj9rDI6YrGdxToJq1ifUNJfpSsONP4CcGw2nCZJ818rTkD8RuTrDje1Z8nGq79FNZ3ILs6QvDjQ2BEHvMuHskzd8FX+RGBGKmJ0ptDFdc2IwSunVFIMUAUwIE21rx/GIbSZ4rAWNWJ5pbMRqD0gKOnpq9RD3oavpU02ua6uzehIpn9t8G61ciP+DbX9a9BnPzzGmdtqUBdlw/R+Wb2DTc8bcqw==",
+      "timestamp": "",
+      "auth": "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF",
+      "post_data": "{\"bookId\":\"31001070612\"}",
+      "query_params": {
+        "timestamp": [
+          "1770054380674"
+        ]
+      },
+      "user_agent": "okhttp/4.10.0",
+      "content_type": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://api-akm.goodreels.com/hwycclientreels/reader/init?timestamp=1770054380674",
+      "path": "/hwycclientreels/reader/init",
+      "method": "POST",
+      "sign": "LvAxaCJos/jL8kqr94QL4Bq6QjpXS6TR6d+AiCBa+c8S7BH9Y8zu88yVgfJ8vp6nGKg1IhgdPAXeSFiC9Bt7vs/6ztsy6VQ2rQYb1J8ZQEIn1YoTA+x3HB2B3jbEa6uBwYW8YBb/mhUmXGgWM/nk9SQPI1xhnsbFkv2QKMYynyw3UUE5bp6OLOEUdVuECXOfN8M9euMeViDDpSFxGTEm0JnJrayRGemKw+7kqIyQEp5VPeKqgjG/j2oc5HyKQKwjXJ4I/IqRrCHRx48GrJVVVuD4Yti24nDLony/CzB7VJUs1X1NtNjuqBQ+vsRBtvThjW8AFrtHOHXPtjeLCtSouQ==",
+      "timestamp": "",
+      "auth": "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF",
+      "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001070612\"}",
+      "query_params": {
+        "timestamp": [
+          "1770054380674"
+        ]
+      },
+      "user_agent": "okhttp/4.10.0",
+      "content_type": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://api-akm.goodreels.com/hwycclientreels/chapter/list?timestamp=1770054380743",
+      "path": "/hwycclientreels/chapter/list",
+      "method": "POST",
+      "sign": "mJbEnpUqlof2SGftQ+DihdhIuF824y5wEFJyhEm/GOpUw39c3aY0BbpPPj6hOV2CfjZTrgjykLfTdBE7xKQ/cl6gVSefm0fCfxWwk7aGDg/pg0jAkS5I/sBCqScKqvPhUjnH+6ZqY/5tz046cAEdxqsmjm1KSf94txQuq+pjh3c+ghgyWMz7twO9droxLIL/Y9ACzOqQqCeMsxjIFsqddK7tV76zcT5i1e8y0kM6sZyDTDI3HgmGHxBvrTjJ5YP9mFJqLp0z4wK2H+ADJ3aW6Y8s1X5npz9XAsdiFxv9oQvrozs0MyNLVde77vz3J43V7ao6s4aKhFH6L8efrxekHw==",
+      "timestamp": "",
+      "auth": "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF",
+      "post_data": "{\"latestChapterId\":13366467,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001070612\"}",
+      "query_params": {
+        "timestamp": [
+          "1770054380743"
+        ]
+      },
+      "user_agent": "okhttp/4.10.0",
+      "content_type": "application/json; charset=UTF-8"
+    }
+  ],
+  "unique_endpoints": [
+    "/hwycclientreels/app/common/conf",
+    "/hwycclientreels/ad/unit",
+    "/hwycclientreels/book/search/hot/words",
+    "/hwycclientreels/shelf/sync",
+    "/hwycclientreels/home/nav/list",
+    "/hwycclientreels/app/global",
+    "/hwycclientreels/profile/user/info",
+    "/hwycclientreels/chapter/end/recommend",
+    "/hwycclientreels/app/custom/conf",
+    "/hwycclientreels/app/async",
+    "/hwycclientreels/shelf/add",
+    "/hwycclientreels/pay/sku/list",
+    "/hwycclientreels/shelf/list/recently",
+    "/hwycclientreels/book/foru/introduction",
+    "/hwycclientreels/book/read/status/update",
+    "/hwycclientreels/chapter/list",
+    "/hwycclientreels/app/functional-notify",
+    "/hwycclientreels/book/share/url",
+    "/hwycclientreels/chapter/accomplish",
+    "/hwycclientreels/book/recommend",
+    "/hwycclientreels/app/activity",
+    "/hwycclientreels/book/quick/open",
+    "/hwycclientreels/reader/init",
+    "/hwycclientreels/chapter/load",
+    "/hwycclientreels/app/device/update",
+    "/hwycclientreels/home/index",
+    "/hwycclientreels/chapter/exit/recommend",
+    "/hwycclientreels/app/bootstrap"
+  ],
+  "analysis_results": {
+    "signatures_are_dynamic": true,
+    "timestamps_used": false,
+    "average_sign_length": 344.0
+  }
+}

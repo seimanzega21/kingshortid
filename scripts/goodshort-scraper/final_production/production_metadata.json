@@ -1,0 +1,48 @@
+{
+  "31000908479": {
+    "bookId": "31000908479",
+    "sourceId": "31000908479",
+    "source": "goodshort",
+    "title": "Kisah Tersembunyi Sang Putri",
+    "alternativeTitle": "Indonesian Short Drama",
+    "description": "Kisah Tersembunyi Sang Putri adalah serial drama yang menampilkan cerita sweet romance dengan sentuhan modern. Menyajikan konflik yang menegangkan dan chemistry yang memukau.",
+    "genre": "Sweet Romance",
+    "category": "Drama Indonesia",
+    "tags": [
+      "Pernikahan Pengganti",
+      "Short Drama",
+      "Rahasia",
+      "Emosional",
+      "Modern"
+    ],
+    "cover": "/api/covers/31000908479.jpg",
+    "coverLocal": "D:\\kingshortid\\scripts\\goodshort-scraper\\final_production\\covers\\31000908479.jpg",
+    "totalEpisodes": 1,
+    "episodes": [
+      {
+        "episodeNumber": 1,
+        "title": "Episode 1",
+        "description": "Episode 1 dari Kisah Tersembunyi Sang Putri",
+        "videoUrl": "/api/videos/31000908479/episode-1.m3u8",
+        "videoLocal": "D:\\kingshortid\\scripts\\goodshort-scraper\\downloads\\31000908479\\episode_411618.mp4",
+        "duration": 180,
+        "isFree": true
+      }
+    ],
+    "language": "id",
+    "country": "Indonesia",
+    "status": "completed",
+    "quality": "HD",
+    "rating": 4.3,
+    "views": 292574,
+    "isFree": true,
+    "isPremium": false,
+    "productionMetadata": {
+      "generatedTitle": true,
+      "hasRealCover": true,
+      "dataSource": "smart_generation",
+      "needsEnrichment": true,
+      "coverSource": "cdn_download"
+    }
+  }
+}

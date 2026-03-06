@@ -1,0 +1,29 @@
+{
+  "created": "2026-02-02",
+  "total_dramas": 3,
+  "total_episodes": 16,
+  "total_size_mb": 181.15713024139404,
+  "dramas": [
+    {
+      "id": "31001221963",
+      "title": "Kakek Kecil 2, Perebutan Tahta",
+      "folder": "kakek_kecil_2_perebutan_tahta",
+      "episodes": 5,
+      "size_mb": 64.26176357269287
+    },
+    {
+      "id": "31001033249",
+      "title": "Cinta Di Era 80-an",
+      "folder": "cinta_di_era_80-an",
+      "episodes": 6,
+      "size_mb": 59.32195854187012
+    },
+    {
+      "id": "31000856120",
+      "title": "Kisah Pacar Menjadi Tante",
+      "folder": "kisah_pacar_menjadi_tante",
+      "episodes": 5,
+      "size_mb": 57.573408126831055
+    }
+  ]
+}

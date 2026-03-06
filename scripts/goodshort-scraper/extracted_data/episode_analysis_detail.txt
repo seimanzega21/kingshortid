@@ -1,0 +1,213 @@
+======================================================================
+DETAILED EPISODE ANALYSIS REPORT
+======================================================================
+
+======================================================================
+DRAMA: Kakek Kecil 2, Perebutan Tahta
+Book ID: 963 | Episode ID: 31001221963
+Total Expected Episodes: 59
+======================================================================
+
+Total Segments Captured: 168
+Unique Video Parts: 6 parts
+
+Part 1: dfb7xsizdu
+  Segments: 43 pieces (#000 to #042)
+  Duration: ~7.2 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/dfb7xsizdu/720p/pnwrouidmb_720p_000000...
+
+Part 2: djfkasig3m
+  Segments: 2 pieces (#000 to #001)
+  Duration: ~0.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/djfkasig3m/720p/yqrnpu5ewc_720p_000000...
+
+Part 3: klv7eizv3e
+  Segments: 32 pieces (#000 to #031)
+  Duration: ~5.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/klv7eizv3e/720p/xqkua3fpyz_720p_000000...
+
+Part 4: s396mj4lps
+  Segments: 27 pieces (#000 to #026)
+  Duration: ~4.5 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/s396mj4lps/720p/blzuwfhp3r_720p_000000...
+
+Part 5: t5hgdagimt
+  Segments: 32 pieces (#000 to #031)
+  Duration: ~5.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/t5hgdagimt/720p/viisdqecsr_720p_000000...
+
+Part 6: uflhg25pcv
+  Segments: 32 pieces (#000 to #031)
+  Duration: ~5.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/uflhg25pcv/720p/ggnz91l5vb_720p_000000...
+
+--- ANALYSIS ---
+Total Duration: ~28.0 minutes
+Average per Part: ~28 segments
+
+INTERPRETATION:
+  → Likely 6 DIFFERENT EPISODES captured
+  → Each part represents a separate episode
+
+======================================================================
+DRAMA: Cinta Di Era 80-an
+Book ID: 249 | Episode ID: 31001033249
+Total Expected Episodes: 61
+======================================================================
+
+Total Segments Captured: 154
+Unique Video Parts: 7 parts
+
+Part 1: e6opmyydxp
+  Segments: 33 pieces (#000 to #032)
+  Duration: ~5.5 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/e6opmyydxp/720p/rdxhqfsgys_720p_000000...
+
+Part 2: hnqkutzkrc
+  Segments: 31 pieces (#000 to #028)
+  Duration: ~5.2 minutes
+  Complete: GAPS DETECTED
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/hnqkutzkrc/720p/j0gngzibvc_720p_000000...
+
+Part 3: mrcelftjqg
+  Segments: 23 pieces (#000 to #022)
+  Duration: ~3.8 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/mrcelftjqg/720p/k73aoyifqz_720p_000000...
+
+Part 4: qbnuiqrofy
+  Segments: 2 pieces (#000 to #001)
+  Duration: ~0.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/qbnuiqrofy/720p/mbz3f2ahp3_720p_000000...
+
+Part 5: vmx6dve9g3
+  Segments: 20 pieces (#000 to #019)
+  Duration: ~3.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/vmx6dve9g3/720p/ukrxsgxhhd_720p_000000...
+
+Part 6: vvvkydi92h
+  Segments: 30 pieces (#000 to #029)
+  Duration: ~5.0 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/vvvkydi92h/720p/kcp3thtrm5_720p_000000...
+
+Part 7: zk2f8dpnal
+  Segments: 15 pieces (#000 to #014)
+  Duration: ~2.5 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/249/31001033249/492031/zk2f8dpnal/720p/nr1ctanuoo_720p_000000...
+
+--- ANALYSIS ---
+Total Duration: ~25.7 minutes
+Average per Part: ~22 segments
+
+INTERPRETATION:
+  → Likely 7 DIFFERENT EPISODES captured
+  → Each part represents a separate episode
+
+======================================================================
+DRAMA: Kisah Pacar Menjadi Tante
+Book ID: 120 | Episode ID: 31000856120
+Total Expected Episodes: 95
+======================================================================
+
+Total Segments Captured: 131
+Unique Video Parts: 6 parts
+
+Part 1: 51jzfgu7pl
+  Segments: 20 pieces (#000 to #019)
+  Duration: ~3.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/120/31000856120/378890/51jzfgu7pl/720p/3hrfpx4rbp_720p_000000...
+
+Part 2: 8fvzr1gcvo
+  Segments: 21 pieces (#000 to #020)
+  Duration: ~3.5 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/120/31000856120/378890/8fvzr1gcvo/720p/tcwoudh6jz_720p_000000...
+
+Part 3: kaoq2j3sw3
+  Segments: 26 pieces (#000 to #025)
+  Duration: ~4.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/120/31000856120/378890/kaoq2j3sw3/720p/hbigdwtqrp_720p_000000...
+
+Part 4: kqkx43zqfp
+  Segments: 40 pieces (#000 to #039)
+  Duration: ~6.7 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/120/31000856120/378890/kqkx43zqfp/720p/vhepjma6mm_720p_000000...
+
+Part 5: rik6ze5tdk
+  Segments: 22 pieces (#000 to #021)
+  Duration: ~3.7 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/120/31000856120/378890/rik6ze5tdk/720p/u2kmj8f9ic_720p_000000...
+
+Part 6: seriisykdy
+  Segments: 2 pieces (#000 to #001)
+  Duration: ~0.3 minutes
+  Complete: YES
+  Sample: https://v2-akm.goodreels.com/mts/books/120/31000856120/378890/seriisykdy/720p/0z4yj5bvev_720p_000000...
+
+--- ANALYSIS ---
+Total Duration: ~21.8 minutes
+Average per Part: ~22 segments
+
+INTERPRETATION:
+  → Likely 6 DIFFERENT EPISODES captured
+  → Each part represents a separate episode
+
+======================================================================
+OVERALL SUMMARY
+======================================================================
+
+Total Unique Videos Captured: 3
+Total Segments: 453
+
+Drama: Kakek Kecil 2, Perebutan Tahta
+  - Episodes Captured: Unknown episode number(s)
+  - Video Parts: 6 parts
+  - Total Segments: 168
+  - Est. Duration: ~28.0 minutes
+
+Drama: Cinta Di Era 80-an
+  - Episodes Captured: Unknown episode number(s)
+  - Video Parts: 7 parts
+  - Total Segments: 154
+  - Est. Duration: ~25.7 minutes
+
+Drama: Kisah Pacar Menjadi Tante
+  - Episodes Captured: Unknown episode number(s)
+  - Video Parts: 6 parts
+  - Total Segments: 131
+  - Est. Duration: ~21.8 minutes
+
+======================================================================
+CONCLUSION
+======================================================================
+
+✅ WHAT WE KNOW:
+  - 3 complete video captures (one per drama)
+  - All segments numbered sequentially (complete)
+  - All are 720p quality
+  - Total ~70 minutes of video content
+
+⚠️ WHAT WE DON'T KNOW:
+  - Which episode NUMBER these are (1? 5? 10?)
+  - Episode titles/names
+  - Whether these are first episodes or random ones
+
+💡 RECOMMENDATION:
+  - Treat as 'Episode 1' for each drama
+  - Upload to R2 as placeholder
+  - Add episode discovery later if needed

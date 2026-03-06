@@ -1,0 +1,674 @@
+﻿
+============================================================
+  melolo4.har ΓÇö Discovery Endpoints
+============================================================
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 43572 bytes
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 43588 bytes
+
+  i18n_novel/userapi/ab/result/
+    Response: 1008 bytes
+
+  i18n_novel/userapi/get_profile/v1/
+    Response: 6381 bytes
+
+  i18n_novel/userapi/get_config/v1/
+    Response: 6649 bytes
+
+  i18n_novel/userapi/get_profile/v1/
+    Response: 6381 bytes
+
+  i18n_novel/reader/history/list/v1/
+    Response: 138806 bytes
+    ≡ƒôÜ root.data.read_history: list[30] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 235350 bytes
+    ≡ƒôÜ root.data.data_list: list[59] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  service/settings/v3/
+    Response: 5240 bytes
+
+  https://abtest.tmtreader.com/common
+    Response: 37845 bytes
+
+  passport/account/info/v2/
+    Response: 2927 bytes
+
+  i18n_novel/book/bookshelf/list/v1/
+    Response: 22002 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 113557 bytes
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 43451 bytes
+
+  i18n_novel/search/front_page/v1/
+    Response: 86528 bytes
+    ≡ƒôÜ root.data[0].books: list[6] items
+       Keys: ['abstract', 'age_gate', 'author', 'book_id', 'book_name', 'book_status', 'book_type', 'category_info', 'category_v2_ids', 'color_dominate']
+       Names: ['Sang Raja Judi', 'Takdir Pedang dan Gadis Kesepi', 'Kakek Muda Pembawa Berkah', 'Kultivator Kuno di Era Digital', 'Investor Hoki Abadi']
+    ≡ƒôÜ root.data[1].books: list[6] items
+       Keys: ['abstract', 'age_gate', 'author', 'book_id', 'book_name', 'book_status', 'book_type', 'category_info', 'category_v2_ids', 'color_dominate']
+       Names: ['Hidup Kembali dengan 3 Istri', 'Paman Mantanku Menggila', 'Nafsu yang Membara', 'Bukan Aku yang Dipilih', 'Mual Saat Hamil, CEO Kalap']
+    ≡ƒôÜ root.data[2].books: list[6] items
+       Keys: ['abstract', 'age_gate', 'author', 'book_id', 'book_name', 'book_status', 'book_type', 'category_info', 'category_v2_ids', 'comic_show_type']
+       Names: ['Pedang Purba Penentu Takdir', 'Kehidupanku Bersamanya', 'Cinta di Balik Penyamaran', 'Suamiku, Pria Idamanku!', 'Cinta di Luar Dugaan']
+
+  novel/player/multi_video_model/v1/
+    Response: 13850 bytes
+
+  novel/player/multi_video_detail/v1/
+    Response: 98103 bytes
+    ≡ƒôÜ root.data.7589214095258160133.video_data.video_list: list[100] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'duration', 'episode_cover', 'series_id', 'title', 'user_digg']
+       Names: ['', '', '', '', '']
+
+  v2/bytesync/api/pipeline
+    Response: 3388 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 235360 bytes
+    ≡ƒôÜ root.data.data_list: list[59] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/userapi/get_vip_info/v1/
+    Response: 892 bytes
+
+  i18n_novel/trade/vip/product_list_v3/v1/
+    Response: 3861 bytes
+
+  i18n_novel/reader/history/list/v1/
+    Response: 138808 bytes
+    ≡ƒôÜ root.data.read_history: list[30] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_detail/v1/
+    Response: 164472 bytes
+    ≡ƒôÜ root.data.7597714478100122677.video_data.video_list: list[80] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'duration', 'episode_cover', 'series_id', 'title', 'user_digg']
+       Names: ['', '', '', '', '']
+    ≡ƒôÜ root.data.7600673585476144181.video_data.video_list: list[82] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 28961 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 235356 bytes
+    ≡ƒôÜ root.data.data_list: list[59] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 138810 bytes
+    ≡ƒôÜ root.data.read_history: list[30] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 14207 bytes
+
+  novel/player/video_model/v1/
+    Response: 14181 bytes
+
+  novel/player/multi_video_detail/v1/
+    Response: 74871 bytes
+    ≡ƒôÜ root.data.7582454785920470021.video_data.video_list: list[72] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'duration', 'episode_cover', 'series_id', 'title', 'user_digg']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 44068 bytes
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 43756 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14562 bytes
+
+  novel/player/video_detail/v1/
+    Response: 80180 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[79] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 41538 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13824 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 245117 bytes
+    ≡ƒôÜ root.data.data_list: list[61] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 149842 bytes
+    ≡ƒôÜ root.data.read_history: list[32] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 44485 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28984 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27869 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 92038 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 69978 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27886 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27874 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28242 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28941 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27518 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27501 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 92735 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 87020 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28248 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13838 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28263 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13848 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14208 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28266 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 89688 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14541 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 85126 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 29342 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28172 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27501 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28972 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14936 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28621 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14518 bytes
+
+  novel/player/video_detail/v1/
+    Response: 71260 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[70] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 42330 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14199 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 249002 bytes
+    ≡ƒôÜ root.data.data_list: list[62] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 154336 bytes
+    ≡ƒôÜ root.data.read_history: list[33] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 86034 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 84774 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28989 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14575 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 41952 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28249 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28253 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27896 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 92672 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 85195 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14192 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28614 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 43711 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28969 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27889 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 92908 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28596 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 83724 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28236 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 56702 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27891 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 57485 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 90168 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 84423 bytes
+
+  novel/player/video_detail/v1/
+    Response: 75070 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[73] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 41941 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13845 bytes
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 42092 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 252923 bytes
+    ≡ƒôÜ root.data.data_list: list[63] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 158886 bytes
+    ≡ƒôÜ root.data.read_history: list[34] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 93166 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 93855 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 88042 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 89751 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14166 bytes
+
+  novel/player/video_detail/v1/
+    Response: 65521 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[68] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 41939 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13845 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 256777 bytes
+    ≡ƒôÜ root.data.data_list: list[64] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 163381 bytes
+    ≡ƒôÜ root.data.read_history: list[35] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 89763 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14211 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 93046 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14203 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14564 bytes
+
+  novel/player/video_detail/v1/
+    Response: 73000 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[71] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 41552 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13840 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 260154 bytes
+    ≡ƒôÜ root.data.data_list: list[65] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 167374 bytes
+    ≡ƒôÜ root.data.read_history: list[36] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 55638 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14203 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 92388 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28949 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13827 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28241 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 42632 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27883 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13836 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 88092 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 69692 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28260 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27877 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 88621 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 41212 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 69664 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 56364 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 29714 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27874 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27905 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14560 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 93208 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 70386 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28252 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27529 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27874 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 27532 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 28622 bytes
+
+  novel/player/video_detail/v1/
+    Response: 88574 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[87] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 41573 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14216 bytes
+
+  i18n_novel/bookmall/tab/v1/
+    Response: 42964 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 263564 bytes
+    ≡ƒôÜ root.data.data_list: list[66] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 171400 bytes
+    ≡ƒôÜ root.data.read_history: list[37] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 93096 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 93121 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 84972 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 89112 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 90852 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 91434 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 92455 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 13854 bytes
+
+  novel/player/video_detail/v1/
+    Response: 100125 bytes
+    ≡ƒôÜ root.data.video_data.video_list: list[100] items
+       Keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 41207 bytes
+
+  novel/player/multi_video_model/v1/
+    Response: 14205 bytes
+
+  i18n_novel/reader/book_history/list/v1/
+    Response: 268452 bytes
+    ≡ƒôÜ root.data.data_list: list[67] items
+       Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+       Names: ['', '', '', '', '']
+
+  i18n_novel/reader/history/list/v1/
+    Response: 176923 bytes
+    ≡ƒôÜ root.data.read_history: list[38] items
+       Keys: ['book_id', 'last_read_item_info']
+       Names: ['', '', '', '', '']
+
+  novel/player/multi_video_model/v1/
+    Response: 14158 bytes
+
+  i18n_novel/bookmall/cell/change/v1/
+    Response: 88905 bytes
+
+============================================================
+  AUTH PARAMS ANALYSIS
+============================================================
+
+  Endpoint: /i18n_novel/bookmall/tab/v1/
+    _rticket: 1770512248596
+    ac: wifi
+    aid: 645713
+    app_language: id
+    app_name: Melolo
+    app_region: US
+    carrier_region: US
+    carrier_region_v2: 310
+    cdid: caef3591-ee5d-4810-b654-83e839720bb3
+    channel: gp
+    cid: 79
+    client_req_reason: default
+    client_req_type: 3
+    cold_start_hot_on_top: false
+    current_region: US
+    device_brand: Honor
+    device_id: 7604186720909182484
+    device_platform: android
+    device_type: OXF-AN10
+    disable_pager: false
+    dpi: 320
+    enable_cdn: false
+    feature_switch: {"enable_drama_infinite_filter":true,"enable_filter_page":fa...
+    finish_cold_start: true
+    iid: 7604188784200337173
+    is_preload: true
+    language: in
+    last_tab_type: 0
+    limit: 0
+    manifest_version_code: 51617
+    max_abstract_len: 517
+    mcc_mnc: 310005
+    offset: 0
+    openudid: 10937014c83e777e
+    os: android
+    os_api: 28
+    os_version: 9
+    preference_strategy: 0
+    real_time_feature: {"feature_exit_reader":{}}
+    recommend_session_filter_book_ids: []
+    repager: false
+    resolution: 720*1280
+    ssmix: a
+    sys_language: en
+    sys_region: US
+    tab_scene: -1
+    time_zone: Asia/Bangkok
+    ui_language: en
+    update_version_code: 51617
+    user_language: id
+    version_code: 51617
+    version_name: 5.1.6

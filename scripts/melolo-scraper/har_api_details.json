@@ -1,0 +1,34 @@
+{
+  "api_urls": [
+    {
+      "url": "https://api.tmtreader.com/i18n_novel/bookmall/tab/v1/?max_abstract_len=0&has_show_newcomers=false&offset=0&is_preload=true&recommend_enable_write_client_session_cache_only=false&repager=false&preference_strategy=0&enable_new_show_mechanism=false&enable_cdn=false&time_zone=Asia%2FBangkok&is_preference_force_insert=false&cold_start_hot_on_top=false&tab_scene=3&tab_type=2&limit=0&disable_pager=false&finish_cold_start=false&last_tab_type=0&iid=7604188784200337173&device_id=7604186720909182484&ac=wifi&channel=gp&aid=645713&app_name=Melolo&version_code=51617&version_name=5.1.6&device_platform=android&os=android&ssmix=a&device_type=OXF-AN10&device_brand=Honor&language=in&os_api=28&os_version=9&openudid=10937014c83e777e&manifest_version_code=51617&resolution=720*1280&dpi=320&update_version_code=51617&_rticket=1770512265163&current_region=US&carrier_region=US&app_language=id&sys_language=en&app_region=US&sys_region=US&mcc_mnc=310005&carrier_region_v2=310&user_language=id&ui_language=en&cdid=caef3591-ee5d-4810-b654-83e839720bb3",
+      "method": "GET",
+      "headers": {
+        "Accept-Encoding": "gzip",
+        "Accept": "application/json; charset=utf-8,application/x-protobuf",
+        "X-Xs-From-Web": "false",
+        "Age-Range": "4",
+        "sdk-version": "2",
+        "X-Tt-Token": "03fa162be41f79fe62880563813eb6788d0403abd4935ff1f108a354224667d08b9a8108cf8a44669830b6d0f2b8f9fe77e444e84c2a5307a3971d3da52b262ce42c5226da98f0695feae9e3433e462690e19-1.0.0",
+        "passport-sdk-version": "50357",
+        "x-vc-bdturing-sdk-version": "2.2.1.i18n",
+        "x-tt-store-region": "id",
+        "x-tt-store-region-src": "uid",
+        "User-Agent": "com.worldance.drama/51617 (Linux; U; Android 9; in; OXF-AN10; Build/PQ3A.190705.09121607;tt-ok/4.12.0.2)",
+        "X-Ladon": "6m/zGc2qeT68zcBD79jbLUOPli2/LWcVtWym5Rwiuojh+2Az",
+        "X-Khronos": "1770512265",
+        "X-Argus": "M9LAVFUymOWEBnYh0F8ve1nbsrNcuEcKM7PakIqOcUq7YOijpUocTQXN0qb6RXPS/2uLCm3TsobFkZ/VjwOvPaANBm/lQAYCFkgIVovKkyo1B9FGJhAIpfmMObucBuGVPCx19tE6U5xaKYnrACAU9qvHj0yiH9KKsyWoye+mD/PhBie224EczE0lS5jKtKPfe87sl0NPhh9QPGWuyPV3eSjHXzYajw5oL1XgVymwoFsYn64fhDPrJmMfY/QDdmCF6Q/zi+eC2dYraSI3s5cQ4vYDj9QDia/ZYh8+fJK13/oK86HaqZsr8EPw8AhyShZS/ivvtiOviTuvDHJjRn5g6fVmRDZh/dVDh6qmWTMBg2EgoDr0ej/t5CfgxU6labZzMB6SkrZu1V9QOu/G+zdY/FcSglFG/4fj04TLz45a2JsdmDEMld44/kzbOcMZXE3RBrSMECDtrxFzqLVugaQ9Eky4phynYNLq7vhLfoOib8u03f9elb9QXJ5h8zJK3n/k9IHZHAjqxIxrxyjTGR6mz4XcrdKzGMU10rY8fAMqO7CbHQ==",
+        "X-Gorgon": "8404408b4000b9bedf52748c5b391460f05e615258838171324a",
+        "Host": "api.tmtreader.com",
+        "Connection": "Keep-Alive",
+        "Cookie": "install_id=7604188784200337173; ttreq=1$d31bacaf02bb5d6ec8bc0ab04e8c0acd556b7dcf; passport_csrf_token=fcbe4c61f91880e775537f72a9a3f452; passport_csrf_token_default=fcbe4c61f91880e775537f72a9a3f452; odin_tt=73a0128a54eb5d9756ae5d248cc4b0c93906b36d19f409c641ea669aaec4132e7bc5f3bf1a39f838592dd360af440839ac3562397c7236b25b0f75d94659e93d08c3856577cb3f0d99ca4563bff0d270; passport_mfa_token=CjlUf%2FOGvPL%2BjxqvjK%2BWK%2BaGJ9E7KVqCOv1OJg16KZBNPWzrvIlObZpItoyHHT%2B5IjOYANaUDKnkvVwaSQo8AAAAAAAAAAAAAFALE3nlDpg%2BnXXieL6lsyO40YOPcn%2F4NNN%2FkwpJsBtPr%2FQLchr3rGJzOqK4oLKzyqcvEOWCiQ4Y16mI7w4iAQQrlG0L; d_ticket=052e25fd35a7059f0139730ebaace49610c1f; sid_guard=fa162be41f79fe62880563813eb6788d%7C1770488263%7C5184000%7CWed%2C+08-Apr-2026+18%3A17%3A43+GMT; uid_tt=375312a841b85f2a1b7f095a46b85fe67a377bb3c45ffb2059fdfaaad2b4c815; uid_tt_ss=375312a841b85f2a1b7f095a46b85fe67a377bb3c45ffb2059fdfaaad2b4c815; sid_tt=fa162be41f79fe62880563813eb6788d; sessionid=fa162be41f79fe62880563813eb6788d; sessionid_ss=fa162be41f79fe62880563813eb6788d; store-idc=mya; store-country-code=id; store-country-code-src=uid; msToken=j_4x-psu3rOogDLfllXtbsSDHPGLP-m56TqcVeM1Q_GwboLo5vaFVl57D4IcjIIrf9CuAU8HtHbiz-3YYkXU7oeNO89m7LWH1krRBNn_IKg="
+      },
+      "covers_count": 10,
+      "novel_ids": [],
+      "har": "melolo4.har"
+    }
+  ],
+  "headers": {},
+  "sample_covers": [],
+  "novel_detail_apis": []
+}

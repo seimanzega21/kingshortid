@@ -1,0 +1,47 @@
+[
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885509104{\"addRecently\":true,\"chapterId\":\"15315994\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":71581,\"bookId\":\"31001190327\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 470
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885523800{\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 370
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885523805{\"chapterId\":-1,\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 385
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885523800{\"priceCurrencyCode\":\"-1\",\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 395
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885523804{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 428
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885526740{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 430
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885527568{\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 370
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885527592{\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 370
+  },
+  {
+    "type": "sign_data",
+    "input": "timestamp=1769885527588{\"chapterId\":\"12398575\",\"chapterContentVersion\":0,\"bookId\":\"31001004890\"}3a527bd0-4a98-47e7-ac47-f592c165d870ffffffffcf4ce71dcf4ce71d00000000Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF919326DD9A742D064502468E1BF11144com.newreading.goodreels",
+    "length": 419
+  }
+]

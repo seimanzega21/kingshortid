@@ -1,0 +1,53 @@
+=== DUPLICATE CHECK ===
+
+[Tangi Penyesalan Bos Cantik] — 1 match(es)
+  Broken ID: cmlkd3jl408sr13mdwb3z00xe
+  >>> UNIQUE — fix cover only
+
+[Tangkap Harta Karun Di Kampung] — 1 match(es)
+  Broken ID: cmlkd3jny08vk13mde1sm5xpe
+  >>> UNIQUE — fix cover only
+
+[Sadar Akan Realita] — 1 match(es)
+  Broken ID: cmlkd335g082m13md4l8sy2gk
+  >>> UNIQUE — fix cover only
+
+[Salah Meja Nikah Dengan Dokter] — 1 match(es)
+  Broken ID: cmlkd33al084b13mddoez6bxe
+  >>> UNIQUE — fix cover only
+
+[Nikah Instan Cinta Tak Terduga] — 1 match(es)
+  Broken ID: cmlkd2nkk06ep13mdctgduhwg
+  >>> UNIQUE — fix cover only
+
+[Harta Tahta Dan Ketulusan] — 1 match(es)
+  Broken ID: cmlkd1mja039a13mdziuyhnn0
+  >>> UNIQUE — fix cover only
+
+[Diusir Dari Rumah Saya Mewarisi Miliaran] — 1 match(es)
+  Broken ID: cmlkd1a9z02np13md4skw9u6z
+  >>> UNIQUE — fix cover only
+
+[Dimanja Habis Habisan Oleh Bos] — 1 match(es)
+  Broken ID: cmlkd18oz026w13md09zpb4w4
+  >>> UNIQUE — fix cover only
+
+
+=== AHLI PENGOBATAN SAKTI ===
+
+  Title: Ahli Pengobatan Sakti
+  ID: cmleexll8004hhx5e4qx99qtv
+  Cover: https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/cover.jpg
+  TotalEps: 123
+
+=== SUMMARY ===
+To DELETE (duplicates): 0
+To FIX COVER (unique): 8
+  - Tangi Penyesalan Bos Cantik (cmlkd3jl408sr13mdwb3z00xe)
+  - Tangkap Harta Karun Di Kampung (cmlkd3jny08vk13mde1sm5xpe)
+  - Sadar Akan Realita (cmlkd335g082m13md4l8sy2gk)
+  - Salah Meja Nikah Dengan Dokter (cmlkd33al084b13mddoez6bxe)
+  - Nikah Instan Cinta Tak Terduga (cmlkd2nkk06ep13mdctgduhwg)
+  - Harta Tahta Dan Ketulusan (cmlkd1mja039a13mdziuyhnn0)
+  - Diusir Dari Rumah Saya Mewarisi Miliaran (cmlkd1a9z02np13md4skw9u6z)
+  - Dimanja Habis Habisan Oleh Bos (cmlkd18oz026w13md09zpb4w4)

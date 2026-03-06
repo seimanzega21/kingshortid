@@ -1,0 +1,35 @@
+{
+    "name": "goodshort-scraper",
+    "version": "1.0.0",
+    "description": "Scraper for GoodShort drama platform",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "ts-node src/index.ts",
+        "test-api": "ts-node src/test-api.ts",
+        "scrape": "ts-node src/scrape-episode.ts",
+        "scrape-complete": "ts-node src/complete-scraper.ts",
+        "batch-scrape": "ts-node src/batch-scraper.ts",
+        "download": "ts-node src/batch-download-multi.ts",
+        "upload": "ts-node src/upload-to-r2-multi.ts",
+        "import": "ts-node src/import-goodshort.ts",
+        "analyze-api": "ts-node src/analyze-api-capture.ts"
+    },
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.980.0",
+        "@paralleldrive/cuid2": "^3.3.0",
+        "@prisma/client": "^5.0.0",
+        "axios": "^1.6.0",
+        "cheerio": "^1.2.0",
+        "dotenv": "^16.0.0",
+        "pg": "^8.18.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/pg": "^8.16.0",
+        "prisma": "^5.0.0",
+        "ts-node": "^10.9.0",
+        "typescript": "^5.0.0"
+    }
+}

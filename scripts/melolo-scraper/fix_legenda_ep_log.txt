@@ -1,0 +1,41 @@
+﻿============================================================
+  FIXED RESCRAPE: Legenda Naga Kembali Ep 16 & 17
+  Strategy: Full download + ffmpeg copy faststart + verify
+============================================================
+[1] Fetching episode URLs...
+    Ep 16: 720P ΓåÆ https://reeltv.janzhoutec.com/oYUAiQJ30NAAbG6nAlKOIfn5TsASE05EI0uDg3?a...
+    Ep 17: 720P ΓåÆ https://reeltv.janzhoutec.com/okqfHMOlmCFZBZmg6fbfRWAEAYn4I8HfakMAQc?a...
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  Episode 16 (720P)
+    Downloading full file...
+    Downloaded: 9.89 MB (10,374,878 bytes)
+  Raw: 9.89 MB
+    Applying faststart (copy mode)...
+    Faststart OK: 9.89 MB
+    VERIFY OK: duration=101.6s
+    Uploading to R2: dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+    Upload OK: https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+    Updating DB ep 16...
+    Drama DB ID: o0e4lcfzysy8c3e3abwhxnbm
+    DB OK: ep 16 updated
+  Ep 16: DONE ΓåÆ https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  Episode 17 (720P)
+    Downloading full file...
+    Downloaded: 6.49 MB (6,803,758 bytes)
+  Raw: 6.49 MB
+    Applying faststart (copy mode)...
+    Faststart OK: 6.49 MB
+    VERIFY OK: duration=74.3s
+    Uploading to R2: dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+    Upload OK: https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+    Updating DB ep 17...
+    Drama DB ID: o0e4lcfzysy8c3e3abwhxnbm
+    DB OK: ep 17 updated
+  Ep 17: DONE ΓåÆ https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+
+============================================================
+  SELESAI! Coba play ulang di browser.
+============================================================

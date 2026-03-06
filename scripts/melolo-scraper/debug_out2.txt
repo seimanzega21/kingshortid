@@ -1,0 +1,187 @@
+﻿
+============================================================
+  melolo2.har
+============================================================
+
+--- Entry 1 ---
+  ALL video_data keys (33 total):
+    abstract_tags: list[0]
+    age_gate_info: dict keys=['age_gate', 'age_gate_map']
+    audit_status: 1
+    category_schema: '[{"category_id":34,"name":"Harem","schema":"dragon645713://categorySearch?catego...'
+    content_type: 1
+    digg_cnt: 0
+    disable_insert_ad: True
+    download_config: dict keys=['can_download']
+    duration: 7830
+    enable_vision_product: True
+    episode: True
+    episode_cnt: 64
+    episode_right_text: Total 64 episodes
+    followed: False
+    followed_cnt: 5742
+    has_digg: False
+    insert_ad_rit_type: 0
+    rec_tags: list[0]
+    record_info: dict keys=['record_number', 'show']
+    secondary_infos: list[0]
+    series_color_hex: 
+    series_cover: 'https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/cd75a6464bf39543db7a2f8db...'
+    series_id: 7602855038116957237
+    series_id_str: 7602855038116957237
+    series_intro: 'Dengan latar belakang fantasi yang fiktif, seorang pemuda bertekad kuat menghada...'
+    series_play_cnt: 1000
+    series_status: 1
+    series_title: Sang Penguasa
+    share_info: dict keys=['allow_share', 'share_cnt', 'show_options_entrance', 'show_player_entrance']
+    status: 1
+    support_listen: False
+    video_list: list[64]
+      [0] keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+      [0].vid = 7602858943911562245
+    video_platform: 3
+
+  series_id: 7602855038116957237
+  book_name: 
+  video_list: 64 items
+  total_episode: 0
+  series_cover: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/cd75a6464bf39543db7a2f8db...
+
+--- Entry 2 ---
+  ALL video_data keys (33 total):
+    abstract_tags: list[0]
+    age_gate_info: dict keys=['age_gate', 'age_gate_map']
+    audit_status: 1
+    category_schema: '[{"category_id":34,"name":"Harem","schema":"dragon645713://categorySearch?catego...'
+    content_type: 1
+    digg_cnt: 0
+    disable_insert_ad: True
+    download_config: dict keys=['can_download']
+    duration: 7830
+    enable_vision_product: True
+    episode: True
+    episode_cnt: 64
+    episode_right_text: Total 64 episodes
+    followed: False
+    followed_cnt: 5743
+    has_digg: False
+    insert_ad_rit_type: 0
+    rec_tags: list[0]
+    record_info: dict keys=['record_number', 'show']
+    secondary_infos: list[0]
+    series_color_hex: 
+    series_cover: 'https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/cd75a6464bf39543db7a2f8db...'
+    series_id: 7602855038116957237
+    series_id_str: 7602855038116957237
+    series_intro: 'Dengan latar belakang fantasi yang fiktif, seorang pemuda bertekad kuat menghada...'
+    series_play_cnt: 1000
+    series_status: 1
+    series_title: Sang Penguasa
+    share_info: dict keys=['allow_share', 'share_cnt', 'show_options_entrance', 'show_player_entrance']
+    status: 1
+    support_listen: False
+    video_list: list[64]
+      [0] keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+      [0].vid = 7602858943911562245
+    video_platform: 3
+
+  series_id: 7602855038116957237
+  book_name: 
+  video_list: 64 items
+  total_episode: 0
+  series_cover: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/cd75a6464bf39543db7a2f8db...
+
+  Total video_detail entries: 11
+
+============================================================
+  melolo3.har
+============================================================
+
+--- Entry 1 ---
+  ALL video_data keys (32 total):
+    abstract_tags: list[0]
+    age_gate_info: dict keys=['age_gate', 'age_gate_map']
+    audit_status: 1
+    category_schema: '[{"category_id":702,"name":"Kehidupan perkotaan","schema":"dragon645713://catego...'
+    content_type: 1
+    digg_cnt: 0
+    disable_insert_ad: True
+    download_config: dict keys=['can_download']
+    enable_vision_product: True
+    episode: True
+    episode_cnt: 87
+    episode_right_text: Total 87 episodes
+    followed: False
+    followed_cnt: 77403
+    has_digg: False
+    insert_ad_rit_type: 0
+    rec_tags: list[0]
+    record_info: dict keys=['record_number', 'show']
+    secondary_infos: list[0]
+    series_color_hex: #302020
+    series_cover: 'https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/e6c373be57b5874183d9b0537...'
+    series_id: 7575423530993454133
+    series_id_str: 7575423530993454133
+    series_intro: 'Pertapa yang miskin nggak mampu biayai muridnya, Maya. Maya dibimbing berlindung...'
+    series_play_cnt: 1000
+    series_status: 1
+    series_title: Guru Kecil Genius
+    share_info: dict keys=['allow_share', 'share_cnt', 'show_options_entrance', 'show_player_entrance']
+    status: 1
+    support_listen: False
+    video_list: list[87]
+      [0] keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+      [0].vid = 7575427170776910901
+    video_platform: 3
+
+  series_id: 7575423530993454133
+  book_name: 
+  video_list: 87 items
+  total_episode: 0
+  series_cover: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/e6c373be57b5874183d9b0537...
+
+--- Entry 2 ---
+  ALL video_data keys (33 total):
+    abstract_tags: list[0]
+    age_gate_info: dict keys=['age_gate', 'age_gate_map']
+    audit_status: 1
+    category_schema: '[{"category_id":745,"name":"Identitas Tersembunyi","schema":"dragon645713://cate...'
+    content_type: 1
+    digg_cnt: 0
+    disable_insert_ad: True
+    download_config: dict keys=['can_download']
+    duration: 7878
+    enable_vision_product: True
+    episode: True
+    episode_cnt: 78
+    episode_right_text: Total 78 episodes
+    followed: False
+    followed_cnt: 52748
+    has_digg: False
+    insert_ad_rit_type: 0
+    rec_tags: list[0]
+    record_info: dict keys=['record_number', 'show']
+    secondary_infos: list[0]
+    series_color_hex: #202818
+    series_cover: 'https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e0...'
+    series_id: 7582070605378227253
+    series_id_str: 7582070605378227253
+    series_intro: 'Yovan, penerus Aliran Seribu Kayu, diremehkan istrinya, Jenna. Suatu hari, Jenna...'
+    series_play_cnt: 1000
+    series_status: 1
+    series_title: Jebakan di Meja Judi
+    share_info: dict keys=['allow_share', 'share_cnt', 'show_options_entrance', 'show_player_entrance']
+    status: 1
+    support_listen: False
+    video_list: list[78]
+      [0] keys: ['comment_count', 'content_type', 'cover', 'digged_count', 'disable_play', 'disclaimer_info', 'duration', 'episode_cover', 'series_id', 'title']
+      [0].vid = 7582081649517530117
+    video_platform: 3
+
+  series_id: 7582070605378227253
+  book_name: 
+  video_list: 78 items
+  total_episode: 0
+  series_cover: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e0...
+
+  Total video_detail entries: 6

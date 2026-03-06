@@ -1,0 +1,82 @@
+﻿======================================================================
+  1. bookmall/tab/v1/ ΓÇö MAIN BROWSE PAGE
+======================================================================
+
+  Response top keys: ['api_version', 'code', 'data', 'log_id', 'message']
+  data keys: ['book_tab_infos', 'select_tab_scene', 'select_tab_type']
+
+
+======================================================================
+  2. bookmall/cell/change/v1/ ΓÇö INFINITE SCROLL
+======================================================================
+
+  Request params (unique to cell/change):
+    cell_id: 7450059162446200848
+    offset: 18
+    tab_type: 0
+
+  Response keys: ['api_version', 'code', 'data', 'log_id', 'message']
+  data keys: ['cell', 'has_more', 'next_offset', 'session_id']
+  data.has_more: True
+
+  Total cell/change calls: 25
+  Total unique book_ids from cell/change: 0
+
+
+======================================================================
+  3. video_detail/v1/ ΓÇö REQUEST STRUCTURE
+======================================================================
+
+  Method: POST
+  PostData mimeType: application/json; charset=utf-8
+  Body keys: ['biz_param', 'series_id']
+  Body: {
+  "biz_param": {
+    "detail_page_version": 0,
+    "from_video_id": "",
+    "need_all_video_definition": false,
+    "need_mp4_align": false,
+    "source": 4,
+    "use_os_player": false,
+    "use_server_dns": false,
+    "video_id_type": 1
+  },
+  "series_id": "7582204630029831173"
+}
+
+  URL params:
+    aid: 645713
+    device_id: 7604186720909182484
+    iid: 7604188784200337173
+
+
+======================================================================
+  4. multi_video_detail/v1/ ΓÇö REQUEST STRUCTURE
+======================================================================
+
+  Method: POST
+  Body keys: ['biz_param', 'series_id']
+  Body: {
+  "biz_param": {
+    "detail_page_version": 0,
+    "need_all_video_definition": false,
+    "need_mp4_align": false,
+    "source": 7,
+    "use_os_player": false,
+    "use_server_dns": false
+  },
+  "series_id": "7586595151057783861,7597381198960151557,7603286068112133173,7599649915240713269,7582204630029831173,7517087531356130305,7545028875357522961,7582626317506448437"
+}
+
+  Unique URL params:
+
+
+======================================================================
+  SUMMARY ΓÇö AUTO-DISCOVERY FEASIBILITY
+======================================================================
+  bookmall/tab: Full browse page with all tabs
+  bookmall/cell/change: Infinite scroll, 25 calls = 0 unique dramas
+  video_detail: Get episode list for a series_id (=book_id)
+  multi_video_model: Get video URLs for episode vids
+
+  Flow: bookmall ΓåÆ book_ids ΓåÆ video_detail ΓåÆ vids ΓåÆ multi_video_model ΓåÆ URLs

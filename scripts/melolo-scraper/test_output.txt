@@ -1,0 +1,7 @@
+﻿Traceback (most recent call last):
+  File "D:\kingshortid\scripts\melolo-scraper\test_extract.py", line 10, in <module>
+    data = extract_replay_data(Path('melolo1.har'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kingshortid\scripts\melolo-scraper\auto_scraper.py", line 57, in extract_replay_data
+    print(f"\n{'='*60}")
+ValueError: I/O operation on closed file.

@@ -1,0 +1,57 @@
+﻿============================================================
+  CHECK: Legenda Naga Kembali - Ep 16 & 17
+============================================================
+
+[A] Direct API (microdrama detail)...
+    Status: 200
+    Total episodes: 53
+
+    === Episode 16 ===
+    Videos count: 4
+      quality: 540P
+      url: https://reeltv.janzhoutec.com/osepA0cOAQLzlGpmoBBubZNvOBEACdfgVgOzIQ?auth_key=1772463657-nNKLykHBU5-
+      quality: 720P
+      url: https://reeltv.janzhoutec.com/oYUAiQJ30NAAbG6nAlKOIfn5TsASE05EI0uDg3?auth_key=1772463657-vLkJvtJsyN-
+      quality: 480P
+      url: https://reeltv.janzhoutec.com/o8UinADH3gQl6OE0hsKuAAIXGAhWf3I0SGnlT5?auth_key=1772463657-Pz3jC7Bz5n-
+      quality: 360P
+      url: https://reeltv.janzhoutec.com/oMUAiQE30BAiAG6nAlKOIfn5TsASMXIEI0uDg3?auth_key=1772463657-4e3ckQAdxj-
+
+    === Episode 17 ===
+    Videos count: 4
+      quality: 540P
+      url: https://reeltv.janzhoutec.com/oYycNIf0F2tOARngeIVLEAG5AYADTCfcxfN0yf?auth_key=1772463657-6e9n5JPk9C-
+      quality: 720P
+      url: https://reeltv.janzhoutec.com/okqfHMOlmCFZBZmg6fbfRWAEAYn4I8HfakMAQc?auth_key=1772463657-RTAyY6mKVC-
+      quality: 480P
+      url: https://reeltv.janzhoutec.com/o8yNIYA0AIKEWtSmEOxHuQsAn5QnsKvf3gsAjT?auth_key=1772463657-HzaMhoaLPv-
+      quality: 360P
+      url: https://reeltv.janzhoutec.com/oIy0FYfjCAqvQSBCIIKmsAgn5uNssH3OATA1nE?auth_key=1772463657-iLm16Zqv0N-
+
+[B] Watch page RSC method...
+    Status: 200
+    Total episodes found: 53
+
+    === Episode 16 ===
+    Videos count: 4
+      quality: 540P
+      url: https://reeltv.janzhoutec.com/osepA0cOAQLzlGpmoBBubZNvOBEACdfgVgOzIQ?auth_key=1772463657-nNKLykHBU5-
+      quality: 720P
+      url: https://reeltv.janzhoutec.com/oYUAiQJ30NAAbG6nAlKOIfn5TsASE05EI0uDg3?auth_key=1772463657-vLkJvtJsyN-
+      quality: 480P
+      url: https://reeltv.janzhoutec.com/o8UinADH3gQl6OE0hsKuAAIXGAhWf3I0SGnlT5?auth_key=1772463657-Pz3jC7Bz5n-
+      quality: 360P
+      url: https://reeltv.janzhoutec.com/oMUAiQE30BAiAG6nAlKOIfn5TsASMXIEI0uDg3?auth_key=1772463657-4e3ckQAdxj-
+
+    === Episode 17 ===
+    Videos count: 4
+      quality: 540P
+      url: https://reeltv.janzhoutec.com/oYycNIf0F2tOARngeIVLEAG5AYADTCfcxfN0yf?auth_key=1772463657-6e9n5JPk9C-
+      quality: 720P
+      url: https://reeltv.janzhoutec.com/okqfHMOlmCFZBZmg6fbfRWAEAYn4I8HfakMAQc?auth_key=1772463657-RTAyY6mKVC-
+      quality: 480P
+      url: https://reeltv.janzhoutec.com/o8yNIYA0AIKEWtSmEOxHuQsAn5QnsKvf3gsAjT?auth_key=1772463657-HzaMhoaLPv-
+      quality: 360P
+      url: https://reeltv.janzhoutec.com/oIy0FYfjCAqvQSBCIIKmsAgn5uNssH3OATA1nE?auth_key=1772463657-iLm16Zqv0N-
+
+============================================================

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\kingshortid\scripts\stardusttv-scraper\import_to_db.py", line 166, in <module>
+    main()
+  File "D:\kingshortid\scripts\stardusttv-scraper\import_to_db.py", line 113, in main
+    print(f"\U0001f4c1 Found {len(drama_files)} drama files\n")
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c1' in position 0: character maps to <undefined>

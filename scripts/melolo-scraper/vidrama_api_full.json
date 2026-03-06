@@ -1,0 +1,528 @@
+{
+  "search": {
+    "success": true,
+    "data": [
+      {
+        "id": "7582534428623129605",
+        "title": "Putaran Maut yang Tak Berakhir",
+        "name": "Putaran Maut yang Tak Berakhir",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fadf55ddbdd5602fd4301740a8bdf22df%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324051%26x-signature%3DPY2%252FNCjyxxcJ237fvXb8SWHLZis%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fadf55ddbdd5602fd4301740a8bdf22df%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324051%26x-signature%3DPY2%252FNCjyxxcJ237fvXb8SWHLZis%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/adf55ddbdd5602fd4301740a8bdf22df~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324051&x-signature=PY2%2FNCjyxxcJ237fvXb8SWHLZis%3D",
+        "description": "Dewi Ayuningtyas terjebak dalam siklus kematian di hari ulang tahun pernikahannya. Setiap dibunuh, ia bangun kembali pukul enam pagi. Untuk bertahan, Dewi harus mengungkap dalang sebenarnya dan membedakan siapa musuh, siapa sekutu. Setiap kematian membawanya lebih dekat pada kebenaran kelam.",
+        "genres": []
+      },
+      {
+        "id": "7595887029276134405",
+        "title": "Guru Hebat Ternyata Sang Ratu",
+        "name": "Guru Hebat Ternyata Sang Ratu",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F89780e10618a3ebccfd438d7222f5527%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3Dca%252FtmgqyEWz8jQXVsbU0CORFdS8%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F89780e10618a3ebccfd438d7222f5527%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3Dca%252FtmgqyEWz8jQXVsbU0CORFdS8%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/89780e10618a3ebccfd438d7222f5527~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324052&x-signature=ca%2FtmgqyEWz8jQXVsbU0CORFdS8%3D",
+        "description": "Ratna Dewi, pemimpin Seruni, menyamar sebagai guru demi melindungi Akademi Cendekia warisan ibunya. Ia menghadapi siswa nakal, ancaman penutupan, dan gangguan Aditya Pratama. Dengan dukungan guru, para siswa masuk tiga besar kota. Saat Ratna difitnah, siswa bersatu membelanya hingga kebenaran terungkap dan sekolah terselamatkan.",
+        "genres": []
+      }
+    ],
+    "hasMore": true,
+    "total": 2,
+    "nextOffset": 2
+  },
+  "detail": {
+    "success": true,
+    "data": {
+      "name": "Putaran Maut yang Tak Berakhir",
+      "title": "Putaran Maut yang Tak Berakhir",
+      "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fadf55ddbdd5602fd4301740a8bdf22df%7Etplv-resize%3A570%3A810.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DUl%252BtiyiIIupOlJJXUGE5ou1Uf3Q%253D&output=webp&q=70&il=&af=&w=600",
+      "image": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fadf55ddbdd5602fd4301740a8bdf22df%7Etplv-resize%3A570%3A810.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DUl%252BtiyiIIupOlJJXUGE5ou1Uf3Q%253D&output=webp&q=70&il=&af=&w=600",
+      "originalPoster": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/adf55ddbdd5602fd4301740a8bdf22df~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775852273&x-signature=Ul%2BtiyiIIupOlJJXUGE5ou1Uf3Q%3D",
+      "description": "Dewi Ayuningtyas terjebak dalam siklus kematian di hari ulang tahun pernikahannya. Setiap dibunuh, ia bangun kembali pukul enam pagi. Untuk bertahan, Dewi harus mengungkap dalang sebenarnya dan membedakan siapa musuh, siapa sekutu. Setiap kematian membawanya lebih dekat pada kebenaran kelam.",
+      "episodes": [
+        {
+          "id": "7582597263327759413",
+          "episodeNumber": 1,
+          "videoId": "7582597263327759413",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F91ead458349dc4b67cee5b5140cfad20%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3D9QaDYW645SNX%252Bl4IgDih%252Fd7AyY4%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 119,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597266796448821",
+          "episodeNumber": 2,
+          "videoId": "7582597266796448821",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F64bc39fb54df98d82215f0a6458eae40%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3D98D4wZVYWyr95od%252B7QzyJwl8OVE%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 147,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597270080605189",
+          "episodeNumber": 3,
+          "videoId": "7582597270080605189",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fad49970ef06b1a3b5f8e5e952e0eb9df%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3D3tprqFbEslOo4M711QfRAgePD2w%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 125,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597273331174453",
+          "episodeNumber": 4,
+          "videoId": "7582597273331174453",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F490b1b2ebdc4f552bcdfe73a30d12102%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DMbbLxzzWzeESeTM%252FCQTSWQ%252BV348%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 137,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597281371655221",
+          "episodeNumber": 5,
+          "videoId": "7582597281371655221",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fb202ba7064e2130443d63ed5b4f8c6db%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3D7CqHP6DWgC8hi0F1TDM7LtoycWA%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 116,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597285284940805",
+          "episodeNumber": 6,
+          "videoId": "7582597285284940805",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F83bc8ca25bfe17b1b44ae4a175dc3159%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DVmB%252B%252FLuKWRUlcFh%252FDV4A6Hnq6mo%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 111,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597289491827717",
+          "episodeNumber": 7,
+          "videoId": "7582597289491827717",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F7766876132b0633ed7451e86fc96f89d%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3Dhma5WARbnTqsf0v8LHJLgwJDtNs%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 163,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597293115706421",
+          "episodeNumber": 8,
+          "videoId": "7582597293115706421",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fff042de974fcbd8f677f9c3af2017c33%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DhkMfaP1PBk55olAeMuLgxzFFyy0%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 148,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597296437595189",
+          "episodeNumber": 9,
+          "videoId": "7582597296437595189",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fb05864745edf99b4d488055f7422d2d5%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3Dq4QxQ2CXLiuzaF86ZZ4LcDmmSJ4%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 107,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597299579128885",
+          "episodeNumber": 10,
+          "videoId": "7582597299579128885",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F6b16fe64971d4a6a8173d816eb8138ad%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3Dy7YKCQt1Ne6A9cJH64L2anSMGj4%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 112,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597303249161221",
+          "episodeNumber": 11,
+          "videoId": "7582597303249161221",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F20ffccb11b20d6705cbd8322a9c99c22%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DMZFZKhbR9eX8GpnCOjZ644KrP%252BE%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 107,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597306432621621",
+          "episodeNumber": 12,
+          "videoId": "7582597306432621621",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F8dbe1cdfb7b1d67a8f72c23a7fad97a3%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3Dc7DG1Y8ydVBxaGepRKer2hmzzPo%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 124,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597309888728117",
+          "episodeNumber": 13,
+          "videoId": "7582597309888728117",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F69afcbf56e084faab0ed176411176c5d%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DDbph6QVgIrXlopinFMIfnisSPLY%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 143,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597312841518085",
+          "episodeNumber": 14,
+          "videoId": "7582597312841518085",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Ffa4d0c91231c1907c861d6986005950b%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DJ2G8%252Bsv8u2K1XBzFP5yi2eNbk78%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 128,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597318029872181",
+          "episodeNumber": 15,
+          "videoId": "7582597318029872181",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F411b87f2fb16412cf167a067f805d84b%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DV24NB%252FlBLU1eIffi%252FLeurGdiC60%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 132,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597321083341829",
+          "episodeNumber": 16,
+          "videoId": "7582597321083341829",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F6707487876dd46b13833a39994af62e1%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DEZ46Dj5zLPMKRd9OJQn66XEVbUo%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 128,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597324212276277",
+          "episodeNumber": 17,
+          "videoId": "7582597324212276277",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F98613c7953df54a7dcc312c8624aecca%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DYp7grIpkXwhk46r98gJmcBalKAU%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 164,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597328188476469",
+          "episodeNumber": 18,
+          "videoId": "7582597328188476469",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fe63cb130488075b5c6b900f917c2bd46%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DMMLI8aHIcyO4vas%252BbH4IrzM1pHc%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 191,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597331262901253",
+          "episodeNumber": 19,
+          "videoId": "7582597331262901253",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F16eaa81e129785a87ed8f107ecc3e58b%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DQ6LbF2Jl7TBDY2cjtHPoc3Lur%252Bs%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 178,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597335088106549",
+          "episodeNumber": 20,
+          "videoId": "7582597335088106549",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F2938724e39a5878cc4421939a88e50c3%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DXxkuKNS2jkr2dw9df1ZxIf6HaCk%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 145,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597338187697205",
+          "episodeNumber": 21,
+          "videoId": "7582597338187697205",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F629978aac415654e4fbd89965c49ca6a%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DqBOs6PZf2hQCpxqXR0ora3Z4h2c%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 132,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597342591716357",
+          "episodeNumber": 22,
+          "videoId": "7582597342591716357",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F38f720529632fff3249be7bc3f241b59%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DrVumzlnQMDkdyxlvFrtOuHoaBhc%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 136,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597345712278533",
+          "episodeNumber": 23,
+          "videoId": "7582597345712278533",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F9e4e767dacaa0459d4d904bd37e08d58%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DH49cpK5sKsR3V2hco1MFIKoG6JA%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 137,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597349218716725",
+          "episodeNumber": 24,
+          "videoId": "7582597349218716725",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F35e8f93cfbde6490dd53ef9bec36eb5b%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DmQmHXbiIxbSaO91WJDUP3iFYwYo%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 106,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597352846806021",
+          "episodeNumber": 25,
+          "videoId": "7582597352846806021",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F7c28c8777a01d4b4845b598dc3eeb34c%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3D6SyF3Y%252FKq6lsOnvhT9WtetEcxPA%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 127,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597356856544309",
+          "episodeNumber": 26,
+          "videoId": "7582597356856544309",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F0462deb1a0792dc0624d5ab2a48f13e5%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DLpnF3fCh4GH%252FXptA3%252BnkWrcPTnw%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 131,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597359989689349",
+          "episodeNumber": 27,
+          "videoId": "7582597359989689349",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F7be6b8dbb01ea4ce214094893a10fa92%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3Dd6%252BuVdTH6Fpoc%252F4tGHtLithE3Xo%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 139,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597363705859077",
+          "episodeNumber": 28,
+          "videoId": "7582597363705859077",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F0411a1469b2a17aa4310d146ae023b29%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DHeSy51dVgwaV%252FwJN3uby74ItYdk%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 157,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597367065480245",
+          "episodeNumber": 29,
+          "videoId": "7582597367065480245",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fb5f02bb34a6f7ce4f399e7d02ec54f80%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DMSHHr6rLcGfEgbmMWAgvjcAQ5lg%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 103,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597370798410805",
+          "episodeNumber": 30,
+          "videoId": "7582597370798410805",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fc7458733fdd90d12e131e526a75b2742%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3D4FyocrnSvpuK9V4pn1ROXtd6YNE%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 117,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597373969304629",
+          "episodeNumber": 31,
+          "videoId": "7582597373969304629",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F6d175b55862f1dd24e04f557dc358c49%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DwETCMMcB%252F49JukUxq022jQT3hLM%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 99,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597377119226885",
+          "episodeNumber": 32,
+          "videoId": "7582597377119226885",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fa4b45ed2b219c60524e1d4c6460c538a%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DdMB9PaTaWqedslrUs5iALPl8r34%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 132,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597380277537845",
+          "episodeNumber": 33,
+          "videoId": "7582597380277537845",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F0c7cb438fec32308bef53b7659c8b297%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DwnESrci7uUbp%252BuS100YyP0RIg5Q%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 143,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597385507834885",
+          "episodeNumber": 34,
+          "videoId": "7582597385507834885",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F448e1ba42de71dd9b96132a17ba5e616%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DPr5wOu%252FiKTo7oBTtS6JOn9Gr1%252Fs%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 159,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597389458869301",
+          "episodeNumber": 35,
+          "videoId": "7582597389458869301",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F5e8ab4906e404bff35fa6541010c2ba2%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DCzKkIU8rkdAVjx6F%252BFAh780EXnw%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 151,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597392432630789",
+          "episodeNumber": 36,
+          "videoId": "7582597392432630789",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F3d51473477ea95c6b84177703878ec4f%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DviuW9z0SxLq1vTKrVLBFMfw20Wg%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 171,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597395645484037",
+          "episodeNumber": 37,
+          "videoId": "7582597395645484037",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F307a6ba83bfd55bf18184497fd8a0e68%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DpN18%252Fo%252FtAAU1z6pKS8nmuG%252Ba1ug%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 100,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597398606646325",
+          "episodeNumber": 38,
+          "videoId": "7582597398606646325",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F9f5d9cf39a038964fc96210df0e0b5aa%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DJ4chFN2vDGBUQ%252BwsJH9faESO6yY%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 138,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597402025004037",
+          "episodeNumber": 39,
+          "videoId": "7582597402025004037",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F7c023231756be299f3f9001113f13b3a%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DgUlb8i0WnSFhpLnlN0gKfBtm5fc%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 148,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597405711797301",
+          "episodeNumber": 40,
+          "videoId": "7582597405711797301",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F7fbd115510745e5c2761415d8849e93f%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DtES0kp%252F48CP%252Bfw5jblnMtxi3HGQ%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 97,
+          "isLocked": false,
+          "videoUrl": null
+        },
+        {
+          "id": "7582597408974965813",
+          "episodeNumber": 41,
+          "videoId": "7582597408974965813",
+          "thumbnail": "https://wsrv.nl/?url=https%3A%2F%2Fp19-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F451278f4fc932cd43bb6aed74ccfc4b8%7Etplv-836v1mcgsk-resize%3A1200%3A0.heic%3Flk3s%3D253f70db%26x-expires%3D1775852273%26x-signature%3DwsAVJiyrqgSkgMTuzIoSGnw7nZ8%253D&output=webp&q=60&il=&af=&w=300",
+          "duration": 135,
+          "isLocked": false,
+          "videoUrl": null
+        }
+      ],
+      "totalEpisodes": 41,
+      "seriesId": "7582534428623129605"
+    }
+  },
+  "stream_ep1": {
+    "success": true,
+    "data": {
+      "videoId": "VID_MnrXBeLs0bE8kXc3Dyk_SIVwl2eTkxGiH7VEKEo2G_cE9tovCYLbhWEt_07LLe0nXuFat_R5uUfjLso_O8xEtvWLrH-36EvAYvYDt1FCHOv-2WtihH6MzG7_u-Rz89X1AWUUI42k2QdR-oweGyFCSTyJlJgUJvX6mk1DbfM4cFFB0DKjSDldijrQ6tZ17KMbyT6fs7N44-GSSV0sPzZ8n4N8uNOgtL0khvsVG52QuapBlcFacPivFhSCpz-9soDqkHWwv9ZkSk5FZSAG8nfmUH7TNRSWC-aygZLp4Gc9Vctb5aSn6bMPiw0aS05m28PnIBOlfUHNh5NLpQGMN0nqbpJWspeTdvnU66QCgjj9JYj-9TglixFeH-xRsoIIduWLlGN6QfceRrFS_S3Vm0avlOXWvfWCq1wQuJ576RsCDPWTsLo5xuNA1qzx-XfqhVevj-KTVObpfSAJmb3U61WWz4NIAmYBGqHPPzpbD_5Z8GJpcqkP5FT29Bge9KuYdZ_yxmm5MUOIYliifb4z56epR1YRffSU_DmVXD2ZDY6t8O82xupD-uXG7d_FnL-N8vqeLavo-4qgwQZ2ntqvlu8RvG0IRzpj74E9QYa85z9vDA_etgh38UUrASpvismsMKIzFmg-BIJMjDhiGKTA_tWQOHor31WD9mFs3li72muJna8GTZxfXDGkoDfUtVOTfJFDc56YM3mVhf9YRkUUPc7JyjEk67dKku5Me3AcOyeIoqg",
+      "proxyUrl": "/api/video-proxy?videoId=VID_MnrXBeLs0bE8kXc3Dyk_SIVwl2eTkxGiH7VEKEo2G_cE9tovCYLbhWEt_07LLe0nXuFat_R5uUfjLso_O8xEtvWLrH-36EvAYvYDt1FCHOv-2WtihH6MzG7_u-Rz89X1AWUUI42k2QdR-oweGyFCSTyJlJgUJvX6mk1DbfM4cFFB0DKjSDldijrQ6tZ17KMbyT6fs7N44-GSSV0sPzZ8n4N8uNOgtL0khvsVG52QuapBlcFacPivFhSCpz-9soDqkHWwv9ZkSk5FZSAG8nfmUH7TNRSWC-aygZLp4Gc9Vctb5aSn6bMPiw0aS05m28PnIBOlfUHNh5NLpQGMN0nqbpJWspeTdvnU66QCgjj9JYj-9TglixFeH-xRsoIIduWLlGN6QfceRrFS_S3Vm0avlOXWvfWCq1wQuJ576RsCDPWTsLo5xuNA1qzx-XfqhVevj-KTVObpfSAJmb3U61WWz4NIAmYBGqHPPzpbD_5Z8GJpcqkP5FT29Bge9KuYdZ_yxmm5MUOIYliifb4z56epR1YRffSU_DmVXD2ZDY6t8O82xupD-uXG7d_FnL-N8vqeLavo-4qgwQZ2ntqvlu8RvG0IRzpj74E9QYa85z9vDA_etgh38UUrASpvismsMKIzFmg-BIJMjDhiGKTA_tWQOHor31WD9mFs3li72muJna8GTZxfXDGkoDfUtVOTfJFDc56YM3mVhf9YRkUUPc7JyjEk67dKku5Me3AcOyeIoqg",
+      "subtitles": [],
+      "thumbnail": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/91ead458349dc4b67cee5b5140cfad20~tplv-836v1mcgsk-resize:1200:0.heic?lk3s=253f70db&x-expires=1775852273&x-signature=9QaDYW645SNX%2Bl4IgDih%2Fd7AyY4%3D",
+      "episodeNumber": 1,
+      "isLocked": false,
+      "duration": 119,
+      "quality": "360p",
+      "backupAvailable": true
+    }
+  },
+  "search_all": {
+    "error": "400 {\"success\":false,\"error\":\"Missing required parameter: keyword\"}"
+  },
+  "all_trending": {
+    "success": true,
+    "data": [
+      {
+        "id": "7582154020718906421",
+        "title": "Bukan Pamanku, Tapi Suamiku",
+        "name": "Bukan Pamanku, Tapi Suamiku",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F9d185d8431799576c62ddd4729ad69b1%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3DprfEAwxVY6Ra%252BK2UFCHT1zJ0sLc%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F9d185d8431799576c62ddd4729ad69b1%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3DprfEAwxVY6Ra%252BK2UFCHT1zJ0sLc%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9d185d8431799576c62ddd4729ad69b1~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324052&x-signature=prfEAwxVY6Ra%2BK2UFCHT1zJ0sLc%3D",
+        "description": "Sinta tak sengaja meluk Dito saat hujan dan membuat Dito menyukainya. Saat keluarga Sinta krisis, Dito diam-diam memperburuk keadaan sambil pura-pura membantu, hingga mereka saling suka. Setelah tahu kenyataan, Sinta pergi. 3 tahun berlalu, Dito menebus kesalahan dan mereka bersatu kembali.",
+        "desc": "Sinta tak sengaja meluk Dito saat hujan dan membuat Dito menyukainya. Saat keluarga Sinta krisis, Dito diam-diam memperburuk keadaan sambil pura-pura membantu, hingga mereka saling suka. Setelah tahu kenyataan, Sinta pergi. 3 tahun berlalu, Dito menebus kesalahan dan mereka bersatu kembali.",
+        "viewCount": "0",
+        "tags": [],
+        "genres": [],
+        "badge": "Trending",
+        "badgeColor": "#FF5722"
+      },
+      {
+        "id": "7462231549878995984",
+        "title": "Hamil Anak CEO",
+        "name": "Hamil Anak CEO",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Ff1d8e48b06a3b8e006546a333edf086a%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3Dko5l1G3lX3X5uFLBlFGtJYQFE68%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Ff1d8e48b06a3b8e006546a333edf086a%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3Dko5l1G3lX3X5uFLBlFGtJYQFE68%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/f1d8e48b06a3b8e006546a333edf086a~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324052&x-signature=ko5l1G3lX3X5uFLBlFGtJYQFE68%3D",
+        "description": "Quinn bekerja di sebuah klub dan melewati malam panas dengan Joker sampai hamil. Di rumah sakit, dia bertemu dengan Penny, teman kuliahnya dulu. Setelah Penny tahu Quinn hamil anak Joker, dia meminjam cincin Quinn untuk berpura-pura menjadi dirinya. Setelah melewati berbagai rintangan, Joker akhirnya mengetahui identitas Quinn dan bersatu dengannya.",
+        "desc": "Quinn bekerja di sebuah klub dan melewati malam panas dengan Joker sampai hamil. Di rumah sakit, dia bertemu dengan Penny, teman kuliahnya dulu. Setelah Penny tahu Quinn hamil anak Joker, dia meminjam cincin Quinn untuk berpura-pura menjadi dirinya. Setelah melewati berbagai rintangan, Joker akhirnya mengetahui identitas Quinn dan bersatu dengannya.",
+        "viewCount": "0",
+        "tags": [],
+        "genres": [],
+        "badge": "Trending",
+        "badgeColor": "#FF5722"
+      },
+      {
+        "id": "7522723499182394385",
+        "title": "Dia Ketagihan",
+        "name": "Dia Ketagihan",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F20591d4ad278a99db2645e5dbf346e1f%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3Djjp76HdWyqLINle7md02rqWTFxc%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F20591d4ad278a99db2645e5dbf346e1f%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3Djjp76HdWyqLINle7md02rqWTFxc%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/20591d4ad278a99db2645e5dbf346e1f~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324052&x-signature=jjp76HdWyqLINle7md02rqWTFxc%3D",
+        "description": "Lisa berhubungan sama Yanto yang ia naksir selama 8 tahun, setelah malam itu, Yanto ketagihan. Setelah tahu Yanto akan menikah, Lisa memutuskan untuk akhiri hubungan mereka. Awalnya mengira akan berakhir baik-baik, tapi Yanto malah membawanya pulang.",
+        "desc": "Lisa berhubungan sama Yanto yang ia naksir selama 8 tahun, setelah malam itu, Yanto ketagihan. Setelah tahu Yanto akan menikah, Lisa memutuskan untuk akhiri hubungan mereka. Awalnya mengira akan berakhir baik-baik, tapi Yanto malah membawanya pulang.",
+        "viewCount": "0",
+        "tags": [],
+        "genres": [],
+        "badge": "Trending",
+        "badgeColor": "#FF5722"
+      },
+      {
+        "id": "7600616853659995141",
+        "title": "Kekasihku, Pengawalku",
+        "name": "Kekasihku, Pengawalku",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fc00c0f89ee909efd2880d99e2715e5a3%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3DOiT2HIZcJf1lZdLlv0u4kt7rJBc%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2Fc00c0f89ee909efd2880d99e2715e5a3%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3DOiT2HIZcJf1lZdLlv0u4kt7rJBc%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c00c0f89ee909efd2880d99e2715e5a3~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324052&x-signature=OiT2HIZcJf1lZdLlv0u4kt7rJBc%3D",
+        "description": "Santo, seorang satpam biasa, tidak sengaja menyinggung putri konglomerat. Sejak itu, dia terus diselidiki dan dibayangi para putra konglomerat lain yang cumburu. Jika begini terus, Santo khawatir identitasnya akan terbongkar.",
+        "desc": "Santo, seorang satpam biasa, tidak sengaja menyinggung putri konglomerat. Sejak itu, dia terus diselidiki dan dibayangi para putra konglomerat lain yang cumburu. Jika begini terus, Santo khawatir identitasnya akan terbongkar.",
+        "viewCount": "0",
+        "tags": [],
+        "genres": [],
+        "badge": "Trending",
+        "badgeColor": "#FF5722"
+      },
+      {
+        "id": "7564295941004463157",
+        "title": "Kepolosan yang Menjebak",
+        "name": "Kepolosan yang Menjebak",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F02c11c812237e936ac99604cedb82b7e%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324051%26x-signature%3DDL%252Fd4P2AKLFAPHPbBIkkUfJB4MI%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F02c11c812237e936ac99604cedb82b7e%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324051%26x-signature%3DDL%252Fd4P2AKLFAPHPbBIkkUfJB4MI%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/02c11c812237e936ac99604cedb82b7e~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324051&x-signature=DL%2Fd4P2AKLFAPHPbBIkkUfJB4MI%3D",
+        "description": "Demi memenuhi wasiat ayah tirinya, Nina Yusni masuk ke keluarga terpandang Surya dengan menyembunyikan kecerdasannya. Awalnya Yunus Surya menganggapnya sekadar peliharaan, tapi perlahan jatuh hati. Meski cinta tumbuh di antara mereka, perbedaan usia dan status jadi penghalang besar.",
+        "desc": "Demi memenuhi wasiat ayah tirinya, Nina Yusni masuk ke keluarga terpandang Surya dengan menyembunyikan kecerdasannya. Awalnya Yunus Surya menganggapnya sekadar peliharaan, tapi perlahan jatuh hati. Meski cinta tumbuh di antara mereka, perbedaan usia dan status jadi penghalang besar.",
+        "viewCount": "0",
+        "tags": [],
+        "genres": [],
+        "badge": "Trending",
+        "badgeColor": "#FF5722"
+      },
+      {
+        "id": "7601835993016044597",
+        "title": "Si Malang Jadi Kesayangan",
+        "name": "Si Malang Jadi Kesayangan",
+        "image": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F646917f79447225b0754bc7f901ed962%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3DAp8uLjz%252FVaM1hi2ApPD5xw65H%252Fk%253D&output=webp&q=60&il=&af=&w=300",
+        "poster": "https://wsrv.nl/?url=https%3A%2F%2Fp16-novel-sign-sg.fizzopic.org%2Fnovel-images-sg%2F646917f79447225b0754bc7f901ed962%7Etplv-resize%3A570%3A810.heic%3Frk3s%3D95ec04ee%26x-expires%3D1772324052%26x-signature%3DAp8uLjz%252FVaM1hi2ApPD5xw65H%252Fk%253D&output=webp&q=60&il=&af=&w=300",
+        "originalImage": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/646917f79447225b0754bc7f901ed962~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772324052&x-signature=Ap8uLjz%2FVaM1hi2ApPD5xw65H%2Fk%3D",
+        "description": "Nadia Putri bertemu Rizky Guntur di bar, lalu setuju menikah kontrak demi menyelamatkan neneknya. Awalnya pura-pura, cinta tumbuh di tengah intrik keluarga konglomerat. Rizky selalu melindungi Nadia, hingga rahasia masa lalu terungkap dan Nadia mendapat dua kakak tampan, akhirnya jadi kesayangan keluarga besar.",
+        "desc": "Nadia Putri bertemu Rizky Guntur di bar, lalu setuju menikah kontrak demi menyelamatkan neneknya. Awalnya pura-pura, cinta tumbuh di tengah intrik keluarga konglomerat. Rizky selalu melindungi Nadia, hingga rahasia masa lalu terungkap dan Nadia mendapat dua kakak tampan, akhirnya jadi kesayangan keluarga besar.",
+        "viewCount": "0",
+        "tags": [],
+        "genres": [],
+        "badge": "Trending",
+        "badgeColor": "#FF5722"
+      }
+    ],
+    "hasMore": false,
+    "total": 6
+  }
+}

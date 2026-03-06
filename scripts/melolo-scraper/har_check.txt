@@ -1,0 +1,96 @@
+﻿
+============================================================
+  melolo2.har
+============================================================
+Total entries: 824
+
+Top domains:
+   282x api.tmtreader.com
+   211x v16m-default.tiktokcdn.com
+    90x frontier.byteoversea.com
+    88x p16-novel-sign-sg.fizzopic.org
+    42x v16m.byteicdn.com
+    28x p19-novel-sign-sg.fizzopic.org
+    28x p16-sign-sg.tiktokcdn.com
+    24x log.tmtreader.com
+    17x mon.isnssdk.com
+     3x gecko-sg.byteoversea.com
+     3x play.googleapis.com
+     2x i.isnssdk.com
+     2x passport.tmtreader.com
+     1x firebaselogging.googleapis.com
+     1x mssdk-sg.byteoversea.com
+
+Relevant API endpoints:
+    57x api.tmtreader.com/novel/player/multi_video_model/v1/
+    45x api.tmtreader.com/luckycat/i18n/melolo/referral/v1/report/time
+    31x api.tmtreader.com/i18n_novel/reader/history/report/v1/
+    24x log.tmtreader.com/service/2/app_log/
+    22x api.tmtreader.com/i18n_novel/book/questionnaire/list/v1/
+    16x api.tmtreader.com/i18n_novel/reader/short_play/set_time/v1/
+    14x v16m-default.tiktokcdn.com/14676dfa33a91d5d253ced9d6044e348/6987ee0f/video/tos/alisg/tos-alisg-v-ea7654-sg/osxS0DSAExQq3eQQ2BIEbIBcUI9hgQF1pJBmcf/
+    13x api.tmtreader.com/i18n_novel/bookmall/cell/change/v1/
+    13x v16m-default.tiktokcdn.com/7005c4dc8862bc4d04de2704c3a8e7e2/6987ed12/video/tos/alisg/tos-alisg-v-ea7654-sg/oMfounhWQLDnTdmE5SFmjIQhB1IlEgBfUUQQ1x/
+    12x api.tmtreader.com/i18n_novel/reader/book_history/list/v1/
+    12x api.tmtreader.com/reading/msgapi/getnewmsggroupcount/v
+    12x api.tmtreader.com/i18n_novel/reader/history/list/v1/
+    11x api.tmtreader.com/novel/player/video_detail/v1/
+    11x api.tmtreader.com/i18n_novel/reader/book_history/update/v1/
+    11x api.tmtreader.com/i18n_novel/userapi/get_config/v1/
+     9x v16m-default.tiktokcdn.com/5f2047242f4290b2f60606d2f2389763/6987ed70/video/tos/alisg/tos-alisg-v-ea7654-sg/oEUCDnfDgQvqD4ThgqxAeBFUCCLi0EeYFgwjIB/
+     9x api.tmtreader.com/i18n_novel/reader/short_play/get_time/v1/
+     8x api.tmtreader.com/novel/player/video_model/v1/
+     7x v16m-default.tiktokcdn.com/afe5fa96be5191d80bb835b714c116cf/6987ed61/video/tos/alisg/tos-alisg-v-ea7654-sg/oAeCbv0fJtWSFDi5QhP6D6hDBEYhgEgs1H2EIe/
+     6x v16m-default.tiktokcdn.com/96d5a15cbd124f372ac6349d98773a3e/6987ef12/video/tos/alisg/tos-alisg-v-ea7654-sg/ocZtlpqrE97dxFlRaQQIngB22rJbBeD2QEcfh7/
+
+video_detail entries: 11
+multi_video_detail entries: 0
+Responses containing 'video_list'/'video_data': 77
+
+============================================================
+  melolo3.har
+============================================================
+Total entries: 312
+
+Top domains:
+   131x api.tmtreader.com
+    66x v16m-default.tiktokcdn.com
+    27x frontier.byteoversea.com
+    14x v16m.byteicdn.com
+    13x p16-novel-sign-sg.fizzopic.org
+    12x p16-sign-sg.tiktokcdn.com
+    10x play.googleapis.com
+     9x log.tmtreader.com
+     8x p19-novel-sign-sg.fizzopic.org
+     6x connectivitycheck.gstatic.com
+     2x app-measurement.com
+     2x mon.isnssdk.com
+     2x play-fe.googleapis.com
+     1x gecko-sg.byteoversea.com
+     1x graph.facebook.com
+
+Relevant API endpoints:
+    18x api.tmtreader.com/novel/player/multi_video_model/v1/
+    18x api.tmtreader.com/i18n_novel/reader/history/report/v1/
+    16x api.tmtreader.com/luckycat/i18n/melolo/referral/v1/report/time
+    12x api.tmtreader.com/novel/player/video_model/v1/
+    12x api.tmtreader.com/i18n_novel/book/questionnaire/list/v1/
+     9x v16m-default.tiktokcdn.com/953fb20135b5fbef257facb99da087d0/69882554/video/tos/alisg/tos-alisg-v-ea7654-sg/ogSygTledCCIpiFD9D2EBNXQQShVBvf4weUDEI/
+     9x log.tmtreader.com/service/2/app_log/
+     8x api.tmtreader.com/i18n_novel/reader/short_play/set_time/v1/
+     6x api.tmtreader.com/novel/player/video_detail/v1/
+     6x api.tmtreader.com/i18n_novel/reader/book_history/update/v1/
+     6x api.tmtreader.com/i18n_novel/userapi/get_config/v1/
+     5x api.tmtreader.com/i18n_novel/reader/short_play/get_time/v1/
+     5x api.tmtreader.com/reading/msgapi/getnewmsggroupcount/v
+     5x api.tmtreader.com/i18n_novel/reader/book_history/list/v1/
+     5x api.tmtreader.com/i18n_novel/reader/history/list/v1/
+     5x api.tmtreader.com/i18n_novel/bookmall/cell/change/v1/
+     4x v16m-default.tiktokcdn.com/cb5972bc90639920a6c165fe7fe0650a/698825aa/video/tos/alisg/tos-alisg-v-ea7654-sg/ogfpf3pQRBBFQUGQgIC0hixiwFogap2BDQhOEK/
+     4x v16m-default.tiktokcdn.com/057e37a75c3914adcd416789c64f8977/698825b5/video/tos/alisg/tos-alisg-v-ea7654-sg/o8LOhVGIDg3e26c6fBgvzIBBQieRDyGH7x9DLC/
+     4x v16m-default.tiktokcdn.com/7343472622e2317a5beec27be3613002/698825a5/video/tos/alisg/tos-alisg-v-ea7654-sg/osMD79M8XPCtBfGauDksiCAh21fQIgg8BRvejQ/
+     4x v16m-default.tiktokcdn.com/5a3fef64ba5f8bc2f205b88b516254a2/69882700/video/tos/alisg/tos-alisg-v-ea7654-sg/oMFnGGGGeXaeyveT0menQY9IAgXLgClPGRDFvT/
+
+video_detail entries: 6
+multi_video_detail entries: 0
+Responses containing 'video_list'/'video_data': 36

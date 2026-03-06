@@ -1,0 +1,46 @@
+﻿
+======================================================================
+Fetching: https://www.stardusttv.net/episodes/01-dumped-him-married-the-warlord-13263
+
+=== Looking for language indicators ===
+[+] Found 'Indonesia' or 'Bahasa' in page
+  Context: ...["locales/ko.json"]},{code:"id",iso:"id-ID",name:"Indonesia",lang:"id_ID",event:3,files:["locales/id.json"]},...
+
+=== Checking for language selector ===
+[-] No obvious language selectors found
+
+=== Checking script tags ===
+[+] Script 10 contains language/subtitle references
+  window.__NUXT__={};window.__NUXT__.config={public:{downloadUrl:"https://stardusttv.onelink.me/o8pt/j
+
+=== Checking data attributes ===
+[-] No language data attributes found
+
+=== M3U8 URL Analysis ===
+[-] No M3U8 URLs found
+
+======================================================================
+
+
+======================================================================
+Fetching: https://www.stardusttv.net/episodes/01-the-billionaire-janitor-13467
+
+=== Looking for language indicators ===
+[+] Found 'Indonesia' or 'Bahasa' in page
+  Context: ...["locales/ko.json"]},{code:"id",iso:"id-ID",name:"Indonesia",lang:"id_ID",event:3,files:["locales/id.json"]},...
+
+=== Checking for language selector ===
+[-] No obvious language selectors found
+
+=== Checking script tags ===
+[+] Script 10 contains language/subtitle references
+  window.__NUXT__={};window.__NUXT__.config={public:{downloadUrl:"https://stardusttv.onelink.me/o8pt/j
+
+=== Checking data attributes ===
+[-] No language data attributes found
+
+=== M3U8 URL Analysis ===
+[-] No M3U8 URLs found
+
+======================================================================
+

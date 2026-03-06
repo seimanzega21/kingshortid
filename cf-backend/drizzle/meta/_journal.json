@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1771432687894,
+      "tag": "0000_cheerful_quicksilver",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1772508184083,
+      "tag": "0001_init_supabase",
+      "breakpoints": true
+    }
+  ]
+}

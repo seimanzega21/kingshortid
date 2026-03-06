@@ -1,0 +1,13 @@
+======================================================================
+GOODSHORT HAR ANALYSIS REPORT
+======================================================================
+
+Total Requests in HAR: 782
+API Calls Captured: 86
+Dramas Found: 0
+Episodes Found: 0
+
+======================================================================
+SAVING EXTRACTED DATA...
+======================================================================
+Saved: fresh_capture_analysis\all_api_calls.json

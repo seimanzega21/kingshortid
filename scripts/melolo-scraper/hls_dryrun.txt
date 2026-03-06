@@ -1,0 +1,49 @@
+﻿============================================================
+  VIDRAMA MICRODRAMA HLS SCRAPER (Indonesian)
+  Limit: 5 | Dry-run: True
+============================================================
+[1] Discovering Indonesian MicroDrama dramas...
+    Page 1: +50 dramas (total: 50)
+    Page 2: +50 dramas (total: 100)
+    Page 3: +50 dramas (total: 150)
+    Discovered: 150 dramas
+[2] Scanning R2 for existing dramas...
+    R2: 467 existing slugs
+[3] Fetching D1 drama titles...
+    D1: 486 dramas
+    New to scrape: 105 -> capped at 5
+
+____________________________________________________________
+  [1/5] Istri Dokter Masa Depan Pembawa Hoki
+  Slug: istri-dokter-masa-depan-pembawa-hoki
+  Episodes: 70
+  DRY-RUN: 70 episodes found
+
+____________________________________________________________
+  [2/5] Biarkan Aku Jadi Harapan Ibu
+  Slug: biarkan-aku-jadi-harapan-ibu
+  Episodes: 52
+  DRY-RUN: 52 episodes found
+
+____________________________________________________________
+  [3/5] Proyek Bata dan Cinta Tak Terduga
+  Slug: proyek-bata-dan-cinta-tak-terduga
+  Episodes: 80
+  DRY-RUN: 80 episodes found
+
+____________________________________________________________
+  [4/5] Karma Maut buat Pacar dan Sahabat
+  Slug: karma-maut-buat-pacar-dan-sahabat
+  Episodes: 30
+  DRY-RUN: 30 episodes found
+
+____________________________________________________________
+  [5/5] Tinggalkan Dia Seperti Angin
+  Slug: tinggalkan-dia-seperti-angin
+  Episodes: 53
+  DRY-RUN: 53 episodes found
+
+============================================================
+  DONE: 5 dramas, 285 episodes
+  Failed: 0
+============================================================

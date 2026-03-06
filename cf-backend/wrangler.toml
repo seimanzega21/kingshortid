@@ -1,0 +1,11 @@
+name = "kingshortid-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+JWT_SECRET = "ksh0rt1D-pr0d-jwt-s3cr3t-2026-x9k7m2"
+ADMIN_API_KEY = "ksh-admin-2026-s3cur3-k3y-x7m9p2"
+# Supabase self-hosted on VPS — set real values via: wrangler secret put SUPABASE_URL
+SUPABASE_URL = "http://141.11.160.187:8000"
+SUPABASE_DB_PASSWORD = ""

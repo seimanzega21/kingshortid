@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  kingshortid-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kingshortid-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      JWT_SECRET: ksh0rt1D-pr0d-jwt-s3cr3t-2026-x9k7m2
+      ADMIN_API_KEY: ksh-admin-2026-s3cur3-k3y-x7m9p2
+      SUPABASE_URL: http://supabasekong-og8gwooogk480gcws0o84ssc.141.11.160.187.sslip.io
+      SUPABASE_DB_PASSWORD: GoZViiH1AXLl73BqLdKDtpeGgwUzfW64
+      DATABASE_URL: postgresql://supabase_admin:GoZViiH1AXLl73BqLdKDtpeGgwUzfW64@supabase-db-og8gwooogk480gcws0o84ssc:5432/postgres
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
+      # HTTP router — api.shortlovers.id
+      - "traefik.http.routers.kingshortid-api.rule=Host(`api.shortlovers.id`)"
+      - "traefik.http.routers.kingshortid-api.entrypoints=http"
+      - "traefik.http.services.kingshortid-api.loadbalancer.server.port=3000"
+      # HTTPS router — api.shortlovers.id
+      - "traefik.http.routers.kingshortid-api-https.rule=Host(`api.shortlovers.id`)"
+      - "traefik.http.routers.kingshortid-api-https.entrypoints=https"
+      - "traefik.http.routers.kingshortid-api-https.tls=true"
+      - "traefik.http.routers.kingshortid-api-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.kingshortid-api-https.service=kingshortid-api"
+      # HTTP router — shortlovers.id (root domain, for app-ads.txt)
+      - "traefik.http.routers.kingshortid-root.rule=Host(`shortlovers.id`)"
+      - "traefik.http.routers.kingshortid-root.entrypoints=http"
+      - "traefik.http.routers.kingshortid-root.service=kingshortid-api"
+      # HTTPS router — shortlovers.id (root domain)
+      - "traefik.http.routers.kingshortid-root-https.rule=Host(`shortlovers.id`)"
+      - "traefik.http.routers.kingshortid-root-https.entrypoints=https"
+      - "traefik.http.routers.kingshortid-root-https.tls=true"
+      - "traefik.http.routers.kingshortid-root-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.kingshortid-root-https.service=kingshortid-api"
+    healthcheck:
+      test: [ "CMD", "wget", "-qO-", "http://localhost:3000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - kingshortid-net
+      - og8gwooogk480gcws0o84ssc
+      - coolify
+
+networks:
+  kingshortid-net:
+    driver: bridge
+  og8gwooogk480gcws0o84ssc:
+    external: true
+  coolify:
+    external: true

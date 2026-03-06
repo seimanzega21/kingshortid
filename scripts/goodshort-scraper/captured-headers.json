@@ -1,0 +1,83 @@
+{
+    "capturedAt": "2026-01-31T17:24:32+0700",
+    "baseUrl": "https://api-akm.goodreels.com",
+    "endpoints": {
+        "homeIndex": "/hwycclientreels/home/index",
+        "chapterList": "/hwycclientreels/chapter/list",
+        "readerInit": "/hwycclientreels/reader/init",
+        "bookQuickOpen": "/hwycclientreels/book/quick/open",
+        "chapterExitRecommend": "/hwycclientreels/chapter/exit/recommend",
+        "bookShareUrl": "/hwycclientreels/book/share/url"
+    },
+    "headers": {
+        "sign": "VTHYJWUtBYS5e0k4w/UuC3/uQnIHzRPrm7dMhdEWBnt5Uxm9DV4qxG/92PNTr6bfFTY8MiqjBmcV6gf6Bjm4xnCHEun1PU7bfROwwbGh08TiL3CjIefWBp27Uhit/gquZXk+pTn9XgyKVHtFYHGJBRgUg7Ps/etgAzVcmUdnXNP5uAg6demZORtW3Qv9iHv5Uctas4s0eV1idPafxnHGI7/FcdKItQf6ziWu4/WRQi+aM/+JF9sUO7yqD0KLTM76TIEkq8QTyGbksYHtXFA9enM3jWbaMjhts5jpI4Jb3yQQPpewMDbnbLqcKhGfvXIk4tppoYi4wx/21BIpBFW5cQ==",
+        "scWidth": "1080",
+        "appVersion": "2782078",
+        "language": "en",
+        "mcc": "310",
+        "ramSize": "2077077504",
+        "deviceId": "3a527bd0-4a98-47e7-ac47-f592c165d870",
+        "model": "sdk_gphone_x86_64",
+        "variableChannelCode": "",
+        "brand": "google",
+        "apn": "2",
+        "androidId": "ffffffffcf4ce71dcf4ce71d00000000",
+        "deviceType": "phone",
+        "pname": "com.newreading.goodreels",
+        "timeZone": "+0700",
+        "bigdataSession": "09807052-229f-45d2-8048-e5ece2a443b3",
+        "afid": "1769846366998-4462332118971079286",
+        "gender": "UNKNOWN",
+        "variableBid": "",
+        "platform": "ANDROID",
+        "Authorization": "Bearer ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnlaV2RwYzNSbGNsUjVjR1VpT2lKUVJWSk5RVTVGVGxRaUxDSjFjMlZ5U1dRaU9qRTJNREExT0RReE4zMC5XYzA4LXpEOUxuaHBCREJkRENrMDBPQWxiLUtCa3ZKek9jbmg2Ump6MENF",
+        "scDesc": "1080P",
+        "currentLanguage": "in",
+        "originalChid": "GRA00001",
+        "scHeight": "2072",
+        "channelCode": "GRA00001",
+        "hardWare": "goldfish_x86_64",
+        "os": "11",
+        "romSize": "6228115456",
+        "userId": "160058417",
+        "adjustAdid": "",
+        "p": "189",
+        "localTime": "2026-01-31 17:24:32.759 +0700",
+        "lqb": "0",
+        "lqa": "0",
+        "currencyCode": "-1",
+        "Content-Type": "application/json; charset=UTF-8",
+        "User-Agent": "okhttp/4.10.0"
+    },
+    "sampleRequests": {
+        "homeIndex": {
+            "method": "POST",
+            "url": "https://api-akm.goodreels.com/hwycclientreels/home/index?timestamp=1769855063192",
+            "body": {
+                "pageNo": 1,
+                "pageSize": 12,
+                "channelType": 3,
+                "vipBookEnable": true,
+                "channelId": -3
+            }
+        },
+        "chapterList": {
+            "method": "POST",
+            "url": "https://api-akm.goodreels.com/hwycclientreels/chapter/list?timestamp=1769855072768",
+            "body": {
+                "latestChapterId": 0,
+                "chapterCount": 500,
+                "needBookInfo": false,
+                "bookId": "31001250379"
+            }
+        },
+        "readerInit": {
+            "method": "POST",
+            "url": "https://api-akm.goodreels.com/hwycclientreels/reader/init?timestamp=1769855072775",
+            "body": {
+                "priceCurrencyCode": -1,
+                "bookId": "31001250379"
+            }
+        }
+    }
+}

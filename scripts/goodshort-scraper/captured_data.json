@@ -1,0 +1,50 @@
+{
+    "dramas": {
+        "31001221963": {
+            "bookId": "31001221963",
+            "title": "Drama 1",
+            "description": "Captured from production automation run",
+            "genre": "Drama",
+            "tags": [],
+            "totalEpisodes": 100,
+            "coverUrls": [
+                "https://acf.goodreels.com/videobook/202405/cover-xPEPIVJaGC.jpg"
+            ],
+            "hlsUrls": [
+                "https://v2-akm.goodreels.com/mts/books/963/31001221963/614590/dfb7xsizdu/720p/pnwrouidmb_720p.m3u8",
+                "https://v2-akm.goodreels.com/mts/books/324/372339/xtll4zgqdq/720p/epbejqmjbv_720p.m3u8"
+            ],
+            "episodes": [],
+            "capturedAt": "2026-02-01T15:37:00Z"
+        },
+        "31000845324": {
+            "bookId": "31000845324",
+            "title": "Drama 2",
+            "description": "Captured from production automation run",
+            "genre": "Drama",
+            "tags": [],
+            "totalEpisodes": 0,
+            "coverUrls": [],
+            "hlsUrls": [
+                "https://v2-akm.goodreels.com/mts/books/324/31000845324/..."
+            ],
+            "episodes": [],
+            "capturedAt": "2026-02-01T15:37:00Z"
+        },
+        "31000740841": {
+            "bookId": "31000740841",
+            "title": "Drama 3",
+            "description": "Captured from production automation run",
+            "genre": "Drama",
+            "tags": [],
+            "totalEpisodes": 0,
+            "coverUrls": [],
+            "hlsUrls": [
+                "https://v2-akm.goodreels.com/mts/books/841/31000740841/..."
+            ],
+            "episodes": [],
+            "capturedAt": "2026-02-01T15:37:00Z"
+        }
+    },
+    "segments": {}
+}

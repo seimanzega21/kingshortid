@@ -1,0 +1,1520 @@
+﻿200
+{
+  "drama": {
+    "id": "2026484131354189825",
+    "title": "A Sunbeam for My Mother",
+    "description": "Seven years after losing his true love, Julian Sterling encounters a madwoman and a little girl named Mia. Thinking it a scam, he drives them away in shame. He soon discovers the girl is his biological daughter, and the woman is Seraphina Fairfield, driven mad years ago after saving him from a marrow donation and being persecuted by her romantic rival Victoria Thorne. Julian is determined to make amends, yet Victoria strikes again. A storm rages.",
+    "total_episodes": 52,
+    "cover": "https://poster.janzhoutec.com/tos-sgcomm1-v-376351e6ad930ea1-sg/53d21791eaf440329a1d527b2a9835cd~tplv-vod-noop.image"
+  },
+  "episodes": [
+    {
+      "index": 1,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/og1ebFQn4AQRu70Zgclpx2BIX6AYqmybJlSIkf?auth_key=1772231401-V09KLwyJdT-0-c39093e5d05483b01a7cbf3a91865690",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o02mAnbY0IAlFa9xbOX7e4gqIQ6fJBcMpQ1ljq?auth_key=1772231401-tNaikmRErB-0-ca777db1ee2c17e0ce93bf8b397119f7",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oUDmbcqnFQcfbfgA7INQ4x6Jp8IjlA1AYQslvB?auth_key=1772231401-SjgvkRz6qg-0-9a4068a28c09b55c400f9f2c55afce87",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o0xs8AbWlYgk16IpUnq4ABQcFvfY7IQJlKcfmb?auth_key=1772231401-0CJS5747yU-0-799ef0aef5c697ecb75cb6d4e2de4617",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/osteyjkv0peAE9fhGDMAoLvlBetXE3LSnCpzye?auth_key=1772231455-VGXJoMzL6c-0-6931c3c8c74938b6cf7b8476b67d3e3a",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/osp8QecmAc6FRQCrKYEB4qAJ7AYybIrBllne3g?auth_key=1772231455-lYYlqk0iEA-0-d7a4b4e416e072701d442b999c919b9d",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oAlBYqcdlmAsGIMbv86Qr7BAvgRQfJaenp4KcM?auth_key=1772231455-zUa5OpGbpB-0-dc44071c0f605c87001b4b1f446226b9",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o4yb7JgKQ6cegcQAlvpm8cfBnIlrYRz4QABqEl?auth_key=1772231455-wXpVdKtwwz-0-f3d92ad999ce828ce50de6be2ff5284b",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ocQIIddgS9mQ0Av88TazUyegc6vOTAVtsa5Apw?auth_key=1772231455-XNmnVxNxkQ-0-f9ca1cddf0e4aaece0a43971e7c5b721",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/ocAZS7Ovzky89Wxm8ajcsHtdgadVQT0wAIIAf6?auth_key=1772231455-xoxR4amCeS-0-7b9c1d4b297dc05c5ff9cd7e71625390",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/osmNBbgQYmAq06lvk7l06n45f7c2ABbRhAep08?auth_key=1772231455-OcI0fS1ARS-0-7fb099666cc936b98f71ed59ab0c973e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/okm8t6Iz8AQwI98DgOS0ceAavdAsVT4wayIIgd?auth_key=1772231455-bCCLzmqAmh-0-b666e2793de9a66f6fbacf6d79b19619",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oQeTW8y8wIpSOHLIgmddAtAsvAzVQTDc069aQc?auth_key=1772231455-QuEk9sP3Xx-0-a4bd0ec48576048c543272aba74202b8",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oIa0yw9mPAIdgSOlIQVWzvsOt8c6weydATAk8I?auth_key=1772231455-TQ351klMA9-0-14f8bddfb8ad84b810716f8a2cb95d22",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oUc0zgOwQAAdJsdc8TAIIzwVmy8ttW69eTaSsv?auth_key=1772231455-wtLYStehwE-0-6488fcbf56dc70231691044dbceb5cf5",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ocQt9dgWQd6mnnGAyv0T8OeAzIjcswA8IAaVUS?auth_key=1772231455-uKBeAhRO4Y-0-53fd148e0c9f17c020b58b733f07b5c8",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/os4publUm1cn1eL69Xq7bQB1AKQxIQBflFgYJA?auth_key=1772231455-ieejPtRuvv-0-7b98153bafa8d8db41cebdf51bc3c9eb",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o4TA37pIexFcKB1XQbY2l46vqmAl8gnfTKbJVQ?auth_key=1772231455-RIO4LKoib8-0-5aff6bc75c9e360e0601e940403a4c8b",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o4slc6Q1QJpgbXm2IBeyFYqNxnKtXA4lfwAN7b?auth_key=1772231455-kGximA9Ic5-0-e0f3d5851e4a14f762e8111790ab9541",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oYUlc6Q1QJpgbQm2IBe1FYqIxnKCXA4lfBAA7b?auth_key=1772231455-535HMvG51J-0-eaad41133d3370e13755d39ebf3127f9",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/okRL2ATBLGNee3085Ag5QPUExKBC5gxA0wNezF?auth_key=1772231455-2j30ge9P81-0-ccee5ddab107bf6f36d1131b44c530bb",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oA0Bgf8PtAoQyAVSAA8IZHLg1zT8Ip8MP9wOda?auth_key=1772231455-glZSzlpuQT-0-d64b7e19ecf47be2a414eadf831407d0",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oc80E8SMTWOz8eJdIYV9tQHDAagZIIAAyoggPA?auth_key=1772231455-WLDSBYcPjh-0-b1449c59ad6d2d2c376fd7634964c0e6",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oQUIIdAgS98Q0AY8ejaz0yCmZovOTAVtgPxAt8?auth_key=1772231455-gSnXKwL5ML-0-0da55c82508e10d307aa73d056230db5",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/osq72zspnA1QAjbA65HlUlXBAje4RXOemZoQgc?auth_key=1772231455-jdSbWepaDh-0-98ebb97f0a75842b017edacd58e7c295",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/ocj0zgOIQAAdlscS8TAIIuJVnyetT0R92tsSgX?auth_key=1772231455-lbFumT1P3j-0-596a3560f938aa0ddd155d5cc52c47be",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/owcSOdInQs0gIsTsIA8MRgVWjz0evA8yclA99t?auth_key=1772231455-76l11JuxeG-0-2436908c7725b95d1b74b557f06c8f58",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ocOjbdcg9IXztVqTRgd80nA2gIO0ASIse0QyAA?auth_key=1772231455-ofGPzluFdx-0-9ef6afa95d4054cc2facf78f8927371d",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oMYRnMMlcQBemYrA6plQ87cJqb4gABCXsInec0?auth_key=1772231455-7unf3o8IE4-0-d4cf8de93c7b3fc8c86271662d8b904c",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/ocxeYldBcIECMeJ7ARqgY6lbcB4GpgAQ69Qrmn?auth_key=1772231455-VZ25Tkf92D-0-b25e177368dc5676259cd26da2d98f10",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oEcBSc7QMUqlA0b4mQJerYpCY0lRnAK96IeBgN?auth_key=1772231455-ZPvGjwO6iW-0-42e6bef33b1462f0ebc2009787953d2e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oUNAe7prgYlc6bBmqlAEzQIceQ1YnIRBMD41CJ?auth_key=1772231455-UA13x1Ear0-0-103c73481a42a5ff9572c50ea6162e8e",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ogcA7FcAqaebnw8kJle4AB9mhOaQIAg4Qplm66?auth_key=1772231455-gTTobupIRE-0-3e91744b67274508d4b481275655f063",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oAQmeqphlBkeAacwI4JPgAgQ6aYm4nOb9M7AlC?auth_key=1772231455-DVhNDOLUXT-0-6e067e2299b74f80a026d9c88ab9f9aa",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/owc8YAsbIB9naQ6eF4lwmWOAI7d4lQemghAWqp?auth_key=1772231455-ScOE29wqX8-0-a699f5721b270303aa8f76f156bd918e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ooh9RtcbQqA7I2Bn4g6AJYmOAOlB4laepmC8Qe?auth_key=1772231455-2IWLNOvBrl-0-7402cfec294ff152d339db88d17db35b",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oM0YsyeatA6QyAVSdAwIc12gMzTmI18MR9XOdY?auth_key=1772231455-J1g5Pwyc1k-0-779bc3f7a4c793b78254e927b7f15b81",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oAmet6Iz8AQKP98JgOS0c2AYXdAsVTswayQIAd?auth_key=1772231455-coQUexmoBD-0-87b44ec6bb071fff861c25c1738e7ce3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o8eOVAmayTds6k98QgKrd8YtsvzN0IAcLAwSIR?auth_key=1772231455-CF4mEllXx8-0-22c0d4735c448430bed141160abc2299",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/owsAzOcA0ymOTadYgGtS1t89T6AVeXd0IQYIw1?auth_key=1772231455-ga5Ub1TsmZ-0-d00fd6e3fc9d7a163a185cccb6cdbbc4",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ogpWdPjnQeAlAQ86pTIUZ3Vhm8AeAl8XBogcOy?auth_key=1772231455-hoMWVDTx3x-0-ef7368570a4a95074d84fcfd9520a52b",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/osAZbplBP8edmiVlSoIgDFAA8XQ8cpAepMnQ7O?auth_key=1772231455-3MpEA2N1ce-0-f91ce05c8c3c42cf2ce013d26fd799ac",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oc1mAnpAMIAloRrZ8nve88gecQdAPBO0pQ8lFV?auth_key=1772231455-NOyGDik5pf-0-b4c52dc10512ef8ab47f08f5e1e8e1b1",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o88pzo6slpZhQQdoX88VPmSOBVKcnIleeAAAgA?auth_key=1772231455-BjoK4LwrTW-0-65162b6ccfa169f5e45a025d72d915d6",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o85SmMedlAtcpeECYQglXIQnQAypiTO7orFAVB?auth_key=1772231455-K8SlLT4bIP-0-16c5147fcc132d998d7c25f134757729",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oYFmCclepQqlOTQIgiTdArBAYAnVQCZtpSey3s?auth_key=1772231455-LL9mugfsnz-0-cc44f92cd780cffb7ce8e443411b3116",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oIrlFpQWidoZyKtpACgXIYQecem0QBAASOTlnV?auth_key=1772231455-0NulcpeQOy-0-bf34c7cefa1ed9a99aeb293a71ca0e5e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oESellCtpQAGmyATYBnVGkedIiOgyYAprQctFt?auth_key=1772231455-oMNBkorhJj-0-ac73bab10404e9db4c12c38bc3d31b88",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ooSellGrpQASm7ATXBnVm8edIiOgysAptQ8y6t?auth_key=1772231455-lO0AtSsP1J-0-42112f294385df287f0459d732246bf7",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oIypg6eibAgTglfUQQVGnvAOt8tSp1ldAmBs8I?auth_key=1772231455-KSI16FSsQv-0-08963bae95add4a64ccd03330f0f8c7c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ogcQAIXSQAeTAyTSlV8tlpOBnQn3Gdmp6Ditge?auth_key=1772231455-1lZc8LlPsN-0-4859243a13e1bac5456dca8d371f4a77",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ooytQwBpAQIIpUlGKdq68gSAetVOnVTelApXim?auth_key=1772231455-4VXOtfrJEp-0-c9dc8acc0fb84f57c5d7ac09bb9fbeb7",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oQs8dpQn4AQeF90Ygclp3QB4w6AAqmleyl2I6m?auth_key=1772231455-NtMYOOeMBc-0-655fb7cdf9d532c5a6826394253565d1",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/okeepOqmlIyAJAC4mMQh3scp4u4q6AdlBQ79Yn?auth_key=1772231455-ivVQA5SsoB-0-4e03d78361fbf2a4e5f07e196dbe0530",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ooBkAYpnxqMtymlgQp6cmI44Iyl2Q9s3AAedel?auth_key=1772231455-slv47JuPFz-0-3eaa7d7d740c6f0ca96c87fd17d970a8",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oMceyA8dIBensQ6wI4lYmOmAA9A4lQp3gyAcqp?auth_key=1772231455-psn426oZwe-0-5baf918ee3be51cdcb88fd8887ef8eea",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o8LeXL5BcIM9ceJeBRqgwILgcC4lTLAQ6QgrNP?auth_key=1772231455-ISuuDTmgoQ-0-b6dffdbffcdc3f57d6f0a5c368f852c1",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/ogArQTLCBRe6NRqLzcIgCJBwevg4cgJ8i8PQec?auth_key=1772231455-5sFzbLh00r-0-d5c4cba33418436126fd39a9dccfdf53",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oEChLZcXPsL4eJpeeBcrw0g6gcJqQNTRAIgB9c?auth_key=1772231455-EmUYXdHvao-0-dc9cecc69e862c7c0e92c04402b44ddd",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oY4eeygBAgC63RgBJzccwTI9PQFekXL1LqcNsr?auth_key=1772231455-y6HZ74bnmM-0-99d5dcadb70d63e76f19fb48425b4792",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oEwCPbABkLBcr4HcATfLHg4eNcAqeY6TggwRYu?auth_key=1772231455-9O5DKT4Alj-0-922297570524b5c56a971f9bd06b0748",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oId0AOlmQAAcHIsegphQAY8sYBVfOYnOllyQcD?auth_key=1772231455-ZENh7X4I4A-0-aab010d8f0470eeb080b567317eaba2f",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o4PYgwqceAwgLcf8AAcBRePHL4TgwCMNQL6B4D?auth_key=1772231455-K8SUuoF4bn-0-8eedc4148589256798873a2d32d296d8",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oEAefpA8dljlAVq0sgYQYQAYDQFnBYODmIHclO?auth_key=1772231455-oRR4JRf251-0-7b632656b95fcac8a7b42138e29e11df",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o04LQNfBeJUgEMre4qCFID8YggqLATBLPicwY6?auth_key=1772231455-KyIidMULRQ-0-e80db87b6a169536599255a20b34e3ed",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oErLeBiXLwgL86IT8Pq4ACgt4YxnfeQBLScJNU?auth_key=1772231455-NFfscnGv4z-0-054849eae3b621c945c12cb3a7ae998a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oAEfQw6cVB4AiJCgYTLeN4eILKq7rLBP8UCdhg?auth_key=1772231455-3UH0hFPs8p-0-fedfa8bb7162e493a9a5ab4d24bd6e31",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ogQN8qTBLCG4A8cEI4teZwgg6RwrePJUisfBLW?auth_key=1772231455-1jzPjJx7sU-0-1857c120877c6848744155f2102f6e54",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oYieBgAcMLYJctRq6KjXPEQB0Cee4ewArtIKEf?auth_key=1772231455-jgA9643ufk-0-f01eed4bf495fe6e71ffa2cc5afb2e17",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oUeeeMrB6CrXEqusRgAQzACY6fPeLicJ0IL4tc?auth_key=1772231455-bM66eog1h0-0-f04aa26a3b9cf000acb86e837a1a695c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oQce2AsfILReeQ69K4tY01JCpeGiXAcrgBEIqM?auth_key=1772231455-90nTuT6GCx-0-14b31a3fda401457fb0daf0f6ceb5208",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o4eeeMrB6slXEqpURgAQgACYVfFeLicJ0IK4tc?auth_key=1772231455-TrrHbvlClB-0-fb65629d20df43d1abd04d29304a07fa",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ok4TjeLENicPse56lYqfkQbOACM3IgCmLqgAyB?auth_key=1772231455-K7W4wbHPyB-0-6244b5390564fe706e3952d90704e90f",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oMCfagAcTCYmqJeq6RML3BQyNAse4P7g3LIOMk?auth_key=1772231455-R6MceDQIms-0-854d20c12762e9ba5671451b3b467a3a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/og8fQA6cxy4Aem2gYTLeNqCIOKqB3LBPskCDKg?auth_key=1772231455-mQAKFLOeSq-0-63b4996e0543d60c93fa53a68e80852c",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oMEQNBdC6qBynPggILDcAkseLqYHfmTeUA34CO?auth_key=1772231455-1jxJrLF1Ga-0-5ad0b022bb5f56a4bf4cdb474c27138d",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oAfPc4PuN6ewRKgqyATgqCV5gfLLBNYgpAPSXv?auth_key=1772231455-H1akbS9B2O-0-8943fb459d4068da1bce5dab5977bf9b",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/owQh8psmWBlMpQlKHrIAMVdAfwOaVnge5cQ3FY?auth_key=1772231455-S2LAWyY4yA-0-6534140e41f2b70bbd05b53505f4f9d2",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oQOK6dHgfIYn3VwmVY2cUrZCvsHQBlQ5epQlAA?auth_key=1772231455-vkI4QnkweG-0-3950c74c6f6d8b2ccb4aaf97133c483a",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oQEAfHOOVFV3nYe1HlpQABsm5HrQIYgcQplKZd?auth_key=1772231455-zDCenRjtpk-0-a4d149a5dfc159c2430fb11d71673e4b",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oYQTeV08zAOOAAO4I8Mn4sgIdCYAizDLscAASP?auth_key=1772231455-VReLypH8YO-0-c033fd16110cd60aca6c5e190dca3cb8",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/owAzO8DLTdwsIUYO8g0IVAAeQMSzAtsi0ANUAP?auth_key=1772231455-SVgjVWRyir-0-b22ef258a6d40ed15409b9895e3c4eb3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ooszsQLIOAIAzAYOId8QAFg0sV8AM0ATvDiSOe?auth_key=1772231455-lmJIgLXYc8-0-8eeb70b91600469d9fca4fc8a6f5035f",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oImBQYX455xpqAAHgAfElgdcQ6qmYnAA4BnfR8?auth_key=1772231455-oyiVyqhiBL-0-08c69d102fa23e97267fded525197d64",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oYJvgcVKOAk0VXrTM8dwzfQkzAsI5UsIHPSAAA?auth_key=1772231455-tUz0RQABSb-0-247653a7904de7f1c27aed8768420300",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oQVeM5AdMKSrgIWQOAV0AYkOIUspNA8SczzTsH?auth_key=1772231455-vhLbCwIJxV-0-50a91ab80f6bb8914b80d91da3ff3c8f",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o4KSeAs7zsgRrdI0MzVcAAIBVYQDAUQ5SIOHTM?auth_key=1772231455-X6MKlkCd0R-0-df9065ff68a4860621a5f2a80cce30cb",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ooAKF0zA5sAdTbVSzVIgHKAsrYIcUMHeRMzQSO?auth_key=1772231455-JzWcpO69nl-0-2d877e295d1fcd8ae49de7a37402eaff",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o4ACPxeBUMZcBpPSgGRLSe4ANnAqeY6TgQ2I5B?auth_key=1772231455-MZGKTQglMa-0-2dc466cba8a68e1e1ed5e079b598d97e",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/ogNZmeQgA5Bq26MYENLnPP4elAcnACII5gSTpe?auth_key=1772231455-0D95OyvXMP-0-fd883e09ef0ddfd41fd62948da6244d1",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oUDo4BcP2YcASqLZTpneAgANgQdeCeEIFdPM65?auth_key=1772231455-1rKcQV4oiO-0-07d647232823d3e114424e1f95ccada3",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oA82PqCLAcTkPZNAwgDeB3j5Q4nepfA6uEIjMg?auth_key=1772231455-MaXJJZ11gS-0-198cf755a9015b33c18ebfe049c05a2b",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oQclfn6k1GJEZeYFmxAgYsQQc4AJqAgFbBkpmI?auth_key=1772231455-2FHChv4huJ-0-f16c0941b76d68466538bdcb8d58883d",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oUJxQ2BpAQDIk8lcJ6kF4gFAeg5cnqfAmYbY1m?auth_key=1772231455-HTXOQqdjBB-0-be569942c775f208726fc13360a0c402",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ooJpL5A1FAtfglfyQQqcnwYcg4xFbLm6AmBs8I?auth_key=1772231455-xmo8Q56Ks4-0-3d7fa7719326d01d75e454fda8e57c2a",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oYAJfA4xYnIgcYl0mgQ1Qbq6WXDFupeFc2AmBQ?auth_key=1772231455-SRQvZEuGfr-0-2f762f5fd5696057f09a4b10fc09cde3",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ocWItSwmAyATzTg0SecAApirRdIaQgV8bkIz8O?auth_key=1772231455-j6BYv93DSf-0-35e4515f783480027a19f10b1740d6f1",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oE00QeSTAOd4pIyLcYFA8VITAAghmItySzzi9g?auth_key=1772231455-VQFrJMEOdQ-0-5143dc0e98ad7c5c2947b4ec94247776",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oIA2AYSziVEHyTzgQ0dOTI8cIT2CIAitAgempS?auth_key=1772231455-7wgwg9thOF-0-55f1e29b4a7e2708502880b4f2b8f9ac",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o4SyxOAQcEVzAYm8TITetg0IY8SpzApIdIiAgz?auth_key=1772231455-tgeQEQX3nR-0-535887b39188a39ed1cde0bb1157729c",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ogQVeA9izsgw3dI08zVcAAIJmYgYA6QUSLOPTn?auth_key=1772231455-N5Qb6lx8PC-0-d088ce2b003f560892cd5102ba6a727b",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oInzs9If3dyJUPQ0A6gjIwQ8cATcZAAsmOPSzV?auth_key=1772231455-IUHR1ftPv8-0-be7de3db13f6af36108a4be661c4a47c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oczUsVOFSTA6NI4nmedQQAAAYg9IVPJ3z0c6mk?auth_key=1772231455-k1jXE2gPRH-0-7ab2b5acf3ceab81f0ecccefb2194f36",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/og0AfCTRehN5pCvYgdwVMx09UNBLEAPeu07oMg?auth_key=1772231455-yxuNoRBsNQ-0-1b031bb024c7619aed5d23a1359d864c",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oMRTs8VzOQOi4DgAAoOI8Ad80eI1SDAAsHVzYA?auth_key=1772231455-0Lohu31q4e-0-c5052c01aa867f47eb36bb74debb1095",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oYOAGdDgAIYz4V0TOs88MAiVnsKoASI8e0QzAA?auth_key=1772231455-mJlY3ce0Rb-0-695520ba789a4e8b6bce9dfad3e3a334",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/owsAzXAAczAOn8DggGQSV48ATOAVeYd0IQoIs5?auth_key=1772231455-oGLmR8U22A-0-e4334f68bf14ce36aeb5cdb43cfa94b1",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oc0zcDOwIDzoAs8TQ4E8OAAfgSVrms8AvIAOAd?auth_key=1772231455-sF5k6qKTU9-0-3cc6e5853cb169b3a6cf146422217a93",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oc05QNQR6ycAnYfqmeB5ZpgB6U0AlmAMghx24h?auth_key=1772231455-7LqMkMtiaM-0-50f31df6eacd5431cd8714af263882ae",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oMsAzmcAEzmOead8gNzSZ5cAT7AV8wd0IQIIwb?auth_key=1772231455-G9Rtvai0ZW-0-c4a3eabad4e3a7641d9ac90c5366f1fd",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oQcSQTAaId5t8Ice70ArI5mYIgVMA0AzzwOs0d?auth_key=1772231455-RTxR1CfYXt-0-b7beb85dff9c0c82a16ea71ddce54b5a",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oUmAQsIa5OAMYcFWyzVdAS0gUTwI7AhzImcUed?auth_key=1772231455-dj1y7hWc1T-0-e6fdbbe37e9f91aec3e9d8908d4607f4",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oQ0cQe7TAOdFwIVIMY5AcVMdBAsNBIcaSzzmbg?auth_key=1772231455-DqpZPbONNR-0-0f9254d89eaa53bf41e7a7bfb0c46287",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o4MSdzdsmLawQesMTcBBYnIQOcAuVAg7wAu0zI?auth_key=1772231455-ui2NgxLpN5-0-bc1b15457d58750f4bc50482fd0d40c0",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ogmeB7IzcAQLRBcugOS0cMAMYdAsVTOwazHI9d?auth_key=1772231455-kiiKKHXJ8p-0-20e7289d5c2ac1a6057faa84cc0dba56",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oICIc7YBAaBTzds0S7MAAwmdMdIYQgVesMEzcO?auth_key=1772231455-eY7XQk4MLC-0-eb27f1d2549510e537208ff3232fa033",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oIfCcAOzOx8ABVSm0a7SBgsTIQA8AcTIKQdzdw?auth_key=1772231455-7Pce4xtOws-0-2626656fb816527a797ee050af7884b1",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oQ7dY0KEcAApgcOSTgBeBaIImVS7zzAOwsdQAO?auth_key=1772231455-VPO3DLY3Vu-0-7dc81decf6c8b12cd841eee208648acd",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/osOe7s0SIAwzmQdogcSYTzdAcBlOzI7cgaAIV0?auth_key=1772231455-epywfK5lH2-0-ce1819b1f0ccf206b1c5a179b0fcab1d",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/osIFwdzm0AymY7SdAOATkWpzVgBQsIcSgTcaeO?auth_key=1772231455-DuCcAU9n3M-0-3efc353e5b24aa5bf02e6ed6c463c55d",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oczTtzg8yVpgAAg8i0TTSgIFBdQucASOI8we5o?auth_key=1772231455-0S03KIHMBd-0-a09ea964ea1d2aa028252333ea987824",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oIAZSBOwzkzcBIZi8yLtgDTdggTVQT0pAIIAfS?auth_key=1772231455-NqjLrAiYQ2-0-af806b15520ef3bd48ce0b0af4837912",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/osO8Pg8TIApziQdHecSwT8TANBVgzIStgyAFV0?auth_key=1772231455-w2wcy98CSd-0-e5f383bd8ccd3a54a60f29f89527ce43",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/okBzOcTTTdngIewSyg0IVAt8QFSzAdpgcA9Di1?auth_key=1772231455-0SzhvlUd6E-0-4936f908a04a8d90ff527665059a944e",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oEAeStOxzMz8BQ7A881As6cdg4DVQT0sAIIAHO?auth_key=1772231455-Z17pY4uu7y-0-3e1e6c611140fad6ea487a2a5053e715",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oQdXIs38zkOQAPTScYz08gVB4z0OAEIAAsDSeA?auth_key=1772231455-AWQd7EZDNX-0-3807fa43ed49acaa15dda5937c310239",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oYOWOIdIQAI0cez8AxVs8OUs4IBAQTA8OAzSgD?auth_key=1772231455-ZAaAaCvUsu-0-27e79abb70fea234f8f6bd9ceeebf0b7",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/owTAccQIskAV4dzYs5SODz8AZBO8AAJIsgj08e?auth_key=1772231455-gsr4Ctzume-0-c9c4ee588d00474d5a6218df62889b9f",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ogemS4m8eQFlcmKIgsm6A9BAwAnqQ2p3pqCyOk?auth_key=1772231455-yxRd1Yfp60-0-f68acaec735e5bc921f6cc13b830a30b",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/okpTAK8y9BqQmAqlmAeI3eTgOnmsQC48gCwc6S?auth_key=1772231455-uAZy0VAvTi-0-465ae8956f1e45cbed7eb0e34379602f",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oo3e8AesmAgLs6IpMnq4ABQ4qwM5CSQylIcmm9?auth_key=1772231455-Ys4pfgua9y-0-09a1052e4634c6a75b0559f3565a7f0e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o86lszI8mEm3zSceBQ4SqyAAgCQq7Fe9Amnpwm?auth_key=1772231455-PxhYXFR3Tr-0-75b7e4b601ec88602271cfb623ae84fa",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oEBSAYnnaqUIpmmgQp6cPi48IuhFQDZeAAec5l?auth_key=1772231455-y8PIspmTeW-0-ff5781d6d2db2c7a6eb8e553e32087f1",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oQDnc4Pcm6DAIiYnpgpQqBeeQMlmAD58EAvMZZ?auth_key=1772231455-1NASLGZZ3U-0-63a0eb4d92fd8d31087a5c5907bc50f8",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o0cpei4DgZnmpqHm8QPBAcA86nIAYQeQl5MjlM?auth_key=1772231455-sOwI7PSLvL-0-3ccc20a044e143d7e8d22a19557e425c",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oU88PqBlAcpEnZmDxQEeAvF5Q4ncpBA6ezI8mg?auth_key=1772231455-eFDu6N8w2m-0-8889911da8f0b66fbce87b3d0d7114f9",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oM4pj9lMmLcnsej67YqD0gekAsW3RQBmmUAAyA?auth_key=1772231455-Sft3Hg2RSv-0-96b80dca1349ffd48bc2add2a227fb51",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oIlmAn0A8IAmqPD3edYDe4gEWQ6myBcEpQsl8q?auth_key=1772231455-3aVf8BjECZ-0-88cff5ec4a78b7556f05653a073ce455",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oMKAsDp3gxlq60ymqmAknQIc8QGAnAeBWe4pJm?auth_key=1772231455-s3wuxwheXE-0-46ce44c5fdfeaf158f15cd2725edf9aa",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oQUAiDpIe3qcUBsYQ0Akm46OqmAlcgnmzWeyGQ?auth_key=1772231455-6dirh8kxbH-0-d46b8ac912f6c3c80b463a78ca171f99",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o84Q8QxXApEmmPApl6EBAzzcK6RegAq8esUn4c?auth_key=1772231455-Lo4dtbZER2-0-1095ce33793f04030751cda89bc591ee",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o8Org4oecA8pqqZmX86xmfQLnBAIpC5QPiloEA?auth_key=1772231455-dV3n35Sz55-0-ab62a5b4e32fa3116eecb0ab6adf2dd6",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o0mmeng8pq5CABAEZpPXl8QJE6Q94AocIeYljt?auth_key=1772231455-k2suCyHw2P-0-c7c8bac7ab91dd09c68dd96d360f4f02",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oo5IQsnQpZ1YA6pCeqmXm26FecPl4UAolgBEcA?auth_key=1772231455-eL5i9l3SbO-0-465b0acac98b35925a3661761fd24516",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/osB6l6cYncm4EGOeeBZrYgY6gyJqQmpRAIQAVc?auth_key=1772231455-zmVQbtpm6X-0-17c938e55d4fe47f5c7f9b76fd0b86a6",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oMVmy4meRQulcUJIgeJ6AYBYYAnqQhnrpcEBn0?auth_key=1772231455-Kiz7YWVrqe-0-7f13d284032fd9b06d1dcf2a22fcf770",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oUgcrYy4lp6isYAvBeceREqmAVbnQAJQBkYGIm?auth_key=1772231455-ledGlWf1v9-0-465c2ff081adf6a2bc547336f6039563",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oUrYVgDypEACNceeBJq6QEcYmnAlvp3IQB4RYm?auth_key=1772231455-DJUodBfknr-0-74e05699e069bad6701abe5124f72136",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o44Qw5nEmprnQQ6pY8iqBm3cB1IenIleFJYAgA?auth_key=1772231455-ybVzm8cMdl-0-3f4c53f7ba95fd6d5e8e346a976fb2c6",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/owQt6BvnQFJlAQ8PpMIsrvqfmiA8Ym4xB5gecK?auth_key=1772231455-yD37o4O7au-0-5120093b6242bc5e4a8e65604f94923a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oUHIQ6JglF8QpAY4eoencmnzr51cmBqQYB4AXi?auth_key=1772231455-rVt1ETeJ8a-0-4f726fe1e83a0502e42b8489c6e8814c",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/ocBikHcQQqAFIHBneg6Y3YmEAJmy4l8eprnMQ5?auth_key=1772231455-GGoqhY4lOv-0-87855010535ad657af39a0f8ee52ee5b",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oIzTtzgkyVpmAAg8i0ToSCIJCdQe8ASOI8xP8r?auth_key=1772231455-PHkJxyenLK-0-715c86de603f9f4337c4fd8cd94364f8",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o0FlnA4bAnRAMil5mRQFgSq6eubljp5gcfAmBY?auth_key=1772231455-twtFY4MHp6-0-58f5b05a572a80f9a12cb17a4c1504c1",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oQDtAi8OgQTySp0TyYcmczSzeAoARdCrVgIoII?auth_key=1772231455-fWhPY8ZtZV-0-07b9df2861ce7c8be025f4bc8d47bf4d",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oYSeSzmw0QgFTkATYAzVPkCdIiOgy2ApoI8gnt?auth_key=1772231455-uOKufk3w0E-0-073f6c044470b3011d029a721f023e0f",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oIAaAYSzhVMFsTzgQ0dOcl8MItCNICnjAgeqIS?auth_key=1772231455-LPnc1vS4fJ-0-16d46b017c907a0b27fe300ffd06eab2",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oQqxdstzICcSAQnl0HIcjKVwTIAegz8YASgMO2?auth_key=1772231455-1Lm3R5YqJJ-0-c4e6105ce4f026a980a155f2484ddcb2",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oQFASOdIQAI0qfz8jxVg8P0IMKCnwTAsOAzSgc?auth_key=1772231455-RNfbbCV4QE-0-fcbdc5e30d4fe91e499e196fdd54d222",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oM00Q8STAOdeIIMDMx2A8VJcCAgZqIjsSzznHg?auth_key=1772231455-nnVhVp2Gpt-0-c747bab9b8179f3a17e42d401cfca5f6",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oAFeHpbl6ZGmAq48SAAgeQAYQXWnBccnmRz4ll?auth_key=1772231455-sSLUyBkhFs-0-b430cc12f2ce90cf4665ad32683b0148",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oQypUeOrQVADI0Azugdg6xTPATz08Si80tn8IS?auth_key=1772231455-I9CRzOpyDu-0-7289aac310d1a3665dd400f32c1e95f5",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oMSTY05s8AAxgtOrTzDeDyIIiVShzzVJpgdQAu?auth_key=1772231455-yobQR2f7xQ-0-913367b9e80d8630cd1f2723cced2acc",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oI0YgIeyrASQzAVSTApItzVgGzTiIz8UlDYOdu?auth_key=1772231455-kTv6s5qCFz-0-645c74eea5c3c5114874ff3f45d7de2e",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/ogeISISTSIsAogvcckQgjnO0sXQVdAzzAIrDYz?auth_key=1772231455-ZC8i9lAS74-0-2329b7717d0978fd37983e92a8bc3187",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/osQeIgAASYnzA1O0sV8OcSGjQDcTzdMIgIzoAv?auth_key=1772231455-kUFMtWDCMC-0-0381a06ff836bf69b3f50f4fa8505f56",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ocgIzQxSSQsnTYjAd0zIiDOcVzcgAAoHMIJekl?auth_key=1772231455-LzbLeanN0j-0-394a4e7bec98d9a86e9b53bfa485d5c6",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oMQeIgA7SYnzAlO0sVEgcSVjQDcTzdEIgIzoAK?auth_key=1772231455-uYNG127JHn-0-40cb339b3c395b078435ae51f1c6bf44",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oAZpLkIOQAe5Al08QgqsnZAcA4HkQEm6AmBUeR?auth_key=1772231455-VZNPeNEDHQ-0-f579c68abac88ecf940cdccc1b1f1202",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o0IO0zgcxnAzTAWscXEAlImAdkgEeSLQjIcVSZ?auth_key=1772231455-P3KBavNUGq-0-546394afd8125848b50ef68bdb327905",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o0aQIWgSYTOzsUOIAHIVSzEYQcZn0AdAjgEceA?auth_key=1772231455-kvuXzhb4KB-0-3595ce9a2dabb622b24967095e709f6e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oAELgcSjOAs0V3nTA8dyzfQIzAgIsWIIcPSBEA?auth_key=1772231455-YgATMSS8fa-0-51148dc8329abc2bd2fd591927ddddd9",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oIgAzqtAEziORyTSgH3SqP8ETSAVeYd0IQyIpw?auth_key=1772231455-2G1QDRhAWL-0-0af87b1775645ee6f22f2acbc092843c",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/okt0zgOpQAAdKsTC8TAIIWtViz8PfySEWsySgx?auth_key=1772231455-8nXk3g3VUB-0-fce577ff0215305b5f025712156c8a78",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o8tqeAp0zgg5idI0czV8AAIISYI1EyQySGOTTP?auth_key=1772231455-1cWH4Hnb8C-0-f7c9b1c0cc5a11c25f9f3fa99addfd8d",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oMUzgQPIOiwEzAYSId8qAsgbpVytE0ATiTySje?auth_key=1772231455-IaWV8CnH6R-0-4333649ffe8c95e0ffce9c07db79adc8",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/o8IsoSdIQAI0aTzcZZVge1k82PE87TAPOAzSgA?auth_key=1772231455-g0BGXPNOiy-0-3cdebeb9c73e20303e8385ce45681a56",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/owpARe59UXRpPk5g1LEsBC5NeA5gRAAxgTMze0?auth_key=1772231455-CB2xSg9I5R-0-b4c05b80f246b93db09d03a0eae283c0",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ospgzRkpBeRNMAATLKsCA55Ye0RegAU5HZPPx5?auth_key=1772231455-5sV4uJLyzJ-0-73c8320fee6e080345fcdc5937a8943c",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oIEA8E0ZgZSodaPTVzAkjQIOeIPgz88A2OcxPA?auth_key=1772231455-ab0pNwFc3r-0-fc60834e0c5df5bc529bb0cfb5fae0b6",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 46,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oojyigLa0MAnCSn8AcVdIEOhTzASDfLIQscIgz?auth_key=1772231455-gXI5jIhMIp-0-1249e5b0102a36438dbc5f318ea15b8c",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o0PYSadIQAI0h1zcjyVg8eEIajEniTAsOAzSgc?auth_key=1772231455-yb1Ebn3O1R-0-2f8fee9e389c9082ffaeee027edbd94e",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o8sIlLOhQVAEIjAzagdguZTJAcz5cSne0jRMIS?auth_key=1772231455-NdMz5hU4nW-0-0d2df8649789a74053650ec894e4d716",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/os0sQ8STAOd0IIYGaytAcVicEAgfhIjsSzznGg?auth_key=1772231455-r5V39sG2T9-0-890ac2968ac1f5f1dd1e9057567cedd3",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 47,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/owcmo6OgJIYnIq5mfAt4kaXvw9IwBlQhepQmAA?auth_key=1772231455-DBuo7D3WKZ-0-fccdfe77641d243588b44f13bbba4943",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o0SP5xdRN0UARfifDATgUCM5glLMBq7gpAeX1l?auth_key=1772231455-ZC49aEPlK0-0-73d9a9fb1dfdfa869a011d795fa604fa",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oImYvgHwpkAO6faeBOq6QJcImnAluwjIQh49Am?auth_key=1772231455-nFHujUj9H0-0-8f1a0c02d86af6760f899478a7654daf",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oUmYvgEwp0AjcfaeBOq6QJcImnAltp2IQh49Am?auth_key=1772231455-1LzhnHP5BA-0-e72211a920e63c412b2db2299ad1f15c",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oEK8zVEeAiIS1OcSIcyAls2nEKdTz0UgIgA8Qj?auth_key=1772231455-GcOCYtNpvc-0-38088d9c23d9e1149d4af1630d6e00df",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/okIO0zgcpnlzTAcsiiEALIJAdMgReSPQjI8VSZ?auth_key=1772231455-8wvZ9NrCgc-0-9e0087f1676f1dd3ca529ec33f5ac400",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ooJVg8SjOA80VcnTledZzCQRzAgIscIIccSSEA?auth_key=1772231455-yoDj45oTLx-0-5c69c0c76761b0671990cf2c0c75da3c",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/oUlziII3ndDmsGj0AcgfIyQ88ETs7AAgSOcSzV?auth_key=1772231455-bIqj83i7VK-0-4289e90e0fca2833899a8b6268084478",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oIQFe0sTDAzIVISKHrIAEVdAEZOwVzg65co4Qs?auth_key=1772231455-1jICag33Wx-0-04ef2e158d90fe39e0f25ebfb5156515",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/o0sOoLzLdErgIRVI0EVArZzc5EHSA4TzeQA7Ks?auth_key=1772231455-pzr14ZbzuY-0-9b2a6795f7e66fc47ce496b1fe356d13",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o08KIzOgBI0HV0sEfscAS54SiHVByzTrAdAoYQ?auth_key=1772231455-GvK3Rx9AtY-0-4958330a391b791153182398ffb2e7f2",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o0K4EHgoQdVr25EAzZ0TeOQAzIFKssgcIA5VMS?auth_key=1772231455-0ztLBIdd7c-0-015e183182fcf52371b20304d632672c",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/occnYQyIc1FJmBYFQ64wAAgTbqJxJpAmvfwlre?auth_key=1772231455-NeU8mbIBXd-0-5884d31f3e6754b1f2eb23d382dedb29",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oEqyJfgwQ6F1RlMAmYpmecwBnIOxYb54QAJqMl?auth_key=1772231455-iLR6EF1CcR-0-d21bf6765cbec4be57072deebde916f3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/ossAJwcEqIFynYeTGlwwABbmJf1QIYg4Qpmxv6?auth_key=1772231455-vFnUImOEnG-0-c9873272f3d93fe6b4b64bcec52bb7fb",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o8U34AcnwY0Awql1pJFyJgYmQQDeBxEIFQfm6b?auth_key=1772231455-LeVaTFK15i-0-1f62ff63a5080d5a237cc1c1f29f8b8a",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/osAgeqbAKnJRcZVIl4xBmOmfQY6pAkKIFp51Qy?auth_key=1772231455-AXJZgAzu4m-0-a64e305e862a364c972caa866ecac0ac",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/oMpnkfFZIWmyBbJmQALeMAA1glqRXY4x3Q1cK6?auth_key=1772231455-GzjRPdgBeV-0-c6f3f819f973fc57ac3483d279340886",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/o4mpBekH6ARqbkZAcQJQnyJHlKx1cAgfm4SIFY?auth_key=1772231455-R9Bh7jGHRb-0-5371e0f92cdb8acb4f45bd2a6cf64f6e",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/o4ceuYMAIBbn1Q69R4lZmLfAHK8ymQFxgJAEqp?auth_key=1772231455-TvFFMMpvMV-0-09900a4aadac3e53b2e280f632e644d0",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "index": 52,
+      "videos": [
+        {
+          "quality": "540P",
+          "url": "https://reeltv.janzhoutec.com/oo9xA14cYQfrlbpmJYu2EnFmeByAH6KQqgNkIQ?auth_key=1772231455-lHxXsbGZgd-0-fbce3dbb5a03ba99f19cb480420d09d7",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "quality": "720P",
+          "url": "https://reeltv.janzhoutec.com/owAxSpmBJbK6mvqlZFIgQPAY1YQ42kfeYEnQzc?auth_key=1772231455-HefsOgavmw-0-39db1ac149605abeef59147341f219bb",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "quality": "480P",
+          "url": "https://reeltv.janzhoutec.com/oAYmpAIfKgcbQ1AkQLcmBtxe2YqzlnF6YLxJ4i?auth_key=1772231455-LGwMmadkqC-0-313e513948aa1f359edd529239c65c68",
+          "width": 480,
+          "height": 854
+        },
+        {
+          "quality": "360P",
+          "url": "https://reeltv.janzhoutec.com/okm1lkQQYeAq26mxE1lFfn4xpKcbABHIbglpJ8?auth_key=1772231455-THfDyaRNzO-0-03cfc3b2eb9410274149b0e0ec10b890",
+          "width": 360,
+          "height": 640
+        }
+      ]
+    }
+  ]
+}

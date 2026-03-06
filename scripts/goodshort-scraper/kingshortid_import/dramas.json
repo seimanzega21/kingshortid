@@ -1,0 +1,80 @@
+[
+  {
+    "id": "drama_39284055z491o9p5oj",
+    "title": "Jatuh Cinta dengan Istri Kontrakku",
+    "description": "Pernikahan kontrak yang berubah menjadi cinta sejati. Kisah romantis penuh emosi.",
+    "cover": "D:\\kingshortid\\scripts\\goodshort-scraper\\kingshortid_import\\covers\\31000860396.jpg",
+    "banner": null,
+    "genres": [
+      "Sweet Romance"
+    ],
+    "tagList": [
+      "Marriage",
+      "Contract",
+      "CEO",
+      "Romance"
+    ],
+    "totalEpisodes": 90,
+    "rating": 0.0,
+    "views": 0,
+    "likes": 0,
+    "reviewCount": 0,
+    "averageRating": 0.0,
+    "status": "completed",
+    "isVip": false,
+    "isFeatured": false,
+    "isActive": true,
+    "ageRating": "all",
+    "releaseDate": null,
+    "director": null,
+    "cast": [],
+    "country": "China",
+    "language": "Mandarin",
+    "createdAt": "2026-02-01T16:48:05.267825",
+    "updatedAt": "2026-02-01T16:48:05.267825",
+    "_metadata": {
+      "goodshort_bookId": "31000860396",
+      "goodshort_author": "GoodShort",
+      "source": "GoodShort"
+    }
+  },
+  {
+    "id": "drama_39285289qs3lihiuz0",
+    "title": "Jenderal Jadi Tukang",
+    "description": "Seorang jenderal terkenal harus menyamar sebagai tukang untuk menyelesaikan misi rahasia. Drama penuh aksi dan romance yang menegangkan.",
+    "cover": "D:\\kingshortid\\scripts\\goodshort-scraper\\kingshortid_import\\covers\\31001221963.jpg",
+    "banner": null,
+    "genres": [
+      "Action Romance"
+    ],
+    "tagList": [
+      "CEO",
+      "Hidden Identity",
+      "Romance",
+      "Action"
+    ],
+    "totalEpisodes": 100,
+    "rating": 0.0,
+    "views": 0,
+    "likes": 0,
+    "reviewCount": 0,
+    "averageRating": 0.0,
+    "status": "completed",
+    "isVip": false,
+    "isFeatured": false,
+    "isActive": true,
+    "ageRating": "all",
+    "releaseDate": null,
+    "director": null,
+    "cast": [],
+    "country": "China",
+    "language": "Mandarin",
+    "createdAt": "2026-02-01T16:48:05.435685",
+    "updatedAt": "2026-02-01T16:48:05.435685",
+    "_metadata": {
+      "goodshort_bookId": "31001221963",
+      "goodshort_author": "GoodShort",
+      "source": "GoodShort"
+    }
+  }
+]

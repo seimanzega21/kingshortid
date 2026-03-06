@@ -1,0 +1,68 @@
+﻿============================================================
+  VIDRAMA MICRODRAMA HLS SCRAPER
+  Limit: 10 dramas | Dry-run: True
+============================================================
+[1] Discovering Indonesian-titled MicroDrama dramas...
+    Page 1: scanned 50, Indonesian found: 0
+    Page 6: scanned 300, Indonesian found: 0
+    Page 11: scanned 550, Indonesian found: 0
+    Page 16: scanned 800, Indonesian found: 0
+    Page 21: scanned 1050, Indonesian found: 0
+    Page 26: scanned 1300, Indonesian found: 0
+    Page 31: scanned 1550, Indonesian found: 0
+    Page 36: scanned 1800, Indonesian found: 0
+    Page 41: scanned 2050, Indonesian found: 0
+    Page 46: scanned 2300, Indonesian found: 0
+    Page 51: scanned 2550, Indonesian found: 0
+    Page 56: scanned 2800, Indonesian found: 0
+    Page 61: scanned 3050, Indonesian found: 0
+    Page 66: scanned 3300, Indonesian found: 0
+    Page 71: scanned 3550, Indonesian found: 0
+    Page 76: scanned 3800, Indonesian found: 0
+    Page 81: scanned 4050, Indonesian found: 0
+    Page 86: scanned 4300, Indonesian found: 0
+    Page 91: scanned 4550, Indonesian found: 0
+    Page 96: scanned 4800, Indonesian found: 0
+    Page 101: scanned 5050, Indonesian found: 0
+    Page 106: scanned 5300, Indonesian found: 0
+    Page 111: scanned 5550, Indonesian found: 0
+    Page 116: scanned 5800, Indonesian found: 0
+    Page 121: scanned 6050, Indonesian found: 0
+    Page 126: scanned 6300, Indonesian found: 0
+    Page 131: scanned 6550, Indonesian found: 0
+    Page 136: scanned 6800, Indonesian found: 0
+    Page 141: scanned 7050, Indonesian found: 0
+    Page 146: scanned 7300, Indonesian found: 0
+    Page 151: scanned 7550, Indonesian found: 0
+    Page 156: scanned 7800, Indonesian found: 0
+    Page 161: scanned 8050, Indonesian found: 0
+    Page 166: scanned 8300, Indonesian found: 0
+    Page 171: scanned 8550, Indonesian found: 0
+    Page 176: scanned 8800, Indonesian found: 0
+    Page 181: scanned 9050, Indonesian found: 0
+    Page 186: scanned 9300, Indonesian found: 0
+    Page 191: scanned 9550, Indonesian found: 0
+    Page 196: scanned 9800, Indonesian found: 0
+    Page 201: scanned 10050, Indonesian found: 0
+    Page 206: scanned 10300, Indonesian found: 0
+    Page 211: scanned 10550, Indonesian found: 0
+    Page 216: scanned 10800, Indonesian found: 0
+    Page 221: scanned 11050, Indonesian found: 0
+    Page 226: scanned 11300, Indonesian found: 0
+    Page 231: scanned 11550, Indonesian found: 0
+    Page 236: scanned 11800, Indonesian found: 0
+    Page 241: scanned 12050, Indonesian found: 0
+    Page 246: scanned 12300, Indonesian found: 0
+    Page 251: scanned 12550, Indonesian found: 0
+    Page 256: scanned 12800, Indonesian found: 0
+    Page 261: scanned 13050, Indonesian found: 0
+    Page 266: scanned 13300, Indonesian found: 0
+    Page 271: scanned 13550, Indonesian found: 0
+    Page 276: scanned 13800, Indonesian found: 0
+    Page 281: scanned 14050, Indonesian found: 0
+    Page 286: scanned 14300, Indonesian found: 0
+    Page 291: scanned 14550, Indonesian found: 0
+    Page 296: scanned 14800, Indonesian found: 0
+    Done: scanned 15000 dramas, found 0 Indonesian
+  Discovered 0 Indonesian dramas
+  Nothing found!

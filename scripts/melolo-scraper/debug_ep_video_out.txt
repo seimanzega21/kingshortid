@@ -1,0 +1,32 @@
+﻿
+=======================================================
+  Episode 16
+  URL: https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+  HTTP HEAD: 200
+  Content-Length: 6815792 bytes
+  Content-Type: video/mp4
+  Cache-Control: public, max-age=31536000, immutable
+  Downloaded partial: 4096 KB
+  File header (hex): 000000206674797069736f6d00000200
+  Magic bytes: OK (ftyp found = valid MP4)
+  ffprobe exit: 1
+  ffprobe STDERR: [mov,mp4,m4a,3gp,3g2,mj2 @ 000001ce34384c00] moov atom not found
+C:/tmp/ep16_debug.mp4: Invalid data found when processing input
+
+
+=======================================================
+  Episode 17
+  URL: https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+  HTTP HEAD: 200
+  Content-Length: 3932208 bytes
+  Content-Type: video/mp4
+  Cache-Control: public, max-age=31536000, immutable
+  Downloaded partial: 3840 KB
+  File header (hex): 000000206674797069736f6d00000200
+  Magic bytes: OK (ftyp found = valid MP4)
+  ffprobe exit: 1
+  ffprobe STDERR: [mov,mp4,m4a,3gp,3g2,mj2 @ 000002042fb94c00] moov atom not found
+C:/tmp/ep17_debug.mp4: Invalid data found when processing input
+
+
+=======================================================

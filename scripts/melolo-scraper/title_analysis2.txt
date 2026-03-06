@@ -1,0 +1,180 @@
+﻿=== COMPLETE video_data STRUCTURE (FIRST ENTRY) ===
+
+
+
+=== BOOKSHELF/BOOKMALL BOOK_INFO STRUCTURE ===
+
+Book structure:
+  abstract: Menjelang ajal, Rizal masih tidak dianggap ayah oleh putrinya. Bahkan putrinya ingin dia mati supaya ibunya bisa bersama Om Hendra. Rizal tiba-tiba diberi kesempatan kembali muda dan memilih hidup unt...
+  age_gate: 18
+  author: fanqie
+  book_id: 7565032240099380229
+  book_name: Hidup Baru Ayah Pecundang
+  book_status: 1
+  book_type: 2
+  category_info: [{"ObjectId":746,"Dim":10,"Name":"Kelahiran kembali","ExternalDesc":"","Gender":2,"Status":1,"AppId":4171,"Extra":"{\"for_publication\":0,\"icon\":\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81...
+  category_v2_ids: 746,19,721
+  color_dominate: #382820
+  comic_show_type: 0
+  copyright_info: 
+  cover_stat_infos: [{"stat_data_position": 3, "stat_type": 6, "stat_value": "4.5M"}]
+  create_time: 2025-10-25T05:48:45Z
+  creation_status: 0
+  first_chapter_item_id: 7565050989493881861
+  gender: 1
+  genre: 203
+  in_bookshelf: 0
+  is_dubbed: 0
+  is_exclusive: 0
+  is_hot: 0
+  is_native: 0
+  is_new_book: 0
+  language: id
+  last_chapter_first_pass_time: 1761375783
+  last_chapter_index: 66
+  last_publish_time: 1762340480
+  log_pb: {"key_recommend_group_id": "7565032240099380229"}
+  media_id: 1761691552379918
+  novel_text_type: 0
+  original_language: zh
+  platform: 7
+  read_count: 0
+  serial_count: 66
+  show_creation_status: Selesai
+  show_creation_status_v2: {"detail_scene":["Selesai","Status"],"other_scene":"Selesai"}
+  source: τò¬Φîä
+  stat_infos: ["Kelahiran kembali", "Selesai"]
+  sub_abstract: 
+  thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7599ba784989b68c0f3dd6c173752f00~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772151201&x-signature=Ml8%2Fy4U5bh1XXs0jZQgdEOix9D8%3D
+  total_price: 
+  tts_status: 0
+  type: 0
+  visibility_age_gate: 18
+  web_infos: {"stat_infos":["Kelahiran kembali"]}
+  word_number: 0
+
+Book structure:
+  abstract: Rizky Pratama menikah dengan Indira Maheswari setelah menyelamatkan Kakek Maheswari, namun Indira selalu salah paham dan bersikap dingin, bahkan dekat dengan Aditya Mahesa. Meski Rizky tulus dan sabar...
+  age_gate: 18
+  author: kuaichuang
+  book_id: 7585486793672231989
+  book_name: Bangkit Setelah Cinta Berlalu
+  book_status: 1
+  book_type: 2
+  category_info: [{"ObjectId":33,"Dim":10,"Name":"Menantu Pria","ExternalDesc":"","Gender":1,"Status":1,"AppId":4171,"Extra":"{\"for_publication\":0,\"icon\":\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/3607bcc3...
+  category_v2_ids: 33,19,702,721
+  color_dominate: #203030
+  comic_show_type: 0
+  copyright_info: 
+  cover_stat_infos: [{"stat_data_position": 3, "stat_type": 6, "stat_value": "1.1M"}]
+  create_time: 2025-12-19T08:42:52Z
+  creation_status: 0
+  first_chapter_item_id: 7585493795718827061
+  gender: 1
+  genre: 203
+  in_bookshelf: 0
+  is_dubbed: 0
+  is_exclusive: 0
+  is_hot: 0
+  is_native: 0
+  is_new_book: 0
+  language: id
+  last_chapter_first_pass_time: 1766138221
+  last_chapter_index: 76
+  last_publish_time: 1766423516
+  log_pb: {"key_recommend_group_id": "7585486793672231989"}
+  media_id: 3697730828762028
+  novel_text_type: 0
+  platform: 7
+  read_count: 0
+  serial_count: 76
+  show_creation_status: Selesai
+  show_creation_status_v2: {"detail_scene":["Selesai","Status"],"other_scene":"Selesai"}
+  source: σ┐½σê¢
+  stat_infos: ["Menantu Pria", "Selesai"]
+  sub_abstract: 
+  thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/e9cf0600d945e2b24ce33a1c2cce4c52~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772151202&x-signature=SVgDkUKJ1Hqb1iD3%2BbnaC4c8EGU%3D
+  total_price: 
+  tts_status: 0
+  type: 0
+  visibility_age_gate: 18
+  web_infos: {"stat_infos":["Menantu Pria"]}
+  word_number: 0
+
+Book structure:
+  abstract: Demi cinta, Rio tinggalkan studi demi janji manis sang pujaan. Setelah belasan tahun berjuang, ia justru dikhianati dan mati dalam kehampaan. Namun takdir memberinya satu kesempatan untuk membalas sem...
+  age_gate: 18
+  author: fanqie
+  book_id: 7517087531356130305
+  book_name: Tangi Penyesalan Bos Cantik
+  book_status: 1
+  book_type: 2
+  category_info: [{"ObjectId":746,"Dim":10,"Name":"Kelahiran kembali","ExternalDesc":"","Gender":2,"Status":1,"AppId":4171,"Extra":"{\"for_publication\":0,\"icon\":\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81...
+  category_v2_ids: 746,19,702,721
+  color_dominate: #302828
+  comic_show_type: 0
+  copyright_info: 
+  cover_stat_infos: [{"stat_data_position": 3, "stat_type": 6, "stat_value": "1.3M"}]
+  create_time: 2025-06-18T00:58:48Z
+  creation_status: 0
+  first_chapter_item_id: 7517089802022292481
+  gender: 1
+  genre: 203
+  in_bookshelf: 0
+  is_dubbed: 0
+  is_exclusive: 0
+  is_hot: 0
+  is_native: 0
+  is_new_book: 0
+  language: id
+  last_chapter_first_pass_time: 1750238393
+  last_chapter_index: 100
+  last_publish_time: 1750239086
+  log_pb: {"key_recommend_group_id": "7517087531356130305"}
+  media_id: 1761691552379918
+  novel_audit_mark_info: {"disclaimer":{"content_label":[],"fictional_warnings":[],"show_in_first":false,"special_disclaimers":[],"trigger_warning":["Depiction of Acts of Serious Violence"]}}
+  novel_text_type: 0
+  original_language: zh
+  platform: 7
+  read_count: 0
+  serial_count: 100
+  show_creation_status: Selesai
+  show_creation_status_v2: {"detail_scene":["Selesai","Status"],"other_scene":"Selesai"}
+  source: τò¬Φîä
+  stat_infos: ["Kelahiran kembali", "Selesai"]
+  sub_abstract: 
+  thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9dfdf9d3d4371fa71dfe2b0424151214~tplv-resize:570:810.heic?rk3s=95ec04ee&x-expires=1772151202&x-signature=58XQgvfkmdiShE87LPCWfQVa35I%3D
+  total_price: 
+  tts_status: 0
+  type: 0
+  visibility_age_gate: 18
+  web_infos: {"stat_infos":["Kelahiran kembali"]}
+  word_number: 3000
+
+
+
+=== BOOK_HISTORY STRUCTURE ===
+
+
+
+=== MATCHING SERIES_COVER TO BOOKSHELF TITLES ===
+
+Series covers found: 72
+Titles by image hash: 54
+  MATCH: 830746336272 -> Dunia Menyayangiku Penuh Kelembutan
+  MATCH: 317489671221 -> Mata Pengubah Nasib
+  MATCH: 240099380229 -> Hidup Baru Ayah Pecundang
+  MATCH: 823137172485 -> Bukan Lagi Budak Cintamu
+  MATCH: 626638830645 -> Tangkap Harta Karun di Kampung
+  MATCH: 047549406213 -> Hidup Berjaya Anak Terbuang
+  MATCH: 002796334133 -> Sekali Lihat, Jadi Sultan
+  MATCH: 293895928848 -> Ayah Berandalan jadi CEO
+  MATCH: 750534855733 -> Pacari Musuh Mantan Istri
+  MATCH: 631111826485 -> Barang Supermarket di Dunia Kuno
+  MATCH: 938379582469 -> Suara Hati Anak Angkat
+  MATCH: 531356130305 -> Tangi Penyesalan Bos Cantik
+  MATCH: 605311134725 -> Dikurung, Aku Memanggil Petir
+  MATCH: 587224243217 -> Memperbaiki Masa Lalu
+
+Matched: 14
+Unmatched: 58

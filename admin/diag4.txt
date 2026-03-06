@@ -1,0 +1,19 @@
+Misi Cinta Sang Kurir
+  cover=404 | eps=117 | ep1=404
+  cover_url=https://stream.shortlovers.id/melolo/misi-cinta-sang-kurir/poster.jpg
+  ep1_url=https://stream.shortlovers.id/melolo/misi-cinta-sang-kurir/episodes/002.mp4
+
+Kehadiran Cinta dari Masa Lalu
+  cover=404 | eps=140 | ep1=404
+  cover_url=https://stream.shortlovers.id/melolo/kehadiran-cinta-dari-masa-lalu/poster.jpg
+  ep1_url=https://stream.shortlovers.id/melolo/kehadiran-cinta-dari-masa-lalu/episodes/002.mp4
+
+Mata Kiri Ajaibku
+  cover=404 | eps=160 | ep1=404
+  cover_url=https://stream.shortlovers.id/melolo/mata-kiri-ajaibku/poster.jpg
+  ep1_url=https://stream.shortlovers.id/melolo/mata-kiri-ajaibku/episodes/002.mp4
+
+Hidup Berjaya Anak Terbuang
+  cover=404 | eps=70 | ep1=404
+  cover_url=https://stream.shortlovers.id/melolo/hidup-berjaya-anak-terbuang/cover.jpg
+  ep1_url=https://stream.shortlovers.id/melolo/hidup-berjaya-anak-terbuang/episodes/002/playlist.m3u8

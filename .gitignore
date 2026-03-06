@@ -1,0 +1,77 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploads (local only)
+uploads/videos/
+uploads/thumbnails/
+
+# Mobile specific
+mobile/.expo/
+mobile/node_modules/
+mobile/android/
+mobile/ios/
+
+# Admin specific  
+admin/.next/
+admin/node_modules/
+
+# App specific
+app/.next/
+app/node_modules/
+
+# Prisma
+*.db
+*.db-journal                    
+
+# Video files
+*.mp4
+*.MP4
+
+# HLS files
+*.m3u8
+
+# Scripts data (scraped videos, HAR captures, logs)
+scripts/melolo-scraper/r2_ready/
+scripts/melolo-scraper/downloads/
+scripts/melolo-scraper/*.har
+scripts/melolo-scraper/*.log
+scripts/melolo-scraper/cover_comparison/
+scripts/goodshort-scraper/downloads/
+scripts/goodshort-scraper/r2_ready/
+scripts/goodshort-scraper/*.log
+scripts/stardusttv-scraper/downloads/
+*.har
+
+# Admin uploads (local only)
+admin/public/uploads/
+
+# Java artifacts
+*.jar

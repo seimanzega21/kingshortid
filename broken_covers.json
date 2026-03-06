@@ -1,0 +1,77 @@
+{
+  "broken": [
+    {
+      "id": "cmlficdo400j6ldfkj83fs4ku",
+      "title": "Cintamu meluluhkan hatiku",
+      "cover": "https://stream.shortlovers.id/melolo/cintamu-meluluhkan-hatiku/cover.jpg",
+      "status": 404
+    },
+    {
+      "id": "cmlficdom00mbldfk2mieyiei",
+      "title": "Dari Miskin Jadi Sultan",
+      "cover": "https://stream.shortlovers.id/melolo/dari-miskin-jadi-sultan/cover.jpg",
+      "status": 404
+    },
+    {
+      "id": "cmlficdxp01h2ldfkddawznbo",
+      "title": "Tangan Kiri Sakti Kuli Tambang",
+      "cover": "https://stream.shortlovers.id/melolo/tangan-kiri-sakti-kuli-tambang/cover.jpg",
+      "status": 404
+    },
+    {
+      "id": "cmlficdy601keldfk8eu8htm3",
+      "title": "Vila Portal Dunia Lain",
+      "cover": "https://stream.shortlovers.id/melolo/vila-portal-dunia-lain/cover.jpg",
+      "status": 404
+    },
+    {
+      "id": "cmleexn9m00q7hx5ea171efcy",
+      "title": "Anak Ajaib Ahli Barang Antik",
+      "cover": "https://stream.shortlovers.id/melolo/anak-ajaib-ahli-barang-antik/cover.jpg",
+      "status": 404
+    },
+    {
+      "id": "cmkmso6rd004v1unng9r1rpws",
+      "title": "Setelah Nikah,  Aku Tiap Hari Dimanjakan",
+      "cover": "https://pub-8becf1ee9a914fc3a6525e2b50f11d04.r2.dev/setelah_nikah,_aku_tiap_hari_dimanjakan/cover.jpg",
+      "status": "ERR"
+    }
+  ],
+  "fixable": [
+    {
+      "id": "cmlficdo400j6ldfkj83fs4ku",
+      "title": "Cintamu meluluhkan hatiku",
+      "cover": "https://stream.shortlovers.id/melolo/cintamu-meluluhkan-hatiku/cover.jpg",
+      "status": 404,
+      "webpUrl": "https://stream.shortlovers.id/melolo/cintamu-meluluhkan-hatiku/cover.webp"
+    },
+    {
+      "id": "cmlficdom00mbldfk2mieyiei",
+      "title": "Dari Miskin Jadi Sultan",
+      "cover": "https://stream.shortlovers.id/melolo/dari-miskin-jadi-sultan/cover.jpg",
+      "status": 404,
+      "webpUrl": "https://stream.shortlovers.id/melolo/dari-miskin-jadi-sultan/cover.webp"
+    },
+    {
+      "id": "cmlficdxp01h2ldfkddawznbo",
+      "title": "Tangan Kiri Sakti Kuli Tambang",
+      "cover": "https://stream.shortlovers.id/melolo/tangan-kiri-sakti-kuli-tambang/cover.jpg",
+      "status": 404,
+      "webpUrl": "https://stream.shortlovers.id/melolo/tangan-kiri-sakti-kuli-tambang/cover.webp"
+    },
+    {
+      "id": "cmlficdy601keldfk8eu8htm3",
+      "title": "Vila Portal Dunia Lain",
+      "cover": "https://stream.shortlovers.id/melolo/vila-portal-dunia-lain/cover.jpg",
+      "status": 404,
+      "webpUrl": "https://stream.shortlovers.id/melolo/vila-portal-dunia-lain/cover.webp"
+    },
+    {
+      "id": "cmleexn9m00q7hx5ea171efcy",
+      "title": "Anak Ajaib Ahli Barang Antik",
+      "cover": "https://stream.shortlovers.id/melolo/anak-ajaib-ahli-barang-antik/cover.jpg",
+      "status": 404,
+      "webpUrl": "https://stream.shortlovers.id/melolo/anak-ajaib-ahli-barang-antik/cover.webp"
+    }
+  ]
+}

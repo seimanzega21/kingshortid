@@ -1,0 +1,23 @@
+{
+  "uploadedAt": "2026-01-31T12:48:49.031Z",
+  "totalDramas": 2,
+  "totalEpisodes": 1,
+  "dramas": [
+    {
+      "bookId": "31000908479",
+      "coverUrl": "https://pub-a9f77e6b702e45b2aabc637183ac0c4d.r2.dev/goodshort-content/31000908479/cover.jpg",
+      "episodes": [
+        {
+          "chapterId": "411618",
+          "videoUrl": "https://pub-a9f77e6b702e45b2aabc637183ac0c4d.r2.dev/goodshort-content/31000908479/411618.mp4",
+          "fileSize": 5818361
+        }
+      ]
+    },
+    {
+      "bookId": "31001250379_634143",
+      "coverUrl": null,
+      "episodes": []
+    }
+  ]
+}

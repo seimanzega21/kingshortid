@@ -1,0 +1,16 @@
+{
+  "appName": "KingShort Admin",
+  "maintenanceMode": false,
+  "registrationsOpen": true,
+  "currency": "IDR",
+  "language": "en",
+  "adsEnabled": false,
+  "appDescription": "",
+  "termsUrl": "",
+  "privacyUrl": "",
+  "contactEmail": "",
+  "contactPhone": "",
+  "maxLoginAttempts": 5,
+  "sessionTimeout": 24,
+  "twoFactorEnabled": false
+}

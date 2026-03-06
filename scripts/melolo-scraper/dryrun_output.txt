@@ -1,0 +1,80 @@
+﻿============================================================
+  VIDRAMA MICRODRAMA HLS SCRAPER
+  Limit: 10 dramas | Dry-run: True
+============================================================
+[1] Discovering Indonesian-titled MicroDrama dramas...
+    Page 1: scanned 50, Indonesian found: 18
+    Done: scanned 100 dramas, found 36 Indonesian
+  Discovered 30 Indonesian dramas
+[2] Loading existing R2 slugs...
+    R2 slug count: 467
+[3] Loading existing D1 drama titles...
+    D1 drama count: 486
+    New dramas to scrape: 30
+    After limit: 10
+
+____________________________________________________________
+  [1/10] Cast Him Like the Wind
+  Slug: cast-him-like-the-wind
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [2/10] She Made the Family Go Viral
+  Slug: she-made-the-family-go-viral
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [3/10] Cold CEOΓÇÖs Late Cry
+  Slug: cold-ceos-late-cry
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [4/10] The Adored Plant Whisperer
+  Slug: the-adored-plant-whisperer
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [5/10] Return of the Wronged Heiress
+  Slug: return-of-the-wronged-heiress
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [6/10] The Medical Prodigy
+  Slug: the-medical-prodigy
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [7/10] I Quit Being the Marchioness
+  Slug: i-quit-being-the-marchioness
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [8/10] The Mob Boss's 80s Sweetheart
+  Slug: the-mob-bosss-80s-sweetheart
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [9/10] The Fallen Dragon Rises
+  Slug: the-fallen-dragon-rises
+  No episodes in detail
+  FAIL: No episodes processed
+
+____________________________________________________________
+  [10/10] I Can See the Countdown
+  Slug: i-can-see-the-countdown
+  No episodes in detail
+  FAIL: No episodes processed
+
+============================================================
+  DONE
+  Registered: 0 dramas, 0 episodes
+  Failed:     10
+============================================================

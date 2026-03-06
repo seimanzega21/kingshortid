@@ -1,0 +1,27 @@
+{
+  "bookId": "31000991502",
+  "title": "Jenderal Jadi Tukang",
+  "originalTitle": null,
+  "description": "Seorang jenderal yang terpaksa menyamar menjadi tukang untuk menyelamatkan keluarganya",
+  "genre": "Drama",
+  "category": "Drama",
+  "author": "GoodShort Studios",
+  "tags": [
+    "romantic",
+    "family",
+    "modern"
+  ],
+  "totalEpisodes": 100,
+  "coverUrl": "https://acf.goodreels.com/videobook/31000991502/202510/cover-test123-720.jpg",
+  "metadata": {
+    "views": 1500000,
+    "likes": 45000,
+    "rating": 4.7,
+    "status": "ongoing",
+    "releaseYear": 2025,
+    "language": "id",
+    "updateTime": "2025-10-15"
+  },
+  "source": "GoodShort",
+  "scrapedAt": "2026-02-01T16:25:00.000Z"
+}

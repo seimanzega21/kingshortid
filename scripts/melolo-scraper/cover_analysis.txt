@@ -1,0 +1,248 @@
+﻿=== ALL URL-LIKE FIELDS IN video_data ===
+
+
+=== ALL IMAGE REQUESTS IN HAR ===
+
+Total image requests: 225
+
+  p16-novel-sg.ibyteimg.com: 14 images
+       38825 bytes | /obj/novel-images-sg/img_415_ug_light_new.png
+       58560 bytes | /obj/novel-images-sg/img_415_bg_video_bottom_shadow.webp
+       59236 bytes | /obj/novel-images-sg/img_singlebook_big_widget_guide.png
+       15221 bytes | /obj/novel-images-sg/img_430_notification_guide_en.png
+      137982 bytes | /obj/novel-images-sg/img_bookshelf_widget_guide.png
+
+  p16-novel-sign-sg.fizzopic.org: 135 images
+       17629 bytes | /novel-images-sg/00e8fe7e32c39dae0a51cf0789bfa52a~tplv-resize:570:810.heic
+       17387 bytes | /novel-images-sg/708de998f82c38ba61f92bdd6f4b14b1~tplv-resize:570:810.heic
+       19376 bytes | /novel-images-sg/5b89747390f7f73edee8d9c8fa806338~tplv-resize:570:810.heic
+       26019 bytes | /novel-images-sg/70b3fb3c506de66deec294d7b394ed62~tplv-resize:570:810.heic
+       35113 bytes | /novel-images-sg/2a866e0cf9885278c296e85732d86a55~tplv-resize:570:810.heic
+
+  p16-sign-sg.tiktokcdn.com: 40 images
+      408810 bytes | /tos-alisg-p-ea7654-sg/91bcedb4446046dfb07767e354739e5e_1757421190~tplv-noop.ima
+      281797 bytes | /tos-alisg-p-ea7654-sg/159ba244a9f7491da0d0ca1caf1ca832_1766335906~tplv-noop.ima
+      366888 bytes | /tos-alisg-p-ea7654-sg/64084fa1551d4aa8a68453cc99e58c88_1766336000~tplv-noop.ima
+      304424 bytes | /tos-alisg-p-ea7654-sg/c9b85b106aa04c4182f1c06cd5a6aaa3_1766335975~tplv-noop.ima
+      331562 bytes | /tos-alisg-p-ea7654-sg/6e336f202dd84b049f69b26ef85ccd1b_1766321178~tplv-noop.ima
+
+  p19-novel-sign-sg.fizzopic.org: 36 images
+       63379 bytes | /novel-images-sg/1b2292685689607b5da2d2b4628824d2~tplv-resize:570:810.heic
+       29682 bytes | /novel-images-sg/d2df7986e6af0745ebe8ffcd79c740a8~tplv-resize:570:810.heic
+       39394 bytes | /novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic
+       30443 bytes | /novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic
+       24585 bytes | /novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic
+
+
+=== COVERS FROM FEED/MALL ENDPOINTS ===
+
+Endpoint: /i18n_novel/ug/info_v2/v1/
+  .book_data.book.books[0].thumb_url: https://p16-novel-sg.ibyteimg.com/origin/novel-images-sg/ceff8a8ac44f632ce78b40252f703c71
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/sync/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/fe3ca53818ef8a28b9dc86f84d61aa15~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/d6385369a8cc80fe0bb6bdddfb707790~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/book/bookshelf/list/v1/
+  .data.shelf_infos[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/6bccf4640a839ce2a36d0f50dbe91ddd~tplv-resize:570:810.heic?rk3s=95
+  .data.shelf_infos[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/b2d96997d06bec22666b9e322f4d390c~tplv-resize:570:810.heic?rk3s=95
+  .data.shelf_infos[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/97b23d6a5c4c88f6ce4f5ffb14268dc2~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/book/bookshelf/list/v1/
+  .data.shelf_infos[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/6bccf4640a839ce2a36d0f50dbe91ddd~tplv-resize:570:810.heic?rk3s=95
+  .data.shelf_infos[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/b2d96997d06bec22666b9e322f4d390c~tplv-resize:570:810.heic?rk3s=95
+  .data.shelf_infos[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/97b23d6a5c4c88f6ce4f5ffb14268dc2~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/fe3ca53818ef8a28b9dc86f84d61aa15~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/d6385369a8cc80fe0bb6bdddfb707790~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /novel/articleapi/relation/get_user_action/v1/
+  .data.mix_data[0].video.common.cover: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/8343968878591c0b4078f518cb50be2f~tplv-836v1mcgsk-resize:1200:0.he
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/fe3ca53818ef8a28b9dc86f84d61aa15~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/d6385369a8cc80fe0bb6bdddfb707790~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/cell/change/v1/
+  .data.cell.cell_data[0].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/2b34c402f3372dbd16d45fa180b8390b~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[1].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/df1ffb48851a42966005781fa54cd7ae~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[2].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/b674f43cf4af09d1fb7d3dd36cfd9f54~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/cell/change/v1/
+  .data.cell.cell_data[0].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/ba909f8eafdc5d20f233dfac62e8f24e~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[1].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a629aa2b55eba4bbd88726774b66d9c9~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[2].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/e3a741d42edd39063d78348ff1f8b58d~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/cell/change/v1/
+  .data.cell.cell_data[0].books[0].thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/cc21900043d3b03577b0425c3343643d~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[1].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/2ef7057e917ef3967df1507c144a2862~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[2].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/ef8c09e678ee706a0527762ae3ddbdfe~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/cell/change/v1/
+  .data.cell.cell_data[0].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[1].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7628d6a46a41fa50a3de239a26217d89~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[2].books[0].thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/295bec12ca49eb3f2c020ce1adbdf05b~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/fe3ca53818ef8a28b9dc86f84d61aa15~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/7ab76fee80d541c03470d5b7e388808f~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/4c4378bba394b647dce354ac3bf40cc2~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9513061bbf886c4bed34c04e032ec60d~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/da2b5035e9a61323c7b085b2ad2d9b5e~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/da2b5035e9a61323c7b085b2ad2d9b5e~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/369dc6ed477944d5c24c9deedc088fba~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/da2b5035e9a61323c7b085b2ad2d9b5e~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/da2b5035e9a61323c7b085b2ad2d9b5e~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c5d8171c2b61a424abbcc427d4950ee7~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a267f29dfb358c0b33218998f894ecdc~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/da2b5035e9a61323c7b085b2ad2d9b5e~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a267f29dfb358c0b33218998f894ecdc~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/da2b5035e9a61323c7b085b2ad2d9b5e~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/44155a8565fd32043d27a72efebc4e52~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a267f29dfb358c0b33218998f894ecdc~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/44155a8565fd32043d27a72efebc4e52~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a267f29dfb358c0b33218998f894ecdc~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/plan/v1/
+  .data.cells[0].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/7599ba784989b68c0f3dd6c173752f00~tplv-resize:570:810.heic?rk3s=95
+  .data.cells[0].books[1].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/e9cf0600d945e2b24ce33a1c2cce4c52~tplv-resize:570:810.heic?rk3s=95
+  .data.cells[0].books[2].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/9dfdf9d3d4371fa71dfe2b0424151214~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/44155a8565fd32043d27a72efebc4e52~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a267f29dfb358c0b33218998f894ecdc~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/44155a8565fd32043d27a72efebc4e52~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/a267f29dfb358c0b33218998f894ecdc~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c8ee04fef10fd48307ea80854a85926b~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/44155a8565fd32043d27a72efebc4e52~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c8ee04fef10fd48307ea80854a85926b~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/44155a8565fd32043d27a72efebc4e52~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/cell/change/v1/
+  .data.cell.cell_data[0].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/df9d027be4dc17df717aec683afee207~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[1].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/40da4ea50a6bdfc63080e56ee6e69da4~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[2].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/df9d027be4dc17df717aec683afee207~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c8ee04fef10fd48307ea80854a85926b~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/df9d027be4dc17df717aec683afee207~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/c8ee04fef10fd48307ea80854a85926b~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/06e620218325824e8059d894df7e1beb~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/bookmall/cell/change/v1/
+  .data.cell.cell_data[0].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/df1ffb48851a42966005781fa54cd7ae~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[1].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/081d3dfcb14181975e8b5e4c65e2c731~tplv-resize:570:810.heic?rk3s=95
+  .data.cell.cell_data[2].books[0].thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/87f8e05756a9ee90dcadf3e4deeac689~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/book_history/list/v1/
+  .data.data_list[0].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/69d4f3169b010806dba855b9f4651ea0~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[1].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/df9d027be4dc17df717aec683afee207~tplv-resize:570:810.heic?rk3s=95
+  .data.data_list[2].book_info.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/c8ee04fef10fd48307ea80854a85926b~tplv-resize:570:810.heic?rk3s=95
+
+Endpoint: /i18n_novel/reader/history/list/v1/
+  .data.read_history[0].book_id.thumb_url: https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/69d4f3169b010806dba855b9f4651ea0~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[1].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/df9d027be4dc17df717aec683afee207~tplv-resize:570:810.heic?rk3s=95
+  .data.read_history[2].book_id.thumb_url: https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/c8ee04fef10fd48307ea80854a85926b~tplv-resize:570:810.heic?rk3s=95
+

@@ -1,0 +1,92 @@
+﻿Total book metadata collected: 123
+Series IDs from video_detail: 72
+
+Direct book_id match: 68/72
+Unmatched: 4
+Hash matched additional: 0
+Final matched: 68/72
+Still unmatched: 4
+
+Unmatched series (will use synopsis as description, no title):
+  7582055834209750069: (no data)
+  7582511944100219909: (no data)
+  7582546310805326853: (no data)
+  7582626317506448437: (no data)
+
+Saved final_title_mapping.json (72 entries)
+
+Summary:
+  With title: 68/72
+  With abstract: 64/72
+
+
+=== ALL MATCHED TITLES ===
+
+  996004564021: 800 Ribu Beli Dunia Kultivasi
+  992531397637: Aku Tersesat di Dunia Kultivasi
+  535374912517: Antara Ambisi dan Cinta
+  293895928848: Ayah Berandalan jadi CEO
+  537487961141: Ayah Tiri Baru, Lindungi 6 Anak
+  186308074501: Balas Dendam Sang Putri Genius
+  380128750597: Balas Dendam pada Anak Angkat
+  072958938165: Bangkit Setelah Ditinggalkan
+  631111826485: Barang Supermarket di Dunia Kuno
+  521580633093: Bersinar Setelah Cerai
+  823137172485: Bukan Lagi Budak Cintamu
+  648874265653: Cindy si Cerdik
+  978967280693: Dari Memancing Menjadi Kaya
+  788521708549: Dendam di Atas Luka
+  547465952273: Dewa Mahjong
+  605311134725: Dikurung, Aku Memanggil Petir
+  467786152965: Disangka Cowok Matre
+  022510828597: Dokter Sakti Jadi Rebutan
+  830746336272: Dunia Menyayangiku Penuh Kelembutan
+  530993454133: Guru Kecil Genius
+  658466884661: Habis Wabah, Lumbungku Penuh
+  240099380229: Hidup Baru Ayah Pecundang
+  047549406213: Hidup Berjaya Anak Terbuang
+  626634636341: Identitas Rahasia Suamiku
+  875357522961: Investor Hoki Abadi
+  105312902197: Jam Pasir Tanpa Suara
+  752295619589: Jasa Kakak Tiada Tara
+  970640268293: Kakek 10 Tahun Tak Terkalahkan
+  478100122677: Kakek Muda Pembawa Berkah
+  327173258293: Kasim Palsu Penguasa Istana
+  082546875408: Kau adalah Cahaya Hidupku
+  460620884997: Kaya Raya di Era 1992
+  085730159669: Kegagalan dan Kerajaan Bisnisku
+  853659995141: Kekasihku, Pengawalku
+  046020856885: Kembali Pulang
+  630029831173: Kultivator Kuno di Era Digital
+  559147686917: Lahir Kembali Untuk Sukses
+  302322822197: Levelku 9999, Tetua Baru 100
+  931345419281: Luka Masa Lalu
+  179329084469: Mantan Dikejar Pacar Imut
+  317489671221: Mata Pengubah Nasib
+  086034164752: Mau Cerai,Masih Cinta
+  587224243217: Memperbaiki Masa Lalu
+  485602278461: Nembak Emak-Emak Demi Hadiah
+  750534855733: Pacari Musuh Mantan Istri
+  236383882245: Pemuda Desa Menguasai Kota
+  970669906949: Penantian Cinta Sang Suami
+  100691962885: Pendekar Tanpa Batas
+  215994260533: Penglihat Abadi
+  030557412405: Penglihatan Ilahi
+  302053002245: Penyesalan Mantan Tunangan
+  588844129285: Pewaris Konglomerat Dihina Mantan
+  951759416373: Rahasia di Balik Kedai Pangsit
+  518214278149: Reinkarnasi Sang Konglomerat
+  236312579125: Ruang Sistem Putri Jenderal
+  100977409040: Saat Mantan Memohon Kembali
+  607030782981: Salah Nyatakan Cinta
+  133372492853: Sang Dewa Judi
+  750572604469: Sang Master Turun Gunung
+  251661110325: Satpam Jadi Suami Bos
+  002796334133: Sekali Lihat, Jadi Sultan
+  080807214133: Sesepuh Tertua yang Masih Muda
+  832976493621: Siaran Langsung Bedah Mahadewa
+  938379582469: Suara Hati Anak Angkat
+  829946809349: Tabel Perkalian Sembilan
+  198960151557: Takdir Pedang dan Gadis Kesepian
+  531356130305: Tangi Penyesalan Bos Cantik
+  626638830645: Tangkap Harta Karun di Kampung

@@ -1,0 +1,132 @@
+﻿=== SEARCHING ALL ENDPOINTS FOR TITLE DATA ===
+
+Found titles for 118 series IDs
+
+
+/i18n_novel/book/bookshelf/list/v1/: 1 titles
+  016815217681: Kehadiran Cinta dari Masa Lalu | (no abstract)
+
+/i18n_novel/bookmall/cell/change/v1/: 17 titles
+  784397937669: Menikahi Para Putri | Ferdi Sanjaya, seorang mahasiswa S3 jurusan sejarah, secara 
+  204519722037: Si Mata Tembus Pandang | Fendi, pemuda malang yang ditinggal pacar dan hidup penuh ke
+  310831438901: Sistem Auto Sultan | Gagal ujian masuk universitas, impian Livia Sian untuk menja
+  630969740293: Hari Kedua Menikah Suamiku Sadar | Jaya memaksa Sri menikah dengan Rizky yang terbaring koma ak
+  158269877253: Kesempatan Kedua Sang Ayah | Rizky Pratama menyesal seumur hidup setelah istrinya, Putri 
+
+/i18n_novel/bookmall/plan/v1/: 5 titles
+  793672231989: Bangkit Setelah Cinta Berlalu | Rizky Pratama menikah dengan Indira Maheswari setelah menyel
+  277442542597: Dikhianati, Kembali ke Masa Lalu | Setelah empat puluh tahun pernikahan, Surya Prasetyo dikhian
+  154918628405: Bangkit Jadi Pemenang | Setelah dikhianati dan dibunuh istrinya, Rizky Pratama terla
+  736751827973: Legenda Raja Kartu Utara Part 2 | Arga dipenjara 10 tahun karena fitnah dan belajar teknik tip
+  458857929781: Selamat Tinggal Selamanya | Selama lima tahun, Rizky Pratama mencintai Melati Ayu dengan
+
+/i18n_novel/reader/book_history/list/v1/: 19 titles
+  812869192720: Setelah Bercerai Menjadi Kaya Raya | (no abstract)
+  596244331525: Terlahir Lagi, Calon Istri Syok | (no abstract)
+  869757045761: Menyesal Setelah Pergi | (no abstract)
+  570223905808: Dokter Genius dari Desa | (no abstract)
+  300187737089: Dewa Judi Era 90-an | (no abstract)
+
+/novel/player/multi_video_detail/v1/: 71 titles
+  750572604469: Rian Mukti, hidup bersama kakek dengan mengais sam | (no abstract)
+  317489671221: Rizal, seorang mahasiswa streamer yang melakukan t | (no abstract)
+  240099380229: Menjelang ajal, Rizal masih tidak dianggap ayah ol | (no abstract)
+  823137172485: Sebuah kecelakaan membuat Chiko Pratama terlahir k | (no abstract)
+  626638830645: Heri mencuri uang kakak iparnya untuk membiayai ku | (no abstract)
+
+/novel/player/video_detail/v1/: 5 titles
+  830746336272: Rossy Yantama sejak kecil merasa rendah diri karen | (no abstract)
+  020702145541: Leo Candra menyesali kesalahannya pada istri dan a | (no abstract)
+  628406651909: Jerry, Dewa Judi yang bertobat, dibunuh oleh murid | (no abstract)
+  605378227253: Yovan, penerus Aliran Seribu Kayu, diremehkan istr | (no abstract)
+  701799083061: Johan Cakra, pekerja kantoran, yang mengaktifkan S | (no abstract)
+
+
+=== VIDEO_DATA book_name STATUS ===
+
+video_data entries with book_name: 0
+video_data entries without book_name: 74
+Total: 74
+
+
+=== CROSS-REFERENCE: FILLABLE TITLES ===
+
+  MISS: lock_data (no title found anywhere)
+  MISS: video_data (no title found anywhere)
+  FILL: 830746336272 -> Rossy Yantama sejak kecil merasa rendah diri karen (from /novel/player/video_detail/v1/)
+  FILL: 750572604469 -> Rian Mukti, hidup bersama kakek dengan mengais sam (from /player/multi_video_detail/v1/)
+  FILL: 317489671221 -> Rizal, seorang mahasiswa streamer yang melakukan t (from /player/multi_video_detail/v1/)
+  FILL: 240099380229 -> Menjelang ajal, Rizal masih tidak dianggap ayah ol (from /player/multi_video_detail/v1/)
+  FILL: 823137172485 -> Sebuah kecelakaan membuat Chiko Pratama terlahir k (from /player/multi_video_detail/v1/)
+  FILL: 626638830645 -> Heri mencuri uang kakak iparnya untuk membiayai ku (from /player/multi_video_detail/v1/)
+  FILL: 022510828597 -> Setelah gurunya tiada, Arif Pratama turun gunung u (from /player/multi_video_detail/v1/)
+  FILL: 047549406213 -> Faisal Pratama yang dulu diabaikan terlahir kembal (from /player/multi_video_detail/v1/)
+  FILL: 002796334133 -> Sebuah kemampuan misterius mengubah hidup Riky Hid (from /player/multi_video_detail/v1/)
+  FILL: 834209750069 -> Di dunia kultivasi, Rizky menggantikan adiknya mas (from /player/multi_video_detail/v1/)
+  FILL: 310805326853 -> Rizky mendapat sistem role play. Tiap memerankan p (from /player/multi_video_detail/v1/)
+  FILL: 293895928848 -> Lisa masuk ke tubuh gadis kecil di hari dia genap  (from /player/multi_video_detail/v1/)
+  FILL: 750534855733 -> Reza kembali ke masa dia diceraikan oleh istrinya, (from /player/multi_video_detail/v1/)
+  FILL: 317506448437 -> Setelah gajinya dipotong, Arif Cahya memilih untuk (from /player/multi_video_detail/v1/)
+  FILL: 944100219909 -> Usai hubungan enam tahunnya kandas, Rodi nekat men (from /player/multi_video_detail/v1/)
+  FILL: 631111826485 -> Arif secara tak sengaja terperangkap ke zaman kuno (from /player/multi_video_detail/v1/)
+  FILL: 046020856885 -> Andi menyesal sudah mencoba bunuh diri di tepi sun (from /player/multi_video_detail/v1/)
+  FILL: 630029831173 -> Setelah 10.000 tahun berlatih di dunia dewa, Alex  (from /player/multi_video_detail/v1/)
+  FILL: 236383882245 -> Demi membela ayahnya, Arya meninggalkan desa dan m (from /player/multi_video_detail/v1/)
+  FILL: 938379582469 -> Di kehidupan lalu, Reno Wijaya difitnah dan dihanc (from /player/multi_video_detail/v1/)
+  FILL: 478100122677 -> Dr. Fadli, berusia 60 tahun tapi berparas 20 tahun (from /player/multi_video_detail/v1/)
+  FILL: 531356130305 -> Demi cinta, Rio tinggalkan studi demi janji manis  (from /player/multi_video_detail/v1/)
+  FILL: 485602278461 -> Aren, yang terlahir kembali sehari sebelum mengaku (from /player/multi_video_detail/v1/)
+  FILL: 518214278149 -> Fajar Lingga, sang raja bisnis tewas diracuni keka (from /player/multi_video_detail/v1/)
+  FILL: 829946809349 -> Seorang pemuda urban dari tahun 2025, Dimas, tewas (from /player/multi_video_detail/v1/)
+  FILL: 460620884997 -> Ketika terlahir kembali ke tahun 1992, Rizky Prata (from /player/multi_video_detail/v1/)
+  FILL: 100691962885 -> Amir, pendekar tingkat delapan, turun gunung untuk (from /player/multi_video_detail/v1/)
+  FILL: 970669906949 -> Rizky Pratama tiba-tiba terbangun di tubuh suami D (from /player/multi_video_detail/v1/)
+  FILL: 658466884661 -> Setelah terbangun di tubuh Arga Pratama, anak keti (from /player/multi_video_detail/v1/)
+  FILL: 521580633093 -> Setelah bercerai karena tuntutan materi, Rizky Pra (from /player/multi_video_detail/v1/)
+  FILL: 951759416373 -> Damar menikmati hidup sederhana dengan kedai pangs (from /player/multi_video_detail/v1/)
+  FILL: 236312579125 -> Nia Sari, tewas tertimpa barang dan reinkarnasi ke (from /player/multi_video_detail/v1/)
+  FILL: 648874265653 -> Danny, ayah Cindy, adalah pejudi yang payah. Semen (from /player/multi_video_detail/v1/)
+  FILL: 327173258293 -> Bara, karyawan yang terlempar ke masa kerajaan, te (from /player/multi_video_detail/v1/)
+  FILL: 072958938165 -> Selama lima tahun, Rizky Prasetyo rela menjadi aya (from /player/multi_video_detail/v1/)
+  FILL: 302322822197 -> Terdampar di Gunung Mega sepuluh tahun, Bagus Sant (from /player/multi_video_detail/v1/)
+  FILL: 080807214133 -> Titus Liton, orang hebat dari Dunia Peri, menghanc (from /player/multi_video_detail/v1/)
+  FILL: 030557412405 -> Nasib Christian Lesmana, pengantar makanan, beruba (from /player/multi_video_detail/v1/)
+  FILL: 179329084469 -> Setelah terlahir kembali, Rizky Surya berhenti men (from /player/multi_video_detail/v1/)
+  FILL: 605311134725 -> Tyson, putra kandung Keluarga Sukma, hidup di luar (from /player/multi_video_detail/v1/)
+  FILL: 100977409040 -> Arga menikahi Nayla demi cinta, tapi setelah 7 tah (from /player/multi_video_detail/v1/)
+  FILL: 875357522961 -> Karena tekanan orang tua, Arvin Susanto hampir pen (from /player/multi_video_detail/v1/)
+  FILL: 215994260533 -> Rendy mewarisi Mata Dewa Ilahi dari kakeknya, memb (from /player/multi_video_detail/v1/)
+  FILL: 559147686917 -> Yani Santoso bangkrut karena dikhianati rekan bisn (from /player/multi_video_detail/v1/)
+  FILL: 198960151557 -> Arief Sang Bayangan yang terluka karena perebutan  (from /player/multi_video_detail/v1/)
+  FILL: 186308074501 -> Indira, gadis genius yang difitnah dan dikirim ke  (from /player/multi_video_detail/v1/)
+  FILL: 752295619589 -> Demi melindungi adik-adiknya setelah orang tua dib (from /player/multi_video_detail/v1/)
+  FILL: 530993454133 -> Pertapa yang miskin nggak mampu biayai muridnya, M (from /player/multi_video_detail/v1/)
+  FILL: 607030782981 -> Surya programmer di Grup Jaya, tak sengaja terikat (from /player/multi_video_detail/v1/)
+  FILL: 978967280693 -> Arif dapat sistem memancing ajaib, hidupnya beruba (from /player/multi_video_detail/v1/)
+  FILL: 467786152965 -> Setelah bertahun tahun pacaran, Rizky Pratama dipe (from /player/multi_video_detail/v1/)
+  FILL: 537487961141 -> Pak Surya masuk ke dunia novel dan menjadi ayah ti (from /player/multi_video_detail/v1/)
+  FILL: 133372492853 -> Dewa Judi Awin Lintang yang tewas tragis terlahir  (from /player/multi_video_detail/v1/)
+  FILL: 547465952273 -> Pino dipenjara sepuluh tahun karena difitnah bunuh (from /player/multi_video_detail/v1/)
+  FILL: 085730159669 -> Setelah bereinkarnasi dan kembali ke masa lalu, Ha (from /player/multi_video_detail/v1/)
+  FILL: 788521708549 -> Di Kota Hurto, nggak ada yang berani mengusik Luca (from /player/multi_video_detail/v1/)
+  FILL: 380128750597 -> Setelah hidupnya hancur karena fitnah Aditya Prata (from /player/multi_video_detail/v1/)
+  FILL: 535374912517 -> Husain, tiba-tiba kembali ke 2002ΓÇötepat di hari pe (from /player/multi_video_detail/v1/)
+  FILL: 251661110325 -> Aditya yang sudah pensiun menikmati hidup tenang,  (from /player/multi_video_detail/v1/)
+  FILL: 992531397637 -> Steve transmigrasi ke dunia kultivasi jadi Master  (from /player/multi_video_detail/v1/)
+  FILL: 588844129285 -> Rizky Pratama, pekerja konstruksi yang sederhana,  (from /player/multi_video_detail/v1/)
+  FILL: 105312902197 -> Didagnosis kanker dengan sisa hidup tiga bulan, Ar (from /player/multi_video_detail/v1/)
+  FILL: 996004564021 -> Rizky yang sakit parah menggunakan sisa uangnya me (from /player/multi_video_detail/v1/)
+  FILL: 853659995141 -> Santo, seorang satpam biasa, tidak sengaja menying (from /player/multi_video_detail/v1/)
+  FILL: 302053002245 -> Rizky Pratama menyembunyikan identitasnya saat mem (from /player/multi_video_detail/v1/)
+  FILL: 970640268293 -> Pada 1976, Arya, juara dunia catur Go, pulang kamp (from /player/multi_video_detail/v1/)
+  FILL: 587224243217 -> Di kehidupan sebelumnya, Yohan menikahi Melly, gad (from /player/multi_video_detail/v1/)
+  FILL: 082546875408 -> Di malam bersalju, Cindy dibuang di pemakaman. Di  (from /player/multi_video_detail/v1/)
+  FILL: 086034164752 -> Adi dan istrinya cerai karena hubungan tidak jelas (from /player/multi_video_detail/v1/)
+  FILL: 931345419281 -> Dihina dan dikhianati, Zaki bangkit dari kematian  (from /player/multi_video_detail/v1/)
+  FILL: 832976493621 -> Mantan dokter jenius Gunawan Sutanto yang trauma,  (from /player/multi_video_detail/v1/)
+  FILL: 626634636341 -> Nindi Satria, CEO Grup Satria, ditinggal selingkuh (from /player/multi_video_detail/v1/)
+
+Fillable: 72
+Unfillable: 2
+
+Saved title_mapping.json (72 entries)

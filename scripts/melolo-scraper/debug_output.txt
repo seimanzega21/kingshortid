@@ -1,0 +1,114 @@
+﻿
+======================================================================
+ENDPOINT: /novel/player/multi_video_model/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['7398875144338279440', '7420154758171724816', '7523132578321140752', '7527161773745507344', '7571685260803443717', '7576945273985829893', '7593218862632406069', '7602320495463107637']
+
+  Key '7398875144338279440' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/b12e5af44db39b7e6bd63067eeab70fb/6987d6a1/vide...
+    backup_url: http://v16m.byteicdn.com/b12e5af44db39b7e6bd63067eeab70fb/6987d6a1/video/tos/ali...
+
+  Key '7420154758171724816' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/b236adc0b400be8b16704d650972c9eb/6987d6a5/vide...
+    backup_url: http://v16m.byteicdn.com/b236adc0b400be8b16704d650972c9eb/6987d6a5/video/tos/ali...
+
+
+======================================================================
+ENDPOINT: /novel/player/video_detail/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['lock_data', 'video_data']
+
+  Key 'lock_data' -> type: dict
+    sub-keys: ['lock_threshold_order', 'once_unlock_num']
+
+  Key 'video_data' -> type: dict
+    sub-keys: ['abstract_tags', 'age_gate_info', 'audit_status', 'category_schema', 'celebrities', 'content_type', 'digg_cnt', 'disable_insert_ad', 'download_config', 'enable_vision_product', 'episode', 'episode_cnt', 'episode_right_text', 'followed', 'followed_cnt']
+
+
+======================================================================
+ENDPOINT: /novel/player/multi_video_model/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['7423712169935506433', '7423712174490520592', '7423712178378640385']
+
+  Key '7423712169935506433' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/375a01e1062c7b064c345f9d48345036/6987d648/vide...
+    backup_url: http://v16m.byteicdn.com/375a01e1062c7b064c345f9d48345036/6987d648/video/tos/ali...
+
+  Key '7423712174490520592' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/40b62ac3947d8b0037faccb994d16c0e/6987d67a/vide...
+    backup_url: http://v16m.byteicdn.com/40b62ac3947d8b0037faccb994d16c0e/6987d67a/video/tos/ali...
+
+
+======================================================================
+ENDPOINT: /novel/player/video_model/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+
+  Key 'backup_url' -> type: str
+
+  Key 'expire_time' -> type: int
+
+
+======================================================================
+ENDPOINT: /novel/player/multi_video_model/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['7582081649517530117', '7582111655975209989', '7582165333536934965', '7582166572752440373', '7582232554074278965', '7582432886159068165', '7582477346460945413', '7582496339020221493']
+
+  Key '7582081649517530117' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/d9da0704176ee8b6ef166beab978403f/6987d735/vide...
+    backup_url: http://v16m.byteicdn.com/d9da0704176ee8b6ef166beab978403f/6987d735/video/tos/ali...
+
+  Key '7582111655975209989' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/6eb044ba93caa0b5df95d8dc385d3823/6987d66d/vide...
+    backup_url: http://v16m.byteicdn.com/6eb044ba93caa0b5df95d8dc385d3823/6987d66d/video/tos/ali...
+
+
+======================================================================
+ENDPOINT: /novel/player/multi_video_model/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['7582526729915206709', '7582651187615239173']
+
+  Key '7582526729915206709' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/29ec828f284dcb6dbe237d972869d1d9/6987d711/vide...
+    backup_url: http://v16m.byteicdn.com/29ec828f284dcb6dbe237d972869d1d9/6987d711/video/tos/ali...
+
+  Key '7582651187615239173' -> type: dict
+    sub-keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+    main_url: http://v16m-default.tiktokcdn.com/57d28f89ea23e04ef3255d910015e573/6987d6a2/vide...
+    backup_url: http://v16m.byteicdn.com/57d28f89ea23e04ef3255d910015e573/6987d6a2/video/tos/ali...
+
+
+======================================================================
+ENDPOINT: /novel/player/multi_video_detail/v1/
+Top keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+data type: dict, keys: ['7423711830746336272']
+
+  Key '7423711830746336272' -> type: dict
+    sub-keys: ['lock_data', 'video_data']
+python : Traceback (most recent call last):
+At line:1 char:1
++ python debug_video_structure.py melolo1.har 2>&1 | Out-File 
+-Encoding ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most rec 
+   ent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\kingshortid\scripts\melolo-scraper\debug_video_structu
+re.py", line 50, in <module>
+    print(f"    {sk}: {val}")
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python311\L
+ib\encodings\cp1252.py", line 19, in encode
+    return 
+codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in 
+position 1290-1354: character maps to <undefined>

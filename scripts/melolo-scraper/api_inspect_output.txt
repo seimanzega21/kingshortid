@@ -1,0 +1,195 @@
+﻿=== VIDEO_MODEL REQUEST ===
+Method: POST
+URL: https://api.tmtreader.com/novel/player/multi_video_model/v1/?iid=7604188784200337173&device_id=7604186720909182484&ac=wifi&channel=gp&aid=645713&app_name=Melolo&version_code=51617&version_name=5.1.6&d
+
+Headers:
+  x-ss-stub: BA8FD796D987990513DD569F71C5F80F
+  accept: application/json; charset=utf-8,application/x-protobuf
+  content-encoding: gzip
+  x-xs-from-web: false
+  age-range: 4
+  sdk-version: 2
+  passport-sdk-version: 50357
+  x-vc-bdturing-sdk-version: 2.2.1.i18n
+  user-agent: com.worldance.drama/51617 (Linux; U; Android 9; en; OXF-AN10; Build/PQ3A.190705.09121607;tt-ok/4.12.0.2)
+  x-ladon: EpUyI3/AU+SsFsfTBWkHQ0Fnwy3YBTcZWEnqmB7K3tsYmfAd
+  x-khronos: 1770488223
+  x-argus: giplSfwnIq5DZa4xHsU/N2jl+0WoCXdaTjdtyUXXJTgCN2gyswlVBFbH/UPFXKIhElF4eZz/XDPZIAVRB8hbvUh5uoOxWOQi5em+eGsCHIQWNVIvUJt2ssnwOOP07QE/8oMks4dLdSiZTFDRo/LiUz...
+  x-gorgon: 8404c0e14001e47d5a5294a0e262d85ade83c56f472676edd369
+  content-type: application/json; charset=utf-8
+  content-length: 248
+  cookie: install_id=7604188784200337173; ttreq=1$d31bacaf02bb5d6ec8bc0ab04e8c0acd556b7dcf; odin_tt=14f3e68a1974e5867db4011bc9c838dc9be0f260187c2ae171e39ec65027...
+
+Query Params:
+  _rticket: 1770488222665
+  ac: wifi
+  aid: 645713
+  app_language: en
+  app_name: Melolo
+  app_region: US
+  carrier_region: US
+  carrier_region_v2: 310
+  cdid: caef3591-ee5d-4810-b654-83e839720bb3
+  channel: gp
+  current_region: US
+  device_brand: Honor
+  device_id: 7604186720909182484
+  device_platform: android
+  device_type: OXF-AN10
+  dpi: 320
+  iid: 7604188784200337173
+  language: en
+  manifest_version_code: 51617
+  mcc_mnc: 310005
+  openudid: 10937014c83e777e
+  os: android
+  os_api: 28
+  os_version: 9
+  resolution: 720*1280
+  ssmix: a
+  sys_language: en
+  sys_region: US
+  time_zone: Asia/Bangkok
+  ui_language: en
+  update_version_code: 51617
+  user_language: en
+  version_code: 51617
+  version_name: 5.1.6
+
+POST body: {"biz_param":{"detail_page_version":0,"device_level":3,"need_all_video_definition":true,"need_mp4_align":false,"use_os_player":false,"use_server_dns":false,"video_platform":1024},"video_id":"7571685260803443717,7527161773745507344,7593218862632406069,7523132578321140752,7602320495463107637,7576945273985829893,7398875144338279440,7420154758171724816"}
+
+
+=== VIDEO_DETAIL REQUEST ===
+Method: POST
+URL: https://api.tmtreader.com/novel/player/multi_video_detail/v1/?iid=7604188784200337173&device_id=7604186720909182484&ac=wifi&channel=gp&aid=645713&app_name=Melolo&version_code=51617&version_name=5.1.6&
+
+Headers:
+  x-ss-stub: 0FADB2C4E056FF8D61C8679C8336E540
+  accept: application/json; charset=utf-8,application/x-protobuf
+  content-encoding: gzip
+  x-xs-from-web: false
+  age-range: 4
+  sdk-version: 2
+  passport-sdk-version: 50357
+  x-vc-bdturing-sdk-version: 2.2.1.i18n
+  user-agent: com.worldance.drama/51617 (Linux; U; Android 9; en; OXF-AN10; Build/PQ3A.190705.09121607;tt-ok/4.12.0.2)
+  x-ladon: SQ+eMT56ARcXQ5jZaZWSH9z/oe59MevDJOrkjwRTmqkxaDM6
+  x-khronos: 1770488223
+  x-argus: FogHCVX+qMcsyHPyMWcLwCtf6C9KCTArhn8wK2fLm4mpbwisLI4H/zObZ97fSChdv3V1310r+FjJ4ndtFYb1lsDwNQOgr23aSBOou3UKC2J3tPH1+GQnjrfQPFrjQlb4OzvjzidYi6ZCODAcuhPPp0...
+  x-gorgon: 840460ac40015253f9687d43a52770cd55d1e06378a9eb114880
+  content-type: application/json; charset=utf-8
+  content-length: 235
+  cookie: install_id=7604188784200337173; ttreq=1$d31bacaf02bb5d6ec8bc0ab04e8c0acd556b7dcf; odin_tt=14f3e68a1974e5867db4011bc9c838dc9be0f260187c2ae171e39ec65027...
+
+Query Params:
+  _rticket: 1770488223174
+  ac: wifi
+  aid: 645713
+  app_language: en
+  app_name: Melolo
+  app_region: US
+  carrier_region: US
+  carrier_region_v2: 310
+  cdid: caef3591-ee5d-4810-b654-83e839720bb3
+  channel: gp
+  current_region: US
+  device_brand: Honor
+  device_id: 7604186720909182484
+  device_platform: android
+  device_type: OXF-AN10
+  dpi: 320
+  iid: 7604188784200337173
+  language: en
+  manifest_version_code: 51617
+  mcc_mnc: 310005
+  openudid: 10937014c83e777e
+  os: android
+  os_api: 28
+  os_version: 9
+  resolution: 720*1280
+  ssmix: a
+  sys_language: en
+  sys_region: US
+  time_zone: Asia/Bangkok
+  ui_language: en
+  update_version_code: 51617
+  user_language: en
+  version_code: 51617
+  version_name: 5.1.6
+
+POST body: {"biz_param":{"detail_page_version":0,"need_all_video_definition":false,"need_mp4_align":false,"source":7,"use_os_player":false,"use_server_dns":false},"series_id":"7571684946364861445,7527082026634054657,7593174075359382533,7523132286938647568,7602320140658560053,7576941755111590917,7397095076612017168,7420153961774058513"}
+
+
+=== SERIES WITH ALL EPISODE VIDS ===
+  (series 74912517)                                    Total: 147  VIDs known: 147
+  (series 56130305)                                    Total: 100  VIDs known: 100
+  (series 57412405)                                    Total: 100  VIDs known: 100
+  (series 30159669)                                    Total: 100  VIDs known: 100
+  (series 44129285)                                    Total:  98  VIDs known: 98
+  (series 28750597)                                    Total:  97  VIDs known: 97
+  (series 46336272)                                    Total:  95  VIDs known: 95
+  (series 72492853)                                    Total:  94  VIDs known: 94
+  (series 07214133)                                    Total:  91  VIDs known: 91
+  (series 83882245)                                    Total:  90  VIDs known: 90
+  (series 66884661)                                    Total:  90  VIDs known: 90
+  (series 37172485)                                    Total:  89  VIDs known: 89
+  (series 79582469)                                    Total:  88  VIDs known: 88
+  (series 73258293)                                    Total:  88  VIDs known: 88
+  (series 24243217)                                    Total:  88  VIDs known: 88
+  (series 93454133)                                    Total:  87  VIDs known: 87
+  (series 20884997)                                    Total:  85  VIDs known: 85
+  (series 00219909)                                    Total:  84  VIDs known: 84
+  (series 14278149)                                    Total:  84  VIDs known: 84
+  (series 38830645)                                    Total:  81  VIDs known: 81
+  (series 06448437)                                    Total:  81  VIDs known: 81
+  (series 31397637)                                    Total:  81  VIDs known: 81
+  (series 89671221)                                    Total:  80  VIDs known: 80
+  (series 10828597)                                    Total:  80  VIDs known: 80
+  (series 96334133)                                    Total:  80  VIDs known: 80
+  (series 05326853)                                    Total:  80  VIDs known: 80
+  (series 00122677)                                    Total:  80  VIDs known: 80
+  (series 91962885)                                    Total:  80  VIDs known: 80
+  (series 80633093)                                    Total:  80  VIDs known: 80
+  (series 12579125)                                    Total:  80  VIDs known: 80
+  (series 58938165)                                    Total:  80  VIDs known: 80
+  (series 11134725)                                    Total:  80  VIDs known: 80
+  (series 77409040)                                    Total:  80  VIDs known: 80
+  (series 57522961)                                    Total:  80  VIDs known: 80
+  (series 47686917)                                    Total:  80  VIDs known: 80
+  (series 95619589)                                    Total:  80  VIDs known: 80
+  (series 87961141)                                    Total:  80  VIDs known: 80
+  (series 04564021)                                    Total:  80  VIDs known: 80
+  (series 34164752)                                    Total:  80  VIDs known: 80
+  (series 29831173)                                    Total:  79  VIDs known: 79
+  (series 29084469)                                    Total:  79  VIDs known: 79
+  (series 94260533)                                    Total:  79  VIDs known: 79
+  (series 30782981)                                    Total:  79  VIDs known: 79
+  (series 67280693)                                    Total:  79  VIDs known: 79
+  (series 65952273)                                    Total:  79  VIDs known: 79
+  (series 20856885)                                    Total:  78  VIDs known: 78
+  (series 59995141)                                    Total:  77  VIDs known: 77
+  (series 22822197)                                    Total:  76  VIDs known: 76
+  (series 46809349)                                    Total:  75  VIDs known: 75
+  (series 46875408)                                    Total:  75  VIDs known: 75
+  (series 76493621)                                    Total:  74  VIDs known: 74
+  (series 34855733)                                    Total:  73  VIDs known: 73
+  (series 40268293)                                    Total:  73  VIDs known: 73
+  (series 09750069)                                    Total:  72  VIDs known: 72
+  (series 11826485)                                    Total:  72  VIDs known: 72
+  (series 49406213)                                    Total:  70  VIDs known: 70
+  (series 02278461)                                    Total:  70  VIDs known: 70
+  (series 45419281)                                    Total:  70  VIDs known: 70
+  (series 61110325)                                    Total:  69  VIDs known: 69
+  (series 60151557)                                    Total:  67  VIDs known: 67
+  (series 34636341)                                    Total:  67  VIDs known: 67
+  (series 72604469)                                    Total:  66  VIDs known: 66
+  (series 99380229)                                    Total:  66  VIDs known: 66
+  (series 95928848)                                    Total:  66  VIDs known: 66
+  (series 59416373)                                    Total:  63  VIDs known: 63
+  (series 69906949)                                    Total:  60  VIDs known: 60
+  (series 74265653)                                    Total:  60  VIDs known: 60
+  (series 86152965)                                    Total:  60  VIDs known: 60
+  (series 21708549)                                    Total:  60  VIDs known: 60
+  (series 53002245)                                    Total:  60  VIDs known: 60
+  (series 08074501)                                    Total:  52  VIDs known: 52
+  (series 12902197)                                    Total:  52  VIDs known: 52

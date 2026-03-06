@@ -1,0 +1,138 @@
+﻿======================================================================
+  bookmall/cell/change/v1/ ΓÇö FULL REQUEST
+======================================================================
+
+  Base URL: https://api.tmtreader.com/i18n_novel/bookmall/cell/change/v1/
+
+  Key headers:
+    Accept: application/json; charset=utf-8,application/x-protobuf
+    Cookie: install_id=7604188784200337173; ttreq=1$d31bacaf02bb5d6ec8bc0ab04e8c0acd556b7dcf...
+    Host: api.tmtreader.com
+    User-Agent: com.worldance.drama/51617 (Linux; U; Android 9; in; OXF-AN10; Build/PQ3A.190705.09121607;tt-ok/4.12.0.2)
+    X-Argus: PjGUqoiQRfLziEUUVpVVNxp5AV8MAp1YPvI2jdcEXV8DZ5t/tLHWAo6yt5ZPnRMtrvVDMkTQPCkdMKk4...
+    X-Gorgon: 8404408140017c63d66e86e55c5479d355049c9b1dc4c1d6234f...
+    X-Khronos: 1770512485...
+    X-Ladon: Zvx/O4+cwZf4WF/ilT8xc5bhj32T9m610L21RhscBAv3MwDC...
+    X-Tt-Token: 03fa162be41f79fe62880563813eb6788d0403abd4935ff1f108a354224667d08b9a8108cf8a4466...
+    passport-sdk-version: 50357
+
+  Query params (51 total):
+    _rticket: 1770512484234
+    ac: wifi
+    aid: 645713
+    app_language: id
+    app_name: Melolo
+    app_region: US
+    carrier_region: US
+    carrier_region_v2: 310
+    cdid: caef3591-ee5d-4810-b654-83e839720bb3
+    cell_id: 7450059162446200848
+    change_type: 0
+    channel: gp
+    current_region: US
+    device_brand: Honor
+    device_id: 7604186720909182484
+    device_platform: android
+    device_type: OXF-AN10
+    dpi: 320
+    enable_new_show_mechanism: false
+    iid: 7604188784200337173
+    is_landing_page: 0
+    is_preference_force_insert: false
+    is_preload: false
+    language: in
+    limit: 10
+    manifest_version_code: 51617
+    max_abstract_len: 0
+    mcc_mnc: 310005
+    offset: 18
+    openudid: 10937014c83e777e
+    os: android
+    os_api: 28
+    os_version: 9
+    preference_strategy: 0
+    recommend_enable_write_client_session_cache_only: false
+    resolution: 720*1280
+    selected_tag_id: -1
+    selected_tag_type: 2
+    session_id: 20260208085806633BB2651A9302BB8EE4
+    ssmix: a
+    start_offset: 0
+    sys_language: en
+    sys_region: US
+    tab_scene: 3
+    tab_type: 0
+    time_zone: Asia/Bangkok
+    ui_language: en
+    update_version_code: 51617
+    user_language: id
+    version_code: 51617
+    version_name: 5.1.6
+
+  Method: GET
+
+
+======================================================================
+  video_detail/v1/ ΓÇö FULL REQUEST
+======================================================================
+
+  Base URL: https://api.tmtreader.com/novel/player/video_detail/v1/
+
+  Key headers:
+    Content-Type: application/json; charset=utf-8
+    Cookie: install_id=7604188784200337173; ttreq=1$d31bacaf02bb5d6ec8bc0ab04e8c0acd556b7dcf...
+    Host: api.tmtreader.com
+    User-Agent: com.worldance.drama/51617 (Linux; U; Android 9; in; OXF-AN10; Build/PQ3A.190705....
+    X-Argus: nepT1A4ZNvKSQR9zamlztLKqH1AkaTx/I3K+M8kxLDS9TCW07qH7WwoF97L5sppgtb1bwLaWwrVRuDQL...
+    X-Gorgon: 8404601b400196c4b4e49f3f0d6cdb4c648ee5967aee5c01869e
+    X-Khronos: 1770512439
+    X-Ladon: M6ZaPIsqpgSXCbd/6jKk0YzPBu1upoFUStbKMTBxkPeAoeWB
+    X-Tt-Token: 03fa162be41f79fe62880563813eb6788d0403abd4935ff1f108a354224667d08b9a8108cf8a4466...
+
+  Query params (34 total):
+    _rticket: 1770512437973
+    ac: wifi
+    aid: 645713
+    app_language: id
+    app_name: Melolo
+    app_region: US
+    carrier_region: US
+    carrier_region_v2: 310
+    cdid: caef3591-ee5d-4810-b654-83e839720bb3
+    channel: gp
+    current_region: US
+    device_brand: Honor
+    device_id: 7604186720909182484
+    device_platform: android
+    device_type: OXF-AN10
+    dpi: 320
+    iid: 7604188784200337173
+    language: in
+    manifest_version_code: 51617
+    mcc_mnc: 310005
+    openudid: 10937014c83e777e
+    os: android
+    os_api: 28
+    os_version: 9
+    resolution: 720*1280
+    ssmix: a
+    sys_language: en
+    sys_region: US
+    time_zone: Asia/Bangkok
+    ui_language: en
+    update_version_code: 51617
+    user_language: id
+    version_code: 51617
+    version_name: 5.1.6
+
+  Method: POST
+  PostData: {"biz_param":{"detail_page_version":0,"from_video_id":"","need_all_video_definition":false,"need_mp4_align":false,"source":4,"use_os_player":false,"use_server_dns":false,"video_id_type":1},"series_id":"7582204630029831173"}
+
+
+======================================================================
+  bookmall/tab/v1/ ΓÇö CELL_IDs
+======================================================================
+  cell id=7453027084009472017, cid=0, type=12
+  has_more=True, next_offset=10
+  cell_data: list[10]
+  cell_data[0] keys: ['books', 'channel_id', 'client_log_module_name', 'english_name', 'id', 'name', 'operation_type', 'show_type', 'use_recommend']

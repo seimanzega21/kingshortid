@@ -1,0 +1,42 @@
+{
+    "capturedAt": "2026-01-31T17:48:00+0700",
+    "cdnDomains": {
+        "video": "v2-akm.goodreels.com",
+        "images": "acf.goodreels.com",
+        "api": "api-akm.goodreels.com"
+    },
+    "videoUrlPattern": {
+        "template": "https://v2-akm.goodreels.com/mts/books/{xxx}/{bookId}/{chapterId}/{token}/720p/{videoId}_720p_{segment}.ts",
+        "example": "https://v2-akm.goodreels.com/mts/books/379/31001250379/634143/qvytkzu2fs/720p/vyzjkvvkc0_720p_000022.ts",
+        "notes": "Video segments are HLS .ts files, no auth required"
+    },
+    "coverUrlPattern": {
+        "template": "https://acf.goodreels.com/videobook/{YYYYMM}/cover-{id}.jpg",
+        "example": "https://acf.goodreels.com/videobook/202502/cover-CKpYtSID6b.jpg?w=400&a=webp"
+    },
+    "sampleData": {
+        "bookId": "31001250379",
+        "chapterId": "634143",
+        "videoToken": "qvytkzu2fs",
+        "videoId": "vyzjkvvkc0",
+        "segments": [
+            "000022",
+            "000023",
+            "000024",
+            "000025",
+            "000026",
+            "000027",
+            "000028",
+            "000029",
+            "000030",
+            "000031",
+            "000032",
+            "000033",
+            "000034",
+            "000035",
+            "000036",
+            "000037",
+            "000038"
+        ]
+    }
+}

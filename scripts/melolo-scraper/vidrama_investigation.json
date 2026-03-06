@@ -1,0 +1,779 @@
+{
+  "partial_dramas": [
+    {
+      "slug": "800-ribu-beli-dunia-kultivasi",
+      "title": "800-ribu-beli-dunia-kultivasi",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "ahli-pengobatan-sakti",
+      "title": "ahli-pengobatan-sakti",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "aku-kaya-dari-giok",
+      "title": "aku-kaya-dari-giok",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "aku-tak-akan-mengejarmu-lagi",
+      "title": "aku-tak-akan-mengejarmu-lagi",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "aku-tersesat-di-dunia-kultivasi",
+      "title": "aku-tersesat-di-dunia-kultivasi",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "anak-ajaib-ahli-barang-antik",
+      "title": "anak-ajaib-ahli-barang-antik",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "antara-ambisi-dan-cinta",
+      "title": "Antara Ambisi dan Cinta",
+      "id": "7594631535374912517",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "ayah-berandalan-jadi-ceo",
+      "title": "Ayah Berandalan jadi CEO",
+      "id": "7543217293895928848",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "ayah-tiri-baru-lindungi-6-anak",
+      "title": "ayah-tiri-baru-lindungi-6-anak",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "balas-budi-jadi-cinta",
+      "title": "balas-budi-jadi-cinta",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "balas-dendam-pada-anak-angkat",
+      "title": "balas-dendam-pada-anak-angkat",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "balas-dendam-sang-putri-genius",
+      "title": "Balas Dendam Sang Putri Genius",
+      "id": "7599511186308074501",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bangkit-dari-neraka",
+      "title": "bangkit-dari-neraka",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bangkit-kuasai-pasar-saham",
+      "title": "Bangkit, Kuasai Pasar Saham",
+      "id": "7578015795666488373",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bangkit-setelah-ditinggalkan",
+      "title": "bangkit-setelah-ditinggalkan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "barang-supermarket-di-dunia-kuno",
+      "title": "Barang Supermarket di Dunia Kuno",
+      "id": "7597457631111826485",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bersinar-setelah-cerai",
+      "title": "bersinar-setelah-cerai",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bisnis-kaya-bareng-hewan",
+      "title": "bisnis-kaya-bareng-hewan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bos-datang-malah-diajak-nguli",
+      "title": "Bos Datang Malah diajak Nguli",
+      "id": "7582546310805326853",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bos-supermarket-yang-hebat",
+      "title": "bos-supermarket-yang-hebat",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "bukan-lagi-budak-cintamu",
+      "title": "bukan-lagi-budak-cintamu",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "cindy-si-cerdik",
+      "title": "Cindy si Cerdik",
+      "id": "7555784648874265653",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "cinta-sang-komandan",
+      "title": "cinta-sang-komandan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "cintamu-meluluhkan-hatiku",
+      "title": "cintamu-meluluhkan-hatiku",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dari-memancing-menjadi-kaya",
+      "title": "Dari Memancing Menjadi Kaya",
+      "id": "7586557978967280693",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dari-miskin-jadi-sultan",
+      "title": "dari-miskin-jadi-sultan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dendam-di-atas-luka",
+      "title": "dendam-di-atas-luka",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dewa-balapan",
+      "title": "Dewa Balapan",
+      "id": "7584379137708526597",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dewa-judi-era-90-an",
+      "title": "dewa-judi-era-90-an",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dewa-mahjong",
+      "title": "dewa-mahjong",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dikurung-aku-memanggil-petir",
+      "title": "dikurung-aku-memanggil-petir",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "disangka-cowok-matre",
+      "title": "disangka-cowok-matre",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dokter-genius-pujaan-hati",
+      "title": "Dokter Genius Pujaan Hati",
+      "id": "7462701593155079185",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dokter-sakti-jadi-rebutan",
+      "title": "Dokter Sakti Jadi Rebutan",
+      "id": "7594673022510828597",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "dunia-menyayangiku-penuh-kelembutan",
+      "title": "dunia-menyayangiku-penuh-kelembutan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "gadis-lemah-itu-sudah-mati",
+      "title": "gadis-lemah-itu-sudah-mati",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "gagal-ujian-jadi-playboy-istana",
+      "title": "gagal-ujian-jadi-playboy-istana",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "guci-ajaib-di-hari-kiamat",
+      "title": "guci-ajaib-di-hari-kiamat",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "guru-kecil-genius",
+      "title": "Guru Kecil Genius",
+      "id": "7575423530993454133",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "habis-wabah-lumbungku-penuh",
+      "title": "Habis Wabah, Lumbungku Penuh",
+      "id": "7582028658466884661",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "hidup-baru-ayah-pecundang",
+      "title": "hidup-baru-ayah-pecundang",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "ibu-kembali-anak-berebut-kasih",
+      "title": "ibu-kembali-anak-berebut-kasih",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "identitas-rahasia-suamiku",
+      "title": "Identitas Rahasia Suamiku",
+      "id": "7582229626634636341",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "investor-hoki-abadi",
+      "title": "investor-hoki-abadi",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "istri-desa-si-kapten",
+      "title": "istri-desa-si-kapten",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "istri-kesayangan-galak",
+      "title": "istri-kesayangan-galak",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "jam-pasir-tanpa-suara",
+      "title": "jam-pasir-tanpa-suara",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "jasa-kakak-tiada-tara",
+      "title": "jasa-kakak-tiada-tara",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "jenderal-terakhir",
+      "title": "jenderal-terakhir",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kakek-10-tahun-tak-terkalahkan",
+      "title": "kakek-10-tahun-tak-terkalahkan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kakek-muda-pembawa-berkah",
+      "title": "kakek-muda-pembawa-berkah",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kasim-palsu-penguasa-istana",
+      "title": "kasim-palsu-penguasa-istana",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kau-adalah-cahaya-hidupku",
+      "title": "Kau adalah Cahaya Hidupku",
+      "id": "7497915082546875408",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kaya-raya-di-era-1992",
+      "title": "kaya-raya-di-era-1992",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kegagalan-dan-kerajaan-bisnisku",
+      "title": "kegagalan-dan-kerajaan-bisnisku",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kekasihku-pengawalku",
+      "title": "Kekasihku, Pengawalku",
+      "id": "7600616853659995141",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kembali-pulang",
+      "title": "Kembali Pulang",
+      "id": "7563160046020856885",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "kultivator-kuno-di-era-digital",
+      "title": "Kultivator Kuno di Era Digital",
+      "id": "7582204630029831173",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "lahir-kembali-untuk-sukses",
+      "title": "lahir-kembali-untuk-sukses",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "levelku-9999-tetua-baru-100",
+      "title": "levelku-9999-tetua-baru-100",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "luka-masa-lalu",
+      "title": "luka-masa-lalu",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "mantan-dikejar-pacar-imut",
+      "title": "mantan-dikejar-pacar-imut",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "mata-pengubah-nasib",
+      "title": "mata-pengubah-nasib",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "mata-tembus-pandang",
+      "title": "mata-tembus-pandang",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "mau-ceraimasih-cinta",
+      "title": "mau-ceraimasih-cinta",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "memperbaiki-masa-lalu",
+      "title": "memperbaiki-masa-lalu",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "misi-cinta-sang-kurir",
+      "title": "misi-cinta-sang-kurir",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "nembak-emak-emak-demi-hadiah",
+      "title": "Nembak Emak-Emak Demi Hadiah",
+      "id": "7531013485602278461",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "pacari-musuh-mantan-istri",
+      "title": "pacari-musuh-mantan-istri",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "pemuda-desa-menguasai-kota",
+      "title": "pemuda-desa-menguasai-kota",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "penantian-cinta-sang-suami",
+      "title": "Penantian Cinta Sang Suami",
+      "id": "7602527970669906949",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "pendekar-tanpa-batas",
+      "title": "pendekar-tanpa-batas",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "penglihat-abadi",
+      "title": "Penglihat Abadi",
+      "id": "7582435215994260533",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "penglihatan-ilahi",
+      "title": "penglihatan-ilahi",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "penyesalan-mantan-tunangan",
+      "title": "penyesalan-mantan-tunangan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "pewaris-konglomerat-dihina-mantan",
+      "title": "pewaris-konglomerat-dihina-mantan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "putus-cinta-dunia-memihakku",
+      "title": "Putus Cinta, Dunia Memihakku",
+      "id": "7582511944100219909",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "rahasia-di-balik-kedai-pangsit",
+      "title": "rahasia-di-balik-kedai-pangsit",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "reinkarnasi-sang-konglomerat",
+      "title": "reinkarnasi-sang-konglomerat",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "ruang-sistem-putri-jenderal",
+      "title": "ruang-sistem-putri-jenderal",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "saat-mantan-memohon-kembali",
+      "title": "saat-mantan-memohon-kembali",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "sadar-akan-realita",
+      "title": "Sadar Akan Realita",
+      "id": "7583133960939506693",
+      "in_db": "NO",
+      "cover": true,
+      "meta": false
+    },
+    {
+      "slug": "salah-nyatakan-cinta",
+      "title": "salah-nyatakan-cinta",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "sang-dewa-judi",
+      "title": "Sang Dewa Judi",
+      "id": "7555717133372492853",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "sang-master-turun-gunung",
+      "title": "Sang Master Turun Gunung",
+      "id": "7582512750572604469",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "satpam-jadi-suami-bos",
+      "title": "satpam-jadi-suami-bos",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "sekali-lihat-jadi-sultan",
+      "title": "Sekali Lihat, Jadi Sultan",
+      "id": "7599702002796334133",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "sesepuh-tertua-yang-masih-muda",
+      "title": "Sesepuh Tertua yang Masih Muda",
+      "id": "7582765080807214133",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "setelah-cerai-makin-baik",
+      "title": "setelah-cerai-makin-baik",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "siaran-langsung-bedah-mahadewa",
+      "title": "siaran-langsung-bedah-mahadewa",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "sistem-ajaib-dan-puncak-hidupku",
+      "title": "sistem-ajaib-dan-puncak-hidupku",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "suara-hati-anak-angkat",
+      "title": "suara-hati-anak-angkat",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "tabel-perkalian-sembilan",
+      "title": "tabel-perkalian-sembilan",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "takdir-pedang-dan-gadis-kesepian",
+      "title": "takdir-pedang-dan-gadis-kesepian",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "tangi-penyesalan-bos-cantik",
+      "title": "tangi-penyesalan-bos-cantik",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    },
+    {
+      "slug": "tangkap-harta-karun-di-kampung",
+      "title": "tangkap-harta-karun-di-kampung",
+      "id": "?",
+      "in_db": "NO",
+      "cover": true,
+      "meta": true
+    }
+  ],
+  "total_r2": 213,
+  "total_complete": 117,
+  "total_partial": 96,
+  "partial_in_db": 0,
+  "partial_not_in_db": 96,
+  "complete_in_db": 0,
+  "complete_not_in_db": 117
+}

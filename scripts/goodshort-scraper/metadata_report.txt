@@ -1,0 +1,23 @@
+============================================================
+METADATA ANALYSIS
+============================================================
+
+Captured items:
+  JSON payloads: 52
+  Retrofit responses: 102
+  Video URLs: 171
+
+============================================================
+SEARCHING FOR BOOK METADATA...
+============================================================
+
+Metadata fields found:
+Traceback (most recent call last):
+  File "D:\kingshortid\scripts\goodshort-scraper\check_metadata.py", line 115, in <module>
+    analyze_metadata()
+  File "D:\kingshortid\scripts\goodshort-scraper\check_metadata.py", line 60, in analyze_metadata
+    print(f"  {key}: {status}")
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 12: character maps to <undefined>

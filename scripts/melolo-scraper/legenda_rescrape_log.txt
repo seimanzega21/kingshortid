@@ -1,0 +1,47 @@
+﻿============================================================
+  RESCRAPE: Legenda Naga Kembali - Ep 16 & 17
+  Drama ID : 2010948201357684738
+  Slug     : legenda-naga-kembali
+  Dry-run  : False
+============================================================
+[2] Checking R2 status...
+    Ep  16: EXISTS (new path) ΓåÆ dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+    Ep  17: EXISTS (new path) ΓåÆ dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+[1] Fetching episode list for drama ID: 2010948201357684738
+    Status: 200
+    Found 53 episodes (from dict)
+
+  Total episodes found: 53
+  Ep  16: has URL | quality=720P | videos=4
+  Ep  17: has URL | quality=720P | videos=4
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  Processing Episode 16...
+  Ep 16 sudah ada di R2, force overwrite...
+    Downloading: https://reeltv.janzhoutec.com/oYUAiQJ30NAAbG6nAlKOIfn5TsASE05EI0uDg3?auth_key=17...
+    Downloaded: 9.9 MB
+    Applying faststart...
+    Faststart: OK
+    Uploading to R2: dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+  Ep 16: UPLOADED ΓåÆ https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep016/video.mp4
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  Processing Episode 17...
+  Ep 17 sudah ada di R2, force overwrite...
+    Downloading: https://reeltv.janzhoutec.com/okqfHMOlmCFZBZmg6fbfRWAEAYn4I8HfakMAQc?auth_key=17...
+    Downloaded: 6.5 MB
+    Applying faststart...
+    Faststart: OK
+    Uploading to R2: dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+  Ep 17: UPLOADED ΓåÆ https://stream.shortlovers.id/dramas/microdrama/legenda-naga-kembali/ep017/video.mp4
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+[3] Looking up drama in D1 database...
+    Found drama ID: o0e4lcfzysy8c3e3abwhxnbm (title match)
+    DB POST OK (ep 16)
+    DB POST OK (ep 17)
+
+============================================================
+  SELESAI!
+  Berhasil upload: [16, 17]
+============================================================

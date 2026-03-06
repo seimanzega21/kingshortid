@@ -1,0 +1,16 @@
+{
+    "dramas": [
+        {
+            "bookId": "31000908479",
+            "priority": 1
+        },
+        {
+            "bookId": "31001250379",
+            "priority": 2
+        },
+        {
+            "bookId": "31000991502",
+            "priority": 3
+        }
+    ]
+}

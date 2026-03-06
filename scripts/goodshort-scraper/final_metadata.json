@@ -1,0 +1,146 @@
+{
+  "31000908479": {
+    "bookId": "31000908479",
+    "title": "Drama Indonesia #479",
+    "alternativeTitle": "Indonesian Short Drama",
+    "description": "Drama pendek Indonesia dengan cerita menarik dan emosional. Nikmati episode berkualitas HD dengan subtitle Indonesia. Modern Romance drama yang menghibur dan menyentuh hati.",
+    "cover": "/api/covers/31000908479.jpg",
+    "coverLocal": "D:\\kingshortid\\scripts\\goodshort-scraper\\output\\covers\\31000908479.jpg",
+    "genre": "Modern Romance",
+    "category": "Drama Indonesia",
+    "tags": [
+      "Romantic",
+      "Love Story",
+      "Urban",
+      "Short Drama"
+    ],
+    "language": "id",
+    "country": "Indonesia",
+    "source": "goodshort",
+    "sourceId": "31000908479",
+    "totalEpisodes": 1,
+    "status": "completed",
+    "quality": "HD 720p",
+    "duration": "Short Form (< 5 min per episode)",
+    "releaseYear": 2024,
+    "rating": 4.3,
+    "views": 58969,
+    "isFree": true,
+    "isPremium": false,
+    "metadata": {
+      "placeholder": true,
+      "needsEnrichment": true,
+      "videoAvailable": true,
+      "videoSize": "5.5 MB",
+      "capturedAt": "2026-02-01",
+      "version": "1.0-beta"
+    },
+    "episodes": [
+      {
+        "episodeNumber": 1,
+        "title": "Episode 1",
+        "description": "Episode 1 dari Drama Indonesia #479",
+        "duration": 182,
+        "isFree": true,
+        "videoUrl": "/api/videos/31000908479/episode-1.m3u8",
+        "thumbnailUrl": "/api/thumbnails/31000908479/episode-1.jpg"
+      }
+    ]
+  },
+  "31001250379": {
+    "bookId": "31001250379",
+    "title": "Drama Indonesia #379",
+    "alternativeTitle": "Indonesian Short Drama",
+    "description": "Drama pendek Indonesia dengan cerita menarik dan emosional. Nikmati episode berkualitas HD dengan subtitle Indonesia. Romance drama yang menghibur dan menyentuh hati.",
+    "cover": "/api/covers/31001250379.jpg",
+    "coverLocal": "D:\\kingshortid\\scripts\\goodshort-scraper\\output\\covers\\31001250379.jpg",
+    "genre": "Romance",
+    "category": "Drama Indonesia",
+    "tags": [
+      "Emotional",
+      "Contemporary",
+      "Drama Indonesia",
+      "Urban"
+    ],
+    "language": "id",
+    "country": "Indonesia",
+    "source": "goodshort",
+    "sourceId": "31001250379",
+    "totalEpisodes": 1,
+    "status": "completed",
+    "quality": "HD 720p",
+    "duration": "Short Form (< 5 min per episode)",
+    "releaseYear": 2024,
+    "rating": 4.4,
+    "views": 28268,
+    "isFree": true,
+    "isPremium": false,
+    "metadata": {
+      "placeholder": true,
+      "needsEnrichment": true,
+      "videoAvailable": true,
+      "videoSize": "25.9 MB",
+      "capturedAt": "2026-02-01",
+      "version": "1.0-beta"
+    },
+    "episodes": [
+      {
+        "episodeNumber": 1,
+        "title": "Episode 1",
+        "description": "Episode 1 dari Drama Indonesia #379",
+        "duration": 139,
+        "isFree": true,
+        "videoUrl": "/api/videos/31001250379/episode-1.m3u8",
+        "thumbnailUrl": "/api/thumbnails/31001250379/episode-1.jpg"
+      }
+    ]
+  },
+  "31000991502": {
+    "bookId": "31000991502",
+    "title": "Drama Indonesia #502",
+    "alternativeTitle": "Indonesian Short Drama",
+    "description": "Drama pendek Indonesia dengan cerita menarik dan emosional. Nikmati episode berkualitas HD dengan subtitle Indonesia. Family drama yang menghibur dan menyentuh hati.",
+    "cover": "/api/covers/31000991502.jpg",
+    "coverLocal": "D:\\kingshortid\\scripts\\goodshort-scraper\\output\\covers\\31000991502.jpg",
+    "genre": "Family",
+    "category": "Drama Indonesia",
+    "tags": [
+      "Romantic",
+      "Love Story",
+      "Urban",
+      "Emotional"
+    ],
+    "language": "id",
+    "country": "Indonesia",
+    "source": "goodshort",
+    "sourceId": "31000991502",
+    "totalEpisodes": 1,
+    "status": "completed",
+    "quality": "HD 720p",
+    "duration": "Short Form (< 5 min per episode)",
+    "releaseYear": 2024,
+    "rating": 4.5,
+    "views": 47226,
+    "isFree": true,
+    "isPremium": false,
+    "metadata": {
+      "placeholder": true,
+      "needsEnrichment": true,
+      "videoAvailable": true,
+      "videoSize": "unknown",
+      "capturedAt": "2026-02-01",
+      "version": "1.0-beta"
+    },
+    "episodes": [
+      {
+        "episodeNumber": 1,
+        "title": "Episode 1",
+        "description": "Episode 1 dari Drama Indonesia #502",
+        "duration": 298,
+        "isFree": true,
+        "videoUrl": "/api/videos/31000991502/episode-1.m3u8",
+        "thumbnailUrl": "/api/thumbnails/31000991502/episode-1.jpg"
+      }
+    ]
+  }
+}

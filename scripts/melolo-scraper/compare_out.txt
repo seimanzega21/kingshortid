@@ -1,0 +1,48 @@
+﻿
+melolo1.har: 76 series
+  Antara Ambisi dan Cinta                         147 eps  147 vids
+  Tangi Penyesalan Bos Cantik                     100 eps  100 vids
+  Penglihatan Ilahi                               100 eps  100 vids
+  Kegagalan dan Kerajaan Bisnisku                 100 eps  100 vids
+  Pewaris Konglomerat Dihina Mantan                98 eps  98 vids
+  Balas Dendam pada Anak Angkat                    97 eps  97 vids
+  Dunia Menyayangiku Penuh Kelembutan              95 eps  95 vids
+  Sang Dewa Judi                                   94 eps  94 vids
+  Sesepuh Tertua yang Masih Muda                   91 eps  91 vids
+  Pemuda Desa Menguasai Kota                       90 eps  90 vids
+
+melolo2.har: 10 series
+  Anak Angkat Bandel                               83 eps  83 vids
+  Bos Datang Malah diajak Nguli                    80 eps  80 vids
+  Reinkarnasi 99 Kali                              80 eps  80 vids
+  800 Ribu Beli Dunia Kultivasi                    80 eps  80 vids
+  Ruang Sistem Putri Jenderal                      80 eps  80 vids
+  Legenda Raja Kartu Utara Part 2                  79 eps  79 vids
+  Reinkernasi Jadi Orang Kaya                      78 eps  78 vids
+  Jenderal Terakhir                                72 eps  72 vids
+  Wibawa Panglima Agung                            70 eps  70 vids
+  Sang Penguasa                                    64 eps  64 vids
+
+melolo3.har: 5 series
+  Guru Kecil Genius                                87 eps  87 vids
+  Gagal Ujian Jadi Playboy Istana                  82 eps  82 vids
+  Kakek Muda Pembawa Berkah                        80 eps  80 vids
+  Jebakan di Meja Judi                             78 eps  78 vids
+  Nembak Emak-Emak Demi Hadiah                     70 eps  70 vids
+
+=== SUMMARY ===
+melolo1: 76 | melolo2: 10 | melolo3: 5
+Overlap 1Γê⌐2: 4 | 1Γê⌐3: 4 | 2Γê⌐3: 0
+New in melolo2: 6 | New in melolo3: 1
+Total unique: 83
+
+New in melolo2:
+  Sang Penguasa
+  Reinkarnasi 99 Kali
+  Anak Angkat Bandel
+  Wibawa Panglima Agung
+  Reinkernasi Jadi Orang Kaya
+  Legenda Raja Kartu Utara Part 2
+
+New in melolo3:
+  Gagal Ujian Jadi Playboy Istana

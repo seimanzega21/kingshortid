@@ -1,0 +1,46 @@
+// Add after User model in schema.prisma
+
+model Profile {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  name      String
+  avatar    String? // URL or emoji
+  isPrimary Boolean @default(false)
+  
+  // Parental controls
+  ageRating String  @default("all") // all, 13+, 16+, 18+
+  pin       String? // Hashed PIN for profile lock
+  
+  // Profile-specific preferences
+  language  String  @default("id") // id, en
+  theme     String  @default("dark") // dark, light
+  autoPlay  Boolean @default(true)
+  
+  // Watch history per profile
+  watchHistory ProfileWatchHistory[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, isPrimary])
+}
+
+model ProfileWatchHistory {
+  id        String  @id @default(cuid())
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  dramaId   String
+  episodeId String
+  progress  Int     @default(0) // 0-100
+  
+  watchedAt DateTime @default(now())
+
+  @@unique([profileId, dramaId, episodeId])
+  @@index([profileId, watchedAt(sort: Desc)])
+}
+
+// Add to User model relations:
+// profiles Profile[]

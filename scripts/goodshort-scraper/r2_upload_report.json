@@ -1,0 +1,129 @@
+{
+  "bucket": "kingshort",
+  "public_url": "https://stream.shortlovers.id",
+  "uploaded_files": 22,
+  "failed_files": 0,
+  "total_size_mb": 182.18263244628906,
+  "dramas": [
+    {
+      "title": "Kakek Kecil 2, Perebutan Tahta",
+      "slug": "kakek_kecil_2_perebutan_tahta",
+      "cover_url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/cover.jpg",
+      "metadata_url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/metadata.json",
+      "episodes": [
+        {
+          "number": 1,
+          "filename": "episode_001.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/episodes/episode_001.mp4",
+          "size_mb": 16.503602027893066
+        },
+        {
+          "number": 2,
+          "filename": "episode_002.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/episodes/episode_002.mp4",
+          "size_mb": 11.585342407226562
+        },
+        {
+          "number": 3,
+          "filename": "episode_003.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/episodes/episode_003.mp4",
+          "size_mb": 10.257951736450195
+        },
+        {
+          "number": 4,
+          "filename": "episode_004.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/episodes/episode_004.mp4",
+          "size_mb": 13.699169158935547
+        },
+        {
+          "number": 5,
+          "filename": "episode_005.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kakek_kecil_2_perebutan_tahta/episodes/episode_005.mp4",
+          "size_mb": 12.2156982421875
+        }
+      ]
+    },
+    {
+      "title": "Cinta Di Era 80-an",
+      "slug": "cinta_di_era_80-an",
+      "cover_url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/cover.jpg",
+      "metadata_url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/metadata.json",
+      "episodes": [
+        {
+          "number": 1,
+          "filename": "episode_001.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/episodes/episode_001.mp4",
+          "size_mb": 11.394096374511719
+        },
+        {
+          "number": 2,
+          "filename": "episode_002.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/episodes/episode_002.mp4",
+          "size_mb": 11.056392669677734
+        },
+        {
+          "number": 3,
+          "filename": "episode_003.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/episodes/episode_003.mp4",
+          "size_mb": 9.539788246154785
+        },
+        {
+          "number": 4,
+          "filename": "episode_004.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/episodes/episode_004.mp4",
+          "size_mb": 8.60550594329834
+        },
+        {
+          "number": 5,
+          "filename": "episode_005.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/episodes/episode_005.mp4",
+          "size_mb": 12.829995155334473
+        },
+        {
+          "number": 6,
+          "filename": "episode_006.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/cinta_di_era_80-an/episodes/episode_006.mp4",
+          "size_mb": 5.896180152893066
+        }
+      ]
+    },
+    {
+      "title": "Kisah Pacar Menjadi Tante",
+      "slug": "kisah_pacar_menjadi_tante",
+      "cover_url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/cover.jpg",
+      "metadata_url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/metadata.json",
+      "episodes": [
+        {
+          "number": 1,
+          "filename": "episode_001.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/episodes/episode_001.mp4",
+          "size_mb": 9.142590522766113
+        },
+        {
+          "number": 2,
+          "filename": "episode_002.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/episodes/episode_002.mp4",
+          "size_mb": 10.271140098571777
+        },
+        {
+          "number": 3,
+          "filename": "episode_003.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/episodes/episode_003.mp4",
+          "size_mb": 10.091766357421875
+        },
+        {
+          "number": 4,
+          "filename": "episode_004.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/episodes/episode_004.mp4",
+          "size_mb": 18.080195426940918
+        },
+        {
+          "number": 5,
+          "filename": "episode_005.mp4",
+          "url": "https://stream.shortlovers.id/goodshort/kisah_pacar_menjadi_tante/episodes/episode_005.mp4",
+          "size_mb": 9.987715721130371
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "completed_episodes": [
+    {
+      "id": "488675",
+      "segments": 75,
+      "timestamp": "2026-02-01T19:41:49.525207"
+    },
+    {
+      "id": "314760",
+      "segments": 128,
+      "timestamp": "2026-02-01T22:38:36.305693"
+    }
+  ],
+  "failed_episodes": [],
+  "last_update": "2026-02-01T22:38:36.305693",
+  "total_segments": 203
+}

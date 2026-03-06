@@ -1,0 +1,36 @@
+{
+    "name": "kingshortid-cf-backend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "wrangler dev",
+        "deploy": "wrangler deploy",
+        "db:generate": "drizzle-kit generate",
+        "db:migrate:local": "wrangler d1 migrations apply kingshortid --local",
+        "db:migrate:remote": "wrangler d1 migrations apply kingshortid --remote",
+        "db:studio": "drizzle-kit studio",
+        "start:vps": "bun run src/server.ts",
+        "dev:vps": "bun --hot run src/server.ts",
+        "db:push:vps": "drizzle-kit push --config=drizzle.vps.config.ts",
+        "migrate:d1": "node scripts/migrate_d1_to_supabase.mjs"
+    },
+    "dependencies": {
+        "@paralleldrive/cuid2": "^2.2.2",
+        "@supabase/supabase-js": "^2.98.0",
+        "bcryptjs": "^3.0.3",
+        "drizzle-orm": "^0.36.0",
+        "hono": "^4.6.0",
+        "jose": "^5.9.0",
+        "pg": "^8.18.0",
+        "postgres": "^3.4.8",
+        "zod": "^3.24.0"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20241230.0",
+        "@types/bcryptjs": "^2.4.6",
+        "bun-types": "^1.3.10",
+        "drizzle-kit": "^0.28.1",
+        "typescript": "^5.7.0",
+        "wrangler": "^3.99.0"
+    }
+}

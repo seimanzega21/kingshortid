@@ -1,0 +1,692 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== USERS ====================
+model User {
+  id         String  @id @default(cuid())
+  email      String  @unique
+  password   String?
+  name       String
+  avatar     String?
+  provider   String  @default("local") // local, google, facebook
+  providerId String?
+  role       String  @default("user") // user, admin
+
+  coins     Int       @default(100)
+  vipStatus Boolean   @default(false)
+  vipExpiry DateTime?
+
+  isGuest   Boolean   @default(false)
+  guestId   String?   @unique
+
+  lastCheckIn   DateTime?
+  checkInStreak Int       @default(0)
+  lastSpinDate  DateTime?
+  totalSpins    Int       @default(0)
+
+  preferences    Json? // AI recommendation preferences
+  totalWatchTime Int   @default(0) // in seconds
+
+  // Social stats
+  followerCount  Int     @default(0)
+  followingCount Int     @default(0)
+  bio            String?
+
+  pushToken      String?
+  notifyEpisodes Boolean @default(true)
+  notifyCoins    Boolean @default(true)
+  notifySystem   Boolean @default(true)
+
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  watchlist        Watchlist[]
+  favorites        Favorite[]
+  collection       Collection[]
+  watchHistory     WatchHistory[]
+  coinTransactions CoinTransaction[]
+  notifications    Notification[]
+  achievements     UserAchievement[]
+  dailyRewards     DailyReward[]
+
+  // Community features
+  comments      Comment[]
+  reviews       Review[]
+  commentLikes  CommentLike[]
+  reviewHelpful ReviewHelpful[]
+
+  // Social features
+  following Follow[] @relation("Following")
+  followers Follow[] @relation("Followers")
+
+  // Watch party
+  hostedParties       WatchParty[]
+  partyParticipations WatchPartyParticipant[]
+
+  // Playlists
+  playlists Playlist[]
+
+  // Gifts
+  sentGifts     GiftTransaction[] @relation("SentGifts")
+  receivedGifts GiftTransaction[] @relation("ReceivedGifts")
+
+  // Subscription
+  subscription Subscription?
+  payments     Payment[]
+}
+
+// ==================== DRAMAS ====================
+model Drama {
+  id          String  @id @default(cuid())
+  title       String
+  description String  @db.Text
+  cover       String
+  banner      String?
+
+  genres  String[]
+  tagList String[] // Simple tag array for backward compatibility
+
+  totalEpisodes Int   @default(0)
+  rating        Float @default(0)
+  views         Int   @default(0)
+  likes         Int   @default(0)
+
+  // Review stats
+  reviewCount   Int   @default(0)
+  averageRating Float @default(0)
+
+  status     String  @default("ongoing") // ongoing, completed
+  isVip      Boolean @default(false)
+  isFeatured Boolean @default(false)
+  isActive   Boolean @default(true)
+  ageRating  String  @default("all") // all, 13+, 16+, 18+
+
+  releaseDate DateTime?
+  director    String?
+  cast        String[]
+  country     String    @default("China")
+  language    String    @default("Mandarin")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  episodes     Episode[]
+  watchlist    Watchlist[]
+  favorites    Favorite[]
+  collection   Collection[]
+  watchHistory WatchHistory[]
+
+  // Community features
+  comments     Comment[]
+  reviews      Review[]
+  watchParties WatchParty[]
+
+  // Content organization
+  seasons   Season[]
+  playlists Playlist[] @relation("PlaylistDramas")
+  tags      Tag[]      @relation("DramaTags")
+}
+
+// ==================== EPISODES ====================
+model Episode {
+  id      String @id @default(cuid())
+  dramaId String
+  drama   Drama  @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+
+  episodeNumber Int
+  title         String
+  description   String? @db.Text
+  thumbnail     String?
+  videoUrl      String
+  duration      Int     @default(0) // in seconds
+
+  isVip     Boolean @default(false)
+  coinPrice Int     @default(0)
+  views     Int     @default(0)
+
+  isActive    Boolean  @default(true)
+  releaseDate DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  watchHistory WatchHistory[]
+
+  // Community features
+  comments     Comment[]
+  watchParties WatchParty[]
+
+  // Season organization
+  seasonId String?
+  season   Season? @relation(fields: [seasonId], references: [id])
+
+  // Subtitles
+  subtitles Subtitle[]
+
+  @@unique([dramaId, episodeNumber])
+}
+
+// ==================== USER LISTS ====================
+model Watchlist {
+  id      String   @id @default(cuid())
+  userId  String
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dramaId String
+  drama   Drama    @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+  addedAt DateTime @default(now())
+
+  @@unique([userId, dramaId])
+}
+
+model Favorite {
+  id      String   @id @default(cuid())
+  userId  String
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dramaId String
+  drama   Drama    @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+  addedAt DateTime @default(now())
+
+  @@unique([userId, dramaId])
+}
+
+model Collection {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dramaId          String
+  drama            Drama    @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+  notifyNewEpisode Boolean  @default(true)
+  addedAt          DateTime @default(now())
+
+  @@unique([userId, dramaId])
+}
+
+// ==================== WATCH HISTORY ====================
+model WatchHistory {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dramaId   String
+  drama     Drama   @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+  episodeId String
+  episode   Episode @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+
+  episodeNumber Int
+  progress      Int      @default(0) // percentage 0-100
+  watchedAt     DateTime @default(now())
+
+  @@unique([userId, dramaId, episodeId])
+  @@index([userId, watchedAt(sort: Desc)])
+}
+
+// ==================== COINS ====================
+model CoinTransaction {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type         String // earn, spend, topup, bonus
+  amount       Int
+  description  String
+  reference    String? // episodeId or paymentId
+  balanceAfter Int?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+// ==================== NOTIFICATIONS ====================
+model Notification {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  title String
+  body  String
+  type  String // new_episode, coin_reward, system
+  data  Json?
+  read  Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+// ==================== CATEGORIES ====================
+model Category {
+  id    String  @id @default(cuid())
+  name  String  @unique
+  slug  String  @unique
+  icon  String?
+  order Int     @default(0)
+}
+
+// ==================== ACHIEVEMENTS ====================
+model Achievement {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  icon        String?
+  type        String // first_watch, binge_watcher, social_butterfly, coin_master, etc.
+  requirement Int // threshold to unlock (e.g., 10 for "watch 10 episodes")
+  reward      Int      @default(0) // coin reward for unlocking
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  users UserAchievement[]
+}
+
+model UserAchievement {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievementId String
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  unlockedAt DateTime @default(now())
+
+  @@unique([userId, achievementId])
+  @@index([userId, unlockedAt(sort: Desc)])
+}
+
+// ==================== DAILY REWARDS ====================
+model DailyReward {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  rewardType String // spin_wheel, check_in, bonus
+  amount     Int // coins awarded
+  claimedAt  DateTime @default(now())
+
+  @@index([userId, claimedAt(sort: Desc)])
+}
+
+// ==================== COMMENTS ====================
+model Comment {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dramaId   String?
+  drama     Drama?   @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+  episodeId String?
+  episode   Episode? @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+
+  content  String    @db.Text
+  parentId String?
+  parent   Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies  Comment[] @relation("CommentReplies")
+
+  likes     CommentLike[]
+  likeCount Int           @default(0)
+
+  isEdited   Boolean @default(false)
+  isDeleted  Boolean @default(false)
+  isReported Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([dramaId, createdAt(sort: Desc)])
+  @@index([episodeId, createdAt(sort: Desc)])
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model CommentLike {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  commentId String
+  comment   Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, commentId])
+  @@index([commentId])
+}
+
+// ==================== REVIEWS ====================
+model Review {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dramaId String
+  drama   Drama  @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+
+  rating  Int // 1-5 stars
+  title   String
+  content String @db.Text
+
+  helpful      ReviewHelpful[]
+  helpfulCount Int             @default(0)
+
+  isSpoiler  Boolean @default(false)
+  isVerified Boolean @default(false)
+  isReported Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, dramaId])
+  @@index([dramaId, rating(sort: Desc)])
+  @@index([dramaId, helpfulCount(sort: Desc)])
+}
+
+model ReviewHelpful {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reviewId String
+  review   Review @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, reviewId])
+  @@index([reviewId])
+}
+
+// ==================== SOCIAL FEATURES ====================
+model Follow {
+  id          String @id @default(cuid())
+  followerId  String
+  follower    User   @relation("Following", fields: [followerId], references: [id], onDelete: Cascade)
+  followingId String
+  following   User   @relation("Followers", fields: [followingId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
+}
+
+// ==================== WATCH PARTY ====================
+model WatchParty {
+  id        String  @id @default(cuid())
+  hostId    String
+  host      User    @relation(fields: [hostId], references: [id], onDelete: Cascade)
+  dramaId   String
+  drama     Drama   @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+  episodeId String
+  episode   Episode @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+
+  roomCode String  @unique
+  isActive Boolean @default(true)
+  isPublic Boolean @default(true)
+  maxUsers Int     @default(10)
+
+  currentTime Int     @default(0) // current playback position in seconds
+  isPlaying   Boolean @default(false)
+
+  createdAt DateTime  @default(now())
+  endedAt   DateTime?
+
+  participants WatchPartyParticipant[]
+
+  @@index([isActive, isPublic])
+}
+
+model WatchPartyParticipant {
+  id      String     @id @default(cuid())
+  partyId String
+  party   WatchParty @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  userId  String
+  user    User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  isActive Boolean @default(true)
+
+  joinedAt DateTime  @default(now())
+  leftAt   DateTime?
+
+  @@unique([partyId, userId])
+  @@index([partyId, isActive])
+}
+
+// ==================== CONTENT ORGANIZATION ====================
+model Season {
+  id      String @id @default(cuid())
+  dramaId String
+  drama   Drama  @relation(fields: [dramaId], references: [id], onDelete: Cascade)
+
+  seasonNumber Int
+  title        String
+  description  String? @db.Text
+  poster       String?
+  trailer      String?
+
+  episodeCount Int       @default(0)
+  releaseDate  DateTime?
+
+  episodes Episode[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([dramaId, seasonNumber])
+  @@index([dramaId, seasonNumber])
+}
+
+model Tag {
+  id    String  @id @default(cuid())
+  name  String  @unique
+  slug  String  @unique
+  type  String  @default("genre") // genre, mood, theme, style
+  color String  @default("#6366f1")
+  icon  String?
+
+  dramas Drama[] @relation("DramaTags")
+
+  createdAt DateTime @default(now())
+}
+
+model Playlist {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  name        String
+  description String? @db.Text
+  cover       String?
+
+  isPublic   Boolean @default(false)
+  isOfficial Boolean @default(false) // for admin-created playlists
+
+  itemCount Int @default(0)
+
+  dramas Drama[] @relation("PlaylistDramas")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, updatedAt(sort: Desc)])
+  @@index([isPublic, isOfficial])
+}
+
+// ==================== MONETIZATION ====================
+model Subscription {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  tier   String // basic, premium, vip
+  status String // active, cancelled, expired, trial
+
+  startDate DateTime @default(now())
+  endDate   DateTime
+
+  autoRenew Boolean @default(true)
+
+  cancelledAt DateTime?
+
+  payments Payment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, endDate])
+}
+
+model Payment {
+  id             String        @id @default(cuid())
+  userId         String
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscriptionId String?
+  subscription   Subscription? @relation(fields: [subscriptionId], references: [id])
+
+  amount   Float
+  currency String @default("USD")
+  type     String // subscription, coins, gift
+  status   String // pending, completed, failed, refunded
+
+  provider      String // stripe, apple, google, paypal
+  transactionId String  @unique
+  receipt       String? @db.Text
+
+  metadata Json?
+
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([status])
+}
+
+model Gift {
+  id          String @id @default(cuid())
+  name        String
+  description String
+  icon        String
+  price       Int // in coins
+
+  category String @default("basic") // basic, premium, exclusive
+
+  isActive Boolean @default(true)
+
+  transactions GiftTransaction[]
+
+  createdAt DateTime @default(now())
+}
+
+model GiftTransaction {
+  id         String @id @default(cuid())
+  senderId   String
+  sender     User   @relation("SentGifts", fields: [senderId], references: [id], onDelete: Cascade)
+  receiverId String
+  receiver   User   @relation("ReceivedGifts", fields: [receiverId], references: [id], onDelete: Cascade)
+  giftId     String
+  gift       Gift   @relation(fields: [giftId], references: [id])
+
+  message     String?
+  isAnonymous Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([receiverId, createdAt(sort: Desc)])
+  @@index([senderId, createdAt(sort: Desc)])
+}
+
+// ==================== CHALLENGES ====================
+model Challenge {
+  id          String  @id @default(cuid())
+  title       String
+  description String  @db.Text
+  icon        String?
+
+  type        String // daily, weekly, special
+  requirement String // JSON describing the challenge requirement
+  reward      Int // coins awarded
+
+  startDate DateTime
+  endDate   DateTime
+
+  isActive Boolean @default(true)
+
+  completions ChallengeCompletion[]
+
+  createdAt DateTime @default(now())
+
+  @@index([type, isActive])
+  @@index([startDate, endDate])
+}
+
+model ChallengeCompletion {
+  id          String    @id @default(cuid())
+  userId      String
+  challengeId String
+  challenge   Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+
+  progress    Int     @default(0) // percentage or count
+  isCompleted Boolean @default(false)
+
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@unique([userId, challengeId])
+  @@index([userId, isCompleted])
+}
+
+// ==================== REPORTS ====================
+model Report {
+  id         String @id @default(cuid())
+  reporterId String
+
+  type     String // comment, review, user, drama
+  targetId String // id of the reported item
+  reason   String
+  details  String? @db.Text
+
+  status String @default("pending") // pending, reviewed, resolved, dismissed
+
+  reviewedBy String?
+  reviewNote String? @db.Text
+
+  createdAt  DateTime  @default(now())
+  reviewedAt DateTime?
+
+  @@index([type, status])
+  @@index([status, createdAt(sort: Desc)])
+}
+
+// ==================== SUBTITLES ====================
+model Subtitle {
+  id        String  @id @default(cuid())
+  episodeId String
+  episode   Episode @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+
+  language  String // id, en, ko, zh, etc
+  label     String // "Bahasa Indonesia", "English"
+  url       String // .srt or .vtt file URL
+  isDefault Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@unique([episodeId, language])
+  @@index([episodeId])
+}
+
+// ==================== SYNC QUEUE ====================
+model SyncQueue {
+  id     String @id @default(cuid())
+  userId String
+
+  action    String // watch_progress, like, favorite, watchlist, comment, check_in
+  data      Json
+  status    String @default("pending") // pending, processing, completed, failed
+  error     String?
+  retryCount Int    @default(0)
+
+  createdAt   DateTime  @default(now())
+  processedAt DateTime?
+
+  @@index([userId, status])
+  @@index([status, createdAt])
+}
+

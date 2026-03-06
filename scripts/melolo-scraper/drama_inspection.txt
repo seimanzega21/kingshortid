@@ -1,0 +1,767 @@
+﻿=== LOOKING FOR DRAMA FEED DATA ===
+
+[87] /i18n_novel/reader/book_history/list/v1/
+  data_list: 1 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7423711830746336272", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7423711830746336272", "book_name": "Dunia Menyayangiku Penuh Kelembutan", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":754,\"Dim\":10,\"Name\":\"Ceo\",\"ExternalDesc\":\"\",\"Gender\":0,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Ceo\",\"InExperiment\":false,\"MainCategory\":false,\"ExtraInfo\
+
+[108] /i18n_novel/reader/book_history/list/v1/
+  data_list: 30 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7423711830746336272", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7423711830746336272", "book_name": "Dunia Menyayangiku Penuh Kelembutan", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":754,\"Dim\":10,\"Name\":\"Ceo\",\"ExternalDesc\":\"\",\"Gender\":0,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Ceo\",\"InExperiment\":false,\"MainCategory\":false,\"ExtraInfo\
+
+[112] /i18n_novel/reader/book_history/list/v1/
+  data_list: 30 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7423711830746336272", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7423711830746336272", "book_name": "Dunia Menyayangiku Penuh Kelembutan", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":754,\"Dim\":10,\"Name\":\"Ceo\",\"ExternalDesc\":\"\",\"Gender\":0,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Ceo\",\"InExperiment\":false,\"MainCategory\":false,\"ExtraInfo\
+
+[120] /i18n_novel/reader/book_history/list/v1/
+  data_list: 30 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7423711830746336272", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7423711830746336272", "book_name": "Dunia Menyayangiku Penuh Kelembutan", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":754,\"Dim\":10,\"Name\":\"Ceo\",\"ExternalDesc\":\"\",\"Gender\":0,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Ceo\",\"InExperiment\":false,\"MainCategory\":false,\"ExtraInfo\
+
+[215] /i18n_novel/reader/book_history/list/v1/
+  data_list: 31 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582154020702145541", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582154020702145541", "book_name": "Reinkarnasi Pemburu", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":746,\"Dim\":10,\"Name\":\"Kelahiran kembali\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Rebirth\",\"InExperiment\":false,\"MainCategory\":true,\"ExtraInfo
+
+[233] /i18n_novel/reader/book_history/list/v1/
+  data_list: 32 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582204628406651909", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582204628406651909", "book_name": "Sang Mantan Dewa Judi", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":745,\"Dim\":10,\"Name\":\"Identitas Tersembunyi\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_HiddenIdentity\",\"InExperiment\":false,\"MainCategory\":tru
+
+[249] /i18n_novel/reader/book_history/list/v1/
+  data_list: 33 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582070605378227253", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582070605378227253", "book_name": "Jebakan di Meja Judi", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":745,\"Dim\":10,\"Name\":\"Identitas Tersembunyi\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_HiddenIdentity\",\"InExperiment\":false,\"MainCategory\":true
+
+[258] /i18n_novel/reader/book_history/list/v1/
+  data_list: 33 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582204628406651909", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582204628406651909", "book_name": "Sang Mantan Dewa Judi", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":745,\"Dim\":10,\"Name\":\"Identitas Tersembunyi\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_HiddenIdentity\",\"InExperiment\":false,\"MainCategory\":tru
+
+[274] /i18n_novel/reader/book_history/list/v1/
+  data_list: 34 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582430701799083061", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582430701799083061", "book_name": "Sistem Paman Super", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":721,\"Dim\":10,\"Name\":\"Serangan balik\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_counterattack\",\"InExperiment\":false,\"MainCategory\":true,\"ExtraIn
+
+[292] /i18n_novel/reader/book_history/list/v1/
+  data_list: 35 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582509823137172485", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582509823137172485", "book_name": "Bukan Lagi Budak Cintamu", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":700,\"Dim\":10,\"Name\":\"Tycoon\",\"ExternalDesc\":\"\",\"Gender\":1,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Tycoon\",\"InExperiment\":false,\"MainCategory\":true,\"ExtraInfo\":\"{\
+
+[324] /i18n_novel/reader/book_history/list/v1/
+  data_list: 36 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7599702002796334133", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7599702002796334133", "book_name": "Sekali Lihat, Jadi Sultan", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":734,\"Dim\":10,\"Name\":\"Bukan siapa-siapa\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Nobody\",\"InExperiment\":false,\"MainCategory\":false,\"Ext
+
+[345] /i18n_novel/reader/book_history/list/v1/
+  data_list: 37 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7595499047549406213", "book_info": {"abstract": "", "author": "xiamenyunjuzaixian", "book_id": "7595499047549406213", "book_name": "Hidup Berjaya Anak Terbuang", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":746,\"Dim\":10,\"Name\":\"Kelahiran kembali\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Rebirth\",\"InExperiment\":false,\"MainCategor
+
+[363] /i18n_novel/reader/book_history/list/v1/
+  data_list: 38 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582626317489671221", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7582626317489671221", "book_name": "Mata Pengubah Nasib", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":34,\"Dim\":10,\"Name\":\"Harem\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/f7d4785b37f339c693dc80b1a1092f14~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_Harem\",\"InExperiment\":false,\"MainCategory\":true,\"ExtraInfo\":\"{\\\"group_id\\\
+
+[378] /i18n_novel/bookmall/plan/v1/
+  cells: 1 items
+  Keys: ['algo', 'book_page_type', 'books', 'categories', 'category_channel_id', 'cell_style', 'cell_type', 'channel_id', 'cid', 'client_log_module_name', 'english_name', 'has_more', 'id', 'name', 'next_num', 'next_offset', 'operation_type', 'show_category_setting', 'show_type', 'tags']
+  Sample: {"algo": 1, "book_page_type": 0, "books": [{"abstract": "Menjelang ajal, Rizal masih tidak dianggap ayah oleh putrinya. Bahkan putrinya ingin dia mati supaya ibunya bisa bersama Om Hendra. Rizal tiba-tiba diberi kesempatan kembali muda dan memilih hidup untuk dirinya sendiri.", "age_gate": "18", "author": "fanqie", "book_id": "7565032240099380229", "book_name": "Hidup Baru Ayah Pecundang", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":746,\"Dim\":10,\"Name\":\"Kelahiran kembali\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_public
+
+[386] /i18n_novel/reader/book_history/list/v1/
+  data_list: 39 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7491171587224243217", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7491171587224243217", "book_name": "Memperbaiki Masa Lalu", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":700,\"Dim\":10,\"Name\":\"Tycoon\",\"ExternalDesc\":\"\",\"Gender\":1,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Tycoon\",\"InExperiment\":false,\"MainCategory\":true,\"ExtraInfo\":\"{\\\"
+
+[402] /i18n_novel/reader/book_history/list/v1/
+  data_list: 40 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7582512750534855733", "book_info": {"abstract": "", "author": "yinghuoyuedong", "book_id": "7582512750534855733", "book_name": "Pacari Musuh Mantan Istri", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":34,\"Dim\":10,\"Name\":\"Harem\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/f7d4785b37f339c693dc80b1a1092f14~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_Harem\",\"InExperiment\":false,\"MainCategory\":true,\"ExtraInfo\":\"{\
+
+[425] /i18n_novel/reader/book_history/list/v1/
+  data_list: 41 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7543217293895928848", "book_info": {"abstract": "", "author": "yinghuokuaichuang", "book_id": "7543217293895928848", "book_name": "Ayah Berandalan jadi CEO", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":754,\"Dim\":10,\"Name\":\"Ceo\",\"ExternalDesc\":\"\",\"Gender\":0,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_Ceo\",\"InExperiment\":false,\"MainCategory\":false,\"ExtraInfo\
+
+[446] /i18n_novel/reader/book_history/list/v1/
+  data_list: 42 items
+  Keys: ['book_id', 'book_info', 'book_type', 'is_delete', 'read_timestamp_ms']
+  Sample: {"book_id": "7597457631111826485", "book_info": {"abstract": "", "author": "fanqie", "book_id": "7597457631111826485", "book_name": "Barang Supermarket di Dunia Kuno", "book_status": "1", "book_type": "2", "category_info": "[{\"ObjectId\":721,\"Dim\":10,\"Name\":\"Serangan balik\",\"ExternalDesc\":\"\",\"Gender\":2,\"Status\":1,\"AppId\":4171,\"Extra\":\"{\\\"for_publication\\\":0,\\\"icon\\\":\\\"http://p16-novel-sg.ibyteimg.com/novel-static-sg/81edaf0701d9e369d18c1fe1ae5aff19~tplv-noop.image\\\"}\",\"NameStarlingKey\":\"genrename_drama_counterattack\",\"InExperiment\":false,\"MainCategory\":
+
+
+=== LOOKING FOR VIDEO MODEL ENDPOINTS ===
+
+[1] https://middledata.ldplayer.net/collection/config?appId=58
+  Keys: ['code', 'message', 'data']
+  data[29]
+  data[0].keys: ['appId', 'eventKey', 'eventAttributes', 'source']
+  data[0]: {"appId": 58, "eventKey": "display", "eventAttributes": ["area", "mnq_mac", "mnq_version", "source_page", "response_code", "app_version", "device_id", "ad_type", "mnq_multi_index", "action_type", "openid", "language", "event_result", "action_target", "mnq_current_multi_count", "ad_site", "ad_id", "app_page", "mnq_multi_num", "file_md5", "sdk_version", "response_time", "sub_channel_id", "channel_id"], "source": "V3"}
+
+[25] https://middledata.ldplayer.net/collection/upload
+  Keys: ['code', 'message', 'data']
+
+[63] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7398875144338279440', '7420154758171724816', '7523132578321140752', '7527161773745507344', '7571685260803443717', '7576945273985829893', '7593218862632406069', '7602320495463107637']
+  data.7398875144338279440: {"backup_url": "http://v16m.byteicdn.com/b12e5af44db39b7e6bd63067eeab70fb/6987d6a1/video/tos/alisg/tos-alisg-v-ea7654-sg/oUeSgXDgOIo7F60whQfBhkXWE8EcLiQMxEBylQ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2968&bt=1484&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDo6PDQ3NmVmM2c1aDU7OkBpajVzNXg5cjg1NGYzODs4NEBiYS4xXjRiXzAxYjYxLjN
+  data.7420154758171724816: {"backup_url": "http://v16m.byteicdn.com/b236adc0b400be8b16704d650972c9eb/6987d6a5/video/tos/alisg/tos-alisg-v-ea7654-sg/okVIBEzhDeMQQiIfVr2D5CSfWUDDhCFagXrDmo/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=4180&bt=2090&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=OmdpZmYzNjw5Z2U8Ojc1OUBpamRzdHM5cjk0M2YzODs4NEAxNGEyNTA2Ni0xLTYxLmI
+  data.7523132578321140752: {"backup_url": "http://v16m.byteicdn.com/67183c6b268c760e789e7e68d0a02dd0/6987d688/video/tos/alisg/tos-alisg-v-ea7654-sg/oAOIo0nENIrKIA5e4zQgWBGDw3eLIMveKG3efO/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3110&bt=1555&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=OjY6ZzVlZjg2MzQ1ZDs8aUBpamQ0Z3g5cm9xNGYzODs4NEAyMWE2NjY0NWAxMTAvNV5
+  data.7527161773745507344: {"backup_url": "http://v16m.byteicdn.com/8e0bee5b3ce09fc99ccce252e6d3bde2/6987d666/video/tos/alisg/tos-alisg-v-ea7654-sg/owQfYhBojdrFuF8L7YrD6ggQQJBfxJgOWIhbEY/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2594&bt=1297&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDRlZDY2OWk8Nzw0NzU2aUBpMzdnNnc5cjVyNGYzODs4NEA2MzVjYy80Xi8xMTI2NTF
+  data.7571685260803443717: {"backup_url": "http://v16m.byteicdn.com/35710f1c01faf7e95f295c9ca4994a76/6987d6a1/video/tos/alisg/tos-alisg-v-ea7654-sg/oUMMWggDSCVovQlFEysleiQqhDgqfKbB6DIB4e/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2538&bt=1269&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDo8M2U4NmhlOTtkOjk8NUBpM3E0cW45cjpsN2YzODs4NEAyMDQ1LjA0NTUxLjNgNV4
+  data.7576945273985829893: {"backup_url": "http://v16m.byteicdn.com/d2745d537a78c774e832973d05b881af/6987d64c/video/tos/alisg/tos-alisg-v-ea7654-sg/o4BdeiGVcLZDsLDxSxrL1AghBgKVClfReGdSII/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3134&bt=1567&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDs0M2g3M2U1ZTk3ODpmOUBpamRrOXE5cjw8N2YzODs4NEAvNF8xYV4xXl8xNjZhYDF
+  data.7593218862632406069: {"backup_url": "http://v16m.byteicdn.com/ebad0153070c5c1401748f4744a9b0ee/6987d662/video/tos/alisg/tos-alisg-v-ea7654-sg/oIBqxkmYfFrREQEgQpEDxJf4IVIDgUaXBQAvsh/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1408&bt=704&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZDM5NTQ0OjYzZDVlOWc6NUBpM21vNXI5cmU3OGYzODs4NEAvMjRfXzE0XzExYjEvYWM1
+  data.7602320495463107637: {"backup_url": "http://v16m.byteicdn.com/0fc38683fa66385bfe9b16fc312d476a/6987d68c/video/tos/alisg/tos-alisg-v-ea7654-sg/ocygUI4tAGTiCKqp1uI3CLAhDDcGSBmgjQeeVe/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3272&bt=1636&cs=0&ds=3&ft=cApXJCz7ThWH92fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NGkzaGQ8OTo2OTk6NGY7Z0Bpank2ZWs5cm9kOWYzODs4NEA0MWNhYmFiXl4xNjFiYTA
+
+[70] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":79,\"name\":\"Modern Love\",\"schema\":\"dragon645713://categorySearch?categoryId=79&categoryName=Modern Love&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"name\":\"Romance\",\"schema\":\"dragon645713://categorySearch?categoryId=2&categoryName=Romance
+
+[72] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7423712169935506433', '7423712174490520592', '7423712178378640385']
+  data.7423712169935506433: {"backup_url": "http://v16m.byteicdn.com/375a01e1062c7b064c345f9d48345036/6987d648/video/tos/alisg/tos-alisg-v-ea7654-sg/oogJrEd5nBhkrY3fxDBYgvbmFQTIQEfhoQlOsh/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2154&bt=1077&cs=0&ds=3&ft=cApXJCz7ThWHu2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=M2doZjlkNzk3N2kzaWU7aUBpanI5PHk5cnd3eGYzODs4NEAvM2AyYzFeNmExNC81MzE
+  data.7423712174490520592: {"backup_url": "http://v16m.byteicdn.com/40b62ac3947d8b0037faccb994d16c0e/6987d67a/video/tos/alisg/tos-alisg-v-ea7654-sg/oIFHEWQhCQccfgDgBSgFQqu9IfpNnGEBNQJ0nx/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2412&bt=1206&cs=0&ds=3&ft=cApXJCz7ThWHu2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=M2k4aTM2aTk4Nmc7NWc2ZEBpM2pwbXQ5cmt2eGYzODs4NEA1MzEvYTReXzUxXjExYDI
+  data.7423712178378640385: {"backup_url": "http://v16m.byteicdn.com/1248be3c26f6894367872e43145621ce/6987d66d/video/tos/alisg/tos-alisg-v-ea7654-sg/oIIpEQD4DybMioGPDLEge8MOenehbIPBgY6mCx/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2370&bt=1185&cs=0&ds=3&ft=cApXJCz7ThWHu2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=Zzs4ZDlmZzg2ZDQ7NTc7ZEBpM3hwc3k5cnV3eGYzODs4NEA1MzJfYl4zNV4xNjQuMDI
+
+[74] /novel/player/video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['backup_url', 'expire_time', 'main_url', 'video_height', 'video_model', 'video_width']
+
+[84] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582081649517530117', '7582111655975209989', '7582165333536934965', '7582166572752440373', '7582232554074278965', '7582432886159068165', '7582477346460945413', '7582496339020221493']
+  data.7582081649517530117: {"backup_url": "http://v16m.byteicdn.com/d9da0704176ee8b6ef166beab978403f/6987d735/video/tos/alisg/tos-alisg-v-ea7654-sg/owBaxf9RKFySjQ3hQpEDqKfWIiF1gmcxBQO7yh/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2266&bt=1133&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDg0PGQ7aTw4ZDM0NTk8aEBpanhzeG85cmhxOGYzODs4NEBjYGIxNjJjNTAxMy0xYS0
+  data.7582111655975209989: {"backup_url": "http://v16m.byteicdn.com/6eb044ba93caa0b5df95d8dc385d3823/6987d66d/video/tos/alisg/tos-alisg-v-ea7654-sg/oIYglBfE8gRnppaQpIBohmxbdrQOFsQ0DuCneM/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2476&bt=1238&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NWY0ZTg3ODRnZzhlZTg3aUBpamxzZ3E5cmQ6OGYzODs4NEA1Y2AtLV4yNmAxNi1eY2I
+  data.7582165333536934965: {"backup_url": "http://v16m.byteicdn.com/3805ec686ab9a272bca092f1243dd27d/6987d6a5/video/tos/alisg/tos-alisg-v-ea7654-sg/oUWfCFVsxbPhVD9TEKJBu2M0xxEQSpoQgQBIIe/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2356&bt=1178&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=O2k0MzRpOzw1aTM0OjQ0ZkBpM21qcXg5cnU1OGYzODs4NEA2Yi1jLl9fNmExMy0tXjJ
+  data.7582166572752440373: {"backup_url": "http://v16m.byteicdn.com/df09b6e8eccf93aa236b4ebf24ad2eca/6987d66d/video/tos/alisg/tos-alisg-v-ea7654-sg/oUDBIDF3ie5EgQNSBlgXQDeiIC28JN6FgBMKhe/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=1156&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZztlO2kzNTczaGc5OmlpNkBpajNpcHk5cnJsOGYzODs4NEBhLV5gNmFfNl4xY2BjXi1
+  data.7582232554074278965: {"backup_url": "http://v16m.byteicdn.com/d5500f6c66f489dcdf8c8ebc64db4e80/6987d69d/video/tos/alisg/tos-alisg-v-ea7654-sg/oggVbifTpB0x7Ol8xBBIpqgRiQXIQEfhBQW8Ha/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2442&bt=1221&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTtnPDM0OjY4ODs3aTdkNUBpM2hnOHY5cmx4OGYzODs4NEA1Xy8xLTM0XzIxXjEwMGF
+  data.7582432886159068165: {"backup_url": "http://v16m.byteicdn.com/f50dc516e4766a31b70a9faa4de53eb2/6987d699/video/tos/alisg/tos-alisg-v-ea7654-sg/oMBEJAeAIjtCAQGFjHSDfGVGfgFFQJfDcbwlEy/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3246&bt=1623&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=OWg8OGlnOzNoZThpaGlpNkBpajZteHA5cnJpOGYzODs4NEAxMS9iYC40XzUxMS9eXzY
+  data.7582477346460945413: {"backup_url": "http://v16m.byteicdn.com/e2af29487cd02587332e03d65a919665/6987d6f2/video/tos/alisg/tos-alisg-v-ea7654-sg/o8SaBJfDQIeKhhpQgrIylSvKIBjxNE11FQqDEg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3030&bt=1515&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NTZnZ2Y1OTo0Mzk2Z2k3ZEBpM2k5OXg5cmpkOGYzODs4NEBiNDZeYl9fX2AxYS5iLjU
+  data.7582496339020221493: {"backup_url": "http://v16m.byteicdn.com/5a1421559d05ac506651a3dbc1c806cb/6987d6e2/video/tos/alisg/tos-alisg-v-ea7654-sg/oMikriZ0oYzVA3uQi7x39Q8AoEGfE9WnoAlwIB/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2628&bt=1314&cs=0&ds=3&ft=cApXJCz7ThWHv2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NWlkZWY7ODg8OTY4ZmY5PEBpanFzZnU5cnFpOGYzODs4NEAxYjFjYDFfNWAxYF80YWI
+
+[86] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582526729915206709', '7582651187615239173']
+  data.7582526729915206709: {"backup_url": "http://v16m.byteicdn.com/29ec828f284dcb6dbe237d972869d1d9/6987d711/video/tos/alisg/tos-alisg-v-ea7654-sg/oMK0EHgDTh1wnJBbDwBi0kTpIfi4SeiCCQewJi/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3112&bt=1556&cs=0&ds=3&ft=cApXJCz7ThWH~2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTY2ZjU7PGVoZ2loOjs4O0Bpam40amo5cmlyOGYzODs4NEAuYmE2YTEyNS0xYGAtMmE
+  data.7582651187615239173: {"backup_url": "http://v16m.byteicdn.com/57d28f89ea23e04ef3255d910015e573/6987d6a2/video/tos/alisg/tos-alisg-v-ea7654-sg/oI35xaiIIX31IVMXFAEYUbU4iQUjEROXiB0DP/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3984&bt=1992&cs=0&ds=3&ft=cApXJCz7ThWH~2fc1GZmo0P&mime_type=video_mp4&qs=0&rc=Mzc7NDc3NDhmNDY7NWY4NkBpanFpOG85cnFmOGYzODs4NEA0XzMtYjYtNWExMDFiXmBi
+
+[95] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7423711830746336272']
+  data.7423711830746336272: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":79,\"name\":\"Romansa Urban\",\"schema\":\"dragon645713://categorySearch?categoryId=79&categoryName=Romansa Urban&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"name\":\"Rom
+
+[96] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582512750572604469', '7582626317489671221']
+  data.7582512750572604469: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":703,\"name\":\"Fantasi perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=703&categoryName=Fantasi perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7582626317489671221: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria
+
+[127] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7565050989493881861', '7582512365317393461']
+  data.7565050989493881861: {"backup_url": "http://v16m.byteicdn.com/c1a7668391bc6df3cedccd0db83a2f3d/6987d706/video/tos/alisg/tos-alisg-v-ea7654-sg/oM871XOhDERilg9ffTIQBjDRay0FEDOBCBGCEf/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1956&bt=978&cs=0&ds=3&ft=cApXJCz7ThWH0cfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDtpNDplOmczOmc0OGQzaEBpM29pank5cjY0NmYzODs4NEAuNTAzLzE0NWAxNi1eYy82
+  data.7582512365317393461: {"backup_url": "http://v16m.byteicdn.com/3a2f3cd0e8efabf44d9435efbd1923e6/6987d69f/video/tos/alisg/tos-alisg-v-ea7654-sg/oUhBgFBIgGZfijRPZpeHxSQNXWQQIia5DoExEg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2996&bt=1498&cs=0&ds=3&ft=cApXJCz7ThWH0cfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NTk6aDk7ZGk3aDc0NGdnaEBpanJscms5cjk7OGYzODs4NEAyLjViXmJgXjExMGBgMi4
+
+[128] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7565032240099380229', '7582509823137172485']
+  data.7565032240099380229: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7582509823137172485: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[129] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582277622189526069', '7594673987238497285']
+  data.7582277622189526069: {"backup_url": "http://v16m.byteicdn.com/f855cd96f592283c898a7c96afd25d0e/6987d70b/video/tos/alisg/tos-alisg-v-ea7654-sg/oQpSt3fUE8FKBwpQIzgIUBxXQhF0SQfUigWDLE/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2814&bt=1407&cs=0&ds=3&ft=cApXJCz7ThWHTcfc1GZmo0P&mime_type=video_mp4&qs=0&rc=O2U0NTQ0aWhoOzQ8Nzo1ZUBpM3lnZHU5cnY4OGYzODs4NEBhYzEzNTMuXzUxX2MxL15
+  data.7594673987238497285: {"backup_url": "http://v16m.byteicdn.com/0c4bdbdd482b53e71ef181fee57f9723/6987d6f3/video/tos/alisg/tos-alisg-v-ea7654-sg/oA1SCloFQJVWeFqigBQQyeGfDHvYMDhGh8XIyg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3426&bt=1713&cs=0&ds=3&ft=cApXJCz7ThWHTcfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NWY7Zjo5ODk6MzZmZzY8Z0BpamZmZ2o5cnN0OGYzODs4NEBeLjAxMWExX2IxMjNjM14
+
+[130] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582229626638830645', '7594673022510828597']
+  data.7582229626638830645: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria
+  data.7594673022510828597: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":703,\"name\":\"Fantasi perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=703&categoryName=Fantasi perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[131] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7595681896365820944', '7599703435058891781']
+  data.7595681896365820944: {"backup_url": "http://v16m.byteicdn.com/215500891b6bdd8ffcdfdbe083235933/6987d7c8/video/tos/alisg/tos-alisg-v-ea7654-sg/oAA1eiG0ESJDHLDyS1E37hohBQXpCWWIfc2oIf/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2748&bt=1374&cs=0&ds=3&ft=cApXJCz7ThWH7cfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OWhnZjVkOTlpZDplZTs7aEBpMzVsb3c5cnhuOGYzODs4NEBjNTJiMGIxXy0xMDY1Xy4
+  data.7599703435058891781: {"backup_url": "http://v16m.byteicdn.com/e9b7e6598ca1cbd849d316d39fd2abcb/6987d6ba/video/tos/alisg/tos-alisg-v-ea7654-sg/oUDkheQMBEloW39FYaiQo7QtWAvS0VAIiiwWou/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3192&bt=1596&cs=0&ds=3&ft=cApXJCz7ThWH7cfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZGZlOzhpMzo2NTs6Ozw6OUBpM3BrOHc5cmdyOGYzODs4NEAuXzAxNi9gXjMxMC8uYi4
+
+[132] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7595499047549406213', '7599702002796334133']
+  data.7595499047549406213: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7599702002796334133: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+
+[133] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582059470658735109', '7582574430774103045']
+  data.7582059470658735109: {"backup_url": "http://v16m.byteicdn.com/b87ed42a74c2707df793b7956ca225b9/6987d6cf/video/tos/alisg/tos-alisg-v-ea7654-sg/okrSBuBeIixAE4BSbQiQKoQZByKpfhjIpRPhgt/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3260&bt=1630&cs=0&ds=3&ft=cApXJCz7ThWHIcfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZDw1OTM4ZTg7ZTwzZmlnZkBpamdnbmw5cmlkOGYzODs4NEA0XjAyNjA2Xl8xNC4wXjU
+  data.7582574430774103045: {"backup_url": "http://v16m.byteicdn.com/9c704dc4cd4a14274fc5f9f6dd490b46/6987d6d0/video/tos/alisg/tos-alisg-v-ea7654-sg/ogSxSBELQCDRhAgy4MvlFoIBfmQQ1pEQwfIIbS/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2282&bt=1141&cs=0&ds=3&ft=cApXJCz7ThWHIcfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWVmaGhkZTw4aDc1ZzY6ZkBpM2x4Nm05cjVlOGYzODs4NEAwLy4zYmEyXjAxLl42XjB
+
+[134] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582055834209750069', '7582546310805326853']
+  data.7582055834209750069: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":696,\"name\":\"Kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=696&categoryName=Kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utam
+  data.7582546310805326853: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+
+[142] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7543312165004905473']
+  data.7543312165004905473: {"backup_url": "http://v16m.byteicdn.com/930c8cbc82a01121526d237bd00ac3e1/6987d89c/video/tos/alisg/tos-alisg-v-ea7654-sg/oML62bPeGEt0LyfWiwLQgyDDvCeRSWDII0Bjh5/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2354&bt=1177&cs=0&ds=3&ft=cApXJCz7ThWH0Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=MzU0NDo7Mzs2ZmY6OTVkPEBpamllO3k5cmpnOGYzODs4NEAwNS80YmFgNWAxY2IzYi8
+
+[143] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7543217293895928848']
+  data.7543217293895928848: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":697,\"name\":\"Bayi Lucu\",\"schema\":\"dragon645713://categorySearch?categoryId=697&categoryName=Bayi Lucu&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"name\":\"Romansa\"
+
+[144] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582526926112164869', '7582651345795042309']
+  data.7582526926112164869: {"backup_url": "http://v16m.byteicdn.com/50aa18a2a8c9c259186711b8b4ed34c7/6987d8ec/video/tos/alisg/tos-alisg-v-ea7654-sg/o4sBQUTMYUIU0BAMtbQgYEi2UaicFuUaIEVQv/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1934&bt=967&cs=0&ds=3&ft=cApXJCz7ThWHRMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NmVmNzZoOWZnZGQ4ODlmZUBpajNrZXA5cm1rOGYzODs4NEBfNF8wNl81NWExYzZhMWE2Y
+  data.7582651345795042309: {"backup_url": "http://v16m.byteicdn.com/cc4db3b3e0f02baa38a013580f9e1898/6987d896/video/tos/alisg/tos-alisg-v-ea7654-sg/og1RDQ8BGj4glFe8jdAIEfdffXIMCFXXAjkGSq/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3280&bt=1640&cs=0&ds=3&ft=cApXJCz7ThWHRMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Z2ZoODY4aDkzaTNnNmRkNEBpMzhyOnk5cnRpOGYzODs4NEAuNmI2Yl81NTIxYDRhYDI
+
+[145] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582512750534855733', '7582626317506448437']
+  data.7582512750534855733: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria
+  data.7582626317506448437: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+
+[147] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582512798798728197', '7597461170244553733']
+  data.7582512798798728197: {"backup_url": "http://v16m.byteicdn.com/18dff2daf147aa2281ccc34ba0a99fdc/6987d869/video/tos/alisg/tos-alisg-v-ea7654-sg/ooEae8QXIi2WEvOA9v0oHBpAoEdZoT1PwYWiFQ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2484&bt=1242&cs=0&ds=3&ft=cApXJCz7ThWHLMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Mzg8OWVmZDpoNjw8NDs6aUBpanBzOXY5cnR1OGYzODs4NEBiMV9gNTY2NWMxYDZhLzJ
+  data.7597461170244553733: {"backup_url": "http://v16m.byteicdn.com/93518ffbdedae6d8b90fc75ee1e41e3b/6987d8cf/video/tos/alisg/tos-alisg-v-ea7654-sg/oIDbqq64GRmfse5rijLCgJDhpCe9SjDgIhBhh3/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3344&bt=1672&cs=0&ds=3&ft=cApXJCz7ThWHLMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NjQ6NTRpaTc5Zjg5NDw8M0BpanR1NXg5cnZvOGYzODs4NEBjMF41XjI2Nl8xMWJhMTY
+
+[148] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582511944100219909', '7597457631111826485']
+  data.7582511944100219909: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":33,\"name\":\"Menantu Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=33&categoryName=Menantu Pria&genreType=130&gender=2&source=detail\"},{\"category_id\":19,\"name\":\"Peme
+  data.7597457631111826485: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":708,\"name\":\"Drama Sejarah\",\"schema\":\"dragon645713://categorySearch?categoryId=708&categoryName=Drama Sejarah&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"
+
+[150] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7563316570374540341', '7582233862860704773', '7594375863915777077', '7597265699379088389', '7597717109396737077']
+  data.7563316570374540341: {"backup_url": "http://v16m.byteicdn.com/0491e193d992c392991497a811a20489/6987d898/video/tos/alisg/tos-alisg-v-ea7654-sg/oUB9fGeQ0pLwG11eCDeBQAkDxEGPBFRyIIKFgr/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2406&bt=1203&cs=0&ds=3&ft=cApXJCz7ThWHXMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWdkOzQ1OjRpaDM0OmVoPEBpMzNuZHk5cnB2N2YzODs4NEAwMS0tY2M0XmAxLjQuNl5
+  data.7582233862860704773: {"backup_url": "http://v16m.byteicdn.com/0972a854c6d0f89272e0a7826a162f33/6987d8d1/video/tos/alisg/tos-alisg-v-ea7654-sg/o4XzTJiSkieVD5phQPfAKDECg8Q8IEcdhAeBQM/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3010&bt=1505&cs=0&ds=3&ft=cApXJCz7ThWHXMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NGlpOWZmaWkzZGY5NTM1ZUBpanh2NHM5cnczOGYzODs4NEAvNTIwNTNjNTMxYTIzLzF
+  data.7594375863915777077: {"backup_url": "http://v16m.byteicdn.com/b84a5073b706c1d001016ebbcbd42147/6987d8ed/video/tos/alisg/tos-alisg-v-ea7654-sg/ooBlhsDfZLHf4NRQIKJPQPxEhE3FQQpUBIgxpW/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2796&bt=1398&cs=0&ds=3&ft=cApXJCz7ThWHXMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTY0ZTs6ZzpoOmk3Mzo6ZEBpM2Uza3U5cmY6OGYzODs4NEA0MC81LzJeX2ExXi9hYy8
+  data.7597265699379088389: {"backup_url": "http://v16m.byteicdn.com/b991a2dd4745ef6a12df093ac27e64f7/6987d995/video/tos/alisg/tos-alisg-v-ea7654-sg/o4IoH7DhQDieZIDchStBjiewgCLyUj3GIxB1eT/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2560&bt=1280&cs=0&ds=3&ft=cApXJCz7ThWHXMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OGQ4OzQ0Njc4ODo1PDY8ZkBpamRpbm45cnA3OGYzODs4NEBfXy0xYl80NjAxXjNiYDU
+  data.7597717109396737077: {"backup_url": "http://v16m.byteicdn.com/b38469e41ce09d95440725a49abc41ca/6987d8cb/video/tos/alisg/tos-alisg-v-ea7654-sg/ooahCEfDBUVCaQQFfYSDDQinIAwFs4E9Neu1xg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1812&bt=906&cs=0&ds=3&ft=cApXJCz7ThWHXMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ODZoNWdoaGYzNTU2NzM2M0BpamRuM205cjo5OGYzODs4NEAwLTRiMjA2Ni4xLzVjNTYw
+
+[151] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7563160046020856885', '7582204630029831173', '7594372236383882245', '7597263938379582469', '7597714478100122677']
+  data.7563160046020856885: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7582204630029831173: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":696,\"name\":\"Kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=696&categoryName=Kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utam
+  data.7594372236383882245: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=2&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria
+  data.7597263938379582469: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7597714478100122677: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":703,\"name\":\"Fantasi perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=703&categoryName=Fantasi perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[152] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7517089802022292481', '7531070529801817141', '7572427469324553269', '7589199732505840693']
+  data.7517089802022292481: {"backup_url": "http://v16m.byteicdn.com/9098344b6f3ce1593c6d215952584054/6987d8e6/video/tos/alisg/tos-alisg-v-ea7654-sg/owhGY9UiavgIHB4Yk8MuEMEQR4FQIAFhUTiHS/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2752&bt=1376&cs=0&ds=3&ft=cApXJCz7ThWH3Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDxnNTNlaWhpOjU7Nmg3OUBpampzeHI5cnZuNGYzODs4NEAvYTAtXi02XjAxMDAwNGNf
+  data.7531070529801817141: {"backup_url": "http://v16m.byteicdn.com/46c729bdbf2c48323da32fdbf7874df9/6987d8e9/video/tos/alisg/tos-alisg-v-ea7654-sg/ogRng7GtpCvgviLDDDaRG7CBfBhVBFeUO6fGIk/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2396&bt=1198&cs=0&ds=3&ft=cApXJCz7ThWH3Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTQ7aWg2ZWc2NTYzZzw2aEBpamVvbmo5cm9xNWYzODs4NEA2YzNgL2FjXzExMjVjNTJ
+  data.7572427469324553269: {"backup_url": "http://v16m.byteicdn.com/bfe938ce0577cd3b182760c8bbb0e444/6987d8fd/video/tos/alisg/tos-alisg-v-ea7654-sg/oYQxIfIgQ3xiYiFVU1hD3Hf8wKB4BBrETQEpac/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3022&bt=1511&cs=0&ds=3&ft=cApXJCz7ThWH3Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTk1N2c7Z2RmOjw0Njg0NUBpMzY4aXE5cmk4N2YzODs4NEBeLjAxMGFgXi0xMjAzNjM
+  data.7589199732505840693: {"backup_url": "http://v16m.byteicdn.com/acfd30a84135ee3d8316f8218e0e4791/6987d8ef/video/tos/alisg/tos-alisg-v-ea7654-sg/okqzQgIGafeD5AqhRSofhwAIvqLbaDiv73CBuB/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3902&bt=1951&cs=0&ds=3&ft=cApXJCz7ThWH3Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aTs5aWk4OTQ6ODNoOmk3Z0BpM3JxdWo5cnhuOGYzODs4NEA1Ll5hMC1fX2ExLS9gXy0
+
+[153] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7517087531356130305', '7531013485602278461', '7572399518214278149', '7589196829946809349']
+  data.7517087531356130305: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7531013485602278461: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":34
+  data.7572399518214278149: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7589196829946809349: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[154] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7601883184409627653']
+  data.7601883184409627653: {"backup_url": "http://v16m.byteicdn.com/945587de5a2e12f4d12118b7cf19f957/6987d890/video/tos/alisg/tos-alisg-v-ea7654-sg/o4LoAk4dXK9gOKsNeMFReSuBkeE3Ge4HcReYgs/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3200&bt=1600&cs=0&ds=3&ft=cApXJCz7ThWH3Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDY3PDRpNGdkZmgzZWg0NkBpanlxdW05cjg2OGYzODs4NEA1Xi5eLjEyXmMxNjY1MDU
+
+[155] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7601878460620884997']
+  data.7601878460620884997: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[156] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7593357227331685381', '7602546962235132944']
+  data.7593357227331685381: {"backup_url": "http://v16m.byteicdn.com/f2193ac950742880683d5186e9e44e7c/6987d934/video/tos/alisg/tos-alisg-v-ea7654-sg/owpQ7si9WCqslgogocq717wIBfYAiARs3AI0GE/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3720&bt=1860&cs=0&ds=3&ft=cApXJCz7ThWHIMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OGU4NTk5NzhpZWhmNTg5OUBpamZ1OnU5cndnOGYzODs4NEAwMWEzXzEyNmIxNmFiL2M
+  data.7602546962235132944: {"backup_url": "http://v16m.byteicdn.com/72d80f1bb44d7d2f0a34be1b5f3ff05a/6987d8ee/video/tos/alisg/tos-alisg-v-ea7654-sg/ogCVin0A3LqguhzQITIGf7evE78xBjpfDoB3iD/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2438&bt=1219&cs=0&ds=3&ft=cApXJCz7ThWHIMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Zzk6ZjNoNmk5aTc0Z2c2aUBpam45cXk5cnhzOWYzODs4NEBfLmAxLTMvXzUxLl4xMS0
+
+[157] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7593354100691962885', '7602527970669906949']
+  data.7593354100691962885: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":711,\"name\":\"Imajinasi Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=711&categoryName=Imajinasi Pria&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":
+  data.7602527970669906949: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+
+[158] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582033567899716661', '7598852885190806529']
+  data.7582033567899716661: {"backup_url": "http://v16m.byteicdn.com/1fdef23c52c5ead23b9edb581d614bda/6987d898/video/tos/alisg/tos-alisg-v-ea7654-sg/o8tooIuEBl7hpAMbwifXY1QjwiddZ0AoS1pQrF/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3118&bt=1559&cs=0&ds=3&ft=cApXJCz7ThWHiMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWlnZDRkO2c5OjdpZDk2PEBpanVxcW85cnFtOGYzODs4NEAwMmEyYmMwX2AxM18wM14
+  data.7598852885190806529: {"backup_url": "http://v16m.byteicdn.com/2de585391f28beddebb83d8996397f97/6987d885/video/tos/alisg/tos-alisg-v-ea7654-sg/oQRIGfghvEdNEPIpxIQhEjI0fwQ1TBBcRD1hdF/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2190&bt=1095&cs=0&ds=3&ft=cApXJCz7ThWHiMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=MzVlaDc3Nzs2aWY7OTloOkBpM2t5NHQ5cjc7OGYzODs4NEA2NTReMDAtXzUxY15jLmJ
+
+[159] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582028658466884661', '7598851521580633093']
+  data.7582028658466884661: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":708,\"name\":\"Drama Sejarah\",\"schema\":\"dragon645713://categorySearch?categoryId=708&categoryName=Drama Sejarah&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"
+  data.7598851521580633093: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":696,\"name\":\"Kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=696&categoryName=Kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utam
+
+[160] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7570995984755330101', '7594374238790765573']
+  data.7570995984755330101: {"backup_url": "http://v16m.byteicdn.com/3a4a8aeac330ae9f772040fae6f26710/6987d8e1/video/tos/alisg/tos-alisg-v-ea7654-sg/o4QFJKBiQzMiIg4Xv9CXBSedkfpDDhEsAeFu8M/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3164&bt=1582&cs=0&ds=3&ft=cApXJCz7ThWH~Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZjQ8ZWY1NjUzaTUzaTUzZkBpajg4bHY5cmhxN2YzODs4NEBhYzFhLS9hNi8xYzNhM2B
+  data.7594374238790765573: {"backup_url": "http://v16m.byteicdn.com/7ef9225ccbf1efa763d67e0f06badba5/6987d8b8/video/tos/alisg/tos-alisg-v-ea7654-sg/oUQIIgB3heOZxyDpCFT2f7t9SqwQGEugQIH3Bv/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2322&bt=1161&cs=0&ds=3&ft=cApXJCz7ThWH~Mfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Z2g2ZDVkOjc5NGkzNzQzN0Bpand2cXI5cjQ6OGYzODs4NEBgYDBgLS0yX2MxYWJjLi4
+
+[161] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7570974951759416373', '7594372236312579125']
+  data.7570974951759416373: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=1&source=detail\"},{\"category_id\
+  data.7594372236312579125: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"na
+
+[163] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7555785212051852349', '7569617147391921157', '7569942446532987957', '7579944543047404549', '7582772142333234229', '7582867496932215813']
+  data.7555785212051852349: {"backup_url": "http://v16m.byteicdn.com/14bf48ded282f2a3939eef0fee070049/6987d8c9/video/tos/alisg/tos-alisg-v-ea7654-sg/okRhCBLbfQGg1qhikQYBeKIASvIfDKMDgGdyKC/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3170&bt=1585&cs=0&ds=3&ft=cApXJCz7ThWHrMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTNnM2k5Zjg2NWc6ZzM6N0BpM2lmM3Q5cjlzN2YzODs4NEAyY2AwNTZjNWIxXzMxL2N
+  data.7569617147391921157: {"backup_url": "http://v16m.byteicdn.com/df8aca48f889de289ff432ecb0677700/6987d8d1/video/tos/alisg/tos-alisg-v-ea7654-sg/ogge6EJMpB74lEkmxDBw0lVDFgZQUIfhzQOtMw/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2668&bt=1334&cs=0&ds=3&ft=cApXJCz7ThWHrMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDg4ZWc8Njo3aDM5M2U4O0BpMzVzPG05cnM8N2YzODs4NEAwNTYwLjJeXjYxYWFjLy5
+  data.7569942446532987957: {"backup_url": "http://v16m.byteicdn.com/950f602e2de9253d9044d0cd726f134b/6987d8a2/video/tos/alisg/tos-alisg-v-ea7654-sg/oMp7UHNB1BuIbxFheBAEFTRQWDQ7gafUzQuDEV/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2642&bt=1321&cs=0&ds=3&ft=cApXJCz7ThWHrMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Z2dkNzZpNjY6OzY5ZWRnaUBpamhma3g5cmd1N2YzODs4NEAtMS8xMjRiNl8xYTUuMTU
+  data.7579944543047404549: {"backup_url": "http://v16m.byteicdn.com/3827cf3d78b2a78944fb724d346d1c27/6987d8d5/video/tos/alisg/tos-alisg-v-ea7654-sg/oE0pqVxKCAmIKYiQxAUEVb7QymoXw2fEpzZBiC/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=4282&bt=2141&cs=0&ds=3&ft=cApXJCz7ThWHrMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=M2g0ZzdlPGQ1NWQzaDMzO0BpMzl3OGs5cjRvN2YzODs4NEBeYTAuYF8xXjMxLWAwXmE
+  data.7582772142333234229: {"backup_url": "http://v16m.byteicdn.com/d6cca88733a129cdda3dda5bad472a06/6987d8ea/video/tos/alisg/tos-alisg-v-ea7654-sg/oM1vkIAAAEYwSQUV3ErWNMoiBUNkaUFkiOCIJ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3298&bt=1649&cs=0&ds=3&ft=cApXJCz7ThWHrMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDg2Njk6ZDQ3aTtmOTZnOEBpamhuPHE5cjNrOGYzODs4NEA1Y2NiMzIuXjUxYi82YDFh
+  data.7582867496932215813: {"backup_url": "http://v16m.byteicdn.com/3fb59cc9efacb76128afc63b28df9441/6987d85c/video/tos/alisg/tos-alisg-v-ea7654-sg/oQeXfxDOuGhBuFhTpLJk0gQQgQu3BOhIhF54Es/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3752&bt=1876&cs=0&ds=3&ft=cApXJCz7ThWHrMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=MzY8OGc0OjdlMzllM2Y1ZEBpajc6c3Y5cjxyN2YzODs4NEAxNTBgLmNfXjMxYF5jYy9
+
+[164] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7555784648874265653', '7569589327173258293', '7569904072958938165', '7579934302322822197', '7582765080807214133', '7582847030557412405']
+  data.7555784648874265653: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=0&source=detail\"},{\"category_id\
+  data.7569589327173258293: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":711,\"name\":\"Imajinasi Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=711&categoryName=Imajinasi Pria&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":
+  data.7569904072958938165: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+  data.7579934302322822197: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":711,\"name\":\"Imajinasi Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=711&categoryName=Imajinasi Pria&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":
+  data.7582765080807214133: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":696,\"name\":\"Kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=696&categoryName=Kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utam
+  data.7582847030557412405: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+
+[165] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7580276928855149621']
+  data.7580276928855149621: {"backup_url": "http://v16m.byteicdn.com/1117e18e54e75c291f84f8baab60da32/6987d87a/video/tos/alisg/tos-alisg-v-ea7654-sg/oUheQSDRIlGFfA3Lk1FPHlQJ62dGGCAxgxeOeH/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2256&bt=1128&cs=0&ds=3&ft=cApXJCz7ThWHsMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=MzY2ZzdmNDVmOGk7OjtkOkBpM21sbng5cmZsOGYzODs4NEBjLi40LWNfNWMxMWMxY14
+
+[166] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7580250179329084469']
+  data.7580250179329084469: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[167] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582076589681150981']
+  data.7582076589681150981: {"backup_url": "http://v16m.byteicdn.com/69ab0d501b3ac8d865b0aeb3d087d586/6987d8c6/video/tos/alisg/tos-alisg-v-ea7654-sg/oMKWiFBhQDpCRhQYzgAMxeQIQfI7X9BERqIzWh/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3020&bt=1510&cs=0&ds=3&ft=cApXJCz7ThWHsMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NjQ3Zmc1OTNlaTdkZGU4OkBpajc1c2s5cmhwOGYzODs4NEA0Xl9eX2AzXy4xYGNfLzR
+
+[168] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582070605311134725']
+  data.7582070605311134725: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":35,\"name\":\"Panglima Perang\",\"schema\":\"dragon645713://categorySearch?categoryId=35&categoryName=Panglima Perang&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":
+
+[169] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491728771364424721', '7545054362440043536', '7582437476526984245', '7582482430901095477', '7597387850107063297', '7599515766056029200']
+  data.7491728771364424721: {"backup_url": "http://v16m.byteicdn.com/69ff65da931813a974cbe74d34cfbda3/6987d8f6/video/tos/alisg/tos-alisg-v-ea7654-sg/ow8pIbBnBgvE70hDiEW0fQ2xnFND9FfB5Qik0Q/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2572&bt=1286&cs=0&ds=3&ft=cApXJCz7ThWHMMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Z2ZpOzZnNzpoODw2Nmg1OUBpanBsZHk5cmtzeWYzODs4NEAyNi5fMzFfXjYxNTI1YmB
+  data.7545054362440043536: {"backup_url": "http://v16m.byteicdn.com/fe5a6a8b563d069530669ab7de5a216f/6987d8d0/video/tos/alisg/tos-alisg-v-ea7654-sg/oUBbhjDTtiUf2blv1fyNQpHEQgoFIQolBEgxmm/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2462&bt=1231&cs=0&ds=3&ft=cApXJCz7ThWHMMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDg3ZDZkZDc7Nzc6Zzc4aEBpMzl4bW45cjRuNWYzODs4NEAuLS4tNTE2NTExMzZgNi0
+  data.7582437476526984245: {"backup_url": "http://v16m.byteicdn.com/7b263fcad372652dde9089b332ca5a00/6987d85e/video/tos/alisg/tos-alisg-v-ea7654-sg/oM1JQPTu0IoJozA48Apio1jiEnBQwuYQWwfc78/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2316&bt=1158&cs=0&ds=3&ft=cApXJCz7ThWHMMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NGU3ZDVnNjw0OjZmPDVmNEBpam93aXI5cmV5OGYzODs4NEAwMDFfYzMyNjIxMWIvMjM
+  data.7582482430901095477: {"backup_url": "http://v16m.byteicdn.com/cf0bd61982574581770d8f2d02311ee2/6987d8c0/video/tos/alisg/tos-alisg-v-ea7654-sg/o8TtVqoQGIqwufH1igLggKDnMCeMSuDQIHBfhv/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2268&bt=1134&cs=0&ds=3&ft=cApXJCz7ThWHMMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDplOTdpPGdpaTVmaWQ4ZUBpajl1Nms5cmZvOGYzODs4NEBgYWE1LzReX18xYjYwYWB
+  data.7597387850107063297: {"backup_url": "http://v16m.byteicdn.com/c46d22ae78be46ea17d1cc294fb3c89b/6987d91d/video/tos/alisg/tos-alisg-v-ea7654-sg/o8FDURxveTlFAfvqPoI9FLvCGGkGYDeQoge2SM/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3784&bt=1892&cs=0&ds=3&ft=cApXJCz7ThWHMMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NzQ1O2dnaDlpNjplOjQ8N0BpMzY7M245cm9vOGYzODs4NEA1My5jXzMyXi4xNV80Mi1
+  data.7599515766056029200: {"backup_url": "http://v16m.byteicdn.com/9600d3f5fb38a0d4a8bb9212d4d1dc1b/6987d92d/video/tos/alisg/tos-alisg-v-ea7654-sg/o0YciNa5BjMFjk2yXAVDIQiEUXvvSJoIpb51A/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2442&bt=1221&cs=0&ds=3&ft=cApXJCz7ThWHMMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ODQ1Z2czNDRlOGlpZmg3ZUBpM3Fncmw5cmloOGYzODs4NEAvXzQtYjQxNjExL180LTAv
+
+[170] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491617100977409040', '7545028875357522961', '7582435215994260533', '7582471559147686917', '7597381198960151557', '7599511186308074501']
+  data.7491617100977409040: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=2&source=detail\"},{\"category_id\":33
+  data.7545028875357522961: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+  data.7582435215994260533: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+  data.7582471559147686917: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7597381198960151557: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":711,\"name\":\"Imajinasi Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=711&categoryName=Imajinasi Pria&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":
+  data.7599511186308074501: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":756,\"name\":\"Pemeran Utama Wanita Kuat\",\"schema\":\"dragon645713://categorySearch?categoryId=756&categoryName=Pemeran Utama Wanita Kuat&genreType=130&gender=0&source=detail\"},{\"cate
+
+[172] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7568829175549676549', '7575427170776910901', '7582077468115209269', '7586560647014386693', '7596630984074726401', '7596663718566431760']
+  data.7568829175549676549: {"backup_url": "http://v16m.byteicdn.com/7ea826b75675156f7f86938b9b38ed33/6987d8d2/video/tos/alisg/tos-alisg-v-ea7654-sg/oQRThcK7pQUpQnBgkBCFPwcEILDgVLxy8gf8eE/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1858&bt=929&cs=0&ds=3&ft=cApXJCz7ThWHOMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Nmc6O2c0Nzg3Nzw5NzQ5PEBpajtxO2o5cml2N2YzODs4NEAwLjY2MWFfXmExLy5fY180
+  data.7575427170776910901: {"backup_url": "http://v16m.byteicdn.com/3ac427405b7dffdbdcd405a9fa2cb9ed/6987d8f5/video/tos/alisg/tos-alisg-v-ea7654-sg/ocIulS2hwCph8BDB9VEi4FEDeUD2CSQ1efIdIg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2532&bt=1266&cs=0&ds=3&ft=cApXJCz7ThWHOMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZDY6NTRlM2k5OTo7M2RoNkBpMzVxM3g5cjpuN2YzODs4NEAvM2IzNGNgNmIxNS4tLjQ
+  data.7582077468115209269: {"backup_url": "http://v16m.byteicdn.com/4e0c2a30da59f9e5464758d887644557/6987d8b5/video/tos/alisg/tos-alisg-v-ea7654-sg/osHEBiPpaV2YlSEIUjRUQVIAHUZ3UFKsNzMiB/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2654&bt=1327&cs=0&ds=3&ft=cApXJCz7ThWHOMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTM8OmQzPDdpZDhkZWZmZ0BpamRuN3E5cnBtOGYzODs4NEBjMF5jYmIuXzExNWNjMl5i
+  data.7586560647014386693: {"backup_url": "http://v16m.byteicdn.com/b92531387d6dd85005ddea3774983408/6987d8c0/video/tos/alisg/tos-alisg-v-ea7654-sg/okoKA2CSDBiiekDpeQDg8DviiteMkW8zVgR0Yh/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3138&bt=1569&cs=0&ds=3&ft=cApXJCz7ThWHOMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTlkOjwzPGdoODo1OThnZUBpamdmanE5cndkOGYzODs4NEBfNjEtYi5gX14xYy8tYS9
+  data.7596630984074726401: {"backup_url": "http://v16m.byteicdn.com/ab0db2ff7f0a249489a92a2242b10b53/6987d8db/video/tos/alisg/tos-alisg-v-ea7654-sg/owElEoZfUEQIaVhDfp2SeQFEg2JDKlBDi6t8sC/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3214&bt=1607&cs=0&ds=3&ft=cApXJCz7ThWHOMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZGg2OWY7MzM5NGQ1OThmZEBpM2plNXA5cjpkOGYzODs4NEBhMDNhL18tNjUxYS0yMWE
+  data.7596663718566431760: {"backup_url": "http://v16m.byteicdn.com/a52b0297452fd03d1cf0655769bb5f2a/6987d8d1/video/tos/alisg/tos-alisg-v-ea7654-sg/og2o1flsjwEQBSZEQv4iYEAqwAtiIvEM0P0jZV/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2276&bt=1138&cs=0&ds=3&ft=cApXJCz7ThWHOMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NTY8ZjppOGlmNjU2ZTdpOkBpaml4bXI5cjVlOGYzODs4NEAxXmEuNWFjXzIxMWFhYF4
+
+[173] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7568798752295619589', '7575423530993454133', '7582070607030782981', '7586557978967280693', '7596621467786152965', '7596650537487961141']
+  data.7568798752295619589: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=2&source=detail\"},{\"category_id\":19
+  data.7575423530993454133: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+  data.7582070607030782981: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=2&source=detail\"},{\"category_id\":19
+  data.7586557978967280693: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":700,\"name\":\"Tycoon\",\"schema\":\"dragon645713://categorySearch?categoryId=700&categoryName=Tycoon&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama 
+  data.7596621467786152965: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=2&source=detail\"},{\"category_id\
+  data.7596650537487961141: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19
+
+[174] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7555717541117561909', '7568401542013783093', '7596871994818169861']
+  data.7555717541117561909: {"backup_url": "http://v16m.byteicdn.com/b9341ee374607326f3cd56aeb5edf9ee/6987d8fc/video/tos/alisg/tos-alisg-v-ea7654-sg/oA1k2INiByBTIC8nnaQ6ACTzMwMbiEUsYEYPU/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2688&bt=1344&cs=0&ds=3&ft=cApXJCz7ThWHtMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDpmZDtlOjw7NWY2aTozOEBpM3BnanY5cm1tNmYzODs4NEAtYmEwYzFiXy4xYmNhLmAx
+  data.7568401542013783093: {"backup_url": "http://v16m.byteicdn.com/72c31508e4db2c5392b4c060cafb64ec/6987d8b1/video/tos/alisg/tos-alisg-v-ea7654-sg/ogQQIgBJhX0CxADpPFQNfjbLc0yQDEugQzCdBe/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2522&bt=1261&cs=0&ds=3&ft=cApXJCz7ThWHtMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Ozw2NDhmNWdnMzdlZjM6PEBpM2s8c3M5cjM1N2YzODs4NEBhYTNfYTM0Ni8xLzAvYl4
+  data.7596871994818169861: {"backup_url": "http://v16m.byteicdn.com/b72d310fc5b3aa68dbd82f3b076451ef/6987d8d4/video/tos/alisg/tos-alisg-v-ea7654-sg/ocE7Ig3fn3nQN9hDUg2SPgFeQooDGjBDi3vfaC/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2640&bt=1320&cs=0&ds=3&ft=cApXJCz7ThWHtMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDhpNThmPGQ2OTNlOzk0OUBpM211cnE5cjhtOGYzODs4NEBfLzQ2YC9iX2AxMF9iXzU
+
+[175] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7555717133372492853', '7568377547465952273', '7596858085730159669']
+  data.7555717133372492853: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7568377547465952273: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":696,\"name\":\"Kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=696&categoryName=Kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utam
+  data.7596858085730159669: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria
+
+[176] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7583724345684397061', '7583970791935446069', '7594645357112331269', '7597069593659575313']
+  data.7583724345684397061: {"backup_url": "http://v16m.byteicdn.com/466c1225e20dd1473387f6ed9b923efe/6987d900/video/tos/alisg/tos-alisg-v-ea7654-sg/oAiQNPhJPFVUxBQjypmuhtgGZEQmfBoDIeJ1TO/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2568&bt=1284&cs=0&ds=3&ft=cApXJCz7ThWHUMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=O2c7NjtoOjtlPDNkNGY5aEBpM243c205cnU1N2YzODs4NEAxMC81YjMvNWAxXzEzMjU
+  data.7583970791935446069: {"backup_url": "http://v16m.byteicdn.com/77d3ef96eaf4995f57c920accbddca70/6987d876/video/tos/alisg/tos-alisg-v-ea7654-sg/oshfGSgIEaDxPUGF6IB6xprZsVzBhQgSQatgfd/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1992&bt=996&cs=0&ds=3&ft=cApXJCz7ThWHUMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDxmO2ZoaWZlaTU4M2RnOkBpamo3eXA5cnB0N2YzODs4NEA0YTIvYy8wXjUxYV4zMjVh
+  data.7594645357112331269: {"backup_url": "http://v16m.byteicdn.com/edaedcf453d1bb55a4fe8633359ce9c5/6987d8de/video/tos/alisg/tos-alisg-v-ea7654-sg/og2EgAZI3DGHBhpB0FRjQnEalD9FfrxehQBwNQ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2236&bt=1118&cs=0&ds=3&ft=cApXJCz7ThWHUMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWU4Zzc4ODU2ZztmOTk7OkBpang6eHg5cjtrOGYzODs4NEAyMC40LV8zNTYxYi9iNTF
+  data.7597069593659575313: {"backup_url": "http://v16m.byteicdn.com/0b2c41e3d07d1cf03c80121bf3a3b1ea/6987d8a3/video/tos/alisg/tos-alisg-v-ea7654-sg/ooLFED5I2VFiBLnfQgwuEUpvMNhSbxxOEEfBQw/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2594&bt=1297&cs=0&ds=3&ft=cApXJCz7ThWHUMfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWQzNjw1NTRlZzdnaWUzZUBpM2V3O3I5cnM1OGYzODs4NEAyYjNjNjIuNjQxNC9eMjN
+
+[177] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7583678788521708549', '7583962380128750597', '7594631535374912517', '7597060251661110325']
+  data.7583678788521708549: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria
+  data.7583962380128750597: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7594631535374912517: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7597060251661110325: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=1&source=detail\"},{\"category_id\
+
+[178] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582533722470108165', '7588845683923225605', '7595882359220603905', '7598483034978913285', '7600619480309304373']
+  data.7582533722470108165: {"backup_url": "http://v16m.byteicdn.com/647d7536665a58c3f3ab8c2747be28c5/6987d8de/video/tos/alisg/tos-alisg-v-ea7654-sg/oE5Jk0Exik9OYiO5GQoIXwA0WsjpAKB7oErfQy/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3098&bt=1549&cs=0&ds=3&ft=cApXJCz7ThWHJJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NGdlOmQ7NWY2PGgzZmczOEBpM2w3a3U5cnB3OGYzODs4NEAvYS4yYC0vNjUxLWEvLzA
+  data.7588845683923225605: {"backup_url": "http://v16m.byteicdn.com/76d2e819cf91fc2969ad8f0e87d6097d/6987d897/video/tos/alisg/tos-alisg-v-ea7654-sg/oskQcfOQggbhDAqIgtyExuBU7BUFQzU6p2Ubfd/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3032&bt=1516&cs=0&ds=3&ft=cApXJCz7ThWHJJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTc3Nmg1NjczaTpkN2Q4ZkBpM3V1eXM5cmVoOGYzODs4NEAvMjNeMy42NTQxYS5eYl8
+  data.7595882359220603905: {"backup_url": "http://v16m.byteicdn.com/d9e1600c5fdad1afc1b694e83965e58c/6987d961/video/tos/alisg/tos-alisg-v-ea7654-sg/oQTf8fEGDEtZqpuFihFQSDDQrDfcSvDIExBdh0/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2430&bt=1215&cs=0&ds=3&ft=cApXJCz7ThWHJJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NTs4NzVnZjVmNGhpaWU0ZkBpM2V4bXE5cm55OGYzODs4NUAtMTQ2Xy0uXi8xMS8uL2M
+  data.7598483034978913285: {"backup_url": "http://v16m.byteicdn.com/3ae78e467efdc3d0b523e74b615bfeb6/6987d893/video/tos/alisg/tos-alisg-v-ea7654-sg/oAyWEooQOo6YwxBnAYwiyuilIfHG0HiAWQ76zY/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3520&bt=1760&cs=0&ds=3&ft=cApXJCz7ThWHJJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=N2k5ZDVpNzs2N2c4NjM8M0BpM2x0OHQ5cjZrOGYzODs4NEBeMjBgXmNgNTExLWA2NTA
+  data.7600619480309304373: {"backup_url": "http://v16m.byteicdn.com/64628c10df770fd4a91988d7b8b2c28e/6987d910/video/tos/alisg/tos-alisg-v-ea7654-sg/ocDChFDwhm2ft4en2S2WiWg6geQhIOHkDsykEB/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2720&bt=1360&cs=0&ds=3&ft=cApXJCz7ThWHJJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Ozw5ZzZoNWU5ZjtmZWczM0Bpamw7dnY5cndmOGYzODs4NEA2NDYvLi41NS4xNS9eMjQ
+
+[179] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582525992531397637', '7588815588844129285', '7595867105312902197', '7598472996004564021', '7600616853659995141']
+  data.7582525992531397637: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":711,\"name\":\"Imajinasi Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=711&categoryName=Imajinasi Pria&genreType=130&gender=1&source=detail\"},{\"category_id\":2,\"name\":\
+  data.7588815588844129285: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":700,\"name\":\"Tycoon\",\"schema\":\"dragon645713://categorySearch?categoryId=700&categoryName=Tycoon&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama 
+  data.7595867105312902197: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":694,\"name\":\"Cinta yang pahit\",\"schema\":\"dragon645713://categorySearch?categoryId=694&categoryName=Cinta yang pahit&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"name
+  data.7598472996004564021: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":703,\"name\":\"Fantasi perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=703&categoryName=Fantasi perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7600616853659995141: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":703,\"name\":\"Fantasi perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=703&categoryName=Fantasi perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+
+[180] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7598488729199578128', '7603300747224026165']
+  data.7598488729199578128: {"backup_url": "http://v16m.byteicdn.com/6490eebc10983f63ca229df2317e0c8c/6987d87e/video/tos/alisg/tos-alisg-v-ea7654-sg/ow6MPZTsBEllFz36YpiQq1QukAfm0LAIi1wdou/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2244&bt=1122&cs=0&ds=3&ft=cApXJCz7ThWH.Jfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZjpkNzs5aWQ6NTk6M2g3OEBpajdsOnE5cnFtOGYzODs4NEBhYzE2NV8tXy8xLmFjNjJ
+  data.7603300747224026165: {"backup_url": "http://v16m.byteicdn.com/8208798ce76e54c880d77240d85daeeb/6987d8b4/video/tos/alisg/tos-alisg-v-ea7654-sg/ogIIBgCQY6oPDrTGoLHthhI0EGfheBiJDgCteg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3078&bt=1539&cs=0&ds=3&ft=cApXJCz7ThWH.Jfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTQ8OjNkN2g0ZzczaTU2O0BpajduOHk5cmc2OWYzODs4NEA1NTEyX2AzXy4xYzMyYTV
+
+[181] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7598484302053002245', '7603299970640268293']
+  data.7598484302053002245: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=2&source=detail\"},{\"category_id\
+  data.7603299970640268293: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=1&source=detail\"},{\"category_id\
+
+[183] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491358649613290512', '7497915418925861905', '7532303901240855553', '7539726812926970896', '7579541648653159477', '7582277670017190917']
+  data.7491358649613290512: {"backup_url": "http://v16m.byteicdn.com/7aa3859469659ca9c64e2a7a964cca1f/6987d88b/video/tos/alisg/tos-alisg-v-ea7654-sg/os2CyCLCsgGfFFBFmUbDelIqghR7GvkGAMefmF/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3168&bt=1584&cs=0&ds=3&ft=cApXJCz7ThWHVJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Z2RpOzYzZzg3OjU2OjU8PEBpamU3ZGs5cmppM2YzODs4NEAvXjIwNWA1Xi0xNmI2LV8
+  data.7497915418925861905: {"backup_url": "http://v16m.byteicdn.com/f996012ea71913a0342963665e2589cc/6987d8b7/video/tos/alisg/tos-alisg-v-ea7654-sg/oYNDhcpiDgNfUaY3qBQeFE8GIioQ1zBYaebDiC/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3336&bt=1668&cs=0&ds=3&ft=cApXJCz7ThWHVJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OWc0MzM7PGU7Zmk0NTM5OEBpajZvNm05cml4M2YzODs4NEBhLy4vMy5hNjIxNC8uYWM
+  data.7532303901240855553: {"backup_url": "http://v16m.byteicdn.com/b88e23d42e8459373dc729ed0bfe506a/6987d8f4/video/tos/alisg/tos-alisg-v-ea7654-sg/oYa3YQnjtImIj6EPIY6iUA2dBPUKihiHUhAMi/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2672&bt=1336&cs=0&ds=3&ft=cApXJCz7ThWHVJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Njs1NWc8ZTs4aWg5NjU7ZkBpMzZyO3Q5cnFwNWYzODs4NEAzNTZhNDU2NV4xNDMyY15j
+  data.7539726812926970896: {"backup_url": "http://v16m.byteicdn.com/ba5ba0fd31b8f462454373fc5b2f129f/6987d948/video/tos/alisg/tos-alisg-v-ea7654-sg/oUf2EfoQnbgsPebRilCRDPwXA8EnbLhgDM8CBX/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2676&bt=1338&cs=0&ds=3&ft=cApXJCz7ThWHVJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDo1ZTc6ZTppNGU3NTc1NUBpanVwcXk5cjZtNWYzODs4NEBjM2MuMWMxXl8xXjZgXmJ
+  data.7579541648653159477: {"backup_url": "http://v16m.byteicdn.com/e89e6fe37f05f96904d79a311a1afb3e/6987d8a6/video/tos/alisg/tos-alisg-v-ea7654-sg/oozuhs0iDIpVQd0GxkFgQuhXcBfZppBQEfg0QL/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2722&bt=1361&cs=0&ds=3&ft=cApXJCz7ThWHVJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OzNlNzhkOmVkZDM4aDs1OEBpM2h3cHQ5cjhmN2YzODs4NEBeMV9jNi4xXmMxLzAxLTJ
+  data.7582277670017190917: {"backup_url": "http://v16m.byteicdn.com/44ff11933bfc03862f34c77eb5bbaed3/6987d8a9/video/tos/alisg/tos-alisg-v-ea7654-sg/ogMUN4B9dRIBqi7IUdmO1YUEmIT0hAQlhihPa/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2226&bt=1113&cs=0&ds=3&ft=cApXJCz7ThWHVJfc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDRkNzgzN2RmPGRmaTY1N0Bpanc1bXU5cjk3OGYzODs4NEAyMzNfMGAzXi8xYGMyLS1g
+
+[184] /novel/player/multi_video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491171587224243217', '7497915082546875408', '7532302086034164752', '7539724931345419281', '7579527832976493621', '7582229626634636341']
+  data.7491171587224243217: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":70
+  data.7497915082546875408: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":2,\"name\":\"Romansa\",\"schema\":\"dragon645713://categorySearch?categoryId=2&categoryName=Romansa&genreType=130&gender=0&source=detail\"},{\"category_id\":79,\"name\":\"Romansa Urban\",
+  data.7532302086034164752: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7539724931345419281: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"n
+  data.7579527832976493621: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":696,\"name\":\"Kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=696&categoryName=Kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utam
+  data.7582229626634636341: {"lock_data": {"lock_threshold_order": 0, "once_unlock_num": 0}, "video_data": {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":79,\"name\":\"Romansa Urban\",\"schema\":\"dragon645713://categorySearch?categoryId=79&categoryName=Romansa Urban&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"name\":\"Rom
+
+[188] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?categor
+
+[190] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582165337605409797', '7582165341539666997', '7582165345092258821']
+  data.7582165337605409797: {"backup_url": "http://v16m.byteicdn.com/fcba7f13c0b40287dc682d07807fc504/6987d8d1/video/tos/alisg/tos-alisg-v-ea7654-sg/ogaQypi9lWdElIogokLOJ9wIBfYziAQHXAr0BE/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2594&bt=1297&cs=0&ds=3&ft=cApXJCz7ThWH0Jfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NmU0OTlnZDU2PDhmOzRkZUBpMzpvc2w5cjo1OGYzODs4NEAuYS8xNF82NS4xYV9gXzF
+  data.7582165341539666997: {"backup_url": "http://v16m.byteicdn.com/905174b59b62e84bfb554f6a6e6841e2/6987d8c4/video/tos/alisg/tos-alisg-v-ea7654-sg/oocRBlkgKvKlDxSoCLE9heIGgGCeeXixDBCs0g/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2200&bt=1100&cs=0&ds=3&ft=cApXJCz7ThWH0Jfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OGdlNTw2ZGU3ZzNpNzc3NUBpM2ZpO2o5cjo1OGYzODs4NEA1NjNfNC1hX2MxYWBiMWI
+  data.7582165345092258821: {"backup_url": "http://v16m.byteicdn.com/e097a873a76f7e380816befad4efc6e8/6987d89e/video/tos/alisg/tos-alisg-v-ea7654-sg/owiQIX63tkxgMJNLD8eCEChfBgQ9DZ1EMSlfI8/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2094&bt=1047&cs=0&ds=3&ft=cApXJCz7ThWH0Jfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDtkNDxnaDQ1PDU2OzxpZEBpM2Z5Onk5cmg1OGYzODs4NEAwXjExYDYuNjIxNGBhXzB
+
+[206] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582165348619652149']
+  data.7582165348619652149: {"backup_url": "http://v16m.byteicdn.com/052bb659d52bc2c3fb28219549262041/6987d9c4/video/tos/alisg/tos-alisg-v-ea7654-sg/oULIioXElLhcQEIIqBFpxJ1DgHQ4RBLgfCSQer/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3084&bt=1542&cs=0&ds=3&ft=cApXJCz7ThWHlIfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTs1PGg3NWkzNGU2aTw5ZUBpamVzNG85cnI1OGYzODs4NEA0L2I0YjYvXzUxMDUwYDV
+
+[211] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582165351794740277']
+  data.7582165351794740277: {"backup_url": "http://v16m.byteicdn.com/fdbe334c029ecbe2fd5b18a78f7ad48d/6987d9d7/video/tos/alisg/tos-alisg-v-ea7654-sg/oUXgJKeB4KKiACYTEhEIffRGesNKSQOfZAggMs/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2754&bt=1377&cs=0&ds=3&ft=cApXJCz7ThWHGIfc1GZmo0P&mime_type=video_mp4&qs=0&rc=O2Q8Nmc4NTY0aGRoZzw3M0Bpam94eGw5cnc1OGYzODs4NEBfLjUuYGA2NV8xNGA0LjM
+
+[219] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch
+
+[221] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582232558960643077', '7582232562949442565', '7582232566690761733']
+  data.7582232558960643077: {"backup_url": "http://v16m.byteicdn.com/893fff91db609ccd06e53e1c20a0c341/6987da0e/video/tos/alisg/tos-alisg-v-ea7654-sg/o0iHz7ri6UQxQE5IKAi0Y7ZBw0ocPAnAPfooM9/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1944&bt=972&cs=0&ds=3&ft=cApXJCz7ThWHoIfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aTg3OWloOWVlZzM2ZzM8N0BpMzU3b3c5cm14OGYzODs4NEBfMzU2L18tXzUxMC9gLV8z
+  data.7582232562949442565: {"backup_url": "http://v16m.byteicdn.com/c5808cf063247c2c7f3c23511271f34f/6987da0b/video/tos/alisg/tos-alisg-v-ea7654-sg/ogpBXKBZiUyeR7HDVhW3xBlQ476IEQQvgpf3Ei/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2546&bt=1273&cs=0&ds=3&ft=cApXJCz7ThWHoIfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Nmc2OjRmaDs2NzVmZ2VmZkBpamxkZ3U5cnh4OGYzODs4NEA2YjU0MC0zX2IxMi0xLi5
+  data.7582232566690761733: {"backup_url": "http://v16m.byteicdn.com/04a0b37824b27c9b604f9741c01b69c4/6987da95/video/tos/alisg/tos-alisg-v-ea7654-sg/oY793iQQiEBIgKRFfHfX6r9xhKVTpBQvBQVXBJ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2628&bt=1314&cs=0&ds=3&ft=cApXJCz7ThWHoIfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NjY0OWVlNWgzODZmNDw4OEBpM3F2OHc5cnh4OGYzODs4NEBfMmBeXy9gXy4xLi82LTQ
+
+[226] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582232877874547717']
+  data.7582232877874547717: {"backup_url": "http://v16m.byteicdn.com/4cf28ba0ead083f347b12e89d281a5a5/6987da4f/video/tos/alisg/tos-alisg-v-ea7654-sg/o40od427EifSA08oIAcHUAYgQQiEwoPWYwoBsi/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2606&bt=1303&cs=0&ds=3&ft=cApXJCz7ThWHtIfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Mzk4Nmk2aDY5aDszNTlkPEBpM3A2OHI5cjN4OGYzODs4NEAxLTVgYi9fXl4xNmIxLmE
+
+[236] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch
+
+[238] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582081653850246197', '7582081657075665973', '7582081688864295989']
+  data.7582081653850246197: {"backup_url": "http://v16m.byteicdn.com/d772a6ac486caccc8bfc182d1f4d4734/6987da6d/video/tos/alisg/tos-alisg-v-ea7654-sg/oshfj9QBgOiXsQveKDDpAj8MNVMiDCtIegxStO/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2000&bt=1000&cs=0&ds=3&ft=cApXJCz7ThWH-afc1GZmo0P&mime_type=video_mp4&qs=0&rc=aTw0MzQ0PDZmPGk6ZmhmO0BpM255dHI5cmlxOGYzODs4NEBeNmAxMWBjXzAxYmJfMTE
+  data.7582081657075665973: {"backup_url": "http://v16m.byteicdn.com/53d112d26a8d424ae4fbac89a98bb834/6987da9a/video/tos/alisg/tos-alisg-v-ea7654-sg/owgdTgBjeigx3RkPCGDSCsCMeIDgLhkFKvOReC/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2534&bt=1267&cs=0&ds=3&ft=cApXJCz7ThWH-afc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDVlZ2U6PDM4ODg8NDw0aUBpanIzO2o5cmRxOGYzODs4NEBeNV4yLWMzXjYxYjAuXzJ
+  data.7582081688864295989: {"backup_url": "http://v16m.byteicdn.com/ea535c209e7355e4bb341c41687ba41c/6987da3b/video/tos/alisg/tos-alisg-v-ea7654-sg/occgMD8Q7BjBSTKg5ICRDfiNgeQEXkhJMp6vfO/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1940&bt=970&cs=0&ds=3&ft=cApXJCz7ThWH-afc1GZmo0P&mime_type=video_mp4&qs=0&rc=Njg4ZmY4Ozc3OzlnaTM5M0Bpajk3bXc5cmRxOGYzODs4NEBjLTMuXi9jXmIxYDBgLzNh
+
+[244] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582081660523383861']
+  data.7582081660523383861: {"backup_url": "http://v16m.byteicdn.com/8c2390ce743d4548f3f92ca2342385d8/6987da6a/video/tos/alisg/tos-alisg-v-ea7654-sg/ooSdgbOe1CNQviLDuDBIuU0ggjhMBSeC3XfGIG/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2076&bt=1038&cs=0&ds=3&ft=cApXJCz7ThWHjlfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDRlNjRkOmQ1NjNkZGVnNEBpajlyb3U5cnhxOGYzODs4NEAxMC1iNV9fXi8xYmAyNmF
+
+[253] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":745,\"name\":\"Identitas Tersembunyi\",\"schema\":\"dragon645713://categorySearch?categoryId=745&categoryName=Identitas Tersembunyi&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch
+
+[262] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?cat
+
+[266] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582432872791804981', '7582432879540456453', '7582432882946214965']
+  data.7582432872791804981: {"backup_url": "http://v16m.byteicdn.com/09b145d2d7db8f94a7f29a81d33eb88d/6987da7f/video/tos/alisg/tos-alisg-v-ea7654-sg/o8DzYEhQfEAG0FzCfAOfZWVBZHSkFGDjHlIfFG/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2688&bt=1344&cs=0&ds=3&ft=cApXJCz7ThWH3lfc1GZmo0P&mime_type=video_mp4&qs=0&rc=MzY6NzZoaDQ3OjM4Ojg6OUBpM3lmeGo5cndpOGYzODs4NEA2MzEwXjNiNV4xMjRhNmM
+  data.7582432879540456453: {"backup_url": "http://v16m.byteicdn.com/56fe4eabcb40acee7d99c622c238905d/6987da67/video/tos/alisg/tos-alisg-v-ea7654-sg/o0A7aiMQiE9IgWRnvHffEPzxhn2dpBQnBQ7FBp/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2924&bt=1462&cs=0&ds=3&ft=cApXJCz7ThWH3lfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDRoNWU6O2c6Zzw7NDY8ZkBpM3R4Z3U5cnNpOGYzODs4NEAwLmIwLi8yXjQxNWAxLjZ
+  data.7582432882946214965: {"backup_url": "http://v16m.byteicdn.com/4eab8323dcc13ce994d2e445d569184c/6987da6a/video/tos/alisg/tos-alisg-v-ea7654-sg/ogNZQfNYDG1lFK5CyHEAfoIAGFAEelODplGJfF/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2374&bt=1187&cs=0&ds=3&ft=cApXJCz7ThWH3lfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Omg1ZmhlaGk6aGUzZTU8NEBpamc3OW45cnZpOGYzODs4NEA1YC8zLl8uNmMxLi8yYzB
+
+[270] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582432875975281717']
+  data.7582432875975281717: {"backup_url": "http://v16m.byteicdn.com/37b0d5254cccf4f7451b3c31adee0653/6987da95/video/tos/alisg/tos-alisg-v-ea7654-sg/owCIOKs6fAg7XIIK6NLeMKGe5AvOfeQKNWGCE5/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2330&bt=1165&cs=0&ds=3&ft=cApXJCz7ThWHCDfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NjRlOjRoaGU7aWZoZGlpOkBpamhxO2o5cnlpOGYzODs4NEA1MzJgNS9hNjYxYS5jYzE
+
+[280] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?categor
+
+[282] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582512362448489525', '7582512369033563141', '7582512443608271877']
+  data.7582512362448489525: {"backup_url": "http://v16m.byteicdn.com/7d51b9847dd19e3b257cebc70900b5cc/6987dab4/video/tos/alisg/tos-alisg-v-ea7654-sg/oclaIIBpBgJEdhhqMEdUfQtxGV2DRFmkoQ9ifQ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2142&bt=1071&cs=0&ds=3&ft=cApXJCz7ThWHxDfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aGQ0ZzhkaWZoaTw5Mzg1O0BpM2d5ZW05cjg7OGYzODs4NEA0MjYzMWE1NS4xNGBhMi8
+  data.7582512369033563141: {"backup_url": "http://v16m.byteicdn.com/a87530b7f4ac72d46143be6064e8d14b/6987dae3/video/tos/alisg/tos-alisg-v-ea7654-sg/ogZNgvgRfxQfgjKZgDhpSkB0EEBQFQPYxomIRt/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2244&bt=1122&cs=0&ds=3&ft=cApXJCz7ThWHxDfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OGU4aTs0O2Q1aTRpZzNoZUBpM3FsZHA5cnI7OGYzODs4NEAwLTRjMjY1Ni0xYTAyNDB
+  data.7582512443608271877: {"backup_url": "http://v16m.byteicdn.com/980afe5042ccfb081f2cd089f95ca874/6987dab5/video/tos/alisg/tos-alisg-v-ea7654-sg/oY1QOcVzBDiRsQvGViF5giIEhxr6gJ8fQXBpeo/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2104&bt=1052&cs=0&ds=3&ft=cApXJCz7ThWHxDfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTU3Zzc1M2Q5PDw3OmloNEBpamRzaG85cmk7OGYzODs4NEAwLWFgYF4vX2AxYjAyLjY
+
+[287] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582512359160171525']
+  data.7582512359160171525: {"backup_url": "http://v16m.byteicdn.com/05594730d86b09a8f69afe4e58624b20/6987dab8/video/tos/alisg/tos-alisg-v-ea7654-sg/o0JiVQH6ShD6HrjGCfLIBJG5hjiDtrMEIMeegR/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2102&bt=1051&cs=0&ds=3&ft=cApXJCz7ThWHu8fc1GZmo0P&mime_type=video_mp4&qs=0&rc=Zjg4PGg4aDQzZmk6OWdmOkBpM2U6NHk5cmk7OGYzODs4NEA0LjYtNjRjNjIxL2A2M2F
+
+[299] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":701,\"name\":\"Imajinasi Perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=701&categoryName=Imajinasi Perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?cat
+
+[300] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7599703431812484149', '7599703438129105925', '7599703441102867509']
+  data.7599703431812484149: {"backup_url": "http://v16m.byteicdn.com/fe7fc7279b096eef9307f2fc71c64e1a/6987daf0/video/tos/alisg/tos-alisg-v-ea7654-sg/oofw3n1xBQBEChgfnrD6QpEodIOWFhhu4FFQ9S/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2744&bt=1372&cs=0&ds=3&ft=cApXJCz7ThWHg8fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZDllZTRkZzY3aWQ3ZzU6PEBpanQ1bm05cmdyOGYzODs4NEAxYTI0Yi82NmIxY2BhLjE
+  data.7599703438129105925: {"backup_url": "http://v16m.byteicdn.com/49abe2a6a7f6018951a2b1317cf6e90d/6987dafa/video/tos/alisg/tos-alisg-v-ea7654-sg/okwPpien0Aqphut9YBAqZI2uiQFIoEvQoowu3P/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2754&bt=1377&cs=0&ds=3&ft=cApXJCz7ThWHg8fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZGYzZGZpZWc7OTZoN2dlZkBpamh4Znc5cmdyOGYzODs4NEA1YF9hNWBgXjExYTA0LzV
+  data.7599703441102867509: {"backup_url": "http://v16m.byteicdn.com/a1ed11452ae1a90676ca13c25adea6a7/6987dae8/video/tos/alisg/tos-alisg-v-ea7654-sg/oktAiMUuwF6QYIqq0NE5rziFoBA3oevhA1QEBc/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2926&bt=1463&cs=0&ds=3&ft=cApXJCz7ThWHg8fc1GZmo0P&mime_type=video_mp4&qs=0&rc=Mzo0OjMzZmgzPGVpMzdlZEBpM287ZHQ5cmdyOGYzODs4NEBfLTZfYl42NjMxNDFhXmM
+
+[306] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7599703428347988997']
+  data.7599703428347988997: {"backup_url": "http://v16m.byteicdn.com/eaaaaae85e264eed9868391df6d53333/6987db1c/video/tos/alisg/tos-alisg-v-ea7654-sg/oAl3DSW675KIhhB0DiIfEStetY3BOLQGgDgCew/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2518&bt=1259&cs=0&ds=3&ft=cApXJCz7ThWHibfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OGRmPGhnZzM2aWQzOzplOEBpamtyO245cmdyOGYzODs4NEBfYWJjYF41NS8xMWNhNTM
+
+[311] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7599703444403801093']
+  data.7599703444403801093: {"backup_url": "http://v16m.byteicdn.com/280f87e20820600e868c2addaebcc907/6987db63/video/tos/alisg/tos-alisg-v-ea7654-sg/ooQvRoQfQ0idxoAsA8B3GMi80uSuwYzIZ1hOEo/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2770&bt=1385&cs=0&ds=3&ft=cApXJCz7ThWHTufc1GZmo0P&mime_type=video_mp4&qs=0&rc=aWk1aWk5aWllNGgzaWU3ZEBpM2lqbm05cm5yOGYzODs4NEBfYTEzMzE1NjQxMi82Li8
+
+[316] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7599703450124815413']
+  data.7599703450124815413: {"backup_url": "http://v16m.byteicdn.com/279eed508e4505ae3509140b81f0257b/6987dbc5/video/tos/alisg/tos-alisg-v-ea7654-sg/oUEQGo0Ye8wlsUT3BAItcui91SQAOwv2ihoL30/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2064&bt=1032&cs=0&ds=3&ft=cApXJCz7ThWHkNfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWY6NmRoOGUzNzg8ZzM1O0BpanZ0d3A5cm5yOGYzODs4NEAzYy82MzRfNTMxXy5hLV5
+
+[319] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7599703447348186165']
+  data.7599703447348186165: {"backup_url": "http://v16m.byteicdn.com/3c760cdd16c561a4466783ed61fd7a15/6987dba0/video/tos/alisg/tos-alisg-v-ea7654-sg/o8fQIoMEK64FdP434xAtE52hwQiyA0Y8uQBo1i/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2840&bt=1420&cs=0&ds=3&ft=cApXJCz7ThWH8Nfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDU1MzozOWRnPDMzPDU7NUBpM3JzaHQ5cnZyOGYzODs4NEAxMWE0LWIzNi8xNmExY18
+
+[330] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":746,\"name\":\"Kelahiran kembali\",\"schema\":\"dragon645713://categorySearch?categoryId=746&categoryName=Kelahiran kembali&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?categor
+
+[331] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7595681899779984401', '7595681903345142801', '7595681906583145488']
+  data.7595681899779984401: {"backup_url": "http://v16m.byteicdn.com/c8036e9491524068448d68ae42ce3651/6987dbe8/video/tos/alisg/tos-alisg-v-ea7654-sg/oYB6Hi4QJEptYiUoNq5fBj427GV6AQwDo0IFYA/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2434&bt=1217&cs=0&ds=3&ft=cApXJCz7ThWHcNfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTtpOjppNWU8PDc4ZWhnZ0BpM2dmeHI5cmZkOGYzODs4NEAzYDFiLjEtXi0xY2IuMDE
+  data.7595681903345142801: {"backup_url": "http://v16m.byteicdn.com/d9d0b0399c1564e46b0117c98116dc05/6987dc01/video/tos/alisg/tos-alisg-v-ea7654-sg/oc1UUgzOSDD3uOQRCeLIBEGNh0iDfxNIQ9eRoV/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2510&bt=1255&cs=0&ds=3&ft=cApXJCz7ThWHcNfc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDs6aWU2ZDhnODY0O2dlM0BpajozaHk5cjRkOGYzODs4NEBgNDEvM2MzXy4xXzNfLjY
+  data.7595681906583145488: {"backup_url": "http://v16m.byteicdn.com/76bc331934812400dd5b62fca6a4d6d6/6987dbd6/video/tos/alisg/tos-alisg-v-ea7654-sg/oMC6DkGL0jhe9eCgSkURoI3IAIdLghStDRBifP/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2018&bt=1009&cs=0&ds=3&ft=cApXJCz7ThWHcNfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OWk4Mzo3ZTw7aTM7NTU7NEBpM20za3E5cmhqOGYzODs4NEA1YzMvXjMtXjMxNV9hMy0
+
+[337] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7595681910177664017']
+  data.7595681910177664017: {"backup_url": "http://v16m.byteicdn.com/2271f2605e7dc578c8ce78f921975e77/6987dc38/video/tos/alisg/tos-alisg-v-ea7654-sg/ogEx6whQQBxffIzRgpdgzUblUBFWATaDKcXzH0/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=1156&cs=0&ds=3&ft=cApXJCz7ThWHDmfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OmdoO2k0NGU5Mzc5ZTVmOkBpMzNveHQ5cmZkOGYzODs4NEA1NGJgLWJhXjQxNV9hM14
+
+[341] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7595681913394695184']
+  data.7595681913394695184: {"backup_url": "http://v16m.byteicdn.com/3a3954eb83ec3cce4bf7d9826b5daa00/6987dbfd/video/tos/alisg/tos-alisg-v-ea7654-sg/owBQLzFaNQDNSggxOW5gf0EcpRIchfpBcX3KRB/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2066&bt=1033&cs=0&ds=3&ft=cApXJCz7ThWHUmfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Ojw5NWY4OmU8NWVmNGY3OEBpajlsOWo5cjdkOGYzODs4NEAvYl9fLmBjNTYxNC8tMWI
+
+[350] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=19&categoryName=Pemera
+
+[351] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582651190958099509', '7582651194162547765', '7582651197589310469']
+  data.7582651190958099509: {"backup_url": "http://v16m.byteicdn.com/3bafb95104828ad59e83f4b2d2749a89/6987dc50/video/tos/alisg/tos-alisg-v-ea7654-sg/okQcRSlhCCY5bBDZ5fIiyLIDjiGstkgeXesBhg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3258&bt=1629&cs=0&ds=3&ft=cApXJCz7ThWHuWfc1GZmo0P&mime_type=video_mp4&qs=0&rc=N2RlOTxkaGc2OTxpZjQ4NEBpM3B5d3g5cnJmOGYzODs4NEAyYTMuNF4wNmIxM15iLTR
+  data.7582651194162547765: {"backup_url": "http://v16m.byteicdn.com/8bd0c0fa549c0a92e7a676d662625fbb/6987dc1f/video/tos/alisg/tos-alisg-v-ea7654-sg/o4VkQfqEBAJ0ichozIixGZIQpAoEWnwwz3QcIY/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3688&bt=1844&cs=0&ds=3&ft=cApXJCz7ThWHuWfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OjM8NDVpNmZlaTpoMzg1M0BpamQ6NG05cnNmOGYzODs4NEAvMS41XzUuXjExLy0wMzB
+  data.7582651197589310469: {"backup_url": "http://v16m.byteicdn.com/988fc0ae7838ebbf707529ba1e73ee0c/6987dc1d/video/tos/alisg/tos-alisg-v-ea7654-sg/oUBWIx6hA8IKJQQj5UpxTpMUitaPOZYQEiUEI/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2930&bt=1465&cs=0&ds=3&ft=cApXJCz7ThWHuWfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ODM7OjZpOTNpZjs2ODk1NEBpM202bHY5cnNmOGYzODs4NEAtYi0yYzQxX2IxYV8vLmI1
+
+[357] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582651200659524613']
+  data.7582651200659524613: {"backup_url": "http://v16m.byteicdn.com/7bc841cebd526820c898e2957c682403/6987dc40/video/tos/alisg/tos-alisg-v-ea7654-sg/ossgAuvBoIwuQb0oiyyuRpvGIAAYXiJpiQVeEw/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3438&bt=1719&cs=0&ds=3&ft=cApXJCz7ThWHMWfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZDVpNzRnaWdlZGY5Omg7Z0BpM2lzO2o5cnhmOGYzODs4NEBjXmMvNWIxNi0xMWExMC4
+
+[360] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582651204409248773']
+  data.7582651204409248773: {"backup_url": "http://v16m.byteicdn.com/97c4ab53864ae37d9d9bf2eeedd8e081/6987dc56/video/tos/alisg/tos-alisg-v-ea7654-sg/osUyQfitBB5piYVQfIixMXIWSBQEZGng5EhcTx/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3384&bt=1692&cs=0&ds=3&ft=cApXJCz7ThWH-wfc1GZmo0P&mime_type=video_mp4&qs=0&rc=O2RoZzk3ZDhoOzM3PDhmOUBpMzVwdXM5cnlmOGYzODs4NEA0NDFfYi00NmExMmJeXi4
+
+[369] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":700,\"name\":\"Tycoon\",\"schema\":\"dragon645713://categorySearch?categoryId=700
+
+[371] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491358641967074321', '7491358645561592848', '7491358652746435601']
+  data.7491358641967074321: {"backup_url": "http://v16m.byteicdn.com/3a9a7173423f899c212711b0672a286d/6987dc5b/video/tos/alisg/tos-alisg-v-ea7654-sg/oMoiZ89UIy8ooFAABpRBfAtQ5lYiQ5XwLCF0EN/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2212&bt=1106&cs=0&ds=3&ft=cApXJCz7ThWH4wfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Njs4OGhlNjw7N2Y1O2Y8O0BpajQ6NnY5cmxpM2YzODs4NEAtMS8vYi40Xl8xLl4tNmI
+  data.7491358645561592848: {"backup_url": "http://v16m.byteicdn.com/cd94e0b0eb2ddcfa8517dfd27caf8d30/6987dc5a/video/tos/alisg/tos-alisg-v-ea7654-sg/oUvQbi8EUAMniwy7ZdIEIaYd12QAICrUiBHLQ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3104&bt=1552&cs=0&ds=3&ft=cApXJCz7ThWH4wfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWQ3M2g1ZmU2NDM8aTc7O0Bpand4d3A5cmxpM2YzODs4NEBiMC4vYy01XzExMmJfXjBf
+  data.7491358652746435601: {"backup_url": "http://v16m.byteicdn.com/54185e49b9c81db14a8389d29fab74c9/6987dc4d/video/tos/alisg/tos-alisg-v-ea7654-sg/o0MMNiGxLZufFdqpeNBYKKuEioNQIAgeGAff9I/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2838&bt=1419&cs=0&ds=3&ft=cApXJCz7ThWH4wfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ODs1PGU7M2g3OTo4aWU8M0BpM3F1ZXQ5cnFpM2YzODs4NEAvNF5fLzE1XmAxYmNjYjE
+
+[377] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":702,\"name\":\"Kehidupan perkotaan\",\"schema\":\"dragon645713://categorySearch?categoryId=702&categoryName=Kehidupan perkotaan&genreType=130&gender=1&source=detail\"},{\"category_id\":700,\"name\":\"Tycoon\",\"schema\":\"dragon645713://categorySearch?categoryId=700
+
+[379] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491358660568812561']
+  data.7491358660568812561: {"backup_url": "http://v16m.byteicdn.com/ad527a296d4c24e0a92981b6df9f6348/6987dc81/video/tos/alisg/tos-alisg-v-ea7654-sg/ocOnuUgAfxISVzEDQDhovGBqoEBQFQQJmvNE5f/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2298&bt=1149&cs=0&ds=3&ft=cApXJCz7ThWHJ7fc1GZmo0P&mime_type=video_mp4&qs=0&rc=N2g5NmgzZGVmZTxpOTU5aEBpM25yZXk5cnVpM2YzODs4NEA1LTRhYy9iXjMxMS1jYTR
+
+[382] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7491358656642944016']
+  data.7491358656642944016: {"backup_url": "http://v16m.byteicdn.com/b992df9c79072b370f0c60712cfd46af/6987dc74/video/tos/alisg/tos-alisg-v-ea7654-sg/osSfUFmQEEkIgDAJvtfzpKuxhRvaoDQOBQpaB5/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2398&bt=1199&cs=0&ds=3&ft=cApXJCz7ThWHB7fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZzpkNTkzaTk1PDQ7Z2dlM0Bpam5yZXk5cnVpM2YzODs4NEAuNi9iNF9gNTAxYjAwMy5
+
+[390] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":34,\"name\":\"Harem\",\"schema\":\"dragon645713://categorySearch?categoryId=34&categoryName=Harem&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=19&categoryName=Pemera
+
+[391] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582526915378957317', '7582526918390467589', '7582526923016768517']
+  data.7582526915378957317: {"backup_url": "http://v16m.byteicdn.com/7d1bedd00b473458c1b8b660e3b27089/6987dc95/video/tos/alisg/tos-alisg-v-ea7654-sg/ooGKrgCbRC8iJgItSeDJhf5DkCEIiBRqAzieLS/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2840&bt=1420&cs=0&ds=3&ft=cApXJCz7ThWHh7fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NDpkOzs2ODVmZ2lpaTo6aEBpMzc8aHg5cm1rOGYzODs4NEA2LS01NGMuNTYxYGMwYWA
+  data.7582526918390467589: {"backup_url": "http://v16m.byteicdn.com/fa2d3fb03fcdd67b4f0e0bf72272137b/6987dce6/video/tos/alisg/tos-alisg-v-ea7654-sg/o8djQFDwhQBNdE4wZFEIeJBx0Q0gvhaChpfobq/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2590&bt=1295&cs=0&ds=3&ft=cApXJCz7ThWHh7fc1GZmo0P&mime_type=video_mp4&qs=0&rc=NmU7ODhpZmg3NTxlMzY6aUBpM3VleWo5cnZ3OWYzODs4NEA0YTZgLy0tNTAxNC9hYGM
+  data.7582526923016768517: {"backup_url": "http://v16m.byteicdn.com/be1a5fcc814312ddd2917ee6d7649178/6987dd12/video/tos/alisg/tos-alisg-v-ea7654-sg/ogApYE7oyiRqOooQI0iB3OfmEGFLwgsJAoFmbQ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3230&bt=1615&cs=0&ds=3&ft=cApXJCz7ThWHh7fc1GZmo0P&mime_type=video_mp4&qs=0&rc=aDNnZjlpZzU4OjM6Mzg0OkBpM3VrNXE5cm1rOGYzODs4NEAuMl8yXjFhXy4xLmIvMDN
+
+[397] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582526912229018677']
+  data.7582526912229018677: {"backup_url": "http://v16m.byteicdn.com/0d30483c09d8779dcc6759f25db80b8e/6987dcc9/video/tos/alisg/tos-alisg-v-ea7654-sg/oo0t1FgiomI6oRw0Y8QEQEkisfBqGKooABqAwm/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2664&bt=1332&cs=0&ds=3&ft=cApXJCz7ThWHt7fc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTVmOzk2ZjU5OGg3OmdoOkBpM3RwPG45cm1rOGYzODs4NEAxNC4vNGNiXl8xNmJjYV8
+
+[400] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582526932999212085']
+  data.7582526932999212085: {"backup_url": "http://v16m.byteicdn.com/02c9edff3d8d5d483d252154e97545e4/6987dd4a/video/tos/alisg/tos-alisg-v-ea7654-sg/okhoBf48oiwoEmEtbQ0wiAwFIuQoYhlO9AZh1P/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2394&bt=1197&cs=0&ds=3&ft=cApXJCz7ThWHwsfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NWlpZjs3ZTM2ZTUzOTY0aEBpM2dwdnI5cnhrOGYzODs4NEAtMjJgNS0wNTMxYWJeNWF
+
+[406] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7601469170672208912']
+  data.7601469170672208912: {"backup_url": "http://v16m.byteicdn.com/3132b18fdd716e178e2d4a4ea0e07427/6987dccb/video/tos/alisg/tos-alisg-v-ea7654-sg/ocZ5geygGG7lLNuCP7Iq6SQfeFQInMfDsWGCZF/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2378&bt=1189&cs=0&ds=3&ft=cApXJCz7ThWHksfc1GZmo0P&mime_type=video_mp4&qs=0&rc=Zjo1NmllNDQ7O2U0Ozc4aEBpM3NoeHU5cjx3OGYzODs4NEBgLjFjMmMtNi4xMmA2MWI
+
+[407] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7582795367821888517']
+  data.7582795367821888517: {"backup_url": "http://v16m.byteicdn.com/eaf899084e87804c491e1437968c5c52/6987dd13/video/tos/alisg/tos-alisg-v-ea7654-sg/oQ6vsIXADEYV0QUZ0glj0MTiBUMjaU45ibUII/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3920&bt=1960&cs=0&ds=3&ft=cApXJCz7ThWHksfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZDU2ZWlkOmQzaWc6Njk7OUBpM3VrdW45cnFoOGYzODs4NEAyLWItNmI1XmMxMDVjYi0t
+
+[412] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":697,\"name\":\"Bayi Lucu\",\"schema\":\"dragon645713://categorySearch?categoryId=697&categoryName=Bayi Lucu&genreType=130&gender=0&source=detail\"},{\"category_id\":2,\"name\":\"Romansa\",\"schema\":\"dragon645713://categorySearch?categoryId=2&categoryName=Romansa&g
+
+[414] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7543312133950278657', '7543312153248271361', '7543312157174139920']
+  data.7543312133950278657: {"backup_url": "http://v16m.byteicdn.com/93518e6b0e269cc0ab427179dbcf0451/6987dcdc/video/tos/alisg/tos-alisg-v-ea7654-sg/ooBBea2Fi0WhbLgSDF0CDfBC4IEUIQLyDRQ5eG/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2658&bt=1329&cs=0&ds=3&ft=cApXJCz7ThWHfsfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTo4aTo1MzszNTU0OzQ3N0BpM3Q2bWw5cmpnOGYzODs4NEBgLjNfMF5iX18xNmMxMDY
+  data.7543312153248271361: {"backup_url": "http://v16m.byteicdn.com/95aeda745a6e9fb01bc1176473894bfb/6987dd01/video/tos/alisg/tos-alisg-v-ea7654-sg/oUE3LX8ivVa7IyA5FUQIIvBrU8XTYMvwxWiXa/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2714&bt=1357&cs=0&ds=3&ft=cApXJCz7ThWHfsfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZmRmZzM8Ozw2NTtnZ2ZmNkBpamlwdXE5cmpnOGYzODs4NEA1Nl41NTJfX2ExMzYtNmMy
+  data.7543312157174139920: {"backup_url": "http://v16m.byteicdn.com/576494d437f25796ab3fa47aff40688f/6987dd14/video/tos/alisg/tos-alisg-v-ea7654-sg/ok8qXPaLk2zMiy9UtIAQaU6IUDxEYx6Bi24XL/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2200&bt=1100&cs=0&ds=3&ft=cApXJCz7ThWHfsfc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDk4NzxkO2ZnZzxoaGRmNEBpM3JwanY5cmtnOGYzODs4NEBgXl5gYDIxNTYxXy8uNTBe
+
+[419] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7543312160932236289']
+  data.7543312160932236289: {"backup_url": "http://v16m.byteicdn.com/0e5e6dcecdd7415faf85c094861e83ea/6987dd4d/video/tos/alisg/tos-alisg-v-ea7654-sg/oEtQEcQ5gFepxBQ7RpwDhMgbrEIJfBXDEy9vUM/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2442&bt=1221&cs=0&ds=3&ft=cApXJCz7ThWHisfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZWU6PDZnNDg4Zjg6N2VnOkBpanE2M3I5cmpnOGYzODs4NEAyNGBiLzItNi8xMWMwLjA
+
+[421] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7543312138077473793']
+  data.7543312138077473793: {"backup_url": "http://v16m.byteicdn.com/0268606ac9e8d24784bd2c1b7f592800/6987dd55/video/tos/alisg/tos-alisg-v-ea7654-sg/ooBth3D5cjtfsvdblmJHQXnEgk5FQQpWBIgxe0/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2110&bt=1055&cs=0&ds=3&ft=cApXJCz7ThWHtsfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OzNlNTplZTM3NzlpNThmZUBpM3RwanY5cjxnOGYzODs4NEBiLzYtNDZiXi8xNjMxNC8
+
+[429] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7601244761285987329']
+  data.7601244761285987329: {"backup_url": "http://v16m.byteicdn.com/6602f26dd6870147f18393dff24a7b68/6987dd7f/video/tos/alisg/tos-alisg-v-ea7654-sg/o4iPMiFcynBAg85XlaByEV8IUi6791UIg3YQ6/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2326&bt=1163&cs=0&ds=3&ft=cApXJCz7ThWHqYfc1GZmo0P&mime_type=video_mp4&qs=0&rc=N2U2ODloODNmZjozZzc2OEBpam86Z3Q5cjhkOGYzODs4NEBhXmMvYV4xNl4xMjMxMGNg
+
+[430] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7589925678481427461']
+  data.7589925678481427461: {"backup_url": "http://v16m.byteicdn.com/53f8291143a40445a53bb45c61b33634/6987de06/video/tos/alisg/tos-alisg-v-ea7654-sg/oYxWhfaoDBqpF8VQNpERKVQvVBQIrWTgifhOAx/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2820&bt=1410&cs=0&ds=3&ft=cApXJCz7ThWHZYfc1GZmo0P&mime_type=video_mp4&qs=0&rc=NTtnOGdpZDczZmQ1MzZmZ0Bpamdkd2s5cjZkOGYzODs4NEBgL14xX2NhNV4xMDUyYDM
+
+[434] /novel/player/video_detail/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['lock_data', 'video_data']
+  data.video_data: {"abstract_tags": [], "age_gate_info": {"age_gate": 18, "age_gate_map": ""}, "audit_status": 1, "category_schema": "[{\"category_id\":708,\"name\":\"Drama Sejarah\",\"schema\":\"dragon645713://categorySearch?categoryId=708&categoryName=Drama Sejarah&genreType=130&gender=1&source=detail\"},{\"category_id\":19,\"name\":\"Pemeran Utama Pria\",\"schema\":\"dragon645713://categorySearch?categoryId=19&c
+
+[438] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7597461160505379845', '7597461164355767301', '7597461181493677109']
+  data.7597461160505379845: {"backup_url": "http://v16m.byteicdn.com/205bc5e265fcbf42b1a2303ac371db57/6987dd62/video/tos/alisg/tos-alisg-v-ea7654-sg/os2VhkU5BVwiaiTI9cYMzHIpvE5U42qAWTQkP/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3368&bt=1684&cs=0&ds=3&ft=cApXJCz7ThWH9Yfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OThoPGg1ZTQ6ZmlkOjY3O0BpM2Q4NHA5cnZvOGYzODs4NEAzMTZjMzYzXy8xNDA1MzVf
+  data.7597461164355767301: {"backup_url": "http://v16m.byteicdn.com/7d7f8fbf740e5190285de675192d6171/6987dd7e/video/tos/alisg/tos-alisg-v-ea7654-sg/o8fueiG3AVWDeLDZSlMhrCghBgn9C9ERkywqIg/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3506&bt=1753&cs=0&ds=3&ft=cApXJCz7ThWH9Yfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OTRkaDs3NGZpPDRmOjM8ZEBpMzZzcXY5cnZvOGYzODs4NEAzNGEwLjNgNl4xNmBfXjE
+  data.7597461181493677109: {"backup_url": "http://v16m.byteicdn.com/07bd7c22c5b6acc91dbd3ec1e87caa36/6987dda9/video/tos/alisg/tos-alisg-v-ea7654-sg/oQEPMics9VBAtvHWVagwEUSIFivVxpUIKpYQ9/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3062&bt=1531&cs=0&ds=3&ft=cApXJCz7ThWH9Yfc1GZmo0P&mime_type=video_mp4&qs=0&rc=ZTlkNjk5PDxpZGc8aGc5NEBpajw0dHc5cnZvOGYzODs4NEAyL19iMV9jXy0xYC41XzI0
+
+[441] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7597461189097966597']
+  data.7597461189097966597: {"backup_url": "http://v16m.byteicdn.com/72ea207aa658288b21ec0a3911fff07c/6987dd7f/video/tos/alisg/tos-alisg-v-ea7654-sg/oc82e3hiDBCQ0wBfmUM4gSRq3g7rerDtqWYhmk/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3080&bt=1540&cs=0&ds=3&ft=cApXJCz7ThWHOYfc1GZmo0P&mime_type=video_mp4&qs=0&rc=PDxmOTQ6NTM8NTc0ZzhlaUBpM2hweG45cnZvOGYzODs4NEBiLzViMTUtNS0xYTMxY2B
+
+[444] /novel/player/multi_video_model/v1/
+  Keys: ['BaseResp', 'code', 'data', 'debug_info', 'log_id', 'message']
+  data.keys: ['7597461178331171893']
+  data.7597461178331171893: {"backup_url": "http://v16m.byteicdn.com/851a9434a104b21fb5a43cbf162e01c1/6987dd76/video/tos/alisg/tos-alisg-v-ea7654-sg/o4tANvXE1XInbbrpxeQEhVbF9fV1H2QQBDuBgZ/?a=645713&bti=bmQxaGwxaHJAYG1sYXNpc2tg&ch=0&cr=0&dr=3&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3076&bt=1538&cs=0&ds=3&ft=cApXJCz7ThWH1Pfc1GZmo0P&mime_type=video_mp4&qs=0&rc=OjpmOjY4NzY8NDU8Ojg7NEBpMzo0OXA5cm9vOGYzODs4NEAyYC5gXmA1NTYxLzBjM2J
+

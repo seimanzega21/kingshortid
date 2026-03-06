@@ -1,0 +1,1018 @@
+[
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770110921828",
+    "sign": "qruQ712ddO0SqBIcO0f366fk/oivPZZpsm2LZlk4HPvEDtL0zbgcVI5fKof+e4Bln83wZVaCFyqP3M1ocCJpZWLFklaUgjLEefGFMMqHofHVfak5IHKRl2PtPI0taSVthseXeNcVTxjfki7kRhH7KYp2MZnI7nlzbRSd+ohihWVheAPdeqAdeHgp6GozPAECava2GE0qoDfHg8RWsN2Wg57bUvv67VFNy0Z1cN4KzuZH8dRxpK3IZ9MnWcgnzyG/XT9Tn87UfuLDUMYTs+WKiFmpC+6fvmCI7PIm95lpgksq7q/6an12hgNv3+lFrTkz7mAEgVC6+oQimNu3J7dQLg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001268925\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770110921865",
+    "sign": "dyh9nShkWxFr3luE5Rz9f/wxhxSTW60njyYH2AhJPnbZO8N6myMmnBUTIf0XWZQaqnVOYkv0pgdQzMubBSidLtsXl6bIXAiANkAdLjQJ/iAVINLQbo6/ZVVmRn7fh9htmzcWEvJc9LkNNivzPPtmyA27f1YgdO4Dtvy9jUznoF6kHH7ZBYg2lMK/EisfntgH7UDSNT77Xkzscgx1R+N/ZbKKzZeV+2YOsiLzrhD8cZmh5g3Ryx9Mp+kOhi9ui25MM26LfmrhBz+IAPf2/JhXXIqU3HZtutxfp7VcRluLRRSOWCx5hjjaVBlA33g1YPk3GxLa4KR6vf0UJeqfC4GPQg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":16515980,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001268925\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770110921826",
+    "sign": "BGlqUwNgBLPkHF3C92jEGoqi/TiH2sO5aiu008czM7xRyDt6ri5RLZEyfZDyrmDBwkMc3GLriZm8rtWFRwPPa019ymCoSeav3RCWMuVMmy8uwHbi4HkyvvvhE/CV2OS8GwT80BI+vGPIL2cSqsd1qumqmNURBxW0xAhQhZNy83Og9dVHDArZlQecv//yEoT8GxKCqoUAK5hkMBYgIw7wp94qOxzZ+2iMGVSwjrpMDZ/Nb+H4sMrY1js2hV0cT6o+lmCZ88eXy04KW298oC0gvHrfmQEj4AX8ePRLKVV59Rhc/tPQSf9OQIlADBdCDNeV/3e7+gl9wTeuklQwm3p2bQ==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001268925\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770110922021",
+    "sign": "jQ9VNP2HxXpGeXYFvs2aGkFnHvjIXtV0RNWX0rekg2OuP6+5CIK5fTrVQVg0A5qjTQx+B0WYOwci5LhqFk0wQkiM/83DhcQvZzlKyrbshktSdnuXxZajBwrAl66Mh6ohRIPZYiHc48bjGbc9mB+j4r888YaPULWolBGrk+QtCeOd/9CaOiitO11n0mTPxGLJePRnMnJbxttG3WCeSVqBHwNGmh+oo1p6w+1S4r8D80hh1HNA+st33yY8rFzkyvgfBBuMFJ9wJir0mzJ5TNuOQ8IuxHliGgOSSEpgBhm5IljrJuu/ZEP4JiSd/igUBNghqAouorp+GDJDY9mN6ZYjnw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001268925\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770110922057",
+    "sign": "WdssZYjeVbZfYtv7pI7mn19p+Vz8ZO3/zWh5eyfsY5eUFAs9CPSX5TiRF6casgX1I9BSw9bx8Yg3pE4F6EpcnuD7ktEscM1rZeq/wnOLUvbDrJ+8E+ITcFFDODgrVflRwVsj1Hmqe2TleDuLQTuxSPoPLto/JFAyOKO1QNSymGWJcVIZP45rNAj1P5R25pmwNw3ca4Rf4I1Rwv8Hvesi6tFhf8etrDvRH0wjobXsoxZwa8StaAQn2JAV0vJ6VU2sKViQCb/Tzn+q2152X2nvkcioWv/wj3EJ4IGGVBR+Tf/9jL6EyZgr2z2b2BBwjiOQ2vIYAaRxyAGYp/tERwVMgQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"16515897\",\"chapterContentVersion\":0,\"bookId\":\"31001268925\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/foru/introduction",
+    "timestamp": "1770110949440",
+    "sign": "Ya3CpbxTwTsyIR2GaV3PG4083MDNVHKPBI7rAxGLELPkbkTMNkkZx+Ar6a39MJWeeU8rrkE+1wu0qCIoh3Qo2LJzN2J2pqvFPvBwVpMmnbQWqd4us/NFTBFj388a3UynUopWirRZwjfuUfwwky1FcKBpfT+g+S+vvDGHvI7P++pXoWv2ANfEYTf1/wMSXiB7WoUCL7pJMCcpJOGUjx7qVgKG7LTqD8SoL7m36wF/BTBF5xmuu0sL2WfQomHhKJthMjEZ1dT+OE+VssfYbLvYVaBXHEAFVUFEYbUMbRu9kFHWcksmaKWTBjdtGsf262eRSASsaMRxCYVJqCxiZ+a0jw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001268925\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770110967253",
+    "sign": "CjCPSGJHUSE9wQ9vz3iVwAMu7xo283X4VWK5n9rA/wbDy/TXF8mkvGJvUDgsAkX+caz7pYvxBrMyT9jUi7aQ4IQqqxv7iwAlOUm/uFF33CfTu1rlAv9/VuuAQnZAdIh1KvLxD11sKZ6JFzSUbQ0rbH0u9sT1Z090TTlG7w9ky/EKO2cJdI3OU1STYFC95zzMzW13tLmxSi/JXq/tDAq7WhSIYlOcSzIA0kO7jLqfR+oUpHtgQhrtO2VcCoRjE1dRSDtZaEB3MMdvuWiLLSLshoaANtIEpesKAna6T3i0ct7sJ2YxP/AGwBgUyI/NlvahQj1tH+uj4iz9jxGl+r8xSA==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"16515897\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":45084",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770110970336",
+    "sign": "bgqbssRnd4IogDUk6Ty7c7M+t+KIz1a4kVJQXpEsEe4w8n36xr0HSWOnCqmKIznWISIYfSGpNvWtmafozD3GgB2obRROsrS7JFj23UeSeVrfcT8QgzZmpP8rMH4nOAFgNDP6aFNt1fD1WO4aMpmgNlTwy5WQYFlCCo4jCiqI1QtWHdgwo0ro6khhat6JLeZNR6Jw0CKfRzx+hm0FLw2Msv+7X2towDj5LvCE88Mhjgsw8R3k9mNHxHSBqcSwosC6wr9Ijp/3DzsgOCCckJbA0Hxx4b2DTF1mjN8g3nscTg9Z6K4snUdDRg1MFX2Ba1AvRlDlKGRIsTdFuLn/Dz4qgg==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770110970526",
+    "sign": "W05qcUAXxE1R1fm0iTWfxOlugKxrcztQZGGDgiDvwMsgFrEb0YhNbHhdb/WL2ETMxYCBjwpdHqxDs0jorlxaRLgeCl6nbepsHJ6owBlwCbsi4Nlcn1SZWj4bWDCPaNhXJJBdig1j86ub/hROGOepsuZ4CMZm/omQByy5bQHr+ric2clEZEwpCb1ohpPTy9ycQGbyVL5Ubhwxir3ru0yUSmUF7S8o5zv+qjtCS8hxZ17c3xhGAjEYVhMwPsNJD8SODroQUlfHS0rtRR4IeMOELxu7u035nB8aYdAfZxcxzeHmclmjvLrtkgChAJP0Jv90k3tm3AVF6X5enttBsHhbqQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770110970350",
+    "sign": "ly1Woqz0/iJVT6/reTzvXvvOCSBoxI+vPmYFYMN3ZI36BYGcPhTGOSZQKYurjrN2uugnHfW8fJEfHBoRjIqIckV4jbfdulUKsbOxv70lsX/vCU4KSnnqbMD3xfjt7vvy8bzamHflyKWzMQdpaqyrYyIGzuD0XVuRYzxxR6kruKcvFLyoR86OT3RcwRXfAJMiXcLSeAh99Wcj/gCRuOfIy9BjualpRUti6AxdjO5Jbt3xuArWk9rKT/sEbrSI4BC71WnPUWRb56E0LzqPqZq4s9m2hcybcPZsvNVmMzn6XidIYygpi893TZJCYlK0677RCI/3GKE92goqW5o6FwWppw==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":13785226,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770110970339",
+    "sign": "st0DBT1wLnKycRdbNUgr0DOtuRTp7JY4bwDVuEmXvDBy/PcUNbzIHkkj45pvUsl6plVJMdc7pasHMR0ymPQwXrDtQmiiTcsfqkX2BGzcxragEuMuRMCKZCPJ/uDQ8DiUbifXDBqPWZRjVU689yqjDh6qPoBmyqaKrWVqkeXkOUEZSBf1QBxjEiOKVjU64+Civtvgo7Z/mcTzPPdHYlqlyO+17My1Zxsvgaz5SktNmUdBMxLIM1j1z67zKkRvrQJgjJ/ESo0SjiyXq2NHGehW89GbNcbMnSKjMteuekd5gstybODzOKMKX9vMJcDcOR9u+Ub3erFB6g2yILGH33R5Cw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770110970586",
+    "sign": "R7WipZL1V/hCHX4pxIdy0rdnOV3Ea6zrNkvSX9/Vo+MiBjPA5GEFaIP4TpOgmSOHMBhxI0oOsx19RBE0Cq8VDNyDsjTpSISszcjiQRR7YhnXAK9mj8enBhs79ZC58WOb9xH9Q2vwMOfVi4xHfKsijULWkw0Wx9HJf2xc7yYza7ELYzq/SBcFmEGTJEUKNYyzHfDYX/HG+El6EtwFCdZeVyd6YmRTi+auN4/UV0eXng2CmtRBHrmWSMAPMmiOls/t9/+pIP0oPzfHkQD1aOf2VHoyECC4ldgcktCsqcK/Tq3nnlO87Erc0OMiFnIhG4Dk1/cNAscfzk9nhf0mvU9cdw==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"13785158\",\"chapterContentVersion\":0,\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770110991608",
+    "sign": "V5OsaY6rfiRQZG6fQC2AUlkdmGjelX1wwqZgVYENUw4oLUJVA1CLSgDF7nYMQ/3z/wJtXTSrWjxZkdCRL9oUItVD9oG4DmD+aGGKRBIFiLRiE95nUDowOGkLgeo5iuE7we3MLFO3R4j/X3l9TPlrxZFk4J4KDO3Ba7VsF3FKgNwmlsbYJtK7Ja6aDl7eUq5X+RzimX56WAHGfmFKR4dbumTw1yB/3nBwINSFU1Cf5kCgsm7tC0pqclStIa8uPlvMSqtD/wvPr3BNA67XdEWHQaIL507OwLCTo/J2GLmZkK5k3L3iCQ7VbtAdAzloMW3Z7wMjllHt+tLqrim4om2RqA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770110996858",
+    "sign": "iZAH46Ky9EaGapIiUMeUrswjeQDs+ACpNMrCXfsk5YiNwVh7jYutoOoXWVYMIR5fZsewaRH4egpTMUw+/ESoAoek/uFHnwFdwzH+NrObA/HQysJqmLFCMpD17TxoAKvXrge796T5xlF7nFe981qahvDHj/8P2Ai20fBLCvz6RNOZ4khQUjgM3+EQ6FfmbwJxEUZZzoqyy/rYFreGgiZHWNBg+dlqMxapJtme4Ta6IHmEgUFKtx8Tr+FdRdB/9LwZMDpdhN30LH/fwFkFyALVUu6xouAkkJf6yusD8Tf71dIGcMAYUNQKc7JfPnCDlefpqtyjHOz+/OcdcRuzH/0W+Q==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770110997491",
+    "sign": "UQXY6JKzpPCMsWF4kt8vLUyS8xdkw0WSbqn/ax6cqBJ8yrRPQfqsJ+QaiPnO3AisI4XooOgh4wb62mGOf9KB9uSl3VsvQCcmmR6Acz4MO+9DJyTJJ6EKtlxdKc7l6JizSuAZMZ/rYkhMyEIWafYsJtMyDFRdhwGjI9Y+azk4JT55JDv9ijW9dxLn3MPD7iEVeS+xjloKp8xiLsm3yr+lZXCFT/eogHSE5YZJ0iyrxAGsU5NufJ8VA4IxzCOQTmBokvhl/pG+yikNWlhY+RT/kayo3zbSPmmAS+EaIkx7HsnRkn4gJwXmFofxqyv0UmN9EvB0mIywko0jBMjg7Ap55g==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"13785158\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":26810",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770110997504",
+    "sign": "UQSGlg7rUGjDNDaIfB5UxRTb/KIvva+i8sTjAJVErRIR74VU1fRuoKAv28qUuknG1lgqelF90TK+sfrFwR7+c+yPKhf/aSyJ1QKuVRU+380VdRlA51vuJvVLUShIzjMkDZ6sAo3ukaFef3rF07gfDLxRhTcL9jL31WBX01y8YICc54y1eunzWnpCgFkWXTDEcnbwsvy+lppfXO6yYInpEhVDyAm6Y7oz4jXOazYbdrhdNlwuyu7H+s9U3Ih0YoV8HJtzAEJxSkvXK2bhexlBJYon1+UT8cj2QMuBWfccx+wLoJd4AMP+UjxZ0nMY5ADuhkrPmYjv8O1l65sIRDdILQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"13785159\",\"chapterContentVersion\":0,\"bookId\":\"31001098385\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111039006",
+    "sign": "XF/71p5Udwk2v8EDexWlZrQmM4DS2g/s6fff1AzQ4DxpZ0duEB6Q9/tJ6OHIxbCgF7kQPMBiXwV2TK77EekXMjRHWntCwfsUOFGqJ5c81ThVsS3tlYMCqVjG+IElL81r866SEM3sjBlhAUmIbfkIjX+WTMRS+LAObDwY6DnDycqkPGAFt18s7S3axehzIvcEMeQonGgJuX2DPwfxg3FihbhGiT7wsFsRC/xxdqgpzXk4Cs6oqwNeco3as4R1PG9dd+9nqyZ0zs7Ut6cW64DA+MlBg5DTdx3IBuhai9rE7dhNRn1l15PzhC4Dro2AE05tskhGRy7SCZiE422fVAYZNA==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"13785159\",\"chapterIndex\":1,\"position\":\"player\",\"readDuration\":41486",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111046734",
+    "sign": "V6apgd1KZFBDsutUBQOKwiskd4cUliAhqBj871hgjONjPtVurbrK/Uw6dTPfyax8W+Ei+FF1TbRnO+WB7tzqktZXV83eoxRE3MB3ODCT2ivCKpLxr7t4nnJ3Rmfxhzrz0RBXoh+3Dc5RU54DMzXdnw3WTEIYm6QV/s455rv7R53hXwGjYFKI0MtCmvtDtOsJzMr6SEUrDxRVGyPUfRAntsuQ1cNEN9F6eNc0+zNyaWoDv4Zby70UrMSQO5LvoY0Ye/ybbvg7ArzKAS1mBkbPEuPBBKjMEv1ltelLC3Wo7a7GT7zlymUhDFS7IQQnKrlyLLPhXlvXT+byo7pyScomzg==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111046741",
+    "sign": "V5IUabftl8yv7svsSCFCQkubbDhg8XccsgS4SbJrZUda6OFmXLHA5GaDypqnSsf7CrJ1usRkfE2XD3LfGlMR3OGBBB6i+3CnuGYvo0jATiFhgmFVNEUluWVvgE6HdUI0cJboL3ld4MabDsTzXZt1A6GZ3FF+5+T0EVxAbSWxVHsXlsqX+dW2fCaKsNTgKQ/TAY26V0h4LlaEnkmIMwzFQfaCUlqMfJRoPjlojnK9950cfZLRRfwIvoQs3W5BUeEhjr2s0ObBI7HchRmktMkSwnmuEk3n7qJP/sm10xdxvBUpVMdcAJuivgqcQRNZVUuuTzFlj0PI98JFwIho5cCYHA==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":10732155,\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111046736",
+    "sign": "UxJmSOWJ08hePpfM3jJlmh7gY9aS6LtvWdmq065ZK7Fx7zI4lHl7eou6ImfkaBChtVqA1rftwTPLNXxmbZLM2XpI/BwMuQRnibGvpAuNsbFxpD8yDKHmSnYy7jNgfm+nR1wYejetl+zaKCUPWQbfjiKCw+dmjHwWanLCjtTV7Bp+8yAXRn+Q6CNKUnVyynrbTNuHEZ8OlgMo/CWSQ4VGh0e5I71503TtbO4VGL4LzML6JQhMBqo0jb5JShDEeIthzjYkFvwpt96dDzBw7BuEUiFTM382hzDLMry9GB5mDxDhrhGbVKzQjIZgUjUWymOpgJ3XD/osHjI64OexTtmOGw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111046738",
+    "sign": "YGP/w8VTDKJrwRO9QYWEqZyjoRU74exBZgdyTU7HpjsiNDW+atyO5OzoQMT7Ic2UNaejL2qrBb6KxTSVMthJKblOYVUaiTyoXPWyf76pLe7O9eVeJr1VWRw5AD7K4fPvn9+ZLWIsw6E6yCXGz/P/baJG0HUmru7v8BMbVxGo6BXCD1Rm6uH1ieBmloNenyN3g904FiLpQOWpJEs94kymNzlXWfMAz94XJLLuYJvN1xovf+HWc8PDeiXlA59UhQWRBkKYq0cn+0zRUIno1wRu+SiMW29DKoqrBT8AI1B+UQfdTAV2mwdIMcZ/3DLM5xSHAfHjV+XcnrxXjQyKaR3gWQ==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111047063",
+    "sign": "R/TV1ttZfBWaiLBPFrfpMBI3A9H4NZus8KcfqrzryL6oL/Xito5xUdUHmWjKS5NnHFBBWA3u44580FNS3uwsZxs7zkrKYJVqw9gX6NPyfADJV62bjvOnqAW4/4EkDESMkFoYDYjvtDD4t0oUjfW+xa/L5Wo5PKgQLcxyBIcOUWE32JJCfqCkEc6JavRRZslJQBtwmnGfQrX8qA8aSw0n1dER4DGVyA2v8vfURSpstjvRBb8kuPk1zjLio06S2t7LRuZhWe3Y5l+naWVRkQrfqI6g5LBCIQnDo1LBdGl+qAieFqEDz5tJqj2CJ7YhYWMwLgrsVJ3kSdj9sqzdryZ6Bg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111047080",
+    "sign": "eXYxh7VqXcAz55ISLNs+Z6kBth9mvx+reXAFqbZVr5OTf7UCEKkXLa2mhX0gKWNcCLn0nEjsHN2QlpPMjs5HCcwr3w3pgIARdeBoY9RjM2LlWX5IMxxo9HqUZ4MBDlCs4SjtRi7JkU826wmCtsHGjtgNIB5rNbgAlNqr9uTCrWV3HR885KHeWbCmLgyzbStDGRckhGiYw79vY24x5Mkg7Bf6uZ1B73NUvRwMHTsb2vKmJiZcZcSMT40yU5TITpqdGcYPLUqcjDlufD2HDrjP6UKJwCYqzXuwPh7EApNLdoL6EKFSIcqWfuuuMhVJnB05e/GI9/jL70Dp+r4OknmulQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111047111",
+    "sign": "CD0FGDEs6AZqXiQ/a0XDX0pu50uZk1bHo8xJjw2EhVZ3p61/Tfx+Cx8Zwci2S92q6Iyc4cL2ZHj3VjBeGM5eJl/lQP7w98M+1Nrd3lHad5Vj9NhH8y3xp8ne63xfKhflrfHmHtyAAxNupoIyT5y+YQdC6IpJbX11t/rQv1ahzt05JlEpugFOfMptKTun6oYjDxD6gi34K9JS+M111w8FKCN8HkNv3hvqttMqCqHld38oDTWccNFhb3Di628S0qUGZ0HyzNkJl6GlJ04n0Zs8/BZgxiV/r7D3SB1CII17fA0E/PcZX2AL132khKl9jwxz0krvo5cKe73iMaLuyVDKdg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111047153",
+    "sign": "Wq2vK12yHaGnQaXA0BfAaL0stPX8YcNxhVucqGwvnloqj2VowFq8xcJCkTIXKqIT7+4xE0d6t8ViqpPm/k9pHAKYBzDVYeI2EL5xrXiPq/q8Ug16Rw5h+lg0mUElSJkUHJ3WYa4qtiDDh1MlsuKVxKuvboYeSXmrFgtL5+kKb4lwlcoylQvAKfj870r9+7M9tMRHZZXooysBHJEcD4v2JB0vajR7ydWxMB5sCONB6QUwV7algPurbt3trhpryEfVQbPGrLVVDSFomOZ/8WTFRVc9oBGn0hzu0Xg3PuiCZYRpzK4yFsgcpjqbs7kkBkELDm8WnyhUAHdbaKUQn89E4A==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"10732155\",\"chapterContentVersion\":0,\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111047223",
+    "sign": "n2Vh2YST2CHINTWp4orClJ9yofeaCCrWczwKoLb8PFW+IAZ24O+XJvxwXgzNFge/8C5ecSjD6HV35MplSsNym051FRP9Qq/NIC6Cvl+i3Ad82T0L9wDK1t4VJ4kY0u2ztJWWMnFQM6Rr4oKlrx8DqSLTOlRisNOrJq6rgDtotMiNPtcwoN3YxlE8xdZQcwX4DIiLFcrigI78o/jAbyX+a4uStoabdHRhbumEamnvkXTF8LP5qZGBQLvvFkt7NtDRmJBp6DHEvvCXCrXG/+A+pfAJu0yeSxX1YOUSeBQlXj0Z8REk7ujm6xOzth+JJ0mSxOTqHLB8g3XH9QuOl3n2pQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111047240",
+    "sign": "BnLyyITCsPlbG1JB7TFJGRe+ANeUADpQy+tUQ7NgzzVAeSW9a9bXzLU21BXYzaYu3dt5guQx+7jDHPugBxOE671tvP9eRWvhjbqyNAeYPcYymkC+Q9DI/EeiVUzQ3+zPG6q3Z06DUPEJY/T0lrrmJGtxBiACUaqT5gb0q8W+RUoZwh+bAnRb47hlzGIJ0RB5PXMU1WM8g1zL5MUHasNakTn+wgjwGqkOsoOdKLJhg93A72/sRbhOx61ZoTr1zO/itc/3ZWQLdVgnOFLVauYUd0Bnl1ofk1WHSlFQqWXYxTfLtZ53vyvB3vNKsQgZQnbe9P3nyu4xY8HoI9YwWDopQA==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"10732155\",\"chapterContentVersion\":0,\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/foru/introduction",
+    "timestamp": "1770111067594",
+    "sign": "izPWKM2JW6AAOtPl3BVe4kO43izk++gdfdA5Y+DICvdLe7dMBaa4ugZ6iCFJhblyF+g72jsDzDjXuaIQiyqbg2dNK5Msyonsh4VBFwj1sg9zplpNNqdo2exb2hOB8n4logs1jQ2VfLMIFN0VICQXFoTz/JM4WsQbntXFOIE9XFvxWSM8LKsMk774vcT75kkAPIdMt48oeXpPWhX+CVseQvRoPahXZO310z4h19kOhlGO5XaOtsyUh1kVpKYUtJBXGdOBOPjMVPZukP6R7uPZ6tl+J34XrA0D9BwB+saSXVsatm79p14lC4Ya0FOElAe5qsaM/L/vJ7adX+bjwEZ1MA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000892264\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111077658",
+    "sign": "gR5SIGC2OJwj+2PcSzHIs31DfgR/gDPa/2HQmI61zVWAbm4CFgSBqv9CKpc35AXz3sSUuWnu1MEqUEYd2JeVK4qfAx3S/oggGcqe5duXSgXDgnATExoTs22Z+aLGP4IRfeHL/CQORUNeITXfzy2RxTx4BAEtyjDGYEWGwKmVd/KawB/Ngtut08fAuZvj8eFVj8imYcRguU9+dctQDykWnBn9T4wKLTy90LO8DSwR/Di4F69/heYVxw5t/iuzfg48pIj6+xvjAQldNHpI3tw3oeYAWJRRGcKeSY+60xjYs/mlWo8uac5sRJBhRSexVBHqp0dWaFBRygsZ0aKUI+E8Vw==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"10732155\",\"chapterIndex\":9,\"position\":\"player\",\"readDuration\":30050",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111083900",
+    "sign": "OyrK7zS8V6Z7TbpTDMfWz1FnJlNaaC+psFYI4ISFsKaedkBBY1dcKWvjHgg1gvMOW3pb9TNs1qXowXA/r2fuPNFwjoY3GG6SeNR2gqAAPoPdtKCB8VrjYaCfRSlQqCeL/3+JOs97aUXWjZStPJGejyqt960pYNlH7eZIP07bLcE8awzM1BjwMCLDz4ogOdr8cTvdxpMo4Vuk53yrZzIhu89GdJzOj3AoWFEWZP3Vz6ESL0WXLIvmlHuPt4e/sKoG3FpjA8TJyhqvsSUA3GOGENGhb1X7XL9vO4bVY4ml9kT6XNqnIUve1uIwhz/obSIXC8YfomSJGvZ5vd34V1h3OA==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111083900",
+    "sign": "szfQJXqQlVs2lpk2x1zgXY2f0kwyCsNByqdIKeBtcM5lKEU3xViOmAAO3HMWjwbNypb8jhgpaCTAJPGSRFGU9rLuRDBmU3xC/waMXPLxTyLyf7cppnMQQdOPG0TrnqK8BcZbsuyLE7oRae5U4EDg7NznrT2XXbBqGYW3gRmmOk/CIsMuG0lKc+fvRV4sXYbMsq6re8Wa/h5ti4HrPp25sUmXRIODedADHJEcvjxIM/8QnRQIcS/xCSxuWuc8HYzs4ndRCoFuDjW8Whvz+O9keVbOVGZyXDTtdbUbuJJekzuGKpKdj1kSsUReyquNK/a4NWf2ZWSZ9/38T8UQw/Z27Q==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111083905",
+    "sign": "es93ppmiVGdMd6SitGT2/exKrNQClsbMsBwBYM6pYH6RZ3Mo+2K9V+2rQCWvNE3kGgVd7Oq5v11ejuUH3uClIhwlq1pPa+QS55BezYPJcT5MmqCRQa+gMjtW+VNsD2V2W76pq5H9rwyHBV5J7mZtHqG/2WSaVFwcOv/z3u4p2fBiojAKLpt0DXugy14+dpk3fjq90BcGJzDMG4U3cubpOdcoIG6N9Kwfb5pig1eU0stjwIZ++/ykYiHYRITHAlNNaMXZ4KxJxOXOJZUQhqJn5fMACq0AWdEEE3VJGKwo8Et1UTVB9JyTdv+ByRcj+5BUkIJ0CIeYx045DJEnuuV2Og==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111083903",
+    "sign": "MZNRIm/dJboma8OVJnT769ySOZLQ+lyVPM5g+l4OwoQYz2/Gxztnsdg0gSs0fzq8qcKWO7wLoB6PLdmChzNdSV0qtTlWHt/13KrHyap7/PuIvOEsUldcxo+h5TqZNYZx9/iIjFcCSYa3sDl3F8GBydFNvmYkwL6s+a6QfcOfZywIc+aAlfB3Cqj9WHmGnb4dgs9PatOAFqK+f66Wtz6Qv2gBpG39u2kYcfTJpw8NwQFC4ugOgVK0kvpWKpL0p43vuHM8pTMiL8voVTiDC9ZnZQmwCudicExAECMZsk1STa2BzplzdALk1vL4wcTsCT8JDQJ+3yTOnWVKpMoHd6J0bw==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111084261",
+    "sign": "h9U4mIegYHvEVuw2nV84YdlD8dsQe9cFAAtv3UQUqBDLX5eQHMq+nzqExw/qfICB3bptVtqsT2PW1rgMtZYr94Atr2qt1F7ustZpaTM/tF3Od4im4trep+sqlKYY2ITJjV6r8e499zTMKPKU9+nS+8j2zJNdyqtlxY4GNbwgDmTx6SMZgIqsPib2zoKZKXxsjj9gyQ7b5+QLd2zQ7NeXDyofJnCQ9OMX49O5u2udcfqn8UUQwz64h1WFpUZrNnjrovlbKFERmm2x+LOj01Pk8k+oL85ekKWbFp+YEWD47Y4VdaCZzqV6qPUT3moRwp6W10iBfCzvhNNzYhdCyzWG+g==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111084261",
+    "sign": "inXhFme+pNfQe14Nbt2bFQdmcyP2qqJsEDK/H83osYQxgL3W2EEC+dN3UqL3PEyK4dgUYWWt9xwSgPC6iOyPmfoe+Gi+8YDAemtTFr8rDZatOgzlHxa2MF/Wj6CzmTLm8ATaLziHA7tcZ8vZSELLacYNx8X/q5A4xYUZy0Q+cAwTdy1j+hFSmbtvIHCY7i0bLT7wnJgS2SB5zBMQ2Ai+xVtHqylBuz2+HWJe8Bfd+n9RgohV8mDf8YCjO+C7c1WDFWkM9mQY0pYc9RlWIaMN2RzgON/ioS4DcMFB72hV+I2ISiZRc1XMbiHP00YK7kSwSN3v3693ZoSMKQtFDUg3Kg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111084295",
+    "sign": "vDJ2GQjOALi4lDAMNskI4vQ+PY1zIKV8IQyTwBHZmKDmklMwnenLATvr71Vi4h49g4L/1Aj21RbDfw2462SNruC3AC5p3nyOaDh5cHg56k5SEE9/pOERqD7DhdV2EjZRe6G6x4cd4qNOpv0CjkpvRw8xN6BQ5GY9rr1qyLCWIYKjPou+hE1f5Ue/W+Fm++Mfql9Pk2MfOJgm676UY83Xi/1ChoMUVeLqGoKveWXCiDyPrkGCsnbRU1zcSQ0CcppIFoH5V6WlBy9sZqYHlAQGcY/7U/mg+pKzNUz8K+llaQKexjWc8q50kreDrhyQUeAlpXzyLK2n0HYU/RwrjeK9og==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/load",
+    "timestamp": "1770111084308",
+    "sign": "CjkebvKmIyoD+FhJbL4YwCIyPKEn6BItGfPX9fdybXsZkiv+XGBzS/tsqIIsboOlDQgBt6qhTZjbhH3mdYPYZVJWHAek629OdLJDyVt0c2/pDY5i53q8LKw20jld87bTdfqGMYEA2DuArimBLraw3LBNAg2Ck/bSZgkqc2vOWtKOYKkQD4ymjCjqJxhHPuGouy5d3Ww3M02uvi8pLJUEKuL89W4PJbWnVnQw2hUJ49fMzn7jVRhLRZe6u82kAhXuybrdTKmTTmR8hbTM4LlCQDKSr55uQNr+iz07QBSPEqAZInj9o4GbQensN9kPjRc8SteF6m89bW/ZTwI4u5L0mw==",
+    "sign_length": 344,
+    "post_data": "{\"autoPay\":true,\"offset\":1,\"source\":\"{\\\"origin\\\":\\\"sc\\\",\\\"channel_id\\\":\\\"-1\\\",\\\"channel_name\\\":\\\"Tre",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111084318",
+    "sign": "AWhDgOFFJVr0BpPq2bOa0T396CROcaoc3BlnSiBXH2vg+O2fBG3mu9PAN4vOMNcACaTEZgUk5aXWAVdXpTyBNdHGcvmWhrsiN8bbsP1daYAp9bzIAaKifUdnoHpqxSVEEnVbH2ITClFQ7voqHtsPE/gH7y7gAUL/XAkNquXjf28nKQ57m/nVxshZmF07GZPkKDYZ41jlWrWItAKJ0oeqUcz8sMBftP4JquoqiydSeHe/gRhU/nKCL6AkQ1oCuEAd/MLx5ueirVeUX1wqoVupvmG9E7FY9eupMH4qD6MJ29PLxkJYyaHY0DTlUkXuPKQ3o0DPWJL2UJAFzaUoa+2Ufg==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"13992143\",\"chapterContentVersion\":0,\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/foru/introduction",
+    "timestamp": "1770111108020",
+    "sign": "GG/L0UTJmUrKXH4Mk7YVG9DAtryYLMDPVfZBAlFO4bdph6CW4U6OI8jhnFsI2MJDU/q+/tFEOZbsSRNcDIfSw+JfrG/nERwy6nKNtjUMFjgn6udL/RsqpsdBP1zzAYTNUQ+96F6kYhDjRUlliaD2mGbsFesZe0G7stbJ/mHZSo7n9EL/tJwYb/wS2q4H4T9ZXHQt7ysvLfayUeDOBwSF9em1DBXG6zjSBX5lZYzAr/3PVGXejPJbTHcg6IDY6KNHZoHqi4jpi205/5kszlO2q84l084FuA771UWCVv2hAAmkL2k9f0taplT1vdu+fjg0KuAo0Thu6mc+3rLe1h9yjw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001112176\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111119395",
+    "sign": "gLaFvI9EhtGbn5RF4bPXbAm43R/nxfKjbRGAXVg3Mq7eN+MjmiXyw9EydZ6WEFC9kSnkAiLFT3wH/J2w5WA45C8yqQdNLMHuxeSIOpeoKnNUS/s0nLjdOz4o2nHIdcMk6gjWI1uup9gqQRD8f3lsxSwji74w2iO2i+OK51vmpbgLn0X+sOOxNLqPHBL0VANTLsyRqjBEmdz37X9gDUmvv+LaEREfCBHjGoPHf7C1uZ2vqEBgjrphjjNuUPmdfOuxsFbzCnITnyxevQf2tldUjt2ENvLRMkGSvb6ZGWoa01DJzBCE9SUhRz4aaR0d+TzRv+1cidefYZ0qCpBnSnSZUg==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"13992143\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":34652",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111122713",
+    "sign": "QBU/roejkb+72AGC8x4iGb1L2MVbKH6BfkbBtEVcsWnZCbnuVnJq2K+g766pxlLz3iBPRUFgC9VLShchBYNHEm8W2NKimLITrGgpBafX+KpgxchuD2lNnp8AK8D72JrE+VMxTEcNAM7iOmGQ2i+136LgqbY7lULDsOZwlf8lkep+Jgl5RfZ0hQXL6RbysNIrO/eYcASa2UeOvZ56R1B26Pbtf/VGvb01X2R+x+pPVeGi0fr7EScPdc5WM7SSMI9dj0Jn+JG4nzVnk4ut/fQZbQeAcdUO1R28fnLK5Z0zG06M4jzg4/NrmhUoGHTHDmFn7kz16rXjB4d227Hks9JOTQ==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001020197\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111122714",
+    "sign": "hf9HkxLHcouzxaZKxXMDrn/ozbLVNjYMqKA6J0fq3btnYRos5ZqCJ3owB4slvETNOlERcS1VgZM1yNYw3IaAz42C5WWWLyQC+vYQaYU5p5P4Fe8sTNVEDZxoHQau2VX/fb5pyErZLHCEe3yL0a36C33sqCMkyFZt4er5ACawan1/JZNuiq4Yf4thubmA50QZWTFCoFeLGGnahFy/JVuGNffaosW3/gsxipQe9Ff6LOQTv0YqDVjb6uZMEnG+zWsNEVRpNLMYyUGHAVH/gFD1q0Ad9anNqXldwH/sC9YJ1OjIfPwlpffBZn54i0Naiy2s4KEaem6w3jvk76ItHksAzw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001020197\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111122737",
+    "sign": "b7EdDPpIXrQK4lfhSLvW+NhreUdp2Eja+Drv+HKPvUQ0Tt4Zbtto9mlOFX0zBdMu/S9I8QsMNTWTwwSLBbSQJxtW4KMb90nJFvEKx6X7d52pTWZRnHi/9pdU+eItO0uOEC7A8NVVAAEI9I/DDgCiBH+L+qML9Annm3pAUfdgC7uXrx3yOUwGe1ltJO7uLPEjF7NnuF+3RB7LyvynKCFVkPwtHx7UyUFY0T20o+iiIIAcv94EHH9tbOS7EXjxSO/efYWatXSXcCBU9e0W+873kOfKeE0h/ZqVhmbfrlHH5ufvxZ/XE1TQAJCEC6eUgCA+KqO7OfXwdIafcFwa75JNkQ==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":12672210,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001020197\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111123084",
+    "sign": "kiEMwPIXW51+wWYQ/MzixJG/v7tWb6iYQEajH/1LqySFqmI7u3Nl+mSJoH6FLmgRfPnszSEhu2kJ+zYuM0JcmHkqcqnvq5rp2E0qU8VmM35x/D3hWGkIPsVZI3x7BwpkbVTu2TDmsKBjaMgY3a6VcQIkq5mn4YZFKP/l41NcXrDI6A7Ktxt+b9Sq3/3oECXWq/kZPv7GaE+ljH6ffyIceqanOYmF1HTa++Bg1qEH6cMvwYHrIprvGbzeomm0p3Q4YpcJ8wH+z6e3bCgJ4hF8EKq0hTK+Yg2lcnz1t7K6O/V0Yl8YUnIl2K+KoHPDOszYBjm4sfrBM4sEstDv4JFLeg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001020197\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111123103",
+    "sign": "SjnUXLMeIiH9LBChKp+GbNMv/l1rPeOO/jMX7Fn6oYLscztEdYqLbbIMzL37OgMrnQrCN1T/dBxLKU9ATCYTbPQxYpolGVUu7W8s1zcDDJNnICDKIIbAKZSssjStZqDI1preNFxfUaqEziB3vG69bVmhNLTdRz/kY2598dV35HGHo4M3kLMJgOls5csmdy/Gtsb/3y7viVECxsuM+ByWe/WxIPlxAS+fg2cR/rR1r/zi0b4u+iZuMsacFhwZb7nkdXSDQuhsbRNbyThca6dZIhOiK/6eCt2BMM1r0FUTRs6C2PzZrFoThfYB6mhl7/cadx11wAyoI5PZD0UxpCs75Q==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"12672134\",\"chapterContentVersion\":0,\"bookId\":\"31001020197\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111178104",
+    "sign": "pzbp/uFdc3HpH4TsOtigKLMZ3n3KURWElwyKl+Rssi0MdKGroY9he2kKD8WGq4i6Bb0usYTKWwMJQjP8iSEbKlmA/NZNyoXC88UQh6GEjiSa8gKj4DaoUvC5DhbRoSeGH+5eAADUfXUEooZgaEW82nz4jrcZykODtbPfqbYDewmganMpyMQXpCPFUtpyLYvyWCp+9N0fUn6rhdMuGoVsj43mQgF8WSbuUSJgefmhyJYS1PJtNvC1r8hI+kkBI71N/SZNWdUV4JHJmuSBdsl4vFqE7D4jy2oTWdM21CYGgogogwRrNrhLUSsqSPpkwkBJ5e0TQoLrO//f3e79m0kUqw==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"12672134\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":54389",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111180266",
+    "sign": "MT5VZ4vUZyXI3+SrCz9xxspI1dsXToYjpAYJPmz7/Az39IMJmg9ZefexZwAgAGI3Flrqv4Q9WhuwD+Cw/EXSIEEFs7nMAs8IWxRMCLlZu32+AzWxMCJZAz8Iv7EkHkAxPLBrvypUp9U8Oyyqx97je0SSMvFE6GHbt9ck0tx+MeaiQsWOPkrfc6t8HLrpByBcX2zxouIf3J/HLZJlTeb6A331ume9idQxV7K0nLUet5OFvszDp5hFOdeyo1x3SCimsGeLbg7gZbbjpM4EiWEztbsDVs/MdXqgkKGoq3NP08W5n94xTmDA/UIuHwb8k8UaydWssH/Xhr/hto7Xy4il+Q==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111180266",
+    "sign": "iOJV00DlGPBr/sJD5K+24bPmtTBCJWQRFGYANqsb0v8/MAEQiyXQoUxJnfFF8kp+1K5Iuy9OnixTB/Iu/mvkmJeUE8C2h4Tlqf1NfcT4I5ueE9wVKQMBaSUH6/60yZa1pq7g+CbwSFBRA4esyGcZ0ed8v6b19I0i9u1/7xj3HAJ+EK/0tnayOKYKPf3okMpjl4rPmTCd3en94z7bsrpVNM0II4K97aV5eqGb8c/+vV1pV72moly52fyaXOCWOa/vNz+C1Dy68NqlSBEOxe3k4WLxJXr0Jg8mMj5vjnknGveFd0U/PRFSwmKwTPEpuFexrwljhtbfFkQDxhHzecbs7w==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111180278",
+    "sign": "VhVMYyWmO0iWQfpqAU4xa7qCZ/X7ZmVpUXyjIeTJYYnPTyMk8xCI8hozyD/riuBskq+jwF2zooSgBmQE/ksaIq1jZutjK/sbKK2kjBFNmc1kzpNfbjvvjY6ZOr3DnWj09tUFlFbAGPIn4l4/B6ICzLKmVcSnd+NgTc2zKlCiQTDlIzdaCo328BKz1sqbmSJFMoKVIZv5PllOYFJB3tga5Tu7Y2aYfWhnd0x9x0vZM4FqBrT1JEizOBnv6zw/9W06s2c+s+0NBkySPholmgf6FpyUBd6sAUigmnt2fv5f3AtrsYl+98I7iMohBntWu8mizrEdNGFE/2wnHWHRJf5NgA==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111180270",
+    "sign": "Cw8yswmtmxRNmUW/lVMeOm3ur05+Y4v9B1k9BgmsVtKBrjOVZcTKpG14pp3vkyvi2ie2DGJS8GPaqNBSXZjPLDk4a/pgbpqorug+zcoIfmpVoEKbUdR7L0sdD55+G+tsGQ0SIO+dlwujZWeML6km5pU0Y5OKKrPGtF2bEKqU1jYhmrFKxb/2LUP9fRJ9tk1y5LTLyiluJ+CViZ4tg+FQUW7LxrsEFd3qZl8CasOsz5FOx51YKYVq59sEYsaaBm1RgzgsWApR64cLuf/aN1lvy8D6QUfR0ffhaePdqdAmQanzceLGAXVY35DLd1Cbrp3hFfWZoP/kI89zMPSDEb/VrQ==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111180528",
+    "sign": "tPg3GC3QZjd1F21SaVZQ96X33O+hWqNl332gBczLDvj8Guem2Z0dOK8HFZ4saW55fdQMxDuqSnrQEaLzkoXxmQ6R8Ytqp+FtSR6LNNcjYmfeATpnEpd+x+23sdyUcoUs2BLDilEwqxfAe6XYXNxhXkh8q0Y2nruxu2XthEXD2GaOSH3PoXTIrY279bkigKGxxkN8plrJcTbWhCJvmNwAX7XMR9KzjpPucdeUJXMmgkSF/6l95OBkv/TzdoZO5H6CArWd64SnoTEzIKvsx7VkI5ax2jtnN1iR1WhfLXXrRBoFb4NrVfBc85zWv3CT6+WXA7vWU4ojSX77ry+z3RLSHA==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111180539",
+    "sign": "wJihr5iB9mcG6UqeAfywlllr/22OKqHM4MkHg/Davxe8IwFFdQqOPXKOD4BGtNBG5J41Q/gKjsdewr/8s2S4axhOsX21wWVbuzkczVF0s+P9RPLwuPTESfecdUr/0YLGXauyeUH6wkx6ztJmPFF6JRLnj1aOqIqVhdcOocobdg+qkH9PHp5SMMasDXCRP+koUFrGs1j9tWlANgRvAmfD6GV9V3YqyQqxoK/p8ni1beRvtaYdtTALMswYLKs0pxYx2fx6yRkilsl3UHkGEsYWHC5/WerPUcjIZp7MMLpm12a0hQvsoW4r4t92PaHIke6db4AcbxYwoD3hFD1bpglu5w==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111180555",
+    "sign": "wegJX4Zip0WM+EQu84iAUGwAsZ74irM5tqUHCb841/oJqMRtWGXB4Bw0GYJGvFtu6pI5o5jv6nWp/3tdmEShxsYgYkOwyZ8wD1bePAXl61I3wG1iWDVueJdluz3Y88a5mFfNGU9XIOQL59b/F67BwEIsa1ObdzHBEb8XDjzXZLQyEsDApBngLAnHjQyDyp3+G/YA6uE09QMw/U5h/Cb6kCefw0ocNFdXkQVll3WEQsB+3KLxBlxZvBk/JGrGZZg9a+Gqa9U2VL9sF889MlFZ/VnuTbcOuV9dMGDPDg7SgjsOajMvrRiYVX80lYN5aKIGj8fF65amHYm+CDxqJM77ZQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/load",
+    "timestamp": "1770111180577",
+    "sign": "MeerfDXRXfQrIAoaEwAx1SuU/KlELbVUUtHZLXUcBoMHn/UcjJ78RGjpOIsBGvT0qOZVlNc2BvfU4lJ4hw+gpqS0HSuSid1LTgMqrezSCy0G6EjtcZOMNJ7SHZzszvCxB2kFnWZ6GbvwVwi33pMEpyIBgV4xnxihOmSEC2zmYOTeGRS9aUIFWu9ezEmEiaLAU/NA8yXKfjkDhW/t9eGPdwM6DKk4Qzma5891q6ktLz/2zDgOw0T9+be5UtA5uBc1f8au1tO5+hcPJRp7JGXwN8dLTP+YUIFntDXTOXJUVWlw89oX/0jIBOuITMSBexadBPSv3U9L8ZsX5KXFEcCClw==",
+    "sign_length": 344,
+    "post_data": "{\"autoPay\":true,\"offset\":1,\"source\":\"{\\\"origin\\\":\\\"sc\\\",\\\"channel_id\\\":\\\"-1\\\",\\\"channel_name\\\":\\\"Tre",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111180614",
+    "sign": "Ctix1dExj8nZse9K7yoOzU2dy8VRggI8OklYBF+CoFDIJN5CgFLXdzleg8ro1cnhcBu9QsXZDQ4pyXOTCTfTueMMgVwxDRv2cH4T0QT2B6mhGA9o3Xt+talcpZsPm+pUB83Rw0r1qmGDozbCNXfeD5nVcuSYuqa0IXtn2KcaOhS8inFK5hY75l2qjcVjxRit+qQopga1tn0KUVShePY3njaOeU+O8jAaFmd52CA+jLLTTce5TktfD7LgvvNzMVzt0nC9oaZ9IHq44HT3OBqut4Bd0ZxkAdQAAz+7uovL7phtDyQO47fbeu8Q+jh83ZKXcYi+OjN9hIC3y+uXHTSSfA==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"14446583\",\"chapterContentVersion\":0,\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111228711",
+    "sign": "dIimMf/N0wo/me7+03PeTHROIhcQQJ8CqbsPnWrZ9eqxoDVTuMc688OTdVXwbxElKm2pQvibKvbMPCFIsba9aGFCKoZ0TrOYrcYJVMNOOlRPdtUOEHJ9EryyuuCyx0jhUtqMnkrb1rlZ34AQ7E1TC1arwhaXDZXiaur7tX+KYxwffkSDIIQ0+LijHbyv5mlsy++OO9DcJGBO/Bc4uwayvOmVz7W+5KU0QQvm1Xtfxfji20JbFFC4Fs1jbGpwTGHL+/a3qYokLLzOXysGvQ6CnXI9LWTkzwwBZWpyKMXXIOzzIKLKRYBI+GOX5wjG6xwYKToztDixPui2aZxSn2DGCQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"14446584\",\"chapterContentVersion\":0,\"bookId\":\"31001140594\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111228697",
+    "sign": "uNUPcOU6QXRMCwWw+Jz/Do8NROHi6tRNjGhuld5f368NkWjQylT6RLDztvAS21BrMoTLQk/+BpukToyZh22RI9D8C4NAPU84Dky2f0AAXeKnHDJf8JiEr2U3rSVDwCWPQErlNgCzSXv2kiuWTWQSL+vOq9LHi9nBJlP5SZr+9anMhaatzozhbICeild7a5EM9liv7NWWTKGlUEBNiqeUHt9PYaFEh1gzIK9WOAIKa5KOv3XxYwNIu9w7WcRWPGeqTpjoT/fWxRli3TBqdxrYHlghLjbq8uxZAKWIX4gW2aCWRX/CcIWEBRhneUgPWYvwB1QgDzs7qrfUxVNV33ZVMQ==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"14446583\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":42192",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111247336",
+    "sign": "VmosF6CAXXKm9dIyaG37sMannpTfEJFoucaBRS3yGVd/KfBNqGci5FYn6nAYJ4XSWY6cll0QB43dodj0fWlQQIsGtVOpMdQjsxVemCVdK+/JuN1EktKkfbmK2CIV+KoK3l4WXENmxD/OZ40bD0Jg2fwU/XXJlXbWmKe5AjLU6RhjzUA44qAWcsnOT7hG1MVUl5tyhkTAjijctmr+OUeH4lRAhBbbMt52X5Wp2DeWnLKsDup2Jye9n1+2gIG0efJN0Gaib1wjx15AwMZuTmsHkriUrAWUiaBV2KGxmPAQ8ZVO8nEG7ga7dpvmAYH52TafG7xgalUEQN3So13BX2x49w==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"14446584\",\"chapterIndex\":1,\"position\":\"player\",\"readDuration\":17018",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111249615",
+    "sign": "jdvoybDeTvuAsQgzkgTOzdBT8AAgCpi7Fa/CLU02mq2oRBJBVNN5qub5CeZhl/ChV8LtFYsewCOndIk86UxIPsrLStOExlNeytTij8VwXlWuSFh3/7myY5MpTD8QH7XlC0VgxvV7Q6Pz/loYKDQwL4td2pMqpMR/TgDJEJNi5dMlfjV1TvMMMJYbLpKJToTFAha44eSPcus0JEoODiM4sG1sBxqgZ7KwsgJWklmQYZumIYpUVYf+ntItAG5hYgflEWUCIrKIyHK99IzLEA1KDCBlZVsRZPLX04ilx6F5toxLpQ3E6d0x8I4x10gThRIH56uV+g9Db/tMiRcb0+cqIg==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111249617",
+    "sign": "YUQgRsXTJkEYvgJgskgsNYURE3+uSyHJV6EN4BsbsCB2gGcM/XSs+efyYADiRdsOJeLnzHTPjTGaYIoWIPJFMkNjNprd0aCL3lYqy7JuX9ZiDJKyzX3m5xOGRRZr66RcDD2jBZ22EsKXRdVJbhZAtpx9vlNJEQFIzy7kDUxPl7LNBzn7v9dtzZyGk6g6U0qM+f484k4zAB2obHJGj9mM0sEz7jmD0FWhw8TRtu7Uv69MJx6fgUTAGmvsJpbqIBmJwlyxaqN+1MMbXz9KDiiXZmijPKb74ZeRVrheMI4ySjHjQQMJ9/awO8E44WHmt7V2b66ldMDkWH70zAYJ0eGxow==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111249615",
+    "sign": "ZqeQpTu5iqBs11l+kwLfu5zSFdyauYxDavcpJ1vSqZ1cnIpycHhqjYdJD9K9h6w6D9B6t+eyNbKc1gYihK36jj2SQvYL+Xd+evWF6Qbagt5tLvAvJVdx1OFRJ1uoKxcZrRy9S1R57CwpkMKJNLcPjwmcrXI/B+mSNapRYeDf4KJQ54aofK0PmfG5Fxw8JES4dOLwX/o/esN8tcvQCl2eVUJqNd905BwThBXl2PyFd3vxmZti0bAM0hnYN9qgD2AycbuSdFKvA/Opt9G510Vh8oPSSM73AA9aY2MqzgDe/MLIaGxLJlBzgDkaKuAouwoIfEXBtAYr/ReJx1C4v77WHA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111249617",
+    "sign": "ed0QX4tROS60F+NUUERa5fi5IDxs901MSZY8DC6gyVp5HatdYkwhO9oNLRlrleMHAlHEMPoXIxxlSPtLOQ8QKOwxr2LeYTgu8DLbCXY7+4APSspI2t29Q6vQMZghpLxq9gDNxD/raHjnP3kCbm+j25y+0AN8zGoI/JwIawdkQnhr/1sOt0WJca8rh/HX35q0jlYLwuLWFMCEMra2+ZrRAkZm3dXU+qDWD8AymHaI6ULqP7H0k8eBb2txljGgolU/tLMSLWPYH0WRW8bgGaPnY8Gh1WRP42zH1fbgttKGkHdmMOigRmDUBBol6i0kBwwFNfysaREatt+FqvsLcQ1a0w==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111249855",
+    "sign": "eiXR/uzZZZasnIZXpUSVlF4FNe6lJ08gkD4uxk5UvQFBIPfmbfxrfKg1RfUtNBHxA2TW5Q64/fPdH5L5P47B1/iur0CC4gUnyUHZgKl/XVVB0n2w+8ummRW5UDwjPJDpNIbZ5fUjs/SjUtcmC5LH4/E69TYSoe+/BQ0OabXaaR/oMFyz0she3bJppxFLRjhPHlOymVTpLO0aNK6RlwT+e5tDIdhwPXRj5rk1ZaxmxDztduZ/VHj1X5pDaHhx3G1AmwkHE8wnsiRDSxGZuM70om3+0l1D+wE+A6zdDP6GfBWdrCpLQRsm5B+bAXeiHMsQ4QAIUX4pIBWEdI1an5iWGA==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111249871",
+    "sign": "DDT023B+op+QOmjMRhuBNtkhWWzisiqfTxYD21lq8EsXENEgwUU6YyREt7Erxf/aLEvGe4QbSC6+YiyURaf3Lw9Ys5+Qd7CfqZWF0XPYQsoHyokW14rGxmU6Ug90TMHgcGdBaApFI9/YRm5QHfO1pOsT+kRdCD/Y1pR0ZHhsQLyR1rsTe41U2qWFt4rrYRlu4OlKm+OGSyedBRak9UEs+UdaihNFaO1nClA2jVU5cMtT/KRpcoa1i7YITWTA9U3Bh25xE6tosmi2SbGMsxf3YhD6SiKou/M9qjzjYN3VjvqzUyOF4Dw/4cG/a/QevXlQJ4zLdi7Cs+yg3Aii4FsiFQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111249928",
+    "sign": "ojFckqsOZ8BhPfG0+LVFpts2qB8ASCrbEwxuCol2QLHD2YUuR8w6YomYb+ICvab7LooMOae2aAwFPejdvpjklPlDMMIGB1+XtoBXt3ECz0mi1BfBWlsE7Esx1DdpccN1hACo8rcY5IZwXqWckUrjiuePcw6qd5w7Vl5fVVm2xRhCDgpa1cTvY1tPUrRKKMP/YJnd424Tt1S7O5xv2AsRyN2KTnVfs7UKghDHK2Qe1DYUYbtrOSIDoEWSxrKXXVA6nvynF+nq6uTKQGOR5q48X9sFFyiNPsqOdBpdVSAxBWINafTII3b/FhXd44MSSkvNelsOclkEOl8Mn6xuiTvFXg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/load",
+    "timestamp": "1770111249973",
+    "sign": "wO7bu/55+zEudJZZUjTxpQx/gkac2fXchlvBkSOPkb9r+3F5k3RqE7cy8jbAhXVf1SzxBmzlDlrCrdDAElvgAFow9Q9oxT4r2umncSZr2KFnmFnsM33+1HHL8A10iO0+hkKPofpa7EmqV0Af1gnQcTZTU8NKudih173IRyyrjM3KPdqzn/AOwBNDu03jJYgzKOSpbg00sM2n4eXrbxEtorVm0wAj7budEnYLpdHQJ1elfj4sKapktmkfeDOkoeIhuGsqZW+QFYj+Log5KUAq7lmYoXO5ruyi9G74akiTVXfOoizIZX4CQqhY886Bp4LzxKcB2DeE3KPOjL42q9CTMg==",
+    "sign_length": 344,
+    "post_data": "{\"autoPay\":true,\"offset\":1,\"source\":\"{\\\"origin\\\":\\\"sc\\\",\\\"channel_id\\\":\\\"-1\\\",\\\"channel_name\\\":\\\"Tre",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111249970",
+    "sign": "ae+U3Z72nyFOagPLOyQRba+Noge4umgsOplzuLhs9N0RlaqW0UMBZNwMKQqV4o6wKbKb56uPvHmUSBtvZZ8fpv+yu7IsJoaPy/BbfBkgO2IbFsxexv1vryB4rgXdrovb3sHUnA11q+2z0ZEfJn5sIjzGxxaqVYJ9eV/wsjp/R90d6a39R73hIf8FwAYAOstfxHSSAGEkhsw9FCiRfYedqhzOSxDQzO0NpFjwcH6VhuH+ELlKcZ8vDg9H/WHRPPVzXa2WQp27Fu2TUIUcBQjKJ0hoLoCFPQ9wIiFEqtZ52VKIPk+3O4AWCHfPHUBTuUfIVDRQzGW9Wf7hvGFESxbvmw==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"12997054\",\"chapterContentVersion\":0,\"bookId\":\"31001046389\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111290511",
+    "sign": "s0zcBWuA52kK624AYO/fAyfzoAYfbIBgDajLnjbqHXSRQgb89FWdWiWBcOMbei5XP4D60G15do0VRwz/USyq+bp4QAx980CNDdHH5T8gtNX3A4qrFwXM0pDTK/tFO5auf4Uot5eb9WmIl2o6Jr0c2tT+RpbMLfZNGDXkDTe8UwIOFG1BylRvyBox7aO6UkNqRA5jhwfwwis/4gvixgz+aDzJJ1epMVect2QkwE+43I2FuSEZtN8alJO6kp8iN4c/PEhfc7DPA41VOY0aWgrFjY9tf5E6d7+RV74QArfn1S4Y07qsCZXe8q1S9Rzq0e86oN8tb4s3+1unjS4JMSj84A==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"12997054\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":40234",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111297893",
+    "sign": "LuU241vpaVwAShAqbpxjQhrbOVdscjaAqd4xfFiniDuqwi8VMV3xCWJnnsL9yrtV84EIUqzEbAajc/DsINkzN/dahcD3yha2IN4bin2v6XqEeSLqyi5UsgFiPtcHPdjPzY3FD9ZU6MOvPcZx181zPPF0XHIwo3UZuw4GncJ3A9hwfk36KgUN6U3VlfEbxDvYath94o3ltiyiizFlkzY4OW9scPfRIJZpTvxLIEks+1NxY2n1JUe81g0dzLN6fCae+oJGUgZU7a5mTVuAiJxKqoGzZjnpzo1lXVPQaqlM8FnBCNvjOEmSRQ4yc1auy4XTt2udBvMo+aPB4BZrMk6DtQ==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111297892",
+    "sign": "cbRHrKgzC8haHHM4sI3GNsdMgNC5nz5+d4KmobaIqkIGnqRRAWwDIWJCTGCvb5T1uz0ioct0beklqtjxPTI/9Z/Pqszz9EPk9eSo7TvykJpD8lT42PVCa4OuilNvKAObQPAi7wCfaqYGFL9LRIJyQ16Yjv7RSmD9Z5qMm46RL00IN1/KIopNJ5M61Cu4BbvmffdDfnmYw/fHfzMAKbWJ0TFK+ycv7YywUgoRuZGMZwGNC9fGBJHud703i4RDixIGgJtV04EKy8IPuaH3ztIYoc681jrsYqEXkqja0qBN18kBlgp8Hb5Uhmv3Rp/ktHJqcjzYOs33xx0hrEeY2yUXxQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111297892",
+    "sign": "izyY92isqeMxAJgQiuVOSr4LjAMiM8RxBo6ZM3+HByoANPv+4XSPnoKUwIgqoyJw/FDMuJ3GtB6hkMoWcfJQBadq2n2fPL/FscRBw58ufvVlKzFTN/XlSLHrQnDVlFKh3A69H75RSOHH6xB8Tuq/YGki0+W+TQB2x+pFzEY89XXrY/YzFYVo/vQvfvGNJsD4v22kcZVqz/WcYrNVHl/GB8tTGp6i0AIirmxONUSl4NOfxsDmnvbppwvcjYGgqZyZ1J8dJmBWiimuvUG4e94m2eK1LJK4WE0k4GS57F0O6rqTlwBf4HWKGDjvU6Md7nXFwWPliHS0jAi1whaMqYxUDA==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111297896",
+    "sign": "but/iW78yB11tU39f2tUDlwUFf594ZlhCnsoPNkBM4JK7F2SheTcCLpa14ZP1LC+s2wlaB6/qIUmQSU7kztc8Q+7NprzaWElecYnuLNuS55XDvCMYkITuabhRkbIQQmsWOPPxbOBuWLXRP2XFAF2MT/MVlBxqbMntBOBBcVlWThvnVoXRw3eo6nnfBdb+VxnS1BNh36I4XQtHtugj0cczSR9Fq1gew3xcle92cDCDvcaL50BdXeLlKrZN2a0u4xK3HlFlWWJcZ/lpH1Vu/INLs/c5vNfTLz9t7cXpO7+0HtcBfgEhiN1q9hglLUTdr63Av/pxyQKo+JPbN32HtkrhQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111298072",
+    "sign": "DzbV1WpxHRMZe/I6pbTh/n1EGiERdH3RnR4ecKvhpLnrc1mPhugMoTO7k9wLkAFJJRB6Q8GJ5icI+KFbpNnD7kb7dXm0m163gMkknfCRTXXLnRjGZYrkNswAz9A5EBAiowd5Hz3sNGnIDzowfMYUpSodKAzX113O9gERT8nizeLyLKVUhG11ldOrbI/mvet/lSdqbDNALDb/dJPXdETzVuGPqqX0MTMK1RMTt+IReHF+LZZ/Xy4sZ4Pz0ucT8kjU6FTLdvk7AX3M9MPIaNZeYtsf5MssmjAre50Z+Pu12lnCgRj3iJYz/+BOYKQNi52wKALSCNRQ+aRqzBbYIul2wg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111298090",
+    "sign": "rZ7XAFRzh8KO0reWTXHuxN8dj9ssnepMkqeGhAPkLHcu5JBX3MF3aN8EQgFFWjSfPq0Ude/NRZBxA3UoLZj0W2pJLe4eZblv0hAfp6rpOTnMAM4FkVTjdxDnwQU5lZC3zqQmH/fh3zF2eCPuHvsC0nPVUphI5HZDEpXDROpszKX+70WE3mXTh0noeIGgrB+Mqh3BdHDZjWuIDi4uq9U282s1nNK+jipdLz/9vXtYFX0mfYi+DfBoTK5keR+Ue/3Bj42eTRgLR99/S2ViYZf+pmCDMgdosk/abtCdjS/OFluYlsz9/ZKFsqu8at26yXyWYoR9BNA+KuEcSXrCBXspqA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111298129",
+    "sign": "s9derjikHP0/my/IMlOqwcCGTIx14tP0mMgnc4OJUe4MhCZEQbsUYxN0jYc036hOBrSp8Y24d1BUf/1e/ZzOp3BH421ATHumpZfqPYliUrTx8TyHoEsDxnERSkOc/TJ89rE4At+9KxT52YPxlsmjlX8ZWh4dqpAXo7Uk2MccjhQsCkCMPG7XkOcYa+t5RcIXocNwNHzxFT2S5WaYzxXvsZk2yumQVY2Emp/vY9zyRFZ5+2UGAxCu9aP8low9TGXEqZrSI4JZxt/hqOuULsl/T/j0ONhI7Dt1Gwha2vj6q6OfbhBndko2DkNX8QDoHzcE86CsdJEcSLJr/ICGq+1M3w==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111298172",
+    "sign": "p7rO5SFS/eBkM2ztOPmQcQxOxTChR2bLtJxfiYEXxMN7Tm+V/SyCbcB57IKMfJItjDzNTxaKBoIHEBiuBXyy+MSrg0X6hcDSKEMAdogMhrh+llWTnxM/V+gQF30xWc9ZC81PjKVwMYyfOWzhf8IBeSp5PeKaaYto8QtDok3dpMYElXFaTVhg/T9V/OunWhLG5Jr3Mw9NsSHpcMp7gvzM3UlNvOCgFURH7MwtUhIFlOWRdf0DPZK430dI9lzppguuMAvfxakP3CgjpJaaQmnCz+UA6gd6Q6mgpBHbp/uzMzbZVtN8lQuojnl9YLsTuMHImOt8c0E+RGfd/FBnDs20HQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"15428635\",\"chapterContentVersion\":0,\"bookId\":\"31001200522\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111363910",
+    "sign": "sQSAysMgwkJZTGyoR+Xx1HvAg9nDl+/z3HcTWp7KizCJMGm2D96DVyxkkD3m9FGe2HYj7VTaaSB5PRwK/NvTPeh+F7DiEI64eyLvv7XPjUydxgjlLza2EzN4pm7GyONB6u50VllG41WpabWblq9LDGKoztLs0JQm/EiiD6SgqEL7bSke5bPmcVBNepUJsChYu8dyHxLVS4YdsuysVpcRhZZZ++/YYSEp4x/JbToiKbC2qdN2OVoPd9t3eGTM8chutw58fgjbo5MPLPzVTbKcjQiS38AVtWXU9AgQQp5GAaOPlaKByknfyVzRwfMOKyEuXKPnhbgghMgdGS0pp0EdUg==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"15428635\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":65431",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111366616",
+    "sign": "XxIs+Finwx0EMgPT0qF69DpcJ42MN01s2GoDSmYeGTUkYBpZRpBQ4EikbQccwIqt24+MCGyF8U4d94QU70hd6w2vTKQru24PHbLYN2Ebsoom5OrsVitpN0DG/M9tP2VqsdA7JB5gf1vByImZ/1N68qJQDQpWUlEQDe6o99lX7N+HwzdKaiaik0S6zBp9szlVaAJJ23d8cZc5A+tgnYlwp0SxPTu5+1ztBePIs3SAI78rRLFhQRygxSYXWRCbQ9r9oKTOhp2nY1ma34N+cBPyIA7MwWwjPV0ZFhRJW6rcFiBy6831rUn5z0oRwPQnDFqnEQ+bim1TwIrFoFUNhLIGcg==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111366617",
+    "sign": "DoYklc6ICdsLzDhMnvPINEwOxqHTZdECSWE+A9hWa8AsXaEueqCzbllME9GgISYqKOR512ZpiDLTJKNuN8rhNhZWTsAFjDOVnWGUcc+4bHARxakoOeBL4ru96jObDCUe3bfO3XpWHIFz+uHCEbKJ9AeSJ122Dwd9hkHClMenEyTyf7ycklIIjRYuERU/qnGV3DZbtkXsOb3cIcbtpeatxxzSr/BaBHNEmXx9TPPfP73LKhpKsHwt8bEnLLa1RI+E17rcvlX5Im8M2IWI0kPI2fduTCX34X2Op+xg7W5wanWsCoYgP4SY+aY2QNxko6zazY3s6MQfTC0MVDWJ54egKQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111366619",
+    "sign": "qN9aHuJXghurMjXZxZQsY14q2Gr9lcBLWiouI/d+x6QYeQnRJV6ZyrGvYqrITMpaqe6xy/Xgx4wijCXhjNDYUhmaupRAr8vFVDRLt8BsAUKE2ELHRFn7rr7iAsKJXtTNehV0lOw2pyFIpNs2DMd6Y4JwxxPaHMOOj/vyCHDI6f8BVS4mT9NkHvff6TLJPL/xChSiVGPHI6htNQx92dkokwCXYLdewMQUGMLz7ackIVU8kw/EIZUAL1baI6A/iaT5kMTR/kExuG0zqZaObG2I2DUYP+9iNUMyJqjDWRrm9Wlt2JGUuOIdBvBLWydiMDIONWqx4NVACThFbaoDw1QWLg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111366628",
+    "sign": "K7zsyVvJ2UwcWyFynq/HvQ3jGzjlCBJ7jjHWeG3Fw/2Bu2QP9Ui02SWo/sFEqaHjpztfzBDO6q0bvVD1WbB6hEjWHnemoLUSZFdMoD50V4pqRmOQE8OMCzIBWsaW233k4VfPeb4avqXZGsA3GPnDjRXWm89NCdU1SNx/7AHPXdAasjgTtRmWT1m4viHbWvIySGCKmxfkR4wOn9QwQlggVS5VB6nUJ9NGK1Kh9isoGlha4sv8yYGgYsaF4zsXN4nPOdi3v009c80/zxoFg/sr9TCJ1P34r0XziIUZsV0A0piX8TpOrfi15Eru5ZcV6uQH95yzZFqALCSlwyQTBJDVUQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111366872",
+    "sign": "liuzXyum9BwVefAbYCFbtSUtLP81nurkDkhsvl9GfgTbwmWJRsqDrl2jChioVwLlyr51J9q9w0x2ZRDABaJdCZXQzVn7u6CmbnCaeWw1K/fFeSttqq5D19vHXBsJ4GpC3EQChNHzvT6MuKZ3OYdlqnYThbkpzgYb+3KDSkjl8t+xvP1Qq44+YC9VuoL7BYqqQNFf8J9cPtygBSLvdJ+VUraOQmR/WHCzAbwT2dcTUmhZXaFATBMcN33afPaSXqZ6d2cahgRVj2BnZi1/yNg6k1Lk4P7VYUvnkCBPZCX3+M50+Mq6EZ7pW+bVFZ3cWz/aconNYGjpV6vrLXbIeY77/g==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111366883",
+    "sign": "Yx703kCacNfmSR0kLm33WitYAaCOrw0WzBtOk3MR661BMScn4pgMYUHUbaj4wxYKeGCMz1I0aj2BsNa7y8Pc1WbRyoj6QHlConI5bgsZh7Mc8ZULr2L2SXOpoziqcn/FSF3qoQcD6exon9cMPylOw1sowH/NQjt69yqAZkdJJuDTmTSSmF4z25juBaB2ns6p5aeA5sKkoHYit9kLYoh1k9aao5izvcQPHGEGJmYZvFZMxxagOO/zhEyinN8+3h18h5xsxcIN/bOLwlVkGOIoCw+12GLnzhk3vX1LFUfTMymnSaZ3H1Z4WIRAq7djfqz5cMfu3n6/1xgsx49507rmMA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111366897",
+    "sign": "A7yBWH+fwDCAd42LGuVNH47+WVlwZbUkK16uxo7hThUe5+Od8McltRmqkyf3PRc7PW00MpKhY3Mh+9T94+XwWhbjP9RJ2+RZqRCGn3ZkC1Uv5OMVa9OWQS1o/RTUCfqlnkKQH53yAnQ+h0i4M8PpExy/vD4NQTtgc7iM5i+VeEbgrBW6O0K0SgNHGqXkEbQwthRIvLPFTagffqdkmKoI+eJWVoH9y7/t708EUhoZVf0mK7EYGeIzMP49hlud0N4uKJ5vZBE7eo19dFnte6T3cOhnZZhJDsMC92GRSZvMiktOPxN5bSkywFgumr/UWAYXtceIJGaYV4ITgIle1hGupQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/load",
+    "timestamp": "1770111366918",
+    "sign": "Z75JcfLauY3kOssA1aFZdg7LlJV4DJp/TgDZVtO9IpUOOzmHzAyEl1KEje9vleqG13J5pT9FQbsjZ94gGTJhpi0lPkp1sSDtGCSRgyY4op8yIoWUcFULKchvAvDV1r3gjffjcJf6kPFLPdYiNDO/rxCyTLryorOL8+JXtajMQJOmeMAIXs+pFACa5HYlq6pm7et24u+ewOvFAtbCFm1uHGgXWTwblP7qO49jlDvs6RPws2sJRXsdf2S+pLPowzoSvd+Fcx/jAZ1LcmSonwk5GBZ5IRa7bDmbJn/WXBclxfLJ8tn6uq0gN6+rByPYqil4FWEzIbh2yJHXNQIfrHhLQQ==",
+    "sign_length": 344,
+    "post_data": "{\"autoPay\":true,\"offset\":1,\"source\":\"{\\\"origin\\\":\\\"sc\\\",\\\"channel_id\\\":\\\"-1\\\",\\\"channel_name\\\":\\\"Tre",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111366925",
+    "sign": "oMScGDY5sWxAolCvwOpnC0V3xAnDTk5InA0FA8bepL1hFQN1NP/Nyeqhc19qhl9hVpNcQaeF28xmI0sIV9iRV8hDcM1afE0cvmn45h9Uz7Tzl88nl0gmf/UZEpOTGEnsgvcFprFISzSs29LmPoH4H0p3zYC1MnY4H7Y+BVIlWTcpDTu6/59EZRuOJVovjObHdZojaoPBX8YeQ/U03ntf/zmlWO5W/w79FW4kncVO+r5dSuHqXkyY9bn3N6eaGD5zZsRlI8CBsWhmvqKL9Xa4drxVS6DdvlxgtxpzKkNJ4Ao2MapOeHbuRjT0l1DZmba5yWPX7jiKtd4dtMU9l43fiw==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"11729901\",\"chapterContentVersion\":0,\"bookId\":\"31000960344\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111400872",
+    "sign": "mgiBkcHfpywXAgRxaEhzsUMRpj651ezzQXuqYbNrv1AZOYwh20x6lEtopRz9eVhPDcYNe+KEznRB0/xgw0J3Rv1Ii0/d3fEpcpFO8SekFLzGZTQgykvqDSsyo6l1RRCKOsOzFKb7OryFfxNo8Asm+CbTXszDm+AkSoo1mpO1zWarmq6aDCA+DDceHQWkcJ9Lc3vTbBupkfYG8B1IOXwnKpDuIHkOfO3beEmvTBHSyfA3EYEvVEOF4B3ZgxL3tB2kLsoxzl0J35EOWdRftTW6gUBhmUyBPy5STgnKBvjpvUsFSuQiEvx6OcgHytl1OiGwE+ZcN0gTqdRYyHGbydZeUA==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"11729901\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":33448",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111405311",
+    "sign": "x8TCuOLjb4YYqkVeIjPm4dabv/5QjYA0z0UXPQkMDTPYx++QVtzkbLLPzdzT0eOdPukMGDH80Kd0lOTmq1Tldhki4sC6ROzc4sZrjCRJEDQOwV+CCUqEp3MDB4iBHWhDT41+68k67F1FhGM3DhyEi9YBLVy55AlmkQyOk+3Q/lkNJu/6Tobu5q2o/vEAWqphIUtXjEJlvH7VP11rK2exQnlyNytQfMU85cbozWBrkYUvv1erRD4Y/JIEqzkEzEkrbTRVAYrbZzZhzLCTbA+NeimlYK1ZdYkv9m3UWbXwlKDffr3ekcHlM5ibyh78Xzq06chlnsEAG7cBTEbehQqYdA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111405311",
+    "sign": "b+E0nimT5SswBt9lmKb36s6QBEudZK/6zoi01TsGsNsYo77SbIQZOP5nCzNdZ0D7bxRpDjM82/lHJDIHVFnPVv/2xFbvEKTcUdQirSnoef96Ub1ypSiO/PaqY9NjbnKzke13Z3deD4+4JSoYST7DPaAoYrvzXf0/FMNZYWcODDxiV6zGP5Tb0J+fE5RpujxnO2beyHb1xjp+uz3vbK4tBI8riLt0oKJndLp3EvInrz7ZDuRmscwH/BQut69gh3Zh2QZ6Y0SMkZrRMt6A3jINvCTaL32kCLBAAFbDkqKgErG6X8WENMNZOlLi2d9KizQhFKbbhzW1kpVzNym5qtXfNg==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111405317",
+    "sign": "y1xCkAQnx0zq/IFAvwyNwUYUwgeL1VZrMTe58GonuBTXP3YJNo1nmD+HBhRb6TcKdiAtgHAz59e/rBFmJKhGoHtqdpjKuy2xeHYyqEOXIJCzwtDyT3zVp5upMoh2W1ldPv5+291OnNJawKzkfzXS73zAKmgIuBVf7UGaXH3KDzCR6LehwPhY9jkQrbwri7UZccterbwkZIyiKzF6K9nG1IS+17AKakHVTE4waI9yZKfSWa0KBM8WGl2uva4hXUZ8AVRNUsM+l29+sLXBljkM6V45RynfkHvwC5fjnSM0bCwYX/CDu3YkQEwuDgJqGrqaZsjfUIHGG+iUkCU/KlJdZA==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111405315",
+    "sign": "WGXOgtpQ9MA5vJaobgeEP3hpEGM84VNq6PJU+C7HssWJydH9Pf0jXkccyOkuOZ+GAjvdgT82w62tZNdxQPX/4ajwiabWct6x6XCUX8HLkdh3J0oqInrt806dHDpB9YOHEHOIuBwmZLmvl1rOBdES2yUyuVUKlmveAZuMssOaN39LEr2WrD5hjlGRPJxtao+uunbvmci1PBjOzD3sQB39dR6tk6FRQp09I0DV67vb9YnTysmW/lP8NLEusI5U1WIfn8s/k/vCNu+kBe9YilcPZ4LByBQh0b/58j/xJTXeGew7qt49KT7V2coqvX3BIWAg4q8Yeg8r7wu3zU2YjZHQHQ==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111405542",
+    "sign": "tJxQRUp8FOP/cIcv6wOyQMmFjTcVSt+YWu1pe1zrbevO7QmNcw2pJBMcH7EsjNRFUgpObzE6mCCZf5ll5aCg4p8zNk8WisP4DTkj2ekS+qJ0JNRO3dQi93cZkl5yJqvYTVQCBVGeo4KkM2b8Q3xw1iVzHDGCh4pAQEMZolbtUtHwseVYaME23Z+2ZjjgDohTv/VDStiXkMoAGuyNWBWFG9MqSTsstSErgiQIK7ULZDQKD2oXhJ6cOgpTeDOryP6y47YwUfRwf+cXz+mWvkpdgJ4UiLblkkuPbwfCCCVLR/KwH59qdMcN+nLR0L2CFjMwXcxBGfI9OzYHhOCAzNCGfA==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111405553",
+    "sign": "Y4sA421dK/88Y0QkRkIF37upE+DI3vf/4vfmTq+LPOnuqkE43mysZ7GxniJTwxEEvzMbO0FD0zsiUy+d6M7Jt2aEVyfeMBHV6ML4QujTnuq7HagzA5ngsuY7K87dNWp8SyeduLbvfimj4BUaFWDb/SqZdwAbm5iheLuzQpWLwkSUdRKq9uURQg7H9aVZvK049S/11xzgHXRdl55iYg1jykWl3VspuBjbPeh3cepeXMR3A7zviJiRIkotK+FDjsa4VbuByW9Fi6q8XCbCZjoDa2Bp5yn4/uWpM9aBRX+m88640dth/KtwVBO0GXWqiLHyBZBp3T2hxpJhOpHX899BpQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111405568",
+    "sign": "je7wPwkNoDxRPqyt6P8452bncrDzfB2WmLXm2FozJAhyDv/AB6QsVUepiuWJDlfffY0Op9EWMeHORPUI9X00Kju9I/m5rNIAyPMO5jZbFJT9vtdjGSGquN5amnehQCIB+fVB1fDXpGu9XTKflfkZIiBwO8WANDbUhEutyvlI2VqJmLqGJOgZRJzungTO9XDVNlhX7WinBTKIqXzAIG8E8flScecmv3N3k1hZoJA+nJ/wGYlLRdkmsrxkTrpqGZvluTx5dE1JDlMbR/UMucUXwnb89Zv2408AdAKqQY2mXNmVL5G8tZlSlvhokGECQr649WQH5ODMSFAsO6qY+nHMrw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/load",
+    "timestamp": "1770111405626",
+    "sign": "a9NBNU0NwbRA2J8zmdmTqigW6g768Q3Xg6tgjlQ3aU5eLykW4OFq3Ns6mzI9Orp6WRThGuI4PrEuqClKABfOZ7ojfs6hLxyI1wenyjTtdawSNVQT2wX4GQP3/k+Yk0qQvSBjqJWH/eLIeCdcQhqv1lfU0/D0QDXpm/5dOYZVyXe6W/5YmmVrADcs5+mGMYoP0/TvRMF7cyN0dgXbvUDkLk2TqFnJFl06u7TJPyIJFTchPfX+MRrSQqO5nk+Zz/DFEoT7cm9wvD+/6CdBLqAUbPifEcKDMr4admRfn3oMvZEES1U1WrkqvBOTo5cTlsVVuqQ7fS4mwrxVLuX3xdDc5A==",
+    "sign_length": 344,
+    "post_data": "{\"autoPay\":true,\"offset\":1,\"source\":\"{\\\"origin\\\":\\\"sc\\\",\\\"channel_id\\\":\\\"-1\\\",\\\"channel_name\\\":\\\"Tre",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111405629",
+    "sign": "JY3GaOIYbF/ml45l86cxIatp9vT4ymFgVnw1aHdW+IplKwMWdmfJvd1LdFaOILgt6k52nBfVd3cbS5HS1bEn1n2IYHX+ts6eC58uEhoAVnKqonrdhfpWJ9wZdj1RvuLNUdaOlrN8mVa0W+zsE/fCFrX0EP42/08672XIwyEXblFKGyyR07hu5Q1sJ6SOr8Tm1PBxBYZ+m+/+YU+NbdshzVeEzycpbuz+dpvnNXM39EcU7PIWr43A8eSpFwpnH+lqXjNT/idcwaeH8GoVkcO9TI/5ZjbMWQf1CDYdp8qWMqhsZWkuHW6X3vYSNhZ7Ilh2Ku2Cp45O9zAypFFMq1Ya2g==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"16646284\",\"chapterContentVersion\":0,\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/foru/introduction",
+    "timestamp": "1770111417958",
+    "sign": "KNKaJtNOi6xEPun8rwFA0S9vzDPeH06QVFNoUdJcZzxr1wNgXi9Nm6C+Y0DxlYg8cK/qI4ZNgFwuZLelGMcuTISHvEA8gkE2AmlawglEnO2A3LaeRKiOrnw/GrsgXKu9bFogfWk0KEgfl6Ea1HucTkP+mwVtGhpQFJzNWoSLQKkbf3OwCPsVjZnxRydti4Ok+J0sPVOeWdobRzEaVvagwXwi1kDibfErDiwTn3yOsUbN8k8Ioez0HhybDRQ8JXHlNOWDOPhhkhk/3dEsOZGhejvXbY6sASaELihwVOmTVRZLOS9hm9tpcf0SSaaOjjmFe4DY86hf7RV9j747RQQQnQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001276268\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111424618",
+    "sign": "KZuBwSwt8K0qUNlmH0T5B5aC3Hqd7mNMz5yh3EJRKxX+zWVXLlosnM5RPZImfzc5nMz0YpT/FhVnlbXtf19LjX7H355Lpex/4MHeDwnr5XdQvu9D0fQ73sjqq/azROplYhAnV5HSgTJMwiPFijdN9z3ph2pO+3DHRNWM2DLBmtsQO7hJ58WWJMuICuqAcgQMVmXoMZ8KwrUx8dov6JR2z93LQvySVoJkh9aFiztCMzDLdcf2FBf1V/IfIvVOqNv7fMLnKPiBZApf5nqOHA8FucBaW/EjsvNN65WYbCzoz6m7OcN5S2w9VfKAceJ6l7SSX2Fe/7vS9HXYg/RO6rgztQ==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"16646284\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":18558",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111425985",
+    "sign": "ExFz7HTGul2I5QLbgxFQzEACu0CRmuJ5ZDD/VZswLUx75kjvMCzJ8dYMytDyvdq2OlWQc5P1Yix1slZLBvzK6pibcnyDlXIEnc7B1WSjQoA6N9Y5DafEGtzuEraTtmbhz9JYdQhjHdGSi1bp9ZYsdzaYbTOGQgxRdjMYKmdPZuKx2JB5DH/GcRX+nDZuuJWwcagcJzUp3Zc/Vfzq3UqzYDcUMs2Y1k1mqknYSvEmon6JmBI9puAdOHhEJ1EuOYf+X3krOQJ1mSOiypp/tKpB2dVD1pgTsYdg07/sZXb0Ah8FQJ8K81qLkOJNqXLlrXHZs8diiHVSDa9D3gyaevJPaQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111425990",
+    "sign": "OlKmVTonfZuZQ/C5ktpb2muu8hMn5yUl6GunHBU/7DgVTlLdDPV5Z9av0AkWwyaGrFla4eZre/wqWHuOxI0TZ4Hik036wPVwVgsw8eN00fz6qTnwwcKc4IH7eImG5g0ezQSG/plFIihvh7usTD0A19fr8s8oI90dueqBo/iGtSYzQoyTGdMpx5UmCvdTno7VOMynqOp2Y+OBSzsdoe1ZBxXAoozcprT9j+2Kv2YBxyDu02nNGUFSDIYpqaJXHYDEqbUO9SLsyDvGj4DbD4P1dW9np7qhkyQXv4sK28cgAUts07e1sKEgs9dZ1EbLDAgcP1h1wsM0eZ/hHwdoI7Vc1w==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111425984",
+    "sign": "dD3XOeJcU8xq/gb+68zw3aa5+2QAu7oPd3qkW9bwCCllJ8dmCokF8vwwKnOdtJmZurIR/UohhUCBE1xKaLODBsJzAgGTCBIoEIz9y7FKDyFCqQC53DzCiWRpRoKfhw6+LICKKW8jLC1Vgy3UcY9IDgDuiTmh7tLjp3ecBB/Uy5F02U+ENHQi+elwv45rsaGVD1RKZOaxyJpeKkyhRwFTRVk+leyGVYuOD7Nf1Rf4aZNDGDnQgqOfCfEMi3m2IqqI55c9Txi/9gTA3VR1ipZx2drBYS2ISGzjRjMr1ABM2PnTcufoFkH0o/ke1HUhrNHjIlkcO4HA4tGOiVrDdqFoaA==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111425987",
+    "sign": "yGB+zEWtJb/NWV2By1e6uqWS6JHz5fd+ELs3QyeTcxdX4sDHNSVhG2isF7meWtCX9vbEuB9FikDw+vDUou7U3A2/rWwXX74PjYhwwZm9FJk96plEcYvxaKqmf3oB6t82cs6BLbTMtoVx8aIJHD+RvbGVgHcv2OMVQB6AnZEO7ntdKuPvndCbdBzIw8FFpeDDJSjLJ5vyQ8bMBwrruM+LT+EBRy193Ysl2WbuW8FIO3Ash+DjGl7TQaYduiv6z4dO6AF6uoDCymUPOCH0d/XdjOHz6T/GNI9PYTbW93fbKQskC9bk5dPDpE71hWbiDnIQ2rE5KMPV+HISaBJ+FLliKg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111426316",
+    "sign": "P4+5Os6l3DFh7+an0EgvbirewsGI+QsJm5ok4cmldpKkmrvkzs0iLg3lyuXV9gEkTaoC1YhFoOOhDFjLhGtm0weED9IujCQLqKWkQWJCM58SqynlVhVzmLevmGKRyNhEFKhXg1bfQL13x3v39YTLzqxqwfwiHaDWk/mkjoYWSFZlpiSVRZSchRf1jlFtAKbKYHCgFOEgblC7k6ht32IDcFLWkuJ7Hb4Ovi8muZWi0V5qoR0UylbibOg/Y2gchkZYEY5pz62ToPapUPLGVGG8RDOO3QDvyvwICWs6a22ywf76kgCkkofw0B2RvrWPF1tXn6UbJhbOG/Ga7hmXl1fzGw==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111426331",
+    "sign": "DemKie6R8LOblrzfQ4Oemz/0hoawQg6HmL7Xuvz6Nq0QkA/9goSmYKePK2yEzbK+SxIJEthe3eG0VU1Yzs/GZwgLsVmTdtLIxm6OiTCNvyyKeGDA18VXz1BWdjtTB60ftM8iJ6BLbaQocJcHNijhHW1/k3xuqdS/cSAMg4Owo9RX77OOMvq6SkhTUW7oQL2F3ovtKuJGrfbF/ysatEl1GTekdeR2Z+mJnWpSzXGdXFxfzxVxm73LjrSWyEoeDYB6LmJx6YLb8Adco9Km5ycCo0rSfURROgzU9vwnjxs54hC8ebyQKVuBEO7DWPbLG6uCFLxUV/aCzCUcTCPScT6KjQ==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111426359",
+    "sign": "K5WKgpYsR/zSXx2Fcahj/jXnTirKVX4TsHo+SU/EEyOg/JxcuCJg9t/vErUf7KU6f0WHl2c53gO+vN40z62860XjHNQBNI+O+vyrU48Na51KIV6bikBlvyU2zViXHoKoyT0tv44vnzz7GHset92ScRxMNx/9We7cf4l4IXH5Qc/jBXNKrBVZjtkNSdx5iqFuQv2rfvP7aaLws0GDPBpKj58vNzIiFMKzFoUZC2V17uXpHDJ7z3H0DfM0/4zrWwA8XN4zsUVUrt501uTUztH95Vpbl/+fu+zVtDTDHrRrJCywef0iV1lYED3QissGqNf4ZzaaChbBFIUpGLK59TwRhg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111426388",
+    "sign": "CZoKL3RvXnelcWy4sPzI3glBm7Z4bCNi0NclVtkQFdIOs+LRMnvoRilj88ChOXyBwjH88ppY28ajsBS2GJ2yrQrvpu8oKMA9XCFtwDlmNb599krrbnomO0ByIFdonZYRSqMv2l/JbIJl99YlGdpYglWC8dfFEVk57GPIv4ioQLTCK3LpWEv57m9OeU2Np0+0lvuW5gzPSiFXu41taYahn+1Ay1wbvQ36g68MmPLoIyI+3xPrXujjDQGMb2etY9km/+SFCkbMdu927yzQL4BnDHPCztDGLtYDJlS+E7VctGUTsB2Tr+6Usg4YPaut2VbVPqLLksza8KkXW9N9n+O+Ng==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"15722902\",\"chapterContentVersion\":0,\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/foru/introduction",
+    "timestamp": "1770111466566",
+    "sign": "HRak0323d+rZwWH/Rt3MyguVVYUursVUMYkvkAReRddF1qE54IF4GxUUXWklsOc0fgK4QIjmWCDbzsskow0psr/ldHAxv+BL2RAnK3HLi6um6yOfiSUhRMrheP99MeXCZV4KMNvWMkvArzLR+5BNY4CT9MQUXnRgrujSc5b1/vGgKce7gmDzyAlDvfNvyXOdI5WCBpykIm3XJUz7HkdbN+cOKH/MJ2BRMDr0OheJ61PJU9oRdybpTuIxBlZ7UgFBmTgFVK/BcjoF3+z0ADjYjtwbEmFzjLTppRh8q5ErGUYvksThahqT4XsxYBnBCoOC2VXgLtJC2YYO44piNgRK9A==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001217559\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111477029",
+    "sign": "HAaxUGA8E65kp3XQT5KbXwnXXeMYDiYzVJL/GH+pnfIG6Kx1YMyqaeHSuTXRrXx/sGt/7TjcwxRBlb4orQUHGwG8+YBbJlA3jfMAtzAQZYTYRuLdIrNrz1G3Z4+W5KguF1ugAI1/NfaunkY0tMzutC9lWyrENhyrUeQKsGoZgkQkX8a89nD8D1+/GAzWrBB3DgiEywhWrcMXpbPLrKJtIDfCzMXxfeR1I2Gsl4kuhZ3R8tQ3kFT7irPvphKT8ZRrqt9QbVSt38kpRMSgYRiuE5jkMyg4JNjsFtrB7kNMkQU8LtYx40teeVhQm81Q2nsZMqEc7HZu9LYhR0w3pRcvlg==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"15722902\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":43918",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111483630",
+    "sign": "VDi/11OD9RkaCmtSpks0XXNeXco8evhIaQLGNhpO3SI0j2XU+hNk5i+FR19sDYJsFn2IyYYDFAFUWCTjd55831EUR6CXpL2fKoU1wGXn/6iDNPhAt88JM1AodLtFnw9MfeCOpRG1CPA+A0MCEpxCNrgubl4KNkOQJzk6ALFL9RbMIHSieEIGCYStEkyi9x784VGXsloyKDGWlkhtd01a1S5feSALHo9YLlnEzhhtumYH+kgon1Autwe6jA/VVH9iEZYaSRqqQhjl1KX2nAINHJKFmtOFsl+dmz/BeRVmhbg+yum/7l3LsA7Zcb7Vf1SCMnGGFgWnrkgjZ8ThyeySLw==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111483630",
+    "sign": "Slwg5EN6oLjXVG88Dub1O69TiH/LNaFCNgwIWxrv9CpD7ykHXrjznggnjmTG1wxO8wyQ8yQ/2/KmiSgvS7H7gkj3BKL7HGd7z+fzLK3YEOJYL3Ng7YEVNn8FEqAIUzlIUtcCEdCQwRFXfgUDFUn0PQZITac1utjn22O850nC0VLNxUsPIuZV5XhPrHXqjy3UeugXZLJubi+y3lDGXEoPhVjET5wZCB9odBMda8iK/XqQXXQtvsonfiAYn9dhBoHp/E8FZ4oFuWetplA54VKgAUYyPm8WgQvrcp12LmjRfECbH6kiFooFXjx73oraJdVXGG5Lnzcz0QCY4FxYwok9jg==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111483681",
+    "sign": "X33V79ei4VOhtBmI8z8KcRl8kp89tAFGBHI6aSb41tNrOLVKI9qVRaf9t5a7oqvykDSbK4Ybuuv5g5wXg+Z3BG/Dxso4QV+bqcyttvqq5MPIlM+arhR4DvArdNPUuJnrZJPQyD3PZ3D/d/TbRXsAV8jKvlrsq1/UUsWmwLRFfe/wS4B/2DSzmiffUQ+SM/YcI5HNROZQGUb3WvZZWul9LPMXsqKzgkdsDCyf8sE8u6CbICaVPB88/IM+6JKpdMXDhZ5SjSqYj3VqzrfK87ZVO0wQyD3zeRa53Hg1XNYxcS22Y7cWrkbSAM65xP2/pPTE1CAQ+wl2Zn5apEbjpb/OeQ==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":16279908,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111483877",
+    "sign": "C/nf/rsTZJzXv08OfpmRRnsqEA2QoweX+718tqGFwpgp/0Ti/3xYD+bkSf0lWR6koEdyDmEhfR3X31DpoOhGey/dx0NVjDHHWm2PJ6Izal4vy4NPp+c4eZKzAn+WE/nxUfo4mcycIqWVFeXdwo4hkuJs2IZAVCPCn8xkH1QEX6RNzJPjPq8kk3GO0EgALOjmSwchW8ArKMOcg2Vhs0cbsZLWl46OC0Zaen2VixT5+QBMl1s9Cmz3+Kcx9S9s9zpbc9ZXqlDVsdGlw6W57wORP6/jCjTHjwO1GqazZzfegT9ogfY5OJ+VKeNiTjoEaKKfbM+f0tEEeTCdWR4JjGBSPg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111483901",
+    "sign": "xEyBgx9OPTRDeT6P0VuwRn/q19FSNuVtEOooTpFFuDhaUQZyg0t89UnsNJx4V6sLlCxZeqPhoOJhDMBGVgeucwjiNKHmlsZstKD69Olw6zgaJ77jlRSZhkkBcSrNtfMl6ZvzJaGeRWcms7fvUnDiPyAO9R3YzhqIVO6r/IfsWz6lD0n6TsbDGf46lKEr9vzcRJQ8ICfXjtXiRidlUYRCFgmzJBW9Nv9gIImAUgMFtD1FKF3p5qKBY/MrwWRvJUzwbJlxhmmkGbl/NYyYM8xCl+D76ICh+veh12Cvh92oMmLgfZ99177sx3DNhAqyzSkf4nEuULHfiPmkmUKUEalu3g==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"16279829\",\"chapterContentVersion\":0,\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111499129",
+    "sign": "VT+/XQdOMo5KMaRjN1Z7CVBZZLsPpg2tU97i/KfBee/Qx+rqiFFNwcjbk5AecQqO/G2WEGAXN3vwxODRrvSoIfNbm7DJd2A9Nid5laa7d46ltoNoBBX/UMQUk8IHQq+zlvwHxKF9tqOz1ySiwuoty7Acdm3IupQmt8x3IvydJ4F26FmY1psLa1sBO//4su5eiykUahFWoG6udWaPoNv/Ra8WpO4dKtclSLpSvr+tXZY2xDkJZYRXGBaTMEDzy5dUdIY33oaCupHOUodOBqutj/OuTyPTFaCzDjC1gsymEJ0MmyCP5vh1JUPNEHtqTcIG8g6H/Vw41qnzQOIoG2GXHg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111512646",
+    "sign": "hAKW6VLuTM9ricrFvKOWJy1SLEAuWowA/DZ5pOYnOE3D1HMD5OHZXb9EkndoCoc2pSvj8pf0Pt0Cx20iAbT9WCHK/1Rff8zzeV88LThHwx7ugCwYoFxWD6x9qXWxpE7G3+NxASOQqMP+xuSLFShwcB3+mGRNhQkRyGLEjheKSk/xSonqkDPmiJKPvZsxkYDJwz70AYbu3lM+FezKUM+gnfk8wGkRfXE9aKLJNTZmTRfs4lYFWB1GTLWzXanRvjLVrPLPj78sO60plABtTezYO44BJNPl/NLz/07PFRrewZ9dqixT9MyoBqW7edhTRNI0ZVlhEYDNP8oun8iatjUJLg==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111513092",
+    "sign": "hnJrCCZKEOtOgWp8F8l9xpfOg++5MWKZNJzTsewN15LZV0lEs3SHRTVQYZNZ0IU5y4AM9l+dUTZJxSiVXDPKXukVRpO2mk/PfK89A7kSrRwMAnfbKc4d3xRftc9KdtTV/SmmdoU9wTmPFTkqFy3em6GEzBhcRbdMyhJ5DM8W5mmRlHdNdAZiLhRRAAsSgMLQgShyOhiS+s8lu9uTvVD3684ZThasKBOyhJja0jtGxWSydi43o3jY4vayLUHK33lBNKUs3YzfkwyIGaniPu/ThWMXkmCvLfrOvjKnyGILuhZeaa31zh8IDlemb9dMpozFOGj8j7LDwxhe2VW0ikTM0g==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"16279829\",\"chapterIndex\":0,\"position\":\"player\",\"readDuration\":22437",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111513099",
+    "sign": "xM+sL2DBJjWx8UzJQyA/w+nuseRPPBdsGKWKvG+tylmTD8fvxPKOoBsJ4KB63Gy0wflhcTVe3iGtyAfS8sBpJnkcIBga0M5JwrW9O8f2Encml/O8t4/JTPtV493Q7Av2Gux606has/0+q150TpryaL+XXXMcPSQeef/X5YFUKzaZp0FaMeFzFAZSGcaf8crIKqDM0yoA5MMo64cc9Sb3IKHT9gyOPr/BOVU8pZRhWbQGx7GloiYF4lM7DIkl0YkkFevIzS7zP+L+lyZDHGOwFGipCHeQUnsVHGA/4cC1F84JRsCu4LuUt/X69beptr/crkFxOe22p0Kqcs82LkspgQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"16279830\",\"chapterContentVersion\":0,\"bookId\":\"31001250366\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/read/status/update",
+    "timestamp": "1770111524547",
+    "sign": "HIiwN1vuGyvYYeZDuyK/MPFfPjwazYwzhpz7JZh6qmR65IYNhfqyp7h/stil8CaNIyitRiMGh9MN7Cpk4cLbXMTtIahECj5PSIUIDzTIcBVrC3wtcHBkMs9+pQsNBGyUsQA1/AiCexIVjkyQsloDVj2Y7SR9cqJZPENulbpaSvvItk8QWsRkyqGfn+ikuuAgd+3JCMMiCYM/ZewMHkxL1ICFbLHbCY/4urZxC4HoQWhp/5nUof//Hvby6GCGWqKDLN/y/z1v3UjXVPqBO3q1O2WRLzrz/9nDV9VjNFlKQlqAwOlC0n73O9QIje6yzYjPRvFhSVjhEznmAqCVM9mskA==",
+    "sign_length": 344,
+    "post_data": "{\"addRecently\":true,\"chapterId\":\"16279830\",\"chapterIndex\":1,\"position\":\"player\",\"readDuration\":9754,",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/exit/recommend",
+    "timestamp": "1770111530548",
+    "sign": "qspxpgTKAxshrUD+5Y2PftSfpD/RoHECL0yK63rqmCDchMiurchN6vOWDJkNzqv5H6TptPgcgqG9NC6QMpcH46WyW+Hf3n/8+f6xLC7y/BWDu6xH7x+dAQGguVpXR5tQqHKbC0AUO6O3lnoIeSXxIh7WnlCso8qRcMh8f5wnJSVJzLTQHjWrCD2DuD/vWqJuk0jNd8jtYzqa7SyipgNEHCWgyT0WJAU8BAW4z/LrMOzdG4LFBADQ9ORoECw5Ps+SaP/PjsW3cKUbbM8ixqJ7bDHmLKY7sq1iNavh3zYl0+OaK4KIEYidSTzURThnJ7ICQMHlF3HAziCnrjVYmoEmnA==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/reader/init",
+    "timestamp": "1770111530549",
+    "sign": "E9KTYPKFRBwS9PQTVYD2qz+/IFCYxG54FQF5gi9JpSu/52Ozv62TS5Lag2sZDwIeRp9t8Quw4+ka17S8SC3aEEeq9Y/GwZWrEJ7WBtJdQeH5JFDeBNm8Kd4rR6H6oRiYFjtyd7WV77sb/gRFWV0Qr4Dml/wP7/grQz0xVgYTr1yqWgQJgdVSHEZ0m0LcSK0+i8N/krHzOaJU4lLcsbJsHBtiaoheBk19a+nhxsGZc4KTtuVNHROT9gBMySUuvQtFptkyPmPcqKE1YoDCsx/Agu+F+Du4sMOTNqLxvFVfrs2TLVi/CbUC574neqaux4ERfSOKmhwdDEgsyzuvVvF45w==",
+    "sign_length": 344,
+    "post_data": "{\"priceCurrencyCode\":\"IDR\",\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111530554",
+    "sign": "tkWBjIgehM4aSXgYSWB58um9L29k4X8GxtAH9WK22fMonXKXYCrx431CM3JTnC/FQCltqidLHESRBr8ZcwsApqAB5uiIWGaPkNLBW1TMFjDCULZXyv83shC49maN7upDBePpD/26LsOkCVxeX9cvg9HOqa0oEYux9vxg6lW6G8QpDbQNnZ4Ct67V/jqmr/KxxruQzGInEvBYMOjwPBdiv7XE3vIBiRK5Pl0A62or7nfMY8TYFNHikxihu7zzEYdicuov9RHecGFZ4ssUZPoUDOStiGxF9vBuPyU02dyrqGD5gwgehLC2Mqi7/FnuIDolH9oIEed8uN+GX1YvWWtdiw==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":0,\"needBookInfo\":false,\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/quick/open",
+    "timestamp": "1770111530562",
+    "sign": "fyLpZkfmEznjhzdjCIaN6KxenoELnmhf5eYWfsD1SZ1dy8hf6zbElCfI8X0K6ZVi1z7R6qWuuuBItCmaoW1VmgN2fmt35i0FrfzelrVuA5zo2ikR7qdKiSjEdNAVafwyS7bUX8ozGpNR4VPg6XPT7tqzaIY7WWWwlie9gw2fdaqpg3qEbX/w1vAxNW2oGt6dr60UTVXQbNCq2U/lkwSfY5Z/2QxWAmm3EluWi69+PAYyqmtL9sedGzunAkxWOdiVMIMZGewHhrMV/5iE4NkuZatq7/xj3z4XlCTmiAuYT6J8EY5ID7HgL44mDROWmno76IkRm4Q5GBJ4PXynJb4ctQ==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":-1,\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/list",
+    "timestamp": "1770111530839",
+    "sign": "eb1rdYtlTeN7moesO3qs+B7sxN7p1nvQB9U3w158Fqs9rwA/pdfIUzet4fbks0OlAB1G37m7S3BBBT16ZYkl4oT4mAMNndpSOoszYN3vdkoyS0Th0VB/VCJnvtzyG4ZOhNCvctLSQH1MO+d1uEezJTCngtEPFzDhW/agxQ2zw1uBnO6mU51EX8JGcRhfEuzOAdIfWKtJZkTwbOVqPOqdfdDiM0Z9Cf3hlLR6ZskAnw1zZ2v7UcelYWp3v8z+jbtzg2cVhg+ME21HRNPVRFwJffVOyYqZdsNnnnZAIwPYfYZxO4ArMOivfbTGmnYieVTj5/G4a29UHFOFTCFyOlvnBg==",
+    "sign_length": 344,
+    "post_data": "{\"latestChapterId\":0,\"chapterCount\":500,\"needBookInfo\":false,\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111530855",
+    "sign": "ubrKImdhMwPBuFR54VShA3HhTIGe9aRRFg1oVZgCGo4YMbusdoNUix2MRuK2QaZltrEPYY3P0Vfm8jZLDuCQwrl33hUzVWZqWepBb43uUed6HcR+SicEvuoYgGv8r7AEYxu+vs5ailxediQne0ykP0FVvvcFEmyHAjb8uS4iXh/ET13eIHlie+KiXPx18WG/O5vfqJb01WoERfi7TRtpMuToMaB1B1clNw4svWzpStHuUt+J++BhE1uPHB8zA0sIM6EKtnLYU1sm45Gp55ZSK9kfOfnMB/9wrd6WXO2sPHPP2V1ZCsg80d2FUAopHzBYDy404EplXWt8Vj+BuDuC1g==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/book/share/url",
+    "timestamp": "1770111530876",
+    "sign": "nckQy2Q3u8NmONNXxVRWKmkOncmRWoAc8ZB5Ii1ZYor8abWoD/81lhFyOPF4QMV1iwB4lX49gYe/dMiYOuskMW1gDn1i96FR45P0zr/2s2ifzj5BEeUnt46oobZ8Q9kYgXOc0H0zraYpk8HJrcll65nSDEJaKRdbpMeTSQitYyG7kZzAYz+fnBJAJT7k7TUDb6mdweWnfST/HIP2NRbaL6gghl4OeKmM1X4+lGZmQjgsoz4612FMYgMJt2HBwOKJmLUUXZzN+mGcv/enGje6i/Jjhz7ub8/jRvoWuUGk298e1iaLxV98GPhL2MHLosym91oXg4K9jwNveJGL+tZZ7w==",
+    "sign_length": 344,
+    "post_data": "{\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/end/recommend",
+    "timestamp": "1770111530911",
+    "sign": "jc87F9l9/lGS+KUm+OAXyb7kCureNX4TEBga6gWXrxLFYdfja/z5Is8sQna3lo8USWx6FJo70NYhEVy4KpPMCRaKe8AcSE5onz/nAJ4lWSI2Z4X7ssvH2XKsa/Go7rYjA3wM6c9i4vJ0J+qdPFfQIwAHtodT1cRYBfcHG/cMtnMwPQyJofaeZKIu8McN/Ts9KW4+l+RujsF0zSfuHzjwK2tcPdKh0EfG8IXKSQHbjDwPJShu82j/k3WzMAI5M9Bk7m5iY7xLmC0PSbXvBet2JEwMDQU+TFwO8hnaB38+P2QOw6YIi6uk6Ltc0SUreYlHqOlYL1j7T2yTfGTvS3JHUg==",
+    "sign_length": 344,
+    "post_data": "{\"chapterId\":\"11916909\",\"chapterContentVersion\":0,\"bookId\":\"31000973327\"}",
+    "method": "POST"
+  },
+  {
+    "url_path": "/hwycclientreels/chapter/load",
+    "timestamp": "1770111530912",
+    "sign": "vV+ELIINewKqv8srbekFOj1eRdJgxp3EIBk53CsMUzm8a6Cs/Msnokn5COQ0RyBLX8BXeqHA/5n5xHSnj1Z3dkC5E3QQOcgrbow9icq/07We3IFxmaOXdly4Y24tz1YB2Ck1abKJxRN6mG4lUQ/JLUS9leA6wxgTD+nj91c0ZnnCwafZSRqNsPE10ecGFC+ccEmGQBeK0lJ7uAkSVjDgJ9I7oAUeO3J872AkPcYiJEZRit81uprbrjPgRxwVtXXSfX8tzJr5dGzaYzg5Lsnu7/RcGwJ/oiiwQm1AcmgSOl3dk7grjUS2EPUzq3r68DD7EBTkCmguLerYpgdO5Vs7Bw==",
+    "sign_length": 344,
+    "post_data": "{\"autoPay\":true,\"offset\":1,\"source\":\"{\\\"origin\\\":\\\"sc\\\",\\\"channel_id\\\":\\\"-1\\\",\\\"channel_name\\\":\\\"Tre",
+    "method": "POST"
+  }
+]

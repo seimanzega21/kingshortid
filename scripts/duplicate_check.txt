@@ -1,0 +1,17 @@
+✅ OK: 'Sistem Harta Tersembunyi' (1 entry, eps=111)
+
+⚠️ DUPLICATE: 'aku kaya' -> 4 entries:
+  - id=vnutd1wnftai1ob4qltchqll, title='Aku Kaya Dari Giok', eps=0, cover=.id/melolo/aku-kaya-dari-giok/cover.webp
+  - id=cmlkd321u07tn13mdcekdlahi, title='Saat Aku Kaya Kau Menyesal', eps=65, cover=lo/saat-aku-kaya-kau-menyesal/cover.webp
+  - id=cmlisfgo1004ltlqe731cmp4n, title='Aku Kaya Karena Ikan', eps=33, cover=d/melolo/aku-kaya-karena-ikan/cover.webp
+  - id=cmleexmag00bchx5e1yt6lnfd, title='Aku Kaya dari Giok', eps=112, cover=s.id/melolo/aku-kaya-dari-giok/cover.jpg
+
+✅ OK: 'Pulang Kampung Bawa CEO' (1 entry, eps=110)
+
+✅ OK: 'Bersinar Setelah Cerai' (1 entry, eps=80)
+
+✅ OK: 'Ahli Pengobatan Sakti' (1 entry, eps=124)
+
+
+Duplicates to delete: 1
+  DELETE: id=vnutd1wnftai1ob4qltchqll, title='Aku Kaya Dari Giok', eps=0

@@ -1,0 +1,49 @@
+800 Ribu Beli Dunia Kultivasi
+  cover=200 | eps=80 | ep1_status=200
+  ep1_url=https://stream.shortlovers.id/melolo/800-ribu-beli-dunia-kultivasi/episodes/002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/800-ribu-beli-dunia-kultivasi/cover.jpg
+
+Aku Kaya dari Giok
+  cover=200 | eps=112 | ep1_status=200
+  ep1_url=https://stream.shortlovers.id/melolo/aku-kaya-dari-giok/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/aku-kaya-dari-giok/cover.jpg
+
+Ahli Pengobatan Sakti
+  cover=200 | eps=123 | ep1_status=200
+  ep1_url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/ahli-pengobatan-sakti/cover.jpg
+
+Anak Ajaib Ahli Barang Antik
+  cover=200 | eps=117 | ep1_status=200
+  ep1_url=https://stream.shortlovers.id/melolo/anak-ajaib-ahli-barang-antik/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/anak-ajaib-ahli-barang-antik/cover.jpg
+
+Bersinar Setelah Cerai
+  cover=200 | eps=80 | ep1_status=200
+  ep1_url=https://stream.shortlovers.id/melolo/bersinar-setelah-cerai/episodes/002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/bersinar-setelah-cerai/cover.jpg
+
+Kaya Raya di Era 1992
+  cover=200 | eps=85 | ep1_status=404
+  ep1_url=https://stream.shortlovers.id/melolo/kaya-raya-di-era-1992/ep001/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/kaya-raya-di-era-1992/cover.jpg
+
+Sang Master Turun Gunung
+  cover=200 | eps=66 | ep1_status=404
+  ep1_url=https://stream.shortlovers.id/melolo/sang-master-turun-gunung/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/sang-master-turun-gunung/cover.jpg
+
+Jam Pasir Tanpa Suara
+  cover=200 | eps=52 | ep1_status=404
+  ep1_url=https://stream.shortlovers.id/melolo/jam-pasir-tanpa-suara/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/jam-pasir-tanpa-suara/cover.jpg
+
+Pewaris Konglomerat Dihina Mantan
+  cover=200 | eps=98 | ep1_status=404
+  ep1_url=https://stream.shortlovers.id/melolo/pewaris-konglomerat-dihina-mantan/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/pewaris-konglomerat-dihina-mantan/cover.jpg
+
+Sesepuh Tertua yang Masih Muda
+  cover=200 | eps=91 | ep1_status=404
+  ep1_url=https://stream.shortlovers.id/melolo/sesepuh-tertua-yang-masih-muda/ep002/playlist.m3u8
+  cover_url=https://stream.shortlovers.id/melolo/sesepuh-tertua-yang-masih-muda/cover.jpg

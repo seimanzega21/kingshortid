@@ -1,0 +1,14 @@
+{
+  "episodeNumber": 2,
+  "episodeId": "469571",
+  "title": "Episode 2",
+  "order": 2,
+  "duration": 120,
+  "isFree": true,
+  "hlsUrl": "https://v2-akm.goodreels.com/mts/books/502/31000991502/469571/abc123def/720p/video123_720p.m3u8",
+  "thumbnail": null,
+  "drama": {
+    "bookId": "31000991502",
+    "title": "Jenderal Jadi Tukang"
+  }
+}

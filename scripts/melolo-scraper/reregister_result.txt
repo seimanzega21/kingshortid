@@ -1,0 +1,27 @@
+﻿=================================================================
+python : Traceback (most recent call last):
+At line:1 char:59
++ ... Encoding]::UTF8; python reregister_episodes.py --execute 
+2>&1 | Out-F ...
++                      
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most rec 
+   ent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File 
+"D:\kingshortid\scripts\melolo-scraper\reregister_episodes.py", 
+line 198, in <module>
+    main()
+  File 
+"D:\kingshortid\scripts\melolo-scraper\reregister_episodes.py", 
+line 115, in main
+    print("  RE-REGISTER R2 EPISODES \u2192 DB")
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python311\L
+ib\encodings\cp1252.py", line 19, in encode
+    return 
+codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character 
+'\u2192' in position 26: character maps to <undefined>

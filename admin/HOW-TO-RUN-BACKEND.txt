@@ -1,0 +1,31 @@
+# CARA RUNNING BACKEND KINGSHORTID
+# ==================================
+
+# 1. Buka PowerShell BARU (JANGAN di terminal Expo)
+# 2. Navigate ke folder admin
+cd d:\kingshortid\admin
+
+# 3. Install dependencies (jika belum)
+npm install
+
+# 4. Setup database (jika belum)
+npx prisma generate
+npx prisma db push
+
+# 5. Seed database dengan data sample (optional)
+npx prisma db seed
+
+# 6. Start backend server on PORT 3001
+npm run dev
+
+# Backend akan running di:
+# - http://localhost:3001 (Admin Panel UI)
+# - http://localhost:3001/api (Backend API)
+
+# Mobile app akan connect ke:
+# - http://10.0.2.2:3001/api (Android Emulator)
+
+# NOTES:
+# - Backend HARUS running sebelum mobile app bisa login
+# - Jangan close terminal ini setelah backend start
+# - Untuk stop: Ctrl+C

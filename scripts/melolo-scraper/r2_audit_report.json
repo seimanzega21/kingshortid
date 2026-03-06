@@ -1,0 +1,898 @@
+{
+  "stuck_uploads": 15,
+  "r2_dramas_count": 319,
+  "db_dramas_count": 312,
+  "matched": 196,
+  "mismatched_count": 109,
+  "mismatched": [
+    {
+      "title": "Dokter Genius Pujaan Hati",
+      "slug": "dokter-genius-pujaan-hati",
+      "r2_eps": 0,
+      "db_eps": 177,
+      "missing": 177,
+      "has_cover": true
+    },
+    {
+      "title": "Bangkit dari Neraka",
+      "slug": "bangkit-dari-neraka",
+      "r2_eps": 0,
+      "db_eps": 164,
+      "missing": 164,
+      "has_cover": true
+    },
+    {
+      "title": "Dewa Judi Era 90-an",
+      "slug": "dewa-judi-era-90-an",
+      "r2_eps": 0,
+      "db_eps": 161,
+      "missing": 161,
+      "has_cover": true
+    },
+    {
+      "title": "Setelah Bertapa, Kutaklukkan Dunia",
+      "slug": "setelah-bertapa-kutaklukkan-dunia",
+      "r2_eps": 0,
+      "db_eps": 161,
+      "missing": 161,
+      "has_cover": true
+    },
+    {
+      "title": "Balas Budi Jadi Cinta",
+      "slug": "balas-budi-jadi-cinta",
+      "r2_eps": 0,
+      "db_eps": 154,
+      "missing": 154,
+      "has_cover": true
+    },
+    {
+      "title": "Istri Desa Si Kapten",
+      "slug": "istri-desa-si-kapten",
+      "r2_eps": 0,
+      "db_eps": 150,
+      "missing": 150,
+      "has_cover": true
+    },
+    {
+      "title": "Nona Riley Beraksi",
+      "slug": "nona-riley-beraksi",
+      "r2_eps": 0,
+      "db_eps": 149,
+      "missing": 149,
+      "has_cover": true
+    },
+    {
+      "title": "Antara Ambisi dan Cinta",
+      "slug": "antara-ambisi-dan-cinta",
+      "r2_eps": 0,
+      "db_eps": 147,
+      "missing": 147,
+      "has_cover": true
+    },
+    {
+      "title": "Kepala Desa Pembawa Kemakmuran",
+      "slug": "kepala-desa-pembawa-kemakmuran",
+      "r2_eps": 0,
+      "db_eps": 142,
+      "missing": 142,
+      "has_cover": true
+    },
+    {
+      "title": "Kaisar Naga Seluruh Ajaran",
+      "slug": "kaisar-naga-seluruh-ajaran",
+      "r2_eps": 0,
+      "db_eps": 141,
+      "missing": 141,
+      "has_cover": true
+    },
+    {
+      "title": "Kaya dari Memanggil Leluhur Dewasa",
+      "slug": "kaya-dari-memanggil-leluhur-dewasa",
+      "r2_eps": 0,
+      "db_eps": 137,
+      "missing": 137,
+      "has_cover": true
+    },
+    {
+      "title": "Lelaki Bermata Dewa",
+      "slug": "lelaki-bermata-dewa",
+      "r2_eps": 0,
+      "db_eps": 136,
+      "missing": 136,
+      "has_cover": true
+    },
+    {
+      "title": "Sistem Suami Sultan",
+      "slug": "sistem-suami-sultan",
+      "r2_eps": 0,
+      "db_eps": 136,
+      "missing": 136,
+      "has_cover": true
+    },
+    {
+      "title": "Cinta Sang Komandan",
+      "slug": "cinta-sang-komandan",
+      "r2_eps": 0,
+      "db_eps": 130,
+      "missing": 130,
+      "has_cover": true
+    },
+    {
+      "title": "Mata Ajaib di Pasar Barang Antik",
+      "slug": "mata-ajaib-di-pasar-barang-antik",
+      "r2_eps": 0,
+      "db_eps": 130,
+      "missing": 130,
+      "has_cover": true
+    },
+    {
+      "title": "Vila Portal Dunia Lain",
+      "slug": "vila-portal-dunia-lain",
+      "r2_eps": 0,
+      "db_eps": 127,
+      "missing": 127,
+      "has_cover": true
+    },
+    {
+      "title": "Istri Kesayangan Galak",
+      "slug": "istri-kesayangan-galak",
+      "r2_eps": 0,
+      "db_eps": 126,
+      "missing": 126,
+      "has_cover": true
+    },
+    {
+      "title": "Ahli Pengobatan Sakti",
+      "slug": "ahli-pengobatan-sakti",
+      "r2_eps": 0,
+      "db_eps": 123,
+      "missing": 123,
+      "has_cover": true
+    },
+    {
+      "title": "Bangkit, Kuasai Pasar Saham",
+      "slug": "bangkit-kuasai-pasar-saham",
+      "r2_eps": 0,
+      "db_eps": 123,
+      "missing": 123,
+      "has_cover": true
+    },
+    {
+      "title": "Kebangkitan Dewa Pedang",
+      "slug": "kebangkitan-dewa-pedang",
+      "r2_eps": 0,
+      "db_eps": 123,
+      "missing": 123,
+      "has_cover": true
+    },
+    {
+      "title": "Kebangkitan Dewi Giok",
+      "slug": "kebangkitan-dewi-giok",
+      "r2_eps": 0,
+      "db_eps": 123,
+      "missing": 123,
+      "has_cover": true
+    },
+    {
+      "title": "Sistem Perubah Nasib",
+      "slug": "sistem-perubah-nasib",
+      "r2_eps": 0,
+      "db_eps": 120,
+      "missing": 120,
+      "has_cover": true
+    },
+    {
+      "title": "Mata Sakti Mengungkap Rahasia",
+      "slug": "mata-sakti-mengungkap-rahasia",
+      "r2_eps": 0,
+      "db_eps": 119,
+      "missing": 119,
+      "has_cover": true
+    },
+    {
+      "title": "Siapa yang Sedang Membicarakan Kaisar",
+      "slug": "siapa-yang-sedang-membicarakan-kaisar",
+      "r2_eps": 0,
+      "db_eps": 119,
+      "missing": 119,
+      "has_cover": true
+    },
+    {
+      "title": "Tangan Kiri Sakti Kuli Tambang",
+      "slug": "tangan-kiri-sakti-kuli-tambang",
+      "r2_eps": 0,
+      "db_eps": 119,
+      "missing": 119,
+      "has_cover": true
+    },
+    {
+      "title": "Anak Ajaib Ahli Barang Antik",
+      "slug": "anak-ajaib-ahli-barang-antik",
+      "r2_eps": 0,
+      "db_eps": 117,
+      "missing": 117,
+      "has_cover": true
+    },
+    {
+      "title": "Bisnis Kaya Bareng Hewan",
+      "slug": "bisnis-kaya-bareng-hewan",
+      "r2_eps": 0,
+      "db_eps": 114,
+      "missing": 114,
+      "has_cover": true
+    },
+    {
+      "title": "Guci Ajaib di Hari Kiamat",
+      "slug": "guci-ajaib-di-hari-kiamat",
+      "r2_eps": 0,
+      "db_eps": 114,
+      "missing": 114,
+      "has_cover": true
+    },
+    {
+      "title": "Tahun 1977 Penuh Peluang",
+      "slug": "tahun-1977-penuh-peluang",
+      "r2_eps": 0,
+      "db_eps": 113,
+      "missing": 113,
+      "has_cover": true
+    },
+    {
+      "title": "Aku Kaya dari Giok",
+      "slug": "aku-kaya-dari-giok",
+      "r2_eps": 0,
+      "db_eps": 112,
+      "missing": 112,
+      "has_cover": true
+    },
+    {
+      "title": "Cintamu meluluhkan hatiku",
+      "slug": "cintamu-meluluhkan-hatiku",
+      "r2_eps": 0,
+      "db_eps": 112,
+      "missing": 112,
+      "has_cover": true
+    },
+    {
+      "title": "Perjalanan Naga Muda",
+      "slug": "perjalanan-naga-muda",
+      "r2_eps": 0,
+      "db_eps": 112,
+      "missing": 112,
+      "has_cover": true
+    },
+    {
+      "title": "Sistem Harta Tersembunyi",
+      "slug": "sistem-harta-tersembunyi",
+      "r2_eps": 0,
+      "db_eps": 111,
+      "missing": 111,
+      "has_cover": true
+    },
+    {
+      "title": "Dari Miskin Jadi Sultan",
+      "slug": "dari-miskin-jadi-sultan",
+      "r2_eps": 0,
+      "db_eps": 110,
+      "missing": 110,
+      "has_cover": true
+    },
+    {
+      "title": "Lahir Kembali, Jadi Raja Hutan",
+      "slug": "lahir-kembali-jadi-raja-hutan",
+      "r2_eps": 0,
+      "db_eps": 110,
+      "missing": 110,
+      "has_cover": true
+    },
+    {
+      "title": "Menyesali Batalnya Pernikahan",
+      "slug": "menyesali-batalnya-pernikahan",
+      "r2_eps": 0,
+      "db_eps": 110,
+      "missing": 110,
+      "has_cover": true
+    },
+    {
+      "title": "Pulang Kampung Bawa CEO",
+      "slug": "pulang-kampung-bawa-ceo",
+      "r2_eps": 0,
+      "db_eps": 110,
+      "missing": 110,
+      "has_cover": true
+    },
+    {
+      "title": "Palu Ajaib Pengubah Segalanya",
+      "slug": "palu-ajaib-pengubah-segalanya",
+      "r2_eps": 0,
+      "db_eps": 109,
+      "missing": 109,
+      "has_cover": true
+    },
+    {
+      "title": "Gadis Lemah itu Sudah Mati",
+      "slug": "gadis-lemah-itu-sudah-mati",
+      "r2_eps": 0,
+      "db_eps": 100,
+      "missing": 100,
+      "has_cover": true
+    },
+    {
+      "title": "Kegagalan dan Kerajaan Bisnisku",
+      "slug": "kegagalan-dan-kerajaan-bisnisku",
+      "r2_eps": 0,
+      "db_eps": 100,
+      "missing": 100,
+      "has_cover": true
+    },
+    {
+      "title": "Penglihatan Ilahi",
+      "slug": "penglihatan-ilahi",
+      "r2_eps": 0,
+      "db_eps": 100,
+      "missing": 100,
+      "has_cover": true
+    },
+    {
+      "title": "Pewaris Konglomerat Dihina Mantan",
+      "slug": "pewaris-konglomerat-dihina-mantan",
+      "r2_eps": 0,
+      "db_eps": 98,
+      "missing": 98,
+      "has_cover": true
+    },
+    {
+      "title": "Balas Dendam pada Anak Angkat",
+      "slug": "balas-dendam-pada-anak-angkat",
+      "r2_eps": 0,
+      "db_eps": 97,
+      "missing": 97,
+      "has_cover": true
+    },
+    {
+      "title": "Dunia Menyayangiku Penuh Kelembutan",
+      "slug": "dunia-menyayangiku-penuh-kelembutan",
+      "r2_eps": 0,
+      "db_eps": 95,
+      "missing": 95,
+      "has_cover": true
+    },
+    {
+      "title": "Sang Dewa Judi",
+      "slug": "sang-dewa-judi",
+      "r2_eps": 0,
+      "db_eps": 94,
+      "missing": 94,
+      "has_cover": true
+    },
+    {
+      "title": "Sesepuh Tertua yang Masih Muda",
+      "slug": "sesepuh-tertua-yang-masih-muda",
+      "r2_eps": 0,
+      "db_eps": 91,
+      "missing": 91,
+      "has_cover": true
+    },
+    {
+      "title": "Habis Wabah, Lumbungku Penuh",
+      "slug": "habis-wabah-lumbungku-penuh",
+      "r2_eps": 0,
+      "db_eps": 90,
+      "missing": 90,
+      "has_cover": true
+    },
+    {
+      "title": "Pemuda Desa Menguasai Kota",
+      "slug": "pemuda-desa-menguasai-kota",
+      "r2_eps": 0,
+      "db_eps": 90,
+      "missing": 90,
+      "has_cover": true
+    },
+    {
+      "title": "Bukan Lagi Budak Cintamu",
+      "slug": "bukan-lagi-budak-cintamu",
+      "r2_eps": 0,
+      "db_eps": 89,
+      "missing": 89,
+      "has_cover": true
+    },
+    {
+      "title": "Kasim Palsu Penguasa Istana",
+      "slug": "kasim-palsu-penguasa-istana",
+      "r2_eps": 0,
+      "db_eps": 88,
+      "missing": 88,
+      "has_cover": true
+    },
+    {
+      "title": "Memperbaiki Masa Lalu",
+      "slug": "memperbaiki-masa-lalu",
+      "r2_eps": 0,
+      "db_eps": 88,
+      "missing": 88,
+      "has_cover": true
+    },
+    {
+      "title": "Guru Kecil Genius",
+      "slug": "guru-kecil-genius",
+      "r2_eps": 0,
+      "db_eps": 87,
+      "missing": 87,
+      "has_cover": true
+    },
+    {
+      "title": "Mata Tembus Pandang",
+      "slug": "mata-tembus-pandang",
+      "r2_eps": 0,
+      "db_eps": 87,
+      "missing": 87,
+      "has_cover": true
+    },
+    {
+      "title": "Kaya Raya di Era 1992",
+      "slug": "kaya-raya-di-era-1992",
+      "r2_eps": 0,
+      "db_eps": 85,
+      "missing": 85,
+      "has_cover": true
+    },
+    {
+      "title": "Putus Cinta, Dunia Memihakku",
+      "slug": "putus-cinta-dunia-memihakku",
+      "r2_eps": 0,
+      "db_eps": 84,
+      "missing": 84,
+      "has_cover": true
+    },
+    {
+      "title": "Reinkarnasi Sang Konglomerat",
+      "slug": "reinkarnasi-sang-konglomerat",
+      "r2_eps": 0,
+      "db_eps": 84,
+      "missing": 84,
+      "has_cover": true
+    },
+    {
+      "title": "Gagal Ujian Jadi Playboy Istana",
+      "slug": "gagal-ujian-jadi-playboy-istana",
+      "r2_eps": 0,
+      "db_eps": 82,
+      "missing": 82,
+      "has_cover": true
+    },
+    {
+      "title": "Aku Tersesat di Dunia Kultivasi",
+      "slug": "aku-tersesat-di-dunia-kultivasi",
+      "r2_eps": 0,
+      "db_eps": 81,
+      "missing": 81,
+      "has_cover": true
+    },
+    {
+      "title": "800 Ribu Beli Dunia Kultivasi",
+      "slug": "800-ribu-beli-dunia-kultivasi",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Ayah Tiri Baru, Lindungi 6 Anak",
+      "slug": "ayah-tiri-baru-lindungi-6-anak",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Bangkit Setelah Ditinggalkan",
+      "slug": "bangkit-setelah-ditinggalkan",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Bersinar Setelah Cerai",
+      "slug": "bersinar-setelah-cerai",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Bos Datang Malah diajak Nguli",
+      "slug": "bos-datang-malah-diajak-nguli",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Bos Supermarket yang Hebat",
+      "slug": "bos-supermarket-yang-hebat",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Dokter Sakti Jadi Rebutan",
+      "slug": "dokter-sakti-jadi-rebutan",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Investor Hoki Abadi",
+      "slug": "investor-hoki-abadi",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Jasa Kakak Tiada Tara",
+      "slug": "jasa-kakak-tiada-tara",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Kakek Muda Pembawa Berkah",
+      "slug": "kakek-muda-pembawa-berkah",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Lahir Kembali Untuk Sukses",
+      "slug": "lahir-kembali-untuk-sukses",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Mata Pengubah Nasib",
+      "slug": "mata-pengubah-nasib",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Mau Cerai,Masih Cinta",
+      "slug": "mau-ceraimasih-cinta",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Pendekar Tanpa Batas",
+      "slug": "pendekar-tanpa-batas",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Saat Mantan Memohon Kembali",
+      "slug": "saat-mantan-memohon-kembali",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Sekali Lihat, Jadi Sultan",
+      "slug": "sekali-lihat-jadi-sultan",
+      "r2_eps": 0,
+      "db_eps": 80,
+      "missing": 80,
+      "has_cover": true
+    },
+    {
+      "title": "Dari Memancing Menjadi Kaya",
+      "slug": "dari-memancing-menjadi-kaya",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Dewa Mahjong",
+      "slug": "dewa-mahjong",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Dikurung, Aku Memanggil Petir",
+      "slug": "dikurung-aku-memanggil-petir",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Kultivator Kuno di Era Digital",
+      "slug": "kultivator-kuno-di-era-digital",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Mantan Dikejar Pacar Imut",
+      "slug": "mantan-dikejar-pacar-imut",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Penglihat Abadi",
+      "slug": "penglihat-abadi",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Salah Nyatakan Cinta",
+      "slug": "salah-nyatakan-cinta",
+      "r2_eps": 0,
+      "db_eps": 79,
+      "missing": 79,
+      "has_cover": true
+    },
+    {
+      "title": "Kembali Pulang",
+      "slug": "kembali-pulang",
+      "r2_eps": 0,
+      "db_eps": 78,
+      "missing": 78,
+      "has_cover": true
+    },
+    {
+      "title": "Kekasihku, Pengawalku",
+      "slug": "kekasihku-pengawalku",
+      "r2_eps": 0,
+      "db_eps": 77,
+      "missing": 77,
+      "has_cover": true
+    },
+    {
+      "title": "Levelku 9999, Tetua Baru 100",
+      "slug": "levelku-9999-tetua-baru-100",
+      "r2_eps": 0,
+      "db_eps": 76,
+      "missing": 76,
+      "has_cover": true
+    },
+    {
+      "title": "Kau adalah Cahaya Hidupku",
+      "slug": "kau-adalah-cahaya-hidupku",
+      "r2_eps": 0,
+      "db_eps": 75,
+      "missing": 75,
+      "has_cover": true
+    },
+    {
+      "title": "Aku Tak Akan Mengejarmu Lagi",
+      "slug": "aku-tak-akan-mengejarmu-lagi",
+      "r2_eps": 0,
+      "db_eps": 73,
+      "missing": 73,
+      "has_cover": true
+    },
+    {
+      "title": "Kakek 10 Tahun Tak Terkalahkan",
+      "slug": "kakek-10-tahun-tak-terkalahkan",
+      "r2_eps": 0,
+      "db_eps": 73,
+      "missing": 73,
+      "has_cover": true
+    },
+    {
+      "title": "Pacari Musuh Mantan Istri",
+      "slug": "pacari-musuh-mantan-istri",
+      "r2_eps": 0,
+      "db_eps": 73,
+      "missing": 73,
+      "has_cover": true
+    },
+    {
+      "title": "Barang Supermarket di Dunia Kuno",
+      "slug": "barang-supermarket-di-dunia-kuno",
+      "r2_eps": 0,
+      "db_eps": 72,
+      "missing": 72,
+      "has_cover": true
+    },
+    {
+      "title": "Jenderal Terakhir",
+      "slug": "jenderal-terakhir",
+      "r2_eps": 0,
+      "db_eps": 72,
+      "missing": 72,
+      "has_cover": true
+    },
+    {
+      "title": "Ruang Sistem Putri Jenderal",
+      "slug": "ruang-sistem-putri-jenderal",
+      "r2_eps": 0,
+      "db_eps": 72,
+      "missing": 72,
+      "has_cover": true
+    },
+    {
+      "title": "Dewa Balapan",
+      "slug": "dewa-balapan",
+      "r2_eps": 0,
+      "db_eps": 71,
+      "missing": 71,
+      "has_cover": true
+    },
+    {
+      "title": "Luka Masa Lalu",
+      "slug": "luka-masa-lalu",
+      "r2_eps": 0,
+      "db_eps": 70,
+      "missing": 70,
+      "has_cover": true
+    },
+    {
+      "title": "Nembak Emak-Emak Demi Hadiah",
+      "slug": "nembak-emak-emak-demi-hadiah",
+      "r2_eps": 0,
+      "db_eps": 70,
+      "missing": 70,
+      "has_cover": true
+    },
+    {
+      "title": "Satpam Jadi Suami Bos",
+      "slug": "satpam-jadi-suami-bos",
+      "r2_eps": 0,
+      "db_eps": 69,
+      "missing": 69,
+      "has_cover": true
+    },
+    {
+      "title": "Ibu Kembali, Anak Berebut Kasih",
+      "slug": "ibu-kembali-anak-berebut-kasih",
+      "r2_eps": 0,
+      "db_eps": 68,
+      "missing": 68,
+      "has_cover": true
+    },
+    {
+      "title": "Identitas Rahasia Suamiku",
+      "slug": "identitas-rahasia-suamiku",
+      "r2_eps": 0,
+      "db_eps": 67,
+      "missing": 67,
+      "has_cover": true
+    },
+    {
+      "title": "Ayah Berandalan jadi CEO",
+      "slug": "ayah-berandalan-jadi-ceo",
+      "r2_eps": 0,
+      "db_eps": 66,
+      "missing": 66,
+      "has_cover": true
+    },
+    {
+      "title": "Hidup Baru Ayah Pecundang",
+      "slug": "hidup-baru-ayah-pecundang",
+      "r2_eps": 0,
+      "db_eps": 66,
+      "missing": 66,
+      "has_cover": true
+    },
+    {
+      "title": "Sang Master Turun Gunung",
+      "slug": "sang-master-turun-gunung",
+      "r2_eps": 0,
+      "db_eps": 66,
+      "missing": 66,
+      "has_cover": true
+    },
+    {
+      "title": "Rahasia di Balik Kedai Pangsit",
+      "slug": "rahasia-di-balik-kedai-pangsit",
+      "r2_eps": 0,
+      "db_eps": 63,
+      "missing": 63,
+      "has_cover": true
+    },
+    {
+      "title": "Cindy si Cerdik",
+      "slug": "cindy-si-cerdik",
+      "r2_eps": 0,
+      "db_eps": 60,
+      "missing": 60,
+      "has_cover": true
+    },
+    {
+      "title": "Dendam di Atas Luka",
+      "slug": "dendam-di-atas-luka",
+      "r2_eps": 0,
+      "db_eps": 60,
+      "missing": 60,
+      "has_cover": true
+    },
+    {
+      "title": "Disangka Cowok Matre",
+      "slug": "disangka-cowok-matre",
+      "r2_eps": 0,
+      "db_eps": 60,
+      "missing": 60,
+      "has_cover": true
+    },
+    {
+      "title": "Penantian Cinta Sang Suami",
+      "slug": "penantian-cinta-sang-suami",
+      "r2_eps": 0,
+      "db_eps": 60,
+      "missing": 60,
+      "has_cover": true
+    },
+    {
+      "title": "Penyesalan Mantan Tunangan",
+      "slug": "penyesalan-mantan-tunangan",
+      "r2_eps": 0,
+      "db_eps": 60,
+      "missing": 60,
+      "has_cover": true
+    },
+    {
+      "title": "Balas Dendam Sang Putri Genius",
+      "slug": "balas-dendam-sang-putri-genius",
+      "r2_eps": 0,
+      "db_eps": 52,
+      "missing": 52,
+      "has_cover": true
+    },
+    {
+      "title": "Jam Pasir Tanpa Suara",
+      "slug": "jam-pasir-tanpa-suara",
+      "r2_eps": 0,
+      "db_eps": 52,
+      "missing": 52,
+      "has_cover": true
+    },
+    {
+      "title": "Dimanja Habis-habisan oleh Bos",
+      "slug": "dimanja-habis-habisan-oleh-bos",
+      "r2_eps": 101,
+      "db_eps": 102,
+      "missing": 1,
+      "has_cover": true
+    }
+  ],
+  "r2_only": [
+    "cinta-di-balik-rencana",
+    "cium-aku-sekali-saja",
+    "hamil-anak-ceo",
+    "kehidupan-baru-di-desa",
+    "pedang-balas-dendam-ayuning",
+    "sadar-akan-realita",
+    "setelah-cerai-makin-baik",
+    "siaran-langsung-bedah-mahadewa",
+    "sistem-ajaib-dan-puncak-hidupku",
+    "suara-hati-anak-angkat",
+    "tabel-perkalian-sembilan",
+    "takdir-pedang-dan-gadis-kesepian",
+    "tangi-penyesalan-bos-cantik",
+    "tangkap-harta-karun-di-kampung"
+  ],
+  "db_only_titles": []
+}

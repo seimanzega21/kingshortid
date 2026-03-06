@@ -1,0 +1,3780 @@
+{
+  "api_template": {
+    "base_url": "https://api.tmtreader.com/novel/player/multi_video_model/v1/",
+    "headers": {
+      "x-ss-stub": "D09D99BD0E55E91EC9DDD975364AFDC0",
+      "accept-encoding": "gzip",
+      "accept": "application/json; charset=utf-8,application/x-protobuf",
+      "content-encoding": "gzip",
+      "x-xs-from-web": "false",
+      "age-range": "4",
+      "sdk-version": "2",
+      "x-tt-token": "03fa162be41f79fe62880563813eb6788d0403abd4935ff1f108a354224667d08b9a8108cf8a44669830b6d0f2b8f9fe77e444e84c2a5307a3971d3da52b262ce42c5226da98f0695feae9e3433e462690e19-1.0.0",
+      "passport-sdk-version": "50357",
+      "x-vc-bdturing-sdk-version": "2.2.1.i18n",
+      "x-tt-store-region": "id",
+      "x-tt-store-region-src": "uid",
+      "user-agent": "com.worldance.drama/51617 (Linux; U; Android 9; in; OXF-AN10; Build/PQ3A.190705.09121607;tt-ok/4.12.0.2)",
+      "x-ladon": "gMHnGSB2f4mCZ2mAVTdnd/ugogHQzRIiAAQW/x2tpaGS4xeG",
+      "x-khronos": "1770512264",
+      "x-argus": "LCA33oQVN/oI7eHpmf56yihB8thVYnLrskhx0BdMmn34/1qf496f7VwV2g05xwDofPHFqhNKNnwOnUUN8Fp+WrLkhEvt33Qbx/vN7dYtlI6GChYOHbyasLs2RT2QOM7fd8bKmQy4lsTlWMgi4CPSJ+FhmPaN/cFddJVn+CiWfyearixVUssFc6Nqfg9izfAV9nOsz0V+vYpXfG/ihDN+gjsXLrszMgeQrsB6jpglQKr+aj6zyTPRNt8OwWdQMjiuiQjUx+BjSpIHZzhIZKecmYcizA7Pa3qGaaWkFmGNYsxCsJwmMNXrGSTPoQRd90yYdulaEmnjMU+kuJKPiFz3yybVLiZdMToXjwP1AFTjyrXQItcrtJ7RwMZsENVnTohMWI1sNxlFBPgBgI9kQq//4ZekKS85LWHthXhv4qVZYOcYBwDmrRDXiYTDTD0+8kbxVorxQflZlYlbn0D/wn/3AofcEXd6fFQuzhyMcknCkKO7gDhyfNVwHLbis/bASp8blYquL7pU566gxMXdClSYyAKHfs8Z2R19SIY+wjz8bJPLGQ==",
+      "x-gorgon": "84048067400032c9a2a8b88c8179676c5b52241520050328600b",
+      "content-type": "application/json; charset=utf-8",
+      "content-length": "246",
+      "host": "api.tmtreader.com",
+      "connection": "Keep-Alive",
+      "cookie": "install_id=7604188784200337173; ttreq=1$d31bacaf02bb5d6ec8bc0ab04e8c0acd556b7dcf; passport_csrf_token=fcbe4c61f91880e775537f72a9a3f452; passport_csrf_token_default=fcbe4c61f91880e775537f72a9a3f452; odin_tt=73a0128a54eb5d9756ae5d248cc4b0c93906b36d19f409c641ea669aaec4132e7bc5f3bf1a39f838592dd360af440839ac3562397c7236b25b0f75d94659e93d08c3856577cb3f0d99ca4563bff0d270; passport_mfa_token=CjlUf%2FOGvPL%2BjxqvjK%2BWK%2BaGJ9E7KVqCOv1OJg16KZBNPWzrvIlObZpItoyHHT%2B5IjOYANaUDKnkvVwaSQo8AAAAAAAAAAAAAFALE3nlDpg%2BnXXieL6lsyO40YOPcn%2F4NNN%2FkwpJsBtPr%2FQLchr3rGJzOqK4oLKzyqcvEOWCiQ4Y16mI7w4iAQQrlG0L; d_ticket=052e25fd35a7059f0139730ebaace49610c1f; sid_guard=fa162be41f79fe62880563813eb6788d%7C1770488263%7C5184000%7CWed%2C+08-Apr-2026+18%3A17%3A43+GMT; uid_tt=375312a841b85f2a1b7f095a46b85fe67a377bb3c45ffb2059fdfaaad2b4c815; uid_tt_ss=375312a841b85f2a1b7f095a46b85fe67a377bb3c45ffb2059fdfaaad2b4c815; sid_tt=fa162be41f79fe62880563813eb6788d; sessionid=fa162be41f79fe62880563813eb6788d; sessionid_ss=fa162be41f79fe62880563813eb6788d; store-idc=mya; store-country-code=id; store-country-code-src=uid; msToken=j_4x-psu3rOogDLfllXtbsSDHPGLP-m56TqcVeM1Q_GwboLo5vaFVl57D4IcjIIrf9CuAU8HtHbiz-3YYkXU7oeNO89m7LWH1krRBNn_IKg="
+    },
+    "params": {
+      "iid": "7604188784200337173",
+      "device_id": "7604186720909182484",
+      "ac": "wifi",
+      "channel": "gp",
+      "aid": "645713",
+      "app_name": "Melolo",
+      "version_code": "51617",
+      "version_name": "5.1.6",
+      "device_platform": "android",
+      "os": "android",
+      "ssmix": "a",
+      "device_type": "OXF-AN10",
+      "device_brand": "Honor",
+      "language": "in",
+      "os_api": "28",
+      "os_version": "9",
+      "openudid": "10937014c83e777e",
+      "manifest_version_code": "51617",
+      "resolution": "720*1280",
+      "dpi": "320",
+      "update_version_code": "51617",
+      "_rticket": "1770512264753",
+      "current_region": "US",
+      "carrier_region": "US",
+      "app_language": "id",
+      "sys_language": "en",
+      "app_region": "US",
+      "sys_region": "US",
+      "mcc_mnc": "310005",
+      "carrier_region_v2": "310",
+      "user_language": "id",
+      "time_zone": "Asia/Bangkok",
+      "ui_language": "en",
+      "cdid": "caef3591-ee5d-4810-b654-83e839720bb3"
+    }
+  },
+  "series": {
+    "7589214095258160133": {
+      "series_id": "7589214095258160133",
+      "title": "Setelah Cerai Makin Baik",
+      "total_episodes": 100,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/2f0785db3a12b75377e0cecb1e2015ba~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696266&x-signature=a0mV2sBR0CzsrZDUgw0mlyngcYY%3D",
+      "abstract": "Istrinya Arief dalam waktu tiga tahun menjadi CEO yang kaya, saat itu istrinya mulai membenci Arief yang tidak punya ambisi, jadi minta cerai. Tak disangka, setelah cerai, semua bos hebat meminta putrinya mencari Arief untuk menikah, bahkan rela mengorbankan apa pun.",
+      "genres": [
+        "Dokter",
+        "Harem",
+        "Pemeran Utama Pria",
+        "Imajinasi Perkotaan",
+        "Serangan balik"
+      ],
+      "author": "kuaichuang",
+      "vids": [
+        {
+          "vid": "7589215078751144965",
+          "index": 1
+        },
+        {
+          "vid": "7589215081792031749",
+          "index": 2
+        },
+        {
+          "vid": "7589215100641233925",
+          "index": 3
+        },
+        {
+          "vid": "7589215075458616373",
+          "index": 4
+        },
+        {
+          "vid": "7589215094672722997",
+          "index": 5
+        },
+        {
+          "vid": "7589215084803525637",
+          "index": 6
+        },
+        {
+          "vid": "7589215103883430917",
+          "index": 7
+        },
+        {
+          "vid": "7589215091128536117",
+          "index": 8
+        },
+        {
+          "vid": "7589215087584365573",
+          "index": 9
+        },
+        {
+          "vid": "7589215097738759221",
+          "index": 10
+        },
+        {
+          "vid": "7589215107758951477",
+          "index": 11
+        },
+        {
+          "vid": "7589215111156337717",
+          "index": 12
+        },
+        {
+          "vid": "7589215127547694085",
+          "index": 13
+        },
+        {
+          "vid": "7589215130458524677",
+          "index": 14
+        },
+        {
+          "vid": "7589215133658795013",
+          "index": 15
+        },
+        {
+          "vid": "7589215136947113013",
+          "index": 16
+        },
+        {
+          "vid": "7589215121289776133",
+          "index": 17
+        },
+        {
+          "vid": "7589215139476278325",
+          "index": 18
+        },
+        {
+          "vid": "7589215161043405829",
+          "index": 19
+        },
+        {
+          "vid": "7589215142554897461",
+          "index": 20
+        },
+        {
+          "vid": "7589215169213910021",
+          "index": 21
+        },
+        {
+          "vid": "7589215157876689973",
+          "index": 22
+        },
+        {
+          "vid": "7589215150255639605",
+          "index": 23
+        },
+        {
+          "vid": "7589215146174581813",
+          "index": 24
+        },
+        {
+          "vid": "7589215175220137013",
+          "index": 25
+        },
+        {
+          "vid": "7589215154559011845",
+          "index": 26
+        },
+        {
+          "vid": "7589215165472590853",
+          "index": 27
+        },
+        {
+          "vid": "7589215172162489397",
+          "index": 28
+        },
+        {
+          "vid": "7589215178160344069",
+          "index": 29
+        },
+        {
+          "vid": "7589215183101234229",
+          "index": 30
+        },
+        {
+          "vid": "7589215192978820101",
+          "index": 31
+        },
+        {
+          "vid": "7589215196128742453",
+          "index": 32
+        },
+        {
+          "vid": "7589215206497078277",
+          "index": 33
+        },
+        {
+          "vid": "7589215189539490821",
+          "index": 34
+        },
+        {
+          "vid": "7589215186045635637",
+          "index": 35
+        },
+        {
+          "vid": "7589215199190584373",
+          "index": 36
+        },
+        {
+          "vid": "7589215202365672453",
+          "index": 37
+        },
+        {
+          "vid": "7589215212620745781",
+          "index": 38
+        },
+        {
+          "vid": "7589215209642789941",
+          "index": 39
+        },
+        {
+          "vid": "7589215216139766837",
+          "index": 40
+        },
+        {
+          "vid": "7589215249434151989",
+          "index": 41
+        },
+        {
+          "vid": "7589215231302175797",
+          "index": 42
+        },
+        {
+          "vid": "7589215224192830517",
+          "index": 43
+        },
+        {
+          "vid": "7589215219285511173",
+          "index": 44
+        },
+        {
+          "vid": "7589215227179174965",
+          "index": 45
+        },
+        {
+          "vid": "7589215237140646917",
+          "index": 46
+        },
+        {
+          "vid": "7589215240164740149",
+          "index": 47
+        },
+        {
+          "vid": "7589215263036279813",
+          "index": 48
+        },
+        {
+          "vid": "7589215246280035333",
+          "index": 49
+        },
+        {
+          "vid": "7589215243075587125",
+          "index": 50
+        },
+        {
+          "vid": "7589215266081344565",
+          "index": 51
+        },
+        {
+          "vid": "7589215252680543285",
+          "index": 52
+        },
+        {
+          "vid": "7589215255721430021",
+          "index": 53
+        },
+        {
+          "vid": "7589215273010351109",
+          "index": 54
+        },
+        {
+          "vid": "7589215259026525189",
+          "index": 55
+        },
+        {
+          "vid": "7589215269537467397",
+          "index": 56
+        },
+        {
+          "vid": "7589215290311838773",
+          "index": 57
+        },
+        {
+          "vid": "7589215286885092405",
+          "index": 58
+        },
+        {
+          "vid": "7589215280341994501",
+          "index": 59
+        },
+        {
+          "vid": "7589215276772625461",
+          "index": 60
+        },
+        {
+          "vid": "7589215283546426421",
+          "index": 61
+        },
+        {
+          "vid": "7589215311887354885",
+          "index": 62
+        },
+        {
+          "vid": "7589215293734390837",
+          "index": 63
+        },
+        {
+          "vid": "7589215308733238277",
+          "index": 64
+        },
+        {
+          "vid": "7589215304207584261",
+          "index": 65
+        },
+        {
+          "vid": "7589215300449471541",
+          "index": 66
+        },
+        {
+          "vid": "7589215297047890949",
+          "index": 67
+        },
+        {
+          "vid": "7589215319034432565",
+          "index": 68
+        },
+        {
+          "vid": "7589215315909676085",
+          "index": 69
+        },
+        {
+          "vid": "7589215328178015285",
+          "index": 70
+        },
+        {
+          "vid": "7589215324923235381",
+          "index": 71
+        },
+        {
+          "vid": "7589215362755873797",
+          "index": 72
+        },
+        {
+          "vid": "7589215341826296837",
+          "index": 73
+        },
+        {
+          "vid": "7589215321932696581",
+          "index": 74
+        },
+        {
+          "vid": "7589215338240150581",
+          "index": 75
+        },
+        {
+          "vid": "7589215334880513077",
+          "index": 76
+        },
+        {
+          "vid": "7589215331768339461",
+          "index": 77
+        },
+        {
+          "vid": "7589215351942958085",
+          "index": 78
+        },
+        {
+          "vid": "7589215348683983877",
+          "index": 79
+        },
+        {
+          "vid": "7589215365654121525",
+          "index": 80
+        },
+        {
+          "vid": "7589215345290775605",
+          "index": 81
+        },
+        {
+          "vid": "7589215355059309621",
+          "index": 82
+        },
+        {
+          "vid": "7589215385006640133",
+          "index": 83
+        },
+        {
+          "vid": "7589215358616079413",
+          "index": 84
+        },
+        {
+          "vid": "7589215378966842421",
+          "index": 85
+        },
+        {
+          "vid": "7589215418292636725",
+          "index": 86
+        },
+        {
+          "vid": "7589215382171290677",
+          "index": 87
+        },
+        {
+          "vid": "7589215369584184373",
+          "index": 88
+        },
+        {
+          "vid": "7589215372763466805",
+          "index": 89
+        },
+        {
+          "vid": "7589215376110521349",
+          "index": 90
+        },
+        {
+          "vid": "7589215395186215989",
+          "index": 91
+        },
+        {
+          "vid": "7589215391293901877",
+          "index": 92
+        },
+        {
+          "vid": "7589215388206910469",
+          "index": 93
+        },
+        {
+          "vid": "7589215421123791925",
+          "index": 94
+        },
+        {
+          "vid": "7589215397920902197",
+          "index": 95
+        },
+        {
+          "vid": "7589215424105942069",
+          "index": 96
+        },
+        {
+          "vid": "7589215404208163893",
+          "index": 97
+        },
+        {
+          "vid": "7589215408058534965",
+          "index": 98
+        },
+        {
+          "vid": "7589215411279760389",
+          "index": 99
+        },
+        {
+          "vid": "7589215414576483333",
+          "index": 100
+        }
+      ]
+    },
+    "7597714478100122677": {
+      "series_id": "7597714478100122677",
+      "title": "Kakek Muda Pembawa Berkah",
+      "total_episodes": 80,
+      "cover_url": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/b674f43cf4af09d1fb7d3dd36cfd9f54~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696273&x-signature=MYwb58II9hRlbYNtFgP3TxepBys%3D",
+      "abstract": "Dr. Fadli, berusia 60 tahun tapi berparas 20 tahun, kembali ke Bumi setelah gagal ujian kultivasi 600 tahun. Ketika kembali ia mendapati keluarganya terpuruk. Ia pun kemudian menggunakan kekuatan kultivasi untuk menyembuhkan, melindungi, dan membangun kejayaan keluarga Fadli.",
+      "genres": [
+        "Serangan balik",
+        "Pemeran Utama Pria",
+        "Fantasi perkotaan",
+        "Lainnya",
+        "Time Travel"
+      ],
+      "author": "fanqie",
+      "vids": [
+        {
+          "vid": "7597717109396737077",
+          "index": 1
+        },
+        {
+          "vid": "7597717374564830261",
+          "index": 2
+        },
+        {
+          "vid": "7597717106297162757",
+          "index": 3
+        },
+        {
+          "vid": "7597717122797538309",
+          "index": 4
+        },
+        {
+          "vid": "7597717102786513973",
+          "index": 5
+        },
+        {
+          "vid": "7597717137414687797",
+          "index": 6
+        },
+        {
+          "vid": "7597717113645567029",
+          "index": 7
+        },
+        {
+          "vid": "7597717117282028597",
+          "index": 8
+        },
+        {
+          "vid": "7597717129852357637",
+          "index": 9
+        },
+        {
+          "vid": "7597717120029297717",
+          "index": 10
+        },
+        {
+          "vid": "7597717126568217653",
+          "index": 11
+        },
+        {
+          "vid": "7597717143555148805",
+          "index": 12
+        },
+        {
+          "vid": "7597717153285934085",
+          "index": 13
+        },
+        {
+          "vid": "7597717132767398965",
+          "index": 14
+        },
+        {
+          "vid": "7597717140405226549",
+          "index": 15
+        },
+        {
+          "vid": "7597717157534764085",
+          "index": 16
+        },
+        {
+          "vid": "7597717181182250037",
+          "index": 17
+        },
+        {
+          "vid": "7597717146587646981",
+          "index": 18
+        },
+        {
+          "vid": "7597717149976628277",
+          "index": 19
+        },
+        {
+          "vid": "7597717184059542581",
+          "index": 20
+        },
+        {
+          "vid": "7597717178263030789",
+          "index": 21
+        },
+        {
+          "vid": "7597717355614964789",
+          "index": 22
+        },
+        {
+          "vid": "7597717368894131253",
+          "index": 23
+        },
+        {
+          "vid": "7597717160470776885",
+          "index": 24
+        },
+        {
+          "vid": "7597717164002380853",
+          "index": 25
+        },
+        {
+          "vid": "7597717167424949253",
+          "index": 26
+        },
+        {
+          "vid": "7597717174190361605",
+          "index": 27
+        },
+        {
+          "vid": "7597717170281270277",
+          "index": 28
+        },
+        {
+          "vid": "7597717190300666933",
+          "index": 29
+        },
+        {
+          "vid": "7597717187293350917",
+          "index": 30
+        },
+        {
+          "vid": "7597717193232485429",
+          "index": 31
+        },
+        {
+          "vid": "7597717196227218437",
+          "index": 32
+        },
+        {
+          "vid": "7597717199561690117",
+          "index": 33
+        },
+        {
+          "vid": "7597717205748304901",
+          "index": 34
+        },
+        {
+          "vid": "7597717202812275717",
+          "index": 35
+        },
+        {
+          "vid": "7597717211444153397",
+          "index": 36
+        },
+        {
+          "vid": "7597717221695032325",
+          "index": 37
+        },
+        {
+          "vid": "7597717225037892613",
+          "index": 38
+        },
+        {
+          "vid": "7597717233887874101",
+          "index": 39
+        },
+        {
+          "vid": "7597717208373922869",
+          "index": 40
+        },
+        {
+          "vid": "7597717215420369925",
+          "index": 41
+        },
+        {
+          "vid": "7597717231123827765",
+          "index": 42
+        },
+        {
+          "vid": "7597717377895107637",
+          "index": 43
+        },
+        {
+          "vid": "7597717218725465141",
+          "index": 44
+        },
+        {
+          "vid": "7597717255585008693",
+          "index": 45
+        },
+        {
+          "vid": "7597717247880072245",
+          "index": 46
+        },
+        {
+          "vid": "7597717252674161669",
+          "index": 47
+        },
+        {
+          "vid": "7597717236941327413",
+          "index": 48
+        },
+        {
+          "vid": "7597717242200984629",
+          "index": 49
+        },
+        {
+          "vid": "7597717265055747125",
+          "index": 50
+        },
+        {
+          "vid": "7597717245023751221",
+          "index": 51
+        },
+        {
+          "vid": "7597717262119750661",
+          "index": 52
+        },
+        {
+          "vid": "7597717274119638021",
+          "index": 53
+        },
+        {
+          "vid": "7597717258487483397",
+          "index": 54
+        },
+        {
+          "vid": "7597717267958205445",
+          "index": 55
+        },
+        {
+          "vid": "7597717288510311429",
+          "index": 56
+        },
+        {
+          "vid": "7597717277215034421",
+          "index": 57
+        },
+        {
+          "vid": "7597717270973910069",
+          "index": 58
+        },
+        {
+          "vid": "7597717299822332933",
+          "index": 59
+        },
+        {
+          "vid": "7597717303408462853",
+          "index": 60
+        },
+        {
+          "vid": "7597717279953931269",
+          "index": 61
+        },
+        {
+          "vid": "7597717282994801669",
+          "index": 62
+        },
+        {
+          "vid": "7597717296596913205",
+          "index": 63
+        },
+        {
+          "vid": "7597717285557521413",
+          "index": 64
+        },
+        {
+          "vid": "7597717324384193541",
+          "index": 65
+        },
+        {
+          "vid": "7597717312556239877",
+          "index": 66
+        },
+        {
+          "vid": "7597717306671631365",
+          "index": 67
+        },
+        {
+          "vid": "7597717318193400837",
+          "index": 68
+        },
+        {
+          "vid": "7597717315446131717",
+          "index": 69
+        },
+        {
+          "vid": "7597717340217691141",
+          "index": 70
+        },
+        {
+          "vid": "7597717320902921221",
+          "index": 71
+        },
+        {
+          "vid": "7597717330461723653",
+          "index": 72
+        },
+        {
+          "vid": "7597717327362133045",
+          "index": 73
+        },
+        {
+          "vid": "7597717336753179653",
+          "index": 74
+        },
+        {
+          "vid": "7597717343376002053",
+          "index": 75
+        },
+        {
+          "vid": "7597717333695532037",
+          "index": 76
+        },
+        {
+          "vid": "7597717348853763077",
+          "index": 77
+        },
+        {
+          "vid": "7597717380965338117",
+          "index": 78
+        },
+        {
+          "vid": "7597717383700024325",
+          "index": 79
+        },
+        {
+          "vid": "7597717346148420661",
+          "index": 80
+        }
+      ]
+    },
+    "7600673585476144181": {
+      "series_id": "7600673585476144181",
+      "title": "Gagal Ujian Jadi Playboy Istana",
+      "total_episodes": 82,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/a3efb3741ad6cff95e9188c4d59209d0~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696273&x-signature=CZqbUNE%2BPOtMq7OgMlZYle5DNFY%3D",
+      "abstract": "Raden Pratama gagal meraih impian karena dijebak dan dipenjara. Berkat bantuan sahabat lamanya yang kini menjadi kasim, ia mendapat kesempatan menjadi pendamping Putri Cempaka. Dengan kecerdikan dan tekad, Pratama memilih jalan baru di istana, berambisi menguasai kekuasaan dan hati para wanita.",
+      "genres": [
+        "Harem",
+        "Pemeran Utama Pria",
+        "Imajinasi Pria",
+        "Serangan balik",
+        "Sistem"
+      ],
+      "author": "fanqie",
+      "vids": [
+        {
+          "vid": "7601200807446318081",
+          "index": 1
+        },
+        {
+          "vid": "7601200810487188497",
+          "index": 2
+        },
+        {
+          "vid": "7601200819991481361",
+          "index": 3
+        },
+        {
+          "vid": "7601200823904766993",
+          "index": 4
+        },
+        {
+          "vid": "7601200831295130640",
+          "index": 5
+        },
+        {
+          "vid": "7601200837452368913",
+          "index": 6
+        },
+        {
+          "vid": "7601200840723926032",
+          "index": 7
+        },
+        {
+          "vid": "7601200843882236929",
+          "index": 8
+        },
+        {
+          "vid": "7601200847564835856",
+          "index": 9
+        },
+        {
+          "vid": "7601200851352292353",
+          "index": 10
+        },
+        {
+          "vid": "7601200854053424144",
+          "index": 11
+        },
+        {
+          "vid": "7601200857136237569",
+          "index": 12
+        },
+        {
+          "vid": "7601200860072250369",
+          "index": 13
+        },
+        {
+          "vid": "7601200863138286608",
+          "index": 14
+        },
+        {
+          "vid": "7601200867471002625",
+          "index": 15
+        },
+        {
+          "vid": "7601200870713199617",
+          "index": 16
+        },
+        {
+          "vid": "7601200873737292816",
+          "index": 17
+        },
+        {
+          "vid": "7601200876807523345",
+          "index": 18
+        },
+        {
+          "vid": "7601200879860976656",
+          "index": 19
+        },
+        {
+          "vid": "7601200882964761617",
+          "index": 20
+        },
+        {
+          "vid": "7601200886349564944",
+          "index": 21
+        },
+        {
+          "vid": "7601200889998609409",
+          "index": 22
+        },
+        {
+          "vid": "7601200893651848209",
+          "index": 23
+        },
+        {
+          "vid": "7601200902271142928",
+          "index": 24
+        },
+        {
+          "vid": "7601200910705888272",
+          "index": 25
+        },
+        {
+          "vid": "7601200913713204240",
+          "index": 26
+        },
+        {
+          "vid": "7601200916980567041",
+          "index": 27
+        },
+        {
+          "vid": "7601200926568745985",
+          "index": 28
+        },
+        {
+          "vid": "7601200930595277841",
+          "index": 29
+        },
+        {
+          "vid": "7601200933854252033",
+          "index": 30
+        },
+        {
+          "vid": "7601200936890928129",
+          "index": 31
+        },
+        {
+          "vid": "7601200940573527057",
+          "index": 32
+        },
+        {
+          "vid": "7601200943857667088",
+          "index": 33
+        },
+        {
+          "vid": "7601200947804507137",
+          "index": 34
+        },
+        {
+          "vid": "7601200950342061072",
+          "index": 35
+        },
+        {
+          "vid": "7601200953437457425",
+          "index": 36
+        },
+        {
+          "vid": "7601200956948089857",
+          "index": 37
+        },
+        {
+          "vid": "7601200973163269121",
+          "index": 38
+        },
+        {
+          "vid": "7601200976447409168",
+          "index": 39
+        },
+        {
+          "vid": "7601200980121619473",
+          "index": 40
+        },
+        {
+          "vid": "7601200983204432913",
+          "index": 41
+        },
+        {
+          "vid": "7601200986413075457",
+          "index": 42
+        },
+        {
+          "vid": "7601200989957262353",
+          "index": 43
+        },
+        {
+          "vid": "7601200993094601729",
+          "index": 44
+        },
+        {
+          "vid": "7601200996366158865",
+          "index": 45
+        },
+        {
+          "vid": "7601200999411223569",
+          "index": 46
+        },
+        {
+          "vid": "7601201009691462673",
+          "index": 47
+        },
+        {
+          "vid": "7601201012522617873",
+          "index": 48
+        },
+        {
+          "vid": "7601201015978724368",
+          "index": 49
+        },
+        {
+          "vid": "7601201018746965009",
+          "index": 50
+        },
+        {
+          "vid": "7601201028532276240",
+          "index": 51
+        },
+        {
+          "vid": "7601201031707364369",
+          "index": 52
+        },
+        {
+          "vid": "7601201035008281601",
+          "index": 53
+        },
+        {
+          "vid": "7601201038263061521",
+          "index": 54
+        },
+        {
+          "vid": "7601201042583194640",
+          "index": 55
+        },
+        {
+          "vid": "7601201045938637825",
+          "index": 56
+        },
+        {
+          "vid": "7601201049294081041",
+          "index": 57
+        },
+        {
+          "vid": "7601201053085731841",
+          "index": 58
+        },
+        {
+          "vid": "7601201056273402897",
+          "index": 59
+        },
+        {
+          "vid": "7601201059440102417",
+          "index": 60
+        },
+        {
+          "vid": "7601201062283840529",
+          "index": 61
+        },
+        {
+          "vid": "7601201065756724225",
+          "index": 62
+        },
+        {
+          "vid": "7601201068873092113",
+          "index": 63
+        },
+        {
+          "vid": "7601201079820225552",
+          "index": 64
+        },
+        {
+          "vid": "7601201083167280145",
+          "index": 65
+        },
+        {
+          "vid": "7601201086182984720",
+          "index": 66
+        },
+        {
+          "vid": "7601201089425181712",
+          "index": 67
+        },
+        {
+          "vid": "7601201093254581264",
+          "index": 68
+        },
+        {
+          "vid": "7601201097260141569",
+          "index": 69
+        },
+        {
+          "vid": "7601201100229708801",
+          "index": 70
+        },
+        {
+          "vid": "7601201108320521233",
+          "index": 71
+        },
+        {
+          "vid": "7601201111889873921",
+          "index": 72
+        },
+        {
+          "vid": "7601201116675574801",
+          "index": 73
+        },
+        {
+          "vid": "7601201120026823696",
+          "index": 74
+        },
+        {
+          "vid": "7601201123919137793",
+          "index": 75
+        },
+        {
+          "vid": "7601201127631096833",
+          "index": 76
+        },
+        {
+          "vid": "7601201130483223568",
+          "index": 77
+        },
+        {
+          "vid": "7601201136455912464",
+          "index": 78
+        },
+        {
+          "vid": "7601201139526142992",
+          "index": 79
+        },
+        {
+          "vid": "7601201143267462160",
+          "index": 80
+        },
+        {
+          "vid": "7601201146123783169",
+          "index": 81
+        },
+        {
+          "vid": "7601201149051407376",
+          "index": 82
+        }
+      ]
+    },
+    "7582454785920470021": {
+      "series_id": "7582454785920470021",
+      "title": "Sistem Ajaib dan Puncak Hidupku",
+      "total_episodes": 72,
+      "cover_url": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/1bdb1b4c524a2b26d424d4ae6b8c88e2~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696282&x-signature=oBb8lCaZkbzLBuWzzyQTUn0hN4g%3D",
+      "abstract": "Demi mendukung usaha mantan istrinya, Wina Lita, Leo Soni resign dari pekerjaannya. Tapi dia malah ditolak dan cerai. Wina juga menuntut hak asuh atas putri mereka. Setelah cerai, adik Wina, Rina, berinisiatif tetap tinggal. Leo tiba-tiba terhubung dengan sistem check-in harian dan memperoleh aset. Akhirnya Leo menikahi Rina.",
+      "genres": [
+        "Tycoon",
+        "Serangan balik",
+        "Pemeran Utama Pria",
+        "Imajinasi Perkotaan",
+        "Duda"
+      ],
+      "author": "fanqie",
+      "vids": [
+        {
+          "vid": "7582477412554771509",
+          "index": 1
+        },
+        {
+          "vid": "7582477419446012981",
+          "index": 2
+        },
+        {
+          "vid": "7582477409564232709",
+          "index": 3
+        },
+        {
+          "vid": "7582477415851494453",
+          "index": 4
+        },
+        {
+          "vid": "7582477422889536565",
+          "index": 5
+        },
+        {
+          "vid": "7582477425691331637",
+          "index": 6
+        },
+        {
+          "vid": "7582477428723813429",
+          "index": 7
+        },
+        {
+          "vid": "7582477436370029573",
+          "index": 8
+        },
+        {
+          "vid": "7582477433119443973",
+          "index": 9
+        },
+        {
+          "vid": "7582477442795703301",
+          "index": 10
+        },
+        {
+          "vid": "7582477439473814533",
+          "index": 11
+        },
+        {
+          "vid": "7582477446457330693",
+          "index": 12
+        },
+        {
+          "vid": "7582477449787608069",
+          "index": 13
+        },
+        {
+          "vid": "7582477463226174469",
+          "index": 14
+        },
+        {
+          "vid": "7582477459946212357",
+          "index": 15
+        },
+        {
+          "vid": "7582477466434800693",
+          "index": 16
+        },
+        {
+          "vid": "7582477469949627445",
+          "index": 17
+        },
+        {
+          "vid": "7582477473372179461",
+          "index": 18
+        },
+        {
+          "vid": "7582477479919488053",
+          "index": 19
+        },
+        {
+          "vid": "7582477476442410037",
+          "index": 20
+        },
+        {
+          "vid": "7582477503432756277",
+          "index": 21
+        },
+        {
+          "vid": "7582477485955107845",
+          "index": 22
+        },
+        {
+          "vid": "7582477489197288501",
+          "index": 23
+        },
+        {
+          "vid": "7582477482905832453",
+          "index": 24
+        },
+        {
+          "vid": "7582477492863126533",
+          "index": 25
+        },
+        {
+          "vid": "7582477509757766709",
+          "index": 26
+        },
+        {
+          "vid": "7582477499855014965",
+          "index": 27
+        },
+        {
+          "vid": "7582477506326825989",
+          "index": 28
+        },
+        {
+          "vid": "7582477496621206533",
+          "index": 29
+        },
+        {
+          "vid": "7582477516300880901",
+          "index": 30
+        },
+        {
+          "vid": "7582477519471791109",
+          "index": 31
+        },
+        {
+          "vid": "7582477522915298357",
+          "index": 32
+        },
+        {
+          "vid": "7582477529131256885",
+          "index": 33
+        },
+        {
+          "vid": "7582477513155169285",
+          "index": 34
+        },
+        {
+          "vid": "7582477526153300997",
+          "index": 35
+        },
+        {
+          "vid": "7582477532436384773",
+          "index": 36
+        },
+        {
+          "vid": "7582477544935410693",
+          "index": 37
+        },
+        {
+          "vid": "7582477535561124917",
+          "index": 38
+        },
+        {
+          "vid": "7582477541735140405",
+          "index": 39
+        },
+        {
+          "vid": "7582477547758160949",
+          "index": 40
+        },
+        {
+          "vid": "7582477538773961733",
+          "index": 41
+        },
+        {
+          "vid": "7582477554259348485",
+          "index": 42
+        },
+        {
+          "vid": "7582477551151352837",
+          "index": 43
+        },
+        {
+          "vid": "7582477563725876277",
+          "index": 44
+        },
+        {
+          "vid": "7582477560152345605",
+          "index": 45
+        },
+        {
+          "vid": "7582477567022599221",
+          "index": 46
+        },
+        {
+          "vid": "7582477557186956293",
+          "index": 47
+        },
+        {
+          "vid": "7582477570550025221",
+          "index": 48
+        },
+        {
+          "vid": "7582477573456661557",
+          "index": 49
+        },
+        {
+          "vid": "7582477596529527861",
+          "index": 50
+        },
+        {
+          "vid": "7582477586786159669",
+          "index": 51
+        },
+        {
+          "vid": "7582477583481064453",
+          "index": 52
+        },
+        {
+          "vid": "7582477577143454725",
+          "index": 53
+        },
+        {
+          "vid": "7582477593534794757",
+          "index": 54
+        },
+        {
+          "vid": "7582477580566006837",
+          "index": 55
+        },
+        {
+          "vid": "7582477590594604037",
+          "index": 56
+        },
+        {
+          "vid": "7582477599788518405",
+          "index": 57
+        },
+        {
+          "vid": "7582477611939400709",
+          "index": 58
+        },
+        {
+          "vid": "7582477608844004405",
+          "index": 59
+        },
+        {
+          "vid": "7582477605740235781",
+          "index": 60
+        },
+        {
+          "vid": "7582477615429061685",
+          "index": 61
+        },
+        {
+          "vid": "7582477618830658565",
+          "index": 62
+        },
+        {
+          "vid": "7582477621733100597",
+          "index": 63
+        },
+        {
+          "vid": "7582477624622992389",
+          "index": 64
+        },
+        {
+          "vid": "7582477630981540917",
+          "index": 65
+        },
+        {
+          "vid": "7582477628125219845",
+          "index": 66
+        },
+        {
+          "vid": "7582477636878732341",
+          "index": 67
+        },
+        {
+          "vid": "7582477633812696069",
+          "index": 68
+        },
+        {
+          "vid": "7582477652179569669",
+          "index": 69
+        },
+        {
+          "vid": "7582477645695175685",
+          "index": 70
+        },
+        {
+          "vid": "7582477642578791477",
+          "index": 71
+        },
+        {
+          "vid": "7582477648882830389",
+          "index": 72
+        }
+      ]
+    },
+    "7582204630029831173": {
+      "series_id": "7582204630029831173",
+      "title": "Kultivator Kuno di Era Digital",
+      "total_episodes": 79,
+      "cover_url": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/43522ac63b25ef3c95e20142d9477a9e~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696436&x-signature=Gs%2F5VxTua5s9qxWsGdKbiOGmv6Y%3D",
+      "abstract": "Setelah 10.000 tahun berlatih di dunia dewa, Alex kembali ke dunia modern tapi kemampuannya tidak sengaja terungkap lewat siaran adiknya. Aksinya, dari meracik pil hingga menyembuhkan luka membuatnya viral, memicu kebangkitan energi spiritual dan menarik perhatian keluarga-keluarga besar.",
+      "genres": [
+        "Kembali",
+        "Pemeran Utama Pria",
+        "Fantasi perkotaan",
+        "Serangan balik",
+        "Keluarga"
+      ],
+      "author": "fanqie",
+      "vids": [
+        {
+          "vid": "7582233862860704773",
+          "index": 1
+        },
+        {
+          "vid": "7582233461243513861",
+          "index": 2
+        },
+        {
+          "vid": "7582233465605590021",
+          "index": 3
+        },
+        {
+          "vid": "7582233469116222517",
+          "index": 4
+        },
+        {
+          "vid": "7582233473046301701",
+          "index": 5
+        },
+        {
+          "vid": "7582233478326930437",
+          "index": 6
+        },
+        {
+          "vid": "7582233485490801669",
+          "index": 7
+        },
+        {
+          "vid": "7582233491668995125",
+          "index": 8
+        },
+        {
+          "vid": "7582233495003466805",
+          "index": 9
+        },
+        {
+          "vid": "7582233499537509429",
+          "index": 10
+        },
+        {
+          "vid": "7582233520043461685",
+          "index": 11
+        },
+        {
+          "vid": "7582233523994496053",
+          "index": 12
+        },
+        {
+          "vid": "7582233529208015877",
+          "index": 13
+        },
+        {
+          "vid": "7582233532668316677",
+          "index": 14
+        },
+        {
+          "vid": "7582233540478110773",
+          "index": 15
+        },
+        {
+          "vid": "7582233536766151685",
+          "index": 16
+        },
+        {
+          "vid": "7582233548053040133",
+          "index": 17
+        },
+        {
+          "vid": "7582233544685014021",
+          "index": 18
+        },
+        {
+          "vid": "7582233552935209989",
+          "index": 19
+        },
+        {
+          "vid": "7582233557616036869",
+          "index": 20
+        },
+        {
+          "vid": "7582233563404176437",
+          "index": 21
+        },
+        {
+          "vid": "7582233567439096885",
+          "index": 22
+        },
+        {
+          "vid": "7582233588901350453",
+          "index": 23
+        },
+        {
+          "vid": "7582233595553516549",
+          "index": 24
+        },
+        {
+          "vid": "7582233592214850565",
+          "index": 25
+        },
+        {
+          "vid": "7582233602734165045",
+          "index": 26
+        },
+        {
+          "vid": "7582233609977728053",
+          "index": 27
+        },
+        {
+          "vid": "7582233721248435205",
+          "index": 28
+        },
+        {
+          "vid": "7582233606450334725",
+          "index": 29
+        },
+        {
+          "vid": "7582233614440483845",
+          "index": 30
+        },
+        {
+          "vid": "7582233618135649333",
+          "index": 31
+        },
+        {
+          "vid": "7582233845710195765",
+          "index": 32
+        },
+        {
+          "vid": "7582233622187363333",
+          "index": 33
+        },
+        {
+          "vid": "7582233628994702389",
+          "index": 34
+        },
+        {
+          "vid": "7582233625576344629",
+          "index": 35
+        },
+        {
+          "vid": "7582233634338245637",
+          "index": 36
+        },
+        {
+          "vid": "7582233637920181253",
+          "index": 37
+        },
+        {
+          "vid": "7582233654097611829",
+          "index": 38
+        },
+        {
+          "vid": "7582233641346927621",
+          "index": 39
+        },
+        {
+          "vid": "7582233677464095749",
+          "index": 40
+        },
+        {
+          "vid": "7582233658933644341",
+          "index": 41
+        },
+        {
+          "vid": "7582233684367903797",
+          "index": 42
+        },
+        {
+          "vid": "7582233687803055109",
+          "index": 43
+        },
+        {
+          "vid": "7582233697038896133",
+          "index": 44
+        },
+        {
+          "vid": "7582233692706180149",
+          "index": 45
+        },
+        {
+          "vid": "7582233705737882677",
+          "index": 46
+        },
+        {
+          "vid": "7582233701874928693",
+          "index": 47
+        },
+        {
+          "vid": "7582233708975885365",
+          "index": 48
+        },
+        {
+          "vid": "7582233712285191221",
+          "index": 49
+        },
+        {
+          "vid": "7582233729100172293",
+          "index": 50
+        },
+        {
+          "vid": "7582233850361695237",
+          "index": 51
+        },
+        {
+          "vid": "7582233733839719477",
+          "index": 52
+        },
+        {
+          "vid": "7582233724528380933",
+          "index": 53
+        },
+        {
+          "vid": "7582233744229010437",
+          "index": 54
+        },
+        {
+          "vid": "7582233740881972229",
+          "index": 55
+        },
+        {
+          "vid": "7582233767494814773",
+          "index": 56
+        },
+        {
+          "vid": "7582233757646605317",
+          "index": 57
+        },
+        {
+          "vid": "7582233748519783477",
+          "index": 58
+        },
+        {
+          "vid": "7582233855050910773",
+          "index": 59
+        },
+        {
+          "vid": "7582233779083676725",
+          "index": 60
+        },
+        {
+          "vid": "7582233771269688373",
+          "index": 61
+        },
+        {
+          "vid": "7582233782510423093",
+          "index": 62
+        },
+        {
+          "vid": "7582233775023606789",
+          "index": 63
+        },
+        {
+          "vid": "7582233790974528565",
+          "index": 64
+        },
+        {
+          "vid": "7582233794753612805",
+          "index": 65
+        },
+        {
+          "vid": "7582233787229015093",
+          "index": 66
+        },
+        {
+          "vid": "7582233798029347893",
+          "index": 67
+        },
+        {
+          "vid": "7582233801586117685",
+          "index": 68
+        },
+        {
+          "vid": "7582233810587094069",
+          "index": 69
+        },
+        {
+          "vid": "7582233805725895733",
+          "index": 70
+        },
+        {
+          "vid": "7582233814110309381",
+          "index": 71
+        },
+        {
+          "vid": "7582233842191174709",
+          "index": 72
+        },
+        {
+          "vid": "7582233817977457669",
+          "index": 73
+        },
+        {
+          "vid": "7582233822897376309",
+          "index": 74
+        },
+        {
+          "vid": "7582233826852604981",
+          "index": 75
+        },
+        {
+          "vid": "7582233830845582389",
+          "index": 76
+        },
+        {
+          "vid": "7582233834872114181",
+          "index": 77
+        },
+        {
+          "vid": "7582233858511211573",
+          "index": 78
+        },
+        {
+          "vid": "7582233839016086581",
+          "index": 79
+        }
+      ]
+    },
+    "7539724931345419281": {
+      "series_id": "7539724931345419281",
+      "title": "Luka Masa Lalu",
+      "total_episodes": 70,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/5a29963238d913e87a0252effc6111ea~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696520&x-signature=BMRzOs8lyR8tIIV0Q0BRvsoXAQc%3D",
+      "abstract": "Dihina dan dikhianati, Zaki bangkit dari kematian lima tahun lalu. Dia membongkar kebusukan keluarga Servan, membalas dendam atas kematian ayah angkat dan kekasihnya. Lewat lagu-lagu emas dan siaran langsung, Zaki menuntut keadilan dan meraih hidup baru bersama orang-orang yang dia cintai.",
+      "genres": [
+        "Kelahiran kembali",
+        "Pemeran Utama Pria",
+        "Kehidupan perkotaan",
+        "Serangan balik",
+        "Keluarga"
+      ],
+      "author": "bikan",
+      "vids": [
+        {
+          "vid": "7539726812926970896",
+          "index": 1
+        },
+        {
+          "vid": "7539726535389875217",
+          "index": 2
+        },
+        {
+          "vid": "7539726538627877904",
+          "index": 3
+        },
+        {
+          "vid": "7539726542088178689",
+          "index": 4
+        },
+        {
+          "vid": "7539726545754000400",
+          "index": 5
+        },
+        {
+          "vid": "7539726549147192321",
+          "index": 6
+        },
+        {
+          "vid": "7539726552376806416",
+          "index": 7
+        },
+        {
+          "vid": "7539726562585742353",
+          "index": 8
+        },
+        {
+          "vid": "7539726559372905473",
+          "index": 9
+        },
+        {
+          "vid": "7539726555715472385",
+          "index": 10
+        },
+        {
+          "vid": "7539726577857203217",
+          "index": 11
+        },
+        {
+          "vid": "7539726569816722448",
+          "index": 12
+        },
+        {
+          "vid": "7539726573696453648",
+          "index": 13
+        },
+        {
+          "vid": "7539726565932796929",
+          "index": 14
+        },
+        {
+          "vid": "7539726581497859073",
+          "index": 15
+        },
+        {
+          "vid": "7539726805675019280",
+          "index": 16
+        },
+        {
+          "vid": "7539726585419533313",
+          "index": 17
+        },
+        {
+          "vid": "7539726588615592976",
+          "index": 18
+        },
+        {
+          "vid": "7539726816508906512",
+          "index": 19
+        },
+        {
+          "vid": "7539726592176557072",
+          "index": 20
+        },
+        {
+          "vid": "7539726809114348560",
+          "index": 21
+        },
+        {
+          "vid": "7539726599596280833",
+          "index": 22
+        },
+        {
+          "vid": "7539726596257614849",
+          "index": 23
+        },
+        {
+          "vid": "7539726819893709825",
+          "index": 24
+        },
+        {
+          "vid": "7539726614876130321",
+          "index": 25
+        },
+        {
+          "vid": "7539726603232742417",
+          "index": 26
+        },
+        {
+          "vid": "7539726609725525009",
+          "index": 27
+        },
+        {
+          "vid": "7539726606407830544",
+          "index": 28
+        },
+        {
+          "vid": "7539726618441288721",
+          "index": 29
+        },
+        {
+          "vid": "7539726625613548561",
+          "index": 30
+        },
+        {
+          "vid": "7539726633377205249",
+          "index": 31
+        },
+        {
+          "vid": "7539726629572971537",
+          "index": 32
+        },
+        {
+          "vid": "7539726637403737089",
+          "index": 33
+        },
+        {
+          "vid": "7539726621582822416",
+          "index": 34
+        },
+        {
+          "vid": "7539726648472505361",
+          "index": 35
+        },
+        {
+          "vid": "7539726641237330945",
+          "index": 36
+        },
+        {
+          "vid": "7539726665241332752",
+          "index": 37
+        },
+        {
+          "vid": "7539726644768934929",
+          "index": 38
+        },
+        {
+          "vid": "7539726652821998609",
+          "index": 39
+        },
+        {
+          "vid": "7539726661428710401",
+          "index": 40
+        },
+        {
+          "vid": "7539726668894571536",
+          "index": 41
+        },
+        {
+          "vid": "7539726657926466576",
+          "index": 42
+        },
+        {
+          "vid": "7539726672468118529",
+          "index": 43
+        },
+        {
+          "vid": "7539726687060102160",
+          "index": 44
+        },
+        {
+          "vid": "7539726676041665552",
+          "index": 45
+        },
+        {
+          "vid": "7539726683230702608",
+          "index": 46
+        },
+        {
+          "vid": "7539726679585852417",
+          "index": 47
+        },
+        {
+          "vid": "7539726690616871953",
+          "index": 48
+        },
+        {
+          "vid": "7539726707175984145",
+          "index": 49
+        },
+        {
+          "vid": "7539726710963440657",
+          "index": 50
+        },
+        {
+          "vid": "7539726736171207696",
+          "index": 51
+        },
+        {
+          "vid": "7539726714612485137",
+          "index": 52
+        },
+        {
+          "vid": "7539726718060203009",
+          "index": 53
+        },
+        {
+          "vid": "7539726721902185473",
+          "index": 54
+        },
+        {
+          "vid": "7539726725530258448",
+          "index": 55
+        },
+        {
+          "vid": "7539726729208663041",
+          "index": 56
+        },
+        {
+          "vid": "7539726732987730960",
+          "index": 57
+        },
+        {
+          "vid": "7539726775979346961",
+          "index": 58
+        },
+        {
+          "vid": "7539726739572788241",
+          "index": 59
+        },
+        {
+          "vid": "7539726743238609937",
+          "index": 60
+        },
+        {
+          "vid": "7539726798867663888",
+          "index": 61
+        },
+        {
+          "vid": "7539726779431259137",
+          "index": 62
+        },
+        {
+          "vid": "7539726768253438977",
+          "index": 63
+        },
+        {
+          "vid": "7539726746468224017",
+          "index": 64
+        },
+        {
+          "vid": "7539726782920920065",
+          "index": 65
+        },
+        {
+          "vid": "7539726772753927169",
+          "index": 66
+        },
+        {
+          "vid": "7539726786729348097",
+          "index": 67
+        },
+        {
+          "vid": "7539726791204670465",
+          "index": 68
+        },
+        {
+          "vid": "7539726802286021633",
+          "index": 69
+        },
+        {
+          "vid": "7539726794736274448",
+          "index": 70
+        }
+      ]
+    },
+    "7573605191614745605": {
+      "series_id": "7573605191614745605",
+      "title": "Aku Tak Akan Mengejarmu Lagi",
+      "total_episodes": 73,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/c2e832b287aaf89573d8e335afca2471~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696649&x-signature=Azfq6blbBFf60rUt%2BpJib%2FZARdY%3D",
+      "abstract": "Setelah tewas ditabrak adik angkat dan pacarnya, Alan Baskara sadar hanya Sevi Ramlan yang tulus padanya. Terlahir kembali, ia membalas semua pengkhianatan dan mengejar cinta sejatinya. Saat si mantan dan adik angkatnya berlutut memohon ampun, Alan hanya tersenyum dingin dan mengusir mereka tanpa ampun.",
+      "genres": [
+        "Tycoon",
+        "Kelahiran kembali",
+        "Pemeran Utama Pria",
+        "Imajinasi Perkotaan",
+        "Serangan balik"
+      ],
+      "author": "mangzhong",
+      "vids": [
+        {
+          "vid": "7573618140160986165",
+          "index": 1
+        },
+        {
+          "vid": "7573618083428830213",
+          "index": 2
+        },
+        {
+          "vid": "7573618070816558085",
+          "index": 3
+        },
+        {
+          "vid": "7573618128920251445",
+          "index": 4
+        },
+        {
+          "vid": "7573618066672602117",
+          "index": 5
+        },
+        {
+          "vid": "7573618075233160197",
+          "index": 6
+        },
+        {
+          "vid": "7573618079364566021",
+          "index": 7
+        },
+        {
+          "vid": "7573618089917418549",
+          "index": 8
+        },
+        {
+          "vid": "7573618086650055733",
+          "index": 9
+        },
+        {
+          "vid": "7573618136633576501",
+          "index": 10
+        },
+        {
+          "vid": "7573618094166264837",
+          "index": 11
+        },
+        {
+          "vid": "7573618101594360885",
+          "index": 12
+        },
+        {
+          "vid": "7573618098163420213",
+          "index": 13
+        },
+        {
+          "vid": "7573618105566366773",
+          "index": 14
+        },
+        {
+          "vid": "7573618109366422533",
+          "index": 15
+        },
+        {
+          "vid": "7573618132397329413",
+          "index": 16
+        },
+        {
+          "vid": "7573618113816562741",
+          "index": 17
+        },
+        {
+          "vid": "7573618117817928709",
+          "index": 18
+        },
+        {
+          "vid": "7573618121026587653",
+          "index": 19
+        },
+        {
+          "vid": "7573618125363481605",
+          "index": 20
+        },
+        {
+          "vid": "7573618143663230005",
+          "index": 21
+        },
+        {
+          "vid": "7573618150386699317",
+          "index": 22
+        },
+        {
+          "vid": "7573618147274525749",
+          "index": 23
+        },
+        {
+          "vid": "7573618157852560389",
+          "index": 24
+        },
+        {
+          "vid": "7573618154161589253",
+          "index": 25
+        },
+        {
+          "vid": "7573618165981137925",
+          "index": 26
+        },
+        {
+          "vid": "7573618169391107077",
+          "index": 27
+        },
+        {
+          "vid": "7573618162160126981",
+          "index": 28
+        },
+        {
+          "vid": "7573618172511652917",
+          "index": 29
+        },
+        {
+          "vid": "7573618176194251829",
+          "index": 30
+        },
+        {
+          "vid": "7573618180145286197",
+          "index": 31
+        },
+        {
+          "vid": "7573618193218948101",
+          "index": 32
+        },
+        {
+          "vid": "7573618183454592053",
+          "index": 33
+        },
+        {
+          "vid": "7573618186780675125",
+          "index": 34
+        },
+        {
+          "vid": "7573618189532138501",
+          "index": 35
+        },
+        {
+          "vid": "7573618196779895813",
+          "index": 36
+        },
+        {
+          "vid": "7573618200647044149",
+          "index": 37
+        },
+        {
+          "vid": "7573618217541716997",
+          "index": 38
+        },
+        {
+          "vid": "7573618210549795845",
+          "index": 39
+        },
+        {
+          "vid": "7573618204283505669",
+          "index": 40
+        },
+        {
+          "vid": "7573618207529897013",
+          "index": 41
+        },
+        {
+          "vid": "7573618213842324485",
+          "index": 42
+        },
+        {
+          "vid": "7573618228975373365",
+          "index": 43
+        },
+        {
+          "vid": "7573618220637097013",
+          "index": 44
+        },
+        {
+          "vid": "7573618224156134405",
+          "index": 45
+        },
+        {
+          "vid": "7573618236730641461",
+          "index": 46
+        },
+        {
+          "vid": "7573618232171432965",
+          "index": 47
+        },
+        {
+          "vid": "7573618240270634037",
+          "index": 48
+        },
+        {
+          "vid": "7573618244766927925",
+          "index": 49
+        },
+        {
+          "vid": "7573618259291802629",
+          "index": 50
+        },
+        {
+          "vid": "7573618251322625077",
+          "index": 51
+        },
+        {
+          "vid": "7573618254325746693",
+          "index": 52
+        },
+        {
+          "vid": "7573618248063667205",
+          "index": 53
+        },
+        {
+          "vid": "7573618274538097717",
+          "index": 54
+        },
+        {
+          "vid": "7573618263964257285",
+          "index": 55
+        },
+        {
+          "vid": "7573618267491666949",
+          "index": 56
+        },
+        {
+          "vid": "7573618271237180469",
+          "index": 57
+        },
+        {
+          "vid": "7573618277780311045",
+          "index": 58
+        },
+        {
+          "vid": "7573618281366424629",
+          "index": 59
+        },
+        {
+          "vid": "7573618284503780357",
+          "index": 60
+        },
+        {
+          "vid": "7573618292707838981",
+          "index": 61
+        },
+        {
+          "vid": "7573618287611759621",
+          "index": 62
+        },
+        {
+          "vid": "7573618295811607605",
+          "index": 63
+        },
+        {
+          "vid": "7573618299389365253",
+          "index": 64
+        },
+        {
+          "vid": "7573618303097113653",
+          "index": 65
+        },
+        {
+          "vid": "7573618306502904837",
+          "index": 66
+        },
+        {
+          "vid": "7573618309778639925",
+          "index": 67
+        },
+        {
+          "vid": "7573618316686658613",
+          "index": 68
+        },
+        {
+          "vid": "7573618313092140037",
+          "index": 69
+        },
+        {
+          "vid": "7573618323288493109",
+          "index": 70
+        },
+        {
+          "vid": "7573618326409055237",
+          "index": 71
+        },
+        {
+          "vid": "7573618320117599237",
+          "index": 72
+        },
+        {
+          "vid": "7573618330787908661",
+          "index": 73
+        }
+      ]
+    },
+    "7597738516453264437": {
+      "series_id": "7597738516453264437",
+      "title": "Ibu Kembali, Anak Berebut Kasih",
+      "total_episodes": 68,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/0bdd09093417fb64fe51e26e202511bf~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696781&x-signature=2Dq%2Bvr9lbrK0Y7EqAxQRroF8%2F7o%3D",
+      "abstract": "Setelah kecelakaan tragis, Dewi Lestari terbangun di masa depan dan menyaksikan anak-anaknya hidup dalam kesedihan. Kini, ia berjuang mengubah nasib keluarga, menghadapi persaingan dan konflik di antara anak-anaknya demi kebahagiaan mereka.",
+      "genres": [
+        "Serangan balik",
+        "Romansa",
+        "Drama Keluarga",
+        "Keluarga",
+        "Time Travel"
+      ],
+      "author": "yuewen",
+      "vids": [
+        {
+          "vid": "7597746649296800785",
+          "index": 1
+        },
+        {
+          "vid": "7597746652203453456",
+          "index": 2
+        },
+        {
+          "vid": "7597746655365958673",
+          "index": 3
+        },
+        {
+          "vid": "7597746658562018320",
+          "index": 4
+        },
+        {
+          "vid": "7597746661602888720",
+          "index": 5
+        },
+        {
+          "vid": "7597746664928971792",
+          "index": 6
+        },
+        {
+          "vid": "7597746668242471952",
+          "index": 7
+        },
+        {
+          "vid": "7597746670847134736",
+          "index": 8
+        },
+        {
+          "vid": "7597746674412293121",
+          "index": 9
+        },
+        {
+          "vid": "7597746677411220481",
+          "index": 10
+        },
+        {
+          "vid": "7597746681387420689",
+          "index": 11
+        },
+        {
+          "vid": "7597746684751252481",
+          "index": 12
+        },
+        {
+          "vid": "7597746688047975425",
+          "index": 13
+        },
+        {
+          "vid": "7597746691629911056",
+          "index": 14
+        },
+        {
+          "vid": "7597746694821776400",
+          "index": 15
+        },
+        {
+          "vid": "7597746698160442385",
+          "index": 16
+        },
+        {
+          "vid": "7597746701436193808",
+          "index": 17
+        },
+        {
+          "vid": "7597746704506424337",
+          "index": 18
+        },
+        {
+          "vid": "7597746708344212496",
+          "index": 19
+        },
+        {
+          "vid": "7597746711452191745",
+          "index": 20
+        },
+        {
+          "vid": "7597746714270764033",
+          "index": 21
+        },
+        {
+          "vid": "7597746717282274321",
+          "index": 22
+        },
+        {
+          "vid": "7597746720268618753",
+          "index": 23
+        },
+        {
+          "vid": "7597746723343043601",
+          "index": 24
+        },
+        {
+          "vid": "7597746736169225233",
+          "index": 25
+        },
+        {
+          "vid": "7597746739189124112",
+          "index": 26
+        },
+        {
+          "vid": "7597746742213217297",
+          "index": 27
+        },
+        {
+          "vid": "7597746746243943425",
+          "index": 28
+        },
+        {
+          "vid": "7597746749091875856",
+          "index": 29
+        },
+        {
+          "vid": "7597746752174689297",
+          "index": 30
+        },
+        {
+          "vid": "7597746755463023632",
+          "index": 31
+        },
+        {
+          "vid": "7597746758742969361",
+          "index": 32
+        },
+        {
+          "vid": "7597746761825782785",
+          "index": 33
+        },
+        {
+          "vid": "7597746765000870929",
+          "index": 34
+        },
+        {
+          "vid": "7597746769195174913",
+          "index": 35
+        },
+        {
+          "vid": "7597746772261211137",
+          "index": 36
+        },
+        {
+          "vid": "7597746775373384705",
+          "index": 37
+        },
+        {
+          "vid": "7597746778439420929",
+          "index": 38
+        },
+        {
+          "vid": "7597746781257993232",
+          "index": 39
+        },
+        {
+          "vid": "7597746784235949073",
+          "index": 40
+        },
+        {
+          "vid": "7597746786895137808",
+          "index": 41
+        },
+        {
+          "vid": "7597746789889870865",
+          "index": 42
+        },
+        {
+          "vid": "7597746793849293840",
+          "index": 43
+        },
+        {
+          "vid": "7597746797926157329",
+          "index": 44
+        },
+        {
+          "vid": "7597746800895724561",
+          "index": 45
+        },
+        {
+          "vid": "7597746804460882945",
+          "index": 46
+        },
+        {
+          "vid": "7597746807740828673",
+          "index": 47
+        },
+        {
+          "vid": "7597746811859635217",
+          "index": 48
+        },
+        {
+          "vid": "7597746815089249297",
+          "index": 49
+        },
+        {
+          "vid": "7597746817928793089",
+          "index": 50
+        },
+        {
+          "vid": "7597746821246487568",
+          "index": 51
+        },
+        {
+          "vid": "7597746824388021264",
+          "index": 52
+        },
+        {
+          "vid": "7597746827621829648",
+          "index": 53
+        },
+        {
+          "vid": "7597746830666894337",
+          "index": 54
+        },
+        {
+          "vid": "7597746833812622353",
+          "index": 55
+        },
+        {
+          "vid": "7597746836643777553",
+          "index": 56
+        },
+        {
+          "vid": "7597746839500098577",
+          "index": 57
+        },
+        {
+          "vid": "7597746842364808208",
+          "index": 58
+        },
+        {
+          "vid": "7597746845376318465",
+          "index": 59
+        },
+        {
+          "vid": "7597746848144559121",
+          "index": 60
+        },
+        {
+          "vid": "7597746851193818129",
+          "index": 61
+        },
+        {
+          "vid": "7597746854536678416",
+          "index": 62
+        },
+        {
+          "vid": "7597746858294774785",
+          "index": 63
+        },
+        {
+          "vid": "7597746862413581313",
+          "index": 64
+        },
+        {
+          "vid": "7597746866964401153",
+          "index": 65
+        },
+        {
+          "vid": "7597746869766196240",
+          "index": 66
+        },
+        {
+          "vid": "7597746873083890689",
+          "index": 67
+        },
+        {
+          "vid": "7597746876212841473",
+          "index": 68
+        }
+      ]
+    },
+    "7584379137708526597": {
+      "series_id": "7584379137708526597",
+      "title": "Dewa Balapan",
+      "total_episodes": 71,
+      "cover_url": "https://p16-novel-sign-sg.fizzopic.org/novel-images-sg/a203eb613bfd1aa72677fc8f00b158dd~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696839&x-signature=zdk3SFM3xG2E4PpEjT0ZyBFyi48%3D",
+      "abstract": "Rizky Pratama, mantan legenda balap, kembali turun gunung setelah menolong Putri Fitria di perjalanan menuju bandara. Ia harus mengumpulkan Empat Komponen Legenda untuk menyingkirkan murid sesatnya. Mengalahkan rival dengan taksi, ia meraih Roda Macan Putih dan melangkah ke tantangan berikutnya.",
+      "genres": [
+        "Kembali",
+        "Pemeran Utama Pria",
+        "Kehidupan perkotaan",
+        "Serangan balik"
+      ],
+      "author": "migu",
+      "vids": [
+        {
+          "vid": "7584400143923809285",
+          "index": 1
+        },
+        {
+          "vid": "7584400147245698101",
+          "index": 2
+        },
+        {
+          "vid": "7584400150244625461",
+          "index": 3
+        },
+        {
+          "vid": "7584400153616862213",
+          "index": 4
+        },
+        {
+          "vid": "7584400156636744757",
+          "index": 5
+        },
+        {
+          "vid": "7584400159614700597",
+          "index": 6
+        },
+        {
+          "vid": "7584400163121155077",
+          "index": 7
+        },
+        {
+          "vid": "7584400166648564741",
+          "index": 8
+        },
+        {
+          "vid": "7584400169936899077",
+          "index": 9
+        },
+        {
+          "vid": "7584400172671568949",
+          "index": 10
+        },
+        {
+          "vid": "7584400175565638661",
+          "index": 11
+        },
+        {
+          "vid": "7584400178258381829",
+          "index": 12
+        },
+        {
+          "vid": "7584400181131480117",
+          "index": 13
+        },
+        {
+          "vid": "7584400184323345461",
+          "index": 14
+        },
+        {
+          "vid": "7584400187800423477",
+          "index": 15
+        },
+        {
+          "vid": "7584400190962928693",
+          "index": 16
+        },
+        {
+          "vid": "7584400194062535685",
+          "index": 17
+        },
+        {
+          "vid": "7584400197401185333",
+          "index": 18
+        },
+        {
+          "vid": "7584400200421100549",
+          "index": 19
+        },
+        {
+          "vid": "7584400203533257733",
+          "index": 20
+        },
+        {
+          "vid": "7584400206502824965",
+          "index": 21
+        },
+        {
+          "vid": "7584400209325607941",
+          "index": 22
+        },
+        {
+          "vid": "7584400212345490485",
+          "index": 23
+        },
+        {
+          "vid": "7584400215357000757",
+          "index": 24
+        },
+        {
+          "vid": "7584400218024578101",
+          "index": 25
+        },
+        {
+          "vid": "7584400220885093429",
+          "index": 26
+        },
+        {
+          "vid": "7584400223728831541",
+          "index": 27
+        },
+        {
+          "vid": "7584400227163966517",
+          "index": 28
+        },
+        {
+          "vid": "7584400230397791237",
+          "index": 29
+        },
+        {
+          "vid": "7584400233845492741",
+          "index": 30
+        },
+        {
+          "vid": "7584400239847541813",
+          "index": 31
+        },
+        {
+          "vid": "7584400242984897541",
+          "index": 32
+        },
+        {
+          "vid": "7584400245979630597",
+          "index": 33
+        },
+        {
+          "vid": "7584400250022923317",
+          "index": 34
+        },
+        {
+          "vid": "7584400253386755077",
+          "index": 35
+        },
+        {
+          "vid": "7584400257128090629",
+          "index": 36
+        },
+        {
+          "vid": "7584400260135390213",
+          "index": 37
+        },
+        {
+          "vid": "7584400263176260613",
+          "index": 38
+        },
+        {
+          "vid": "7584400266028387381",
+          "index": 39
+        },
+        {
+          "vid": "7584400269186698245",
+          "index": 40
+        },
+        {
+          "vid": "7584400272256928821",
+          "index": 41
+        },
+        {
+          "vid": "7584400275201330229",
+          "index": 42
+        },
+        {
+          "vid": "7584400278045084677",
+          "index": 43
+        },
+        {
+          "vid": "7584400281266293813",
+          "index": 44
+        },
+        {
+          "vid": "7584400284462353413",
+          "index": 45
+        },
+        {
+          "vid": "7584400287431920693",
+          "index": 46
+        },
+        {
+          "vid": "7584400290544094213",
+          "index": 47
+        },
+        {
+          "vid": "7584400293756931077",
+          "index": 48
+        },
+        {
+          "vid": "7584400296516799493",
+          "index": 49
+        },
+        {
+          "vid": "7584400299926752309",
+          "index": 50
+        },
+        {
+          "vid": "7584400303449967669",
+          "index": 51
+        },
+        {
+          "vid": "7584400306725735429",
+          "index": 52
+        },
+        {
+          "vid": "7584400309582040117",
+          "index": 53
+        },
+        {
+          "vid": "7584400312526457861",
+          "index": 54
+        },
+        {
+          "vid": "7584400316192263173",
+          "index": 55
+        },
+        {
+          "vid": "7584400319795170309",
+          "index": 56
+        },
+        {
+          "vid": "7584400322546650117",
+          "index": 57
+        },
+        {
+          "vid": "7584400325591698485",
+          "index": 58
+        },
+        {
+          "vid": "7584400328787758133",
+          "index": 59
+        },
+        {
+          "vid": "7584400331941874741",
+          "index": 60
+        },
+        {
+          "vid": "7584400334731103237",
+          "index": 61
+        },
+        {
+          "vid": "7584400337914563637",
+          "index": 62
+        },
+        {
+          "vid": "7584400340884130869",
+          "index": 63
+        },
+        {
+          "vid": "7584400343916612661",
+          "index": 64
+        },
+        {
+          "vid": "7584400347565657093",
+          "index": 65
+        },
+        {
+          "vid": "7584400350463921205",
+          "index": 66
+        },
+        {
+          "vid": "7584400353605454901",
+          "index": 67
+        },
+        {
+          "vid": "7584400356428237829",
+          "index": 68
+        },
+        {
+          "vid": "7584400359636864005",
+          "index": 69
+        },
+        {
+          "vid": "7584400362493201413",
+          "index": 70
+        },
+        {
+          "vid": "7584400365731187765",
+          "index": 71
+        }
+      ]
+    },
+    "7571738973282765829": {
+      "series_id": "7571738973282765829",
+      "title": "Mata Tembus Pandang",
+      "total_episodes": 87,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/c739cd94dd3ef949a3cfae3a48c108e7~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775696931&x-signature=cHOB1OAlJe%2FFaF0Uc3uLVBIibmQ%3D",
+      "abstract": "Hidup miskin bersama kakak iparnya membuat Andi Saputra putus asa. Suatu hari, pertemuan dia dengan seorang kakek misterius memberinya “Mata Tembus Pandang” yang bisa melihat segalanya. Sejak saat itu, hidupnya berubah drastis menjadi kaya dan berkuasa. Dia bertekad membahagiakan sang kakak ipar.",
+      "genres": [
+        "Bukan siapa-siapa",
+        "Kekuatan super",
+        "Pemeran Utama Pria",
+        "Imajinasi Perkotaan"
+      ],
+      "author": "fanqie",
+      "vids": [
+        {
+          "vid": "7571742549929380869",
+          "index": 1
+        },
+        {
+          "vid": "7571742552966040629",
+          "index": 2
+        },
+        {
+          "vid": "7571742555872709637",
+          "index": 3
+        },
+        {
+          "vid": "7571742558859037749",
+          "index": 4
+        },
+        {
+          "vid": "7571742562608761861",
+          "index": 5
+        },
+        {
+          "vid": "7571742565473455157",
+          "index": 6
+        },
+        {
+          "vid": "7579209897762360373",
+          "index": 7
+        },
+        {
+          "vid": "7571742575489453061",
+          "index": 8
+        },
+        {
+          "vid": "7571742578500963381",
+          "index": 9
+        },
+        {
+          "vid": "7571742583764831237",
+          "index": 10
+        },
+        {
+          "vid": "7571742591473961989",
+          "index": 11
+        },
+        {
+          "vid": "7571742600902741045",
+          "index": 12
+        },
+        {
+          "vid": "7571742603889085493",
+          "index": 13
+        },
+        {
+          "vid": "7571742607521352709",
+          "index": 14
+        },
+        {
+          "vid": "7571742610457365509",
+          "index": 15
+        },
+        {
+          "vid": "7571742613368212485",
+          "index": 16
+        },
+        {
+          "vid": "7571742616249699381",
+          "index": 17
+        },
+        {
+          "vid": "7571742619630308405",
+          "index": 18
+        },
+        {
+          "vid": "7571742622763453493",
+          "index": 19
+        },
+        {
+          "vid": "7571742625913392133",
+          "index": 20
+        },
+        {
+          "vid": "7571742629226892293",
+          "index": 21
+        },
+        {
+          "vid": "7571742635308616709",
+          "index": 22
+        },
+        {
+          "vid": "7571742638693420037",
+          "index": 23
+        },
+        {
+          "vid": "7571742643416206389",
+          "index": 24
+        },
+        {
+          "vid": "7571742646259944501",
+          "index": 25
+        },
+        {
+          "vid": "7571742649627986949",
+          "index": 26
+        },
+        {
+          "vid": "7571742652526234629",
+          "index": 27
+        },
+        {
+          "vid": "7571742657911721013",
+          "index": 28
+        },
+        {
+          "vid": "7571742661124557877",
+          "index": 29
+        },
+        {
+          "vid": "7571742664651983877",
+          "index": 30
+        },
+        {
+          "vid": "7571742667927735301",
+          "index": 31
+        },
+        {
+          "vid": "7571742670737902597",
+          "index": 32
+        },
+        {
+          "vid": "7571742674047208501",
+          "index": 33
+        },
+        {
+          "vid": "7571742677851442229",
+          "index": 34
+        },
+        {
+          "vid": "7571742680808426549",
+          "index": 35
+        },
+        {
+          "vid": "7571742684801403909",
+          "index": 36
+        },
+        {
+          "vid": "7571742687749999669",
+          "index": 37
+        },
+        {
+          "vid": "7571742690686028805",
+          "index": 38
+        },
+        {
+          "vid": "7571742697971518517",
+          "index": 39
+        },
+        {
+          "vid": "7571742701050153989",
+          "index": 40
+        },
+        {
+          "vid": "7571742705999416325",
+          "index": 41
+        },
+        {
+          "vid": "7571742712609655813",
+          "index": 42
+        },
+        {
+          "vid": "7571742715709230133",
+          "index": 43
+        },
+        {
+          "vid": "7571742718733323317",
+          "index": 44
+        },
+        {
+          "vid": "7571742723087010869",
+          "index": 45
+        },
+        {
+          "vid": "7571742726455036933",
+          "index": 46
+        },
+        {
+          "vid": "7571742729412037637",
+          "index": 47
+        },
+        {
+          "vid": "7571742732310285317",
+          "index": 48
+        },
+        {
+          "vid": "7571742735690910725",
+          "index": 49
+        },
+        {
+          "vid": "7571742742351449141",
+          "index": 50
+        },
+        {
+          "vid": "7571742745547508789",
+          "index": 51
+        },
+        {
+          "vid": "7571742749288827957",
+          "index": 52
+        },
+        {
+          "vid": "7571742752237423621",
+          "index": 53
+        },
+        {
+          "vid": "7571742757333519365",
+          "index": 54
+        },
+        {
+          "vid": "7571742764757421061",
+          "index": 55
+        },
+        {
+          "vid": "7571742768028978229",
+          "index": 56
+        },
+        {
+          "vid": "7571742771061460021",
+          "index": 57
+        },
+        {
+          "vid": "7571742774022654981",
+          "index": 58
+        },
+        {
+          "vid": "7571742777172560901",
+          "index": 59
+        },
+        {
+          "vid": "7571742780750302261",
+          "index": 60
+        },
+        {
+          "vid": "7571742783564680245",
+          "index": 61
+        },
+        {
+          "vid": "7571742786815265845",
+          "index": 62
+        },
+        {
+          "vid": "7571742793534557189",
+          "index": 63
+        },
+        {
+          "vid": "7571742797976308741",
+          "index": 64
+        },
+        {
+          "vid": "7571742800799091717",
+          "index": 65
+        },
+        {
+          "vid": "7571742806322973749",
+          "index": 66
+        },
+        {
+          "vid": "7571742809049271349",
+          "index": 67
+        },
+        {
+          "vid": "7571742811922369589",
+          "index": 68
+        },
+        {
+          "vid": "7571742814866770949",
+          "index": 69
+        },
+        {
+          "vid": "7571742817916030005",
+          "index": 70
+        },
+        {
+          "vid": "7571742821858675765",
+          "index": 71
+        },
+        {
+          "vid": "7571742825126038581",
+          "index": 72
+        },
+        {
+          "vid": "7571742828120771589",
+          "index": 73
+        },
+        {
+          "vid": "7571742831677557765",
+          "index": 74
+        },
+        {
+          "vid": "7571742834613554229",
+          "index": 75
+        },
+        {
+          "vid": "7571742837633453109",
+          "index": 76
+        },
+        {
+          "vid": "7571742841311857717",
+          "index": 77
+        },
+        {
+          "vid": "7571742846177250309",
+          "index": 78
+        },
+        {
+          "vid": "7571742853882186757",
+          "index": 79
+        },
+        {
+          "vid": "7571742856755285045",
+          "index": 80
+        },
+        {
+          "vid": "7571742860278500405",
+          "index": 81
+        },
+        {
+          "vid": "7571742863256456245",
+          "index": 82
+        },
+        {
+          "vid": "7571742866473503749",
+          "index": 83
+        },
+        {
+          "vid": "7571742869472431109",
+          "index": 84
+        },
+        {
+          "vid": "7571742872752360501",
+          "index": 85
+        },
+        {
+          "vid": "7571742875554155573",
+          "index": 86
+        },
+        {
+          "vid": "7571742879492607029",
+          "index": 87
+        }
+      ]
+    },
+    "7532428178720033809": {
+      "series_id": "7532428178720033809",
+      "title": "Gadis Lemah itu Sudah Mati",
+      "total_episodes": 100,
+      "cover_url": "https://p19-novel-sign-sg.fizzopic.org/novel-images-sg/59ec40cd3d1670fd971d08ed7328bbdc~tplv-resize:570:810.heic?lk3s=253f70db&x-expires=1775697055&x-signature=B%2FAD6P1xChgZpBFBSt%2BIzaHudHI%3D",
+      "abstract": "Dulu, Anna tertipu Pasha sampai hancur. Hatinya, hidupnya, semuanya lenyap. Tapi setelah hidup kembali, dia tak lagi jadi boneka. Dia kembali sebagai wanita galak, pemberani, tak kenal ampun. Dendam jadi tujuannya, sampai takdir datang membawa sesuatu yang tak terduga.",
+      "genres": [
+        "Pemeran Utama Wanita Kuat",
+        "Kelahiran kembali",
+        "Romansa",
+        "Romansa Urban",
+        "Pewaris"
+      ],
+      "author": "fanqie",
+      "vids": [
+        {
+          "vid": "7532428596116196369",
+          "index": 1
+        },
+        {
+          "vid": "7532428600830594065",
+          "index": 2
+        },
+        {
+          "vid": "7532428604936817681",
+          "index": 3
+        },
+        {
+          "vid": "7532428608644582401",
+          "index": 4
+        },
+        {
+          "vid": "7532428612650142736",
+          "index": 5
+        },
+        {
+          "vid": "7532428619956620304",
+          "index": 6
+        },
+        {
+          "vid": "7532428616408239121",
+          "index": 7
+        },
+        {
+          "vid": "7532428623844740113",
+          "index": 8
+        },
+        {
+          "vid": "7532428627976129552",
+          "index": 9
+        },
+        {
+          "vid": "7532428639258807312",
+          "index": 10
+        },
+        {
+          "vid": "7532428635509099521",
+          "index": 11
+        },
+        {
+          "vid": "7532428642807188497",
+          "index": 12
+        },
+        {
+          "vid": "7532428632032021505",
+          "index": 13
+        },
+        {
+          "vid": "7532428649077672961",
+          "index": 14
+        },
+        {
+          "vid": "7532428653058067473",
+          "index": 15
+        },
+        {
+          "vid": "7532428656501591041",
+          "index": 16
+        },
+        {
+          "vid": "7532428659806702609",
+          "index": 17
+        },
+        {
+          "vid": "7532428663732571153",
+          "index": 18
+        },
+        {
+          "vid": "7532428670418291713",
+          "index": 19
+        },
+        {
+          "vid": "7532428666974768144",
+          "index": 20
+        },
+        {
+          "vid": "7532428674461600785",
+          "index": 21
+        },
+        {
+          "vid": "7532428684821531665",
+          "index": 22
+        },
+        {
+          "vid": "7532428681466088464",
+          "index": 23
+        },
+        {
+          "vid": "7532428678102256641",
+          "index": 24
+        },
+        {
+          "vid": "7532428688512519184",
+          "index": 25
+        },
+        {
+          "vid": "7532428692035734544",
+          "index": 26
+        },
+        {
+          "vid": "7532428699178634241",
+          "index": 27
+        },
+        {
+          "vid": "7532428695596698640",
+          "index": 28
+        },
+        {
+          "vid": "7532428703003839504",
+          "index": 29
+        },
+        {
+          "vid": "7532428710041881617",
+          "index": 30
+        },
+        {
+          "vid": "7532428706581580801",
+          "index": 31
+        },
+        {
+          "vid": "7532428713909029905",
+          "index": 32
+        },
+        {
+          "vid": "7532428717734235137",
+          "index": 33
+        },
+        {
+          "vid": "7532428721957899265",
+          "index": 34
+        },
+        {
+          "vid": "7532428725535640577",
+          "index": 35
+        },
+        {
+          "vid": "7532428728777837584",
+          "index": 36
+        },
+        {
+          "vid": "7532428771207416849",
+          "index": 37
+        },
+        {
+          "vid": "7532428732766620689",
+          "index": 38
+        },
+        {
+          "vid": "7532428736025594896",
+          "index": 39
+        },
+        {
+          "vid": "7532428749870992401",
+          "index": 40
+        },
+        {
+          "vid": "7532428739443952656",
+          "index": 41
+        },
+        {
+          "vid": "7532428742803590161",
+          "index": 42
+        },
+        {
+          "vid": "7532428746200976400",
+          "index": 43
+        },
+        {
+          "vid": "7532428757169081361",
+          "index": 44
+        },
+        {
+          "vid": "7532428753532619792",
+          "index": 45
+        },
+        {
+          "vid": "7532428763955465233",
+          "index": 46
+        },
+        {
+          "vid": "7532428985666374657",
+          "index": 47
+        },
+        {
+          "vid": "7532428767596121089",
+          "index": 48
+        },
+        {
+          "vid": "7532428760620993537",
+          "index": 49
+        },
+        {
+          "vid": "7532428774604803073",
+          "index": 50
+        },
+        {
+          "vid": "7532428785350609937",
+          "index": 51
+        },
+        {
+          "vid": "7532428796142554128",
+          "index": 52
+        },
+        {
+          "vid": "7532428778400648193",
+          "index": 53
+        },
+        {
+          "vid": "7532428792602561552",
+          "index": 54
+        },
+        {
+          "vid": "7532428782083247105",
+          "index": 55
+        },
+        {
+          "vid": "7532428788966099969",
+          "index": 56
+        },
+        {
+          "vid": "7532428799867096065",
+          "index": 57
+        },
+        {
+          "vid": "7532428803268676624",
+          "index": 58
+        },
+        {
+          "vid": "7532428806754143233",
+          "index": 59
+        },
+        {
+          "vid": "7532428810549988353",
+          "index": 60
+        },
+        {
+          "vid": "7532428825188109313",
+          "index": 61
+        },
+        {
+          "vid": "7532428814039649297",
+          "index": 62
+        },
+        {
+          "vid": "7532428821392264193",
+          "index": 63
+        },
+        {
+          "vid": "7532428817420258321",
+          "index": 64
+        },
+        {
+          "vid": "7532428830477126672",
+          "index": 65
+        },
+        {
+          "vid": "7532428833912261649",
+          "index": 66
+        },
+        {
+          "vid": "7532428843764681744",
+          "index": 67
+        },
+        {
+          "vid": "7532428850924358673",
+          "index": 68
+        },
+        {
+          "vid": "7532428854476934145",
+          "index": 69
+        },
+        {
+          "vid": "7532428858000149520",
+          "index": 70
+        },
+        {
+          "vid": "7532428846893632529",
+          "index": 71
+        },
+        {
+          "vid": "7532428861301066753",
+          "index": 72
+        },
+        {
+          "vid": "7532428869937138704",
+          "index": 73
+        },
+        {
+          "vid": "7532428873686846481",
+          "index": 74
+        },
+        {
+          "vid": "7532428864853642257",
+          "index": 75
+        },
+        {
+          "vid": "7532428876983569409",
+          "index": 76
+        },
+        {
+          "vid": "7532428880464841729",
+          "index": 77
+        },
+        {
+          "vid": "7532428884009028624",
+          "index": 78
+        },
+        {
+          "vid": "7532428887465135105",
+          "index": 79
+        },
+        {
+          "vid": "7532428890807995408",
+          "index": 80
+        },
+        {
+          "vid": "7532428915873156097",
+          "index": 81
+        },
+        {
+          "vid": "7532428907031563281",
+          "index": 82
+        },
+        {
+          "vid": "7532428903600622593",
+          "index": 83
+        },
+        {
+          "vid": "7532428919199239169",
+          "index": 84
+        },
+        {
+          "vid": "7532428927042587665",
+          "index": 85
+        },
+        {
+          "vid": "7532428930200898561",
+          "index": 86
+        },
+        {
+          "vid": "7532428936932756481",
+          "index": 87
+        },
+        {
+          "vid": "7532428923653590032",
+          "index": 88
+        },
+        {
+          "vid": "7532428944704801809",
+          "index": 89
+        },
+        {
+          "vid": "7532428957036055553",
+          "index": 90
+        },
+        {
+          "vid": "7532428948483869697",
+          "index": 91
+        },
+        {
+          "vid": "7532428933447289873",
+          "index": 92
+        },
+        {
+          "vid": "7532428953101798416",
+          "index": 93
+        },
+        {
+          "vid": "7532428964304784401",
+          "index": 94
+        },
+        {
+          "vid": "7532428960911592465",
+          "index": 95
+        },
+        {
+          "vid": "7532428974748601345",
+          "index": 96
+        },
+        {
+          "vid": "7532428971175054353",
+          "index": 97
+        },
+        {
+          "vid": "7532428967475678209",
+          "index": 98
+        },
+        {
+          "vid": "7532428982424177680",
+          "index": 99
+        },
+        {
+          "vid": "7532428978859019281",
+          "index": 100
+        }
+      ]
+    }
+  }
+}

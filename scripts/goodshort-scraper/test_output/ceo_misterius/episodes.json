@@ -1,0 +1,33 @@
+{
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "episodeId": "513039",
+      "title": "Episode 1",
+      "order": 1,
+      "duration": 115,
+      "isFree": true,
+      "hlsUrl": "https://v2-akm.goodreels.com/mts/books/678/31001051678/513039/u8zzgh4wmv/720p/09wxfzrxer_720p.m3u8",
+      "thumbnail": null,
+      "drama": {
+        "bookId": "31001051678",
+        "title": "CEO Misterius"
+      }
+    },
+    {
+      "episodeNumber": 2,
+      "episodeId": "513040",
+      "title": "Episode 2",
+      "order": 2,
+      "duration": 118,
+      "isFree": true,
+      "hlsUrl": null,
+      "thumbnail": null,
+      "drama": {
+        "bookId": "31001051678",
+        "title": "CEO Misterius"
+      }
+    }
+  ],
+  "total": 2
+}

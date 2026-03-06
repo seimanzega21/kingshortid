@@ -1,0 +1,9 @@
+name = "cors-fixer"
+main = "src/index.js"
+compatibility_date = "2024-01-24"
+
+# Route to intercept (All subpaths of stream.shortlovers.id)
+# IMPORTANT: This binds the worker to the custom domain
+routes = [
+	{ pattern = "stream.shortlovers.id/*", zone_name = "shortlovers.id" }
+]

@@ -1,0 +1,27 @@
+﻿======================================================================
+StardustTV VIP Login
+======================================================================
+
+[*] Logging in as: stardustlovers977@gmail.com
+[*] Establishing session...
+[-] Failed to establish session: 403 Client Error: Forbidden for url: https://www.stardusttv.net/id
+
+[!] Login failed, but continuing anyway...
+
+[*] Setting language to Indonesian...
+[+] Language preference set to Indonesian
+[!] Warning: Could not confirm Indonesian language
+
+======================================================================
+Testing authenticated session
+======================================================================
+
+[*] Status: 403
+[*] Content length: 168 bytes
+
+[-] No M3U8 URLs found in page source
+    (This is normal - URLs are loaded via JavaScript)
+
+======================================================================
+[+] Authentication test complete
+======================================================================
