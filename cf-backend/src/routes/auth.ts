@@ -174,6 +174,9 @@ auth.post('/guest', async (c) => {
 
         const token = await generateToken(c, { id: user.id, role: user.role });
 
+        // Fire-and-forget: heartbeat for "Online" tracking
+        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
+
         return c.json({
             token,
             user: {
@@ -310,6 +313,9 @@ auth.post('/google', async (c) => {
         }
 
         const token = await generateToken(c, { id: user.id, role: user.role });
+
+        // Fire-and-forget: heartbeat for "Online" tracking
+        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
         const { password: _, ...userWithoutPassword } = user;
 
         return c.json({ token, user: { ...userWithoutPassword, coins: user.coins, vipStatus: user.vipStatus, vipExpiry: user.vipExpiry } });
@@ -369,6 +375,9 @@ auth.post('/facebook', async (c) => {
         }
 
         const token = await generateToken(c, { id: user.id, role: user.role });
+
+        // Fire-and-forget: heartbeat for "Online" tracking
+        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
         const { password: _, ...userWithoutPassword } = user;
 
         return c.json({ token, user: { ...userWithoutPassword, coins: user.coins, vipStatus: user.vipStatus, vipExpiry: user.vipExpiry } });

@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, sql, asc } from 'drizzle-orm';
 import { getDb, parseJsonArray } from '../db';
-import { watchlist, favorites, collections, watchHistory, dramas, episodes } from '../db/schema';
+import { watchlist, favorites, collections, watchHistory, dramas, episodes, users } from '../db/schema';
 import { Env, requireAuth } from '../middleware/auth';
 
 const userRoute = new Hono<Env>();
@@ -327,6 +327,9 @@ userRoute.post('/history', async (c) => {
                 progress: progress || 0,
             }).returning();
         }
+
+        // Fire-and-forget: heartbeat for "Online" tracking
+        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, userId)).catch(() => { });
 
         return c.json(history);
     } catch (error) {
