@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
 
-// GET /api/health — Check database connection status
+const VPS_API = 'https://api.shortlovers.id/api/admin/dashboard';
+const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
+
+// GET /api/health — Check VPS backend connection status
 export async function GET() {
     const result: {
         status: string;
@@ -15,11 +17,19 @@ export async function GET() {
 
     try {
         const start = Date.now();
-        await prisma.$queryRawUnsafe('SELECT 1');
+        const res = await fetch(VPS_API, {
+            headers: { 'X-Admin-Key': ADMIN_KEY },
+            signal: AbortSignal.timeout(5000),
+        });
         const latency = Date.now() - start;
 
-        result.database.connected = true;
-        result.database.latency = latency;
+        if (res.ok) {
+            result.database.connected = true;
+            result.database.latency = latency;
+        } else {
+            result.status = 'degraded';
+            result.database.error = `API returned ${res.status}`;
+        }
     } catch (error: any) {
         result.status = 'degraded';
         result.database.connected = false;
