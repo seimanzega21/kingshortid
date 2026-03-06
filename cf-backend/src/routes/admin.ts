@@ -41,10 +41,10 @@ adminRoute.get('/dashboard', async (c) => {
             db.select({ count: sql<number>`count(*)` }).from(episodes).limit(1).then((r: any[]) => r[0]),
         ]);
 
-        // Online users (active in last 24h)
-        const onlineResult = await db.select({ count: sql<number>`count(DISTINCT user_id)` })
-            .from(watchHistory)
-            .where(gte(watchHistory.watchedAt, twentyFourHoursAgo))
+        // Online users (updatedAt heartbeat from /api/auth/me within last 24h)
+        const onlineResult = await db.select({ count: sql<number>`count(*)` })
+            .from(users)
+            .where(gte(users.updatedAt, twentyFourHoursAgo))
             .limit(1).then((r: any[]) => r[0]);
 
         // Total views
