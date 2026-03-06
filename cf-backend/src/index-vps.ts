@@ -26,6 +26,7 @@ type VpsEnv = {
         SUPABASE_DB_PASSWORD: string;
         JWT_SECRET: string;
         ADMIN_API_KEY: string;
+        FIREBASE_SERVICE_ACCOUNT: string;
     };
     Variables: Record<string, unknown>;
 };

@@ -15,4 +15,7 @@ export const serverEnv = {
     get ADMIN_API_KEY() {
         return process.env.ADMIN_API_KEY || '';
     },
+    get FIREBASE_SERVICE_ACCOUNT() {
+        return process.env.FIREBASE_SERVICE_ACCOUNT || '';
+    },
 };
