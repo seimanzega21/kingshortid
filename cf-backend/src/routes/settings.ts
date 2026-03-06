@@ -41,6 +41,12 @@ settingsRoute.get('/', async (c) => {
             adsRewardedEnabled: settings.adsRewardedEnabled !== 'false',
             adsFrequency: parseInt(settings.adsFrequency || '5'),
             maxDailyAds: parseInt(settings.maxDailyAds || '10'),
+            interstitialCloseDelay: parseInt(settings.interstitialCloseDelay || '5'),
+            rewardedCoinsAmount: parseInt(settings.rewardedCoinsAmount || '10'),
+            bannerPosition: settings.bannerPosition || 'bottom',
+            adUnitBanner: settings.adUnitBanner || '',
+            adUnitInterstitial: settings.adUnitInterstitial || '',
+            adUnitRewarded: settings.adUnitRewarded || '',
         });
     } catch (error) {
         console.error('Get settings error:', error);
@@ -64,6 +70,8 @@ settingsRoute.post('/', async (c) => {
             // Ad settings
             'adsEnabled', 'adsBannerEnabled', 'adsInterstitialEnabled',
             'adsRewardedEnabled', 'adsFrequency', 'maxDailyAds',
+            'interstitialCloseDelay', 'rewardedCoinsAmount', 'bannerPosition',
+            'adUnitBanner', 'adUnitInterstitial', 'adUnitRewarded',
         ];
 
         const stmt = db.prepare(

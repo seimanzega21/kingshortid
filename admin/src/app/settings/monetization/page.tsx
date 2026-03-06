@@ -7,7 +7,14 @@ import {
     Megaphone,
     Crown,
     Coins,
-    Loader2
+    Loader2,
+    Timer,
+    Eye,
+    Gift,
+    Smartphone,
+    Copy,
+    Check,
+    Info
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -27,6 +34,14 @@ interface MonetizationSettings {
     adsRewardedEnabled: boolean;
     adsFrequency: number;
     maxDailyAds: number;
+    // Extended ad settings
+    interstitialCloseDelay: number;
+    rewardedCoinsAmount: number;
+    bannerPosition: string;
+    // Ad Unit IDs
+    adUnitBanner: string;
+    adUnitInterstitial: string;
+    adUnitRewarded: string;
     // Premium
     premiumEnabled: boolean;
     vipSystemEnabled: boolean;
@@ -122,6 +137,82 @@ export default function MonetizationPage() {
             <Toggle enabled={enabled} onChange={onChange} />
         </div>
     );
+
+    function HealthCard({ label, value, color, icon }: { label: string; value: number; color: string; icon: string }) {
+        const colors: Record<string, string> = {
+            emerald: 'border-emerald-500/20 bg-emerald-500/5',
+            amber: 'border-amber-500/20 bg-amber-500/5',
+            red: 'border-red-500/20 bg-red-500/5',
+            zinc: 'border-zinc-700 bg-zinc-800/50',
+        };
+        const textColors: Record<string, string> = {
+            emerald: 'text-emerald-400',
+            amber: 'text-amber-400',
+            red: 'text-red-400',
+            zinc: 'text-zinc-400',
+        };
+        return (
+            <div className={`rounded-lg border p-3 ${colors[color] || colors.zinc}`}>
+                <div className="flex items-center justify-between">
+                    <span className="text-lg">{icon}</span>
+                    <span className={`text-xl font-bold ${textColors[color] || textColors.zinc}`}>{value}</span>
+                </div>
+                <p className="text-[11px] text-zinc-500 mt-1">{label}</p>
+            </div>
+        );
+    }
+
+    function AdUnitIdCard({ settings, updateSetting }: { settings: MonetizationSettings; updateSetting: (key: keyof MonetizationSettings, value: any) => void }) {
+        const [copied, setCopied] = useState<string | null>(null);
+
+        const handleCopy = (value: string, key: string) => {
+            navigator.clipboard.writeText(value);
+            setCopied(key);
+            setTimeout(() => setCopied(null), 2000);
+        };
+
+        const adUnits = [
+            { key: 'adUnitBanner' as const, label: 'Banner Ad Unit ID', color: 'blue', default: 'ca-app-pub-6488135194537188/9618891521' },
+            { key: 'adUnitInterstitial' as const, label: 'Interstitial Ad Unit ID', color: 'amber', default: 'ca-app-pub-6488135194537188/1033626745' },
+            { key: 'adUnitRewarded' as const, label: 'Rewarded Ad Unit ID', color: 'emerald', default: 'ca-app-pub-6488135194537188/1035626745' },
+        ];
+
+        return (
+            <div className="bg-[#121212] border border-zinc-800 rounded-xl p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-white font-semibold flex items-center gap-2"><Smartphone size={18} className="text-zinc-400" /> Ad Unit IDs (AdMob)</h4>
+                    <span className="text-[10px] text-zinc-600 bg-zinc-900 px-2 py-1 rounded">Google AdMob Console</span>
+                </div>
+                <div className="space-y-3">
+                    {adUnits.map(unit => {
+                        const value = (settings[unit.key] as string) || unit.default;
+                        return (
+                            <div key={unit.key} className="flex items-center gap-3">
+                                <div className={`w-2 h-2 rounded-full bg-${unit.color}-500 flex-shrink-0`} />
+                                <div className="flex-1">
+                                    <label className="text-[11px] text-zinc-500 uppercase tracking-wide">{unit.label}</label>
+                                    <div className="flex gap-2 mt-1">
+                                        <input value={value}
+                                            onChange={(e) => updateSetting(unit.key, e.target.value)}
+                                            className="flex-1 bg-black border border-zinc-700 rounded-lg px-3 py-2 text-xs text-zinc-300 font-mono outline-none focus:border-purple-500"
+                                            placeholder="ca-app-pub-xxxxx/xxxxx" />
+                                        <button onClick={() => handleCopy(value, unit.key)}
+                                            className="px-2 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 transition-colors flex-shrink-0"
+                                            title="Copy">
+                                            {copied === unit.key ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+                <p className="text-[10px] text-zinc-600 mt-4 flex items-center gap-1">
+                    <Info size={10} /> ID ini diambil dari Google AdMob Console. Perubahan memerlukan build ulang aplikasi.
+                </p>
+            </div>
+        );
+    }
 
     if (loading || !settings) {
         return <div className="p-8 flex justify-center"><Loader2 className="animate-spin text-purple-500" size={40} /></div>;
@@ -225,33 +316,140 @@ export default function MonetizationPage() {
 
             {/* === TAB IKLAN === */}
             {activeTab === 'ads' && (
-                <div className="bg-[#121212] border border-zinc-800 rounded-xl p-6 max-w-2xl">
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="p-2 bg-yellow-500/10 rounded-lg text-yellow-500"><Megaphone size={20} /></div>
-                        <h3 className="text-lg font-bold text-white">Pengaturan Iklan</h3>
-                    </div>
-                    <ToggleRow title="🎯 Master Iklan" desc="ON/OFF semua iklan di aplikasi" enabled={settings.adsEnabled} onChange={() => updateSetting('adsEnabled', !settings.adsEnabled)} />
-                    {settings.adsEnabled && (
-                        <>
-                            <ToggleRow title="Banner Ads" desc="Iklan banner di bawah layar" enabled={settings.adsBannerEnabled} onChange={() => updateSetting('adsBannerEnabled', !settings.adsBannerEnabled)} />
-                            <ToggleRow title="Interstitial Ads" desc="Iklan fullscreen antar episode" enabled={settings.adsInterstitialEnabled} onChange={() => updateSetting('adsInterstitialEnabled', !settings.adsInterstitialEnabled)} />
-                            <ToggleRow title="Rewarded Ads" desc="Iklan untuk mendapat koin gratis" enabled={settings.adsRewardedEnabled} onChange={() => updateSetting('adsRewardedEnabled', !settings.adsRewardedEnabled)} />
-                            <div className="pt-4 mt-4 border-t border-zinc-800 space-y-4">
+                <div className="space-y-6 max-w-4xl">
+                    {/* Master Switch */}
+                    <div className="bg-[#121212] border border-zinc-800 rounded-xl p-6">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 bg-yellow-500/10 rounded-xl text-yellow-500"><Megaphone size={22} /></div>
                                 <div>
-                                    <label className="text-sm text-zinc-400">Frekuensi Iklan (setiap X episode)</label>
-                                    <input type="number" min={1} max={20} value={settings.adsFrequency ?? 5}
-                                        onChange={(e) => updateSetting('adsFrequency', parseInt(e.target.value) || 5)}
-                                        className="w-full mt-2 bg-black border border-zinc-700 rounded-lg px-4 py-2 text-white" />
-                                    <p className="text-xs text-zinc-600 mt-1">Interstitial muncul setiap {settings.adsFrequency ?? 5} episode ditonton</p>
-                                </div>
-                                <div>
-                                    <label className="text-sm text-zinc-400">Maks Iklan per Hari</label>
-                                    <input type="number" min={1} max={50} value={settings.maxDailyAds ?? 10}
-                                        onChange={(e) => updateSetting('maxDailyAds', parseInt(e.target.value) || 10)}
-                                        className="w-full mt-2 bg-black border border-zinc-700 rounded-lg px-4 py-2 text-white" />
-                                    <p className="text-xs text-zinc-600 mt-1">Batas iklan yang ditampilkan per user per hari</p>
+                                    <h3 className="text-lg font-bold text-white">🎯 Master Iklan</h3>
+                                    <p className="text-sm text-zinc-500">ON/OFF semua iklan di aplikasi</p>
                                 </div>
                             </div>
+                            <Toggle enabled={settings.adsEnabled} onChange={() => updateSetting('adsEnabled', !settings.adsEnabled)} />
+                        </div>
+                    </div>
+
+                    {settings.adsEnabled && (
+                        <>
+                            {/* Ad Type Cards */}
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                                {/* Banner */}
+                                <div className={`bg-[#121212] border rounded-xl p-5 transition-all ${settings.adsBannerEnabled ? 'border-blue-500/30 shadow-lg shadow-blue-500/5' : 'border-zinc-800'}`}>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="flex items-center gap-2">
+                                            <div className="p-1.5 bg-blue-500/10 rounded-lg text-blue-400"><Smartphone size={16} /></div>
+                                            <h4 className="font-semibold text-white text-sm">Banner</h4>
+                                        </div>
+                                        <Toggle enabled={settings.adsBannerEnabled} onChange={() => updateSetting('adsBannerEnabled', !settings.adsBannerEnabled)} />
+                                    </div>
+                                    <p className="text-xs text-zinc-500 mb-3">Iklan banner di bawah layar, muncul terus saat user browsing.</p>
+                                    {settings.adsBannerEnabled && (
+                                        <div>
+                                            <label className="text-[11px] text-zinc-500 uppercase tracking-wide">Posisi</label>
+                                            <select value={settings.bannerPosition || 'bottom'}
+                                                onChange={(e) => updateSetting('bannerPosition', e.target.value)}
+                                                className="w-full mt-1 bg-black border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-blue-500">
+                                                <option value="bottom">Bawah Layar</option>
+                                                <option value="top">Atas Layar</option>
+                                            </select>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Interstitial */}
+                                <div className={`bg-[#121212] border rounded-xl p-5 transition-all ${settings.adsInterstitialEnabled ? 'border-amber-500/30 shadow-lg shadow-amber-500/5' : 'border-zinc-800'}`}>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="flex items-center gap-2">
+                                            <div className="p-1.5 bg-amber-500/10 rounded-lg text-amber-400"><Eye size={16} /></div>
+                                            <h4 className="font-semibold text-white text-sm">Interstitial</h4>
+                                        </div>
+                                        <Toggle enabled={settings.adsInterstitialEnabled} onChange={() => updateSetting('adsInterstitialEnabled', !settings.adsInterstitialEnabled)} />
+                                    </div>
+                                    <p className="text-xs text-zinc-500 mb-3">Iklan fullscreen yang muncul antar episode.</p>
+                                    {settings.adsInterstitialEnabled && (
+                                        <div className="space-y-3">
+                                            <div>
+                                                <label className="text-[11px] text-zinc-500 uppercase tracking-wide flex items-center gap-1"><Timer size={10} /> Delay Close (detik)</label>
+                                                <input type="number" min={0} max={30} value={settings.interstitialCloseDelay ?? 5}
+                                                    onChange={(e) => updateSetting('interstitialCloseDelay', parseInt(e.target.value) || 5)}
+                                                    className="w-full mt-1 bg-black border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-amber-500" />
+                                                <p className="text-[10px] text-zinc-600 mt-1">User harus tunggu {settings.interstitialCloseDelay ?? 5}s sebelum bisa skip</p>
+                                            </div>
+                                            <div>
+                                                <label className="text-[11px] text-zinc-500 uppercase tracking-wide">Frekuensi (per X episode)</label>
+                                                <input type="number" min={1} max={20} value={settings.adsFrequency ?? 5}
+                                                    onChange={(e) => updateSetting('adsFrequency', parseInt(e.target.value) || 5)}
+                                                    className="w-full mt-1 bg-black border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white outline-none focus:border-amber-500" />
+                                                <p className="text-[10px] text-zinc-600 mt-1">Muncul setiap {settings.adsFrequency ?? 5} episode</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Rewarded */}
+                                <div className={`bg-[#121212] border rounded-xl p-5 transition-all ${settings.adsRewardedEnabled ? 'border-emerald-500/30 shadow-lg shadow-emerald-500/5' : 'border-zinc-800'}`}>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="flex items-center gap-2">
+                                            <div className="p-1.5 bg-emerald-500/10 rounded-lg text-emerald-400"><Gift size={16} /></div>
+                                            <h4 className="font-semibold text-white text-sm">Rewarded</h4>
+                                        </div>
+                                        <Toggle enabled={settings.adsRewardedEnabled} onChange={() => updateSetting('adsRewardedEnabled', !settings.adsRewardedEnabled)} />
+                                    </div>
+                                    <p className="text-xs text-zinc-500 mb-3">Iklan opsional, user pilih nonton untuk dapat koin.</p>
+                                    {settings.adsRewardedEnabled && (
+                                        <div>
+                                            <label className="text-[11px] text-zinc-500 uppercase tracking-wide flex items-center gap-1"><Coins size={10} /> Reward (koin)</label>
+                                            <input type="number" min={1} max={100} value={settings.rewardedCoinsAmount ?? 10}
+                                                onChange={(e) => updateSetting('rewardedCoinsAmount', parseInt(e.target.value) || 10)}
+                                                className="w-full mt-1 bg-black border border-zinc-700 rounded-lg px-3 py-2 text-sm text-yellow-500 font-bold outline-none focus:border-emerald-500" />
+                                            <p className="text-[10px] text-zinc-600 mt-1">Koin yang didapat per iklan</p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Global Ad Limits */}
+                            <div className="bg-[#121212] border border-zinc-800 rounded-xl p-6">
+                                <h4 className="text-white font-semibold mb-4 flex items-center gap-2"><Timer size={18} className="text-zinc-400" /> Batas Global</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label className="text-sm text-zinc-400">Maks Iklan per Hari</label>
+                                        <input type="number" min={1} max={50} value={settings.maxDailyAds ?? 10}
+                                            onChange={(e) => updateSetting('maxDailyAds', parseInt(e.target.value) || 10)}
+                                            className="w-full mt-2 bg-black border border-zinc-700 rounded-lg px-4 py-2 text-white outline-none focus:border-purple-500" />
+                                        <p className="text-xs text-zinc-600 mt-1">Batas total semua jenis iklan per user per hari</p>
+                                    </div>
+                                    <div className="bg-zinc-900/50 rounded-lg p-4 border border-zinc-800">
+                                        <p className="text-xs text-zinc-500 mb-2 flex items-center gap-1"><Info size={12} /> Ringkasan Konfigurasi</p>
+                                        <div className="space-y-1.5">
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-zinc-400">Banner</span>
+                                                <span className={settings.adsBannerEnabled ? 'text-blue-400' : 'text-zinc-600'}>{settings.adsBannerEnabled ? '✅ Aktif' : '❌ Mati'}</span>
+                                            </div>
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-zinc-400">Interstitial</span>
+                                                <span className={settings.adsInterstitialEnabled ? 'text-amber-400' : 'text-zinc-600'}>{settings.adsInterstitialEnabled ? `✅ Setiap ${settings.adsFrequency} ep · ${settings.interstitialCloseDelay ?? 5}s skip` : '❌ Mati'}</span>
+                                            </div>
+                                            <div className="flex justify-between text-xs">
+                                                <span className="text-zinc-400">Rewarded</span>
+                                                <span className={settings.adsRewardedEnabled ? 'text-emerald-400' : 'text-zinc-600'}>{settings.adsRewardedEnabled ? `✅ ${settings.rewardedCoinsAmount ?? 10} koin/iklan` : '❌ Mati'}</span>
+                                            </div>
+                                            <div className="flex justify-between text-xs pt-1 border-t border-zinc-800">
+                                                <span className="text-zinc-400">Maks/hari</span>
+                                                <span className="text-white font-bold">{settings.maxDailyAds ?? 10}x</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Ad Unit IDs */}
+                            <AdUnitIdCard
+                                settings={settings}
+                                updateSetting={updateSetting}
+                            />
                         </>
                     )}
                 </div>
