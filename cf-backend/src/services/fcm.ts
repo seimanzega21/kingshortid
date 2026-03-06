@@ -15,11 +15,21 @@ interface ServiceAccount {
 
 let cachedToken: { token: string; expiresAt: number } | null = null;
 
-// Parse FIREBASE_SERVICE_ACCOUNT env var as JSON
+// Parse FIREBASE_SERVICE_ACCOUNT env var as JSON or read from file
 function getServiceAccount(): ServiceAccount {
+    // Try env var first
     const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
-    if (!raw) throw new Error('FIREBASE_SERVICE_ACCOUNT env not set');
-    return JSON.parse(raw);
+    if (raw && raw.startsWith('{')) return JSON.parse(raw);
+
+    // Try reading from file
+    const filePath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH || '/app/firebase-service-account.json';
+    try {
+        const fs = require('fs');
+        const content = fs.readFileSync(filePath, 'utf8');
+        return JSON.parse(content);
+    } catch (e) {
+        throw new Error(`Firebase service account not found. Set FIREBASE_SERVICE_ACCOUNT env or mount file at ${filePath}`);
+    }
 }
 
 // Create JWT for Google OAuth2 (service account auth)
