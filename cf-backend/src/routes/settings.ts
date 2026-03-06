@@ -5,17 +5,14 @@ import type { Env } from '../middleware/auth';
 
 const settingsRoute = new Hono<Env>();
 
-// Simple key-value settings table (app_settings)
-// Stores all app settings as JSON key-value pairs
-
 // GET /api/settings - Get all settings as a flat object
 settingsRoute.get('/', async (c) => {
     try {
-        const db = c.env.DB;
-        const result = await db.prepare('SELECT key, value FROM app_settings');
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const result = await db.execute(sql`SELECT key, value FROM app_settings`);
 
         const settings: Record<string, string> = {};
-        for (const row of result.results as any[]) {
+        for (const row of result.rows as any[]) {
             settings[row.key] = row.value;
         }
 
@@ -58,10 +55,9 @@ settingsRoute.get('/', async (c) => {
 settingsRoute.post('/', async (c) => {
     try {
         const body = await c.req.json();
-        const db = c.env.DB;
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
         const now = Math.floor(Date.now() / 1000);
 
-        // Upsert each setting
         const keys = [
             'appName', 'appDescription', 'maintenanceMode', 'registrationsOpen',
             'language', 'currency', 'termsUrl', 'privacyUrl',
@@ -74,16 +70,15 @@ settingsRoute.post('/', async (c) => {
             'adUnitBanner', 'adUnitInterstitial', 'adUnitRewarded',
         ];
 
-        const stmt = db.prepare(
-            'INSERT INTO app_settings (key, value, updated_at) VALUES (?, ?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at'
-        );
-
-        const batch = keys
-            .filter(k => body[k] !== undefined)
-            .map(k => stmt.bind(k, String(body[k]), now));
-
-        if (batch.length > 0) {
-            await db.batch(batch);
+        // Upsert each setting using Drizzle raw SQL
+        for (const k of keys) {
+            if (body[k] !== undefined) {
+                await db.execute(sql`
+                    INSERT INTO app_settings (key, value, updated_at)
+                    VALUES (${k}, ${String(body[k])}, ${now})
+                    ON CONFLICT (key) DO UPDATE SET value = ${String(body[k])}, updated_at = ${now}
+                `);
+            }
         }
 
         return c.json({ success: true, message: 'Settings saved' });
