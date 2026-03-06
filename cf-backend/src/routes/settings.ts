@@ -9,10 +9,10 @@ const settingsRoute = new Hono<Env>();
 settingsRoute.get('/', async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-        const result = await db.execute(sql`SELECT key, value FROM app_settings`);
+        const rows = await db.execute(sql`SELECT key, value FROM app_settings`);
 
         const settings: Record<string, string> = {};
-        for (const row of result.rows as any[]) {
+        for (const row of rows as any[]) {
             settings[row.key] = row.value;
         }
 
