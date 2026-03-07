@@ -325,66 +325,6 @@ auth.post('/google', async (c) => {
     }
 });
 
-// POST /api/auth/facebook
-auth.post('/facebook', async (c) => {
-    try {
-        const { accessToken } = await c.req.json();
-        if (!accessToken) return c.json({ message: 'accessToken diperlukan' }, 400);
 
-        // Verify Facebook access token
-        const fbRes = await fetch(`https://graph.facebook.com/me?fields=id,name,email,picture.type(large)&access_token=${accessToken}`);
-        if (!fbRes.ok) return c.json({ message: 'Token Facebook tidak valid' }, 401);
-
-        const fbUser = await fbRes.json() as { id: string; email: string; name: string; picture: { data: { url: string } } };
-        const { id: facebookId, email, name, picture } = fbUser;
-        const avatarUrl = picture?.data?.url || null;
-        if (!email) return c.json({ message: 'Email tidak ditemukan. Pastikan izin email diberikan di Facebook.' }, 400);
-
-        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-
-        let user = await db.select().from(users).where(eq(users.email, email)).limit(1).then((r: any[]) => r[0]);
-
-        if (user) {
-            if (user.provider === 'local' || !user.providerId) {
-                [user] = await db.update(users)
-                    .set({ provider: 'facebook', providerId: facebookId, avatar: user.avatar || avatarUrl, updatedAt: new Date() })
-                    .where(eq(users.id, user.id))
-                    .returning();
-            }
-            if (!user.isActive) return c.json({ message: 'Akun dinonaktifkan' }, 403);
-        } else {
-            const numericId = Math.floor(10000000000 + Math.random() * 90000000000).toString();
-            [user] = await db.insert(users).values({
-                email,
-                name: name || email.split('@')[0],
-                avatar: avatarUrl,
-                provider: 'facebook',
-                providerId: facebookId,
-                guestId: numericId,
-                isGuest: false,
-                coins: 200,
-            }).returning();
-
-            await db.insert(coinTransactions).values({
-                userId: user.id,
-                type: 'bonus',
-                amount: 200,
-                description: 'Bonus registrasi Facebook',
-                balanceAfter: 200,
-            });
-        }
-
-        const token = await generateToken(c, { id: user.id, role: user.role });
-
-        // Fire-and-forget: heartbeat for "Online" tracking
-        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
-        const { password: _, ...userWithoutPassword } = user;
-
-        return c.json({ token, user: { ...userWithoutPassword, coins: user.coins, vipStatus: user.vipStatus, vipExpiry: user.vipExpiry } });
-    } catch (error) {
-        console.error('Facebook auth error:', error);
-        return c.json({ message: 'Login Facebook gagal' }, 500);
-    }
-});
 
 export default auth;
