@@ -172,9 +172,9 @@ export default function MonetizationPage() {
         };
 
         const adUnits = [
-            { key: 'adUnitBanner' as const, label: 'Banner Ad Unit ID', color: 'blue', default: 'ca-app-pub-6488135194537188/9618891521' },
-            { key: 'adUnitInterstitial' as const, label: 'Interstitial Ad Unit ID', color: 'amber', default: 'ca-app-pub-6488135194537188/1033626745' },
-            { key: 'adUnitRewarded' as const, label: 'Rewarded Ad Unit ID', color: 'emerald', default: 'ca-app-pub-6488135194537188/1035626745' },
+            { key: 'adUnitBanner' as const, label: 'Banner Ad Unit ID', color: 'blue', default: 'ca-app-pub-6488135194537188/9618189192' },
+            { key: 'adUnitInterstitial' as const, label: 'Interstitial Ad Unit ID', color: 'amber', default: 'ca-app-pub-6488135194537188/4043621823' },
+            { key: 'adUnitRewarded' as const, label: 'Rewarded Ad Unit ID', color: 'emerald', default: 'ca-app-pub-6488135194537188/1033626745' },
         ];
 
         return (
