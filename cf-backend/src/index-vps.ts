@@ -72,6 +72,26 @@ app.get('/health', (c) => c.json({
     db: process.env.SUPABASE_URL ? 'configured' : 'missing',
 }));
 
+// Cache-Control for read-heavy GET endpoints (CDN edge caching)
+app.use('/api/dramas/*', async (c, next) => {
+    await next();
+    if (c.req.method === 'GET' && c.res.status === 200) {
+        c.res.headers.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=60');
+    }
+});
+app.use('/api/categories/*', async (c, next) => {
+    await next();
+    if (c.req.method === 'GET' && c.res.status === 200) {
+        c.res.headers.set('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=120');
+    }
+});
+app.use('/api/settings', async (c, next) => {
+    await next();
+    if (c.req.method === 'GET' && c.res.status === 200) {
+        c.res.headers.set('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=300');
+    }
+});
+
 // Mount routes (sama persis dengan index.ts)
 app.route('/api/auth', auth);
 app.route('/api/dramas', dramasRoute);
