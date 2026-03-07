@@ -234,7 +234,22 @@ dramasRoute.get('/new', async (c) => {
             .orderBy(desc(dramas.createdAt))
             .limit(limit);
 
-        return c.json(result.map(enrichDrama));
+        // Include firstVideoUrl for each drama
+        const enriched = await Promise.all(
+            result.map(async (drama) => {
+                const firstEp = await db.select({ videoUrl: episodes.videoUrl })
+                    .from(episodes)
+                    .where(and(eq(episodes.dramaId, drama.id), eq(episodes.isActive, true)))
+                    .orderBy(asc(episodes.episodeNumber))
+                    .limit(1).then((r: any[]) => r[0]);
+                return {
+                    ...enrichDrama(drama),
+                    firstVideoUrl: firstEp?.videoUrl || null,
+                };
+            })
+        );
+
+        return c.json(enriched);
     } catch (error) {
         console.error('Get new dramas error:', error);
         return c.json({ error: 'Failed to get new dramas' }, 500);
