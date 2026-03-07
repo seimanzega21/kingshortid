@@ -263,7 +263,7 @@ rewardsRoute.post('/claim-ad', async (c) => {
         }
 
         // Validate amount range
-        if (type === 'checkin_bonus' && amount !== 20) {
+        if (type === 'checkin_bonus' && amount !== 40) {
             return c.json({ error: 'Invalid bonus amount' }, 400);
         }
         if (type === 'general_ad' && amount !== 10) {
