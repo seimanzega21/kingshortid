@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, sql, asc } from 'drizzle-orm';
 import { getDb, parseJsonArray } from '../db';
-import { watchlist, favorites, collections, watchHistory, dramas, episodes, users } from '../db/schema';
+import { watchlist, favorites, collections, watchHistory, dramas, episodes, users, coinTransactions, dailyRewards } from '../db/schema';
 import { Env, requireAuth } from '../middleware/auth';
 
 const userRoute = new Hono<Env>();
@@ -395,6 +395,33 @@ userRoute.get('/continue-watching', async (c) => {
     } catch (error) {
         console.error('Get continue watching error:', error);
         return c.json({ error: 'Failed to get continue watching' }, 500);
+    }
+});
+
+// ==================== DELETE ACCOUNT ====================
+
+// DELETE /api/user/account — Permanently delete account and all data
+userRoute.delete('/account', async (c) => {
+    try {
+        const userId = c.get('user').id;
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        // Delete all user-related data across all tables
+        await db.delete(watchHistory).where(eq(watchHistory.userId, userId));
+        await db.delete(watchlist).where(eq(watchlist.userId, userId));
+        await db.delete(favorites).where(eq(favorites.userId, userId));
+        await db.delete(collections).where(eq(collections.userId, userId));
+        await db.delete(coinTransactions).where(eq(coinTransactions.userId, userId));
+        await db.delete(dailyRewards).where(eq(dailyRewards.userId, userId));
+
+        // Finally delete the user record itself
+        await db.delete(users).where(eq(users.id, userId));
+
+        console.log(`Account permanently deleted: ${userId}`);
+        return c.json({ success: true, message: 'Account permanently deleted' });
+    } catch (error) {
+        console.error('Delete account error:', error);
+        return c.json({ error: 'Failed to delete account' }, 500);
     }
 });
 
