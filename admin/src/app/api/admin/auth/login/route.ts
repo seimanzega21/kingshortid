@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
-import prisma from '@/lib/prisma';
-import { generateToken } from '@/lib/auth';
 
-// POST /api/admin/auth/login
+const VPS_API = 'https://api.shortlovers.id/api/auth/login';
+
+// POST /api/admin/auth/login — Authenticate via VPS backend
 export async function POST(request: NextRequest) {
     try {
         const { email, password } = await request.json();
@@ -15,43 +14,32 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Find user
-        const user = await prisma.user.findUnique({ where: { email } });
-        if (!user || !user.password) {
+        // Authenticate via VPS backend
+        const res = await fetch(VPS_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+            cache: 'no-store',
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
             return NextResponse.json(
-                { message: 'Invalid credentials' },
-                { status: 401 }
+                { message: data.message || 'Invalid credentials' },
+                { status: res.status }
             );
         }
 
-        // Verify password
-        const isValid = await bcrypt.compare(password, user.password);
-        if (!isValid) {
-            return NextResponse.json(
-                { message: 'Invalid credentials' },
-                { status: 401 }
-            );
-        }
-
-        // Verify Role
-        if (user.role !== 'admin') {
+        // Verify admin role
+        if (data.user?.role !== 'admin') {
             return NextResponse.json(
                 { message: 'Access denied. Administrator privileges required.' },
                 { status: 403 }
             );
         }
 
-        // Generate token
-        // Generate token
-        const token = generateToken({
-            id: user.id,
-            role: user.role,
-        });
-
-        // Remove password
-        const { password: _, ...userWithoutPassword } = user;
-
-        return NextResponse.json({ token, user: userWithoutPassword }, { status: 200 });
+        return NextResponse.json({ token: data.token, user: data.user }, { status: 200 });
     } catch (error) {
         console.error('Admin Login error:', error);
         return NextResponse.json(
