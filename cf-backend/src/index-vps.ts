@@ -18,6 +18,7 @@ import categoriesRoute from './routes/categories';
 import settingsRoute from './routes/settings';
 import adminRoute from './routes/admin';
 import { serverEnv } from './env';
+import { privacyPolicyHtml, deleteAccountHtml } from './pages';
 
 // Inject env as fake Cloudflare Bindings so all routes work unchanged
 type VpsEnv = {
@@ -56,6 +57,16 @@ app.get('/app-ads.txt', (c) => {
         'Content-Type': 'text/plain',
         'Cache-Control': 'public, max-age=86400',
     });
+});
+
+// Privacy Policy page (Google Play requirement)
+app.get('/privacy', (c) => {
+    return c.html(privacyPolicyHtml);
+});
+
+// Account Deletion page (Google Play requirement)
+app.get('/delete-account', (c) => {
+    return c.html(deleteAccountHtml);
 });
 
 // Health check
