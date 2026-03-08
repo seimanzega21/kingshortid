@@ -17,6 +17,14 @@ const STREAK_BONUSES = [
     { day: 7, coins: 100 },
 ];
 
+// Coin milestones: target → bonus reward
+const COIN_MILESTONES = [
+    { target: 500, bonus: 50, label: 'Milestone pertama!' },
+    { target: 1000, bonus: 100, label: 'Kolektor koin!' },
+    { target: 2000, bonus: 200, label: 'Master koin!' },
+    { target: 5000, bonus: 500, label: 'Raja koin!' },
+];
+
 function toWIBDateString(date: Date): string {
     // WIB = UTC+7, offset 7 hours
     const wib = new Date(date.getTime() + 7 * 60 * 60 * 1000);
@@ -122,6 +130,14 @@ rewardsRoute.get('/status', async (c) => {
             .limit(1).then((r: any[]) => r[0]);
         const hasRatedApp = !!rateAppClaim;
 
+        // Check claimed milestones (lifetime)
+        const milestoneResults = await db.select().from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                sql`${dailyRewards.rewardType} LIKE 'milestone_%'`,
+            ));
+        const claimedMilestones = milestoneResults.map(r => parseInt(r.rewardType.replace('milestone_', '')));
+
         return c.json({
             coins: user.coins,
             canCheckIn,
@@ -130,6 +146,7 @@ rewardsRoute.get('/status', async (c) => {
             dailyEpisodesWatched,
             claimedDailyTasks,
             hasRatedApp,
+            claimedMilestones,
         });
     } catch (error) {
         console.error('Get status error:', error);
@@ -376,6 +393,60 @@ rewardsRoute.get('/transactions', async (c) => {
     } catch (error) {
         console.error('Get transactions error:', error);
         return c.json({ error: 'Failed to get transactions' }, 500);
+    }
+});
+
+// POST /api/rewards/claim-milestone — One-time reward for reaching coin milestones
+rewardsRoute.post('/claim-milestone', async (c) => {
+    try {
+        const userId = c.get('user').id;
+        const { target } = await c.req.json();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        // Validate milestone target
+        const milestone = COIN_MILESTONES.find(m => m.target === target);
+        if (!milestone) return c.json({ error: 'Invalid milestone target' }, 400);
+
+        // Check if already claimed
+        const existingClaim = await db.select().from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                eq(dailyRewards.rewardType, `milestone_${target}`),
+            ))
+            .limit(1).then((r: any[]) => r[0]);
+
+        if (existingClaim) return c.json({ error: 'Milestone already claimed' }, 400);
+
+        // Check if user has enough coins
+        const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
+        if (!user) return c.json({ error: 'User not found' }, 404);
+
+        if (user.coins < target) {
+            return c.json({ error: `Need ${target} coins, have ${user.coins}` }, 400);
+        }
+
+        const newBalance = user.coins + milestone.bonus;
+
+        await db.update(users).set({ coins: newBalance, updatedAt: new Date() }).where(eq(users.id, userId));
+
+        await db.insert(coinTransactions).values({
+            userId,
+            type: 'bonus',
+            amount: milestone.bonus,
+            description: `🎉 Milestone ${target} koin — ${milestone.label}`,
+            balanceAfter: newBalance,
+        });
+
+        await db.insert(dailyRewards).values({
+            userId,
+            rewardType: `milestone_${target}`,
+            amount: milestone.bonus,
+        });
+
+        return c.json({ success: true, bonus: milestone.bonus, newBalance, label: milestone.label });
+    } catch (error) {
+        console.error('Claim milestone error:', error);
+        return c.json({ error: 'Failed to claim milestone' }, 500);
     }
 });
 
