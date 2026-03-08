@@ -1,10 +1,14 @@
 import { NextResponse } from 'next/server';
 
 const VPS_API = 'https://api.shortlovers.id/api/admin/dashboard';
-const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 // GET /api/health — Check VPS backend connection status
 export async function GET() {
+    const adminKey = process.env.ADMIN_API_KEY || '';
+
     const result: {
         status: string;
         database: { connected: boolean; type: string; latency?: number; error?: string };
@@ -18,8 +22,8 @@ export async function GET() {
     try {
         const start = Date.now();
         const res = await fetch(VPS_API, {
-            headers: { 'X-Admin-Key': ADMIN_KEY },
-            signal: AbortSignal.timeout(5000),
+            headers: { 'X-Admin-Key': adminKey },
+            cache: 'no-store',
         });
         const latency = Date.now() - start;
 

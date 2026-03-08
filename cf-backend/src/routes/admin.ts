@@ -53,20 +53,46 @@ adminRoute.get('/dashboard', async (c) => {
             .from(dramas)
             .limit(1).then((r: any[]) => r[0]);
 
-        // Data health
-        const [noDescResult, noCoverResult, noEpisodesResult] = await Promise.all([
+        // Data health — match scraper audit criteria
+        const [noDescResult, noCoverResult, noEpisodesResult, genericGenreResult] = await Promise.all([
+            // Bad description: empty, too short, or equals title
             db.select({ count: sql<number>`count(*)` }).from(dramas)
-                .where(and(eq(dramas.isActive, true), eq(dramas.description, ''))).limit(1).then((r: any[]) => r[0]),
+                .where(and(
+                    eq(dramas.isActive, true),
+                    sql`(${dramas.description} = '' OR ${dramas.description} = ${dramas.title} OR length(${dramas.description}) < 10)`
+                )).limit(1).then((r: any[]) => r[0]),
+            // No cover
             db.select({ count: sql<number>`count(*)` }).from(dramas)
                 .where(and(eq(dramas.isActive, true), eq(dramas.cover, ''))).limit(1).then((r: any[]) => r[0]),
+            // No episodes
             db.select({ count: sql<number>`count(*)` }).from(dramas)
                 .where(and(eq(dramas.isActive, true), eq(dramas.totalEpisodes, 0))).limit(1).then((r: any[]) => r[0]),
+            // Generic genre: empty array, or single "Drama" genre
+            db.select({ count: sql<number>`count(*)` }).from(dramas)
+                .where(and(
+                    eq(dramas.isActive, true),
+                    sql`(${dramas.genres}::jsonb = '[]'::jsonb OR ${dramas.genres}::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(${dramas.genres}::jsonb) = 0)`
+                )).limit(1).then((r: any[]) => r[0]),
         ]);
 
         const activeDramaCount = activeDramasResult?.count || 0;
         const noDesc = noDescResult?.count || 0;
         const noCover = noCoverResult?.count || 0;
         const noEps = noEpisodesResult?.count || 0;
+        const genericGenre = genericGenreResult?.count || 0;
+
+        // Count dramas with ANY issue (avoid double-counting)
+        const issueCountResult = await db.select({ count: sql<number>`count(*)` }).from(dramas)
+            .where(and(
+                eq(dramas.isActive, true),
+                sql`(
+                    ${dramas.description} = '' OR ${dramas.description} = ${dramas.title} OR length(${dramas.description}) < 10
+                    OR ${dramas.cover} = ''
+                    OR ${dramas.totalEpisodes} = 0
+                    OR ${dramas.genres}::jsonb = '[]'::jsonb OR ${dramas.genres}::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(${dramas.genres}::jsonb) = 0
+                )`
+            )).limit(1).then((r: any[]) => r[0]);
+        const totalWithIssues = issueCountResult?.count || 0;
 
         // Recent users
         const recentUsers = await db.select({
@@ -115,8 +141,8 @@ adminRoute.get('/dashboard', async (c) => {
                 totalViews: viewsResult?.total || 0,
             },
             dataHealth: {
-                healthy: Math.max(0, activeDramaCount - noDesc - noCover - noEps),
-                genericGenre: 0, // D1 doesn't store genres as array natively
+                healthy: Math.max(0, activeDramaCount - totalWithIssues),
+                genericGenre,
                 noDescription: noDesc,
                 noCover: noCover,
                 noEpisodes: noEps,
