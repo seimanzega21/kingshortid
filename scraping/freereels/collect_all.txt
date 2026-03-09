@@ -1,0 +1,36 @@
+﻿ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  FreeReels Indonesian Dubbed ΓÇö Master Pipeline
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  Mode: PRODUCTION  Limit: 250
+[AUTH] OK key=VVqoYFE0...
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  STAGE 1: Collecting Series IDs from Tab 514
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+Existing: 30 series
+  Page 1: +10 new (total: 40)
+  Page 2: +10 new (total: 50)
+  Page 3: +10 new (total: 60)
+  Page 4: +10 new (total: 70)
+  Page 5: +10 new (total: 80)
+  Page 6: +10 new (total: 90)
+  Page 7: +10 new (total: 100)
+  Page 8: +10 new (total: 110)
+  Page 9: +10 new (total: 120)
+  Page 10: +10 new (total: 130)
+  Page 11: +10 new (total: 140)
+  Page 12: +9 new (total: 149)
+  Page 13: +10 new (total: 159)
+  Page 14: +10 new (total: 169)
+  Page 15: +10 new (total: 179)
+  Page 16: +10 new (total: 189)
+  Page 17: +10 new (total: 199)
+  Page 18: +10 new (total: 209)
+  Page 19: +10 new (total: 219)
+[AUTH] OK key=VVqoYFE0...
+  Page 20: +10 new (total: 229)
+  Page 21: +10 new (total: 239)
+  Page 22: +10 new (total: 249)
+  Page 23: +10 new (total: 259)
+
+Γ£ô Collected 259 FreeReels dubbed dramas ΓåÆ freereels_series_ids.json
