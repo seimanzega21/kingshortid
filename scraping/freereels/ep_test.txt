@@ -1,0 +1,13 @@
+﻿[AUTH] key=0fmdCUfE...
+
+Testing 5 dramas from FreeReels tab 514...
+
+  qQKGMS5WbW: FAILED code=?
+  oMhM6vLVCs: FAILED code=?
+  4kIaOLDsKf: FAILED code=?
+  7oaUJoDLN3: FAILED code=?
+  HyOedExnON: FAILED code=?
+==================================================
+KESIMPULAN:
+Kalau "Locked (no URL)" = 0 ΓåÆ anonymous sudah unlock semua episode di FreeReels!
+Kalau banyak yang locked ΓåÆ perlu login dengan akun Google
