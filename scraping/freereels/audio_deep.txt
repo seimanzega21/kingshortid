@@ -1,0 +1,132 @@
+﻿
+============================================================
+=== episode-page-CGe2egWU.js (12,328 chars) ===
+============================================================
+
+  [audiotrack_language] @ 3098:
+  eId,O=o.currentRoute.value.query.subtitle_language,G=o.currentRoute.value.query.audiotrack_language??"en-US",{t:h}=ce(o.currentRoute.value.query.language),{t:w}=de(["share.toast.takeOffShelf","share.episodeDialog.title","share.episodeDialog.description","share.episodeDialog.tips","share.episodeDialo
+
+  [video_url] @ 3776:
+  B=(D=(S=r.value)==null?void 0:S.episode_list)==null?void 0:D[0])==null?void 0:B.video_url)??""});(e=>{e.forEach(a=>{const s=new Image;s.src=a})})([Q,M,V,N,J,X,K,F,W]);const C=()=>{var e,a,s;(e=m.value)==null||e.on("canplay",()=>{var t;_.value||(_.value=!0,ee(),v.value&&((t=m.value)==null||t.play()))
+
+  [episode.*url|url.*episode] @ 3012:
+  d(),u=d(!0),p=d(!1),g=d(!0),_=d(!1),v=d(!1),f=d(),y=o.currentRoute.value.params.episodeId,O=o.currentRoute.value.query.subtitle_language,G=o.currentRoute.value.query.audiotrack_language??"en-US",{t:h}=ce(o.currentRoute.value.query.language),{t:w}=de(["share.toast.takeOffShelf","share.episodeDialog.t
+
+============================================================
+=== series-item-page-C1godQNz.js (93,616 chars) ===
+============================================================
+
+  [audio_language] @ 41132:
+  K.value),Math.floor(S.value)%3===1&&S.value<11&&O("video","play","time_update",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.episodeId),vid
+
+  [audio_language] @ 41184:
+  ideo","play","time_update",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.episodeId),video_id:e.episodeId}),!!S.value&&e.subtitles.length>0)
+
+  [audio_language] @ 42107:
+  ] h-[66px]"},null)]):null}function Me(){var s,g,C,V,N;O("video","play","error",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0
+
+  [audio_language] @ 42159:
+  N;O("video","play","error",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.ep
+
+  [audio_language] @ 42636:
+  .video_type})}function ce(){var s,g,C,V,N;e.src&&O("video","play","wait_start",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0
+
+  [audio_language] @ 42688:
+  video","play","wait_start",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.ep
+
+  [audio_language] @ 43159:
+  id 0:N.video_type})}function $t(){var s,g,C,V,N;e.src&&O("video","play","view",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0
+
+  [audio_language] @ 43211:
+  c&&O("video","play","view",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.ep
+
+  [audio_language] @ 43684:
+   0:N.video_type})}function qt(){var s,g,C,V,N;e.src&&O("video","play","finish",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0
+
+  [audio_language] @ 43736:
+  &O("video","play","finish",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.ep
+
+  [audio_language] @ 44208:
+  d 0:N.video_type})}function lt(s){var g,C,V,N,ne;e.src&&O("video","play","end",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:s.playback
+
+  [audio_language] @ 44260:
+  rc&&O("video","play","end",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:s.playback_position,playback_duration:s.playback_duration,seri
+
+  [audio_language] @ 44794:
+  ype})}function Wt(s=S.value||0){var g,C,V,N,ne;e.src&&O("video","play","start",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:s,series_i
+
+  [audio_language] @ 44846:
+  &&O("video","play","start",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:s,series_id:e.seriesId,session_id:k.value,slot:I(e.episodeId),
+
+  [audio_language] @ 45363:
+  -Ee.value:void 0})}function Qt(){var s,g,C,V,N;e.src&&O("video","load","start",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,on_screen:e.loadType==="ongoing"?1:0,playback_po
+
+  [audio_language] @ 45415:
+  &&O("video","load","start",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,on_screen:e.loadType==="ongoing"?1:0,playback_position:S.value||0,series_id:e.seriesId,session_id:k.
+
+  [audio_language] @ 45925:
+   0:N.video_type})}function Gt(){var s,g,C,V,N,ne;e.src&&O("video","load","end",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,load_duration:((g=n.value)==null?void 0:g.durati
+
+  [audio_language] @ 45977:
+  rc&&O("video","load","end",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,load_duration:((g=n.value)==null?void 0:g.duration)||0,on_screen:e.loadType==="ongoing"?1:0,playback
+
+  [audio_language] @ 46550:
+  ideo_type})}function mt(s,g){var C,V,N,ne,St,It;e.src&&O("video","play","wait",{audio_language:((C=y.value)==null?void 0:C.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,load_duration:((V=n.value)==null?void 0:V.durati
+
+  [audio_language] @ 46602:
+  c&&O("video","play","wait",{audio_language:((C=y.value)==null?void 0:C.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,load_duration:((V=n.value)==null?void 0:V.duration)||0,on_screen:e.loadType==="ongoing"?1:0,playback
+
+  [audio_language] @ 47928:
+  ndPlay"),re()}function Jt(){var s,g,C,V,N,ne;e.src&&O("video","play","ongoing",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,playback_duration:5e3,series_id:e.seriesId,session_id:k.value,s
+
+  [audio_language] @ 47980:
+  O("video","play","ongoing",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,playback_duration:5e3,series_id:e.seriesId,session_id:k.value,slot:I(),video_id:e.episodeId,video_type:(g=y.value)=
+
+  [audio_language] @ 48485:
+  l?void 0:ne.playload})}function ei(){var s,g;e.src&&O("video","load","ongoing",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,load_duration:2e3,series_id:e.seriesId,session_id:k.value,slot:
+
+  [audio_language] @ 48537:
+  O("video","load","ongoing",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,load_duration:2e3,series_id:e.seriesId,session_id:k.value,slot:I(),video_id:e.episodeId,video_type:(g=y.value)==nul
+
+  [original_audio] @ 41175:
+  <11&&O("video","play","time_update",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slot:I(e.episodeId),video_id:e.episodeId}),!!S.value&&e.subtitles.
+
+  [original_audio] @ 42150:
+   s,g,C,V,N;O("video","play","error",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,sl
+
+  [original_audio] @ 42679:
+  .src&&O("video","play","wait_start",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,sl
+
+  [original_audio] @ 43202:
+  ,V,N;e.src&&O("video","play","view",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,sl
+
+  [original_audio] @ 43727:
+  ,N;e.src&&O("video","play","finish",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,sl
+
+  [original_audio] @ 44251:
+  ,N,ne;e.src&&O("video","play","end",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:s.playback_position,playback_duration:s.playback_dura
+
+  [original_audio] @ 44837:
+  ,ne;e.src&&O("video","play","start",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,playback_id:P.value,playback_position:s,series_id:e.seriesId,session_id:k.value,slot:I(e.ep
+
+  [original_audio] @ 45406:
+  V,N;e.src&&O("video","load","start",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,on_screen:e.loadType==="ongoing"?1:0,playback_position:S.value||0,series_id:e.seriesId,sess
+
+  [original_audio] @ 45968:
+  ,N,ne;e.src&&O("video","load","end",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,load_duration:((g=n.value)==null?void 0:g.duration)||0,on_screen:e.loadType==="ongoing"?1:0
+
+  [original_audio] @ 46593:
+  t,It;e.src&&O("video","play","wait",{audio_language:((C=y.value)==null?void 0:C.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",from:G("from_page",""),interaction_type:G("interaction_type",2),load_type:e.loadType,load_duration:((V=n.value)==null?void 0:V.duration)||0,on_screen:e.loadType==="ongoing"?1:0
+
+  [original_audio] @ 47971:
+  e;e.src&&O("video","play","ongoing",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,playback_duration:5e3,series_id:e.seriesId,session_id:k.value,slot:I(),video_id:e.episodeId,video_type:(g=
+
+  [original_audio] @ 48528:
+  g;e.src&&O("video","load","ongoing",{audio_language:((s=y.value)==null?void 0:s.original_audio_language)||"├¿┬»┬¡├¿┬¿┬Ç_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,load_duration:2e3,series_id:e.seriesId,session_id:k.value,slot:I(),video_id:e.episodeId,video_type:(g=y.va
+
+  [video_url] @ 93527:
+  uery._test_m3u8;return E?E.toString():d.external_audio_h264_m3u8||d.m3u8_url||d.video_url||d.external_audio_h265_m3u8||""}});export{$n as SeriesItemPage,$n as default};
+  
+
+  [episode.*url|url.*episode] @ 50635:
+  veFromList:'Excluir de "Minha Lista',addedToList:'Adicionado a "Minha Lista',allEpisodes:"Todos {N} os Epis├â┬│dios",vipStr:"VIP"}},"vi-VN":{seriesItemPage:{dontMissOut:"├ä┬Éo├í┬║┬ín gi├í┬╗┬»a c├â┬óu chuy├í┬╗┬çn c├à┬⌐ng r├í┬║┬Ñt th├â┬║ v├í┬╗┬ï. ├ä┬É├í┬╗┬½ng b├í┬╗┬Å l├í┬╗┬í!",follow:"Theo d├â┬╡i",following:"├ä┬Éang theo d├â┬╡i",removeFromLis

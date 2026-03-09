@@ -1,0 +1,16 @@
+﻿
+=== https://m.mydramawave.com/free-app/ (len=3539) ===
+Drama hrefs: ['https://static-v1.mydramawave.com/frontend_static/assets/v-deps-Cc3clAnd.js']
+Possible snowflake IDs: ['4028685783554495']
+
+=== https://www.mydramawave.com (len=3539) ===
+Drama hrefs: ['https://static-v1.mydramawave.com/frontend_static/assets/v-deps-Cc3clAnd.js']
+Possible snowflake IDs: ['4028685783554495']
+
+=== https://m.mydramawave.com/free-app/drama (len=3539) ===
+Drama hrefs: ['https://static-v1.mydramawave.com/frontend_static/assets/v-deps-Cc3clAnd.js']
+Possible snowflake IDs: ['4028685783554495']
+
+=== From earlier DEX analysis ===
+Possible series ID from video URL: 11692
+Snowflake ID from DEX cover: 1834870652856946688

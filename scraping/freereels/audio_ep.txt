@@ -1,0 +1,39 @@
+﻿Chunk size: 93,616 chars
+
+=== [external_audio] @ 93487 ===
+0:d.id}`,query:{from_episode:"prev"}})}function Ze(d){if(!d)return"";const E=i.query._test_m3u8;return E?E.toString():d.external_audio_h264_m3u8||d.m3u8_url||d.video_url||d.external_audio_h265_m3u8||""}});export{$n as SeriesItemPage,$n as default};
+
+
+=== [external_audio] @ 93540 ===
+{if(!d)return"";const E=i.query._test_m3u8;return E?E.toString():d.external_audio_h264_m3u8||d.m3u8_url||d.video_url||d.external_audio_h265_m3u8||""}});export{$n as SeriesItemPage,$n as default};
+
+
+=== [_test_m3u8] @ 93452 ===
+es/${a.value}/${(d=m())==null?void 0:d.id}`,query:{from_episode:"prev"}})}function Ze(d){if(!d)return"";const E=i.query._test_m3u8;return E?E.toString():d.external_audio_h264_m3u8||d.m3u8_url||d.video_url||d.external_audio_h265_m3u8||""}});export{$n as SeriesItemPage,$n as default};
+
+
+=== [getEpisode|episode_detail|episodeDetail] @ 71558 ===
+e:r,episodeSelectMenuVisible:o,activeIndex:p,getIndexInActiveEpisodes:m,getCurrentEpisode:c,episodeIdsHavingAdAfterIt:v,getEpisodesWithAds:b,currentAdId:f}=se(e);H(()=>n.value,x=>{if(!x)return;const k=m(x);a.value=-k*pe()},{immediate:!0});const I=T(0),R=T(!1),D=we(null),q=Z(()=>c());let W=!1;const{direction:ee,lengthY:M}=Bt(t,{threshold:0,onSwipeStart(x){const k=x.target;W=!Si(
+
+=== [getEpisode|episode_detail|episodeDetail] @ 87354 ===
+PanelVisible:R,prefetchVideo:D,updateActiveEpisodes:q,activeEpisodes:W,getNextEpisodeById:ee,getIndexInActiveEpisodes:M,getEpisodesWithAds:x,currentAdId:k,findEpisode:P,findEpisodeByIndex:L,anonymousUserLoginCheck:y,episodeSelectMenuVisible:X}=se(a.value),j=Z(()=>p()),{immersive:z,resetImmersiveTimer:Q,cancelImmersiveTimer:te}=_t(a.value);H(()=>z.value,d=>{d||Q()}),H(()=>X.valu
+
+=== [id.*audio|audio.*id.*lang] @ 31738 ===
+st-fill.svg":Vi,"./pause.svg":Bi,"./play.svg":Ni,"./watermark.svg":Hi}));const zi=Ie({props:{currentTime:0,totalTime:0,video:He,loading:!1},emits:{seek:le,seekStart:le}},(e,{emit:t})=>{const i=T(),a=T(),l=T({width:0,height:0});xe(()=>{a.value&&(l.value=a.value.getBoundingClientRect())});const n=T(!1),r=Z(()=>{if(e.totalTime<=0)return 0;const v=n.value?p.value:e.currentTime;return ut(v/e.totalTime,0,1)*100}),o=v=>{if(isNaN(v)||!isFinite(v))return"00:00";const b=Math.floor(v/60),f=Math.floor(v%60)
+
+=== [id.*audio|audio.*id.*lang] @ 51503 ===
+┬ú├á┬╕┬▓├á┬╕┬ó├á┬╕┬ü├á┬╕┬▓├á┬╕┬ú├á┬╕┬é├á┬╕┬¡├á┬╕┬ç├á┬╕┬ë├á┬╕┬▒├á┬╕┬Ö├ó┬Ç┬Ö",allEpisodes:"├á┬╕┬ù├á┬╕┬▒├á┬╣┬ë├á┬╕┬ç├á┬╕┬½├á┬╕┬í├á┬╕┬ö {N} ├á┬╕┬ò├á┬╕┬¡├á┬╕┬Ö",vipStr:"├á┬╕┬º├á┬╕┬╡├á┬╣┬ä├á┬╕┬¡├á┬╕┬₧├á┬╕┬╡"}},"id-ID":{seriesItemPage:{dontMissOut:"Cerita - cerita diantaranya juga sangat menarik. jangan sampai ketinggalan!",follow:"Ikuti",following:"Mengikuti",removeFromList:"Menghapus dari 'Daftar Saya'",addedToList:"Menambahkan ke 'Daftar Saya'",allEpisodes:"Semua {N} episode",vipStr:"VIP"}},"tl-PH":{seriesItemPage:{dontMissOut:"Ang mga kwento sa pagitan ay napaka-interesante din. Hu
+
+=== ["id-ID"|"id-id"|"Indonesia"|langCode.*id] @ 51502 ===
+┬╕┬ú├á┬╕┬▓├á┬╕┬ó├á┬╕┬ü├á┬╕┬▓├á┬╕┬ú├á┬╕┬é├á┬╕┬¡├á┬╕┬ç├á┬╕┬ë├á┬╕┬▒├á┬╕┬Ö├ó┬Ç┬Ö",allEpisodes:"├á┬╕┬ù├á┬╕┬▒├á┬╣┬ë├á┬╕┬ç├á┬╕┬½├á┬╕┬í├á┬╕┬ö {N} ├á┬╕┬ò├á┬╕┬¡├á┬╕┬Ö",vipStr:"├á┬╕┬º├á┬╕┬╡├á┬╣┬ä├á┬╕┬¡├á┬╕┬₧├á┬╕┬╡"}},"id-ID":{seriesItemPage:{dontMissOut:"Cerita - cerita diantaranya juga sangat menarik. jangan sampai ketinggalan!",follow:"Ikuti",following:"Mengikuti",removeFromList:"Menghapus dari 'Daftar Saya'",addedToLi
+
+=== ["id-ID"|"id-id"|"Indonesia"|langCode.*id] @ 58691 ===
+┬╕┬ç├á┬╕┬ë├á┬╕┬▒├á┬╕┬Ö├á┬╣┬ü├á┬╕┬Ñ├á┬╣┬ë├á┬╕┬º",removedFromMyList:"├á┬╕┬Ñ├á┬╕┬Ü├á┬╕┬¡├á┬╕┬¡├á┬╕┬ü├á┬╕┬ê├á┬╕┬▓├á┬╕┬ü├á┬╕┬ú├á┬╕┬▓├á┬╕┬ó├á┬╕┬ü├á┬╕┬▓├á┬╕┬ú├á┬╕┬é├á┬╕┬¡├á┬╕┬ç├á┬╕┬ë├á┬╕┬▒├á┬╕┬Ö├á┬╣┬ü├á┬╕┬Ñ├á┬╣┬ë├á┬╕┬º"}},"id-ID":{followButton:{addedToMyList:"Ditambahkan ke daftar saya",removedFromMyList:"Dihapus dari daftar saya"}},"tl-PH":{followButton:{addedToMyList:"Idinagdag sa aking listahan",removedFromMyList:"Tinangga
+
+=== ["id-ID"|"id-id"|"Indonesia"|langCode.*id] @ 64330 ===
+┬╣┬ä├á┬╕┬¢├á┬╕┬ù├á┬╕┬╡├á┬╣┬ê├á┬╕┬½├á┬╕┬Ö├á┬╣┬ë├á┬╕┬▓├á┬╣┬ü├á┬╕┬ú├á┬╕┬ü├á┬╣┬Ç├á┬╕┬₧├á┬╕┬╖├á┬╣┬ê├á┬╕┬¡├á┬╕┬ä├á┬╣┬ë├á┬╕┬Ö├á┬╕┬½├á┬╕┬▓├á┬╕┬Ñ├á┬╕┬░├á┬╕┬ä├á┬╕┬ú├á┬╣┬Ç├á┬╕┬₧├á┬╕┬┤├á┬╣┬ê├á┬╕┬í├á┬╣┬Ç├á┬╕┬ò├á┬╕┬┤├á┬╕┬í",go:"├á┬╣┬ä├á┬╕┬¢"}},"id-ID":{productPanel:{thisEpisode:"Episode ini:",balance:"Saldo:",unlockNow:"Buka kunci sekarang",purchaseFailed:"Pembelian gagal",playThisEpisode:"Putar episode ini",autoplayNextVideo:"Putar otomatis Video
+
+
+=== h5-api endpoints in series-item-page ===
+
+=== API calls in series-item-page ===

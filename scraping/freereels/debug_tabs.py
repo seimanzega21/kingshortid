@@ -1,17 +1,16 @@
 """
-Test API with Skip-Encrypt:1 header to bypass body encryption.
-Find dubbed drama catalog and working tab feed.
+Test drama/view API with valid ALPHANUMERIC series_id from browser intercept.
+series_id format: alphanumeric string like 'Cdg4Th1kpv'
 """
-import sys, json, time, base64, hashlib, os
+import sys, json, time, base64, hashlib, os, re
 import requests
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
-
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-AES_KEY = b'2r36789f45q01ae5'
-APP_SECRET = '8IAcbWyCsVhYv82S2eofRqK1DF3nNDAv'
-BASE = 'https://api.mydramawave.com/h5-api'
+AES_KEY = b'2r36789f45q01ae5'; APP_SECRET = '8IAcbWyCsVhYv82S2eofRqK1DF3nNDAv'
+BASE_DW = 'https://api.mydramawave.com/h5-api'
+BASE_FR = 'https://apiv2.free-reels.com/frv2-api'
 
 def dec(t):
     try:
@@ -23,105 +22,103 @@ def dec(t):
         try: return json.loads(t)
         except: return None
 
+def enc(data):
+    payload = json.dumps(data, separators=(',', ':')).encode()
+    pad = 16 - (len(payload) % 16); payload += bytes([pad] * pad)
+    iv = os.urandom(16)
+    c = Cipher(algorithms.AES(AES_KEY[:16]), modes.CBC(iv), backend=default_backend())
+    e = c.encryptor(); return base64.b64encode(iv + e.update(payload) + e.finalize()).decode()
+
+# Valid alphanumeric series IDs from browser intercept
+VALID_IDS = ['Cdg4Th1kpv', '8hX52C1Do1']
+
 dh = hashlib.md5(b'freereels_scraper_v1_kingshortid').hexdigest()
-s = requests.Session()
-base_hdrs = {
-    'app-name': 'com.dramawave.h5', 'device': 'h5', 'app-version': '1.2.20',
-    'device-id': dh, 'device-hash': dh, 'country': 'ID', 'language': 'id',
-    'shortcode': 'id', 'User-Agent': 'Mozilla/5.0', 'Accept': '*/*',
-}
-s.headers.update(base_hdrs)
 
-# Login
-r = s.post(f'{BASE}/anonymous/login', json={'device_id': dh},
-           headers={'Content-Type': 'application/json', 'Skip-Encrypt': '1'}, timeout=15)
-d = (dec(r.text) or r.json() or {}).get('data', {})
-ak = d.get('auth_key', ''); ase = d.get('auth_secret', '')
-print(f'Login: user={d.get("user_id")} key={ak[:8]}...')
+# ── DramaWave ────────────────────────────────────────────────────────────────
+dw = requests.Session()
+dw.headers.update({'app-name': 'com.dramawave.h5', 'device': 'h5', 'app-version': '1.2.20',
+                   'device-id': dh, 'device-hash': dh, 'country': 'ID', 'language': 'id',
+                   'shortcode': 'id', 'User-Agent': 'Mozilla/5.0'})
+r_dw = dw.post(f'{BASE_DW}/anonymous/login', json={'device_id': dh},
+               headers={'Content-Type': 'application/json', 'Skip-Encrypt': '1'}, timeout=15)
+d_dw = (dec(r_dw.text) or r_dw.json() or {}).get('data', {})
+ak_dw = d_dw.get('auth_key', ''); ase_dw = d_dw.get('auth_secret', '')
+print(f'DW Login: key={ak_dw[:8]}...')
 
-def ah():
-    sig = hashlib.md5(f'{APP_SECRET}&{ase}'.encode()).hexdigest()
-    ts = int(time.time() * 1000)
-    return {'authorization': f'oauth_signature={sig},oauth_token={ak},ts={ts}'}
+def ah_dw():
+    sig = hashlib.md5(f'{APP_SECRET}&{ase_dw}'.encode()).hexdigest()
+    return {'authorization': f'oauth_signature={sig},oauth_token={ak_dw},ts={int(time.time()*1000)}'}
 
-def skip_post(path, body):
-    """POST with Skip-Encrypt:1 — server handles plain JSON."""
-    hdrs = {**ah(), 'Content-Type': 'application/json', 'Skip-Encrypt': '1'}
-    r = s.post(f'{BASE}{path}', json=body, headers=hdrs, timeout=15)
-    resp = dec(r.text)
-    if not resp:
-        try: resp = r.json()
-        except: resp = {'raw': r.text[:200]}
-    return resp
+# ── FreeReels ────────────────────────────────────────────────────────────────
+fr = requests.Session()
+fr.headers.update({'app-name': 'com.freereels.app', 'device': 'android', 'app-version': '2.2.10',
+                   'device-id': dh, 'device-hash': dh, 'country': 'ID', 'language': 'id',
+                   'User-Agent': 'com.freereels.app/2.2.10'})
+r_fr = fr.post(f'{BASE_FR}/anonymous/login', json={'device_id': dh},
+               headers={'Content-Type': 'application/json', 'Skip-Encrypt': '1'}, timeout=15)
+d_fr = (r_fr.json() or {}).get('data', {})
+ak_fr = d_fr.get('auth_key', ''); ase_fr = d_fr.get('auth_secret', '')
+print(f'FR Login: key={ak_fr[:8]}...')
 
-def skip_get(path, params=None):
-    r = s.get(f'{BASE}{path}', headers={**ah(), 'Skip-Encrypt': '1'}, params=params, timeout=15)
-    resp = dec(r.text)
-    if not resp:
-        try: resp = r.json()
-        except: resp = {'raw': r.text[:200]}
-    return resp
+def ah_fr():
+    sig = hashlib.md5(f'{APP_SECRET}&{ase_fr}'.encode()).hexdigest()
+    return {'authorization': f'oauth_signature={sig},oauth_token={ak_fr},ts={int(time.time()*1000)}'}
 
-# 1. Tab feed with Skip-Encrypt
-print('\n=== Tab 28 feed (Skip-Encrypt) ===')
-resp = skip_post('/homepage/v2/tab/feed', {'tab_key': '28', 'page': 1, 'page_size': 3})
-print(f'code={resp.get("code")} msg={resp.get("message","")[:60]}')
-data = resp.get('data', {}); items = data.get('list', []) if isinstance(data, dict) else []
-print(f'Items: {len(items)}')
-if items:
-    first = items[0]
-    print('First item keys:', list(first.keys()))
-    for k in ['id', 'title', 'name', 'label', 'labels', 'tags', 'dubbed', 'audio']:
-        if k in first: print(f'  {k}: {json.dumps(first[k], ensure_ascii=False)[:80]}')
+print('\n=== Test drama/view with valid alphanumeric series_ids ===')
 
-# 2. Try tabId vs tab_key
-print('\n=== Tab feed with tabId (not tab_key) ===')
-resp2 = skip_post('/homepage/v2/tab/feed', {'tabId': '28', 'page': 1, 'page_size': 3})
-print(f'tabId=28: code={resp2.get("code")}')
-resp3 = skip_post('/homepage/v2/tab/feed', {'tabId': 28, 'page': 1, 'page_size': 3})
-print(f'tabId=28 (int): code={resp3.get("code")}')
+for sid in VALID_IDS:
+    print(f'\n--- series_id={sid} ---')
+    
+    # DramaWave: drama/view POST (AES encrypted)
+    for body in [
+        {'series_id': sid},
+        {'series_id': sid, 'audiotrack_language': 'id-ID'},
+        {'series_id': sid, 'audiotrack_language': 'id'},
+    ]:
+        r3 = dw.post(f'{BASE_DW}/drama/view', data=enc(body),
+                     headers={**ah_dw(), 'Content-Type': 'application/json'}, timeout=15)
+        resp = dec(r3.text) or {}
+        code = resp.get('code', '?'); msg = resp.get('message', '')[:40]
+        print(f'  DW drama/view {body} -> code={code} msg={msg}')
+        if code in [200, 0]:
+            data = resp.get('data', {})
+            print(f'  data keys: {list(data.keys())[:10]}')
+            ep_list = data.get('episode_list', data.get('episodes', []))
+            print(f'  episodes: {len(ep_list)}')
+            if ep_list:
+                ep = ep_list[0]
+                print(f'  ep[0] ALL keys: {list(ep.keys())}')
+                for k in ['id', 'title', 'external_audio_h264_m3u8', 'external_audio_h265_m3u8', 
+                          'm3u8_url', 'video_url', 'hls_url', 'play_url', 'original_audio_language']:
+                    if k in ep:
+                        val = ep[k]
+                        print(f'    {k}: {str(val)[:80]}')
+            with open(f'drama_view_{sid}.json', 'w', encoding='utf-8') as f:
+                json.dump(resp, f, ensure_ascii=False, indent=2)
+            print(f'  Saved drama_view_{sid}.json')
+            break
 
-# 3. Try tab list GET (count all tabs)
-print('\n=== Tab list GET (Skip-Encrypt) ===')
-resp4 = skip_get('/homepage/v2/tab/list')
-data4 = resp4.get('data', {})
-tabs = data4.get('list', []) if isinstance(data4, dict) else data4 if isinstance(data4, list) else []
-print(f'Tabs found: {len(tabs)}')
-for t in tabs:
-    print(f'  tab_key={t.get("tab_key")} name={t.get("name")} biz={t.get("business_name")} active={t.get("active")}')
+    # FreeReels API: drama/info GET
+    r4 = fr.get(f'{BASE_FR}/drama/info', headers=ah_fr(),
+                params={'series_id': sid}, timeout=10)
+    resp4 = r4.json() if r4.ok else {}
+    code4 = resp4.get('code', '?')
+    print(f'  FR drama/info -> code={code4}')
+    if code4 in [200, 0]:
+        info = resp4.get('data', {}).get('info', resp4.get('data', {}))
+        print(f'  info keys: {list(info.keys()) if isinstance(info, dict) else "N/A"}')
 
-# 4. Drama catalog with all possible paths
-print('\n=== Drama catalog paths (Skip-Encrypt POST) ===')
-paths_to_try = [
-    ('/drama/list', {'page': 1, 'page_size': 5}),
-    ('/drama/page', {'page': 1, 'page_size': 5}),
-    ('/series/list', {'page': 1, 'page_size': 5}),
-    ('/content/list', {'page': 1, 'page_size': 5}),
-    ('/drama/index', {'page': 1, 'page_size': 5}),
-    ('/drama/all', {}),
-    ('/drama/category', {'page': 1}),
-    ('/category/drama/list', {'page': 1, 'page_size': 5}),
-]
-for path, body in paths_to_try:
-    resp = skip_post(path, body)
-    code = resp.get('code', '?'); msg = resp.get('message', '')[:50]
-    hit = 'HIT!' if code in [200, 0] else ''
-    print(f'  {path} -> {code}: {msg} {hit}')
-    if code in [200, 0]:
-        with open('drama_catalog.json', 'w', encoding='utf-8') as f:
-            json.dump(resp, f, ensure_ascii=False, indent=2)
-        print(f'  *** Saved to drama_catalog.json ***')
-
-# 5. Check drama detail to understand labeled dubbing
-print('\n=== Drama detail (to check dubbed label) ===')
-# Try drama ID from popular tab
-if items:
-    drama_id = items[0].get('id') or items[0].get('drama_id')
-    if drama_id:
-        resp5 = skip_post('/drama/view', {'drama_id': drama_id})
-        code5 = resp5.get('code', '?')
-        print(f'Drama {drama_id}: code={code5}')
-        if code5 in [200, 0]:
-            dd = resp5.get('data', {})
-            for k in ['title', 'dubbed', 'language', 'labels', 'tags', 'audio_type', 'dub']:
-                if k in dd: print(f'  {k}: {json.dumps(dd[k], ensure_ascii=False)[:100]}')
+# Also test drama/info GET on DramaWave
+print('\n=== DramaWave drama/info GET ===')
+for sid in VALID_IDS:
+    r5 = dw.get(f'{BASE_DW}/drama/info', headers=ah_dw(), params={'series_id': sid}, timeout=10)
+    resp5 = dec(r5.text) or {}
+    code5 = resp5.get('code', '?')
+    data5 = resp5.get('data', {})
+    info5 = data5.get('info', data5) if isinstance(data5, dict) else {}
+    print(f'  series_id={sid}: code={code5}')
+    if code5 in [200, 0] and info5:
+        title = info5.get('title') or info5.get('name', '?')
+        ep_list = info5.get('episode_list', [])
+        print(f'  Title: {title}')
+        print(f'  Episodes in info: {len(ep_list)}')

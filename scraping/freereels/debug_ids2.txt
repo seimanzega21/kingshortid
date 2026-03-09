@@ -1,0 +1,25 @@
+﻿Login: key=bCfZiJfg...
+
+=== Test drama/info GET with various IDs ===
+  series_id=11692: code=200 msg=success
+  *** HIT! Saved to drama_info_hit.json ***
+  Title: ?
+
+=== Test drama/view POST with various IDs ===
+  series_id=11692: code=400
+  id=11692: code=400
+  series_id=11692: code=400
+  id=11692: code=400
+  series_id=4028685783554495: code=400
+  id=4028685783554495: code=400
+  series_id=4028685783554495: code=400
+  id=4028685783554495: code=400
+  series_id=1834870652856946688: code=400
+  id=1834870652856946688: code=400
+
+=== Detailed error analysis ===
+Raw status: 200
+Raw header Content-Type: application/json; charset=utf-8
+Raw content (hex): 614e676e744372654c6e7a7668546e4b7a68546b516b766a2f7a6b4c344b6547512f447051457659
+Decrypted: {'code': 200, 'message': 'success', 'data': {}}
+Raw text: aNgntCreLnzvhTnKzhTkQkvj/zkL4KeGQ/DpQEvY9Z7O+AHqaeoob1esgdCI7R2ihMyuWoK7baBUKzudeCcqoQ==

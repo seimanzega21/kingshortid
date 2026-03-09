@@ -1,0 +1,34 @@
+﻿
+=== use-home-page-store-Db2maEWK.js (1951 chars) ===
+
+Endpoint: /h5-api/homepage/v2/tab/list
+import{f as v,aB as M}from"./index-DDWjsaOp.js";import{b as t}from"./v-deps-Cc3clAnd.js";const h={ColumnVerticalThree:"column_vertical_three",Recommend:"recommend"},p={getTabList:()=>v.get("/h5-api/homepage/v2/tab/list"),getModuleList:o=>v.get("/h5-api/homepage/v2/tab/index",o),getFeeds:o=>v.post("/h5-api/homepage/v2/tab/feed",o)},k=M("homePageStore",()=>{const o=t(!0),x=t(!1),T=t(!1),n=t([{type:"
+
+Endpoint: /h5-api/homepage/v2/tab/index
+js";import{b as t}from"./v-deps-Cc3clAnd.js";const h={ColumnVerticalThree:"column_vertical_three",Recommend:"recommend"},p={getTabList:()=>v.get("/h5-api/homepage/v2/tab/list"),getModuleList:o=>v.get("/h5-api/homepage/v2/tab/index",o),getFeeds:o=>v.post("/h5-api/homepage/v2/tab/feed",o)},k=M("homePageStore",()=>{const o=t(!0),x=t(!1),T=t(!1),n=t([{type:"column_vertical_three",module_name:"column_v
+
+Endpoint: /h5-api/homepage/v2/tab/feed
+ColumnVerticalThree:"column_vertical_three",Recommend:"recommend"},p={getTabList:()=>v.get("/h5-api/homepage/v2/tab/list"),getModuleList:o=>v.get("/h5-api/homepage/v2/tab/index",o),getFeeds:o=>v.post("/h5-api/homepage/v2/tab/feed",o)},k=M("homePageStore",()=>{const o=t(!0),x=t(!1),T=t(!1),n=t([{type:"column_vertical_three",module_name:"column_vertical_three",module_desc:"",module_key:"",scene_sour
+
+=== use-series-item-BjpPc9T6.js (6602 chars) ===
+
+Endpoint: /h5-api/drama/info
+="none",l.style.left="-9999px",l.style.left="-9999px",setTimeout(()=>{l.parentNode&&l.parentNode.removeChild(l)},1e3)})}function D(){return 330}function O(){return 520}const E={getSeriesItem:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1})
+
+Endpoint: /h5-api/drama/view
+)},1e3)})}function D(){return 330}function O(){return 520}const E={getSeriesItem:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/u
+
+Endpoint: /h5-api/drama/follow
+n O(){return 520}const E={getSeriesItem:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>
+
+Endpoint: /h5-api/drama/follow
+,{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_
+
+Endpoint: /h5-api/drama/unlock_episode
+Drama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_unlock:s.auto_unlock?1:0}),removeOtherDevice:()=>v.post("/h5-api/user/devi
+
+Endpoint: /h5-api/drama/unlock_episode
+i/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_unlock:s.auto_unlock?1:0}),removeOtherDevice:()=>v.post("/h5-api/user/device/remove_others")},he=le(s=>{const o=a(null),d=a(null),l=a(null
+
+Endpoint: /h5-api/user/device/remove_others
+Episode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_unlock:s.auto_unlock?1:0}),removeOtherDevice:()=>v.post("/h5-api/user/device/remove_others")},he=le(s=>{const o=a(null),d=a(null),l=a(null),g=a(!1),H=a(new Date().getTime()),h=a(!1),m=a(!1),A=a(!1),b=a(!1),_=a(!1),k=a(!1),f=a(!1),c=a([]),x=a(),C=a(!1),q=a(

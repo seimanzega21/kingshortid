@@ -1,0 +1,15 @@
+﻿FR Login: key=9OSZ5T3l...
+DW Login: key=bCfZiJfg...
+
+=== Test drama/view via FreeReels API ===
+  FR drama/view series_id=11692: code=400 msg=Invalid parameters
+  FR drama/view series_id=11500: code=400 msg=Invalid parameters
+  FR drama/view series_id=12000: code=400 msg=Invalid parameters
+  FR drama/view series_id=11000: code=400 msg=Invalid parameters
+  FR drama/view series_id=10500: code=400 msg=Invalid parameters
+  FR drama/view series_id=13000: code=400 msg=Invalid parameters
+
+=== Test drama/view via DramaWave + audiotrack_language ===
+  DW drama/view {'series_id': '11692', 'audiotrack_language': 'id-ID'} -> code=400
+  DW drama/view {'series_id': '11692', 'audiotrack_language': 'id'} -> code=400
+  DW drama/view {'series_id': '11692'} -> code=400

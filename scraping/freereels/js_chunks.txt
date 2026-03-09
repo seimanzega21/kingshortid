@@ -1,0 +1,13 @@
+﻿Index JS: awave.com/frontend_static/assets/index-DDWjsaOp.js
+Found 185 chunk references
+Unique chunks to scan: 185
+Priority chunks: 17
+
+feedback-api-DM9F7SD1.js: ['h5-api/wallet/subscribe/cancel', 'h5-api/wallet/subscribe/query']
+
+use-series-item-BjpPc9T6.js: ['h5-api/drama/unlock_episode', 'h5-api/drama/info', 'h5-api/user/device/remove_others', 'h5-api/drama/view', 'h5-api/drama/follow']
+
+use-home-page-store-Db2maEWK.js: ['h5-api/homepage/v2/tab/list', 'h5-api/homepage/v2/tab/feed', 'h5-api/homepage/v2/tab/index']
+
+Scanned 17/17 chunks
+Saved chunk_endpoints.json

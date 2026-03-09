@@ -1,0 +1,115 @@
+{
+  "h5-api/activity/recharge/bonus": [
+    "common-button-CTm34295.js"
+  ],
+  "h5-api/activity/recharge/share": [
+    "common-button-CTm34295.js"
+  ],
+  "h5-api/activity/banner": [
+    "common-button-CTm34295.js"
+  ],
+  "h5-api/activity/recharge/relation": [
+    "common-button-CTm34295.js"
+  ],
+  "h5-api/search/drama": [
+    "search-page-Qg06sH4g.js"
+  ],
+  "h5-api/search/hot-list": [
+    "search-page-Qg06sH4g.js"
+  ],
+  "h5-api/search/keywords": [
+    "search-page-Qg06sH4g.js"
+  ],
+  "h5-api/search/security": [
+    "search-page-Qg06sH4g.js"
+  ],
+  "h5-api/novel/view_history": [
+    "novel-mylist-cPzsTzO8.js"
+  ],
+  "h5-api/wallet/paypal/purchase-result": [
+    "use-payment-Byo3IHlx.js",
+    "use-payment-Bf90t2OY.js",
+    "store-page-oHNUDx5l.js"
+  ],
+  "h5-api/user/short_token/exchange": [
+    "use-payment-Byo3IHlx.js"
+  ],
+  "h5-api/wallet/aliwallex/purchase-result": [
+    "use-payment-Byo3IHlx.js",
+    "use-payment-Bf90t2OY.js",
+    "store-page-oHNUDx5l.js"
+  ],
+  "h5-api/wallet/paypal/purchase": [
+    "use-payment-Byo3IHlx.js",
+    "exchange-success-page-7tg03BXT.js",
+    "use-payment-Bf90t2OY.js",
+    "store-page-oHNUDx5l.js"
+  ],
+  "h5-api/wallet/aliwallex/purchase": [
+    "use-payment-Byo3IHlx.js",
+    "use-payment-Bf90t2OY.js",
+    "store-page-oHNUDx5l.js"
+  ],
+  "h5-api/wallet/payermax-v2/create-subscription-plan": [
+    "use-payment-Byo3IHlx.js"
+  ],
+  "h5-api/wallet/payermax-v2/purchase": [
+    "use-payment-Byo3IHlx.js"
+  ],
+  "h5-api/wallet/pay/product/list": [
+    "use-payment-Byo3IHlx.js",
+    "use-payment-Bf90t2OY.js",
+    "store-page-oHNUDx5l.js"
+  ],
+  "h5-api/user/device/remove_others": [
+    "use-series-item-BjpPc9T6.js"
+  ],
+  "h5-api/drama/info": [
+    "use-series-item-BjpPc9T6.js"
+  ],
+  "h5-api/drama/view": [
+    "use-series-item-BjpPc9T6.js"
+  ],
+  "h5-api/drama/unlock_episode": [
+    "use-series-item-BjpPc9T6.js"
+  ],
+  "h5-api/drama/follow": [
+    "use-series-item-BjpPc9T6.js"
+  ],
+  "h5-api/homepage/v2/tab/list": [
+    "use-home-page-store-Db2maEWK.js"
+  ],
+  "h5-api/homepage/v2/tab/feed": [
+    "use-home-page-store-Db2maEWK.js"
+  ],
+  "h5-api/homepage/v2/tab/index": [
+    "use-home-page-store-Db2maEWK.js"
+  ],
+  "h5-api/wallet/subscribe/cancel": [
+    "feedback-api-DM9F7SD1.js"
+  ],
+  "h5-api/wallet/subscribe/query": [
+    "feedback-api-DM9F7SD1.js"
+  ],
+  "h5-api/novel/tab/index": [
+    "use-novel-list-BxmXbMDL.js"
+  ],
+  "h5-api/novel/tab/feed": [
+    "use-novel-list-BxmXbMDL.js"
+  ],
+  "h5-api/search/novel/suggestion": [
+    "use-novel-list-BxmXbMDL.js"
+  ],
+  "h5-api/novel/list": [
+    "use-novel-list-BxmXbMDL.js"
+  ],
+  "h5-api/user/setting/language": [
+    "lang-api-D5bjNtQ8.js"
+  ],
+  "h5-api/search/novel/keywords": [
+    "novel-serach-CkPPme4A.js"
+  ],
+  "h5-api/search/novel": [
+    "novel-serach-CkPPme4A.js"
+  ]
+}
