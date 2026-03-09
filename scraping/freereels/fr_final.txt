@@ -1,0 +1,15 @@
+﻿
+[android 2.2.10] Login OK: key=j9TJdeu6...
+  Tabs: 6 found
+    tab_key=503 name=popular module_key=None
+    tab_key=505 name=new module_key=None
+    tab_key=622 name=comingsoon module_key=None
+    tab_key=514 name=Doblaje module_key=None
+    tab_key=504 name=female module_key=None
+    tab_key=506 name=male module_key=None
+  module_key for tab 514: None
+  Γ£ôΓ£ôΓ£ô PLAIN {'tab_key': '514', 'module_key': '514', 'page': 1, 'page_size': 20}: code=200 ITEMS=11!
+
+
+Γ£ô SUCCESS! Got 11 items from tab 514
+Sample IDs: []

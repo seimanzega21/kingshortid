@@ -1,0 +1,2406 @@
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "items": [
+      {
+        "key": "qQKGMS5WbW",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/33a7c537-b669-4cd1-9007-e44378f62b8d.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "I Cut Them Off, They Begged(Dubbed)",
+        "desc": "Sophia Lewis cared for houseguest Lily Miller for a year, only to be betrayed by Lily's twisted diary that ruined her reputation and led to her death. Reborn, Sophia refuses Lily's exploitation, exposes her lies, and strikes back when Lily accuses her again on exam results day.",
+        "tag": [
+          "Gratis",
+          "Dubbing"
+        ],
+        "series_tag": [
+          ""
+        ],
+        "content_tags": [
+          "Revenge",
+          "Identity Twist"
+        ],
+        "content_detail_tags": null,
+        "operation_tags": [
+          {
+            "text": "Dubbing",
+            "text_color": "#FFFFFF",
+            "bg_start": "#F47040",
+            "bg_end": "#F52067",
+            "tag_type": ""
+          }
+        ],
+        "episode_count": 60,
+        "follow_count": 7695,
+        "view_count": 0,
+        "episode_info": {
+          "id": "JvVys2cBjA",
+          "name": "I Cut Them Off, They Begged(Dubbed)",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/25588d8986de4556a4c83c524cc8fa81.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/8f229f80-cd36-4d2a-ae4c-ae5ed314c462/h264-3f69bd57-992c-4ada-9b3b-9e256f49b7e4.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/8f229f80-cd36-4d2a-ae4c-ae5ed314c462/h265-3f69bd57-992c-4ada-9b3b-9e256f49b7e4.m3u8",
+          "subtitle_list": [
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16574/1_cd95c301-8ec9-4ee1-b05b-a83ca68396a2.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_595a115a-80a0-4447-ac28-ca91e30e615a.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16574/2e123a93-7394-4543-ba0f-4bf5854e27e6.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_76a0219e-6819-4b52-8a31-9263f346f878.vtt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "bn-BD",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16574/6b29bdda-2417-4df0-8da7-308ffc9547b5.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_6927f4ea-22c3-4b51-975d-a964d4a61b60.vtt",
+              "display_name": "Bengali"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/0055382e-d223-49b7-9799-ab512f51dd70.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_7922eca7-7415-4aa9-9d68-b7a06dcf4c43.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16574/95f8246e-9cdb-484f-90be-5526f1a57445.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_b98a8def-444d-4fdc-badf-cc469a75ebc3.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/ab94ad98-e8e8-49d7-ae80-07d0c7f08911.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_beaa8161-f973-425c-9dac-0d9866e14a63.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/e094941f-5f88-4cea-949d-5a420c2623a5.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_5d86c1ca-8dbb-451f-9f0b-8875137a3496.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/3eb67838-0b43-473b-b80e-5812e73abf02.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_17d2b3d4-3ccf-4af4-b22d-59d66044ffb7.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/5f9e64f4-ccde-4a02-ba36-f7f4416ff10b.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_bcd75964-a790-4d30-b50f-083cbe137b4b.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/d42015e0-9bdf-4375-bb53-3d6fb64e45c8.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_4f83ef2a-25a8-417d-8f64-b30a7a71ef4c.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/82a6c414-2de4-4d68-baa7-c834a0f67dbe.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_ab702129-583b-435a-9125-8e6c3d0e0b9b.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/fc3200c2-ca88-4275-a668-218c44db226c.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_d0515d1e-4b1b-413a-9e06-0bd4f19925e0.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/b981f056-36a2-4952-b315-f584cd441887.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_04f73d13-9fcc-4679-8faf-1e602e279da7.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/e7404076-4f6f-4c0a-a95d-db54c238352f.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_71c98d21-0e84-4b64-a7c0-f31022d92781.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/af3998dd-c008-4915-9d08-272a57e9c035.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_06b948de-b842-47f5-a7be-55fb09f7b88b.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16574/c39ab27b-ee3f-41ce-af32-242e20ef38df.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_3cc3fd1b-b9ab-4150-830a-e93e962b5c75.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16574/c5cc0717-7307-4c95-89b2-828a4fffb1af.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_a2da7a1a-158a-4733-a971-f69028e7e48e.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/ba6ecee4-e456-4679-befe-5b5329dfecf7.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_949fe092-2138-45d4-bbf3-aa2dfbb9886d.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16574/1_d69fafa9-200d-4119-941d-f8df7af4448c.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16574/1_c0494450-4fa4-4112-bcee-23988c7617e7.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16574/1d8ae08c-e72a-4565-830e-31dd657afe64.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_f837c6f5-3acb-4b81-9020-dd834d90abeb.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "zh-CN",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 199,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1770114421,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=qQKGMS5WbW",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "1"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":195416296,\"item_idx\":\"1\",\"item_key\":\"JvVys2cBjA\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":123569,\"series_key\":\"qQKGMS5WbW\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1767628800,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "23.8M",
+        "style": 4,
+        "pay_index": 10,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "oMhM6vLVCs",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/5d6e8bc2-df13-4a80-80ac-c38b9042fa42.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "Fake Heiress, Real Love",
+        "desc": "Lin Wu, raised under strict rules, was married to Lu Chen for family gain. After three loveless years, the real daughter Lin Shuyao appeared—Lin Wu was switched at birth. Her family demanded a divorce within a month. Finally free, Lin Wu revealed her true self, winning Lu Chen's heart.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Romance",
+          "Strong Female Lead",
+          "Contemporary",
+          "Female",
+          "Heartfelt"
+        ],
+        "content_tags": [],
+        "content_detail_tags": null,
+        "episode_count": 60,
+        "follow_count": 13779,
+        "view_count": 0,
+        "episode_info": {
+          "id": "mo43Gf930X",
+          "name": "Fake Heiress, Real Love",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/deac80a382e04203bf3d7b9a5e02a544.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/84514603-6dc0-4600-bfaa-20c766ccd692/h264-d636eccb-19c3-49de-b199-724efd4f8ced.m3u8",
+          "external_audio_h265_m3u8": "https://video-v8.mydramawave.com/vt/84514603-6dc0-4600-bfaa-20c766ccd692/h265-d636eccb-19c3-49de-b199-724efd4f8ced.m3u8",
+          "subtitle_list": [
+            {
+              "language": "te-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/fc837bb1-6cf4-4455-80ea-60e69ae5d810.srt",
+              "vtt": "https://video-v81.mydramawave.com/vt/18803/d6b8aece-51db-4879-8e58-ca6d140f1a2b.vtt",
+              "display_name": "Telugu"
+            },
+            {
+              "language": "ro-RO",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/9f2425c1-f74f-4ac6-86cc-71980d593d15.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18803/100ab53a-29e9-43fc-96da-87fa1aae45a3.vtt",
+              "display_name": "Romanian"
+            },
+            {
+              "language": "bn-BD",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/09821ec7-9af5-45b4-99ba-a566bd77661c.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18803/c9eef699-540c-400a-9a45-41d983b0da6f.vtt",
+              "display_name": "Bengali"
+            },
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/18803/1_f12d6919-def8-40ff-acc2-3aa8f98829fe.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_f2640347-94b6-4004-9f75-f73fe28bd5b1.vtt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "cs-CZ",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/092b2c86-41c6-4526-aab9-c6df02518e18.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/18803/902e565c-e456-46f1-9dc8-e7c23e976a02.vtt",
+              "display_name": "Czech"
+            },
+            {
+              "language": "ta-IN",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/ut/18803/1_d4e2da7e-958e-43b3-98a9-e775d21addde.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_4181b752-93f1-4d8f-8f67-fc095eb3a590.vtt",
+              "display_name": "Tamil"
+            },
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v8.mydramawave.com/vt/18803/ac611e7d-eecf-4e1c-98e2-83d9ee60634e.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/18803/1_bfbd11a6-625c-4e40-bf9e-754b7b62bd63.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/2990755f-17de-491b-8907-0492c1bb7502.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_21b107a6-c441-43e4-8264-726b245045f3.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/7a614b27-789c-4663-90c1-099fe95cc756.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_3d32e67d-be8b-459c-9596-d368cb9bbf90.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/6de1a34f-8ee2-4209-867c-c62817d2b46b.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/18803/1_081429b1-6406-4ba1-bc25-62085504eef0.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/3cce6807-c212-41f2-8de1-106a1c664896.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/18803/1_a5afbc15-a084-4e48-b938-4fab08de9b84.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/72b5b139-751d-4707-8796-9e87eab69cc7.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_c9913a0e-5f29-4042-9e97-8fa814cfdfe9.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/43260b17-70d9-4c25-a573-cf818cc8fae1.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/18803/1_a03a34b1-e918-4862-87f0-76d30824817f.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/8f34b5a4-a6ce-4e4a-aaaa-eec3c2aa7b56.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_e01a53d2-ea18-43eb-8632-c33dd62db2d6.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/07e9a92d-8ce2-4fda-939f-c6e8e65a8899.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_78863d37-db1f-428a-a454-56dd92b385b0.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/ut/18803/1_8bac39fc-7615-425c-8791-312c17e537bb.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_4a784167-60d6-4bd0-9ac1-439b52004591.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/18803/1_ac6bae25-6a3e-4cd3-a9d2-ddfcccb78d16.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/18803/1_ffdba4f4-9d6e-41a9-9c86-38566f73b26a.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/0ee1371a-30ac-4810-b095-b2fbbe335fab.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_3429c811-e178-447b-a12a-3a5b6643828a.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/5ffd997f-35bd-4c94-b087-1307da7d5d9f.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/18803/1_a80d0b67-c8f2-42a8-800e-ab5d9b2e9f1d.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/30364d28-d771-418f-81a8-dcb29684cc9c.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_b057697a-8caf-47ce-9acc-3a87e871cbd8.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/4b2e4a67-b45b-48dc-a41d-2aa60e8fdb39.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18803/5d603371-69ce-4fde-a26a-e61e24c70d00.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/13e7c5bf-bb89-4d96-92f4-2e6983709ad8.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_2aa11708-4d27-4422-bcb0-46f8b782a048.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18803/ef18ac60-6c0f-44b1-9c40-dcafefd0af38.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18803/92b8f610-9f74-44fc-a4cb-a17d0e848040.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18803/3c43a218-aa85-40d9-be30-ea082e6ca1bf.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18803/1_c7faf793-7e85-4939-9d82-6c9cdaa8944f.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "zh-CN",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 296,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1772418842,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640,240x426"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=oMhM6vLVCs",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "2"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":196966031,\"item_idx\":\"2\",\"item_key\":\"mo43Gf930X\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":133157,\"series_key\":\"oMhM6vLVCs\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1772503200,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "17.6M",
+        "style": 4,
+        "pay_index": 11,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "4kIaOLDsKf",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/9b169d1e-b111-4c8c-a7d1-56f345dd833a.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "I Write My Own Fate",
+        "desc": "Emma Lee wakes as the betrayed heroine of an ancient romance novel! Her husband Oliver Smith abandons her to marry another. Refusing to be helpless, she uses wit and courage to rewrite her fate, break women's chains, and navigate love and intrigue, forging her own legendary path.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Romance",
+          "Historical",
+          "Period Drama",
+          "Counterattack",
+          "Betrayal",
+          "Character Growth",
+          "Strong Female Lead",
+          "Strong Heroine",
+          "Independent Woman",
+          "Medieval",
+          "Female",
+          "Serious",
+          "Ambitious",
+          "Brave",
+          "Intelligent"
+        ],
+        "content_tags": [
+          "Second Chance",
+          "Revenge"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 75,
+        "follow_count": 5913,
+        "view_count": 0,
+        "episode_info": {
+          "id": "u3GCuZ7VBq",
+          "name": "I Write My Own Fate",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/f0243716d1f6420b9a9fba04e15da1ea.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/a67537e1-a708-4376-8332-946559a58dfd/h264-3af1756d-383c-40b5-a3f2-46761ec75d95.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/a67537e1-a708-4376-8332-946559a58dfd/h265-3af1756d-383c-40b5-a3f2-46761ec75d95.m3u8",
+          "subtitle_list": [
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/11880616-f853-413f-980a-16ac25959ef4.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_3b3e851d-0963-4f27-a674-0a5efe2ed20e.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/3d2c7de9-506e-4869-8b1c-e4abf2fe6a6d.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_888b88a4-c494-4993-a346-901e6766cccd.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/acaa4fcd-d5f5-42ca-bb39-788f43877b0e.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_096dd7af-3049-4448-827b-70ba12507367.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/01255b36-d651-4080-a365-10ba2a80d8b9.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16425/1_69ea0080-333b-493d-97cd-1ce332245b21.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16425/29c6c1e0-36b1-4553-864e-85a6896a5ec6.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_91d83dcb-c729-4908-929b-18af7fa0aa90.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16425/b1c93bd4-4bee-4b37-9d9e-9c8fe8bae94e.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_b937181b-0b9f-44df-85c8-aeaecab5691a.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/3ee4f9f0-3ab9-48d4-850f-486fb84a38ab.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_a989162c-19c9-450d-b26e-ef79265fda27.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/8a71139b-17a6-4ec2-9cda-0a6749fcab54.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_169a49b4-919d-4878-bc35-af7db1ff414a.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/d33005c5-000e-4954-9cdf-599eb2893032.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16425/1_339b306c-23d1-46ce-9859-9aac19c43bcc.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16425/96557498-75c3-462c-ada0-f2734d524cd8.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_0067f131-a00a-4f21-a13f-06155a457473.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/311fa471-6992-462e-8715-e2218cd892dc.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_7bb4da89-560c-48f9-935c-a36fb8b5c469.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16425/1_27b8df39-1bb9-47a8-98c7-b58cfbdd640a.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_1a668fa4-aeda-47e6-9585-b003184a6a6e.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16425/1_136fd09a-c94f-4eea-b9a2-3026d3c85256.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_74ea5857-4a88-415d-bbf8-016e7fcfcd78.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/7d441bfe-785a-41fb-9752-a361f02a5d09.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16425/1_17c1a2c3-1f0c-4953-87a6-11e9fc37bfc4.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/4daa7af1-e9bf-46f5-a617-85d7713609c1.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16425/1_17f953fd-2dee-4704-ac4f-bf090c7dea16.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/4eca8d73-6e2a-40a6-a660-0177b0c6eff4.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_1e36c53a-b5c8-4d5c-9b97-563f90bf51d3.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16425/c7d190b3-acb7-41b0-b671-ef5e3cbbb7cb.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_b8c32aae-fd9c-400c-a299-33ba60374904.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16425/c318e977-b2eb-458a-b2a9-8c518ce954e3.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16425/1_c4f30171-ae6f-4c03-9ec9-d4b685dd515c.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "zh-CN",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 148,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1766021042,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=4kIaOLDsKf",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "3"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":190568648,\"item_idx\":\"3\",\"item_key\":\"u3GCuZ7VBq\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":97696,\"series_key\":\"4kIaOLDsKf\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1768788000,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "28.8M",
+        "style": 4,
+        "pay_index": 12,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "7oaUJoDLN3",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/df282703-c069-438a-8787-c55f624124e0.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "Ashes Burn, She Rises",
+        "desc": "For six years, Sophia's daughter was forbidden from calling Noah Wright \"Daddy,\" while his first love's son was groomed as heir. After being reborn, she divorces immediately, rebuilds her career to its former glory, and starts a happy life with her daughter—leaving her ex drowning in regret.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Drama",
+          "Tragedy",
+          "All-Too-Late",
+          "Bitter Love",
+          "Tear-Jerker",
+          "Heartbreak",
+          "Divorce",
+          "Strong Heroine",
+          "Independent Woman",
+          "Wife",
+          "Contemporary",
+          "Female",
+          "Melancholic",
+          "Pain",
+          "Emotional",
+          "Mature"
+        ],
+        "content_tags": [
+          "Glow Up",
+          "Second Chance"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 60,
+        "follow_count": 3904,
+        "view_count": 0,
+        "episode_info": {
+          "id": "VQcB5uOU3E",
+          "name": "Ashes Burn, She Rises",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/7e70c2b18c794a2d918218fa02cb46c7.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/1545cc7b-eab0-4205-8c48-0fb71dbf9eed/h264-d32c10fe-dd04-42b6-8388-0c034be28395.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/1545cc7b-eab0-4205-8c48-0fb71dbf9eed/h265-d32c10fe-dd04-42b6-8388-0c034be28395.m3u8",
+          "subtitle_list": [
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16168/5112512d-ce04-410a-ae03-18a69acefff3.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_e7042aa1-cf00-4032-ae61-48a48070a811.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16168/2a8be6cf-fe21-4a1f-81bd-f2f6944efa58.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16168/1_60ba2022-fdb5-43d4-a5e2-23d2049b5358.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/098a8487-f1df-4a99-907b-c667cd2b98e9.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_0422d6cc-4f62-4c33-8110-fd4db522f52d.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/2edbcc67-96c8-4c97-b03b-afb43e888502.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16168/1_2a3fe4ae-22a1-4ab6-a355-9385e94ffe35.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16168/1_9eb73d20-7b39-4736-b7e9-a5b1773e1310.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_3d1c33f7-97cf-4c63-9c23-375d7e4b0db1.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16168/b3871623-7482-4765-a106-8c098a5accaf.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16168/1_89805983-6a16-4b0e-b638-c0a64e520dcf.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/215e7167-e53e-47fb-a1d4-34a674658d7c.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_7ce88b95-2584-4011-8260-6ebeaa3fc05c.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/32f6a6b1-b943-45f5-b3b1-50d9b67e8e23.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16168/1_0fcb967b-c47f-4430-9b16-73aba6402637.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/37785f61-94a1-4faa-83e3-3684567e1782.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_4ef4cc0e-e387-4837-958c-238b132782fa.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16168/eec1f865-2fc1-4db6-a03d-aaaa7e17e372.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_51349686-8680-458e-87b8-681606b7975e.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/9232342f-056d-45b2-a1e9-d8beffa2ded4.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16168/1_481a2242-a1e6-4fb5-8e31-3ee2f2813c6b.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/7c8f1c09-75ae-426f-b29d-a3d135141679.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_a49eede5-5804-4274-877e-740696baec82.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/46616d52-01e5-44df-bfc7-37b95681ef5f.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_d2f74d38-093f-44b4-8a5e-d2b8182a5ddd.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/dea2ee68-55ed-46e5-8a8b-4dd71331e920.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_b03f21ed-09bd-4675-8962-0060d52d943b.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/77521d2a-cee5-4ad8-b291-e2a7e056e3c7.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/16168/f6448293-d596-4bff-aceb-32ac40647c0b.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16168/ab1eab0a-f15d-4b69-941e-b2e3de3a4fbd.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_c36a2495-e3d1-4add-9e53-7f76bd6bd399.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16168/1_87822680-cc8c-4861-97f0-c8e829c8424d.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16168/1_81ca6dd0-3246-4b9f-b9d4-d74a7afa4ab1.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16168/1_2f0b80c5-f872-4c67-8f32-d3728ed1be99.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16168/1_1c5c2785-bbcf-47a8-98f2-cf8142238f45.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "zh-CN",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 255,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1765375302,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=7oaUJoDLN3",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "4"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":189725818,\"item_idx\":\"4\",\"item_key\":\"VQcB5uOU3E\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":91879,\"series_key\":\"7oaUJoDLN3\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1765245600,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "13.2M",
+        "style": 4,
+        "pay_index": 12,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "HyOedExnON",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/37e801b0-3c76-4664-9d05-9393c5c7ca96.png?image_process=quality,85/resize,w_600/format,webp",
+        "title": "Stockholm Boys",
+        "desc": "Under the shadow of a family feud, Axel and Elias wield love as their weapon, teetering on the edge of revenge and redemption, ultimately igniting an unbreakable love forged through shared pain and obsession.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Romance",
+          "Drama",
+          "Enemies to Lovers",
+          "Forbidden Love",
+          "Revenge",
+          "Redemption",
+          "Family",
+          "LGBTQ+",
+          "Dark",
+          "Bittersweet",
+          "Emotional",
+          "Passionate"
+        ],
+        "content_tags": [
+          "Revenge",
+          "Enemies to Lovers"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 70,
+        "follow_count": 6850,
+        "view_count": 0,
+        "episode_info": {
+          "id": "FFsPKvBHru",
+          "name": "Stockholm Boys",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/cf798ce2abb74beaaf60e5a0ff4082c4.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/c77c20e9-5db6-4341-aa07-dd5ee7f09db0/h264-c5da4f61-acc0-4f8a-81d0-f4edf628b43c.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/c77c20e9-5db6-4341-aa07-dd5ee7f09db0/h265-c5da4f61-acc0-4f8a-81d0-f4edf628b43c.m3u8",
+          "subtitle_list": [
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/e4b12f38-61ea-46ed-978a-fe3500e500d6.srt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/bd00533b-40f6-4d39-b640-aa68205ece10.srt",
+              "display_name": "English"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/c541f4b7-57eb-4c1d-bbd8-b33ef3d04b45.srt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/14266/889a2ff6-5bf5-48db-a436-ef3a8144208b.srt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/65ff9872-0e02-4b6f-9125-44a6665e5335.srt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/06abf085-539c-4cc7-89dc-1cf8c6c67ca3.srt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/cea0148f-d652-4dec-adf1-cdc71be1b6d5.srt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/14266/2e497eb0-ce7e-4a15-b4e0-c9651beec89b.srt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/ceb7d2a8-cdd9-472a-a07e-f52fad6a673a.srt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/14266/40db4253-6850-4b90-862a-e2f3a5e6df57.srt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/2f0b80cd-a39a-47fe-8dec-9d7404edc7a7.srt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/53022b45-ebaa-435f-9a9f-d3569d43ce5e.srt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/14266/fa621ad2-2b28-435a-8f07-a200b34c2476.srt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/14266/252c2cde-6963-4814-8a1e-80490efd8342.srt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/14266/6acfc12a-0da7-42fe-85d7-8fa25d13287d.srt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/14266/e2726d94-ef69-4452-8ce3-dfbfc90da463.srt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/b78875f8-eef4-4675-abdb-b8fcdc2475f4.srt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/14266/a8cd9e8e-ae0f-4821-9cf3-a833d191701d.srt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/14266/da271f2f-e934-493c-a8d2-9f1eeb733dc2.srt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "en-US",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 57,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1768832643,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=HyOedExnON",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "5"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":179397230,\"item_idx\":\"5\",\"item_key\":\"FFsPKvBHru\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":54071,\"series_key\":\"HyOedExnON\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1748930400,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "34.8M",
+        "style": 4,
+        "pay_index": 8,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "7jOU0MCDNm",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/07d1f953-e57e-4981-bb82-7bd2ced9ef66.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "No Love, Only Empire",
+        "desc": "Time-traveler Princess Su Yuci spends ten years building her husband Jiang Chenyuan into a business tycoon and donates her kidney to him. He betrays her with his mistress and illegitimate son at her sister's engagement party. She orchestrates his downfall and returns to her era victorious.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          ""
+        ],
+        "content_tags": [],
+        "content_detail_tags": null,
+        "episode_count": 80,
+        "follow_count": 885,
+        "view_count": 0,
+        "episode_info": {
+          "id": "GHGJfRIvRZ",
+          "name": "No Love, Only Empire",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/142bed2a3f924e68a2d699932e0044c1.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/e245735f-9cb1-4495-b842-ec242bf86cd5/h264-401a6497-4c7a-4168-90a6-0591c531c0e6.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/e245735f-9cb1-4495-b842-ec242bf86cd5/h265-401a6497-4c7a-4168-90a6-0591c531c0e6.m3u8",
+          "subtitle_list": [
+            {
+              "language": "te-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/446ea55e-bd6b-4f0f-80c0-e70f5bb9f876.srt",
+              "vtt": "https://video-v81.mydramawave.com/vt/18479/0645f141-901f-4b91-9eca-67d49f712dcf.vtt",
+              "display_name": "Telugu"
+            },
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/18479/1_c377a076-9c49-4768-9e6c-b2a975b0fec2.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_7645eeeb-e5be-4abc-98fd-320f568d3c7b.vtt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/57af9b67-c6cb-4d4a-ab4a-b5efc7e73d51.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_41d4fe34-49d1-45a0-a45e-7e4481cda7f5.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "ro-RO",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/8c410fcd-d7ac-4a4c-95b5-b4d3ace6eef2.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18479/4f666fb5-0455-460e-8c44-58ed91b9c667.vtt",
+              "display_name": "Romanian"
+            },
+            {
+              "language": "cs-CZ",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/66b8f5aa-ba02-4483-8955-175bb40adb5c.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18479/0ba878e0-3efc-48aa-94fc-2fc62e7b8d34.vtt",
+              "display_name": "Czech"
+            },
+            {
+              "language": "bn-BD",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/63db7fd7-bef9-4f5d-8ddc-66707e3e5195.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18479/929eb1a9-85fa-4ba7-94d3-7bfe9a36f8ed.vtt",
+              "display_name": "Bengali"
+            },
+            {
+              "language": "ta-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/008a3b9d-819a-4730-9e31-018b6d6e0505.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/18479/dc8b02b2-e789-4aeb-a4ab-46d9ff68e32a.vtt",
+              "display_name": "Tamil"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/18479/2ea4d8c3-00b1-43da-b698-a1c0e6af08ed.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_bfe4dab5-d3b7-4c70-b248-8c2a6052017a.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/18479/1_c54f5481-4b28-4199-bfe2-b9b79d022995.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_767530bd-9f7a-419b-be03-626bc5e36654.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/f5219099-34b0-4bbc-ad2b-45dfe75b5954.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_1360a4d6-9e54-4b17-b8d8-e2177b53debe.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/dd96fee6-1e71-44b8-8514-d690f73908e5.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/18479/1_f738739d-dccc-4b2d-ad16-e3eac8e6b2eb.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18479/cc3bcba4-2e56-43e1-b9c5-153f970a84e8.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_38706814-26bb-49d5-8675-a370a5bf4dce.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/ca4d77d6-7afd-4f54-a4db-1886a3292f85.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_b4747d6f-dc12-4468-a448-859993a63826.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/35f9ee56-daf4-4ea9-9f5e-6df7c1567a0e.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_067f2603-5afe-4ce2-a6c7-2e1984e76545.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/934ef1c1-1558-4a7b-890f-099976539558.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_c04eba5b-8ba3-4fed-a9d0-cf2e573caf7b.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/18479/a720e902-ef74-465e-97d9-6b48d09607c2.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_7a4e7c48-2103-4018-a07e-6ea66c6f9cc8.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/a58f027d-0f29-41bf-8572-7b572e661d29.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_4c972830-334f-4988-bd6d-c47367599e79.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/07e5e0bb-aa52-4a40-82d5-efebdf294dd7.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_7e30b7d0-8fe6-4c0f-b978-804548706b2c.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/ut/18479/1_dde027b8-9be0-4b4e-b1f3-35f83819cdaa.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/18479/1_6e90ee74-4d0a-4da4-b4aa-9804f1a5a823.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/6277185c-f0f4-412b-be53-cda0371b2a65.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/18479/8fa43039-ed48-44cb-bf4f-91dc87337c58.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/dabff3ec-6842-4d07-b3ee-37be4764944b.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18479/e35aa4b5-beb1-456f-b75d-cf86f2dfa3a4.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/c772b440-7d9d-4f80-8e05-cff21c62166b.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/18479/1_c1d8f73e-fdb3-48a3-9a56-c09cbd46fda3.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/18479/4e822501-d2c9-47e1-bd04-acf93b328c4d.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/18479/23bd8b06-274c-4570-9ea2-d190b9e7e25b.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/ut/18479/1_2f8ddacd-cfa9-46ef-84cd-54f864df602c.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/18479/1_e22110b5-8570-408b-ad0f-e514397e48ca.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "zh-CN",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 227,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1772154483,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640,240x426"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=7jOU0MCDNm",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "6"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":196873428,\"item_idx\":\"6\",\"item_key\":\"GHGJfRIvRZ\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":132516,\"series_key\":\"7jOU0MCDNm\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1772109480,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "8.6M",
+        "style": 4,
+        "pay_index": 11,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "",
+        "cover": "",
+        "title": "Peringkat Talenta",
+        "desc": "",
+        "tag": null,
+        "series_tag": null,
+        "content_tags": null,
+        "content_detail_tags": null,
+        "episode_count": 0,
+        "follow_count": 0,
+        "view_count": 0,
+        "episode_info": null,
+        "link_type": 0,
+        "link": "",
+        "free": false,
+        "vip_type": 0,
+        "item_type": "actor",
+        "module_card": {
+          "actor_list": [
+            {
+              "rank": 1,
+              "actor_id": 965,
+              "actorname": "Beixi Zhang",
+              "actor_photo": "https://static-v1.mydramawave.com/vt/resource/actor_icon/c46957c0-bad4-4f6c-8087-84a3e1140c8f.jpg?image_process=quality,85/resize,w_600/format,webp&x-oss-process=image/auto-orient,1",
+              "heat_score": 378610,
+              "up_need_sore": 0
+            },
+            {
+              "rank": 2,
+              "actor_id": 4136,
+              "actorname": "Jialu Wu",
+              "actor_photo": "https://static-v1.mydramawave.com/vt/resource/actor_icon/589e3e6d-f87a-4d63-bb00-2e8c208c4adb.jpg?image_process=quality,85/resize,w_600/format,webp&x-oss-process=image/auto-orient,1",
+              "heat_score": 153290,
+              "up_need_sore": 225321
+            },
+            {
+              "rank": 3,
+              "actor_id": 332,
+              "actorname": "Congrui He",
+              "actor_photo": "https://static-v1.mydramawave.com/vt/resource/actor_icon/c3c0b2e1-cfdd-4f5f-9b39-82667a3025a6.jpg?image_process=quality,85/resize,w_600/format,webp&x-oss-process=image/auto-orient,1",
+              "heat_score": 135410,
+              "up_need_sore": 17881
+            }
+          ]
+        },
+        "style": 4
+      },
+      {
+        "key": "IMw6C1IweJ",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/6e723056-4287-4ca3-9977-886f271e356f.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "My Mafia Pilot Boyfriend",
+        "desc": "Tony Baker, a debt-ridden flight attendant, unexpectedly matches with Ryan Rossi, his charming but secretive pilot crush, on Grindr. Their whirlwind romance blossoms amidst the high-flying glamour of airline life, but Tony soon discovers Ryan's dark secret: he's the heir to a powerful mafia family, smuggling drugs under the guise of his prestigious career. As Tony unravels Ryan's dangerous double life, their forbidden love story intertwines with a thrilling investigation, forcing them to navigate workplace politics, deadly rivals, and the ever-present threat of exposure. Will their love survive the turbulent skies of their dangerous lives?",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Romance",
+          "Dark Romance",
+          "Mafia",
+          "Suspense",
+          "Forbidden Love",
+          "Hidden Identity",
+          "Crime Lord",
+          "Secret Identity",
+          "Pilot",
+          "Contemporary",
+          "City",
+          "LGBTQ+",
+          "Steamy",
+          "Mysterious",
+          "Adventurous",
+          "Passionate"
+        ],
+        "content_tags": [
+          "Enemies to Lovers",
+          "Identity Twist"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 70,
+        "follow_count": 18903,
+        "view_count": 0,
+        "episode_info": {
+          "id": "zBxs78eMMj",
+          "name": "My Mafia Pilot Boyfriend",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/0bc0d2b1a8044113a32960a92537002d.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v81.mydramawave.com/vt/21ffd961-fb0c-41c4-91bb-4d3596c77f8c/h264-3b4b6f07-ac9d-4adc-bf5c-b2f630de82d4-v3.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/21ffd961-fb0c-41c4-91bb-4d3596c77f8c/h265-3b4b6f07-ac9d-4adc-bf5c-b2f630de82d4-v3.m3u8",
+          "subtitle_list": [
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v6.mydramawave.com/ut/13273/1_6ae0eae9-8522-45a1-a613-795e9d54c904.srt",
+              "display_name": "English"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_d48b31c6-a765-4e83-adab-ee3eb5229b8a.srt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/prod/13273/1_61a0b5eb-1ed2-4d49-abd5-740f97391e20.srt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_00f56c94-29db-4281-8645-365778a9acc6.srt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_5b26f352-0681-4bbb-aa34-97130f969049.srt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_6849ec94-a14a-44d2-be3e-6170fdd7ccec.srt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_cdc085ed-d060-4314-9d45-d7a4cd41281f.srt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_716fb2b4-8bc2-4a34-9b0c-2540445b7f7f.srt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/prod/13273/1_c5d4910d-b6bf-4a10-b76a-270986b02f1b.srt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/prod/13273/1_ae95a9cc-bd31-4e78-948d-7721ff118e84.srt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/13273/1_50933bb9-b9e2-4222-9cd2-675b0df46764.srt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_f625e6f3-7dff-46b2-ae72-812358dc3f50.srt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/prod/13273/1_9f522377-9426-49b5-b9ae-9754e62e842c.srt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/prod/13273/1_1ed16a5a-607f-432c-ad86-1f76af30463b.srt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/prod/13273/1_3f8068d8-7de8-4b99-b4a6-3655a51f1426.srt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/prod/13273/1_c4b44a67-f5fa-471d-8303-a2e9763d3ec7.srt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/13273/5a66fb7c-1b95-49e1-aa25-83c2724eda41.srt",
+              "display_name": "Hindi"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 141,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1767076592,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,540x960,720x1280,480x854,360x640"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=IMw6C1IweJ",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "7"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":162228890,\"item_idx\":\"7\",\"item_key\":\"zBxs78eMMj\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":31782,\"series_key\":\"IMw6C1IweJ\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1743350400,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "37.1M",
+        "style": 4,
+        "pay_index": 5,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "WkndGyILT0",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/4946ddc9-31d9-4ec1-8e50-948eab6b8668.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "Dumping the Racing Star",
+        "desc": "Heiress Camille's marriage to racer Maddox turns tragic when manipulative agent Avery convinces him she is unfaithful, leading to the loss of their child due to his coldness. After their divorce, Camille reclaims her position and teams with her brother Knox to destroy her enemies.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Drama",
+          "Suspense",
+          "Revenge",
+          "Divorce",
+          "Comeback Story",
+          "Strong Female Lead",
+          "Class Difference",
+          "Misunderstanding",
+          "Scandal",
+          "Heiress",
+          "Strong-Willed",
+          "Rich",
+          "Contemporary",
+          "Affluent family",
+          "Female",
+          "Dark",
+          "Ambitious",
+          "Confident",
+          "Powerful"
+        ],
+        "content_tags": [
+          "Revenge",
+          "Identity Twist"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 60,
+        "follow_count": 3627,
+        "view_count": 0,
+        "episode_info": {
+          "id": "65542Oq0uv",
+          "name": "Dumping the Racing Star",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/3b407d3d358647ca9cc43960eb3cf391.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v8.mydramawave.com/vt/9731d78d-b8d9-4d8a-9c7d-5a5f3c679705/h264-e02c1fcc-54fc-4f30-b743-86bbdf4a4c38-v3.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/9731d78d-b8d9-4d8a-9c7d-5a5f3c679705/h265-e02c1fcc-54fc-4f30-b743-86bbdf4a4c38-v3.m3u8",
+          "subtitle_list": [
+            {
+              "language": "bn-BD",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/15220/f34a0517-3a5f-4861-b7a7-a934f08c7bdd.srt",
+              "display_name": "Bengali"
+            },
+            {
+              "language": "ta-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/fb98a99e-0142-4fc3-acd1-eebc185c1e25.srt",
+              "display_name": "Tamil"
+            },
+            {
+              "language": "ro-RO",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/8e4a932d-b9ba-4aa5-9ebf-ae24e10fe0d8.srt",
+              "display_name": "Romanian"
+            },
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/ea0e1f28-bfa2-48d1-879f-17d76c4e19c1.srt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "te-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/8ef3a658-375d-4601-9c96-2ec50f269514.srt",
+              "display_name": "Telugu"
+            },
+            {
+              "language": "cs-CZ",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/ac0d9bad-0e67-4b1b-9b24-5278f1867225.srt",
+              "display_name": "Czech"
+            },
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v81.mydramawave.com/vt/15220/cd417e4e-54c7-4fd8-9193-fd1f17656955.srt",
+              "display_name": "English"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/7cd64bc7-09fe-4d6e-abc6-d5df57736d1e.srt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/15220/cd20e6b9-efe5-4e34-b37d-69656d992777.srt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/7f240439-3014-4739-b17d-154ae4d1aa4d.srt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/bc38a819-cd2f-4286-b7a3-fa2bca58b221.srt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/cb115fbc-56ac-40d6-8935-331d50b08640.srt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/bb3a66a4-798f-49bf-b358-b835298e159b.srt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/15220/041565c3-260f-4de1-9827-1d27eca61e51.srt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/15220/323d65cc-0cfc-4941-94f5-b1eab048938b.srt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/323aac64-f6a1-4948-8d44-5128c00f68ca.srt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/15220/758441d3-549c-4fbe-8a5c-0c38375b27e1.srt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/4664fd1f-b59f-4748-8eaa-7c10287f9cef.srt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/84eb060c-3d85-4704-a7fc-2e8848730670.srt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/2e18cc1f-682a-4638-a830-95379486f226.srt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/e70f2a99-1592-40b6-a3b8-0b609b2cec28.srt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/c97ca2c9-085e-4fe3-9272-a2bb700d2f54.srt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/82be23be-f3be-4939-8317-3320174cd648.srt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/15220/3e516ee7-1cfa-4aa8-8e8e-5ff836b0d2cc.srt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": [
+            0,
+            0.62,
+            1,
+            0.2
+          ],
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "en-US",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 151,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1772440322,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=WkndGyILT0",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "8"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":185368172,\"item_idx\":\"8\",\"item_key\":\"65542Oq0uv\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":77207,\"series_key\":\"WkndGyILT0\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1761148800,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "37.6M",
+        "style": 4,
+        "pay_index": 11,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "46UzlfdVew",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/64a8156b-9ce3-4f5b-a10a-fdd2f82ad309.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "Fated to the Cursed Alpha",
+        "desc": "Under a full moon, Jay-La and Nathan's bond draws an evil witch who wants Nathan. Can true love overcome the darkest magic?",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          "Dark Romance",
+          "Fantasy",
+          "Fated Lovers",
+          "Revenge",
+          "Obsession",
+          "Abuse",
+          "Magic",
+          "Curse",
+          "Strong Female Lead",
+          "Medieval",
+          "Male"
+        ],
+        "content_tags": [
+          "Revenge",
+          "Second Chance"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 20,
+        "follow_count": 1416,
+        "view_count": 0,
+        "episode_info": {
+          "id": "YtzkjD2wvR",
+          "name": "Fated to the Cursed Alpha",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/0d31e11a0c204281922b16e8e11ae739.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v81.mydramawave.com/vt/480a9769-cd3b-49b3-86da-b69589c428da/h264-5ec75e6c-5d1b-46af-ba9a-36a71f622fce.m3u8",
+          "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/480a9769-cd3b-49b3-86da-b69589c428da/h265-5ec75e6c-5d1b-46af-ba9a-36a71f622fce.m3u8",
+          "subtitle_list": [
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/05281360-9f22-4094-b594-0c3a73367111.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/17497/1_41bde76c-84b7-416f-b9c5-1b1cd3cbbc5a.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/17497/c2156614-276a-4aa6-8752-2c959ead7536.srt",
+              "vtt": "https://video-v81.mydramawave.com/vt/17497/e2d07a76-a41e-40cb-8c30-a1170cace0d0.vtt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "te-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/8ff6ca33-796f-4785-8998-e51870a30151.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/79f4b578-ece8-482c-bf20-d6fe410b1cba.vtt",
+              "display_name": "Telugu"
+            },
+            {
+              "language": "ta-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/d9582520-6ee6-43f0-97e6-1ac879a13b93.srt",
+              "vtt": "https://video-v81.mydramawave.com/vt/17497/fa38aba7-cf11-4675-b795-d2c1adb96681.vtt",
+              "display_name": "Tamil"
+            },
+            {
+              "language": "bn-BD",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/71673dcc-46e2-4903-98dd-ecdb3473eaac.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/54565c14-c91c-482b-8d23-b6b26ab6be41.vtt",
+              "display_name": "Bengali"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/65bbe2a7-6c06-47bf-a00d-f6c83e280509.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/17497/80619e43-3487-4719-a27f-beaf7bfd83f3.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/5b021aa6-6b68-48bf-99e2-76a4105079b9.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/d3a9f56c-a3ee-4e17-86a6-8859a748b854.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/a6a05591-a912-4ee7-a3ce-9206a45e4316.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/e4e0c113-3ee6-4db9-9574-96e5f7128acf.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/6714b6d1-cb72-433e-8bba-d70fb70742db.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/f2be3b6f-22a9-4a72-95eb-8e47f26215dc.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/c7817d29-c85b-450f-a9c8-daa122d9dd2e.srt",
+              "vtt": "https://video-v81.mydramawave.com/vt/17497/dc34d680-df37-4272-a279-68a730e3615f.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/fa696705-2535-418c-92e4-8b0850268987.srt",
+              "vtt": "https://video-v81.mydramawave.com/vt/17497/9ab786bb-1ab1-4ef0-adc5-e486dc24cf0d.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/17497/29b5d872-f22e-45a9-93c7-cd2ec19f0084.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/1cf2d28d-150f-4ce4-bc2d-e0080c7814c9.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/17497/e5e964bb-fd2a-4e9f-adcb-b40864164d59.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/17497/cb4b2662-7af6-4ba3-8a9b-7dd7a6b57ea0.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/4261bd17-02e3-4172-bcf6-b947a5620c65.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/a22a40a8-f51d-45cc-a241-dd4b2b849671.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/106e756c-f9b6-4a41-9a4c-7e6d8e9ba3f8.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/c7a98762-2132-4503-b77c-2e2669f7429d.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/986dd8bc-70b8-4481-a9ed-32507a4d46df.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/9e35934a-7bbe-4ef5-8bec-f429f3873fe6.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/17497/fac80684-a69f-4954-bbb4-807ec18cc1a6.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/9e552c04-368a-4a72-99ca-30878f863839.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/ed1e3915-8a94-46c6-9a55-4cf9000443b3.srt",
+              "vtt": "https://video-v8.mydramawave.com/vt/17497/a7bc80ac-eb21-4c78-bcaa-c89d49ef67a8.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/226310fe-b730-4b80-8fdc-22a9e439ff14.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/4ec2e42b-a5e5-4b6c-aa34-f9bf40176a30.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/f422b8cf-bf3d-4e98-ad48-5f0455d664da.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/cc20fb88-1e2f-47d1-9131-1bbb8da6b831.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/2b89fc6f-8caf-4e0f-81d6-17cc0ec81f21.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/c5429333-950b-4753-9483-b95ef60dab1f.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/17497/8f8f12fe-a2a3-432b-8fda-b76fd0f534ef.srt",
+              "vtt": "https://video-v6.mydramawave.com/vt/17497/c1b4056c-4c4f-4074-be11-a6ec350b0493.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "en-US",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 105,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1769864223,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=46UzlfdVew",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "9"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":194985813,\"item_idx\":\"9\",\"item_key\":\"YtzkjD2wvR\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":114368,\"series_key\":\"46UzlfdVew\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1768838400,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "9.7M",
+        "style": 4,
+        "pay_index": 2,
+        "orientation": 1,
+        "resource_type": 1
+      },
+      {
+        "key": "VilQQHVjq3",
+        "cover": "https://static-v1.mydramawave.com/vt/prod/cover/33a7c537-b669-4cd1-9007-e44378f62b8d.jpg?image_process=quality,85/resize,w_600/format,webp",
+        "title": "I Cut Them Off, They Begged",
+        "desc": "Sophia Lewis cared for houseguest Lily Miller for a year, only to be betrayed by Lily's twisted diary that ruined her reputation and led to her death. Reborn, Sophia refuses Lily's exploitation, exposes her lies, and strikes back when Lily accuses her again on exam results day.",
+        "tag": [
+          "Gratis"
+        ],
+        "series_tag": [
+          ""
+        ],
+        "content_tags": [
+          "Revenge",
+          "Identity Twist"
+        ],
+        "content_detail_tags": null,
+        "episode_count": 60,
+        "follow_count": 1891,
+        "view_count": 0,
+        "episode_info": {
+          "id": "gc534y03Rh",
+          "name": "I Cut Them Off, They Begged",
+          "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/25588d8986de4556a4c83c524cc8fa81.jpg?image_process=quality,85/resize,w_600/format,webp",
+          "video_url": "",
+          "m3u8_url": "",
+          "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/8f229f80-cd36-4d2a-ae4c-ae5ed314c462/h264-dff57ebf-ecc1-4d97-b5fc-c14225faffaa.m3u8",
+          "external_audio_h265_m3u8": "https://video-v81.mydramawave.com/vt/8f229f80-cd36-4d2a-ae4c-ae5ed314c462/h265-dff57ebf-ecc1-4d97-b5fc-c14225faffaa.m3u8",
+          "subtitle_list": [
+            {
+              "language": "bn-BD",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16574/1_e6a8abbd-81f5-452a-8fec-e1ce93953981.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_84db7ef6-fc06-4310-a674-72e67715073b.vtt",
+              "display_name": "Bengali"
+            },
+            {
+              "language": "en-US",
+              "type": "original",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16574/c88a2137-823b-4336-8950-4877592a867b.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_595a115a-80a0-4447-ac28-ca91e30e615a.vtt",
+              "display_name": "English"
+            },
+            {
+              "language": "pl-PL",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16574/2e123a93-7394-4543-ba0f-4bf5854e27e6.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_76a0219e-6819-4b52-8a31-9263f346f878.vtt",
+              "display_name": "Polish"
+            },
+            {
+              "language": "es-MX",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/0055382e-d223-49b7-9799-ab512f51dd70.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_7922eca7-7415-4aa9-9d68-b7a06dcf4c43.vtt",
+              "display_name": "Spanish"
+            },
+            {
+              "language": "pt-PT",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16574/95f8246e-9cdb-484f-90be-5526f1a57445.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_b98a8def-444d-4fdc-badf-cc469a75ebc3.vtt",
+              "display_name": "Portuguese"
+            },
+            {
+              "language": "id-ID",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/ab94ad98-e8e8-49d7-ae80-07d0c7f08911.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_beaa8161-f973-425c-9dac-0d9866e14a63.vtt",
+              "display_name": "Indonesian"
+            },
+            {
+              "language": "de-DE",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/e094941f-5f88-4cea-949d-5a420c2623a5.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_5d86c1ca-8dbb-451f-9f0b-8875137a3496.vtt",
+              "display_name": "German"
+            },
+            {
+              "language": "fr-FR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/3eb67838-0b43-473b-b80e-5812e73abf02.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_17d2b3d4-3ccf-4af4-b22d-59d66044ffb7.vtt",
+              "display_name": "French"
+            },
+            {
+              "language": "ru-RU",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/5f9e64f4-ccde-4a02-ba36-f7f4416ff10b.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_bcd75964-a790-4d30-b50f-083cbe137b4b.vtt",
+              "display_name": "Russian"
+            },
+            {
+              "language": "it-IT",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/d42015e0-9bdf-4375-bb53-3d6fb64e45c8.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_4f83ef2a-25a8-417d-8f64-b30a7a71ef4c.vtt",
+              "display_name": "Italian"
+            },
+            {
+              "language": "tr-TR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/82a6c414-2de4-4d68-baa7-c834a0f67dbe.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_ab702129-583b-435a-9125-8e6c3d0e0b9b.vtt",
+              "display_name": "Turkish"
+            },
+            {
+              "language": "ja-JP",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/fc3200c2-ca88-4275-a668-218c44db226c.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_d0515d1e-4b1b-413a-9e06-0bd4f19925e0.vtt",
+              "display_name": "Japanese"
+            },
+            {
+              "language": "ko-KR",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/b981f056-36a2-4952-b315-f584cd441887.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_04f73d13-9fcc-4679-8faf-1e602e279da7.vtt",
+              "display_name": "Korean"
+            },
+            {
+              "language": "th-TH",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/e7404076-4f6f-4c0a-a95d-db54c238352f.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_71c98d21-0e84-4b64-a7c0-f31022d92781.vtt",
+              "display_name": "Thai"
+            },
+            {
+              "language": "vi-VN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/af3998dd-c008-4915-9d08-272a57e9c035.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_06b948de-b842-47f5-a7be-55fb09f7b88b.vtt",
+              "display_name": "Vietnamese"
+            },
+            {
+              "language": "tl-PH",
+              "type": "normal",
+              "subtitle": "https://video-v81.mydramawave.com/vt/16574/c39ab27b-ee3f-41ce-af32-242e20ef38df.srt",
+              "vtt": "https://video-v81.mydramawave.com/ut/16574/1_3cc3fd1b-b9ab-4150-830a-e93e962b5c75.vtt",
+              "display_name": "Filipino"
+            },
+            {
+              "language": "ms-MY",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16574/c5cc0717-7307-4c95-89b2-828a4fffb1af.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_a2da7a1a-158a-4733-a971-f69028e7e48e.vtt",
+              "display_name": "Malay"
+            },
+            {
+              "language": "zh-TW",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/vt/16574/ba6ecee4-e456-4679-befe-5b5329dfecf7.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_949fe092-2138-45d4-bbf3-aa2dfbb9886d.vtt",
+              "display_name": "Traditional Chinese"
+            },
+            {
+              "language": "hi-IN",
+              "type": "normal",
+              "subtitle": "https://video-v6.mydramawave.com/ut/16574/1_d69fafa9-200d-4119-941d-f8df7af4448c.srt",
+              "vtt": "https://video-v8.mydramawave.com/ut/16574/1_c0494450-4fa4-4112-bcee-23988c7617e7.vtt",
+              "display_name": "Hindi"
+            },
+            {
+              "language": "ar-SA",
+              "type": "normal",
+              "subtitle": "https://video-v8.mydramawave.com/vt/16574/1d8ae08c-e72a-4565-830e-31dd657afe64.srt",
+              "vtt": "https://video-v6.mydramawave.com/ut/16574/1_f837c6f5-3acb-4b81-9020-dd834d90abeb.vtt",
+              "display_name": "Arabic"
+            }
+          ],
+          "region": null,
+          "audio": [
+            "en-US",
+            "zh-CN",
+            "zh-TW",
+            "ja-JP",
+            "ko-KR",
+            "es-MX",
+            "pt-PT",
+            "fr-FR",
+            "id-ID",
+            "ru-RU",
+            "de-DE",
+            "vi-VN",
+            "it-IT",
+            "tr-TR",
+            "ms-MY",
+            "th-TH",
+            "tl-PH",
+            "hi-IN",
+            "ar-SA",
+            "yue"
+          ],
+          "original_audio_language": "zh-CN",
+          "index": 1,
+          "unlock": true,
+          "h5_available": false,
+          "duration": 199,
+          "episode_price": 1,
+          "video_type": "free",
+          "new": false,
+          "update_time": 1767950882,
+          "user_unlocked": false,
+          "serialize_pub_status": 0,
+          "highlight_pub_status": 0,
+          "is_blooper": false,
+          "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640"
+        },
+        "link_type": 1,
+        "link": "freereels://freereels.app/detail?id=VilQQHVjq3",
+        "r_info": {
+          "session_id": "2030996287512952833",
+          "request_id": "2030996287512952832",
+          "page_num": "1",
+          "page_size": "10",
+          "item_idx": "10"
+        },
+        "r_info1": "{\"ab_exps\":\"971:3272,808:2619,461:1392,807:2617,823:2675,959:3231,990:3327,205:552,477:1441,821:2670,617:1901,898:2985,648:2010,982:3304,992:3336,960:3239,956:3223,955:3217,883:2925,962:3244,534:1611,966:3259,544:1646,991:3330,929:3116,437:1325,919:3075,987:3319,697:2196,731:2310,967:3263,961:3243,886:2939,968:3265,963:3247\",\"device_id\":\"c98b9c0225667f5b89059cf1c0fdb6f1\",\"item_id\":192400954,\"item_idx\":\"10\",\"item_key\":\"gc534y03Rh\",\"language\":\"id\",\"module_id\":514,\"module_key\":\"popular_choice\",\"page_num\":\"1\",\"page_size\":\"10\",\"request_id\":\"2030996287512952832\",\"scene_source\":\"/home/popular/popular_choice\",\"series_id\":105029,\"series_key\":\"VilQQHVjq3\",\"session_id\":\"2030996287512952833\",\"tab_id\":224,\"tab_key\":\"popular\",\"theater_id\":24,\"theater_key\":\"home\",\"trace_id\":\"2030996287512952833\",\"user_id\":144927673}",
+        "free": true,
+        "free_start": 1767628800,
+        "free_end": 2050675200,
+        "vip_type": 0,
+        "hot_score": "20.9M",
+        "style": 4,
+        "pay_index": 10,
+        "orientation": 1,
+        "resource_type": 1
+      }
+    ],
+    "page_info": {
+      "next": "offset=10&position_index=",
+      "has_more": true
+    }
+  }
+}
