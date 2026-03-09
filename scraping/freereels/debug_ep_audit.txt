@@ -1,0 +1,38 @@
+﻿Login: key=bCfZiJfg...
+
+Drama: ?
+Data keys: ['info']
+Info keys: ['id', 'name', 'desc', 'labels', 'tag', 'series_tag', 'content_tags', 'cover', 'episode_count', 'view_count', 'follow_count', 'comment_count', 'comment_switch', 'finish_status', 'listing_status', 'view_episode', 'start_episode', 'following', 'episode_price', 'lang', 'pay_mode', 'free', 'episode_list', 'episode', 'color_style', 'hot_score', 'performers', 'vip_type', 'listing_time', 'resource_type', 'original_audio_language', 'release_round', 'pay_index', 'orientation']
+Saved drama_info_full.json
+
+Episodes in episode_list: 70
+
+Episode[0] keys (25 total):
+  id: OkiD0evvqh
+  name: Bertahan Hidup di Sekolah Elite(Sulih Suara)
+  cover: https://static-v1.mydramawave.com/vt/video/cover/episode/deef86a95bd2406aaef52d3
+  video_url: 
+  m3u8_url: 
+  external_audio_h264_m3u8: https://video-v6.mydramawave.com/vt/e5f521ba-c5b5-45e0-8c6a-9dcb06402e46/h264-fd
+  external_audio_h265_m3u8: https://video-v6.mydramawave.com/vt/e5f521ba-c5b5-45e0-8c6a-9dcb06402e46/h265-fd
+  subtitle_list: [{'language': 'en-US', 'type': 'normal', 'subtitle': 'https://video-v6.mydramawa
+  region: 
+  audio: ['en-US', 'zh-CN', 'zh-TW', 'ja-JP', 'ko-KR', 'es-MX', 'pt-PT', 'fr-FR', 'id-ID'
+  original_audio_language: zh-CN
+  index: 1
+  unlock: True
+  h5_available: True
+  duration: 207
+  episode_price: 50
+  video_type: free
+  new: 
+  update_time: 1772793122
+  playload: {"series_id":140615,"episode_id":197862967}
+  user_unlocked: 
+  serialize_pub_status: 
+  highlight_pub_status: 
+  is_blooper: 
+  trans_resolution: 1080x1920,720x1280,540x960,480x854,360x640
+
+Top-level data (non-list fields):
+  info: {'id': 'Cdg4Th1kpv', 'name': 'Bertahan Hidup di Sekolah Elite(Sulih Suara)', 'de

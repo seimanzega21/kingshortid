@@ -1,0 +1,14 @@
+﻿Login: key=TE3ZMrKf...
+
+Scanning DramaWave web pages for series IDs...
+  https://m.mydramawave.com/: +0 IDs
+  https://m.mydramawave.com/free-app/: +0 IDs
+  https://www.mydramawave.com/: +0 IDs
+
+Screening 2 candidate IDs for Indonesian dubbed audio...
+  [001] Γ£ô DUBBING: Terbangun sebagai Suami Terburuknya(Suli (60 eps)
+  [002] Γ£ô DUBBING: Bertahan Hidup di Sekolah Elite(Sulih Su (70 eps)
+
+==================================================
+Dubbed dramas found: 2
+Saved ΓåÆ dubbed_series_ids.json
