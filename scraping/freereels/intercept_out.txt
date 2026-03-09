@@ -1,0 +1,4 @@
+﻿Navigating to DramaWave...
+Captured 0 events so far
+Found 0 tab elements
+Saved 0 events to playwright_capture.json

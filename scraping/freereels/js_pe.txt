@@ -1,0 +1,21 @@
+=== pe() def @ 72619 ===
+br=Di.exports;const pe=()=>{const e=location.hostname,t=e.substring(e.indexOf(".")+1);let n=he.get("k_device_hash");return n?(he.set("k_device_hash",n??"",{expires:365,path:"/",domain:t}),n):(n=br.md5(navigator.userAgent+kc()),he.set("k_device_hash",n,{expires:365,path:"/",domain:t}),n)};function kc(){let e;const t=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q"
+
+=== Cr (axios instance) @ 190000 ===
+alue}),e),null]},Qh=new Cr(Br),$m=new Cr(Zh),Mm=e=>t=>{throw e==null||e(t),t};function ep(){const{language:e,language_code:t}=Li({language:"en",language_code:""}),n=Vt("country_code","TW"),r=t||e,o=H(r==="zh"?`${r}-${n&&!["MO","HK"].includes(n)?n:"TW"}`:r),s=H({}),i=H(!1),a=H(null),u=new Map,l=D=>{try{const F=sessionStorage.g
+
+=== Cr (axios instance) @ 190014 ===
+]},Qh=new Cr(Br),$m=new Cr(Zh),Mm=e=>t=>{throw e==null||e(t),t};function ep(){const{language:e,language_code:t}=Li({language:"en",language_code:""}),n=Vt("country_code","TW"),r=t||e,o=H(r==="zh"?`${r}-${n&&!["MO","HK"].includes(n)?n:"TW"}`:r),s=H({}),i=H(!1),a=H(null),u=new Map,l=D=>{try{const F=sessionStorage.getItem(`transl
+
+=== Cr (axios instance) @ 207294 ===
+alue}),e),null]},Dn=new Cr(bp),yp=["/activity/payment","/activity/recharge","/activity/recharge-success"],wp=async()=>{const e=pr(),t=wt();if(t.auth_key||t.auth_secret)return;const n=await Dn.post("/h5-api/anonymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5
+
+=== bp (config) @ 206608 ===
+ct);const bp={...Br,isError:async e=>{var t;if(e.data&&!ct&&typeof e.data=="string")try{const n=await Ho.decrypt(e.data,qo);e.data=_e(n,n)}catch{if(typeof e.data=="string")try{e.data=_e(e.data,e.data)}catch{}}return![200,0].includes((t=e.data)==null?void 0:t.code)},transformRequest:ct?void 0:e=>e,requestInterceptor:[async e=>(e.data&&!ct&&(e.data=await Ho.encrypt(JSON.stringify(e.data),qo),e.headers["Content-Type"]="application/json"),Object.assign(e.headers,{"app-name":Dr==="dramawave"?"com.dramawave.h5":"co
+
+=== app-name header @ 189764 ===
+Gh.value;return t}),Zh={...Br,requestInterceptor:[e=>(Object.assign(e.headers,{"app-name":_n?"com.freereels.app":Dr==="dramawave"?"com.dramawave.h5":"com.hotdrama.h5","app-version":_n?Kh("2.0.0"):"1.6.20","device-hash":pe(),"device-id":pe(),authorization:qs(),device:"h5","Skip-Encrypt":1
+
+=== app-name header @ 207063 ===
+ta),qo),e.headers["Content-Type"]="application/json"),Object.assign(e.headers,{"app-name":Dr==="dramawave"?"com.dramawave.h5":"com.hotdrama.h5","app-version":"1.2.20","device-hash":pe(),"device-id":pe(),authorization:Re.inDramawaveApp?Ir():qs(),device:"h5","Skip-Encrypt":ct?1:void 0,...g
+

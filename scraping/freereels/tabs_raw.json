@@ -1,0 +1,18 @@
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "list": [
+      {
+        "name": "",
+        "tab_key": "28",
+        "position_index": 10000,
+        "business_name": "popular",
+        "tab_type": 1,
+        "target_url": "",
+        "active": 0
+      }
+    ],
+    "active": 0
+  }
+}

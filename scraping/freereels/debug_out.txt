@@ -1,0 +1,26 @@
+﻿Login: key=bCfZiJfg... secret=5CJtdQlk...
+Full login data: {"success": true, "user_id": 36670638591, "name": "Tamu", "icon": "https://static-v1.mydramawave.com/avatar/default_guest1.png", "user_type": 0, "auth_key": "bCfZiJfgAc7N8Ea4ffPxIM6JEBcyTnp5", "auth_secret": "5CJtdQlkWU9TmeRDNwV2eDOC3gfHSn9Y"}
+
+Tab list raw response:
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "list": [
+      {
+        "name": "",
+        "tab_key": "28",
+        "position_index": 10000,
+        "business_name": "popular",
+        "tab_type": 1,
+        "target_url": "",
+        "active": 0
+      }
+    ],
+    "active": 0
+  }
+}
+
+--- Tab feed (first tab) ---
+Tabs type: <class 'list'>
+Tabs: [{"name": "", "tab_key": "28", "position_index": 10000, "business_name": "popular", "tab_type": 1, "target_url": "", "active": 0}]
