@@ -1,0 +1,30 @@
+﻿Chunk: 6,602 chars
+
+=== ALL external_audio contexts ===
+
+[@ 2949]:
+=null?void 0:n.episode_list)??[]];return p.value.forEach(i=>{const u=t.findIndex(r=>r&&!("kind"in r)&&r.id===i);u!==-1&&t.splice(u+1,0,y[i])}),t}function J(){const e=B();if(e){const n=N(e);fetch(n)}const t=U();if(t){const n=N(t);fetch(n)}}function N(e){const t=typeof e=="string"?w(e):e;return t&&(t.external_audio_h264_m3u8||t.m3u8_url||t.video_url||t.external_audio_h265_m3u8)||""}function K(){return w(d.value)??null}function Q(e){const t=e||d.value;return P(t)+1}function P(e){var t;return e?((t=o.value)==null?void 0:t.episode_list.findIndex(n=>n.id===e))??-1:-1}function W(){var e;return((e=o.v
+
+[@ 3002]:
+ach(i=>{const u=t.findIndex(r=>r&&!("kind"in r)&&r.id===i);u!==-1&&t.splice(u+1,0,y[i])}),t}function J(){const e=B();if(e){const n=N(e);fetch(n)}const t=U();if(t){const n=N(t);fetch(n)}}function N(e){const t=typeof e=="string"?w(e):e;return t&&(t.external_audio_h264_m3u8||t.m3u8_url||t.video_url||t.external_audio_h265_m3u8)||""}function K(){return w(d.value)??null}function Q(e){const t=e||d.value;return P(t)+1}function P(e){var t;return e?((t=o.value)==null?void 0:t.episode_list.findIndex(n=>n.id===e))??-1:-1}function W(){var e;return((e=o.value)==null?void 0:e.episode_list.findIndex(t=>t.id==
+
+=== API paths in use-series-item ===
+  /h5-api/drama/follow
+  /h5-api/drama/info
+  /h5-api/drama/unlock_episode
+  /h5-api/drama/view
+  /h5-api/user/device/remove_others
+
+=== audiotrack_language usage ===
+
+=== API calls with language/audio params ===
+
+[call @ 1973]: .post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/d
+
+[call @ 2014]: .post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpiso
+
+[call @ 2083]: .post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0
+
+[call @ 2157]: .post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_unlock:s.auto_unlock?1:0}),removeOtherDevice:()=>v.post("/h5-api/use
+
+[call @ 2221]: .post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_unlock:s.auto_unlock?1:0}),removeOtherDevice:()=>v.post("/h5-api/user/device/remove_others")},he=le(s=>{const o=a(null),d=a(null),l=

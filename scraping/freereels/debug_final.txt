@@ -1,0 +1,20 @@
+﻿Login: key=bCfZiJfg...
+
+=== 1. Tab list (GET) ===
+code=200 | {"list": [{"name": "", "tab_key": "28", "position_index": 10000, "business_name": "popular", "tab_type": 1, "target_url": "", "active": 0}], "active": 0}
+Tabs: ['28=popular']
+
+=== 2. Tab index (GET) for tab_key 28 ===
+code=400
+Saved tab_index.json
+Items: 0
+
+=== 3. Tab feed (POST, encrypted) ===
+  {"tab_key": "28"} -> code=400: Invalid parameters
+  {"tab_key": "28", "page": 1} -> code=400: Invalid parameters
+  {"tab_key": "28", "page": 1, "page_size": 10} -> code=400: Invalid parameters
+  {"tab_key": "28", "page": 1, "size": 10} -> code=400: Invalid parameters
+  {"tab_key": 28, "page": 1, "page_size": 10} -> code=400: Invalid parameters
+
+=== 4. Drama info GET ===
+  series_id=1: None

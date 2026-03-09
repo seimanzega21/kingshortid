@@ -1,0 +1,34 @@
+﻿Chunks with audio API patterns:
+
+  use-series-item-BjpPc9T6.js:
+    - episode.*audio|audio.*episode
+    - audio.*m3u8|m3u8.*audio
+    - external_audio_h264|external_audio_h265
+    - external_audio
+
+  episode-page-CGe2egWU.js:
+    - audiotrack.*language|language.*audiotrack
+    - external_audio
+    - episode.*audio|audio.*episode
+    - language.*m3u8|m3u8.*language
+    - audio.*m3u8|m3u8.*audio
+    - external_audio_h264|external_audio_h265
+
+  series-item-page-C1godQNz.js:
+    - external_audio
+    - audio_language.*id|id.*audio_language
+    - episode.*audio|audio.*episode
+    - language.*m3u8|m3u8.*language
+    - audio.*m3u8|m3u8.*audio
+    - external_audio_h264|external_audio_h265
+
+Priority chunks: ['episode-page-CGe2egWU.js']
+
+============================================================
+=== episode-page-CGe2egWU.js ===
+
+[audiotrack_language @ 3098]: !1),g=d(!0),_=d(!1),v=d(!1),f=d(),y=o.currentRoute.value.params.episodeId,O=o.currentRoute.value.query.subtitle_language,G=o.currentRoute.value.query.audiotrack_language??"en-US",{t:h}=ce(o.currentRoute.value.query.language),{t:w}=de(["share.toast.takeOffShelf","share.episodeDialog.title","share.episodeDialog.description","share.episodeDialog.tips","share.episodeDialog.button","share.episodeDialog
+
+[external_audio @ 3563]: e:k,initPlayer:j,showLoading:Z}=De(),E=we(()=>{var e,a,s,t,i,c,S,D,B;return(s=(a=(e=r.value)==null?void 0:e.episode_list)==null?void 0:a[0])!=null&&s.external_audio_h264_m3u8?(c=(i=(t=r.value)==null?void 0:t.episode_list)==null?void 0:i[0])==null?void 0:c.external_audio_h264_m3u8:((B=(D=(S=r.value)==null?void 0:S.episode_list)==null?void 0:D[0])==null?void 0:B.video_url)??""});(e=>{e.forEach(a=>{c
+
+[external_audio @ 3669]: e.episode_list)==null?void 0:a[0])!=null&&s.external_audio_h264_m3u8?(c=(i=(t=r.value)==null?void 0:t.episode_list)==null?void 0:i[0])==null?void 0:c.external_audio_h264_m3u8:((B=(D=(S=r.value)==null?void 0:S.episode_list)==null?void 0:D[0])==null?void 0:B.video_url)??""});(e=>{e.forEach(a=>{const s=new Image;s.src=a})})([Q,M,V,N,J,X,K,F,W]);const C=()=>{var e,a,s;(e=m.value)==null||e.on("canplay"

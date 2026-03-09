@@ -1,0 +1,18 @@
+﻿Login: key=9OSZ5T3l... user_id=37033804799
+
+=== Testing /homepage/v2/tab/feed ===
+  POST_raw /homepage/v2/tab/feed ['tab_key'] -> 200 code=400 items=0 msg=Invalid parameters
+  POST_raw /homepage/v2/tab/feed ['tab_key', 'page'] -> 200 code=400 items=0 msg=Invalid parameters
+  POST_raw /homepage/v2/tab/feed ['tab_key', 'page', 'page_size'] -> 200 code=400 items=0 msg=Invalid parameters
+  POST_raw /homepage/v2/tab/feed ['tab_key'] -> 200 code=400 items=0 msg=Invalid parameters
+  POST_raw /homepage/v2/tab/feed ['tabKey', 'page'] -> 200 code=400 items=0 msg=Invalid parameters
+  POST_enc /homepage/v2/tab/feed ['tab_key', 'page', 'page_size'] -> 200 code=400 items=0 msg=Invalid parameters
+  GET /homepage/v2/tab/feed ['tab_key', 'page'] -> 404 code=? items=0 msg=
+  GET /homepage/tab/feed ['tab_key', 'page'] -> 404 code=? items=0 msg=
+  POST_raw /homepage/tab/feed ['tab_key', 'page'] -> 404 code=? items=0 msg=
+  GET /homepage/v2/tab/index ['tab_key'] -> 200 code=400 items=0 msg=Invalid parameters
+
+=== Check raw response for tab/feed ===
+status=200
+Content-Type: application/json; charset=utf-8
+Response raw: {"code":400,"message":"Invalid parameters"}

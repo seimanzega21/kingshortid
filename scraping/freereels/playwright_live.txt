@@ -1,0 +1,21 @@
+﻿python : 
+D:\kingshortid\scraping\freereels\intercept_api.py:73: 
+RuntimeWarning: coroutine 'Page.set_extra_http_headers' was 
+never awaited
+At line:1 char:1
++ python intercept_api.py 2>&1 | Out-File playwright_live.txt 
+-Encoding ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\kingshortid\. 
+   ..s never awaited:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  page.set_extra_http_headers({'country': 'ID', 'language': 
+'id'})
+RuntimeWarning: Enable tracemalloc to get the object 
+allocation traceback
+=== Loading DramaWave (country=ID) ===
+Captured 0 API calls
+Saved 0 events
+
+APIs found:

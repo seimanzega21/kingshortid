@@ -1,0 +1,23 @@
+﻿DW Login: key=bCfZiJfg... user_id=36670638591
+Full login response data keys: ['success', 'user_id', 'name', 'icon', 'user_type', 'auth_key', 'auth_secret']
+Full data: {"success": true, "user_id": 36670638591, "name": "Guest", "icon": "https://static-v1.mydramawave.com/avatar/default_guest1.png", "user_type": 0, "auth_key": "bCfZiJfgAc7N8Ea4ffPxIM6JEBcyTnp5", "auth_secret": "5CJtdQlkWU9TmeRDNwV2eDOC3gfHSn9Y"}
+
+=== drama/info with extra params ===
+  {'series_id': '11692'}: code=200 data_empty=True
+  {'series_id': '11692', 'from': 'web'}: code=200 data_empty=True
+  {'series_id': '11692', 'source': 'h5'}: code=200 data_empty=True
+  {'series_id': '11692', 'country': 'US'}: code=200 data_empty=True
+  {'series_id': '11692', 'language': 'en'}: code=200 data_empty=True
+
+=== FreeReels API (apiv2.free-reels.com) ===
+FR Login status: 200
+FR Login resp: {"code": 200, "message": "success", "data": {"success": true, "user_id": 37033804799, "name": "Tamu", "icon": "https://static-v1.mydramawave.com/avatar/fr_default_guest_dark.png", "user_type": 0, "aut
+FR Login OK: key=9OSZ5T3l...
+FR Tabs: 6
+  503 = popular / 'Popular'
+  505 = new / 'New'
+  622 = comingsoon / 'Coming Soon'
+  514 = Doblaje / 'Dubbed'
+  504 = female / 'Female'
+  506 = male / 'Male'
+FR drama/info 11692: code=None data={}

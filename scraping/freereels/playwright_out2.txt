@@ -1,0 +1,5 @@
+﻿=== Loading DramaWave... ===
+After 12s: 0 requests
+
+Total captured: 0 requests, 0 responses
+Saved to playwright_capture.json

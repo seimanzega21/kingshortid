@@ -1,0 +1,27 @@
+[
+  {
+    "chunk": "feedback-api-DM9F7SD1.js",
+    "endpoints": [
+      "h5-api/wallet/subscribe/cancel",
+      "h5-api/wallet/subscribe/query"
+    ]
+  },
+  {
+    "chunk": "use-series-item-BjpPc9T6.js",
+    "endpoints": [
+      "h5-api/drama/unlock_episode",
+      "h5-api/drama/info",
+      "h5-api/user/device/remove_others",
+      "h5-api/drama/view",
+      "h5-api/drama/follow"
+    ]
+  },
+  {
+    "chunk": "use-home-page-store-Db2maEWK.js",
+    "endpoints": [
+      "h5-api/homepage/v2/tab/list",
+      "h5-api/homepage/v2/tab/feed",
+      "h5-api/homepage/v2/tab/index"
+    ]
+  }
+]

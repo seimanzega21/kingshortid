@@ -1,0 +1,40 @@
+﻿Chunk size: 6602 chars
+
+[drama/view context @ 1959]:
+:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{
+
+[drama/view context @ 1988]:
+",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto
+
+[drama/info context @ 1846]:
+n D(){return 330}function O(){return 520}const E={getSeriesItem:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_
+
+[drama/info context @ 1878]:
+turn 520}const E={getSeriesItem:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post
+
+[drama/info context @ 1891]:
+t E={getSeriesItem:s=>v.get("/h5-api/drama/info",{series_id:s}).then(o=>{var d;return(d=o.data)==null?void 0:d.info}),viewDrama:s=>v.post("/h5-api/drama/view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/dr
+
+[drama/info context @ 2044]:
+view",s),follow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_epis
+
+[drama/info context @ 2113]:
+ow:1}),unfollow:s=>v.post("/h5-api/drama/follow",{series_id:s,is_follow:0}),unlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",s),manualUnlockEpisode:s=>v.post("/h5-api/drama/unlock_episode",{...s,check_auto_unlock:0,auto_unlock:s.auto_unlock?1:0}),remove
+
+[drama/info context @ 4284]:
+ync function ee(e){const t=await E.unlockEpisode({series_id:s,episode_id:e});if(!(t!=null&&t.data))return;const n=w(e);n&&(Object.assign(n,t.data),h.value=!1,m.value=!1)}async function te(e,t){const n=w(e);if(!n)throw new Error("Episode not found");if(n.unloc
+
+[drama/info context @ 4539]:
+nlock)return;const i=await E.manualUnlockEpisode({series_id:s,episode_id:e,auto_unlock:t});i!=null&&i.data&&(Object.assign(n,i.data),A.value=!1,h.value=!1)}async function ne(e){e?await S(E.follow(s),f):await S(E.unfollow(s),f)}async function ie(){const e=awai
+
+[drama/info context @ 4754]:
+ollow(s),f)}async function ie(){const e=await S(E.getSeriesItem(s),g);return o.value=e??null,e}function se(){var u;const e=W();if(e===-1)return;const t=((u=o.value)==null?void 0:u.episode_list)??[],n=Math.max(0,e-1),i=Math.min(t.length,e+1);c.value=t.slice(n,i+1)
+
+=== Test drama endpoints with various IDs ===
+  drama/info series_id=1: ?
+
+--- drama/view POST ---
+  {'series_id': '10000'} -> code=400 msg=Invalid parameters
+  {'series_id': 10000} -> code=400 msg=Invalid parameters
+  {'id': 10000} -> code=400 msg=Invalid parameters
+  {'drama_id': 10000} -> code=400 msg=Invalid parameters

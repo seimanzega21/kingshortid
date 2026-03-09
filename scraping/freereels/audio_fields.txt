@@ -1,0 +1,9 @@
+
+=== [episode-page-CGe2egWU.js] pattern=audio[_\s]*track|track[_\s]*au ===
+.value.params.episodeId,O=o.currentRoute.value.query.subtitle_language,G=o.currentRoute.value.query.audiotrack_language??"en-US",{t:h}=ce(o.currentRoute.value.query.language),{t:w}=de(["share.toast.takeOffShelf","share.episodeDialog.title","share.episodeDialog.description","share.episodeDialog.tips"
+
+=== [series-item-page-C1godQNz.js] pattern=audio[_\s]*lang|lang[_\s]*audi ===
+timeUpdate",S.value,K.value),Math.floor(S.value)%3===1&&S.value<11&&O("video","play","time_update",{audio_language:((g=y.value)==null?void 0:g.original_audio_language)||"è¯­è¨_Original",load_type:e.loadType,playback_id:P.value,playback_position:S.value||0,series_id:e.seriesId,session_id:k.value,slo
+
+=== [index-BxqenrR6.js] pattern="audio"[:\s]|audio_list|audioL ===
+toLowerCase()){case"script":i="script";break;case"link":i="css";break;case"img":i="image";break;case"audio":case"video":i="media";break;default:return}B.normalLogPipeLine({severity:"autoDetectError",eventName:"staticFileLoadError",extraInfo:{staticFileType:i,error:`${r} load fail: ${t}`}})}},yt=new 

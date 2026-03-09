@@ -1,0 +1,17 @@
+﻿Login: key=bCfZiJfg... user=36670638591
+
+=== Step 1: GET /homepage/v2/tab/index?tab_key=28 ===
+status=200
+code=400 msg=Invalid parameters
+data type: dict
+Modules: 0
+
+=== Step 2: Feed with real module_key ===
+  module_key='' -> code=400 items=0 msg=Invalid parameters
+  module_key='popular' -> code=600 items=0 msg=Data query failed
+  module_key='recommend' -> code=600 items=0 msg=Data query failed
+  module_key='for_you' -> code=600 items=0 msg=Data query failed
+  module_key='new' -> code=600 items=0 msg=Data query failed
+
+=== Step 3: Try drama IDs for dubbed content ===
+  series_id=100: code=400 msg=Invalid parameters

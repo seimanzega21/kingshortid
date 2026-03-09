@@ -1,0 +1,12 @@
+
+=== page_param@21845 ===
+r","between","around","evenly","stretch"],C=()=>["","0",U],X=()=>["auto","avoid","all","avoid-page","page","left","right","column"],ne=()=>[Xe,en],re=()=>[Xe,U];return{cacheSize:500,separator:":",theme:{colors:[xt],spacing:[Le,Fe],blur:["none","",ze,U],brightness:ne(),borderColor:[e],borderRadius:["none","","full",ze,U],borderSpacing:c(),borderWidth:g(),contrast:ne(),grayscale:C(),hueRotate:re(),invert:C
+
+=== Dn_post@207463 ===
+charge-success"],wp=async()=>{const e=pr(),t=wt();if(t.auth_key||t.auth_secret)return;const n=await Dn.post("/h5-api/anonymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5","anonymous_login","failed")),zt(n==null?void 0:n.data,!0),yp.some(r=>e.currentRoute.value.path.includes(r))},vp=async e=>{try{const t=await Dn.post("/h5-api/user/logout
+
+=== Dn_post@207743 ===
+void 0:n.data,!0),yp.some(r=>e.currentRoute.value.path.includes(r))},vp=async e=>{try{const t=await Dn.post("/h5-api/user/logout",{device_id:pe()});(!t||!t.data)&&qe("No response data received from the server"),zt(t.data),window.location.href=e||"/"}catch{qe("éåºç»å½å¤±è´¥ï¼è¯·éè¯ã")}},_p=async()=>{try{const e=await Dn.post("/h5-api/user/logoff",{device_id:pe()});(!e||!e.data)&&qe("No response 
+
+=== Dn_post@207972 ===
+location.href=e||"/"}catch{qe("éåºç»å½å¤±è´¥ï¼è¯·éè¯ã")}},_p=async()=>{try{const e=await Dn.post("/h5-api/user/logoff",{device_id:pe()});(!e||!e.data)&&qe("No response data received from the server"),zt(e.data)}catch{qe("æ³¨éç»å½å¤±è´¥ï¼è¯·éè¯ã")}},Ep=async(e,t,n,r)=>{try{const o=ui(),i={type:e,...e==="facebook"?{is_limit:!1,infos:JSON.stringify({token:t})}:{infos:JSON.stringify({toke

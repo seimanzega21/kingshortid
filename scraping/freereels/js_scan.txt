@@ -1,0 +1,8 @@
+﻿Found 2 static scripts
+  https://static-v1.mydramawave.com/frontend_static/assets/index-DDWjsaOp.js
+  https://static-v1.mydramawave.com/frontend_static/assets/v-deps-Cc3clAnd.js
+
+=== Results ===
+
+[h5_api_post]
+  index-DDWjsaOp.js: ['/h5-api/user/login', '/h5-api/user/logoff', '/h5-api/user/logout', '/h5-api/anonymous/login']
