@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="shortcut icon" href="http://www.free-reels.com/static/logo.png">
+    <link rel="stylesheet" href="http://www.free-reels.com/static/components/bootstrap/css/bootstrap.css">
+    <title>A/B Testing Login</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-3" style="float: none;margin: 6% auto;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                A/B Test
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="signupSuc" class="alert alert-success" hidden>
+                    Successfully sign up. Please sign in.
+                </div>
+                <div id="submitErr" class="alert alert-danger" hidden>
+                </div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#login" data-toggle="tab">Sign in<span></span></a>
+                    </li>
+
+
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="login">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Email:</label><input class="form-control" name="email" type="email" placeholder="Email" onChange={this.handleEmailChange} />
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label><input class="form-control" name="password" type="password" placeholder="Password" onChange={this.handlePasswordChange} />
+                            </div>
+                            <button type="submit" class="btn btn-default" id="login_submit">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+    </div>
+<script src="http://www.free-reels.com/static/components/jquery/jquery.min.js"></script>
+<script src="http://www.free-reels.com/static/components/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://www.free-reels.com/static/components/react/react.min.js"></script>
+<script src="http://www.free-reels.com/static/components/react/react-dom.min.js"></script>
+<script>
+    function alertMsg(msg){
+        $("#submitErr").text(msg);
+        $("#submitErr").show();
+    }
+    function checkMailFormat(email){
+        var emailRegExp = /^\w(\.|\w)*@(\.|\w|\-)+\.(\.|\w)*\w$/;
+        return emailRegExp.test(email);
+    }
+    function checkLogin(email, password){
+        if(email == ''){
+            alertMsg("Email is required");
+            return false;
+        }
+        if(password == ''){
+            alertMsg("Password is required");
+            return false;
+        }
+        if(!checkMailFormat(email)){
+            alertMsg("Email doesn't match the format");
+            return false;
+        }
+        return true;
+    }
+    function checkRegister(email, name, password, password_again){
+        if(email == ''){
+            alertMsg("Email is required");
+            return false;
+        }
+        if(name == ''){
+            alertMsg("Name is required");
+            return false;
+        }
+        if(password == '' || password_again == ''){
+            alertMsg("Password is required");
+            return false;
+        }
+        if(password != password_again) {
+            alertMsg("The two passwords aren't the same");
+            return false;
+        }
+
+        if(!checkMailFormat(email)){
+            alertMsg("Email doesn't match the format");
+            return false;
+        }
+        return true;
+    }
+    $(function(){
+        var matches = window.location.href.match(/\?from=(.*)&?/i)
+        if(matches != null && matches[1]=="register"){
+            $("#signupSuc").show();
+        }
+        $("#login_submit").click(function () {
+            $("#signupSuc").hide();
+            $("#submitErr").hide();
+            var email = $("#login [name='email']").val();
+            var password = $("#login [name='password']").val();
+            if(checkLogin(email, password)) {
+                $.ajax({
+                    url: "/login",
+                    type: "POST",
+                    data: {email: email, password: password},
+                    success: function (data) {
+                        window.location.pathname = "/";
+                    },
+                    error: function (xhr, status, error) {
+                        alertMsg(xhr.responseText);
+                    },
+                });
+            }
+        });
+        $("#register_submit").click(function () {
+            $("#signupSuc").hide();
+            $("#submitErr").hide();
+            var email = $("#register [name='email']").val();
+            var name = $("#register [name='name']").val();
+            var password = $("#register [name='password']").val();
+            var password_again = $("#register [name='password_again']").val();
+            if(checkRegister(email, name, password, password_again)) {
+                $.ajax({
+                    url: "/register",
+                    type: "POST",
+                    data: {email: email, name: name, password:password},
+                    success: function(data){
+                        window.location.href="http://www.free-reels.com/login?from=register";
+                    },
+                    error: function(xhr, status, error) {
+                        alertMsg(xhr.responseText);
+                    },
+                });
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>

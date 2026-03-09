@@ -1,0 +1,17 @@
+﻿Login: key=kxt7bzel...
+Existing: 2 dubbed dramas
+
+=== Method 1: Search API ===
+
+=== Method 2: Homepage Tabs ===
+  Tabs found: 1
+  Tab: 28 = popular
+
+=== Method 3: Drama List ===
+
+=== Validating 0 new candidates ===
+
+==================================================
+Total dubbed dramas: 2
+Newly validated: 0
+Saved ΓåÆ dubbed_series_ids.json

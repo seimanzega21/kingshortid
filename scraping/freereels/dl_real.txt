@@ -1,0 +1,91 @@
+﻿ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  FreeReels Indonesian Dubbed ΓÇö Download Pipeline
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  Mode: PRODUCTION
+  ffmpeg: ffmpeg
+
+  Total dramas: 1
+  Source: dubbed_series_ids.json
+[AUTH] key=mfSKDdbo...
+
+[1/1] Cdg4Th1kpv
+
+  Drama: Bertahan Hidup di Sekolah Elite(Sulih Suara)
+  Folder: bertahan_hidup_di_sekolah_elite
+  Episodes with ID audio: 70/70
+  Cover ΓåÆ R2 Γ£ô
+  [001/70] ep001 Γ£ô 12.2MB ΓåÆ R2
+  [002/70] ep002 Γ£ô 5.2MB ΓåÆ R2
+  [003/70] ep003 Γ£ô 7.5MB ΓåÆ R2
+  [004/70] ep004 Γ£ô 6.5MB ΓåÆ R2
+  [005/70] ep005 Γ£ô 6.2MB ΓåÆ R2
+  [006/70] ep006 Γ£ô 4.7MB ΓåÆ R2
+  [007/70] ep007 Γ£ô 8.1MB ΓåÆ R2
+  [008/70] ep008 Γ£ô 4.6MB ΓåÆ R2
+  [009/70] ep009 Γ£ô 6.2MB ΓåÆ R2
+  [010/70] ep010 Γ£ô 9.3MB ΓåÆ R2
+  [011/70] ep011 Γ£ô 7.4MB ΓåÆ R2
+  [012/70] ep012 ΓÇö no HLS URL, skip
+  [013/70] ep013 ΓÇö no HLS URL, skip
+  [014/70] ep014 ΓÇö no HLS URL, skip
+  [015/70] ep015 ΓÇö no HLS URL, skip
+  [016/70] ep016 ΓÇö no HLS URL, skip
+  [017/70] ep017 ΓÇö no HLS URL, skip
+  [018/70] ep018 ΓÇö no HLS URL, skip
+  [019/70] ep019 ΓÇö no HLS URL, skip
+  [020/70] ep020 ΓÇö no HLS URL, skip
+  [021/70] ep021 ΓÇö no HLS URL, skip
+  [022/70] ep022 ΓÇö no HLS URL, skip
+  [023/70] ep023 ΓÇö no HLS URL, skip
+  [024/70] ep024 ΓÇö no HLS URL, skip
+  [025/70] ep025 ΓÇö no HLS URL, skip
+  [026/70] ep026 ΓÇö no HLS URL, skip
+  [027/70] ep027 ΓÇö no HLS URL, skip
+  [028/70] ep028 ΓÇö no HLS URL, skip
+  [029/70] ep029 ΓÇö no HLS URL, skip
+  [030/70] ep030 ΓÇö no HLS URL, skip
+  [031/70] ep031 ΓÇö no HLS URL, skip
+  [032/70] ep032 ΓÇö no HLS URL, skip
+  [033/70] ep033 ΓÇö no HLS URL, skip
+  [034/70] ep034 ΓÇö no HLS URL, skip
+  [035/70] ep035 ΓÇö no HLS URL, skip
+  [036/70] ep036 ΓÇö no HLS URL, skip
+  [037/70] ep037 ΓÇö no HLS URL, skip
+  [038/70] ep038 ΓÇö no HLS URL, skip
+  [039/70] ep039 ΓÇö no HLS URL, skip
+  [040/70] ep040 ΓÇö no HLS URL, skip
+  [041/70] ep041 ΓÇö no HLS URL, skip
+  [042/70] ep042 ΓÇö no HLS URL, skip
+  [043/70] ep043 ΓÇö no HLS URL, skip
+  [044/70] ep044 ΓÇö no HLS URL, skip
+  [045/70] ep045 ΓÇö no HLS URL, skip
+  [046/70] ep046 ΓÇö no HLS URL, skip
+  [047/70] ep047 ΓÇö no HLS URL, skip
+  [048/70] ep048 ΓÇö no HLS URL, skip
+  [049/70] ep049 ΓÇö no HLS URL, skip
+  [050/70] ep050 ΓÇö no HLS URL, skip
+  [051/70] ep051 ΓÇö no HLS URL, skip
+  [052/70] ep052 ΓÇö no HLS URL, skip
+  [053/70] ep053 ΓÇö no HLS URL, skip
+  [054/70] ep054 ΓÇö no HLS URL, skip
+  [055/70] ep055 ΓÇö no HLS URL, skip
+  [056/70] ep056 ΓÇö no HLS URL, skip
+  [057/70] ep057 ΓÇö no HLS URL, skip
+  [058/70] ep058 ΓÇö no HLS URL, skip
+  [059/70] ep059 ΓÇö no HLS URL, skip
+  [060/70] ep060 ΓÇö no HLS URL, skip
+  [061/70] ep061 ΓÇö no HLS URL, skip
+  [062/70] ep062 ΓÇö no HLS URL, skip
+  [063/70] ep063 ΓÇö no HLS URL, skip
+  [064/70] ep064 ΓÇö no HLS URL, skip
+  [065/70] ep065 ΓÇö no HLS URL, skip
+  [066/70] ep066 ΓÇö no HLS URL, skip
+  [067/70] ep067 ΓÇö no HLS URL, skip
+  [068/70] ep068 ΓÇö no HLS URL, skip
+  [069/70] ep069 ΓÇö no HLS URL, skip
+  [070/70] ep070 ΓÇö no HLS URL, skip
+  Metadata ΓåÆ R2 Γ£ô (11/70 eps uploaded)
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  Γ£ô Processed: 1  Γèÿ Skipped: 0  Γ£ù Failed: 0
+Results ΓåÆ pipeline_results.json
