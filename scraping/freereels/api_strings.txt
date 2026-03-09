@@ -1,0 +1,252 @@
+[classes9.dex] !FacebookAuthorizationException.kt
+[classes.dex] !Ljavax/crypto/spec/SecretKeySpec;
+[classes5.dex] !getAuthorizationInfoOrBuilderList
+[classes10.dex] !getOauthToken()Ljava/lang/String;
+[classes4.dex] !https://mydramawave.com/free-app/
+[classes6.dex] !https://video-v1.mydramawave.com/
+[classes6.dex] !https://video-v5.mydramawave.com/
+[classes6.dex] !https://video-v6.mydramawave.com/
+[classes2.dex] "Given secret seed length is not 32
+[classes5.dex] "Lcom/google/api/OAuthRequirements;
+[classes9.dex] "cash_out_link": "https://m-test.mydramawave.com/free-app/coins/cashOut?showNavigation=false&country_code=CN&language=en&from=rewards_tab&locale=en-US",
+[classes10.dex] "getOauthSecret()Ljava/lang/String;
+[classes9.dex] "icon" : "https://static.mydramawave.com/banner/cover/MTkxMDI0NjY4ODM3OTE1MDMzNg==.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/banner/cover/MTkxMDI0Njk1NTcyMzU1MDcyMA==.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/welfare/icon/daily_eat_icon.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/welfare/icon/daily_sleep_icon.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/welfare/icon/exchange_amazon_v1.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/welfare/icon/ic-2.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/welfare/icon/sign_gold.png",
+[classes9.dex] "icon" : "https://static.mydramawave.com/welfare/icon/watch_video_v1.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/sign_box.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/sign_gold.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/sign_more_goldx3.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/trasure_box_close.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/treasure_box_open.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/treasure_box_opened.png",
+[classes9.dex] "icon": "https://static.mydramawave.com/welfare/icon/watch_video_v1.png"
+[classes9.dex] "my_earnings_link": "https://m-test.mydramawave.com/free-app/coins/my-earnings/up?showNavigation=false&country_code=CN&language=en&from=rewards_tab&locale=en-US",
+[classes9.dex] "shop_link": "https://m-test.mydramawave.comfree-app/store/start-page?showNavigation=false&country_code=CN&language=en&from=rewards_tab&locale=en-US",
+[classes9.dex] "tab_bg_icon": "https://static.mydramawave.com/welfare/icon/welcome_new_user_taskv1.png",
+[classes9.dex] "tip_icon": "https://static.mydramawave.com/welfare/icon/sign_more_goldx3.png",
+[classes2.dex] #Auth.Api.Identity.Authorization.API
+[classes9.dex] #dramawaveappsupport@mydramawave.com
+[classes4.dex] #logAuthorizationMethodStart$default
+[classes5.dex] $Lcom/google/api/OAuthRequirements$1;
+[classes4.dex] $access$newAuthorizationLoggingBundle
+[classes5.dex] %) to a request for read authorization
+[classes5.dex] %decryptWithSecretKey input exception!
+[classes5.dex] %encryptWithSecretKey input exception!
+[classes4.dex] &logAuthorizationMethodComplete$default
+[classes4.dex] &logAuthorizationMethodNotTried$default
+[classes9.dex] ', secret='
+[classes5.dex] () to a request for publish authorization
+[classes4.dex] )LOGIN_ERROR_SUBCODE_AUTHORIZATION_PENDING
+[classes7.dex] )Unexpected resultCode from authorization.
+[classes4.dex] *LOGIN_ERROR_SUBCODE_AUTHORIZATION_DECLINED
+[classes5.dex] *Lcom/google/api/OAuthRequirements$Builder;
+[classes4.dex] *Lcom/google/cloud/audit/AuthorizationInfo;
+[classes5.dex] +Lcom/google/api/OAuthRequirementsOrBuilder;
+[classes3.dex] , igniteResponse.clientSecret:
+[classes4.dex] ,Lcom/google/cloud/audit/AuthorizationInfo$1;
+[classes3.dex] ,https://api.fyber.com/vcs/v1/new_credit.json
+[classes6.dex] ,https://mydramawave.com/free-app/regulations
+[classes8.dex] ,oauth_token=
+[classes5.dex] -Lcom/facebook/FacebookAuthorizationException;
+[classes2.dex] -NO_BID_REASON_ADS_TXT_AUTHORIZATION_VIOLATION
+[classes2.dex] /.well-known/oauth/openid/keys/
+[classes2.dex] /NO_BID_REASON_ADS_TXT_AUTHORIZATION_UNAVAILABLE
+[classes9.dex] /user/login
+[classes9.dex] /user/login/pre_check
+[classes10.dex] 0https://mydramawave.com/free-app/p/drama-preview
+[classes7.dex] 1Unexpected null from returned authorization data.
+[classes4.dex] 2Lcom/google/cloud/audit/AuthorizationInfo$Builder;
+[classes2.dex] 2https://accounts.google.com/o/oauth2/revoke?token=
+[classes4.dex] 2https://m.mydramawave.com/free-app/rules/cash.html
+[classes4.dex] 3Lcom/google/cloud/audit/AuthorizationInfoOrBuilder;
+[classes9.dex] 3NO_BID_REASON_ADS_TXT_AUTHORIZATION_VIOLATION_VALUE
+[classes8.dex] 3https://apiv2.free-reels.com/frv2-api/risk/sm/proxy
+[classes5.dex] 3https://m.mydramawave.com/free-app/rules/terms.html
+[classes4.dex] 4https://m.mydramawave.com/free-app/rules/nocash.html
+[classes9.dex] 5NO_BID_REASON_ADS_TXT_AUTHORIZATION_UNAVAILABLE_VALUE
+[classes4.dex] 5https://m.mydramawave.com/free-app/rules/privacy.html
+[classes2.dex] 6Lcom/dramawave/feature/series/SeriesCompletedActivity;
+[classes4.dex] 6access$getLOGIN_ERROR_SUBCODE_AUTHORIZATION_PENDING$cp
+[classes9.dex] 6https://m.mydramawave.com/free-app/share/episode/${id}
+[classes8.dex] 6https://static.mydramawave.com/welfare/icon/ovo_id.png
+[classes9.dex] 7Lcom/facebook/FacebookAuthorizationException$Companion;
+[classes.dex] 7short-app-name[^>]+truncated[^>]+>\s*<span[^>]+>([^<]+)
+[classes9.dex] 8https://mydramawave.com/free-app/customer-service-center
+[classes3.dex] :Authorization response does not contain the signed_request
+[classes10.dex] :Lcom/dramawave/feature/series/SeriesCompletedListFragment;
+[classes10.dex] :https://m.mydramawave.com/free-app/coins/cashout?language=
+[classes6.dex] :https://mydramawave.com/free-app/regulations/data-settings
+[classes9.dex] ;https://api16-access-ttp.tiktokpangle.us/service/2/app_log/
+[classes.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$a;
+[classes9.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$b;
+[classes9.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$c;
+[classes9.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$d;
+[classes9.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$e;
+[classes9.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$f;
+[classes9.dex] <Lcom/dramawave/feature/series/SeriesCompletedListFragment$g;
+[classes8.dex] =https://apiv2.free-reels.com/frv2-api/risk/sm/proxy/cloudconf
+[classes6.dex] =https://m.mydramawave.com/free-app/coins/cashOut?preload=true
+[classes10.dex] >Lcom/google/android/gms/auth/api/identity/AuthorizationClient;
+[classes10.dex] >Lcom/google/android/gms/auth/api/identity/AuthorizationResult;
+[classes9.dex] ?Lcom/dramawave/feature/series/Hilt_SeriesCompletedListFragment;
+[classes9.dex] ?Lcom/dramawave/feature/series/Hilt_SeriesCompletedListFragment<
+[classes10.dex] ?Lcom/google/android/gms/auth/api/identity/AuthorizationRequest;
+[classes6.dex] ?[Lcom/google/android/gms/auth/api/identity/AuthorizationResult;
+[classes6.dex] @[Lcom/google/android/gms/auth/api/identity/AuthorizationRequest;
+[classes.dex] AUTHORIZATION
+[classes5.dex] AUTHORIZATION_INFO_FIELD_NUMBER
+[classes5.dex] AUTHORIZATION_URL_FIELD_NUMBER
+[classes9.dex] Ahttps://mydramawave.com/free-app/customer-service-center/feedback
+[classes.dex] Authorization
+[classes4.dex] AuthorizationInfo.java
+[classes6.dex] AuthorizationInfoOrBuilder.java
+[classes8.dex] AuthorizationRequestCreator
+[classes9.dex] AuthorizationResultCreator
+[classes10.dex] Bhttps://static.mydramawave.com/video/cover/1834870652856946688.jpg
+[classes9.dex] CLIENTSECRET_FIELD_NUMBER
+[classes9.dex] DLPARAM_XP2P_SECRET_KEY
+[classes2.dex] Dcom.google.android.gms.auth.api.identity.service.authorization.START
+[classes4.dex] DgetLOGIN_ERROR_SUBCODE_AUTHORIZATION_PENDING$facebook_common_release
+[classes6.dex] ERROR_NO_AUTHORIZATION
+[classes2.dex] GLcom/google/android/gms/auth/api/identity/AuthorizationRequest$Builder;
+[classes2.dex] Gcom.google.android.gms.auth.api.identity.internal.IAuthorizationService
+[classes8.dex] HEADER_AUTHORIZATION
+[classes2.dex] Hcom.google.android.gms.auth.api.identity.internal.IAuthorizationCallback
+[classes2.dex] INSTAGRAM_OAUTH_PATH
+[classes4.dex] Icom.facebook.login.AuthorizationClient.WebViewAuthHandler.TOKEN_STORE_KEY
+[classes6.dex] Ihttps://mydramawave.com/free-app/coins/exchange?has_app_bar=false&source=
+[classes4.dex] JUnexpected call to logCompleteLogin with null pendingAuthorizationRequest.
+[classes7.dex] KEY_OAUTH_SECRET
+[classes7.dex] KEY_OAUTH_TOKEN
+[classes3.dex] KIt was impossible to add the signature, the SecretKey has not been provided
+[classes4.dex] LLcom/dramawave/feature/series/SeriesCompletedActivity__TheRouter__Autowired;
+[classes10.dex] Lcom/dramawave/feature/series/a;
+[classes10.dex] Lcom/dramawave/feature/series/b;
+[classes2.dex] Ljavax/crypto/SecretKey;
+[classes7.dex] OAUTH_DIALOG
+[classes6.dex] OAUTH_FIELD_NUMBER
+[classes2.dex] OAUTH_SCOPES_FIELD_NUMBER
+[classes.dex] OAuthAccessDeniedException
+[classes5.dex] OAuthRequirements.java
+[classes9.dex] OAuthRequirementsOrBuilder.java
+[classes.dex] PROXY_AUTHORIZATION
+[classes4.dex] PgetLOGIN_ERROR_SUBCODE_AUTHORIZATION_PENDING$facebook_common_release$annotations
+[classes.dex] Proxy-Authorization
+[classes8.dex] QLcom/google/android/gms/auth/api/identity/AuthorizationRequest$ResourceParameter;
+[classes8.dex] R[Lcom/google/android/gms/auth/api/identity/AuthorizationRequest$ResourceParameter;
+[classes2.dex] Rhttps://mydramawave.com/free-app/coins/exchange?showNavigation=false&country_code=
+[classes.dex] Rhttps://video-v1.mydramawave.com/vt/11692/3d1456d1-20ce-4cde-92d2-ec99912b5ead.srt
+[classes.dex] Rhttps://video-v1.mydramawave.com/vt/11692/9758ed38-eb17-4bce-a29c-9b7840645455.srt
+[classes.dex] VISIBILITY_SECRET
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_0e55b0b3-eabe-4546-b78e-3b41206ba8d5.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_39e6ce91-de40-40c0-b6f1-695019dfadb2.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_4d12f48f-8ed1-4a1f-8743-0ba0919916fd.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_773d536e-5538-48bc-86ef-0bd2cd88d4e7.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_7a4e5e46-7861-432e-9aa3-deba9163888a.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_898a3ba8-78fd-4e5c-b3d9-5e9e2acf99a7.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_95af556c-d81a-47c2-b226-f637ea58595f.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_a6f419f8-6b10-4a68-ba9d-adb2930a2646.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_cfa10cfc-5c16-452a-a8f6-53aeb1e01586.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_dd3d8482-da2a-44f5-82ff-33a30926c2b0.srt
+[classes.dex] Yhttps://video-v1.mydramawave.com/vt/prod/11692/1_efe70cce-298c-409d-b7bd-0a29464a99b5.srt
+[classes5.dex] addAllAuthorizationInfo
+[classes5.dex] addAuthorizationInfo
+[classes6.dex] api.mydramawave.com
+[classes6.dex] appSecret
+[classes9.dex] auth_secret
+[classes6.dex] authorization
+[classes5.dex] authorizationCode
+[classes5.dex] authorizationInfo_
+[classes4.dex] authorizationUri
+[classes5.dex] authorizationUrl_
+[classes2.dex] authorization_result
+[classes.dex] chttps://video-v1.mydramawave.com/vt/resource/netdisk/11692/61f5e15b-def2-4afc-a7c9-92b41932803f.srt
+[classes.dex] chttps://video-v1.mydramawave.com/vt/resource/netdisk/11692/73a3bd9a-59c0-4860-b4d9-0971ca8743f7.srt
+[classes.dex] chttps://video-v1.mydramawave.com/vt/resource/netdisk/11692/b8e8b447-a8fd-4388-a542-e6409bdf6814.srt
+[classes.dex] chttps://video-v1.mydramawave.com/vt/resource/netdisk/11692/f033cef7-125d-4302-8884-4e8eb5ce04c0.srt
+[classes.dex] chttps://video-v1.mydramawave.com/vt/resource/netdisk/11692/f9fd81cf-9b51-4ea2-b634-b497af3f27ad.srt
+[classes5.dex] clearAuthorizationInfo
+[classes5.dex] clearAuthorizationUrl
+[classes9.dex] clearClientSecret
+[classes6.dex] clearOauth
+[classes9.dex] clientSecret_
+[classes2.dex] com/dramawave/feature/series/SeriesCompletedActivity
+[classes9.dex] com/dramawave/feature/series/SeriesCompletedListFragment
+[classes10.dex] firebase-app-name-hash
+[classes5.dex] genSecretKey input exception!
+[classes2.dex] generateSecret
+[classes9.dex] getAuthorizationClient
+[classes5.dex] getAuthorizationInfo
+[classes5.dex] getAuthorizationInfoCount
+[classes5.dex] getAuthorizationInfoList
+[classes5.dex] getAuthorizationInfoOrBuilder
+[classes10.dex] getAuthorizationResultFromIntent
+[classes4.dex] getAuthorizationUri
+[classes10.dex] getAuthorizationUrl
+[classes10.dex] getAuthorizationUrlBytes
+[classes9.dex] getClientSecret
+[classes9.dex] getClientSecretBytes
+[classes10.dex] getOauthSecret
+[classes10.dex] getOauthToken
+[classes8.dex] getSecretKey
+[classes9.dex] hasClientSecret
+[classes7.dex] https://api.bidmachine.io
+[classes10.dex] https://apiv2.fr
+[classes5.dex] https://apiv2.free-reels.com
+[classes10.dex] https://m-test.mydramawave.com
+[classes10.dex] https://m.mydramawave.com
+[classes10.dex] https://mydramawave.com/free-app
+[classes.dex] https://static-v1.mydramawave.com/vt/video/cover/episode/a0aa44e67ade4aa583538193bc735c81.jpg?image_process=quality,85/resize,w_600/format,webp
+[classes4.dex] logAuthorizationMethodComplete
+[classes4.dex] logAuthorizationMethodNotTried
+[classes4.dex] logAuthorizationMethodStart
+[classes6.dex] m.mydramawave.com
+[classes6.dex] mergeOauth
+[classes4.dex] newAuthorizationLoggingBundle
+[classes9.dex] nhttps://api16-access-sg.pangle.io/api/ad/union/sdk/get_ads/?aid=1371&device_platform=android&version_code=4250
+[classes2.dex] nhttps://m-test.mydramawave.com/p/free-app/share-invite?language=en&country=US&timezone=+8&showNavigation=false
+[classes5.dex] oauth/access_token
+[classes.dex] oauth/authorize
+[classes2.dex] oauthScopes
+[classes10.dex] oauthSecret
+[classes10.dex] oauthSecret$delegate
+[classes10.dex] oauthToken
+[classes10.dex] oauthToken$delegate
+[classes8.dex] oauthTokenSecret
+[classes8.dex] oauth_signature=
+[classes5.dex] ohttps://video-v1.mydramawave.com/vt/00373ead92e071efbfbe1776b3ce0402/h264-e72ed5bdb7a5453ebeceabaac4e48110.m3u8
+[classes5.dex] ohttps://video-v1.mydramawave.com/vt/3054a0ad92e071efbffc7fb2780c0402/h264-12577361ed6c4a4083591508e77503ae.m3u8
+[classes5.dex] ohttps://video-v1.mydramawave.com/vt/505d6dad92e071ef8b811777b3de0402/h264-ee89d3a260d24a0fb9ed26ee86b2f817.m3u8
+[classes8.dex] pref_secret
+[classes6.dex] proxy-authorization
+[classes5.dex] removeAuthorizationInfo
+[classes5.dex] setAuthorizationInfo
+[classes5.dex] setAuthorizationUrl
+[classes5.dex] setAuthorizationUrlBytes
+[classes9.dex] setClientSecret
+[classes9.dex] setClientSecretBytes
+[classes10.dex] setOauthSecret
+[classes10.dex] setOauthToken
+[classes6.dex] static-v1.mydramawave.com
+[classes10.dex] sun.misc.SharedSecrets
+[classes6.dex] trace.mydramawave.com
+[classes6.dex] video-v1.mydramawave.com
+[classes6.dex] video-v5.mydramawave.com
+[classes6.dex] video-v6.mydramawave.com
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/0abbc90a-1aba-4478-ba0d-a87bfc13d544/h264-70dc8fb2-2f1c-4209-bf4b-58841dfc48ce.m3u8
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/17aca835-b64b-4ed7-9973-f5c7a316e6f6/h264-4631c721-28f9-4440-83bf-3d78ab3a1505.m3u8
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/2953a716-751a-4386-ace3-a1456973dadc/h264-9a2501ee-faf6-41aa-9b9c-5ed2261ea50b.m3u8
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/3f046f2f-2820-4121-8111-be1cebf1a553/h264-128a02fd-7b7e-4718-9ee5-c2b123cec99a.m3u8
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/5997438b-1292-48f2-bd01-dab3e5a97f5b/h264-eed9d1b9-dcfa-4cf5-9689-9c4b1b4df1ec.m3u8
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/a4197664-3f13-474e-baf6-9e19b4e76049/h264-18e0bede-1a6d-4966-811f-6d568e3cedf3.m3u8
+[classes6.dex] whttps://video-v1.mydramawave.com/vt/d2c30405-4f42-4d68-9c33-9ba408c57816/h264-ecf3ad0b-73bb-4392-9f02-d8c0b6dcdda2.m3u8
+[classes6.dex] whttps://video-v1.mydramawave.com/vt/d2c30405-4f42-4d68-9c33-9ba408c57816/h265-ecf3ad0b-73bb-4392-9f02-d8c0b6dcdda2.m3u8
+[classes5.dex] whttps://video-v1.mydramawave.com/vt/dbb3b742-982a-409b-9009-fbed52446d5b/h264-d63f47cf-f70b-4599-b6ae-e87c07593345.m3u8
+[classes.dex] whttps://video-v1.mydramawave.com/vt/f9464405-05ea-4550-803e-0bb07fb9c96f/h264-97fcb073-5152-4803-a7a1-70af4ca7e053.m3u8
+[classes.dex] whttps://video-v1.mydramawave.com/vt/f9464405-05ea-4550-803e-0bb07fb9c96f/h265-97fcb073-5152-4803-a7a1-70af4ca7e053.m3u8
+[classes9.dex] xp2p_secretKey
