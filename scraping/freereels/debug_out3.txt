@@ -1,0 +1,25 @@
+﻿Login: user=36670638591 key=bCfZiJfg...
+
+=== Tab 28 feed (Skip-Encrypt) ===
+code=400 msg=Invalid parameters
+Items: 0
+
+=== Tab feed with tabId (not tab_key) ===
+tabId=28: code=400
+tabId=28 (int): code=400
+
+=== Tab list GET (Skip-Encrypt) ===
+Tabs found: 1
+  tab_key=28 name= biz=popular active=0
+
+=== Drama catalog paths (Skip-Encrypt POST) ===
+  /drama/list -> ?:  
+  /drama/page -> ?:  
+  /series/list -> ?:  
+  /content/list -> ?:  
+  /drama/index -> ?:  
+  /drama/all -> ?:  
+  /drama/category -> ?:  
+  /category/drama/list -> ?:  
+
+=== Drama detail (to check dubbed label) ===

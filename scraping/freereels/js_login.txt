@@ -1,0 +1,18 @@
+=== anonymous/login @ 207480 ===
+,e),null]},Dn=new Cr(bp),yp=["/activity/payment","/activity/recharge","/activity/recharge-success"],wp=async()=>{const e=pr(),t=wt();if(t.auth_key||t.auth_secret)return;const n=await Dn.post("/h5-api/anonymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5","anonymous_login","failed")),zt(n==null?void 0:n.data,!0),yp.some(r=>e.currentRoute.value.path.includes(r))},vp=async e=>{try{const t=await Dn.post("/h5-api/user/logout",{device_id:pe()});(!t||!t.data)&&qe("No response data received from the server"),zt(t.data),window.location.href=e||"/"}ca
+
+=== anonymous/login @ 207604 ===
+),t=wt();if(t.auth_key||t.auth_secret)return;const n=await Dn.post("/h5-api/anonymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5","anonymous_login","failed")),zt(n==null?void 0:n.data,!0),yp.some(r=>e.currentRoute.value.path.includes(r))},vp=async e=>{try{const t=await Dn.post("/h5-api/user/logout",{device_id:pe()});(!t||!t.data)&&qe("No response data received from the server"),zt(t.data),window.location.href=e||"/"}catch{qe("éåºç»å½å¤±è´¥ï¼è¯·éè¯ã")}},_p=async()=>{try{const e=await Dn.post("/h5-api/user/logoff",{device_id:pe()})
+
+=== anonymous/login @ 209660 ===
+_id)||""}`}),r&&r(),n&&(window.location.href=n),xo()}}),showConfirmButton:!1,className:"p-0"})}else zt(a.data),r&&r(),n&&(window.location.href=n)}catch(o){qe(`${e} login error: ${o}`)}},xp=()=>({loginAnonymous:wp,login:Ep,loginOut:vp,loginOff:_p}),Js=H(ft()),Ks=H(ft()),sr=H(_e(localStorage.getItem("reported358"),{3:!1,5:!1,8:!1})),dt=H(_e(localStorage.getItem("playedEpisodes"),{}));Z(()=>dt.value,e=>{localStorage.setItem("playedEpisodes",JSON.stringify(e))},{deep:!0});const lt=H(_e(localStorage.getItem("playedEpisodesMost"),{}));Z(()=>lt.value,e=>{localStorage.setItem("playedEpisodesMost",JSON.stringify(e))},{d
+
+=== device_id @ 207498 ===
+auth_key||t.auth_secret)return;const n=await Dn.post("/h5-api/anonymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5","anonymous_login","failed")),zt(n==null?void 0:n.data,!0),yp.some(r=>e.currentRoute.value.path.includes(
+
+=== device_id @ 207774 ===
+ath.includes(r))},vp=async e=>{try{const t=await Dn.post("/h5-api/user/logout",{device_id:pe()});(!t||!t.data)&&qe("No response data received from the server"),zt(t.data),window.location.href=e||"/"}catch{qe("éåºç»å½å¤±è´¥ï¼è¯·éè¯ã")}},_p=async()=>{try{const e=await Dn.post("/h
+
+=== device_id @ 208003 ===
+è¯·éè¯ã")}},_p=async()=>{try{const e=await Dn.post("/h5-api/user/logoff",{device_id:pe()});(!e||!e.data)&&qe("No response data received from the server"),zt(e.data)}catch{qe("æ³¨éç»å½å¤±è´¥ï¼è¯·éè¯ã")}},Ep=async(e,t,n,r)=>{try{const o=ui(),i={type:e,...e==="facebook"?{is_l
+

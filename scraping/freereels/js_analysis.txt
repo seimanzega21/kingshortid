@@ -1,0 +1,24 @@
+﻿
+=== awave.com/frontend_static/assets/index-cIdzrkvA.js ===
+  pos=11088: rPolicy&&(s.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?s.credentials="include":o.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(o){if(o.ep)return;o.ep=!0;const s=n(o);fetch(o.href,s)}})();const la="modulepreload",ua=function(e){return"
+
+  pos=204336: -5 py-4"},lp={class:"font-bold text-lg mb-4"},up={class:"text-sm mb-5"},dp={class:"flex flex-col gap-3"},fp=de({__name:"anonymous-dialog",props:{title:{},message:{},confirmText:{},cancelText:{},onConfirm:{type:Function,default:()=>{}},onClose:{type:Function,default:()=>{}}},setup(e){const t=e;return
+
+  pos=207480: /recharge-success"],wp=async()=>{const e=pr(),t=wt();if(t.auth_key||t.auth_secret)return;const n=await Dn.post("/h5-api/anonymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5","anonymous_login","failed")),zt(n==null?void 0:n.data,!0)
+
+  pos=207604: ymous/login",{device_id:pe()}).catch(()=>null);(!n||!n.data)&&(qe("No response data received from the server"),ut("h5","anonymous_login","failed")),zt(n==null?void 0:n.data,!0),yp.some(r=>e.currentRoute.value.path.includes(r))},vp=async e=>{try{const t=await Dn.post("/h5-api/user/logout",{device_id:
+
+  pos=209660: ssName:"p-0"})}else zt(a.data),r&&r(),n&&(window.location.href=n)}catch(o){qe(`${e} login error: ${o}`)}},xp=()=>({loginAnonymous:wp,login:Ep,loginOut:vp,loginOff:_p}),Js=H(ft()),Ks=H(ft()),sr=H(_e(localStorage.getItem("reported358"),{3:!1,5:!1,8:!1})),dt=H(_e(localStorage.getItem("playedEpisodes"),
+
+  pos=218450: >_(()=>import("./player-page-B-ycxb0F.js"),__vite__mapDeps([271,248,2])))])]),En("/free-app/"),En("/")])],Ip=wi(),{loginAnonymous:Dp}=xp(),{clearStorage:Cp}=Pp(),Fr=vi({history:Ip,routes:Lp});Fr.beforeEach((e,t,n)=>{const r=wt();if(["/","/novel","/novel/my-list","/novel/store","/novel/profile","/set
+
+  [hmac]: ),L.prototype.finalize.call(this)}};var F=z();F.md5=F,F.md5.hmac=N(),a?e.exports=F:o.md5=F})()})(Di);var br=Di.exports;const pe=()=>{const e=location.hostname,t=e.substring(e.indexOf(".")+1);let n=he.get("k_device_hash");return n?(he.set("k_device_ha
+
+  [appSecret]: st Ir=()=>{const e=JSON.parse(he.get("params")??"{}");if(!e.appSecret||!e.secret||!e.key)return;const t=`${e.appSecret}&${e.secret}`;return`oauth_signature=${br.md5(t)},oauth_token=${e.key},ts=${new Date().getTime()}`},qs=()=>{const e=Date.now(),t=JS
+
+  [signature]: ey)return;const t=`${e.appSecret}&${e.secret}`;return`oauth_signature=${br.md5(t)},oauth_token=${e.key},ts=${new Date().getTime()}`},qs=()=>{const e=Date.now(),t=JSON.parse(he.get("auth_params")??"{}"),r=br.md5(`8IAcbWyCsVhYv82S2eofRqK1DF3nNDAv&${t.a
+
+  [oauth_token]: appSecret}&${e.secret}`;return`oauth_signature=${br.md5(t)},oauth_token=${e.key},ts=${new Date().getTime()}`},qs=()=>{const e=Date.now(),t=JSON.parse(he.get("auth_params")??"{}"),r=br.md5(`8IAcbWyCsVhYv82S2eofRqK1DF3nNDAv&${t.auth_secret}`);return Re
+
+
+=== wave.com/frontend_static/assets/v-deps-Cc3clAnd.js ===

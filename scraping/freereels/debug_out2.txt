@@ -1,0 +1,21 @@
+﻿Logged in: user=36670638591 key=bCfZiJfg...
+
+=== Tab 28 (popular) feed ===
+Code: 400 | Data keys: []
+Items: 0
+
+=== Exploring Catalog Endpoints ===
+  POST /drama/list -> ?: 
+  POST /drama/page -> ?: 
+  POST /drama/search -> ?: 
+  POST /category/drama -> ?: 
+  POST /category/list -> ?: 
+  POST /channel/list -> ?: 
+  POST /drama/category/list -> ?: 
+  POST /homepage/drama/list -> ?: 
+  POST /drama/filter/list -> ?: 
+
+=== Drama search with dubbed filter ===
+  ['page', 'page_size', 'language_type', 'dubbed'] -> ?: 
+  ['page', 'page_size', 'label'] -> ?: 
+  ['page', 'page_size', 'audio_type'] -> ?: 
