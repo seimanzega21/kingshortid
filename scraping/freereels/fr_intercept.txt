@@ -1,0 +1,14 @@
+﻿=== FreeReels Network Intercept ===
+Navigating to FreeReels...
+Captured 0 API calls so far
+
+Looking for Dubbed tab...
+
+Total captured API calls: 0
+Total series IDs found: 0
+
+All captured API calls:
+
+Series IDs: []
+
+Saved ΓåÆ fr_captured.json

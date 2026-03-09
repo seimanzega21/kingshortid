@@ -1,0 +1,73 @@
+﻿FR Login: key=9OSZ5T3l... uid=37033804799
+
+=== Test 1: drama/info with alphanumeric IDs ===
+  series_id=Cdg4Th1kpv: code=? msg=
+  series_id=8hX52C1Do1: code=? msg=
+
+=== Test 2: Tab 514 (Dubbed) Feed ΓÇö All Methods ===
+  AES {'tab_key': '514'} ΓåÆ 400 [0 items]
+  AES {'tab_key': '514', 'page': 1, 'page_size': 20} ΓåÆ 400 [0 items]
+  AES {'tab_key': '514', 'page': 0, 'page_size': 20} ΓåÆ 400 [0 items]
+  AES {'tab_key': 514, 'page': 1, 'page_size': 20} ΓåÆ 400 [0 items]
+  AES {'tab_key': '514', 'page_num': 1, 'page_size': 20} ΓåÆ 400 [0 items]
+  AES {'tab_key': '514', 'page': 1, 'page_size': 20, 'module_key': '1'} ΓåÆ 400 [0 items]
+  AES {'tab_key': '514', 'index': 1, 'size': 20} ΓåÆ 400 [0 items]
+  AES {'id': '514', 'page': 1, 'page_size': 20} ΓåÆ 400 [0 items]
+
+=== Test 3: Explore other FR endpoints ===
+  POST /drama/list: code=? items=0
+  POST /drama/list: code=? items=0
+  POST /drama/recommend: code=? items=0
+  POST /drama/recommend: code=? items=0
+  POST /category/list: code=? items=0
+  POST /category/list: code=? items=0
+  POST /homepage/v2/page: code=? items=0
+  POST /homepage/v2/page: code=? items=0
+
+=== Test 4: Tab Index (might need before tab/feed) ===
+  tab/index tab_key=514: code=400 data=
+
+=== Test 5: Try as web/H5 client ===
+python : Traceback (most recent call last):
+At line:1 char:39
++ ... kingshortid\scraping\freereels; python 
+test_freereels.py 2>&1 | Out-F ...
++                                     
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most 
+r    ecent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python31
+1\Lib\site-packages\requests\models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python31
+1\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python31
+1\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python31
+1\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) 
+from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 
+1 (char 0)
+
+During handling of the above exception, another exception 
+occurred:
+
+Traceback (most recent call last):
+  File "D:\kingshortid\scraping\freereels\test_freereels.py", 
+line 132, in <module>
+    web_d = (dec(r_web.text) or r_web.json() or 
+{}).get('data', {})
+                                ^^^^^^^^^^^^
+  File "C:\Users\Seiman\AppData\Local\Programs\Python\Python31
+1\Lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 
+column 1 (char 0)

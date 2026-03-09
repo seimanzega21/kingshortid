@@ -1,0 +1,44 @@
+﻿=== Scanning free-reels.com pages ===
+
+https://free-reels.com/ ΓåÆ 200 (final: https://free-reels.com/)
+  Drama IDs found: []
+  API URLs found: []
+  JS bundles: ['/assets/main-BXesX3WP.js', '/assets/vue-deps-DcgA4AEL.js', '/assets/client-track-Bn1RnvWB.js']
+
+https://www.free-reels.com/ ΓåÆ 200 (final: https://www.free-reels.com/login)
+  Drama IDs found: []
+  API URLs found: ['http://www.free-reels.com/static/components/react/react-dom.min.js', 'http://www.free-reels.com/static/components/jquery/jquery.min.js', 'http://www.free-reels.com/static/components/bootstrap/css/bootstrap.css', 'http://www.free-reels.com/static/components/bootstrap/js/bootstrap.min.js', 'http://www.free-reels.com/static/logo.png']
+  JS bundles: ['http://www.free-reels.com/static/components/jquery/jquery.min.js', 'http://www.free-reels.com/static/components/bootstrap/js/bootstrap.min.js', 'http://www.free-reels.com/static/components/react/react.min.js']
+
+https://m.free-reels.com/ ΓåÆ 200 (final: https://m.free-reels.com/)
+  Drama IDs found: []
+  API URLs found: []
+  JS bundles: ['/assets/main-BXesX3WP.js', '/assets/vue-deps-DcgA4AEL.js', '/assets/client-track-Bn1RnvWB.js']
+
+FR API Login: key=YKWKpCgZ...
+
+=== Scan ALL possible drama collection endpoints ===
+  GET /drama/list: code=? items=0 msg=
+  POST /drama/list: code=? items=0 msg=
+  GET /drama/hot: code=? items=0 msg=
+  POST /drama/hot: code=? items=0 msg=
+  GET /drama/new: code=? items=0 msg=
+  POST /drama/new: code=? items=0 msg=
+  GET /drama/category: code=? items=0 msg=
+  POST /drama/category: code=? items=0 msg=
+  GET /drama/category/list: code=? items=0 msg=
+  POST /drama/category/list: code=? items=0 msg=
+  GET /drama/search: code=? items=0 msg=
+  POST /drama/search: code=? items=0 msg=
+  GET /homepage/v2/tab/content: code=? items=0 msg=
+  POST /homepage/v2/tab/content: code=? items=0 msg=
+  GET /homepage/v2/home: code=? items=0 msg=
+  POST /homepage/v2/home: code=? items=0 msg=
+  GET /homepage/v2/page/list: code=? items=0 msg=
+  POST /homepage/v2/page/list: code=? items=0 msg=
+  GET /category/drama/list: code=? items=0 msg=
+  POST /category/drama/list: code=? items=0 msg=
+  GET /drama/dubbing/list: code=? items=0 msg=
+  POST /drama/dubbing/list: code=? items=0 msg=
+  GET /content/list: code=? items=0 msg=
+  POST /content/list: code=? items=0 msg=
