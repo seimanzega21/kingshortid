@@ -1,0 +1,24 @@
+﻿DW Login: key=bCfZiJfg...
+FR Login: key=9OSZ5T3l...
+
+=== Test drama/view with valid alphanumeric series_ids ===
+
+--- series_id=Cdg4Th1kpv ---
+  DW drama/view {'series_id': 'Cdg4Th1kpv'} -> code=400 msg=Invalid parameters
+  DW drama/view {'series_id': 'Cdg4Th1kpv', 'audiotrack_language': 'id-ID'} -> code=400 msg=Invalid parameters
+  DW drama/view {'series_id': 'Cdg4Th1kpv', 'audiotrack_language': 'id'} -> code=400 msg=Invalid parameters
+  FR drama/info -> code=?
+
+--- series_id=8hX52C1Do1 ---
+  DW drama/view {'series_id': '8hX52C1Do1'} -> code=400 msg=Invalid parameters
+  DW drama/view {'series_id': '8hX52C1Do1', 'audiotrack_language': 'id-ID'} -> code=400 msg=Invalid parameters
+  DW drama/view {'series_id': '8hX52C1Do1', 'audiotrack_language': 'id'} -> code=400 msg=Invalid parameters
+  FR drama/info -> code=?
+
+=== DramaWave drama/info GET ===
+  series_id=Cdg4Th1kpv: code=200
+  Title: Bertahan Hidup di Sekolah Elite(Sulih Suara)
+  Episodes in info: 70
+  series_id=8hX52C1Do1: code=200
+  Title: Terbangun sebagai Suami Terburuknya(Sulih Suara)
+  Episodes in info: 60

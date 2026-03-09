@@ -1,0 +1,24 @@
+﻿Existing dubbed IDs: 2
+
+Navigating to https://m.mydramawave.com/...
+
+Navigating to https://m.mydramawave.com/free-app/...
+
+Searching: https://m.mydramawave.com/search?q=sulih+suara
+
+Searching: https://m.mydramawave.com/free-app/search?keyword=sulih+suara
+
+Searching: https://m.mydramawave.com/search?q=dubbing
+
+Searching: https://m.mydramawave.com/free-app/search?keyword=dubbing
+
+Searching: https://m.mydramawave.com/search?q=sulih
+
+Searching: https://m.mydramawave.com/free-app/search?keyword=sulih
+
+
+Total IDs found: 2
+New IDs (not yet validated): 0
+Saved raw IDs ΓåÆ raw_series_ids.txt
+
+Next: run discover_dramas.py with --input raw_series_ids.txt to validate
