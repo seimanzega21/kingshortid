@@ -88,7 +88,10 @@ app.get('/.well-known/assetlinks.json', (c) => {
                 namespace: 'android_app',
                 package_name: 'id.kingshort.mobile',
                 sha256_cert_fingerprints: [
+                    // Upload key (sideloaded / debug builds)
                     '0D:DC:20:6C:99:2F:78:C5:7E:1A:1B:3C:CB:1E:22:62:D5:34:17:EF:96:BD:84:69:9C:E6:EB:E2:6B:E0:AD:98',
+                    // Google Play app signing key (production Play Store installs)
+                    'EB:42:05:68:00:EE:8C:81:74:3B:C4:71:CC:78:21:1B:92:EB:0C:BC:53:8B:DA:9D:94:FC:D5:9D:AE:28:F1:7E',
                 ],
             },
         },
