@@ -43,7 +43,17 @@ app.use('*', async (c, next) => {
 
 // Global middleware
 app.use('*', cors({
-    origin: '*',
+    origin: (origin) => {
+        const allowed = [
+            'https://shortlovers.id',
+            'https://www.shortlovers.id',
+            'https://admin.shortlovers.id',
+            'https://kingshort.id',
+        ];
+        // Allow mobile app (no origin) and known web origins
+        if (!origin || allowed.includes(origin)) return origin || '';
+        return '';
+    },
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
 }));

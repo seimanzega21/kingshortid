@@ -23,7 +23,14 @@ fi
 
 cd "$REPO_DIR/cf-backend"
 
-# 2. Build & run
+# 2. Validasi .env.production ada sebelum deploy
+if [ ! -f ".env.production" ]; then
+    echo "❌ ERROR: .env.production tidak ditemukan!"
+    echo "   Salin .env.example ke .env.production dan isi semua nilai."
+    exit 1
+fi
+
+# 3. Build & run (satu kali saja)
 echo "🐳 Building Docker image..."
 docker compose build --no-cache
 
@@ -32,21 +39,6 @@ docker compose up -d
 
 echo ""
 echo "✅ Deploy selesai!"
-echo "   API: http://$(hostname -I | awk '{print $1}'):3000/health"
-echo ""
-docker compose ps
-
-
-# 3. Build & run
-echo "🐳 Building Docker image..."
-docker compose build --no-cache
-
-echo "🟢 Starting container..."
-docker compose up -d
-
-echo ""
-echo "✅ Deploy selesai!"
-echo "   API: http://$(hostname -I | awk '{print $1}'):3000"
 echo "   Health: curl http://localhost:3000/health"
 echo ""
 docker compose ps

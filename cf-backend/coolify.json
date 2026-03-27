@@ -1,0 +1,25 @@
+{
+  "coolify": {
+    "version": "1.0",
+    "comment": "Coolify auto-deploy config. Connect repo di Coolify dashboard dan set webhook.",
+    "buildPack": "dockerfile",
+    "dockerfilePath": "cf-backend/Dockerfile",
+    "buildContext": "cf-backend",
+    "port": 3000,
+    "healthCheckPath": "/health",
+    "startInBackground": true,
+    "autoDeployOnPush": true,
+    "branch": "main",
+    "envVarsFromCoolifyDashboard": [
+      "PORT",
+      "NODE_ENV",
+      "JWT_SECRET",
+      "ADMIN_API_KEY",
+      "FIREBASE_SERVICE_ACCOUNT",
+      "SUPABASE_URL",
+      "SUPABASE_DB_PASSWORD",
+      "DATABASE_URL"
+    ]
+  },
+  "note": "Setelah setup ini, setiap `git push origin main` akan trigger auto-deploy di Coolify. Tidak perlu SSH atau deploy.sh manual."
+}

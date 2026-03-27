@@ -353,4 +353,31 @@ adminRoute.post('/users/bulk-delete', async (c) => {
     }
 });
 
+// ==================== UPDATE DRAMA ====================
+adminRoute.patch('/dramas/:id', async (c) => {
+    try {
+        const id = c.req.param('id');
+        const body = await c.req.json();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        const updateData: Record<string, any> = { updatedAt: new Date() };
+        if (body.genres !== undefined) updateData.genres = body.genres;
+        if (body.title !== undefined) updateData.title = body.title;
+        if (body.description !== undefined) updateData.description = body.description;
+        if (typeof body.isActive === 'boolean') updateData.isActive = body.isActive;
+        if (typeof body.isVip === 'boolean') updateData.isVip = body.isVip;
+
+        const [updated] = await db.update(dramas)
+            .set(updateData)
+            .where(eq(dramas.id, id))
+            .returning({ id: dramas.id, title: dramas.title, genres: dramas.genres });
+
+        if (!updated) return c.json({ error: 'Drama not found' }, 404);
+        return c.json(updated);
+    } catch (error) {
+        console.error('Admin update drama error:', error);
+        return c.json({ error: 'Failed to update drama' }, 500);
+    }
+});
+
 export default adminRoute;

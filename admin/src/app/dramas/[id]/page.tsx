@@ -57,7 +57,7 @@ export default function DramaDetailPage() {
     const fetchData = async () => {
         try {
             const [resDrama, resCats] = await Promise.all([
-                fetch(`/api/dramas/${id}`),
+                fetch(`/api/dramas/${id}?includeInactive=true`),
                 fetch(`/api/categories`),
             ]);
             const dataDrama = await resDrama.json();

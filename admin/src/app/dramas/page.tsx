@@ -35,12 +35,14 @@ function CoverImage({ cover, title }: { cover: string; title: string }) {
     const initial = title?.charAt(0)?.toUpperCase() || '?';
     const colorIdx = title ? title.charCodeAt(0) % coverColors.length : 0;
 
+    // Support both absolute URLs (https://...) and relative URLs (/api/uploads/...)
+    const isValidCover = cover && (cover.startsWith('http') || cover.startsWith('/'));
     // Add cache-bust to force CDN to serve fresh WebP (not old cached HEIC)
-    const imgSrc = cover && cover.startsWith('http')
+    const imgSrc = isValidCover
         ? (cover.includes('?') ? `${cover}&v=2` : `${cover}?v=2`)
         : cover;
 
-    if (!cover || !cover.startsWith('http') || failed) {
+    if (!isValidCover || failed) {
         return (
             <div className={`w-[48px] h-[72px] rounded-lg overflow-hidden flex-shrink-0 ring-1 ring-white/5 bg-gradient-to-br ${coverColors[colorIdx]} flex items-center justify-center`}>
                 <span className="text-white/90 text-lg font-bold">{initial}</span>

@@ -2,7 +2,9 @@ import jwt from 'jsonwebtoken';
 import { NextRequest } from 'next/server';
 import prisma from './prisma';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) throw new Error('[ENV] JWT_SECRET is required. Set it in environment variables.');
+
 
 export interface JWTPayload {
     id: string;

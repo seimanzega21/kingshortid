@@ -29,8 +29,8 @@ dramasRoute.post('/', async (c) => {
             return c.json({ error: 'Description too short (min 10 chars)' }, 400);
         }
 
-        // Check cover URL (skip for R2 URLs - we control those uploads)
-        if (cover && !cover.includes('.r2.dev') && !cover.includes('.r2.cloudflarestorage.com')) {
+        // Check cover URL (skip for R2/CDN URLs - we control those uploads)
+        if (cover && !cover.includes('.r2.dev') && !cover.includes('.r2.cloudflarestorage.com') && !cover.includes('shortlovers.id') && !cover.includes('mydramawave.com')) {
             try {
                 const resp = await fetch(cover, { method: 'HEAD', signal: AbortSignal.timeout(10000) });
                 if (!resp.ok) return c.json({ error: 'Cover URL is not accessible' }, 400);

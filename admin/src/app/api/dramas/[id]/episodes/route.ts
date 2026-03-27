@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-// GET /api/dramas/[id]/episodes — List episodes from Supabase
+// GET /api/dramas/[id]/episodes — List all episodes for a drama
 export async function GET(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
@@ -9,26 +9,17 @@ export async function GET(
     try {
         const { id } = await params;
 
-        const episodes = await prisma.episode.findMany({
-            where: { dramaId: id },
-            orderBy: { episodeNumber: 'asc' },
-            select: {
-                id: true,
-                episodeNumber: true,
-                title: true,
-                description: true,
-                thumbnail: true,
-                videoUrl: true,
-                duration: true,
-                views: true,
-                isVip: true,
-                coinPrice: true,
-                isActive: true,
-                createdAt: true,
-            },
-        });
+        // Use raw query for reliable episode fetching
+        const episodes: any[] = await prisma.$queryRaw`
+            SELECT id, "episodeNumber", title, description, thumbnail,
+                   "videoUrl", duration, views, "isVip", "coinPrice",
+                   "isActive", "createdAt"
+            FROM "Episode" 
+            WHERE "dramaId" = ${id}
+            ORDER BY "episodeNumber" ASC
+        `;
 
-        return NextResponse.json({ episodes, total: episodes.length });
+        return NextResponse.json({ episodes, total: episodes.length, _version: 'raw_v2' });
     } catch (error) {
         console.error('Get episodes error:', error);
         return NextResponse.json(

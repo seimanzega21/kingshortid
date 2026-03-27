@@ -2,9 +2,16 @@
  * Environment adapter — replaces Cloudflare `c.env.X` with `process.env.X`
  * Used by VPS deployment (Bun/Node), not by Cloudflare Workers.
  */
+
+function requireEnv(key: string): string {
+    const value = process.env[key];
+    if (!value) throw new Error(`[ENV] Required environment variable "${key}" is not set. Check .env.production.`);
+    return value;
+}
+
 export const serverEnv = {
     get JWT_SECRET() {
-        return process.env.JWT_SECRET || 'fallback-secret-key';
+        return requireEnv('JWT_SECRET');
     },
     get SUPABASE_URL() {
         return process.env.SUPABASE_URL || '';

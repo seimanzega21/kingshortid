@@ -21,20 +21,6 @@ export async function GET(
                         reviews: true,
                     },
                 },
-                episodes: {
-                    orderBy: { episodeNumber: 'asc' },
-                    select: {
-                        id: true,
-                        episodeNumber: true,
-                        title: true,
-                        videoUrl: true,
-                        duration: true,
-                        views: true,
-                        isVip: true,
-                        isActive: true,
-                        createdAt: true,
-                    },
-                },
             },
         });
 
@@ -45,7 +31,16 @@ export async function GET(
             );
         }
 
-        return NextResponse.json(drama);
+        // Fetch episodes using raw query (workaround for Prisma include issue)
+        const episodes = await prisma.$queryRaw`
+            SELECT id, "episodeNumber", title, "videoUrl", duration, views, 
+                   "isVip", "isActive", "createdAt"
+            FROM "Episode" 
+            WHERE "dramaId" = ${id}
+            ORDER BY "episodeNumber" ASC
+        `;
+
+        return NextResponse.json({ ...drama, episodes });
     } catch (error) {
         console.error('Get drama error:', error);
         return NextResponse.json(
@@ -76,6 +71,11 @@ export async function PATCH(
             if (body[field] !== undefined) {
                 updateData[field] = body[field];
             }
+        }
+
+        // Auto-sync banner when cover is updated but banner not explicitly set
+        if (updateData.cover && !updateData.banner) {
+            updateData.banner = updateData.cover;
         }
 
         const drama = await prisma.drama.update({
