@@ -79,6 +79,25 @@ app.get('/delete-account', (c) => {
     return c.html(deleteAccountHtml);
 });
 
+// Android App Links verification (Digital Asset Links)
+app.get('/.well-known/assetlinks.json', (c) => {
+    return c.json([
+        {
+            relation: ['delegate_permission/common.handle_all_urls'],
+            target: {
+                namespace: 'android_app',
+                package_name: 'id.kingshort.mobile',
+                sha256_cert_fingerprints: [
+                    '0D:DC:20:6C:99:2F:78:C5:7E:1A:1B:3C:CB:1E:22:62:D5:34:17:EF:96:BD:84:69:9C:E6:EB:E2:6B:E0:AD:98',
+                ],
+            },
+        },
+    ], 200, {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, max-age=86400',
+    });
+});
+
 // Health check
 app.get('/', (c) => c.json({
     status: 'ok',
