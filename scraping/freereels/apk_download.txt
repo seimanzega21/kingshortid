@@ -1,0 +1,10 @@
+﻿Trying: https://d.apkpure.com/b/APK/com.freereels.app?version=latest
+  Status: 403, Content-Type: text/html; charset=UTF-8
+Trying: https://d.apkpure.com/b/APK/com.freereels.app?version=2.2.10
+  Status: 403, Content-Type: text/html; charset=UTF-8
+Trying: https://apkpure.com/freereels-dramas-reels/com.freereels.app/APK
+  Status: 403, Content-Type: text/html; charset=UTF-8
+
+All sources failed. Manual download needed.
+Open: https://apkpure.com/freereels-dramas-reels/com.freereels.app
+Click Download APK, save to: d:/kingshortid/scraping/freereels/freereels.apk

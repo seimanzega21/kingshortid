@@ -1,0 +1,276 @@
+{
+  "id": "cCi7WrOhwX",
+  "name": "My Taboo Crush on My Stepbrother",
+  "desc": "Rebellious heir Aiden and spirited Vivian become step-siblings. From rivalry to a passionate entanglement, they navigate forbidden love amid family trauma, societal pressure, and school bullying.",
+  "labels": "",
+  "series_tag": [
+    "Romance",
+    "Forbidden Love",
+    "Taboo",
+    "Bullying",
+    "Step Siblings",
+    "Family",
+    "High School",
+    "Female",
+    "Steamy",
+    "Passionate"
+  ],
+  "content_tags": [
+    "Enemies to Lovers",
+    "Serendipity"
+  ],
+  "cover": "https://static-v1.mydramawave.com/vt/prod/cover/bc22eaf9-1ef8-4864-9348-23b1a9d55393.jpg?image_process=quality,85/resize,w_600/format,webp",
+  "episode_count": 59,
+  "view_count": 28659277,
+  "follow_count": 212404,
+  "comment_count": 648,
+  "comment_switch": false,
+  "finish_status": 2,
+  "listing_status": 3,
+  "view_episode": 1,
+  "start_episode": 1,
+  "following": false,
+  "episode_price": 50,
+  "lang": "",
+  "pay_mode": "IAP",
+  "free": false,
+  "episode": {
+    "id": "293VVfBg4c",
+    "name": "My Taboo Crush on My Stepbrother",
+    "cover": "https://static-v1.mydramawave.com/vt/video/cover/episode/42b5e3caa99b43228620506bbd94dc09.jpg?image_process=quality,85/resize,w_600/format,webp",
+    "video_url": "",
+    "m3u8_url": "",
+    "external_audio_h264_m3u8": "https://video-v6.mydramawave.com/vt/b8c884f8-25b3-4f8e-8499-1dea65586ccd/h264-326ead8d-c87b-4773-af24-09b675877638-v3.m3u8",
+    "external_audio_h265_m3u8": "https://video-v6.mydramawave.com/vt/b8c884f8-25b3-4f8e-8499-1dea65586ccd/h265-326ead8d-c87b-4773-af24-09b675877638-v3.m3u8",
+    "subtitle_list": [
+      {
+        "language": "ta-IN",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/38ce2b24-a96c-47e2-aad2-89b955192cac.srt",
+        "display_name": "Tamil"
+      },
+      {
+        "language": "cs-CZ",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/db235fa6-b5cd-41a8-9829-f875ddbce078.srt",
+        "display_name": "Czech"
+      },
+      {
+        "language": "en-US",
+        "type": "original",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/a03472d5-e3d2-4f82-a5dc-9c638ac5b87b.srt",
+        "display_name": "English"
+      },
+      {
+        "language": "pl-PL",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/f3c3ba5c-ff36-4317-9463-6d5707e11e73.srt",
+        "display_name": "Polish"
+      },
+      {
+        "language": "te-IN",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/4a5aade5-178a-4761-b28e-4b9a6ce2befb.srt",
+        "display_name": "Telugu"
+      },
+      {
+        "language": "ro-RO",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/075c7673-843f-4b49-b50a-3c718d93a69c.srt",
+        "display_name": "Romanian"
+      },
+      {
+        "language": "bn-BD",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/343ae7a8-6b4f-45a4-a4d9-6accff47ff79.srt",
+        "display_name": "Bengali"
+      },
+      {
+        "language": "es-MX",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/7b9b997a-55c8-492f-ab57-86d11d3e696d.srt",
+        "display_name": "Spanish"
+      },
+      {
+        "language": "pt-PT",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/dc26086c-7c76-44cc-837b-053c71647cf1.srt",
+        "display_name": "Portuguese"
+      },
+      {
+        "language": "id-ID",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/29fbdb46-0b80-418e-a2cd-f0f30ea32580.srt",
+        "display_name": "Indonesian"
+      },
+      {
+        "language": "de-DE",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/9bc98481-7c1a-407b-9042-051f43f891cd.srt",
+        "display_name": "German"
+      },
+      {
+        "language": "fr-FR",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/e3492bb1-e3ca-412f-b4bf-f08105a6f711.srt",
+        "display_name": "French"
+      },
+      {
+        "language": "ru-RU",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/84410b6c-5aa0-46d4-a188-00f2ce0e744c.srt",
+        "display_name": "Russian"
+      },
+      {
+        "language": "it-IT",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/ea54856d-92fe-4955-9aa4-c26bb884e267.srt",
+        "display_name": "Italian"
+      },
+      {
+        "language": "tr-TR",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/124968ec-a2f9-4ca5-a283-bf3c4f4eb709.srt",
+        "display_name": "Turkish"
+      },
+      {
+        "language": "ja-JP",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/f1146622-7d51-45c8-8956-894531d6fca8.srt",
+        "display_name": "Japanese"
+      },
+      {
+        "language": "ko-KR",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/518e4952-8d26-497c-b3fc-b911eed0d2a3.srt",
+        "display_name": "Korean"
+      },
+      {
+        "language": "th-TH",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/595f27e0-718b-4b58-928a-0df0ecace176.srt",
+        "display_name": "Thai"
+      },
+      {
+        "language": "vi-VN",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/c54e58b5-6ec2-4e51-b348-5ce44ceb05cb.srt",
+        "display_name": "Vietnamese"
+      },
+      {
+        "language": "tl-PH",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/cb4dc338-bc3c-49c4-b678-db5e6a8b8070.srt",
+        "display_name": "Filipino"
+      },
+      {
+        "language": "ms-MY",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/e01665de-2edd-4315-93a2-a3482188e746.srt",
+        "display_name": "Malay"
+      },
+      {
+        "language": "zh-TW",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/e53e1eef-9bd8-40c7-9a45-b59bea123bcf.srt",
+        "display_name": "Traditional Chinese"
+      },
+      {
+        "language": "hi-IN",
+        "type": "normal",
+        "subtitle": "https://video-v6.mydramawave.com/vt/15548/92308507-b898-441b-94ba-11fe73a3c21b.srt",
+        "display_name": "Hindi"
+      }
+    ],
+    "region": null,
+    "audio": [
+      "en-US",
+      "zh-CN",
+      "zh-TW",
+      "ja-JP",
+      "ko-KR",
+      "es-MX",
+      "pt-PT",
+      "fr-FR",
+      "id-ID",
+      "ru-RU",
+      "de-DE",
+      "vi-VN",
+      "it-IT",
+      "tr-TR",
+      "ms-MY",
+      "th-TH",
+      "tl-PH",
+      "hi-IN",
+      "ar-SA",
+      "yue"
+    ],
+    "original_audio_language": "en-US",
+    "index": 1,
+    "unlock": true,
+    "h5_available": true,
+    "duration": 158,
+    "episode_price": 50,
+    "video_type": "free",
+    "new": false,
+    "update_time": 1772441162,
+    "playload": "{\"series_id\":77890,\"episode_id\":185643373}",
+    "user_unlocked": false,
+    "serialize_pub_status": 0,
+    "highlight_pub_status": 0,
+    "is_blooper": false,
+    "trans_resolution": "1080x1920,720x1280,540x960,480x854,360x640"
+  },
+  "color_style": {
+    "background": 4284628001,
+    "button": 4289487919,
+    "font": 1722573871
+  },
+  "hot_score": "856.2K",
+  "performers": [
+    {
+      "name": "Frankie Stofan"
+    },
+    {
+      "name": "Armand Procacci"
+    },
+    {
+      "name": "Rieschel Nieboer"
+    }
+  ],
+  "vip_type": 0,
+  "listing_time": 1761667200,
+  "resource_type": 1,
+  "original_audio_language": "en-US",
+  "release_round": 1,
+  "pay_index": 11,
+  "orientation": 1,
+  "blooper_title": "Konten eksklusif di balik layar hanya untuk VIP.",
+  "first_ep_keys": [
+    "id",
+    "name",
+    "cover",
+    "video_url",
+    "m3u8_url",
+    "external_audio_h264_m3u8",
+    "external_audio_h265_m3u8",
+    "subtitle_list",
+    "region",
+    "audio",
+    "original_audio_language",
+    "index",
+    "unlock",
+    "h5_available",
+    "duration",
+    "episode_price",
+    "video_type",
+    "new",
+    "update_time",
+    "playload",
+    "user_unlocked",
+    "serialize_pub_status",
+    "highlight_pub_status",
+    "is_blooper",
+    "trans_resolution"
+  ]
+}
