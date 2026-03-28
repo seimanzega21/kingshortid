@@ -1,64 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
 
-// GET /api/users/[id] — Get user detail from Supabase
+const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
+
+// GET /api/users/[id]
 export async function GET(
-    request: NextRequest,
+    _request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const { id } = await params;
-        const user = await prisma.user.findUnique({
-            where: { id },
-            include: {
-                _count: {
-                    select: {
-                        watchHistory: true,
-                        favorites: true,
-                        watchlist: true,
-                        comments: true,
-                        reviews: true,
-                        coinTransactions: true,
-                    },
-                },
-                watchHistory: {
-                    orderBy: { watchedAt: 'desc' },
-                    take: 5,
-                    select: {
-                        dramaId: true,
-                        episodeNumber: true,
-                        progress: true,
-                        watchedAt: true,
-                        drama: {
-                            select: { title: true, cover: true },
-                        },
-                    },
-                },
-            },
+        const res = await fetch(`${BACKEND}/admin/users/${id}`, {
+            headers: { 'X-Admin-Key': ADMIN_KEY },
         });
-
-        if (!user) {
-            return NextResponse.json(
-                { message: 'User not found' },
-                { status: 404 }
-            );
-        }
-
-        return NextResponse.json({
-            ...user,
-            recentHistory: user.watchHistory,
-            watchHistory: undefined,
-        });
+        const data = await res.json();
+        return NextResponse.json(data, { status: res.status });
     } catch (error) {
         console.error('Get user error:', error);
-        return NextResponse.json(
-            { message: 'Failed to fetch user' },
-            { status: 500 }
-        );
+        return NextResponse.json({ message: 'Failed to fetch user' }, { status: 500 });
     }
 }
 
-// PATCH /api/users/[id] — Update user
+// PATCH /api/users/[id]
 export async function PATCH(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
@@ -66,59 +29,34 @@ export async function PATCH(
     try {
         const { id } = await params;
         const body = await request.json();
-
-        // Only allow certain fields to be updated by admin
-        const allowedFields = ['name', 'role', 'isActive', 'vipStatus', 'coins'];
-        const updateData: any = {};
-        for (const field of allowedFields) {
-            if (body[field] !== undefined) {
-                updateData[field] = body[field];
-            }
-        }
-
-        const user = await prisma.user.update({
-            where: { id },
-            data: updateData,
+        const res = await fetch(`${BACKEND}/admin/users/${id}`, {
+            method: 'PATCH',
+            headers: { 'X-Admin-Key': ADMIN_KEY, 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
         });
-
-        return NextResponse.json(user);
-    } catch (error: any) {
+        const data = await res.json();
+        return NextResponse.json(data, { status: res.status });
+    } catch (error) {
         console.error('Update user error:', error);
-        if (error.code === 'P2025') {
-            return NextResponse.json(
-                { message: 'User not found' },
-                { status: 404 }
-            );
-        }
-        return NextResponse.json(
-            { message: 'Failed to update user' },
-            { status: 500 }
-        );
+        return NextResponse.json({ message: 'Failed to update user' }, { status: 500 });
     }
 }
 
-// DELETE /api/users/[id] — Delete user
+// DELETE /api/users/[id]
 export async function DELETE(
-    request: NextRequest,
+    _request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const { id } = await params;
-
-        await prisma.user.delete({ where: { id } });
-
-        return NextResponse.json({ message: 'User deleted' });
-    } catch (error: any) {
+        const res = await fetch(`${BACKEND}/admin/users/${id}`, {
+            method: 'DELETE',
+            headers: { 'X-Admin-Key': ADMIN_KEY },
+        });
+        const data = await res.json();
+        return NextResponse.json(data, { status: res.status });
+    } catch (error) {
         console.error('Delete user error:', error);
-        if (error.code === 'P2025') {
-            return NextResponse.json(
-                { message: 'User not found' },
-                { status: 404 }
-            );
-        }
-        return NextResponse.json(
-            { message: 'Failed to delete user' },
-            { status: 500 }
-        );
+        return NextResponse.json({ message: 'Failed to delete user' }, { status: 500 });
     }
 }
