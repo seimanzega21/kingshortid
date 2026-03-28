@@ -151,8 +151,13 @@ def extract_drama_metadata(drama: dict) -> dict:
         
         # Find description
         desc = ""
-        desc_matches = re.findall(r'"description"\s*:\s*"([^"]+)"', text)
-        if (desc_matches): desc = desc_matches[-1] # Usually the longest/last one
+        # Try og:description first (most reliable on Vidrama detail pages)
+        og_desc = re.findall(r'<meta property="og:description"\s*content="([^"]+)"', text)
+        if og_desc:
+            desc = og_desc[0]
+        else:
+            desc_matches = re.findall(r'"description"\s*:\s*"([^"]+)"', text)
+            if desc_matches: desc = desc_matches[-1]
         
         # Find total episodes
         total_episodes = 0
@@ -169,9 +174,16 @@ def extract_drama_metadata(drama: dict) -> dict:
             else: total_episodes = 50 # Fallback default
             
         # Find genres
-        genres = list(set(re.findall(r'"genre"\s*:\s*"([^"]+)"', text)))
+        genres = []
+        genre_matches = re.findall(r'>Genre:\s*([^<]+)</div>', text)
+        if genre_matches:
+            genres = [g.strip() for g in genre_matches[0].split(',')]
+            
+        if not genres:
+            genres = list(set(re.findall(r'"genre"\s*:\s*"([^"]+)"', text)))
         if not genres:
             genres = list(set(re.findall(r'"category_name"\s*:\s*"([^"]+)"', text)))
+            
             
         # Extact High-Quality Cover from OG Image
         og_cover = re.findall(r'<meta property="og:image"\s*content="([^"]+)"', text)
@@ -268,16 +280,26 @@ async def get_episode_video_data_async(drama_id: str, slug: str, ep_num: int) ->
         script = """
         () => {
             const v = document.querySelector('video');
-            if (v && v.src && v.src.includes('http')) return v.src;
-            if (v && v.currentSrc && v.currentSrc.includes('http')) return v.currentSrc;
-            const source = document.querySelector('video source');
-            if (source && source.src) return source.src;
-            return "";
+            let videoUrl = "";
+            if (v && v.src && v.src.includes('http')) videoUrl = v.src;
+            else if (v && v.currentSrc && v.currentSrc.includes('http')) videoUrl = v.currentSrc;
+            else {
+                const source = document.querySelector('video source');
+                if (source && source.src) videoUrl = source.src;
+            }
+            
+            let subtitleUrl = "";
+            const track = document.querySelector('video track');
+            if (track && track.src) subtitleUrl = track.src;
+            
+            return { video: videoUrl, sub: subtitleUrl };
         }
         """
-        final_url = await _page.evaluate(script)
-        if final_url and "auth_key=" in final_url:
-            result["video_url"] = final_url
+        final_data = await _page.evaluate(script)
+        if final_data and final_data.get("video") and "auth_key=" in final_data.get("video"):
+            result["video_url"] = final_data.get("video")
+            if final_data.get("sub"):
+                result["subtitle_url"] = final_data.get("sub")
             
     except Exception as e:
         log(f"  ❌ Playwright error fetching Ep {ep_num}: {str(e)[:50]}")
@@ -523,6 +545,20 @@ def push_to_backend(drama_data: dict, episodes: list) -> bool:
             er = requests.post(f"{BACKEND_URL}/episodes", json=ep_payload, timeout=10)
             if er.status_code in [200, 201]:
                 ep_ok += 1
+                try:
+                    ep_id = er.json().get("id")
+                    if ep_id and vtt_url:
+                        # Register subtitle explicitly!
+                        sub_payload = {
+                            "language": "Indonesian",
+                            "label": "Bahasa Indonesia",
+                            "url": vtt_url,
+                            "isDefault": True
+                        }
+                        requests.post(f"{BACKEND_URL}/episodes/{ep_id}/subtitles", json=sub_payload, timeout=10)
+                except Exception as e:
+                    # silently pass sub insertion failure
+                    pass
                 
         log(f"  ✅ Saved {ep_ok}/{len(episodes)} Episodes")
         return True
