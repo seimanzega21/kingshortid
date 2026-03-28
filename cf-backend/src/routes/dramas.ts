@@ -8,8 +8,14 @@ const dramasRoute = new Hono<Env>();
 
 // Helper to enrich drama with parsed arrays
 function enrichDrama(d: typeof dramas.$inferSelect) {
+    let finalCover = d.cover;
+    if (finalCover && finalCover.startsWith('/api/uploads')) {
+        finalCover = `https://admin.shortlovers.id${finalCover}`;
+    }
+
     return {
         ...d,
+        cover: finalCover,
         genres: parseJsonArray(d.genres),
         tagList: parseJsonArray(d.tagList),
         cast: parseJsonArray(d.cast),
