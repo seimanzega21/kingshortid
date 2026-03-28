@@ -591,9 +591,6 @@ def main():
         if success_eps:
             log(f"  Processed {len(success_eps)}/{total_eps} eps.")
             push_to_backend(drama, success_eps)
-            
-            log("\n✨ Halting after 1 drama is completed for User Review!")
-            break
 
         else:
             log("  No successful episodes. Skipping DB insert.")

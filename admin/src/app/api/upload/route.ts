@@ -56,29 +56,22 @@ export async function POST(request: NextRequest) {
         const bucket = process.env.R2_BUCKET_NAME || "shortlovers";
         const publicUrl = process.env.R2_PUBLIC_URL || "https://stream.shortlovers.id";
 
-        if (client) {
-            const key = `covers/${filename}`;
-            await client.send(
-                new PutObjectCommand({
-                    Bucket: bucket,
-                    Key: key,
-                    Body: buffer,
-                    ContentType: getContentType(file.name),
-                })
-            );
-
-            const url = `${publicUrl}/${key}`;
-            return NextResponse.json({ url, success: true });
+        if (!client) {
+            console.error("❌ MISTAKE: R2 Client failed to initialize. Are R2_ENDPOINT/R2_ACCESS_KEY_ID missing in .env? Please completely RESTART your Next.js terminal!");
+            return NextResponse.json({ message: "R2 Credentials missing. Please restart your Next.js Dev Server!" }, { status: 500 });
         }
 
-        // Fallback: local filesystem (admin-only, won't work on mobile)
-        const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, "_");
-        const localFilename = `${uniqueId}-${safeName}`;
-        const uploadDir = join(process.cwd(), "public", "uploads", folder);
-        await mkdir(uploadDir, { recursive: true });
-        await writeFile(join(uploadDir, localFilename), buffer);
+        const key = `dramas/covers/${filename}`;
+        await client.send(
+            new PutObjectCommand({
+                Bucket: bucket,
+                Key: key,
+                Body: buffer,
+                ContentType: getContentType(file.name),
+            })
+        );
 
-        const url = `/api/uploads/${folder}/${localFilename}`;
+        const url = `${publicUrl}/${key}`;
         return NextResponse.json({ url, success: true });
     } catch (error) {
         console.error("Upload error:", error);
