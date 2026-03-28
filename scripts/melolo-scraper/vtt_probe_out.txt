@@ -1,0 +1,216 @@
+URL: https://vidrama.asia/api/netshort/api/watch/2034897075744800770/1?lang=in
+{"cached":true,"data":{"current":1,"maxEps":76,"status":true,"subtitles":[{"lang":"id_ID","url":"https://awscdn.netshort.com/8e83dd34fe4c420cbe7d87f1bb0a5cfb?auth_key=1775216496-e1ecc2d5164d42188e8501c516dd51b5-0-851304295f61039e796b849e8c4d9b22&mime_type=text_plain&Expires=1774836902&Signature=Pmp1i5O2z2H8IzT6lkrrwBHGaKBT5RAl0ghsiAY2n-071SqK27~6zy14dqMYsw3CPh0-37XA325QcmEHiud1IhcmtngscsnJj2jqhHyYlE3FxB4OZJFTVvobuNZO4noe1orTl4BXwdZW8ApBtM0RaM5lX6X5o3OGXn4lXk-KVBAjKA~dRbPHfL~UBk3F-ShjVGIqmfHY6avdmqX4ya2GuzBaqMeByNI8FaRDN~NNSBiROv4BYUM8CiS~49jYOEmemRNpYdabUlDm2BDBpk19PNZUV1X5ounCEIHNLQjmpNGvhxTSqAdAYr9xOodLnq~bF~37Piqxh2AmJYDo0XTrZQ__&Key-Pair-Id=K15WUQYEZKHKVU"}],"videoUrl":"https://awscdn.netshort.com/o4fs8XGSgmlnIrEHCIlF7ojDLqPweE29ffAeQC?a=0&auth_key=1775906282-0e5706e29590447891d8caa4953fa228-0-b48e3be0bef860591cff71ae3d4580c4&br=897&bt=897&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=4cc763337f404315a5979d35b5d525d9&er=0&l=202603280229376799058C46C3CF99D941&lr=&mime_type=video_mp
+
+URL: https://awscdn.netshort.com/8e83dd34fe4c420cbe7d87f1bb0a5cfb?auth_key=1775216496-e1ecc2d5164d42188e8501c516dd51b5-0-851304295f61039e796b849e8c4d9b22&mime_type=text_plain&Expires=1774836902&Signature=Pmp1i5O2z2H8IzT6lkrrwBHGaKBT5RAl0ghsiAY2n-071SqK27~6zy14dqMYsw3CPh0-37XA325QcmEHiud1IhcmtngscsnJj2jqhHyYlE3FxB4OZJFTVvobuNZO4noe1orTl4BXwdZW8ApBtM0RaM5lX6X5o3OGXn4lXk-KVBAjKA~dRbPHfL~UBk3F-ShjVGIqmfHY6avdmqX4ya2GuzBaqMeByNI8FaRDN~NNSBiROv4BYUM8CiS~49jYOEmemRNpYdabUlDm2BDBpk19PNZUV1X5ounCEIHNLQjmpNGvhxTSqAdAYr9xOodLnq~bF~37Piqxh2AmJYDo0XTrZQ__&Key-Pair-Id=K15WUQYEZKHKVU
+WEBVTT
+
+00:00:00.440 --> 00:00:03.440
+(Episode 1)
+
+00:00:00.600 --> 00:00:03.880
+Sebenarnya, 
+aku Ketua Klan Saga 
+
+00:00:01.840 --> 00:00:04.080
+(Linken Saga
+Ketua Grup Saga)
+
+00:00:03.880 --> 00:00:06.000
+Pamanku 
+adalah Raja Utara 
+
+00:00:06.520 --> 00:00:09.160
+Selia, maaf aku sembunyikan semua ini
+
+00:00:09.160 --> 00:00:10.880
+Besok aku akan 
+bawa kamu pulang
+
+00:00:11.200 --> 00:00:11.840
+Bibi
+
+00:00:11.840 --> 00:00:12.640
+Anak nakal
+
+00:00:12.640 --> 00:00:14.120
+kamu sudah lama menghilang
+
+00:00:14.120 --> 00:00:15.240
+Kapan kamu pulang?
+
+00:00:15.240 --> 00:00:16.920
+Linken, ayo cepat!
+
+00:00:17.200 --> 00:00:18.000
+Besok saja
+
+00:00:18.480 --> 00:00:20.360
+Besok, aku akan memberimu kejutan
+
+00:00:24.280 --> 00:00:25.160
+Linken!
+
+00:00:25.960 --> 00:00:26.800
+Linken!
+
+00:00:27.760 --> 00:00:28.640
+Hubungi...
+
+00:00:30.960 --> 00:00:31.920
+Linken!
+
+00:00:41.760 --> 00:00:43.720
+Tuan Linken 
+akan kembali besok 
+
+00:00:44.440 --> 00:00:48.360
+(Mika Saga
+Perwakilan Grup Saga)
+
+0
+
+URL: https://vidrama.asia/movie/gejolak-keluarga-konglomerat--2034897075744800770?_rsc=1leok
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/70dcc6582f443f8a.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/70dcc6582f443f8a.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+0:{"b":"q8V-N9NiCpE27LUS_EPf1","f":[[["",{"children":["movie",{"children":[["slug","gejolak-keluarga-konglomerat--2034897075744800770","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],null,["$","$1","h",{"children":[null,["$","$L2","o98AxyuH3HFvAKnjd3w9Dv",{"children":"$L3"}],["$","div","o98AxyuH3HFvAKnjd3w9Dm",{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$L6"}]}]}]]}],false]],"q":"","i":false,"S":false}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#0f172a"}]]
+6:[["$","title","0",{"child
+
+URL: https://awscdn.netshort.com/8e83dd34fe4c420cbe7d87f1bb0a5cfb?auth_key=1775216496-e1ecc2d5164d42188e8501c516dd51b5-0-851304295f61039e796b849e8c4d9b22&mime_type=text_plain&Expires=1774836902&Signature=Pmp1i5O2z2H8IzT6lkrrwBHGaKBT5RAl0ghsiAY2n-071SqK27~6zy14dqMYsw3CPh0-37XA325QcmEHiud1IhcmtngscsnJj2jqhHyYlE3FxB4OZJFTVvobuNZO4noe1orTl4BXwdZW8ApBtM0RaM5lX6X5o3OGXn4lXk-KVBAjKA~dRbPHfL~UBk3F-ShjVGIqmfHY6avdmqX4ya2GuzBaqMeByNI8FaRDN~NNSBiROv4BYUM8CiS~49jYOEmemRNpYdabUlDm2BDBpk19PNZUV1X5ounCEIHNLQjmpNGvhxTSqAdAYr9xOodLnq~bF~37Piqxh2AmJYDo0XTrZQ__&Key-Pair-Id=K15WUQYEZKHKVU
+WEBVTT
+
+00:00:00.440 --> 00:00:03.440
+(Episode 1)
+
+00:00:00.600 --> 00:00:03.880
+Sebenarnya, 
+aku Ketua Klan Saga 
+
+00:00:01.840 --> 00:00:04.080
+(Linken Saga
+Ketua Grup Saga)
+
+00:00:03.880 --> 00:00:06.000
+Pamanku 
+adalah Raja Utara 
+
+00:00:06.520 --> 00:00:09.160
+Selia, maaf aku sembunyikan semua ini
+
+00:00:09.160 --> 00:00:10.880
+Besok aku akan 
+bawa kamu pulang
+
+00:00:11.200 --> 00:00:11.840
+Bibi
+
+00:00:11.840 --> 00:00:12.640
+Anak nakal
+
+00:00:12.640 --> 00:00:14.120
+kamu sudah lama menghilang
+
+00:00:14.120 --> 00:00:15.240
+Kapan kamu pulang?
+
+00:00:15.240 --> 00:00:16.920
+Linken, ayo cepat!
+
+00:00:17.200 --> 00:00:18.000
+Besok saja
+
+00:00:18.480 --> 00:00:20.360
+Besok, aku akan memberimu kejutan
+
+00:00:24.280 --> 00:00:25.160
+Linken!
+
+00:00:25.960 --> 00:00:26.800
+Linken!
+
+00:00:27.760 --> 00:00:28.640
+Hubungi...
+
+00:00:30.960 --> 00:00:31.920
+Linken!
+
+00:00:41.760 --> 00:00:43.720
+Tuan Linken 
+akan kembali besok 
+
+00:00:44.440 --> 00:00:48.360
+(Mika Saga
+Perwakilan Grup Saga)
+
+0
+
+URL: blob:https://vidrama.asia/9f11ed0f-1e0c-44f0-8264-23771c2e4695
+WEBVTT
+
+00:00:00.440 --> 00:00:03.440
+(Episode 1)
+
+00:00:00.600 --> 00:00:03.880
+Sebenarnya, 
+aku Ketua Klan Saga 
+
+00:00:01.840 --> 00:00:04.080
+(Linken Saga
+Ketua Grup Saga)
+
+00:00:03.880 --> 00:00:06.000
+Pamanku 
+adalah Raja Utara 
+
+00:00:06.520 --> 00:00:09.160
+Selia, maaf aku sembunyikan semua ini
+
+00:00:09.160 --> 00:00:10.880
+Besok aku akan 
+bawa kamu pulang
+
+00:00:11.200 --> 00:00:11.840
+Bibi
+
+00:00:11.840 --> 00:00:12.640
+Anak nakal
+
+00:00:12.640 --> 00:00:14.120
+kamu sudah lama menghilang
+
+00:00:14.120 --> 00:00:15.240
+Kapan kamu pulang?
+
+00:00:15.240 --> 00:00:16.920
+Linken, ayo cepat!
+
+00:00:17.200 --> 00:00:18.000
+Besok saja
+
+00:00:18.480 --> 00:00:20.360
+Besok, aku akan memberimu kejutan
+
+00:00:24.280 --> 00:00:25.160
+Linken!
+
+00:00:25.960 --> 00:00:26.800
+Linken!
+
+00:00:27.760 --> 00:00:28.640
+Hubungi...
+
+00:00:30.960 --> 00:00:31.920
+Linken!
+
+00:00:41.760 --> 00:00:43.720
+Tuan Linken 
+akan kembali besok 
+
+00:00:44.440 --> 00:00:48.360
+(Mika Saga
+Perwakilan Grup Saga)
+
+0
+
