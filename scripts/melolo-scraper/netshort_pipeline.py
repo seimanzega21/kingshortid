@@ -70,47 +70,72 @@ def get_s3():
 
 # ──────────────────── API CALLS ────────────────────
 def extract_dramas_from_provider_page() -> list:
-    """Fetch Netshort page and parse HTML/RSC to get basic drama info."""
-    log("[API] Fetching Netshort frontpage...")
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36",
-        "RSC": "1",
-        "Next-Url": "/provider/netshort"
-    }
+    """Fetch Netshort catalog by scraping DOM nodes directly."""
+    log("[API] Loading Vidrama Netshort provider page in headless browser...")
+    dramas = []
+    
+    async def run():
+        await init_browser()
+        
+        try:
+            await _page.goto(f"{VIDRAMA_BASE}/provider/netshort", timeout=30000)
+            await _page.wait_for_selector('a[href*="/movie/"]', timeout=15000)
+            await _page.wait_for_timeout(2000)
+            
+            script = """
+            () => {
+                const links = Array.from(document.querySelectorAll('a[href*="/movie/"]'));
+                const results = [];
+                for (const a of links) {
+                    const href = a.getAttribute('href');
+                    const match = href.match(/\\/movie\\/([a-z0-9-]+)--(\\d{15,})/);
+                    if (match) {
+                        const img = a.querySelector('img');
+                        let title = "";
+                        let cover = "";
+                        if (img) {
+                            cover = img.src || "";
+                            title = img.alt || "";
+                        }
+                        if (!title) {
+                            title = match[1].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                        }
+                        results.push({
+                            slug: match[1],
+                            id: match[2],
+                            title: title,
+                            cover_url: cover
+                        });
+                    }
+                }
+                return results;
+            }
+            """
+            return await _page.evaluate(script)
+            
+        except Exception as e:
+            log(f"  ❌ Error rendering catalog page: {e}")
+            return []
+            
     try:
-        r = requests.get(f"{VIDRAMA_BASE}/provider/netshort", headers=headers, timeout=20)
-        text = r.text
-        
-        # Regex to find links to movies
-        # Format: "/movie/title-slug--2034897075744800770"
-        matches = re.findall(r'"/movie/([a-z0-9-]+)--(\d{15,})"', text)
-        
-        # Also try to extract titles and covers roughly
-        titles = re.findall(r'"title"\s*:\s*"([^"]+)"', text)
-        covers = re.findall(r'"cover_url"\s*:\s*"([^"]+)"', text)
-        
-        dramas = []
-        seen = set()
-        for idx, (slug, did) in enumerate(matches):
-            if did in seen: continue
-            seen.add(did)
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    
+    scraped_dramas = loop.run_until_complete(run())
+    
+    # Deduplicate by slug
+    seen = set()
+    unique = []
+    for d in (scraped_dramas or []):
+        if d['slug'] not in seen:
+            seen.add(d['slug'])
+            unique.append(d)
+            if len(unique) >= DRAMA_LIMIT: break
             
-            title = titles[idx] if idx < len(titles) else slug.replace("-", " ").title()
-            cover = covers[idx] if idx < len(covers) else ""
-            
-            dramas.append({
-                "id": did,
-                "slug": slug,
-                "title": title,
-                "cover_url": cover
-            })
-            if len(dramas) >= DRAMA_LIMIT: break
-            
-        log(f"  -> Found {len(dramas)} unique dramas")
-        return dramas
-    except Exception as e:
-        log(f"  ❌ Error fetching drama list: {e}")
-        return []
+    log(f"  -> Found {len(unique)} unique dramas")
+    return unique
 
 def extract_drama_metadata(drama: dict) -> dict:
     """Fetch drama page to get full description, genres, and exact episode count."""
@@ -193,33 +218,44 @@ async def init_browser():
             }}));
         """)
 
+# Global variable to store cookies from the browser session
+_browser_cookies = {}
+_browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36"
+
 async def get_episode_video_url_async(drama_id: str, slug: str, ep_num: int) -> str:
-    """Use Playwright to get the Netshort AWS CDN MP4 URL."""
+    """Use Playwright to get the final signed Netshort AWS CDN MP4 URL from the video player."""
     try:
         await init_browser()
         watch_url = f"{VIDRAMA_BASE}/watch/{slug}--{drama_id}/{ep_num}?provider=netshort"
         
-        # Intercept response to find video URL directly from network
-        found_url = ""
-        def handle_response(response):
-            nonlocal found_url
-            if "awscdn.netshort.com" in response.url or ".mp4" in response.url.lower():
-                found_url = response.url
-                
-        _page.on("response", handle_response)
-        
+        # We need the browser to actually load the video to generate the final signed URL
         await _page.goto(watch_url, timeout=30000)
-        await _page.wait_for_timeout(4000) # Wait for video player to initialize
         
-        _page.remove_listener("response", handle_response)
-        
-        if found_url:
-            return found_url
+        # Wait for player to spin up
+        try:
+            await _page.wait_for_selector("video", timeout=15000)
+            await _page.wait_for_timeout(3000) 
+        except:
+            pass # Maybe it loaded instantly or differently
             
-        # Fallback to checking DOM directly
-        video_src = await _page.evaluate("() => { const v = document.querySelector('video'); return v?.src || v?.currentSrc; }")
-        if video_src and video_src.startswith("http"):
-            return video_src
+        # Get the actual loaded URL directly from the video element
+        script = """
+        () => {
+            const v = document.querySelector('video');
+            if (v && v.src && v.src.includes('http')) return v.src;
+            if (v && v.currentSrc && v.currentSrc.includes('http')) return v.currentSrc;
+            
+            // Check if there are any source tags inside
+            const source = document.querySelector('video source');
+            if (source && source.src) return source.src;
+            
+            return "";
+        }
+        """
+        final_url = await _page.evaluate(script)
+        
+        if final_url and "auth_key=" in final_url:
+            return final_url
             
     except Exception as e:
         log(f"  ❌ Playwright error fetching Ep {ep_num}: {str(e)[:50]}")
@@ -235,61 +271,37 @@ def get_episode_video_url(drama_id: str, slug: str, ep_num: int) -> str:
         asyncio.set_event_loop(loop)
     return loop.run_until_complete(get_episode_video_url_async(drama_id, slug, ep_num))
 
-import base64
-
-async def _download_mp4_async(url: str, dest: Path) -> bool:
-    try:
-        await init_browser()
-        dl_page = await _browser.contexts[0].new_page()
-        
-        # Navigate to vidrama so we have the right Origin/Referer for fetch
-        await dl_page.goto("https://vidrama.asia/404", timeout=30000)
-        
-        # Fetch the video using JS (bypasses UI download limitations)
-        log("  [FETCHing MP4...]", end="")
-        script = f"""
-        async () => {{
-            const resp = await fetch("{url}");
-            if (!resp.ok) throw new Error("HTTP " + resp.status);
-            const blob = await resp.blob();
-            const buffer = await blob.arrayBuffer();
-            const bytes = new Uint8Array(buffer);
-            let binary = '';
-            // Process in chunks to avoid max call stack size exceeded
-            const chunkSize = 8192;
-            for (let i = 0; i < bytes.length; i += chunkSize) {{
-                binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
-            }}
-            return btoa(binary);
-        }}
-        """
-        try:
-            # For large files, evaluate might hit memory limits, but these are small 1-3 min shorts (~5-15MB)
-            b64_data = await dl_page.evaluate(script)
-            
-            with open(dest, "wb") as f:
-                f.write(base64.b64decode(b64_data))
-                
-            await dl_page.close()
-            mb = dest.stat().st_size / 1024 / 1024
-            return mb > 0.5 # Successful if larger than 0.5MB
-        except Exception as e:
-            log(f"  JS DLerr:{str(e)[:40]}", end="")
-            await dl_page.close()
-            return False
-            
-    except Exception as e:
-        log(f"  DLerr:{str(e)[:40]}", end="")
-        return False
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def download_mp4(url: str, dest: Path) -> bool:
-    """Download MP4 directly to disk using Playwright (bypasses CF blocks)."""
-    try:
-        loop = asyncio.get_event_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-    return loop.run_until_complete(_download_mp4_async(url, dest))
+    """Download the signed MP4 directly to disk securely using requests, bypassing local SSL cert issues."""
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36",
+        "Referer": "https://vidrama.asia/",
+        "Origin": "https://vidrama.asia"
+    }
+    
+    for attempt in range(2):
+        try:
+            resp = requests.get(url, headers=headers, timeout=120, stream=True, verify=False)
+            resp.raise_for_status()
+            total = 0
+            with open(dest, "wb") as f:
+                for chunk in resp.iter_content(chunk_size=2 * 1024 * 1024):
+                    if chunk:
+                        f.write(chunk)
+                        total += len(chunk)
+            if total > 5000: return True
+            if attempt == 0: time.sleep(2)
+        except requests.exceptions.HTTPError as e:
+            if attempt == 0: time.sleep(2)
+            else: log(f" DLerr:HTTP {e.response.status_code} - {e.response.text[:100]}", end="")
+        except Exception as e:
+            if attempt == 0: time.sleep(2)
+            else: log(f" DLerr:{str(e)[:50]}", end="")
+            
+    return False
 
 def upload_mp4(mp4_file: Path, r2_key: str) -> str | None:
     """Upload directly as MP4."""
