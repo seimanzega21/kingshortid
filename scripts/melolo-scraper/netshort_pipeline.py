@@ -137,27 +137,25 @@ def extract_dramas_from_provider_page() -> list:
     log(f"  -> Found {len(unique)} unique dramas")
     return unique
 
-def extract_drama_metadata(drama: dict) -> dict:
-    """Fetch drama page to get full description, genres, and exact episode count."""
-    log(f"  [API] Fetching metadata for '{drama['title']}'...")
-    headers = {
-        "User-Agent": "Mozilla/5.0",
-        "RSC": "1",
-        "Next-Url": f"/movie/{drama['slug']}--{drama['id']}?provider=netshort"
-    }
+async def extract_drama_metadata_async(drama: dict) -> dict:
+    """Extract full metadata like description, genres, out of the detail page using Playwright."""
     try:
-        r = requests.get(f"{VIDRAMA_BASE}/movie/{drama['slug']}--{drama['id']}?provider=netshort", headers=headers, timeout=15)
-        text = r.text
+        await init_browser()
+        log(f"  [API] Fetching metadata for '{drama['title']}' via Playwright...")
+        url = f"{VIDRAMA_BASE}/detail/{drama['slug']}--{drama['id']}?provider=netshort"
+        await _page.goto(url, wait_until="networkidle", timeout=60000)
         
-        # Find description
+        text = await _page.content()
+        
         desc = ""
-        # Try og:description first (most reliable on Vidrama detail pages)
-        og_desc = re.findall(r'<meta property="og:description"\s*content="([^"]+)"', text)
-        if og_desc:
-            desc = og_desc[0]
-        else:
-            desc_matches = re.findall(r'"description"\s*:\s*"([^"]+)"', text)
-            if desc_matches: desc = desc_matches[-1]
+        desc_matches = re.findall(r'class="[^"]*synopsis[^"]*">(.*?)</div>', text)
+        if desc_matches:
+            desc = re.sub(r'<[^>]+>', '', desc_matches[0]).replace("Sinopsis:", "").strip()
+            
+        genres = []
+        genre_matches = re.findall(r'class="[^"]*cast[^"]*">Genre:\s*(.*?)</div>', text)
+        if genre_matches:
+            genres = [g.strip() for g in genre_matches[0].split(',')]
         
         # Find total episodes
         total_episodes = 0
@@ -172,18 +170,12 @@ def extract_drama_metadata(drama: dict) -> dict:
             ep_nums = [int(n) for n in re.findall(rf'/watch/{drama["slug"]}--{drama["id"]}/(\d+)', text)]
             if ep_nums: total_episodes = max(ep_nums)
             else: total_episodes = 50 # Fallback default
-            
-        # Find genres
-        genres = []
-        genre_matches = re.findall(r'>Genre:\s*([^<]+)</div>', text)
-        if genre_matches:
-            genres = [g.strip() for g in genre_matches[0].split(',')]
-            
+
+        # fallback genres if UI failed
         if not genres:
             genres = list(set(re.findall(r'"genre"\s*:\s*"([^"]+)"', text)))
         if not genres:
             genres = list(set(re.findall(r'"category_name"\s*:\s*"([^"]+)"', text)))
-            
             
         # Extact High-Quality Cover from OG Image
         og_cover = re.findall(r'<meta property="og:image"\s*content="([^"]+)"', text)
@@ -198,6 +190,16 @@ def extract_drama_metadata(drama: dict) -> dict:
         }
     except Exception as e:
         log(f"  ❌ Metadata error: {e}")
+        return {**drama, "description": "", "total_episodes": 50, "genres": ["Drama", "Romantis"]}
+
+def extract_drama_metadata(drama: dict) -> dict:
+    """Sync wrapper for Playwright metadata extraction."""
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    return loop.run_until_complete(extract_drama_metadata_async(drama))
 from playwright.async_api import async_playwright
 import asyncio
 
@@ -596,12 +598,34 @@ def main():
         drama_temp = TEMP_DIR / drama["slug"]
         drama_temp.mkdir(parents=True, exist_ok=True)
         
+        # We push drama upfront to get the target drama_id for episodes
+        cover_url = f"{R2_PUBLIC}/{R2_PREFIX}/{drama['slug']}/cover.webp"
+        desc = drama.get("description", "").strip()
+        if len(desc) < 10:
+            desc = "No description available for this drama at the moment."
+            
+        drama_payload = {
+            "title": drama["title"],
+            "description": desc,
+            "status": "Ongoing",
+            "provider": "Netshort",
+            "isActive": False,
+            "tags": drama.get("genres", ["Drama", "Romantis"]),
+            "cover": cover_url,
+            "coverUrl": cover_url,
+            "totalEpisodes": total_eps
+        }
+        resp = requests.post(f"{BACKEND_URL}/dramas", json=drama_payload, timeout=20)
+        kingshort_drama_id = None
+        if resp.status_code in [200, 201]:
+            kingshort_drama_id = resp.json().get("id")
+            requests.patch(f"{BACKEND_URL}/dramas/{kingshort_drama_id}", json={"isActive": False}, timeout=10)
+        
         # Upload cover
         upload_cover(drama["cover_url"], drama["slug"])
         
-        # 3. Process Episodes in Parallel (2 at a time) -> Changed to Sequential
+        # 3. Process Episodes sequentially
         ep_num = 1
-        total_eps = drama.get("total_episodes", 1)
         success_eps = []
         
         while ep_num <= total_eps:
@@ -615,12 +639,32 @@ def main():
                         drama["total_episodes"] = total_eps
                         log(f"    ✨ Discovered true episode count: {total_eps}")
                     
+                    # Push episode metadata up immediately
+                    if kingshort_drama_id:
+                        vtt_url = result["videoUrl"].replace(".mp4", ".vtt") if ".mp4" in result["videoUrl"] else ""
+                        ep_payload = {
+                            "dramaId": kingshort_drama_id,
+                            "episodeNumber": result["number"],
+                            "videoUrl": result["videoUrl"],
+                            "duration": 0
+                        }
+                        er = requests.post(f"{BACKEND_URL}/episodes", json=ep_payload, timeout=10)
+                        if er.status_code in [200, 201]:
+                            ep_id = er.json().get("id")
+                            if ep_id and vtt_url:
+                                sub_payload = {
+                                    "language": "Indonesian",
+                                    "label": "Bahasa Indonesia",
+                                    "url": vtt_url,
+                                    "isDefault": True
+                                }
+                                requests.post(f"{BACKEND_URL}/episodes/{ep_id}/subtitles", json=sub_payload, timeout=10)
+                    
             except KeyboardInterrupt:
                 log("Interrupted by user. Exiting episode loop.")
                 break
             except Exception as e:
-                log(f" Exception on ep {ep_num}: {e}")
-                
+                log(f"    Ep {ep_num:3}/{total_eps}: Runtime Exception {e}")
             ep_num += 1
                 
         # 4. Push to DB if we got episodes
