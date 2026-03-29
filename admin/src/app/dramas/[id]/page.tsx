@@ -89,10 +89,10 @@ export default function DramaDetailPage() {
     const playEpisode = async (ep: Episode) => {
         if (!ep.videoUrl) return;
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.shortlovers.id/api';
-            const res = await fetch(`${apiUrl}/episodes/${ep.id}/subtitles`, {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('adminToken') || ''}` }
-            });
+            // Hit our own Next.js internal API proxy to bypass CORS
+            const res = await fetch(`/api/episodes/${ep.id}/subtitles`);
+            if (!res.ok) throw new Error(`API Error: ${res.status}`);
+            
             const data = await res.json();
             const subs = data.subtitles || [];
             const indoSub = subs.find((s: any) => s.language === 'Indonesian' || s.isDefault) || subs[0];
@@ -110,9 +110,11 @@ export default function DramaDetailPage() {
                 id: ep.id,
                 title: ep.title || `Episode ${ep.episodeNumber}`,
                 videoUrl: ep.videoUrl,
-                subtitleUrl: subUrl
+                subtitleUrl: subUrl ? `/api/proxy-vtt?url=${encodeURIComponent(subUrl)}` : null
             });
-        } catch (e) {
+        } catch (e: any) {
+            console.error("Subtitle fetch error:", e);
+            toast.error("Gagal menarik subtitle: " + e.message);
             setPreviewEpisode({
                 id: ep.id,
                 title: ep.title || `Episode ${ep.episodeNumber}`,
