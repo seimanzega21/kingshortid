@@ -79,16 +79,19 @@ export default function DramaDetailPage() {
                 genres: dataDrama.genres || [],
             });
         } catch (error) {
-            console.error("Failed to delete drama:", error);
-            toast.error("Gagal menghapus drama!");
+            console.error("Failed to load drama:", error);
+            toast.error("Gagal memuat data drama!");
+        } finally {
+            setIsLoading(false);
         }
     };
 
     const playEpisode = async (ep: Episode) => {
         if (!ep.videoUrl) return;
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/episodes/${ep.id}/subtitles`, {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('adminToken')}` }
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.shortlovers.id/api';
+            const res = await fetch(`${apiUrl}/episodes/${ep.id}/subtitles`, {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('adminToken') || ''}` }
             });
             const data = await res.json();
             const subs = data.subtitles || [];
