@@ -39,6 +39,9 @@ export default function DramaDetailPage() {
     const [isSaving, setIsSaving] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [showGenrePicker, setShowGenrePicker] = useState(false);
+    
+    // Video Preview Modal State
+    const [previewEpisode, setPreviewEpisode] = useState<{ id: string, title?: string, videoUrl: string, subtitleUrl: string | null } | null>(null);
 
     // Cover edit state
     const [coverFile, setCoverFile] = useState<File | null>(null);
@@ -75,10 +78,44 @@ export default function DramaDetailPage() {
                 isVip: dataDrama.isVip,
                 genres: dataDrama.genres || [],
             });
-        } catch {
-            toast.error("Gagal memuat data");
-        } finally {
-            setIsLoading(false);
+        } catch (error) {
+            console.error("Failed to delete drama:", error);
+            toast.error("Gagal menghapus drama!");
+        }
+    };
+
+    const playEpisode = async (ep: Episode) => {
+        if (!ep.videoUrl) return;
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/episodes/${ep.id}/subtitles`, {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('adminToken')}` }
+            });
+            const data = await res.json();
+            const subs = data.subtitles || [];
+            const indoSub = subs.find((s: any) => s.language === 'Indonesian' || s.isDefault) || subs[0];
+            
+            // Standardize CDN urls matching getMediaUrl logic
+            let subUrl = indoSub?.url || null;
+            if (subUrl && subUrl.startsWith('http://localhost:8787')) {
+                 subUrl = subUrl.replace('http://localhost:8787', 'https://api.shortlovers.id');
+            }
+            if (subUrl && subUrl.startsWith('http://127.0.0.1:8787')) {
+                 subUrl = subUrl.replace('http://127.0.0.1:8787', 'https://api.shortlovers.id');
+            }
+
+            setPreviewEpisode({
+                id: ep.id,
+                title: ep.title || `Episode ${ep.episodeNumber}`,
+                videoUrl: ep.videoUrl,
+                subtitleUrl: subUrl
+            });
+        } catch (e) {
+            setPreviewEpisode({
+                id: ep.id,
+                title: ep.title || `Episode ${ep.episodeNumber}`,
+                videoUrl: ep.videoUrl,
+                subtitleUrl: null
+            });
         }
     };
 
@@ -472,7 +509,7 @@ export default function DramaDetailPage() {
                             {sortedEpisodes.map(ep => (
                                 <div
                                     key={ep.id}
-                                    onClick={() => ep.videoUrl && window.open(ep.videoUrl, '_blank')}
+                                    onClick={() => ep.videoUrl && playEpisode(ep)}
                                     className={`group relative aspect-[2/1] rounded-lg border border-emerald-500/40 bg-[#1a1a1a] flex items-center justify-center transition-all ${ep.videoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
                                 >
                                     <span className="text-emerald-400 font-bold text-sm">{ep.episodeNumber}</span>
@@ -513,6 +550,51 @@ export default function DramaDetailPage() {
             <p className="text-xs text-zinc-600 text-center py-2">
                 Drama ID: <code className="text-zinc-500">{drama.id}</code>
             </p>
+
+            {/* Video Preview Modal */}
+            {previewEpisode && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl w-full max-w-4xl">
+                        <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-black/50">
+                            <h3 className="text-white font-medium flex items-center gap-2">
+                                <PlayCircle size={16} className="text-cyan-500" />
+                                {previewEpisode.title}
+                            </h3>
+                            <button onClick={() => setPreviewEpisode(null)} className="text-zinc-400 hover:text-white p-1 rounded-full hover:bg-zinc-800 transition-colors">
+                                <X size={20} />
+                            </button>
+                        </div>
+                        <div className="relative aspect-video bg-black flex items-center justify-center">
+                            <video 
+                                src={previewEpisode.videoUrl} 
+                                controls 
+                                autoPlay 
+                                className="w-full h-full outline-none"
+                                crossOrigin="anonymous"
+                            >
+                                {previewEpisode.subtitleUrl && (
+                                    <track 
+                                        src={previewEpisode.subtitleUrl} 
+                                        kind="subtitles" 
+                                        srcLang="id" 
+                                        label="Indonesian" 
+                                        default 
+                                    />
+                                )}
+                            </video>
+                        </div>
+                        {previewEpisode.subtitleUrl ? (
+                            <div className="p-3 bg-emerald-500/10 text-emerald-400 text-xs border-t border-emerald-500/20 flex items-center gap-2">
+                                <Globe size={14} /> Subtitle Indonesian (VTT) loaded successfully.
+                            </div>
+                        ) : (
+                            <div className="p-3 bg-amber-500/10 text-amber-400 text-xs border-t border-amber-500/20 flex items-center gap-2">
+                                <Languages size={14} /> No subtitles available for this episode.
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
