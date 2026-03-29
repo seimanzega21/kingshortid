@@ -570,6 +570,17 @@ export default function DramaDetailPage() {
                             </button>
                         </div>
                         <div className="relative aspect-video bg-black flex items-center justify-center">
+                            <style dangerouslySetInnerHTML={{__html:`
+                                video::cue {
+                                    background: transparent !important;
+                                    background-color: transparent !important;
+                                    color: white !important;
+                                    text-shadow: 1px 1px 3px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 2px 2px 5px black !important;
+                                    font-family: Arial, sans-serif !important;
+                                    font-size: 15px !important;
+                                    font-weight: 500 !important;
+                                }
+                            `}} />
                             <video 
                                 src={previewEpisode.videoUrl} 
                                 controls 
