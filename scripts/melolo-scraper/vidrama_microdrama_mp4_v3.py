@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 """
 VIDRAMA MICRODRAMA HLS SCRAPER v2 - FAST MODE
 ===============================================
@@ -28,7 +28,7 @@ BACKEND_URL   = "https://api.shortlovers.id/api"
 R2_PUBLIC     = "https://stream.shortlovers.id"
 R2_BUCKET     = os.getenv("R2_BUCKET_NAME") or "shortlovers"
 R2_PREFIX     = "dramas/microdrama"
-TEMP_DIR      = Path("C:/tmp/microdrama_mp4_v3")   # separate temp dir from v1/v2
+TEMP_DIR      = Path("/tmp/microdrama_mp4_v3") if os.name != 'nt' else Path("C:/tmp/microdrama_mp4_v3")
 LOG_FILE      = Path(__file__).parent / "microdrama_mp4_v3.log"
 DRAMA_LIMIT   = 200
 QUALITY_PREF  = ["720P", "540P", "480P", "360P"]
@@ -160,9 +160,15 @@ def compress_mp4(input_mp4: Path, output_mp4: Path) -> bool:
         str(output_mp4)
     ]
     try:
-        res = subprocess.run(cmd, capture_output=True, timeout=300)  # 5min timeout
-        return res.returncode == 0 and output_mp4.exists()
-    except:
+        res = subprocess.run(cmd, capture_output=True, timeout=300)
+        out_exists = output_mp4.exists()
+        log(f" FF:{res.returncode},Out:{out_exists}", end="")
+        if not out_exists or res.returncode != 0:
+            err = res.stderr.decode('utf-8', errors='replace')
+            log(f" | FFlog:{err[-200:]}".replace("\n", " "), end="")
+        return res.returncode == 0 and out_exists
+    except Exception as e:
+        log(f" FFexe:{str(e)[:50]}")
         return False
 
 def upload_mp4(mp4_file: Path, r2_key: str) -> str | None:

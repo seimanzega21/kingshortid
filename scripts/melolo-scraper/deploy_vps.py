@@ -39,10 +39,12 @@ try:
     pip install requests python-dotenv boto3
     
     # Stop existing if running
-    pkill -f vidrama_microdrama_mp4_v3.py
+    pkill -9 -f python
+    pkill -9 -f ffmpeg
+    rm -f scraper.log
     
-    # Run in background
-    nohup python vidrama_microdrama_mp4_v3.py --limit 200 > scraper.log 2>&1 &
+    # Run in background via screen
+    screen -dmS microdrama bash -c "source venv/bin/activate && python3 vidrama_microdrama_mp4_v3.py --limit 200 > scraper.log 2>&1"
     
     echo "VPS DEPLOYMENT COMPLETE!"
     """
