@@ -318,6 +318,7 @@ def main():
     print(f"\n  Fetching drama list (lang={LANG})...", flush=True)
     all_dramas = []
     offset = 0
+    total_available = None
     while len(all_dramas) < limit:
         batch = min(20, limit - len(all_dramas))
         try:
@@ -326,9 +327,14 @@ def main():
             dramas = data.get("dramas", [])
             if not dramas:
                 break
+            if total_available is None:
+                total_available = data.get("total", 9999)
             all_dramas.extend(dramas)
             offset += len(dramas)
-            print(f"    Fetched {len(all_dramas)} / {data.get('total', '?')}", flush=True)
+            print(f"    Fetched {len(all_dramas)} / {total_available}", flush=True)
+            # Stop when we've fetched all available dramas
+            if offset >= total_available:
+                break
         except Exception as e:
             print(f"    Fetch error: {e}", flush=True)
             break
