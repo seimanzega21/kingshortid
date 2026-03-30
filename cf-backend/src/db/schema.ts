@@ -86,6 +86,7 @@ export const episodes = pgTable('episodes', {
     description: text('description'),
     thumbnail: text('thumbnail'),
     videoUrl: text('video_url').notNull(),
+    videoUrl540p: text('video_url_540p'),
     duration: integer('duration').notNull().default(0),
 
     isVip: boolean('is_vip').notNull().default(false),

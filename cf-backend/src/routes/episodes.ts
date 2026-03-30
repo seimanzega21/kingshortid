@@ -9,7 +9,7 @@ const episodesRoute = new Hono<Env>();
 // POST /api/episodes - Register episode (scraper)
 episodesRoute.post('/', async (c) => {
     try {
-        const { dramaId, episodeNumber, title, videoUrl, duration } = await c.req.json();
+        const { dramaId, episodeNumber, title, videoUrl, videoUrl540p, duration } = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         if (!dramaId || !episodeNumber || !videoUrl) {
@@ -41,6 +41,7 @@ episodesRoute.post('/', async (c) => {
             [episode] = await db.update(episodes)
                 .set({
                     videoUrl,
+                    videoUrl540p: videoUrl540p !== undefined ? (videoUrl540p || null) : existing.videoUrl540p,
                     title: title || existing.title,
                     duration: duration ? parseInt(duration) : existing.duration,
                     updatedAt: new Date(),
@@ -53,6 +54,7 @@ episodesRoute.post('/', async (c) => {
                 episodeNumber: parseInt(episodeNumber),
                 title: title || `Episode ${episodeNumber}`,
                 videoUrl,
+                videoUrl540p: videoUrl540p || null,
                 duration: duration ? parseInt(duration) : 0,
                 isActive: true,
                 isVip: false,
@@ -110,6 +112,7 @@ episodesRoute.get('/:id/stream', async (c) => {
 
         return c.json({
             url: episode.videoUrl,
+            url540p: episode.videoUrl540p || null,
             expiresAt: expiresAt.toISOString(),
             duration: episode.duration,
             title: episode.title,
@@ -194,6 +197,7 @@ episodesRoute.patch('/:id', async (c) => {
         const updates: Record<string, unknown> = { updatedAt: new Date() };
         if (body.episodeNumber !== undefined) updates.episodeNumber = parseInt(body.episodeNumber);
         if (body.videoUrl) updates.videoUrl = body.videoUrl;
+        if (body.videoUrl540p !== undefined) updates.videoUrl540p = body.videoUrl540p || null;
         if (body.duration !== undefined) updates.duration = parseInt(body.duration);
         if (body.title) updates.title = body.title;
 
