@@ -28,10 +28,9 @@ BACKEND_URL   = "https://api.shortlovers.id/api"
 R2_PUBLIC     = "https://stream.shortlovers.id"
 R2_BUCKET     = os.getenv("R2_BUCKET_NAME") or "shortlovers"
 R2_PREFIX     = "dramas/microdrama"
-TEMP_DIR      = Path("C:/tmp/microdrama_hls_v2")   # separate temp dir from v1
-LOG_FILE      = Path(__file__).parent / "microdrama_hls_v2.log"
+TEMP_DIR      = Path("C:/tmp/microdrama_mp4_v3")   # separate temp dir from v1/v2
+LOG_FILE      = Path(__file__).parent / "microdrama_mp4_v3.log"
 DRAMA_LIMIT   = 200
-HLS_SEG_DUR   = 4         # seconds per HLS segment
 QUALITY_PREF  = ["720P", "540P", "480P", "360P"]
 EP_WORKERS    = 2         # parallel episode downloads per drama (safe)
 
@@ -149,43 +148,28 @@ def download_mp4(url: str, dest: Path) -> bool:
             else: log(f" DLerr:{str(e)[:30]}", end="")
     return False
 
-def convert_to_hls(input_mp4: Path, hls_dir: Path) -> bool:
-    hls_dir.mkdir(parents=True, exist_ok=True)
-    m3u8 = hls_dir / "index.m3u8"
+def compress_mp4(input_mp4: Path, output_mp4: Path) -> bool:
     cmd = [
         "ffmpeg", "-y", "-i", str(input_mp4),
         "-c:v", "libx264",
-        "-preset", "ultrafast",   # ⚡ 3-4x faster than 'fast'
-        "-crf", "30",              # slightly higher compression (smaller files)
+        "-preset", "ultrafast",   # ⚡ fast encoding
+        "-crf", "28",              # compression for small size
+        "-movflags", "+faststart", # ⚡ streaming optimized web playback
         "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "96k", "-ac", "2",   # 96k audio (was 128k)
-        "-hls_time", str(HLS_SEG_DUR),
-        "-hls_playlist_type", "vod",
-        "-hls_segment_filename", str(hls_dir / "seg%04d.ts"),
-        "-hls_flags", "independent_segments",
-        str(m3u8)
+        "-c:a", "aac", "-b:a", "96k", "-ac", "2",
+        str(output_mp4)
     ]
     try:
         res = subprocess.run(cmd, capture_output=True, timeout=300)  # 5min timeout
-        return res.returncode == 0 and m3u8.exists()
+        return res.returncode == 0 and output_mp4.exists()
     except:
         return False
 
-def upload_hls(hls_dir: Path, r2_ep_prefix: str) -> str | None:
-    m3u8_file = hls_dir / "index.m3u8"
-    if not m3u8_file.exists(): return None
-    ts_files = sorted(hls_dir.glob("*.ts"))
-    for ts in ts_files:
-        get_s3().upload_file(str(ts), R2_BUCKET, f"{r2_ep_prefix}/{ts.name}",
-                             ExtraArgs={"ContentType": "video/MP2T"})
-    content = m3u8_file.read_text()
-    for ts in ts_files:
-        content = content.replace(ts.name, f"{R2_PUBLIC}/{r2_ep_prefix}/{ts.name}")
-    m3u8_key = f"{r2_ep_prefix}/index.m3u8"
-    get_s3().put_object(Bucket=R2_BUCKET, Key=m3u8_key,
-                        Body=content.encode("utf-8"),
-                        ContentType="application/vnd.apple.mpegurl")
-    return f"{R2_PUBLIC}/{m3u8_key}"
+def upload_mp4(mp4_file: Path, r2_key: str) -> str | None:
+    if not mp4_file.exists(): return None
+    get_s3().upload_file(str(mp4_file), R2_BUCKET, r2_key,
+                         ExtraArgs={"ContentType": "video/mp4"})
+    return f"{R2_PUBLIC}/{r2_key}"
 
 def upload_cover(cover_url: str, slug: str) -> bool:
     if not cover_url: return False
@@ -212,14 +196,13 @@ def process_episode(ep, drama_temp, total_eps, slug, r2_prefix):
         log(f"    Ep {ep_num:3}: SKIP no URL")
         return None
 
-    r2_ep_prefix = f"{r2_prefix}/{slug}/ep{ep_num:03d}"
-    m3u8_r2_key  = f"{r2_ep_prefix}/index.m3u8"
+    r2_ep_key = f"{r2_prefix}/{slug}/ep{ep_num:03d}.mp4"
 
     # Skip if already in R2
     try:
-        get_s3().head_object(Bucket=R2_BUCKET, Key=m3u8_r2_key)
+        get_s3().head_object(Bucket=R2_BUCKET, Key=r2_ep_key)
         log(f"    Ep {ep_num:3}/{total_eps}: already in R2")
-        return {"number": ep_num, "videoUrl": f"{R2_PUBLIC}/{m3u8_r2_key}", "duration": 0}
+        return {"number": ep_num, "videoUrl": f"{R2_PUBLIC}/{r2_ep_key}", "duration": 0}
     except: pass
 
     log(f"    Ep {ep_num:3}/{total_eps}:", end="")
@@ -231,20 +214,20 @@ def process_episode(ep, drama_temp, total_eps, slug, r2_prefix):
     mb = raw.stat().st_size / 1024 / 1024
     log(f" DL({mb:.1f}MB)", end="")
 
-    hls_dir = drama_temp / f"hls_ep{ep_num:03d}"
-    if convert_to_hls(raw, hls_dir):
-        segs = len(list(hls_dir.glob("*.ts")))
-        log(f" HLS({segs}seg)", end="")
-        m3u8_url = upload_hls(hls_dir, r2_ep_prefix)
-        shutil.rmtree(hls_dir, ignore_errors=True)
+    compressed = drama_temp / f"opt_ep{ep_num:03d}.mp4"
+    if compress_mp4(raw, compressed):
+        mb_out = compressed.stat().st_size / 1024 / 1024
+        log(f" COMP({mb_out:.1f}MB)", end="")
+        mp4_url = upload_mp4(compressed, r2_ep_key)
+        compressed.unlink(missing_ok=True)
         raw.unlink(missing_ok=True)
-        if m3u8_url:
+        if mp4_url:
             log(f" R2 OK")
-            return {"number": ep_num, "videoUrl": m3u8_url, "duration": 0}
+            return {"number": ep_num, "videoUrl": mp4_url, "duration": 0}
         else:
             log(f" R2 FAIL"); return None
     else:
-        log(f" HLS FAIL")
+        log(f" COMP FAIL")
         raw.unlink(missing_ok=True)
         return None
 
@@ -295,7 +278,7 @@ def register_drama(drama: dict, slug: str, episodes: list) -> bool:
             "cover": cover,
             "provider": "microdrama",
             "totalEpisodes": len(episodes),
-            "isActive": True,
+            "isActive": False,
         }, timeout=15)
         if resp.status_code not in [200, 201]:
             log(f"  Drama register FAIL: {resp.status_code} {resp.text[:60]}")
