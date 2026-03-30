@@ -96,18 +96,27 @@ def r2_key_exists(s3, key):
 
 
 def download_ep(ep, slug, total_eps, tag):
-    """Download, faststart, upload one episode. Thread-safe."""
+    """Download, faststart (720P) + encode 540P, upload both, Thread-safe."""
     s3 = get_s3()
     ep_idx = ep.get("index", 0)
     if ep_idx == 0:
         return None
 
-    r2_key = f"microdrama/{slug}/ep{ep_idx:03d}.mp4"
+    r2_key      = f"microdrama/{slug}/ep{ep_idx:03d}.mp4"
+    r2_key_540p = f"microdrama/{slug}/ep{ep_idx:03d}_540p.mp4"
 
-    if r2_key_exists(s3, r2_key):
-        return {"number": ep_idx, "videoUrl": f"{R2_PUBLIC}/{r2_key}", "status": "exists"}
+    already_720p = r2_key_exists(s3, r2_key)
+    already_540p = r2_key_exists(s3, r2_key_540p)
 
-    # Get video URL (prefer 720P)
+    if already_720p and already_540p:
+        return {
+            "number": ep_idx,
+            "videoUrl": f"{R2_PUBLIC}/{r2_key}",
+            "videoUrl540p": f"{R2_PUBLIC}/{r2_key_540p}",
+            "status": "exists"
+        }
+
+    # Get video URL (prefer 720P source)
     videos = ep.get("videos", [])
     video_url = None
     for q in ["720P", "540P", "480P", "360P"]:
@@ -125,39 +134,73 @@ def download_ep(ep, slug, total_eps, tag):
 
     work_dir = TEMP_DIR / f"{slug}_ep{ep_idx}_{threading.current_thread().ident}"
     work_dir.mkdir(exist_ok=True)
-    raw_path = work_dir / "raw.mp4"
-    fast_path = work_dir / "out.mp4"
+    raw_path     = work_dir / "raw.mp4"
+    fast_path    = work_dir / "out.mp4"
+    path_540p    = work_dir / "out_540p.mp4"
 
     try:
-        # Download
-        r = requests.get(video_url, timeout=180, stream=True)
-        r.raise_for_status()
-        total = 0
-        with open(raw_path, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=1024 * 1024):
-                f.write(chunk)
-                total += len(chunk)
-        if total < 1000:
-            tprint(f"    {tag} Ep {ep_idx:3}/{total_eps}: TOO SMALL")
-            return None
+        # Download raw
+        if not already_720p:
+            r = requests.get(video_url, timeout=180, stream=True)
+            r.raise_for_status()
+            total = 0
+            with open(raw_path, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=1024 * 1024):
+                    f.write(chunk)
+                    total += len(chunk)
+            if total < 1000:
+                tprint(f"    {tag} Ep {ep_idx:3}/{total_eps}: TOO SMALL")
+                return None
+            raw_mb = total / 1024 / 1024
+        else:
+            raw_mb = 0
 
-        raw_mb = total / 1024 / 1024
+        url_720p  = f"{R2_PUBLIC}/{r2_key}"
+        url_540p_result = None
 
-        # Faststart
-        result = subprocess.run([
-            "ffmpeg", "-y", "-i", str(raw_path),
-            "-c", "copy", "-movflags", "+faststart",
-            str(fast_path)
-        ], capture_output=True, text=True, timeout=120)
+        # --- 720P faststart ---
+        if not already_720p:
+            result = subprocess.run([
+                "ffmpeg", "-y", "-i", str(raw_path),
+                "-c", "copy", "-movflags", "+faststart",
+                str(fast_path)
+            ], capture_output=True, text=True, timeout=120)
+            upload_file = fast_path if (result.returncode == 0 and fast_path.exists()) else raw_path
+            s3.upload_file(str(upload_file), R2_BUCKET, r2_key, ExtraArgs={"ContentType": "video/mp4"})
+            tprint(f"    {tag} Ep {ep_idx:3}/{total_eps}: 720P OK {raw_mb:.1f}MB", end="")
+        else:
+            tprint(f"    {tag} Ep {ep_idx:3}/{total_eps}: 720P exists", end="")
 
-        upload_file = fast_path if (result.returncode == 0 and fast_path.exists()) else raw_path
+        # --- 540P encode (from raw or fast_path) ---
+        if not already_540p and raw_path.exists():
+            src = fast_path if fast_path.exists() else raw_path
+            res540 = subprocess.run([
+                "ffmpeg", "-y", "-i", str(src),
+                "-vf", "scale=540:-2",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "26",
+                "-movflags", "+faststart",
+                "-c:a", "copy",
+                str(path_540p)
+            ], capture_output=True, timeout=180)
+            if res540.returncode == 0 and path_540p.exists():
+                s3.upload_file(str(path_540p), R2_BUCKET, r2_key_540p, ExtraArgs={"ContentType": "video/mp4"})
+                url_540p_result = f"{R2_PUBLIC}/{r2_key_540p}"
+                mb_540 = path_540p.stat().st_size / 1024 / 1024
+                tprint(f" | 540P OK {mb_540:.1f}MB")
+            else:
+                tprint(f" | 540P FAIL")
+        elif already_540p:
+            url_540p_result = f"{R2_PUBLIC}/{r2_key_540p}"
+            tprint(f" | 540P exists")
+        else:
+            tprint("")
 
-        # Upload
-        s3.upload_file(str(upload_file), R2_BUCKET, r2_key,
-            ExtraArgs={"ContentType": "video/mp4"})
-
-        tprint(f"    {tag} Ep {ep_idx:3}/{total_eps}: OK {raw_mb:.1f}MB")
-        return {"number": ep_idx, "videoUrl": f"{R2_PUBLIC}/{r2_key}", "status": "new"}
+        return {
+            "number": ep_idx,
+            "videoUrl": url_720p,
+            "videoUrl540p": url_540p_result,
+            "status": "new"
+        }
 
     except Exception as e:
         tprint(f"    {tag} Ep {ep_idx:3}/{total_eps}: FAIL {str(e)[:50]}")
@@ -167,7 +210,7 @@ def download_ep(ep, slug, total_eps, tag):
 
 
 def register_drama_db(title, desc, slug, total_eps, uploaded_eps):
-    """Register drama and episodes to backend DB."""
+    """Register drama and episodes to backend DB, including videoUrl540p."""
     genres = infer_genres(title, desc)
     payload = {
         "title": title,
@@ -191,6 +234,7 @@ def register_drama_db(title, desc, slug, total_eps, uploaded_eps):
                 "episodeNumber": ep["number"],
                 "title": f"Episode {ep['number']}",
                 "videoUrl": ep["videoUrl"],
+                "videoUrl540p": ep.get("videoUrl540p"),
             }
             try:
                 er = requests.post(f"{BACKEND_URL}/episodes", json=ep_payload, timeout=10)
@@ -198,7 +242,8 @@ def register_drama_db(title, desc, slug, total_eps, uploaded_eps):
                     fail += 1
             except:
                 fail += 1
-        tprint(f"    DB: {len(uploaded_eps)} eps registered ({fail} fails)")
+        cnt_540 = sum(1 for ep in uploaded_eps if ep.get("videoUrl540p"))
+        tprint(f"    DB: {len(uploaded_eps)} eps registered ({fail} fails) | 540P: {cnt_540}/{len(uploaded_eps)}")
         return True
     except Exception as e:
         tprint(f"    DB error: {e}")
