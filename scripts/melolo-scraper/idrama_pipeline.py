@@ -1,27 +1,23 @@
 #!/usr/bin/env python3
 """
-IDRAMA PIPELINE — Single Drama Scraper
-=======================================
-Target: vidrama.asia/provider/idrama
-Drama: "Antara Dewa atau Iblis"
+IDRAMA PIPELINE v3 — RSC Payload Interceptor
+==============================================
+iDrama on vidrama.asia uses Next.js RSC (React Server Components).
+The video URL comes back as a streaming RSC payload (text/x-component),
+NOT as a standard JSON response.
 
-Flow:
-  1. Inject auth → Load drama detail page
-  2. Extract metadata (title, desc, genres, og:image cover)
-  3. PROBE Ep1 → Check subtitle type
-     - External VTT in response → ABORT
-     - No external VTT (embedded) → PROCEED
-  4. Loop all episodes: intercept MP4 URL → download → compress → upload R2
-  5. Register drama + episodes in DB (isActive=false, draft/pending)
+Strategy:
+  - Intercept ALL responses including text/x-component RSC payloads
+  - Parse RSC chunks for video URLs (mp4, m3u8, signed CDN URLs)
+  - Also check the actual <video> element src after load
 """
 
-import json, asyncio, re, sys, os, time, subprocess, requests
+import json, asyncio, re, sys, os, time, requests
 import boto3, urllib3
 from pathlib import Path
 from dotenv import load_dotenv
 from threading import Lock
 
-# ─────────────────── SETUP ───────────────────
 load_dotenv()
 sys.stdout.reconfigure(encoding="utf-8")
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -37,23 +33,16 @@ R2_PREFIX    = "dramas/idrama"
 TEMP_DIR     = Path("C:/tmp/idrama_mp4")
 LOG_FILE     = Path(__file__).parent / "idrama_pipeline.log"
 
-# Target drama — hard-coded for single run
-TARGET_SLUG = "antara-dewa-atau-iblis"
-TARGET_ID   = None  # Will be discovered from page
+DRAMA_SLUG = "antara-dewa-atau-iblis"
+DRAMA_ID   = "1600006416107"
 
-# Auth data
 AUTH_FILE = Path(__file__).parent / "idrama_auth.json"
-try:
-    AUTH_DATA = json.loads(AUTH_FILE.read_text(encoding="utf-8"))
-    SUPABASE_TOKEN = AUTH_DATA.get("access_token", "")
-    BROWSER_COOKIES = AUTH_DATA.get("cookies", "")
-    SUB_CACHE = AUTH_DATA.get("subscription_cache", {})
-except Exception as e:
-    print(f"[WARN] Could not load idrama_auth.json: {e}")
-    SUPABASE_TOKEN = ""
-    BROWSER_COOKIES = ""
-    SUB_CACHE = {}
+AUTH_DATA = json.loads(AUTH_FILE.read_text(encoding="utf-8"))
+SUPABASE_TOKEN = AUTH_DATA.get("access_token", "")
+BROWSER_COOKIES = AUTH_DATA.get("cookies", "")
+SUB_CACHE = AUTH_DATA.get("subscription_cache", {})
 
+LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 _log_lock = Lock()
 _log_fh = open(LOG_FILE, "a", encoding="utf-8")
 
@@ -63,12 +52,6 @@ def log(msg="", end="\n"):
         except: pass
         _log_fh.write(msg + end)
         _log_fh.flush()
-
-def slugify(text: str) -> str:
-    text = text.lower().strip()
-    text = re.sub(r"[^\w\s-]", "", text)
-    text = re.sub(r"[\s_]+", "-", text)
-    return re.sub(r"-+", "-", text).strip("-")
 
 # ─────────────────── S3/R2 ───────────────────
 _s3 = None
@@ -84,28 +67,44 @@ def get_s3():
         )
     return _s3
 
-# ─────────────────── PLAYWRIGHT BROWSER ───────────────────
+def check_r2_exists(key: str) -> bool:
+    try:
+        get_s3().head_object(Bucket=R2_BUCKET, Key=key)
+        return True
+    except:
+        return False
+
+# ─────────────────── BROWSER ───────────────────
 from playwright.async_api import async_playwright
 
 _browser = None
 _playwright_inst = None
+_ctx = None
 _page = None
 
 async def init_browser():
-    """Start Playwright browser with VIP auth injected."""
-    global _browser, _playwright_inst, _page
+    global _browser, _playwright_inst, _ctx, _page
     if _page is not None:
         return
 
     log("[BROWSER] Launching Chromium...")
     _playwright_inst = await async_playwright().start()
-    _browser = await _playwright_inst.chromium.launch(headless=True)
-    ctx = await _browser.new_context(
+    _browser = await _playwright_inst.chromium.launch(
+        headless=True,
+        args=[
+            "--disable-blink-features=AutomationControlled",
+            "--no-sandbox",
+            "--disable-web-security",
+        ]
+    )
+    _ctx = await _browser.new_context(
         viewport={"width": 1280, "height": 800},
         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        locale="id-ID",
+        ignore_https_errors=True,
     )
 
-    # Inject cookies from browser session
+    # Inject browser cookies from the live session
     if BROWSER_COOKIES:
         cookie_list = []
         for pair in BROWSER_COOKIES.split(";"):
@@ -113,386 +112,348 @@ async def init_browser():
             if "=" in pair:
                 name, _, val = pair.partition("=")
                 cookie_list.append({
-                    "name": name.strip(),
-                    "value": val.strip(),
-                    "domain": "vidrama.asia",
-                    "path": "/",
+                    "name": name.strip(), "value": val.strip(),
+                    "domain": "vidrama.asia", "path": "/",
+                    "sameSite": "Lax",
                 })
         try:
-            await ctx.add_cookies(cookie_list)
+            await _ctx.add_cookies(cookie_list)
+            log(f"[BROWSER] Injected {len(cookie_list)} browser cookies")
         except Exception as e:
-            log(f"[WARN] Cookie injection error: {e}")
+            log(f"[BROWSER] Cookie error: {e}")
 
-    _page = await ctx.new_page()
+    _page = await _ctx.new_page()
 
-    # Inject Supabase auth token via localStorage
-    log("[BROWSER] Injecting Supabase auth + VIP subscription cache...")
+    # Mask automation fingerprint
+    await _page.add_init_script("""
+        Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+        Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3] });
+    """)
+
+    # Inject Supabase auth into localStorage
     await _page.goto(f"{VIDRAMA_BASE}/404", timeout=30000)
-    if SUPABASE_TOKEN:
-        await _page.evaluate(f"""
-            localStorage.setItem(
-                'sb-gkcnbnlfqdlotnjaizxx-auth-token',
-                JSON.stringify({json.dumps(AUTH_DATA)})
-            );
-            localStorage.setItem('vidrama_subscription_cache', JSON.stringify({json.dumps(SUB_CACHE)}));
-        """)
+    await _page.evaluate(f"""
+        localStorage.setItem(
+            'sb-gkcnbnlfqdlotnjaizxx-auth-token',
+            JSON.stringify({json.dumps(AUTH_DATA)})
+        );
+        localStorage.setItem(
+            'vidrama_subscription_cache',
+            JSON.stringify({json.dumps(SUB_CACHE)})
+        );
+    """)
     log("[BROWSER] Auth injected ✅")
 
 async def close_browser():
-    global _browser, _playwright_inst, _page
-    if _browser:
-        await _browser.close()
-    if _playwright_inst:
-        await _playwright_inst.stop()
-    _page = None
-    _browser = None
-    _playwright_inst = None
+    global _browser, _playwright_inst, _page, _ctx
+    for obj, method in [(_browser, 'close'), (_playwright_inst, 'stop')]:
+        if obj:
+            try: await getattr(obj, method)()
+            except: pass
+    _page = _browser = _playwright_inst = _ctx = None
 
-# ─────────────────── STEP 1: DISCOVER DRAMA ───────────────────
-async def discover_drama_id() -> dict | None:
-    """Navigate to provider page to find target drama ID and slug."""
-    await init_browser()
-    log(f"\n[DISCOVER] Navigating to {VIDRAMA_BASE}/provider/{PROVIDER}...")
-    await _page.goto(f"{VIDRAMA_BASE}/provider/{PROVIDER}", timeout=45000)
-    await _page.wait_for_timeout(4000)
+# ─────────────────── URL EXTRACTION HELPERS ───────────────────
+def extract_video_url_from_text(text: str) -> str:
+    """Extract first viable streaming video URL from raw text (RSC or HTML)."""
+    # Priority: direct mp4 CDN URLs (awscdn, idrama CDN, etc.)
+    patterns = [
+        r'https?://[^\s"\'\\<>]+\.mp4(?:\?[^\s"\'\\<>]*)?',
+        r'https?://[^\s"\'\\<>]+\.m3u8(?:\?[^\s"\'\\<>]*)?',
+        r'https?://awscdn\.[^\s"\'\\<>]+',
+        r'https?://cdn\.[^\s"\'\\<>]+/[^\s"\'\\<>]+',
+    ]
+    for pattern in patterns:
+        matches = re.findall(pattern, text)
+        for m in matches:
+            # Filter out tracking/analytics URLs
+            if any(skip in m for skip in ['analytics', 'beacon', 'gtag', 'pixel', '.js', '.css', '.png', '.jpg', '.svg']):
+                continue
+            if any(good in m for good in ['.mp4', '.m3u8', 'awscdn', 'auth_key', 'Signature=']):
+                return m
+    return ""
 
-    # Scroll to load all dramas (lazy load)
-    for _ in range(10):
-        await _page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        await _page.wait_for_timeout(1500)
+def extract_json_video_url(data: dict) -> str:
+    """Walk dict looking for any videoUrl-like field."""
+    if not isinstance(data, dict):
+        return ""
+    for key in ["videoUrl", "video_url", "url", "streamUrl", "playUrl", "src", "Mopp", "Bcold"]:
+        val = data.get(key)
+        if val and isinstance(val, str) and "http" in val:
+            if any(x in val for x in [".mp4", ".m3u8", "awscdn", "auth_key", "stream"]):
+                return val
+    # Recurse into nested dicts
+    for val in data.values():
+        if isinstance(val, dict):
+            found = extract_json_video_url(val)
+            if found: return found
+        elif isinstance(val, list):
+            for item in val:
+                if isinstance(item, dict):
+                    found = extract_json_video_url(item)
+                    if found: return found
+    return ""
 
-    # Extract all movie links
-    script = """
-    () => {
-        const links = Array.from(document.querySelectorAll('a[href*="/movie/"]'));
-        return links.map(a => {
-            const href = a.getAttribute('href') || '';
-            const match = href.match(/\\/movie\\/([a-z0-9-]+)--(\\d{10,})/);
-            const img = a.querySelector('img');
-            return {
-                href: href,
-                slug: match ? match[1] : '',
-                id: match ? match[2] : '',
-                title: img ? (img.alt || '') : '',
-                cover: img ? (img.src || '') : ''
-            };
-        }).filter(x => x.slug);
-    }
+# ─────────────────── WATCH PAGE FETCH ───────────────────
+async def get_episode_url(ep_num: int) -> dict:
     """
-    items = await _page.evaluate(script)
-    log(f"[DISCOVER] Found {len(items)} dramas on provider page")
-
-    # Also check direct movie URL pattern
-    target = None
-    for item in items:
-        if TARGET_SLUG in item["slug"] or "antara-dewa" in item["slug"].lower():
-            target = item
-            log(f"[DISCOVER] ✅ Found target: {item['slug']} (ID: {item['id']})")
-            break
-
-    if not target:
-        log(f"[DISCOVER] Slug not found in listing. Trying direct search...")
-        # Try to find via text search
-        all_text = await _page.evaluate("""
-            () => Array.from(document.querySelectorAll('a[href*="/movie/"]')).map(a => ({
-                href: a.getAttribute('href'),
-                text: a.innerText
-            }))
-        """)
-        for item in all_text:
-            if "dewa" in (item.get("text") or "").lower() or "iblis" in (item.get("text") or "").lower():
-                href = item.get("href", "")
-                match = re.search(r"/movie/([a-z0-9-]+)--(\d{10,})", href)
-                if match:
-                    target = {"slug": match.group(1), "id": match.group(2), "title": item.get("text", ""), "cover": ""}
-                    log(f"[DISCOVER] ✅ Found via text: {target['slug']} (ID: {target['id']})")
-                    break
-
-    if not target:
-        log("[DISCOVER] ❌ Drama not found on provider page! Trying direct URL probe...")
-        # Attempt to probe the drama page directly from the screenshot URL structure
-        # URL seen: /movie/antara-dewa-atau-iblis--1600006416107?provider=idrama
-        test_url = f"{VIDRAMA_BASE}/movie/antara-dewa-atau-iblis--1600006416107?provider={PROVIDER}"
-        log(f"[DISCOVER] Trying: {test_url}")
-        await _page.goto(test_url, timeout=30000)
-        await _page.wait_for_timeout(3000)
-        current_url = _page.url
-        match = re.search(r"/movie/([a-z0-9-]+)--(\d{10,})", current_url)
-        if not match:
-            content = await _page.content()
-            match = re.search(r"/movie/([a-z0-9-]+)--(\d{10,})", content)
-        if match:
-            target = {"slug": match.group(1), "id": match.group(2), "title": "Antara Dewa atau Iblis", "cover": ""}
-            log(f"[DISCOVER] ✅ Found via direct URL: {target['slug']} (ID: {target['id']})")
-
-    return target
-
-# ─────────────────── STEP 2: SCRAPE METADATA ───────────────────
-async def scrape_drama_metadata(drama: dict) -> dict:
-    """Extract full metadata from drama detail page."""
-    await init_browser()
-    url = f"{VIDRAMA_BASE}/movie/{drama['slug']}--{drama['id']}?provider={PROVIDER}"
-    log(f"\n[META] Fetching metadata from: {url}")
-    await _page.goto(url, wait_until="networkidle", timeout=60000)
-    await _page.wait_for_timeout(2000)
-
-    content = await _page.content()
-
-    # High-quality cover from og:image
-    og_cover_match = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', content)
-    if og_cover_match:
-        drama["cover_url"] = og_cover_match.group(1)
-        log(f"[META] Cover (og:image): {drama['cover_url'][:80]}...")
-
-    # Title from og:title or page title
-    og_title = re.search(r'<meta\s+property="og:title"\s+content="([^"]+)"', content)
-    if og_title:
-        drama["title"] = og_title.group(1).strip()
-    if not drama.get("title"):
-        drama["title"] = "Antara Dewa atau Iblis"
-    log(f"[META] Title: {drama['title']}")
-
-    # Description from og:description or synopsis div
-    og_desc = re.search(r'<meta\s+(?:name="description"|property="og:description")\s+content="([^"]+)"', content)
-    if og_desc:
-        drama["description"] = og_desc.group(1).strip()
-    else:
-        # Try finding the synopsis block
-        synopsis_match = re.search(r'class="[^"]*synopsis[^"]*"[^>]*>(.*?)</div>', content, re.DOTALL)
-        if synopsis_match:
-            drama["description"] = re.sub(r"<[^>]+>", "", synopsis_match.group(1)).strip()[:800]
-
-    if not drama.get("description"):
-        drama["description"] = await _page.evaluate("""
-            () => {
-                const els = document.querySelectorAll('p, [class*="synopsis"], [class*="desc"]');
-                for (const el of els) {
-                    const t = el.innerText.trim();
-                    if (t.length > 80) return t.substring(0, 800);
-                }
-                return '';
-            }
-        """)
-    log(f"[META] Description: {drama.get('description','')[:80]}...")
-
-    # Genres
-    genres = []
-    # Try JSON-LD
-    json_ld = re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', content, re.DOTALL)
-    for jld in json_ld:
-        try:
-            data = json.loads(jld)
-            if isinstance(data, dict) and "genre" in data:
-                g = data["genre"]
-                genres = [g] if isinstance(g, str) else g
-                break
-        except: pass
-
-    if not genres:
-        genres_raw = await _page.evaluate("""
-            () => {
-                const tags = Array.from(document.querySelectorAll('a[href*="/genre/"], a[href*="/category/"], [class*="genre"], [class*="tag"]'));
-                return [...new Set(tags.map(t => t.innerText.trim()).filter(t => t.length > 1 && t.length < 40))];
-            }
-        """)
-        genres = genres_raw[:5]
-
-    if not genres:
-        # fallback from content
-        genres = list(set(re.findall(r'"genre"\s*:\s*"([^"]+)"', content)))[:5]
-
-    drama["genres"] = genres if genres else ["Cultivasi", "Drama", "Pertumbuhan Diri"]
-    log(f"[META] Genres: {drama['genres']}")
-
-    # Total episodes
-    ep_nums = [int(n) for n in re.findall(rf"/watch/{drama['slug']}--{drama['id']}/(\d+)", content)]
-    if ep_nums:
-        drama["total_episodes"] = max(ep_nums)
-    else:
-        # Try from API response embedded in page
-        ep_count_match = re.search(r'"maxEps"\s*:\s*(\d+)', content)
-        if ep_count_match:
-            drama["total_episodes"] = int(ep_count_match.group(1))
-        else:
-            # Count episode buttons/links
-            ep_count = await _page.evaluate("""
-                () => document.querySelectorAll('a[href*="/watch/"]').length
-            """)
-            drama["total_episodes"] = ep_count if ep_count > 0 else 50
-    log(f"[META] Total episodes detected: {drama['total_episodes']}")
-
-    return drama
-
-# ─────────────────── STEP 3: SUBTITLE PROBE ───────────────────
-async def probe_subtitle(drama: dict) -> dict:
-    """
-    Navigate to watch page for ep 1 and intercept API response.
-    Returns: {
-        "has_external_vtt": bool,
-        "video_url": str,
-        "subtitle_url": str,
-        "maxEps": int
-    }
+    Navigate to episode watch page and capture video URL via:
+    1. RSC payload (text/x-component streaming chunks)
+    2. JSON API responses
+    3. Direct video element src
+    4. Page source regex scan
     """
     await init_browser()
-    watch_url = f"{VIDRAMA_BASE}/watch/{drama['slug']}--{drama['id']}/1?provider={PROVIDER}"
-    log(f"\n[PROBE] Checking subtitle type on: {watch_url}")
 
     result = {
-        "has_external_vtt": False,
-        "video_url": "",
-        "subtitle_url": "",
-        "maxEps": drama.get("total_episodes", 0),
-        "raw_api_data": None,
+        "video_url": "", "subtitle_url": "",
+        "has_external_vtt": False, "maxEps": 0
     }
 
-    captured_responses = []
+    watch_url = f"{VIDRAMA_BASE}/watch/{DRAMA_SLUG}--{DRAMA_ID}/{ep_num}?provider={PROVIDER}"
+    captured_text = []
 
     async def on_response(resp):
         url = resp.url
-        # Intercept any watch API call
-        if (
-            f"/api/{PROVIDER}/api/watch/" in url
-            or "/api/watch/" in url
-            or ("watch" in url and "api" in url)
-        ):
-            try:
-                data = await resp.json()
-                captured_responses.append({"url": url, "data": data})
-                log(f"[PROBE] Intercepted API: {url[:100]}")
-            except:
-                pass
+        status = resp.status
+
+        # Skip non-200 and non-content responses
+        if status not in [200, 206]:
+            return
+
+        ctype = resp.headers.get("content-type", "")
+
+        # Skip static assets
+        if any(ext in url for ext in [".js", ".css", ".png", ".jpg", ".svg", ".woff", ".ico", ".webp"]):
+            return
+        if any(k in url for k in ["analytics", "gtag", "facebook", "clarity", "_vercel"]):
+            return
+
+        try:
+            # JSON responses
+            if "json" in ctype:
+                body = await resp.text()
+                captured_text.append(body)
+                # Try parse
+                try:
+                    data = json.loads(body)
+                    url_found = extract_json_video_url(data)
+                    if url_found and not result["video_url"]:
+                        result["video_url"] = url_found
+                        log(f"  [JSON] Found video URL via {url[:80]}")
+                    # Check subtitles
+                    txt = body
+                    if '"subtitles"' in txt and ('".vtt"' in txt or "vtt" in txt.lower()):
+                        result["has_external_vtt"] = True
+                        log(f"  [WARN] External VTT detected in JSON response")
+                    # maxEps
+                    if '"maxEps"' in txt and not result["maxEps"]:
+                        m = re.search(r'"maxEps"\s*:\s*(\d+)', txt)
+                        if m: result["maxEps"] = int(m.group(1))
+                except:
+                    pass
+
+            # RSC / text responses (Next.js streaming)
+            elif "x-component" in ctype or "text/plain" in ctype or "text/html" in ctype:
+                body = await resp.text()
+                captured_text.append(body)
+                url_found = extract_video_url_from_text(body)
+                if url_found and not result["video_url"]:
+                    result["video_url"] = url_found
+                    log(f"  [RSC] Found video URL in {ctype}: {url_found[:80]}")
+                # Check for vtt in RSC body
+                if ".vtt" in body and "http" in body:
+                    vtt_m = re.search(r'https?://[^\s"\'\\<>]+\.vtt[^\s"\'\\<>]*', body)
+                    if vtt_m:
+                        result["has_external_vtt"] = True
+                        result["subtitle_url"] = vtt_m.group(0)
+                        log(f"  [WARN] External VTT in RSC: {vtt_m.group(0)[:80]}")
+                if '"maxEps"' in body and not result["maxEps"]:
+                    m = re.search(r'"maxEps"\s*:\s*(\d+)', body)
+                    if m: result["maxEps"] = int(m.group(1))
+
+            # Direct media URL
+            elif any(x in url for x in [".mp4", ".m3u8"]):
+                if not result["video_url"]:
+                    result["video_url"] = url
+                    log(f"  [MEDIA] Direct media URL: {url[:80]}")
+
+        except Exception:
+            pass
 
     _page.on("response", on_response)
-    await _page.goto(watch_url, timeout=45000)
 
-    # Wait up to 15s for API to fire
-    for _ in range(15):
-        if captured_responses:
-            break
-        await _page.wait_for_timeout(1000)
-
-    _page.remove_listener("response", on_response)
-
-    # Parse captured API data
-    for item in captured_responses:
-        data = item["data"]
-        d = data.get("data", data)  # unwrap if nested
-        if isinstance(d, dict):
-            if d.get("videoUrl"):
-                result["video_url"] = d["videoUrl"]
-            if d.get("maxEps"):
-                result["maxEps"] = int(d["maxEps"])
-            subs = d.get("subtitles", [])
-            if subs:
-                result["has_external_vtt"] = True
-                result["subtitle_url"] = subs[0].get("url", "") if isinstance(subs[0], dict) else str(subs[0])
-                log(f"[PROBE] ⚠️  External VTT found: {result['subtitle_url'][:80]}")
-            result["raw_api_data"] = d
-
-    # Fallback: check page DOM for subtitle tracks
-    if not result["has_external_vtt"]:
-        track_url = await _page.evaluate("""
-            () => {
-                const tracks = document.querySelectorAll('video track, track');
-                for (const t of tracks) {
-                    if (t.src && t.src.includes('http')) return t.src;
-                }
-                return null;
-            }
-        """)
-        if track_url:
-            result["has_external_vtt"] = True
-            result["subtitle_url"] = track_url
-            log(f"[PROBE] ⚠️  Subtitle track found in DOM: {track_url[:80]}")
-
-    # Fallback: check for .vtt in page source
-    if not result["has_external_vtt"]:
-        page_content = await _page.content()
-        vtt_urls = re.findall(r'https?://[^\s"\'<>]+\.vtt[^\s"\'<>]*', page_content)
-        if vtt_urls:
-            result["has_external_vtt"] = True
-            result["subtitle_url"] = vtt_urls[0]
-            log(f"[PROBE] ⚠️  VTT URL found in page source: {vtt_urls[0][:80]}")
-
-    # Fallback video URL from video element
-    if not result["video_url"]:
-        result["video_url"] = await _page.evaluate("""
-            () => {
-                const v = document.querySelector('video');
-                if (v) return v.src || v.currentSrc || '';
-                return '';
-            }
-        """)
-
-    if not result["has_external_vtt"]:
-        log("[PROBE] ✅ No external VTT found — subtitle appears EMBEDDED in video stream")
-    else:
-        log(f"[PROBE] ❌ External VTT detected → Pipeline will ABORT per user instruction")
-
-    if result["video_url"]:
-        log(f"[PROBE] Video URL: {result['video_url'][:100]}...")
-    if result["maxEps"] > 0:
-        log(f"[PROBE] maxEps from API: {result['maxEps']}")
-
-    return result
-
-# ─────────────────── STEP 4: GET EPISODE VIDEO URL ───────────────────
-async def get_episode_video_url(drama: dict, ep_num: int) -> dict:
-    """Intercept the watch API for a specific episode to get MP4 URL."""
-    watch_url = f"{VIDRAMA_BASE}/watch/{drama['slug']}--{drama['id']}/{ep_num}?provider={PROVIDER}"
-    result = {"video_url": "", "subtitle_url": "", "maxEps": drama.get("total_episodes", 0)}
-    captured = []
-
-    async def on_response(resp):
-        url = resp.url
-        if (
-            f"/api/{PROVIDER}/api/watch/" in url
-            or "/api/watch/" in url
-            or ("watch" in url and "api" in url)
-        ):
-            try:
-                data = await resp.json()
-                captured.append(data)
-            except:
-                pass
-
-    _page.on("response", on_response)
     try:
-        await _page.goto(watch_url, timeout=30000)
-        for _ in range(12):
-            if captured:
+        await _page.goto(watch_url, wait_until="domcontentloaded", timeout=45000)
+        # Wait in increments, break early if we got the URL
+        for _ in range(25):
+            if result["video_url"]:
                 break
             await _page.wait_for_timeout(1000)
     except Exception as e:
-        log(f"[EP{ep_num}] Nav error: {str(e)[:50]}")
-    _page.remove_listener("response", on_response)
+        log(f"  [NAV] Error ep{ep_num}: {str(e)[:60]}")
 
-    for data in captured:
-        d = data.get("data", data)
-        if isinstance(d, dict):
-            if d.get("videoUrl"):
-                result["video_url"] = d["videoUrl"]
-            if d.get("maxEps"):
-                result["maxEps"] = int(d["maxEps"])
-            subs = d.get("subtitles", [])
-            if subs:
-                result["subtitle_url"] = subs[0].get("url", "") if isinstance(subs[0], dict) else ""
+    try:
+        _page.remove_listener("response", on_response)
+    except:
+        pass
 
-    # Fallback from video element
+    # Fallback 1: Read video element
     if not result["video_url"]:
-        result["video_url"] = await _page.evaluate("""
-            () => {
-                const v = document.querySelector('video');
-                if (!v) return '';
-                return v.src || v.currentSrc || '';
-            }
-        """)
+        try:
+            vid_src = await _page.evaluate("""
+                () => {
+                    const v = document.querySelector('video');
+                    return v ? (v.currentSrc || v.src || '') : '';
+                }
+            """)
+            if vid_src and "http" in vid_src:
+                result["video_url"] = vid_src
+                log(f"  [DOM] Video src: {vid_src[:80]}")
+        except:
+            pass
+
+    # Fallback 2: Scan full page source
+    if not result["video_url"]:
+        try:
+            content = await _page.content()
+            url_found = extract_video_url_from_text(content)
+            if url_found:
+                result["video_url"] = url_found
+                log(f"  [SRC] Found in page source: {url_found[:80]}")
+        except:
+            pass
+
+    # Fallback 3: Use JS to fetch the episode API directly
+    if not result["video_url"]:
+        try:
+            js_result = await _page.evaluate(f"""
+                async () => {{
+                    try {{
+                        const r = await fetch('/api/dotdrama/api/v1/dramas/{DRAMA_ID}/episodes/{ep_num}?lang=id');
+                        const d = await r.json();
+                        return JSON.stringify(d);
+                    }} catch(e) {{ return null; }}
+                }}
+            """)
+            if js_result:
+                try:
+                    d = json.loads(js_result)
+                    url_found = extract_json_video_url(d)
+                    if url_found:
+                        result["video_url"] = url_found
+                        log(f"  [JS-FETCH] Episode API: {url_found[:80]}")
+                    log(f"  [JS-FETCH] Response: {js_result[:200]}")
+                except:
+                    pass
+        except:
+            pass
+
+    # Check DOM for subtitle tracks
+    if not result["has_external_vtt"]:
+        try:
+            track = await _page.evaluate("""
+                () => {
+                    const t = document.querySelector('video track, track[kind="subtitles"], track[kind="captions"]');
+                    return t ? t.src : null;
+                }
+            """)
+            if track and "http" in track:
+                result["has_external_vtt"] = True
+                result["subtitle_url"] = track
+        except:
+            pass
 
     return result
 
-# ─────────────────── STEP 5: DOWNLOAD / COMPRESS / UPLOAD ───────────────────
-def download_mp4(url: str, dest: Path) -> bool:
+# ─────────────────── METADATA SCRAPE ───────────────────
+async def scrape_metadata() -> dict:
+    await init_browser()
+    url = f"{VIDRAMA_BASE}/movie/{DRAMA_SLUG}--{DRAMA_ID}?provider={PROVIDER}"
+    log(f"[META] Fetching: {url}")
+
+    drama = {"slug": DRAMA_SLUG, "id": DRAMA_ID, "title": "Antara Dewa atau Iblis"}
+    meta_captured = []
+
+    async def on_resp(resp):
+        if resp.status == 200:
+            ctype = resp.headers.get("content-type", "")
+            if "json" in ctype or "x-component" in ctype:
+                try:
+                    body = await resp.text()
+                    meta_captured.append(body)
+                except: pass
+
+    _page.on("response", on_resp)
+    try:
+        await _page.goto(url, wait_until="networkidle", timeout=60000)
+        await _page.wait_for_timeout(2000)
+    except Exception as e:
+        log(f"[META] Nav error: {str(e)[:60]}")
+    try: _page.remove_listener("response", on_resp)
+    except: pass
+
+    content = await _page.content()
+    all_text = content + "\n".join(meta_captured)
+
+    # og:image for high-quality cover
+    m = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', all_text)
+    if m:
+        drama["cover_url"] = m.group(1)
+        log(f"[META] Cover: {drama['cover_url'][:80]}")
+
+    # og:title
+    m = re.search(r'<meta\s+property="og:title"\s+content="([^"]+)"', all_text)
+    if m: drama["title"] = m.group(1).strip()
+
+    # Description
+    m = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', all_text)
+    if not m:
+        m = re.search(r'<meta\s+property="og:description"\s+content="([^"]+)"', all_text)
+    drama["description"] = m.group(1).strip() if m else ""
+
+    if not drama["description"]:
+        drama["description"] = await _page.evaluate("""
+            () => {
+                const sels = ['[class*="synopsis"]', '[class*="desc"]', 'p'];
+                for (const s of sels) {
+                    const el = document.querySelector(s);
+                    if (el && el.innerText && el.innerText.trim().length > 50)
+                        return el.innerText.trim().substring(0, 800);
+                }
+                return '';
+            }
+        """)
+    log(f"[META] Desc: {drama['description'][:70]}...")
+
+    # Genres from page links
+    genres = await _page.evaluate("""
+        () => [...new Set(
+            Array.from(document.querySelectorAll('a[href*="/genre/"], a[href*="/category/"]'))
+                .map(e => e.innerText.trim())
+                .filter(t => t.length > 1 && t.length < 50)
+        )].slice(0, 5)
+    """)
+    drama["genres"] = genres if genres else ["Cultivasi", "Drama", "Pertumbuhan Diri"]
+    log(f"[META] Genres: {drama['genres']}")
+
+    # Episode count
+    ep_max = await _page.evaluate(f"""
+        () => {{
+            const links = document.querySelectorAll('a[href*="/watch/"]');
+            let maxN = 0;
+            links.forEach(l => {{
+                const m = (l.href || '').match(/\\/watch\\/[^/]+\\/(\\d+)/);
+                if (m) {{ const n = parseInt(m[1]); if (n > maxN) maxN = n; }}
+            }});
+            return maxN;
+        }}
+    """)
+    drama["total_episodes"] = ep_max if ep_max > 0 else 0
+    log(f"[META] Total episodes from page: {drama['total_episodes']}")
+    return drama
+
+# ─────────────────── DOWNLOAD / COMPRESS / UPLOAD ───────────────────
+def download_file(url: str, dest: Path) -> bool:
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36",
         "Referer": "https://vidrama.asia/",
@@ -500,7 +461,7 @@ def download_mp4(url: str, dest: Path) -> bool:
     }
     for attempt in range(3):
         try:
-            resp = requests.get(url, headers=headers, timeout=180, stream=True, verify=False)
+            resp = requests.get(url, headers=headers, timeout=300, stream=True, verify=False)
             resp.raise_for_status()
             total = 0
             with open(dest, "wb") as f:
@@ -510,28 +471,22 @@ def download_mp4(url: str, dest: Path) -> bool:
                         total += len(chunk)
             if total > 10000:
                 return True
-            if attempt < 2:
-                time.sleep(3)
+            log(f" DL_SMALL({total}B)", end="")
         except requests.exceptions.HTTPError as e:
-            log(f" DLerr:HTTP{e.response.status_code}", end="")
-            if attempt < 2:
-                time.sleep(3)
+            log(f" DL_HTTP{e.response.status_code}", end="")
         except Exception as e:
-            log(f" DLerr:{str(e)[:40]}", end="")
-            if attempt < 2:
-                time.sleep(3)
+            log(f" DL_ERR:{str(e)[:40]}", end="")
+        if attempt < 2:
+            time.sleep(3 * (attempt + 1))
     return False
 
 async def compress_mp4_async(src: Path) -> bool:
-    """Compress MP4 using FFmpeg via async subprocess (Windows ProactorLoop compatible)."""
-    tmp = src.with_name(src.name + ".tmp.mp4")
+    tmp = src.with_name(src.name + ".compress.mp4")
     cmd = [
         "ffmpeg", "-y", "-i", str(src),
         "-vcodec", "libx264", "-crf", "26", "-preset", "veryfast",
-        "-c:a", "aac", "-b:a", "128k",
-        "-ar", "44100",
-        "-movflags", "+faststart",
-        str(tmp),
+        "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
+        "-movflags", "+faststart", str(tmp),
     ]
     try:
         proc = await asyncio.create_subprocess_exec(
@@ -539,316 +494,219 @@ async def compress_mp4_async(src: Path) -> bool:
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
-        _, stderr = await asyncio.wait_for(proc.communicate(), timeout=420)
+        _, stderr = await asyncio.wait_for(proc.communicate(), timeout=480)
         if proc.returncode == 0 and tmp.exists() and tmp.stat().st_size > 1024:
             src.unlink(missing_ok=True)
             tmp.rename(src)
             return True
-        err = stderr.decode("utf-8", "ignore")[:80]
-        log(f" FFerr:{err}", end="")
-        if tmp.exists():
-            tmp.unlink()
-        return False
-    except asyncio.TimeoutError:
-        log(f" FFerr:timeout", end="")
-        if tmp.exists():
-            tmp.unlink()
+        log(f" FF:{stderr.decode('utf-8','ignore')[-80:]}", end="")
+        if tmp.exists(): tmp.unlink()
         return False
     except Exception as e:
-        log(f" FFerr:{str(e)[:40]}", end="")
-        if tmp.exists():
-            tmp.unlink()
+        log(f" FF_ERR:{str(e)[:30]}", end="")
+        if tmp.exists(): tmp.unlink()
         return False
 
 def upload_mp4(mp4_file: Path, r2_key: str) -> str | None:
-    if not mp4_file.exists():
-        return None
+    if not mp4_file.exists(): return None
     try:
-        get_s3().upload_file(
-            str(mp4_file), R2_BUCKET, r2_key,
-            ExtraArgs={"ContentType": "video/mp4"},
-        )
+        get_s3().upload_file(str(mp4_file), R2_BUCKET, r2_key, ExtraArgs={"ContentType": "video/mp4"})
         return f"{R2_PUBLIC}/{r2_key}"
     except Exception as e:
-        log(f" UPerr:{str(e)[:40]}", end="")
+        log(f" UP_ERR:{str(e)[:40]}", end="")
         return None
 
-def upload_cover(cover_url: str, slug: str) -> str | None:
-    if not cover_url:
-        return None
+def upload_cover(cover_url: str) -> str | None:
     try:
-        resp = requests.get(cover_url, timeout=20, verify=False,
-                            headers={"Referer": "https://vidrama.asia/"})
+        resp = requests.get(cover_url, timeout=20, verify=False, headers={"Referer": "https://vidrama.asia/"})
         if resp.status_code == 200 and len(resp.content) > 500:
-            content_type = resp.headers.get("content-type", "image/jpeg")
-            ext = "jpg" if "jpeg" in content_type else content_type.split("/")[-1]
-            key = f"{R2_PREFIX}/{slug}/cover.{ext}"
-            get_s3().put_object(
-                Bucket=R2_BUCKET, Key=key,
-                Body=resp.content, ContentType=content_type,
-            )
-            r2_url = f"{R2_PUBLIC}/{key}"
-            log(f"[COVER] ✅ Uploaded: {r2_url}")
-            return r2_url
+            ctype = resp.headers.get("content-type", "image/jpeg")
+            ext = "jpg" if "jpeg" in ctype else ctype.split("/")[-1].split(";")[0]
+            key = f"{R2_PREFIX}/{DRAMA_SLUG}/cover.{ext}"
+            get_s3().put_object(Bucket=R2_BUCKET, Key=key, Body=resp.content, ContentType=ctype)
+            url = f"{R2_PUBLIC}/{key}"
+            log(f"[COVER] ✅ {url}")
+            return url
     except Exception as e:
-        log(f"[COVER] ❌ Error: {e}")
+        log(f"[COVER] ❌ {e}")
     return None
 
-def check_r2_exists(r2_key: str) -> bool:
-    try:
-        get_s3().head_object(Bucket=R2_BUCKET, Key=r2_key)
-        return True
-    except:
-        return False
-
-# ─────────────────── STEP 6: REGISTER IN DB ───────────────────
-def push_drama_to_db(drama: dict, cover_r2_url: str) -> str | None:
-    """Create drama record in DB. Returns drama DB ID or None."""
+# ─────────────────── DB ───────────────────
+def push_drama(drama: dict, cover_r2: str) -> str | None:
+    hdrs = {"x-api-key": ADMIN_KEY, "Content-Type": "application/json"}
     payload = {
         "title": drama["title"],
         "description": drama.get("description", ""),
-        "status": "Ongoing",
-        "provider": "iDrama",
-        "isActive": False,
-        "tags": drama.get("genres", ["Cultivasi", "Drama"]),
-        "cover": cover_r2_url or "",
-        "coverUrl": cover_r2_url or "",
+        "status": "Ongoing", "provider": "iDrama", "isActive": False,
+        "tags": drama.get("genres", ["Drama"]),
+        "cover": cover_r2 or "", "coverUrl": cover_r2 or "",
         "totalEpisodes": drama.get("total_episodes", 0),
     }
-    headers = {"x-api-key": ADMIN_KEY, "Content-Type": "application/json"}
     try:
-        resp = requests.post(f"{BACKEND_URL}/dramas", json=payload, headers=headers, timeout=20)
-        if resp.status_code in [200, 201]:
-            drama_id = resp.json().get("id")
-            log(f"[DB] ✅ Drama created: ID={drama_id}")
-            # Force isActive=false (some backends override)
-            requests.patch(
-                f"{BACKEND_URL}/dramas/{drama_id}",
-                json={"isActive": False},
-                headers=headers,
-                timeout=10,
-            )
-            return drama_id
-        log(f"[DB] ❌ Drama create failed {resp.status_code}: {resp.text[:200]}")
+        r = requests.post(f"{BACKEND_URL}/dramas", json=payload, headers=hdrs, timeout=20)
+        if r.status_code in [200, 201]:
+            did = r.json().get("id")
+            log(f"[DB] ✅ Drama created: id={did}")
+            requests.patch(f"{BACKEND_URL}/dramas/{did}", json={"isActive": False}, headers=hdrs, timeout=10)
+            return did
+        log(f"[DB] ❌ {r.status_code}: {r.text[:200]}")
     except Exception as e:
-        log(f"[DB] ❌ Exception: {e}")
+        log(f"[DB] ❌ {e}")
     return None
 
-def push_episode_to_db(drama_db_id: str, ep_num: int, video_url: str) -> str | None:
-    """Create episode record. Returns episode DB ID or None."""
-    payload = {
-        "dramaId": drama_db_id,
-        "episodeNumber": ep_num,
-        "videoUrl": video_url,
-        "duration": 0,
-    }
-    headers = {"x-api-key": ADMIN_KEY, "Content-Type": "application/json"}
+def push_episode(drama_db_id: str, ep_num: int, video_url: str) -> str | None:
+    hdrs = {"x-api-key": ADMIN_KEY, "Content-Type": "application/json"}
     try:
-        resp = requests.post(f"{BACKEND_URL}/episodes", json=payload, headers=headers, timeout=15)
-        if resp.status_code in [200, 201]:
-            return resp.json().get("id")
-        log(f"[DB] Ep{ep_num} failed {resp.status_code}: {resp.text[:100]}")
+        r = requests.post(f"{BACKEND_URL}/episodes",
+            json={"dramaId": drama_db_id, "episodeNumber": ep_num, "videoUrl": video_url, "duration": 0},
+            headers=hdrs, timeout=15)
+        if r.status_code in [200, 201]:
+            return r.json().get("id")
+        log(f" EP_ERR:{r.status_code}", end="")
     except Exception as e:
-        log(f"[DB] Ep{ep_num} exception: {e}")
+        log(f" EP_EX:{str(e)[:30]}", end="")
     return None
-
-# ─────────────────── EPISODE PROCESSOR (fully async) ───────────────────
-async def process_episode(drama: dict, ep_num: int, total_eps: int, drama_temp: Path, drama_db_id: str | None) -> dict | None:
-    """Async: fetch URL → download → compress → upload → register in DB."""
-    r2_key = f"{R2_PREFIX}/{drama['slug']}/ep{ep_num:03d}.mp4"
-
-    # Skip if already in R2
-    if check_r2_exists(r2_key):
-        log(f"  Ep {ep_num:3}/{total_eps}: already in R2 ✓")
-        r2_url = f"{R2_PUBLIC}/{r2_key}"
-        if drama_db_id:
-            push_episode_to_db(drama_db_id, ep_num, r2_url)
-        return {"number": ep_num, "videoUrl": r2_url}
-
-    log(f"  Ep {ep_num:3}/{total_eps}:", end="")
-
-    # Get video URL via Playwright (runs in same event loop)
-    ep_data = await get_episode_video_url(drama, ep_num)
-    video_url = ep_data.get("video_url", "")
-
-    if not video_url:
-        log(" FAIL(no url)")
-        return None
-
-    # Download (blocking I/O — run in thread executor)
-    mp4_path = drama_temp / f"ep{ep_num:03d}.mp4"
-    log(f" DL...", end="")
-    loop = asyncio.get_event_loop()
-    dl_ok = await loop.run_in_executor(None, download_mp4, video_url, mp4_path)
-    if not dl_ok:
-        log(" FAIL(dl)")
-        return None
-
-    mb = mp4_path.stat().st_size / 1024 / 1024
-    log(f"({mb:.1f}MB)", end="")
-
-    # Compress (async subprocess — Windows ProactorLoop compatible)
-    comp_ok = await compress_mp4_async(mp4_path)
-    if comp_ok:
-        cmb = mp4_path.stat().st_size / 1024 / 1024
-        log(f" COMP({cmb:.1f}MB)", end="")
-
-    # Upload to R2
-    r2_url = await loop.run_in_executor(None, upload_mp4, mp4_path, r2_key)
-    if not r2_url:
-        log(" FAIL(upload)")
-        return None
-
-    log(" UP✅", end="")
-    try:
-        mp4_path.unlink()
-    except:
-        pass
-
-    # Register episode in DB
-    if drama_db_id:
-        ep_db_id = await loop.run_in_executor(None, push_episode_to_db, drama_db_id, ep_num, r2_url)
-        log(f" DB{'✅' if ep_db_id else '⚠️'}")
-    else:
-        log("")
-
-    return {"number": ep_num, "videoUrl": r2_url, "maxEps": ep_data.get("maxEps", total_eps)}
 
 # ─────────────────── MAIN ───────────────────
 async def main():
     log("=" * 65)
-    log(f"  🎬 IDRAMA PIPELINE — Antara Dewa atau Iblis")
-    log(f"  Provider: {PROVIDER} | R2: {R2_BUCKET}/{R2_PREFIX}")
+    log(f"  🎬 IDRAMA PIPELINE v3 — {DRAMA_SLUG}")
+    log(f"  Provider: {PROVIDER} | Bucket: {R2_BUCKET}/{R2_PREFIX}")
+    log(f"  Token expires: {AUTH_DATA.get('expires_at', '?')}")
     log("=" * 65)
 
     TEMP_DIR.mkdir(parents=True, exist_ok=True)
-
-    # ── Step 1: Discover drama ──
-    drama = await discover_drama_id()
-    if not drama or not drama.get("id"):
-        log("\n❌ ABORT: Could not find 'Antara Dewa atau Iblis' on the provider page.")
-        log("   Check that vidrama.asia/provider/idrama lists this drama.")
-        await close_browser()
-        return
-
-    drama_slug = drama["slug"]
-    drama_id   = drama["id"]
-    log(f"\n✅ Drama found: slug={drama_slug} | id={drama_id}")
-
-    # ── Step 2: Scrape metadata ──
-    drama = await scrape_drama_metadata(drama)
-
-    # ── Step 3: Subtitle probe ──
-    probe = await probe_subtitle(drama)
-
-    if probe["has_external_vtt"]:
-        log("\n" + "=" * 65)
-        log("  🚫 PIPELINE ABORTED")
-        log("  → External VTT subtitle detected on Episode 1.")
-        log(f"  → Subtitle URL: {probe['subtitle_url'][:100]}")
-        log("  → Per your instruction: SCRAPING CANCELLED.")
-        log("=" * 65)
-        await close_browser()
-        return
-
-    log("\n✅ Subtitle check passed — No external VTT. Subtitle is EMBEDDED.")
-
-    # Update total episodes from probe
-    if probe.get("maxEps", 0) > drama.get("total_episodes", 0):
-        drama["total_episodes"] = probe["maxEps"]
-    total_eps = drama["total_episodes"]
-    log(f"  Total episodes to process: {total_eps}")
-
-    # ── Step 4: Upload cover ──
-    cover_r2_url = None
-    if drama.get("cover_url"):
-        cover_r2_url = upload_cover(drama["cover_url"], drama_slug)
-    if not cover_r2_url:
-        cover_r2_url = f"{R2_PUBLIC}/{R2_PREFIX}/{drama_slug}/cover.jpg"
-
-    # ── Step 5: Register drama in DB ──
-    drama_db_id = push_drama_to_db(drama, cover_r2_url)
-    if not drama_db_id:
-        log("[WARN] Drama not registered in DB — episodes will still be downloaded but not registered.")
-
-    # ── Step 6: Process episodes ──
-    drama_temp = TEMP_DIR / drama_slug
+    drama_temp = TEMP_DIR / DRAMA_SLUG
     drama_temp.mkdir(parents=True, exist_ok=True)
+    loop = asyncio.get_event_loop()
 
+    # ── Step 1: Metadata ──
+    drama = await scrape_metadata()
+    log(f"\n📺 {drama['title']} | {drama['genres']} | {drama['total_episodes']} eps")
+
+    # ── Step 2: Probe Ep1 (subtitle check) ──
+    log(f"\n[PROBE] Episode 1 subtitle check...")
+    ep1_data = await get_episode_url(1)
+    log(f"  Video URL: {'✅ found' if ep1_data['video_url'] else '❌ NOT found'}")
+    if ep1_data['video_url']:
+        log(f"  → {ep1_data['video_url'][:100]}")
+    log(f"  External VTT: {'❌ YES → ABORT' if ep1_data['has_external_vtt'] else '✅ NO (embedded)'}")
+    if ep1_data.get("maxEps"):
+        log(f"  maxEps: {ep1_data['maxEps']}")
+
+    if ep1_data["has_external_vtt"]:
+        log("\n🚫 PIPELINE ABORTED — External VTT detected. Scraping cancelled.")
+        await close_browser()
+        return
+
+    if not ep1_data["video_url"]:
+        log("\n⚠️  WARNING: No video URL captured for Ep1. Site may require manual interaction.")
+        log("  Continuing anyway — some episodes may fail. Check if VIP session is active.")
+
+    log("\n✅ Subtitle check PASSED. Proceeding with all episodes...")
+
+    # Update episode count from API
+    if ep1_data.get("maxEps", 0) > drama["total_episodes"]:
+        drama["total_episodes"] = ep1_data["maxEps"]
+    if drama["total_episodes"] == 0:
+        drama["total_episodes"] = 50  # safe fallback
+    total_eps = drama["total_episodes"]
+    log(f"  Total episodes: {total_eps}")
+
+    # ── Step 3: Upload cover ──
+    cover_r2 = None
+    if drama.get("cover_url"):
+        cover_r2 = upload_cover(drama["cover_url"])
+    if not cover_r2:
+        cover_r2 = f"{R2_PUBLIC}/{R2_PREFIX}/{DRAMA_SLUG}/cover.jpg"
+
+    # ── Step 4: Register drama in DB ──
+    drama_db_id = push_drama(drama, cover_r2)
+
+    # ── Step 5: Process episodes ──
     log(f"\n{'=' * 65}")
     log(f"  Processing {total_eps} episodes...")
     log(f"{'=' * 65}")
 
-    # Ep 1 video URL already captured from probe
     success_eps = []
-    ep1_video = probe.get("video_url", "")
 
-    ep_num = 1
-    while ep_num <= total_eps:
+    for ep_num in range(1, total_eps + 1):
         try:
-            # For ep1, override video_url with the one already captured during probe
-            if ep_num == 1 and ep1_video:
-                r2_key = f"{R2_PREFIX}/{drama_slug}/ep001.mp4"
-                if check_r2_exists(r2_key):
-                    log(f"  Ep   1/{total_eps}: already in R2 ✓")
-                    r2_url = f"{R2_PUBLIC}/{r2_key}"
-                    success_eps.append({"number": 1, "videoUrl": r2_url})
-                    if drama_db_id:
-                        loop = asyncio.get_event_loop()
-                        await loop.run_in_executor(None, push_episode_to_db, drama_db_id, 1, r2_url)
-                else:
-                    log(f"  Ep   1/{total_eps}:", end="")
-                    mp4_path = drama_temp / "ep001.mp4"
-                    log(f" DL...", end="")
-                    loop = asyncio.get_event_loop()
-                    dl_ok = await loop.run_in_executor(None, download_mp4, ep1_video, mp4_path)
-                    if dl_ok:
-                        mb = mp4_path.stat().st_size / 1024 / 1024
-                        log(f"({mb:.1f}MB)", end="")
-                        comp_ok = await compress_mp4_async(mp4_path)
-                        if comp_ok:
-                            cmb = mp4_path.stat().st_size / 1024 / 1024
-                            log(f" COMP({cmb:.1f}MB)", end="")
-                        r2_url = await loop.run_in_executor(None, upload_mp4, mp4_path, r2_key)
-                        if r2_url:
-                            log(" UP✅", end="")
-                            try: mp4_path.unlink()
-                            except: pass
-                            success_eps.append({"number": 1, "videoUrl": r2_url})
-                            if drama_db_id:
-                                ep_db_id = await loop.run_in_executor(None, push_episode_to_db, drama_db_id, 1, r2_url)
-                                log(f" DB{'✅' if ep_db_id else '⚠️'}")
-                            else:
-                                log("")
-                        else:
-                            log(" FAIL(upload)")
-                    else:
-                        log(" FAIL(dl)")
+            r2_key = f"{R2_PREFIX}/{DRAMA_SLUG}/ep{ep_num:03d}.mp4"
+
+            if check_r2_exists(r2_key):
+                log(f"  Ep {ep_num:3}/{total_eps}: R2 ✓ (skip)")
+                r2_url = f"{R2_PUBLIC}/{r2_key}"
+                success_eps.append({"number": ep_num, "videoUrl": r2_url})
+                if drama_db_id:
+                    await loop.run_in_executor(None, push_episode, drama_db_id, ep_num, r2_url)
+                continue
+
+            log(f"  Ep {ep_num:3}/{total_eps}:", end="")
+
+            # Reuse cached ep1 URL
+            if ep_num == 1 and ep1_data.get("video_url"):
+                ep_data = ep1_data
+                log(f" [cached]", end="")
             else:
-                result = await process_episode(drama, ep_num, total_eps, drama_temp, drama_db_id)
-                if result:
-                    success_eps.append(result)
-                    if result.get("maxEps", 0) > total_eps:
-                        total_eps = result["maxEps"]
-                        log(f"  ✨ Updated total episodes: {total_eps}")
+                ep_data = await get_episode_url(ep_num)
+
+            video_url = ep_data.get("video_url", "")
+            if not video_url:
+                log(f" FAIL(no url)")
+                continue
+
+            # Download
+            mp4_path = drama_temp / f"ep{ep_num:03d}.mp4"
+            log(f" DL...", end="")
+            dl_ok = await loop.run_in_executor(None, download_file, video_url, mp4_path)
+            if not dl_ok:
+                log(f" FAIL(dl)")
+                continue
+
+            mb = mp4_path.stat().st_size / 1024 / 1024
+            log(f"({mb:.1f}MB)", end="")
+
+            # Compress
+            comp_ok = await compress_mp4_async(mp4_path)
+            if comp_ok:
+                cmb = mp4_path.stat().st_size / 1024 / 1024
+                log(f" COMP({cmb:.1f}MB)", end="")
+
+            # Upload
+            r2_url = await loop.run_in_executor(None, upload_mp4, mp4_path, r2_key)
+            if not r2_url:
+                log(f" FAIL(upload)")
+                continue
+
+            log(f" UP✅", end="")
+            try: mp4_path.unlink()
+            except: pass
+
+            success_eps.append({"number": ep_num, "videoUrl": r2_url})
+
+            # Register in DB
+            if drama_db_id:
+                ep_db_id = await loop.run_in_executor(None, push_episode, drama_db_id, ep_num, r2_url)
+                log(f" DB{'✅' if ep_db_id else '⚠️'}")
+            else:
+                log("")
+
+            # Update total eps from API
+            if ep_data.get("maxEps", 0) > total_eps:
+                total_eps = ep_data["maxEps"]
+                log(f"  ✨ Updated total: {total_eps}")
 
         except KeyboardInterrupt:
-            log("\n⚠️  Interrupted by user.")
+            log("\n⚠️  Interrupted.")
             break
         except Exception as e:
-            log(f"  Ep {ep_num:3}/{total_eps}: Runtime error: {e}")
+            log(f"  Ep {ep_num:3}/{total_eps}: Exception: {e}")
 
-        ep_num += 1
-
-    # ── Summary ──
     log(f"\n{'=' * 65}")
-    log(f"  ✅ PIPELINE COMPLETE")
-    log(f"  Drama: {drama['title']}")
-    log(f"  Episodes processed: {len(success_eps)}/{total_eps}")
-    log(f"  Drama DB ID: {drama_db_id}")
-    log(f"  Cover R2: {cover_r2_url}")
-    log(f"  Status in DB: Draft/Pending (isActive=false)")
-    log(f"  Check Admin Panel → Dramas → filter Pending")
+    log(f"  ✅ DONE: {len(success_eps)}/{total_eps} episodes processed")
+    log(f"  Drama ID: {drama_db_id} | Cover: {cover_r2}")
+    log(f"  Admin Panel → Dramas → Pending filter")
     log("=" * 65)
 
     await close_browser()
