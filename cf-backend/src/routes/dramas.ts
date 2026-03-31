@@ -391,6 +391,20 @@ dramasRoute.get('/:id/episodes/:episodeNumber', async (c) => {
     }
 });
 
+// POST /api/dramas/:id/view — increment views counter (fire-and-forget, no auth)
+dramasRoute.post('/:id/view', async (c) => {
+    try {
+        const id = c.req.param('id');
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        await db.update(dramas)
+            .set({ views: sql`${dramas.views} + 1` })
+            .where(eq(dramas.id, id));
+        return c.json({ ok: true });
+    } catch {
+        return c.json({ ok: false }, 500);
+    }
+});
+
 // GET /api/dramas/:id/seasons
 dramasRoute.get('/:id/seasons', async (c) => {
     try {
