@@ -106,7 +106,9 @@ def process_all(master_json, drama_index=None):
         for ep in episodes:
             ep_num = ep['number']
             r2_key = f'freereels/{slug}/ep{ep_num:03d}.mp4'
+            r2_key_540p = f'freereels/{slug}/ep{ep_num:03d}_540p.mp4'
             r2_url = f'{R2_PUBLIC}/{r2_key}'
+            r2_url_540p = f'{R2_PUBLIC}/{r2_key_540p}'
             
             # Check DB
             cur.execute('SELECT id FROM "Episode" WHERE "dramaId" = %s AND "episodeNumber" = %s',
@@ -125,30 +127,50 @@ def process_all(master_json, drama_index=None):
             
             need_download = not r2_exists(r2c, r2_key)
             duration = 60
+            final_r2_url_540p = r2_url_540p
             
             if need_download:
                 mp4 = TEMP_DIR / f'ep{ep_num:03d}.mp4'
+                mp4_540p = TEMP_DIR / f'ep{ep_num:03d}_540p.mp4'
+                
                 if download_hls(h264, mp4):
                     duration = get_duration(mp4)
                     print(f'DL:{mp4.stat().st_size//1024//1024}MB', end=' ', flush=True)
                     r2_upload(r2c, mp4, r2_key)
+                    print('R2(720p)', end=' ', flush=True)
+                    
+                    # Generate 540p
+                    cmd = ['ffmpeg', '-y', '-i', str(mp4), '-vf', 'scale=-2:540',
+                           '-c:v', 'libx264', '-crf', '28', '-preset', 'fast', '-c:a', 'copy', str(mp4_540p)]
+                    subprocess.run(cmd, capture_output=True)
+                    
+                    if mp4_540p.exists() and mp4_540p.stat().st_size > 100_000:
+                        print(f'ENC:{mp4_540p.stat().st_size//1024//1024}MB', end=' ', flush=True)
+                        r2_upload(r2c, mp4_540p, r2_key_540p)
+                        print('R2(540p)', end=' ', flush=True)
+                        mp4_540p.unlink(missing_ok=True)
+                    else:
+                        final_r2_url_540p = None
+                    
                     mp4.unlink(missing_ok=True)
-                    print('R2', end=' ', flush=True)
                 else:
                     print('FAIL')
                     global_fail += 1
                     continue
+            else:
+                if not r2_exists(r2c, r2_key_540p):
+                    final_r2_url_540p = None
             
             # Insert DB
             ep_id = str(uuid.uuid4())
             cur.execute('''
-                INSERT INTO "Episode" (id, "dramaId", "episodeNumber", title, "videoUrl",
+                INSERT INTO "Episode" (id, "dramaId", "episodeNumber", title, "videoUrl", "videoUrl540p",
                                         "duration", "isActive", "createdAt", "updatedAt")
-                VALUES (%s, %s, %s, %s, %s, %s, false, NOW(), NOW())
-            ''', (ep_id, drama_id, ep_num, f'Episode {ep_num}', r2_url, duration))
+                VALUES (%s, %s, %s, %s, %s, %s, %s, false, NOW(), NOW())
+            ''', (ep_id, drama_id, ep_num, f'Episode {ep_num}', r2_url, final_r2_url_540p, duration))
             conn.commit()
             global_done += 1
-            print('DB OK')
+            print(' DB OK')
         
         # Update total episodes
         cur.execute('UPDATE "Drama" SET "totalEpisodes" = (SELECT COUNT(*) FROM "Episode" WHERE "dramaId" = %s) WHERE id = %s',
