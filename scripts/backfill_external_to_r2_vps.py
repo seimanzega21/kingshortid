@@ -5,7 +5,7 @@ from pathlib import Path
 
 # =================CONFIGURATION=================
 # Connects directly to PostgreSQL on the VPS inside Coolify
-DATABASE_URL = 'postgresql://supabase_admin:GoZViiH1AXLl73BqLdKDtpeGgwUzfW64@supabase-db-og8gwooogk480gcws0o84ssc:5432/postgres'
+DATABASE_URL = DATABASE_URL = 'postgresql://postgres:GoZViiH1AXLl73BqLdKDtpeGgwUzfW64@supabasekong-og8gwooogk480gcws0o84ssc.141.11.160.187.sslip.io:5432/postgres'
 
 R2_ENDPOINT = 'https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com'
 R2_KEY_ID   = '07c99c897986ea52703c1285308d5e2c'
