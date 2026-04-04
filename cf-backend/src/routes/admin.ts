@@ -380,4 +380,32 @@ adminRoute.patch('/dramas/:id', async (c) => {
     }
 });
 
+// ==================== RUN MIGRATION (one-time) ====================
+adminRoute.post('/run-migration', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        // Add video_url_540p column if not exists
+        await db.execute(sql`ALTER TABLE episodes ADD COLUMN IF NOT EXISTS video_url_540p text`);
+
+        // Verify column exists
+        const check = await db.execute(sql`
+            SELECT column_name FROM information_schema.columns
+            WHERE table_name = 'episodes' AND column_name = 'video_url_540p'
+        `);
+
+        const columnExists = check.rows && check.rows.length > 0;
+        return c.json({
+            ok: columnExists,
+            message: columnExists
+                ? 'Migration complete: video_url_540p column now exists in episodes table'
+                : 'ALTER ran but column not found - check DB manually',
+        });
+    } catch (error: any) {
+        console.error('Migration error:', error);
+        return c.json({ ok: false, error: error?.message || String(error) }, 500);
+    }
+});
+
 export default adminRoute;
+
