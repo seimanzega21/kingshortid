@@ -125,6 +125,39 @@ episodesRoute.get('/:id/stream', async (c) => {
     }
 });
 
+// PATCH /api/episodes/:id - Update episode fields (no URL validation for 540p)
+episodesRoute.patch('/:id', async (c) => {
+    try {
+        const adminKey = c.req.header('X-Admin-Key');
+        if (!adminKey || adminKey !== (c.env as any).ADMIN_API_KEY) {
+            return c.json({ error: 'Unauthorized' }, 401);
+        }
+
+        const id = c.req.param('id');
+        const body = await c.req.json();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        const existing = await db.select().from(episodes).where(eq(episodes.id, id)).limit(1).then((r: any[]) => r[0]);
+        if (!existing) return c.json({ error: 'Episode not found' }, 404);
+
+        const updates: Record<string, unknown> = { updatedAt: new Date() };
+        if (body.videoUrl540p !== undefined) updates.videoUrl540p = body.videoUrl540p || null;
+        if (body.videoUrl !== undefined) updates.videoUrl = body.videoUrl;
+        if (body.duration !== undefined) updates.duration = parseInt(body.duration);
+        if (body.title !== undefined) updates.title = body.title;
+
+        const [updated] = await db.update(episodes)
+            .set(updates)
+            .where(eq(episodes.id, id))
+            .returning();
+
+        return c.json(updated);
+    } catch (error) {
+        console.error('Patch episode error:', error);
+        return c.json({ error: 'Failed to update episode' }, 500);
+    }
+});
+
 // GET /api/episodes/:id/subtitles
 episodesRoute.get('/:id/subtitles', async (c) => {
     try {
