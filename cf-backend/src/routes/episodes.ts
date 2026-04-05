@@ -137,25 +137,16 @@ episodesRoute.patch('/:id', async (c) => {
         const body = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        // Build safe update object using only known fields
-        const updateData: Partial<typeof episodes.$inferInsert> = {};
-        if (body.videoUrl540p !== undefined) updateData.videoUrl540p = body.videoUrl540p || null;
-        if (body.videoUrl !== undefined) updateData.videoUrl = body.videoUrl;
-        if (body.duration !== undefined) updateData.duration = parseInt(body.duration);
-        if (body.title !== undefined) updateData.title = body.title;
-
-        if (Object.keys(updateData).length === 0) {
-            return c.json({ error: 'No valid fields to update' }, 400);
+        // PATCH videoUrl540p specifically (no HEAD validation)
+        if (body.videoUrl540p !== undefined) {
+            const url540 = body.videoUrl540p || null;
+            await db.execute(
+                sql`UPDATE episodes SET video_url_540p = ${url540} WHERE id = ${id}`
+            );
         }
 
-        await db.update(episodes)
-            .set(updateData)
-            .where(eq(episodes.id, id));
-
-        // Re-fetch to return updated episode
         const updated = await db.select().from(episodes).where(eq(episodes.id, id)).limit(1).then((r: any[]) => r[0]);
         if (!updated) return c.json({ error: 'Episode not found' }, 404);
-
         return c.json(updated);
     } catch (error) {
         console.error('Patch episode error:', error);
