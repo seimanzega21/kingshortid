@@ -137,19 +137,24 @@ episodesRoute.patch('/:id', async (c) => {
         const body = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        const existing = await db.select().from(episodes).where(eq(episodes.id, id)).limit(1).then((r: any[]) => r[0]);
-        if (!existing) return c.json({ error: 'Episode not found' }, 404);
+        // Build safe update object using only known fields
+        const updateData: Partial<typeof episodes.$inferInsert> = {};
+        if (body.videoUrl540p !== undefined) updateData.videoUrl540p = body.videoUrl540p || null;
+        if (body.videoUrl !== undefined) updateData.videoUrl = body.videoUrl;
+        if (body.duration !== undefined) updateData.duration = parseInt(body.duration);
+        if (body.title !== undefined) updateData.title = body.title;
 
-        const updates: Record<string, unknown> = { updatedAt: new Date() };
-        if (body.videoUrl540p !== undefined) updates.videoUrl540p = body.videoUrl540p || null;
-        if (body.videoUrl !== undefined) updates.videoUrl = body.videoUrl;
-        if (body.duration !== undefined) updates.duration = parseInt(body.duration);
-        if (body.title !== undefined) updates.title = body.title;
+        if (Object.keys(updateData).length === 0) {
+            return c.json({ error: 'No valid fields to update' }, 400);
+        }
 
-        const [updated] = await db.update(episodes)
-            .set(updates)
-            .where(eq(episodes.id, id))
-            .returning();
+        await db.update(episodes)
+            .set(updateData)
+            .where(eq(episodes.id, id));
+
+        // Re-fetch to return updated episode
+        const updated = await db.select().from(episodes).where(eq(episodes.id, id)).limit(1).then((r: any[]) => r[0]);
+        if (!updated) return c.json({ error: 'Episode not found' }, 404);
 
         return c.json(updated);
     } catch (error) {
@@ -157,6 +162,7 @@ episodesRoute.patch('/:id', async (c) => {
         return c.json({ error: 'Failed to update episode' }, 500);
     }
 });
+
 
 // GET /api/episodes/:id/subtitles
 episodesRoute.get('/:id/subtitles', async (c) => {
