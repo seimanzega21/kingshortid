@@ -101,7 +101,7 @@ async function getAccessToken(): Promise<string> {
 }
 
 // Send FCM v1 push notification
-async function sendFcmMessage(token: string, title: string, body: string, data?: Record<string, string>) {
+async function sendFcmMessage(token: string, title: string, body: string, data?: Record<string, string>, imageUrl?: string) {
     const sa = getServiceAccount();
     const accessToken = await getAccessToken();
     const url = `https://fcm.googleapis.com/v1/projects/${sa.project_id}/messages:send`;
@@ -119,6 +119,10 @@ async function sendFcmMessage(token: string, title: string, body: string, data?:
             },
         },
     };
+
+    if (imageUrl) {
+        message.message.android.notification.image = imageUrl;
+    }
 
     if (data) {
         message.message.data = data;
@@ -151,6 +155,7 @@ export async function sendBroadcastNotification(
     title: string,
     body: string,
     data?: Record<string, string>,
+    imageUrl?: string
 ): Promise<{ sent: number; failed: number; total: number }> {
     const db = getDb(supabaseUrl, supabaseDbPassword);
 
@@ -170,7 +175,7 @@ export async function sendBroadcastNotification(
     for (let i = 0; i < usersWithTokens.length; i += batchSize) {
         const batch = usersWithTokens.slice(i, i + batchSize);
         const results = await Promise.allSettled(
-            batch.map(u => sendFcmMessage(u.pushToken!, title, body, data))
+            batch.map(u => sendFcmMessage(u.pushToken!, title, body, data, imageUrl))
         );
 
         for (const r of results) {

@@ -15,7 +15,7 @@ notificationsRoute.post('/broadcast', async (c) => {
             return c.json({ error: 'Unauthorized' }, 401);
         }
 
-        const { title, body, type = 'system' } = await c.req.json();
+        const { title, body, type = 'system', imageUrl, dramaId, episodeNumber } = await c.req.json();
         if (!title || !body) {
             return c.json({ error: 'Title and body are required' }, 400);
         }
@@ -43,12 +43,17 @@ notificationsRoute.post('/broadcast', async (c) => {
         // 2. Send FCM push notification to all users with push tokens
         let fcmResult = { sent: 0, failed: 0, total: 0 };
         try {
+            const dataPayload: Record<string, string> = { type };
+            if (dramaId) dataPayload.dramaId = String(dramaId);
+            if (episodeNumber) dataPayload.episodeNumber = String(episodeNumber);
+
             fcmResult = await sendBroadcastNotification(
                 c.env.SUPABASE_URL,
                 c.env.SUPABASE_DB_PASSWORD,
                 title,
                 body,
-                { type },
+                dataPayload,
+                imageUrl
             );
         } catch (e) {
             console.error('FCM broadcast error:', e);
