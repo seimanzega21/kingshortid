@@ -131,7 +131,12 @@ while True:
             print(f"  🔔 Terkirim Notif Pop-up (FCM)  : {data.get('push', {}).get('sent', 0)} HP Android")
             
             if data.get('push', {}).get('failed', 0) > 0:
-                print(f"  ⚠️ Token Expired/Dihapus User   : {data.get('push', {}).get('failed', 0)} HP")
+                print(f"  ⚠️ Token Expired/Gagal   : {data.get('push', {}).get('failed', 0)} HP")
+                errors = data.get('push', {}).get('errors', [])
+                if errors:
+                    print("\n  [!] PESAN ERROR DARI FIREBASE:")
+                    for e in errors:
+                        print(f"      - {e}")
                 
             print("\nSilakan cek layar HP-mu sekarang, notifikasi gambarnya pasti sudah muncul!")
         else:
