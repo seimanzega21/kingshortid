@@ -114,6 +114,7 @@ async function sendFcmMessage(token: string, title: string, body: string, data?:
                 priority: 'high',
                 notification: {
                     channel_id: 'kingshort_notifications',
+                    click_action: 'id.kingshort.mobile.MainActivity',
                 },
             },
         },
@@ -166,14 +167,23 @@ export async function sendBroadcastNotification(
         .from(users)
         .where(isNotNull(users.pushToken));
 
+    // DEDUPLICATE TOKENS: Ensure we only send one push per device token
+    const uniqueTokensMap = new Map();
+    for (const u of usersWithTokens) {
+        if (!uniqueTokensMap.has(u.pushToken)) {
+            uniqueTokensMap.set(u.pushToken, u);
+        }
+    }
+    const uniqueUsers = Array.from(uniqueTokensMap.values());
+
     let sent = 0;
     let failed = 0;
     let errors: string[] = [];
 
     // Send in batches of 10
     const batchSize = 10;
-    for (let i = 0; i < usersWithTokens.length; i += batchSize) {
-        const batch = usersWithTokens.slice(i, i + batchSize);
+    for (let i = 0; i < uniqueUsers.length; i += batchSize) {
+        const batch = uniqueUsers.slice(i, i + batchSize);
         const results = await Promise.allSettled(
             batch.map(u => sendFcmMessage(u.pushToken!, title, body, data, imageUrl))
         );
