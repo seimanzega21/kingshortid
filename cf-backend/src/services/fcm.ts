@@ -114,7 +114,7 @@ async function sendFcmMessage(token: string, title: string, body: string, data?:
                 priority: 'high',
                 notification: {
                     channel_id: 'kingshort_notifications',
-                    click_action: 'id.kingshort.mobile.MainActivity',
+                    click_action: 'expo.modules.notifications.USER_INTERACTION',
                 },
             },
         },
