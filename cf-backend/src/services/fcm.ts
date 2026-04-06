@@ -156,7 +156,7 @@ export async function sendBroadcastNotification(
     body: string,
     data?: Record<string, string>,
     imageUrl?: string
-): Promise<{ sent: number; failed: number; total: number }> {
+): Promise<{ sent: number; failed: number; total: number; errors: string[] }> {
     const db = getDb(supabaseUrl, supabaseDbPassword);
 
     // Get all users with push tokens who have system notifications enabled
@@ -169,6 +169,7 @@ export async function sendBroadcastNotification(
 
     let sent = 0;
     let failed = 0;
+    let errors: string[] = [];
 
     // Send in batches of 10
     const batchSize = 10;
@@ -179,10 +180,22 @@ export async function sendBroadcastNotification(
         );
 
         for (const r of results) {
-            if (r.status === 'fulfilled' && r.value.success) sent++;
-            else failed++;
+            if (r.status === 'fulfilled') {
+                if (r.value.success) {
+                    sent++;
+                } else {
+                    failed++;
+                    if (r.value.error) errors.push(r.value.error);
+                }
+            } else {
+                failed++;
+                errors.push(r.reason?.message || String(r.reason));
+            }
         }
     }
 
-    return { sent, failed, total: usersWithTokens.length };
+    // Keep errors concise (max 3 unique to avoid payload bloat)
+    const uniqueErrors = Array.from(new Set(errors)).slice(0, 3);
+    
+    return { sent, failed, total: usersWithTokens.length, errors: uniqueErrors };
 }
