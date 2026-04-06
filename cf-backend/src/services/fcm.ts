@@ -113,7 +113,6 @@ async function sendFcmMessage(token: string, title: string, body: string, data?:
             android: {
                 priority: 'high',
                 notification: {
-                    click_action: 'FLUTTER_NOTIFICATION_CLICK',
                     channel_id: 'kingshort_notifications',
                 },
             },
