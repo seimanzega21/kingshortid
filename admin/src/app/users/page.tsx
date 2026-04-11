@@ -47,7 +47,7 @@ export default function UserManagement() {
 
             if (data.users) setUsers(data.users);
             if (data.pages) setTotalPages(data.pages);
-            if (data.total) setTotalCount(data.total);
+            if (data.total != null) setTotalCount(data.total);
         } catch (error) {
             toast.error("Gagal mengambil data user");
         } finally {

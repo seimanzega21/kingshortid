@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// In-memory cache — dashboard doesn't need real-time data
+// In-memory cache — short TTL to keep user count in sync with /users page
 let cache: { data: any; ts: number } | null = null;
-const CACHE_TTL = 30_000; // 30 seconds
+const CACHE_TTL = 10_000; // 10 seconds — keeps totalUsers in sync
 
 const VPS_API = 'https://api.shortlovers.id/api/admin/dashboard';
 const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
 
         const res = await fetch(VPS_API, {
             headers: { 'X-Admin-Key': ADMIN_KEY },
-            next: { revalidate: 30 },
+            cache: 'no-store', // always fresh from VPS
         });
 
         if (!res.ok) {
