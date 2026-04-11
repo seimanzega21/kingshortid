@@ -15,7 +15,8 @@ import {
     ChevronRight,
     DollarSign,
     Shield,
-    Activity
+    Activity,
+    Bell
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -49,6 +50,11 @@ const menuItems = [
         title: "Moderasi",
         icon: Shield,
         href: "/moderation",
+    },
+    {
+        title: "Notifikasi",
+        icon: Bell,
+        href: "/notifications/broadcast",
     },
     {
         title: "Analitik",
