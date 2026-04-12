@@ -265,8 +265,8 @@ rewardsRoute.post('/claim-rate', async (c) => {
     }
 });
 
-// POST /api/rewards/claim-ad — Reward for watching an ad
-rewardsRoute.post('/claim-ad', async (c) => {
+// POST /api/rewards/earn-bonus-video — Reward for watching an ad
+rewardsRoute.post('/earn-bonus-video', async (c) => {
     try {
         const userId = c.get('user').id;
         const { type, amount } = await c.req.json();
