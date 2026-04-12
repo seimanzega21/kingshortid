@@ -74,7 +74,7 @@ rewardsRoute.post('/check-in', async (c) => {
             type: 'bonus',
             amount: bonusInfo.coins,
             description: `Check-In Hari ke-${newStreak}`,
-            balanceAfter: newBalance,
+            // balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -201,7 +201,7 @@ rewardsRoute.post('/claim-watch', async (c) => {
             type: 'earn',
             amount: task.bonus,
             description: `Hadiah Menonton: ${task.target} episode`,
-            balanceAfter: newBalance,
+            // balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -249,7 +249,7 @@ rewardsRoute.post('/claim-rate', async (c) => {
             type: 'earn',
             amount: bonus,
             description: 'Beri Peringkat 5 ⭐ di Google Play',
-            balanceAfter: newBalance,
+            // balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -317,7 +317,7 @@ rewardsRoute.post('/claim-ad', async (c) => {
             type: 'ad_reward',
             amount,
             description,
-            balanceAfter: newBalance,
+            // balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -434,7 +434,7 @@ rewardsRoute.post('/claim-milestone', async (c) => {
             type: 'bonus',
             amount: milestone.bonus,
             description: `🎉 Milestone ${target} koin — ${milestone.label}`,
-            balanceAfter: newBalance,
+            // balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
