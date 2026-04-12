@@ -266,7 +266,7 @@ rewardsRoute.post('/claim-rate', async (c) => {
 });
 
 // POST /api/rewards/earn-bonus-video — Reward for watching an ad
-rewardsRoute.post('/earn-bonus-video', async (c) => {
+const earnBonusVideoHandler = async (c: any) => {
     try {
         const userId = c.get('user').id;
         const { type, amount } = await c.req.json();
@@ -343,7 +343,10 @@ rewardsRoute.post('/earn-bonus-video', async (c) => {
         console.error('Claim ad error:', error);
         return c.json({ error: 'Failed to claim ad reward' }, 500);
     }
-});
+};
+
+rewardsRoute.post('/earn-bonus-video', earnBonusVideoHandler);
+rewardsRoute.post('/claim-ad', earnBonusVideoHandler);
 
 // GET /api/rewards/achievements
 rewardsRoute.get('/achievements', async (c) => {
