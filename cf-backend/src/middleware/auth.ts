@@ -14,6 +14,9 @@ export type Env = {
         SUPABASE_URL: string;
         SUPABASE_DB_PASSWORD: string;
         JWT_SECRET: string;
+        ADMIN_API_KEY: string;
+        REVENUECAT_WEBHOOK_SECRET: string;
+        REVENUECAT_SECRET_KEY: string;
     };
     Variables: {
         user: typeof users.$inferSelect;

@@ -15,6 +15,7 @@ import notificationsRoute from './routes/notifications';
 import categoriesRoute from './routes/categories';
 import settingsRoute from './routes/settings';
 import adminRoute from './routes/admin';
+import webhooksRoute from './routes/webhooks';
 
 const app = new Hono<Env>();
 
@@ -48,6 +49,7 @@ app.route('/api/notifications', notificationsRoute);
 app.route('/api/categories', categoriesRoute);
 app.route('/api/settings', settingsRoute);
 app.route('/api/admin', adminRoute);
+app.route('/api/webhooks', webhooksRoute);
 
 // 404 handler
 app.notFound((c) => c.json({ error: 'Not found', path: c.req.path }, 404));
