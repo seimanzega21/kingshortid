@@ -314,7 +314,7 @@ rewardsRoute.post('/claim-ad', async (c) => {
 
         await db.insert(coinTransactions).values({
             userId,
-            type: 'ad_reward',
+            type: 'earn', // Changed from ad_reward to match other working endpoints
             amount,
             description,
             // balanceAfter: newBalance,
