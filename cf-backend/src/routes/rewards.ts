@@ -389,6 +389,8 @@ rewardsRoute.get('/transactions', async (c) => {
                 .where(eq(coinTransactions.userId, userId)),
         ]);
 
+        console.log('DEBUG TRANSACTIONS LENGTH:', transactions.length);
+        console.log('DEBUG TRANSACTIONS LIMIT/PAGE:', limit, page, 'USER_ID:', userId);
         return c.json({ transactions, total: totalResult[0]?.count || 0, page, limit });
     } catch (error) {
         console.error('Get transactions error:', error);
