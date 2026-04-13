@@ -94,7 +94,8 @@ async function sendFcmMessage(
     title: string,
     body: string,
     data?: Record<string, string>,
-    imageUrl?: string
+    imageUrl?: string,
+    categoryId?: string
 ): Promise<{ success: boolean; error?: string }> {
     const sa = getServiceAccount();
     const accessToken = await getAccessToken();
@@ -112,6 +113,7 @@ async function sendFcmMessage(
         default_vibrate_timings: true,
         notification_priority: 'PRIORITY_HIGH',
         visibility: 'PUBLIC',
+        ...(categoryId ? { category_id: categoryId } : {}),
     };
 
     if (imageUrl) {
@@ -133,6 +135,8 @@ async function sendFcmMessage(
                 ...(data || {}),
                 // Pass imageUrl in data so foreground handler can also render it
                 ...(imageUrl ? { imageUrl } : {}),
+                // Pass categoryId so expo-notifications can attach Action Buttons
+                ...(categoryId ? { categoryId } : {}),
             },
         },
     };
@@ -155,6 +159,31 @@ async function sendFcmMessage(
     return { success: true };
 }
 
+export async function sendPushNotification(
+    userId: string,
+    title: string,
+    body: string,
+    data?: Record<string, string>,
+    imageUrl?: string,
+    categoryId?: string
+): Promise<{ success: boolean; error?: string }> {
+    try {
+        const db = getDb();
+        const userTokens = await db
+            .select({ fcmToken: users.pushToken })
+            .from(users)
+            .where(sql`${users.id} = ${userId} AND ${users.pushToken} IS NOT NULL`);
+
+        if (!userTokens.length || !userTokens[0].fcmToken) {
+            return { success: false, error: 'No FCM token found for user' };
+        }
+
+        return await sendFcmMessage(userTokens[0].fcmToken, title, body, data, imageUrl, categoryId);
+    } catch (error: any) {
+        return { success: false, error: error.message };
+    }
+}
+
 /**
  * Send broadcast notification to all unique device tokens.
  *
@@ -167,7 +196,8 @@ export async function sendBroadcastNotification(
     title: string,
     body: string,
     data?: Record<string, string>,
-    imageUrl?: string
+    imageUrl?: string,
+    categoryId?: string
 ): Promise<{ sent: number; failed: number; total: number; errors: string[] }> {
     const db = getDb(supabaseUrl, supabaseDbPassword);
 
@@ -190,7 +220,7 @@ export async function sendBroadcastNotification(
     for (let i = 0; i < uniqueTokens.length; i += batchSize) {
         const batch = uniqueTokens.slice(i, i + batchSize);
         const results = await Promise.allSettled(
-            batch.map(token => sendFcmMessage(token, title, body, data, imageUrl))
+            batch.map(token => sendFcmMessage(token, title, body, data, imageUrl, categoryId))
         );
 
         for (const r of results) {

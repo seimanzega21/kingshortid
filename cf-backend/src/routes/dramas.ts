@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { eq, and, desc, like, or, sql, asc } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
 import { dramas, episodes, seasons } from '../db/schema';
+import { sendBroadcastNotification } from '../services/fcm';
 import type { Env } from '../middleware/auth';
 
 const dramasRoute = new Hono<Env>();
@@ -505,6 +506,18 @@ dramasRoute.patch('/:id', async (c) => {
             .set(updates)
             .where(eq(dramas.id, id))
             .returning();
+
+        // ─── TRIGGER: New Release Broadcast Notification ───
+        if (existing.isActive === false && body.isActive === true) {
+            // Kickoff in background
+            void sendBroadcastNotification(
+                '🔥 Drama Baru Telah Rilis!',
+                `${updated.title} kini sudah tayang. Tonton episode pertamanya sekarang!`,
+                { dramaId: updated.id },
+                updated.cover,
+                'DRAMA_ACTION' // Pass custom action category (Putar button)
+            );
+        }
 
         return c.json(enrichDrama(updated));
     } catch (error) {
