@@ -1,6 +1,6 @@
 import cron from 'node-cron';
 import { getDb } from '../db';
-import { users, watchHistory, transactions, dramas, episodes } from '../db/schema';
+import { users, watchHistory, coinTransactions, dramas, episodes } from '../db/schema';
 import { eq, and, sql, desc, gte, isNull, inArray } from 'drizzle-orm';
 import { sendPushNotification } from './fcm';
 
@@ -62,11 +62,11 @@ async function runCheckinReminder() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     
-    const todaysCheckins = await db.select({ userId: transactions.userId })
-        .from(transactions)
+    const todaysCheckins = await db.select({ userId: coinTransactions.userId })
+        .from(coinTransactions)
         .where(and(
-            eq(transactions.type, 'check_in'),
-            gte(transactions.createdAt, today)
+            eq(coinTransactions.type, 'check_in'),
+            gte(coinTransactions.createdAt, today)
         ));
         
     const checkedInUserIds = new Set(todaysCheckins.map(t => t.userId));
