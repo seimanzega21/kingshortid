@@ -154,7 +154,10 @@ def compress_variants(input_mp4: Path, base_output: str, temp_dir: Path) -> tupl
     
     cmd_720 = [
         "ffmpeg", "-y", "-i", str(input_mp4),
-        "-c", "copy", "-movflags", "+faststart",
+        "-c:v", "libx264", "-preset", "faster", "-crf", "28",
+        "-maxrate", "1200k", "-bufsize", "2400k",
+        "-movflags", "+faststart", "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "96k", "-ac", "2",
         str(out_720)
     ]
     
@@ -235,8 +238,9 @@ def process_episode(ep, drama_temp, total_eps, slug, r2_prefix):
 
     c720, c540 = compress_variants(raw, f"opt_ep{ep_num:03d}", drama_temp)
     if c720:
-        mb_out = c720.stat().st_size / 1024 / 1024
-        log(f" COMP({mb_out:.1f}MB)", end="")
+        mb_720 = c720.stat().st_size / 1024 / 1024
+        mb_540 = c540.stat().st_size / 1024 / 1024 if c540 else 0
+        log(f" COMP(720={mb_720:.1f}MB|540={mb_540:.1f}MB)", end="")
         
         mp4_url = upload_mp4(c720, r2_ep_key)
         
