@@ -73,7 +73,7 @@ dramasRoute.post('/', async (c) => {
             status: status || 'ongoing',
             country: country || 'China',
             language: language || 'Indonesia',
-            isActive: true,
+            isActive: body.isActive !== undefined ? body.isActive : false,
             views: 0,
             rating: 0,
             totalEpisodes: 0,
@@ -511,6 +511,8 @@ dramasRoute.patch('/:id', async (c) => {
         if (existing.isActive === false && body.isActive === true) {
             // Kickoff in background
             void sendBroadcastNotification(
+                c.env.SUPABASE_URL,
+                c.env.SUPABASE_DB_PASSWORD,
                 '🔥 Drama Baru Telah Rilis!',
                 `${updated.title} kini sudah tayang. Tonton episode pertamanya sekarang!`,
                 { dramaId: updated.id },
