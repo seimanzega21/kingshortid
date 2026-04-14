@@ -32,21 +32,18 @@ try:
     print("Setting up environment on VPS & Starting pipeline...")
     setup_cmd = f"""
     cd {REMOTE_DIR}
-    apt-get update -y
-    apt-get install -y python3 python3-pip ffmpeg python3-venv
     python3 -m venv venv
     source venv/bin/activate
-    pip install requests python-dotenv boto3
+    pip install -r <(echo -e "cloudscraper==1.2.71\\npython-slugify==8.0.4\\nboto3==1.34.79")
+
+    # Stop existing screen session directly instead of wildcard pkill
+    screen -X -S microdrama quit || true
     
-    # Stop existing if running
-    pkill -9 -f python
-    pkill -9 -f ffmpeg
     rm -f scraper.log
-    
     # Run in background via screen
     screen -dmS microdrama bash -c "source venv/bin/activate && python3 vidrama_microdrama_v4.py --limit 400 > scraper.log 2>&1"
     
-    echo "VPS DEPLOYMENT COMPLETE!"
+    echo "VPS Setup & Start OK"
     """
     
     stdin, stdout, stderr = ssh.exec_command(setup_cmd)

@@ -154,16 +154,15 @@ def compress_variants(input_mp4: Path, base_output: str, temp_dir: Path) -> tupl
     
     cmd_720 = [
         "ffmpeg", "-y", "-i", str(input_mp4),
-        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "28",
-        "-movflags", "+faststart", "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "96k", "-ac", "2",
+        "-c", "copy", "-movflags", "+faststart",
         str(out_720)
     ]
     
     cmd_540 = [
         "ffmpeg", "-y", "-i", str(input_mp4),
         "-vf", "scale=-2:540",
-        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "28",
+        "-c:v", "libx264", "-preset", "faster", "-crf", "28",
+        "-maxrate", "800k", "-bufsize", "1600k",
         "-movflags", "+faststart", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "96k", "-ac", "2",
         str(out_540)
@@ -354,15 +353,9 @@ def main():
     d1_titles = get_d1_titles()
 
     new = []
-    for d in dramas:
-        slug  = slugify(d.get("title", ""))
-        title = d.get("title", "")
-        if slug in r2_slugs or title in d1_titles:
-            continue
-        new.append(d)
-
-    log(f"    New to scrape: {len(new)} -> capped at {limit}")
-    new = new[start:start + limit]
+    # Only skip if the drama is completely in D1 AND we are sure it has 540p (which we aren't, so we just process all limits)
+    # To avoid checking every drama, we only check the first `limit` dramas from the API
+    new = dramas[start:start + limit]
 
     if not new:
         log("  Nothing new!"); return
