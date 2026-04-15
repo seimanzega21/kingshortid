@@ -18,13 +18,13 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/src ./src
 COPY package.json tsconfig.json ./
 
-# Install wget for healthcheck, create non-root user
-RUN apk add --no-cache wget && adduser -D -u 1001 appuser && chown -R appuser /app
+# Create non-root user
+RUN adduser -D -u 1001 appuser && chown -R appuser /app
 USER appuser
 
 EXPOSE 3000
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-    CMD wget -qO- http://localhost:3000/health || exit 1
+    CMD bun -e "fetch('http://localhost:3000/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
 
 CMD ["bun", "run", "src/server.ts"]
