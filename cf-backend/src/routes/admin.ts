@@ -329,7 +329,7 @@ adminRoute.post('/users/bulk-delete', async (c) => {
 
         if (deleteAll) {
             const result = await db.delete(users).where(ne(users.role, 'admin'));
-            const count = result.meta?.changes || 0;
+            const count = (result as any).meta?.changes || 0;
             return c.json({ message: `${count} users deleted permanently`, count });
         }
 
@@ -394,7 +394,7 @@ adminRoute.post('/run-migration', async (c) => {
             WHERE table_name = 'episodes' AND column_name = 'video_url_540p'
         `);
 
-        const columnExists = check.rows && check.rows.length > 0;
+        const columnExists = (check as any).rows && (check as any).rows.length > 0;
         return c.json({
             ok: columnExists,
             message: columnExists
