@@ -200,10 +200,10 @@ adminRoute.get('/analytics', async (c) => {
 
         // Total stats
         const [totalViewsRes, totalUsersRes, totalDramasRes, totalRevenueRes] = await Promise.all([
-            db.select({ total: sql<number>\`COALESCE(SUM(views), 0)\` }).from(dramas).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>\`count(*)\` }).from(users).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>\`count(*)\` }).from(dramas).limit(1).then((r: any[]) => r[0]),
-            db.select({ total: sql<number>\`COALESCE(SUM(amount), 0)\` }).from(coinTransactions).where(eq(coinTransactions.type, 'topup')).limit(1).then((r: any[]) => r[0]),
+            db.select({ total: sql<number>`COALESCE(SUM(views), 0)` }).from(dramas).limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>`count(*)` }).from(users).limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>`count(*)` }).from(dramas).limit(1).then((r: any[]) => r[0]),
+            db.select({ total: sql<number>`COALESCE(SUM(amount), 0)` }).from(coinTransactions).where(eq(coinTransactions.type, 'topup')).limit(1).then((r: any[]) => r[0]),
         ]);
 
         // Helper to format days 
