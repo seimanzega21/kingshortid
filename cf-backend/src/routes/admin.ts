@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, like, or, sql, ne, gte, asc } from 'drizzle-orm';
 import { getDb } from '../db';
-import { users, dramas, episodes, watchHistory, watchlist, favorites, collections, coinTransactions } from '../db/schema';
+import { users, dramas, episodes, watchHistory, watchlist, favorites, collections, coinTransactions, feedbacks } from '../db/schema';
 import { requireAdmin, getAuthUser } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
 
@@ -407,5 +407,57 @@ adminRoute.post('/run-migration', async (c) => {
     }
 });
 
+// ==================== FEEDBACKS ====================
+
+adminRoute.get('/feedbacks', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        const allFeedbacks = await db
+            .select({
+                id: feedbacks.id,
+                message: feedbacks.message,
+                status: feedbacks.status,
+                createdAt: feedbacks.createdAt,
+                user: {
+                    id: users.id,
+                    name: users.name,
+                    email: users.email,
+                }
+            })
+            .from(feedbacks)
+            .leftJoin(users, eq(feedbacks.userId, users.id))
+            .orderBy(desc(feedbacks.createdAt));
+
+        return c.json({ feedbacks: allFeedbacks });
+    } catch (error) {
+        console.error('Get feedbacks error:', error);
+        return c.json({ error: 'Failed to fetch feedbacks' }, 500);
+    }
+});
+
+adminRoute.put('/feedbacks/:id', async (c) => {
+    try {
+        const { id } = c.req.param();
+        const { status } = await c.req.json();
+        
+        if (!['unread', 'read', 'resolved'].includes(status)) {
+            return c.json({ error: 'Invalid status' }, 400);
+        }
+
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        await db.update(feedbacks)
+            .set({ status })
+            .where(eq(feedbacks.id, id));
+
+        return c.json({ success: true });
+    } catch (error) {
+        console.error('Update feedback error:', error);
+        return c.json({ error: 'Failed to update feedback status' }, 500);
+    }
+});
+
 export default adminRoute;
+
 

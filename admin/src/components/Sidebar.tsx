@@ -16,7 +16,8 @@ import {
     DollarSign,
     Shield,
     Activity,
-    Bell
+    Bell,
+    Inbox
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -60,6 +61,11 @@ const menuItems = [
         title: "Analitik",
         icon: BarChart3,
         href: "/analytics",
+    },
+    {
+        title: "Kotak Saran",
+        icon: Inbox,
+        href: "/feedbacks",
     },
 ];
 

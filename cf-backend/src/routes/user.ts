@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, sql, asc } from 'drizzle-orm';
 import { getDb, parseJsonArray } from '../db';
-import { watchlist, favorites, collections, watchHistory, dramas, episodes, users, coinTransactions, dailyRewards } from '../db/schema';
+import { watchlist, favorites, collections, watchHistory, dramas, episodes, users, coinTransactions, dailyRewards, feedbacks } from '../db/schema';
 import { Env, requireAuth } from '../middleware/auth';
 
 const userRoute = new Hono<Env>();
@@ -425,4 +425,31 @@ userRoute.delete('/account', async (c) => {
     }
 });
 
+// ==================== FEEDBACK / SUGGESTION BOX ====================
+
+userRoute.post('/feedback', async (c) => {
+    try {
+        const userId = c.get('user').id;
+        const { message } = await c.req.json();
+
+        if (!message || message.trim().length === 0) {
+            return c.json({ error: 'Pesan tidak boleh kosong' }, 400);
+        }
+
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        await db.insert(feedbacks).values({
+            userId,
+            message: message.trim(),
+            status: 'unread',
+        });
+
+        return c.json({ success: true, message: 'Saran berhasil dikirim' });
+    } catch (error) {
+        console.error('Submit feedback error:', error);
+        return c.json({ error: 'Gagal mengirim saran' }, 500);
+    }
+});
+
 export default userRoute;
+
