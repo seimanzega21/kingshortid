@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import api from "@/lib/api";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import { CheckCircle2, Circle, MessageSquare } from "lucide-react";
@@ -25,8 +24,13 @@ export default function FeedbacksPage() {
 
     const fetchFeedbacks = async () => {
         try {
-            const res = await api.get('/admin/feedbacks');
-            setFeedbacks(res.data.feedbacks || []);
+            const token = localStorage.getItem('token') || '';
+            const res = await fetch('/api/admin/feedbacks', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!res.ok) throw new Error("Gagal mengambil data");
+            const data = await res.json();
+            setFeedbacks(data.feedbacks || []);
         } catch (error) {
             console.error(error);
             toast.error("Gagal memanggil data kotak saran");
@@ -43,7 +47,17 @@ export default function FeedbacksPage() {
         if (currentStatus === 'read') return;
         
         try {
-            await api.put(`/admin/feedbacks/${feedbackId}`, { status: 'read' });
+            const token = localStorage.getItem('token') || '';
+            const res = await fetch(`/api/admin/feedbacks/${feedbackId}`, {
+                method: 'PUT',
+                headers: { 
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'read' })
+            });
+            if (!res.ok) throw new Error("Gagal update");
+            
             // Optimistic update
             setFeedbacks(feedbacks.map(f => f.id === feedbackId ? { ...f, status: 'read' } : f));
             toast.success("Pesan ditandai sudah dibaca");
