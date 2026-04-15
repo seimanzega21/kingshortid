@@ -47,6 +47,7 @@ const nextConfig: NextConfig = {
         // Admin data endpoints (users list, user detail, dashboard stats)
         // NOTE: /api/admin/auth/* is NOT proxied — handled locally by Next.js for admin panel login
         { source: '/api/admin/dashboard', destination: `${VPS_API}/api/admin/dashboard` },
+        { source: '/api/admin/analytics', destination: `${VPS_API}/api/admin/analytics` },
         { source: '/api/admin/users/:path*', destination: `${VPS_API}/api/admin/users/:path*` },
         { source: '/api/admin/users', destination: `${VPS_API}/api/admin/users` },
         { source: '/api/admin/feedbacks/:path*', destination: `${VPS_API}/api/admin/feedbacks/:path*` },

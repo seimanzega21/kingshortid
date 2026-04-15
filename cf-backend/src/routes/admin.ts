@@ -158,6 +158,94 @@ adminRoute.get('/dashboard', async (c) => {
     }
 });
 
+// ==================== ANALYTICS ====================
+adminRoute.get('/analytics', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const period = c.req.query('period') || '7d';
+
+        // Calculate startDate based on period
+        const now = new Date();
+        const startDate = new Date();
+        if (period === '7d') startDate.setDate(now.getDate() - 7);
+        else if (period === '30d') startDate.setDate(now.getDate() - 30);
+        else startDate.setDate(now.getDate() - 90);
+
+        // Group views by date
+        const dailyViewsQuery = await db.execute(sql`
+            SELECT DATE(watched_at) as date, COUNT(*) as count 
+            FROM watch_history 
+            WHERE watched_at >= ${startDate.toISOString()}
+            GROUP BY DATE(watched_at)
+            ORDER BY DATE(watched_at) ASC
+        `);
+
+        // Group user growth by date
+        const userGrowthQuery = await db.execute(sql`
+            SELECT DATE(created_at) as date, COUNT(*) as count 
+            FROM users 
+            WHERE created_at >= ${startDate.toISOString()}
+            GROUP BY DATE(created_at)
+            ORDER BY DATE(created_at) ASC
+        `);
+
+        // Top Dramas
+        const topDramas = await db.select({
+            id: dramas.id,
+            title: dramas.title,
+            views: dramas.views,
+            rating: dramas.rating,
+            episodes: dramas.totalEpisodes,
+        }).from(dramas).orderBy(desc(dramas.views)).limit(10);
+
+        // Total stats
+        const [totalViewsRes, totalUsersRes, totalDramasRes, totalRevenueRes] = await Promise.all([
+            db.select({ total: sql<number>\`COALESCE(SUM(views), 0)\` }).from(dramas).limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>\`count(*)\` }).from(users).limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>\`count(*)\` }).from(dramas).limit(1).then((r: any[]) => r[0]),
+            db.select({ total: sql<number>\`COALESCE(SUM(amount), 0)\` }).from(coinTransactions).where(eq(coinTransactions.type, 'topup')).limit(1).then((r: any[]) => r[0]),
+        ]);
+
+        // Helper to format days 
+        const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+        const formatDailyData = (queryResult: any) => {
+            const result = [];
+            for (let d = new Date(startDate); d <= now; d.setDate(d.getDate() + 1)) {
+                const dateStr = d.toISOString().split('T')[0];
+                const found = (queryResult as any).rows?.find((r: any) => {
+                    const rowDateStr = new Date(r.date + 'T00:00:00Z').toISOString().split('T')[0];
+                    return rowDateStr === dateStr;
+                });
+                result.push({
+                    name: dayNames[d.getDay()],
+                    date: dateStr,
+                    value: found ? Number(found.count) : 0
+                });
+            }
+            return period === '7d' ? result.slice(-7) : result;
+        };
+
+        const viewershipData = formatDailyData(dailyViewsQuery);
+        const userGrowthData = formatDailyData(userGrowthQuery);
+
+        return c.json({
+            viewershipData,
+            userGrowthData,
+            topDramas,
+            stats: {
+                totalViews: Number(totalViewsRes?.total) || 0,
+                totalUsers: Number(totalUsersRes?.count) || 0,
+                totalDramas: Number(totalDramasRes?.count) || 0,
+                totalRevenue: Number(totalRevenueRes?.total) || 0,
+            }
+        });
+
+    } catch (error) {
+        console.error('Admin analytics error:', error);
+        return c.json({ error: 'Failed to fetch analytics data' }, 500);
+    }
+});
+
 // ==================== LIST USERS ====================
 adminRoute.get('/users', async (c) => {
     try {

@@ -38,7 +38,11 @@ export default function AnalyticsPage() {
     const loadAnalytics = async () => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/analytics?period=${period}`);
+            const token = localStorage.getItem('token') || '';
+            const res = await fetch(`/api/admin/analytics?period=${period}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!res.ok) throw new Error("Failed to load analytics");
             const json = await res.json();
             setData(json);
         } catch (error) {
