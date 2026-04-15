@@ -458,6 +458,20 @@ adminRoute.put('/feedbacks/:id', async (c) => {
     }
 });
 
+adminRoute.delete('/feedbacks/:id', async (c) => {
+    try {
+        const { id } = c.req.param();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        await db.delete(feedbacks).where(eq(feedbacks.id, id));
+
+        return c.json({ success: true });
+    } catch (error) {
+        console.error('Delete feedback error:', error);
+        return c.json({ error: 'Failed to delete feedback' }, 500);
+    }
+});
+
 export default adminRoute;
 
 

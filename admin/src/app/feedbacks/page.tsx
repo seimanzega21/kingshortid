@@ -76,6 +76,28 @@ export default function FeedbacksPage() {
         }
     };
 
+    const deleteFeedback = async (feedbackId: string) => {
+        if (!confirm('Apakah Anda yakin ingin menghapus pesan saran ini secara permanen?')) return;
+        
+        try {
+            const token = localStorage.getItem('token') || '';
+            const res = await fetch(`/api/admin/feedbacks/${feedbackId}`, {
+                method: 'DELETE',
+                headers: { 
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            if (!res.ok) throw new Error("Gagal hapus");
+            
+            // Optimistic update
+            setFeedbacks(feedbacks.filter(f => f.id !== feedbackId));
+            toast.success("Pesan berhasil dihapus");
+        } catch (error) {
+            console.error(error);
+            toast.error("Gagal menghapus pesan saran");
+        }
+    };
+
     return (
         <div className="p-8">
             <div className="mb-8 flex items-center justify-between">
@@ -150,14 +172,22 @@ export default function FeedbacksPage() {
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 text-right">
-                                            {item.status === 'unread' && (
+                                            <div className="flex items-center justify-end gap-3">
+                                                {item.status === 'unread' && (
+                                                    <button
+                                                        onClick={() => markAsRead(item.id, item.status)}
+                                                        className="text-sm text-yellow-500 hover:text-yellow-400 hover:underline"
+                                                    >
+                                                        Tandai Dibaca
+                                                    </button>
+                                                )}
                                                 <button
-                                                    onClick={() => markAsRead(item.id, item.status)}
-                                                    className="text-sm text-yellow-500 hover:text-yellow-400 hover:underline"
+                                                    onClick={() => deleteFeedback(item.id)}
+                                                    className="text-sm text-red-500 hover:text-red-400 hover:underline"
                                                 >
-                                                    Tandai Dibaca
+                                                    Hapus
                                                 </button>
-                                            )}
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
