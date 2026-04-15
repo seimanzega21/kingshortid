@@ -49,6 +49,8 @@ const nextConfig: NextConfig = {
         { source: '/api/admin/dashboard', destination: `${VPS_API}/api/admin/dashboard` },
         { source: '/api/admin/users/:path*', destination: `${VPS_API}/api/admin/users/:path*` },
         { source: '/api/admin/users', destination: `${VPS_API}/api/admin/users` },
+        { source: '/api/admin/feedbacks/:path*', destination: `${VPS_API}/api/admin/feedbacks/:path*` },
+        { source: '/api/admin/feedbacks', destination: `${VPS_API}/api/admin/feedbacks` },
         // Admin panel pages call /api/users — map to VPS /api/admin/users
         { source: '/api/users/bulk-delete', destination: `${VPS_API}/api/admin/users/bulk-delete` },
         { source: '/api/users/:id', destination: `${VPS_API}/api/admin/users/:id` },
