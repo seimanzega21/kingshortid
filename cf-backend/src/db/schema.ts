@@ -263,3 +263,15 @@ export const seasons = pgTable('seasons', {
     dramaSeasonUnique: uniqueIndex('seasons_drama_season_unique').on(table.dramaId, table.seasonNumber),
     dramaSeasonIdx: index('seasons_drama_season_idx').on(table.dramaId, table.seasonNumber),
 }));
+
+// ==================== FEEDBACKS / SUGGESTIONS ====================
+export const feedbacks = pgTable('feedbacks', {
+    id: text('id').primaryKey().$defaultFn(() => createId()),
+    userId: text('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+    message: text('message').notNull(),
+    status: text('status').notNull().default('unread'), // unread, read, resolved
+    createdAt: timestampNow('created_at'),
+}, (table) => ({
+    userFeedbacksIdx: index('feedbacks_user_idx').on(table.userId, table.createdAt),
+    statusIdx: index('feedbacks_status_idx').on(table.status),
+}));
