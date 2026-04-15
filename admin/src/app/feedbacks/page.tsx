@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
-import { id } from "date-fns/locale";
 import { CheckCircle2, Circle, MessageSquare } from "lucide-react";
 import { Toaster, toast } from "sonner";
 
@@ -21,6 +19,17 @@ interface Feedback {
 export default function FeedbacksPage() {
     const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat('id-ID', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }).format(date);
+    };
 
     const fetchFeedbacks = async () => {
         try {
@@ -113,7 +122,7 @@ export default function FeedbacksPage() {
                                         className={`border-b border-zinc-800 transition-colors ${item.status === 'unread' ? 'bg-zinc-800/20' : 'hover:bg-zinc-800/50'}`}
                                     >
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            {format(new Date(item.createdAt), 'dd MMM yyyy, HH:mm', { locale: id })}
+                                            {formatDate(item.createdAt)}
                                         </td>
                                         <td className="px-6 py-4">
                                             {item.user ? (
