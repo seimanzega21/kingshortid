@@ -54,7 +54,7 @@ dramasRoute.post('/', async (c) => {
                     description: description || existing.description,
                     cover: cover || existing.cover,
                     genres: genres ? toJsonArray(genres) : existing.genres,
-                    status: status || existing.status,
+                    // Never let scraper overwrite admin-set status — admin controls publishing
                     country: country || existing.country,
                     language: language || existing.language,
                     updatedAt: new Date(),
@@ -70,10 +70,11 @@ dramasRoute.post('/', async (c) => {
             description: description || 'No description available',
             cover: cover || '',
             genres: toJsonArray(genres),
-            status: status || 'ongoing',
+            // Always default to 'pending' — admin manually publishes via admin panel
+            status: 'pending',
             country: country || 'China',
             language: language || 'Indonesia',
-            isActive: body.isActive !== undefined ? body.isActive : false,
+            isActive: false, // Never auto-activate from scraper
             views: 0,
             rating: 0,
             totalEpisodes: 0,
