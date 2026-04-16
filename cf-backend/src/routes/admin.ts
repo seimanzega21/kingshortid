@@ -246,6 +246,52 @@ adminRoute.get('/analytics', async (c) => {
     }
 });
 
+// ==================== SYSTEM ACTIONS ====================
+// These endpoints are strictly for internal system maintenance scripts
+
+// GET /api/admin/system/m3u8-episodes
+adminRoute.get('/system/m3u8-episodes', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        // Find all episodes having .m3u8 in their videoUrl
+        const m3u8Episodes = await db.select({
+            id: episodes.id,
+            dramaId: episodes.dramaId,
+            episodeNumber: episodes.episodeNumber,
+            videoUrl: episodes.videoUrl,
+        })
+        .from(episodes)
+        .where(like(episodes.videoUrl, '%m3u8%'))
+        .orderBy(asc(episodes.dramaId), asc(episodes.episodeNumber));
+        
+        return c.json({ episodes: m3u8Episodes });
+    } catch (error) {
+        console.error('Fetch m3u8 episodes error:', error);
+        return c.json({ error: 'Failed to fetch m3u8 episodes' }, 500);
+    }
+});
+
+// PUT /api/admin/system/episodes/:id
+adminRoute.put('/system/episodes/:id', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const { id } = c.req.param();
+        const { videoUrl } = await c.req.json();
+        
+        if (!videoUrl) return c.json({ error: 'videoUrl is required' }, 400);
+
+        await db.update(episodes)
+            .set({ videoUrl })
+            .where(eq(episodes.id, id));
+            
+        return c.json({ success: true, message: 'Episode updated' });
+    } catch (error) {
+        console.error('Update episode error:', error);
+        return c.json({ error: 'Failed to update episode' }, 500);
+    }
+});
+
 // ==================== LIST USERS ====================
 adminRoute.get('/users', async (c) => {
     try {
