@@ -124,7 +124,20 @@ def update_db(url_720p, url_540p, slug, ep_num):
         "Content-Type": "application/json"
     }
     try:
-        r = requests.get(f"{BACKEND_URL}/dramas/hfdppzzwmfh63hhhcxv5ff87?includeInactive=true", timeout=10)
+        # Search drama by slug
+        r = requests.get(f"{BACKEND_URL}/dramas/search", params={"q": slug.replace("-", " ")}, timeout=10)
+        drama_id = None
+        if r.status_code == 200:
+            dramas = r.json().get("dramas", [])
+            for d in dramas:
+                if slug in str(d.get("cover") or ""):
+                    drama_id = d["id"]
+                    break
+        
+        if not drama_id:
+            return
+
+        r = requests.get(f"{BACKEND_URL}/dramas/{drama_id}?includeInactive=true", timeout=10)
         if r.status_code == 200:
             drama_data = r.json()
             episodes = drama_data.get("episodes", [])
@@ -150,7 +163,7 @@ def main():
     s3 = get_s3()
 
     print("\n  Listing R2 objects ...")
-    all_keys = list_r2_keys(s3, "dramas/netshort/sulih-suara-kebangkitan-raja-balap/")
+    all_keys = list_r2_keys(s3, "dramas/netshort/")
     ep_720p_keys = [
         k for k in all_keys
         if k.endswith(".mp4") and "_540p" not in k

@@ -22,6 +22,7 @@ Usage:
 import os, sys, json, time, argparse, re, tempfile, shutil
 from pathlib import Path
 from datetime import datetime
+sys.stdout.reconfigure(encoding='utf-8')
 
 import requests
 from dotenv import load_dotenv
@@ -223,7 +224,7 @@ def extract_metadata(detail, list_item=None):
     """Extract COMPLETE metadata from drama detail + list item."""
     title = detail.get("shortPlayName") or detail.get("name") or "Unknown"
     cover = detail.get("shortPlayCover") or detail.get("cover") or ""
-    description = detail.get("introduce") or detail.get("description") or ""
+    description = detail.get("introduce") or detail.get("description") or detail.get("shotIntroduce") or ""
     
     # Clean up description
     if description:
@@ -495,6 +496,19 @@ def scrape_drama(drama_id, list_item=None, dry_run=False):
             # Download video
             ep_path = temp_dir / f"ep{ep_num:03d}.mp4"
             file_size = download_file(video_url, ep_path)
+            
+            # Apply Faststart (Instant streaming, zero encoding)
+            try:
+                import subprocess
+                ep_faststart_path = temp_dir / f"ep{ep_num:03d}_faststart.mp4"
+                subprocess.run(['ffmpeg', '-y', '-i', str(ep_path), '-c', 'copy', '-movflags', '+faststart', str(ep_faststart_path)], capture_output=True, timeout=120)
+                if ep_faststart_path.exists() and ep_faststart_path.stat().st_size > 1000:
+                    ep_path.unlink(missing_ok=True)
+                    ep_faststart_path.rename(ep_path)
+                    file_size = ep_path.stat().st_size
+            except Exception as e:
+                log(f"    Faststart err: {e}", "WARN")
+
             size_mb = file_size / (1024 * 1024)
 
             # Upload to R2
@@ -531,9 +545,16 @@ def scrape_drama(drama_id, list_item=None, dry_run=False):
                     continue
 
                 try:
-                    ext = "vtt" if "vtt" in sub_url.lower() else "srt"
+                    temp_sub_path = temp_dir / f"ep{ep_num:03d}_temp_sub"
+                    download_file(sub_url, temp_sub_path)
+                    
+                    with open(temp_sub_path, "r", encoding="utf-8", errors="ignore") as f:
+                        content_head = f.read(20)
+                    ext = "vtt" if "WEBVTT" in content_head else "srt"
+                    
                     sub_path = temp_dir / f"ep{ep_num:03d}_{sub_lang}.{ext}"
-                    download_file(sub_url, sub_path)
+                    temp_sub_path.rename(sub_path)
+                    
                     sub_r2_key = f"dramas/netshort/{slug}/subs/ep{ep_num:03d}_{sub_lang}.{ext}"
                     sub_r2_url = upload_to_r2(sub_path, sub_r2_key, f"text/{ext}")
                     sub_path.unlink(missing_ok=True)
