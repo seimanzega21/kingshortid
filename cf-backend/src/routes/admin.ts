@@ -498,6 +498,7 @@ adminRoute.patch('/dramas/:id', async (c) => {
         if (body.genres !== undefined) updateData.genres = body.genres;
         if (body.title !== undefined) updateData.title = body.title;
         if (body.description !== undefined) updateData.description = body.description;
+        if (body.cover !== undefined) updateData.cover = body.cover;
         if (typeof body.isActive === 'boolean') updateData.isActive = body.isActive;
         if (typeof body.isVip === 'boolean') updateData.isVip = body.isVip;
 
