@@ -196,7 +196,7 @@ def get_r2_client():
 def download_file(url, dest_path, retries=2):
     for attempt in range(retries + 1):
         try:
-            r = requests.get(url, headers=HEADERS, stream=True, timeout=120)
+            r = requests.get(url, headers=HEADERS, stream=True, timeout=120, verify=False)
             r.raise_for_status()
             with open(dest_path, "wb") as f:
                 for chunk in r.iter_content(chunk_size=8192):
@@ -215,8 +215,8 @@ def upload_to_r2(local_path, r2_key, content_type="video/mp4"):
         str(local_path), R2_BUCKET_NAME, r2_key,
         ExtraArgs={"ContentType": content_type}
     )
-    endpoint_base = R2_ENDPOINT.replace("https://", "").split(".")[0]
-    return f"https://pub-{endpoint_base}.r2.dev/{r2_key}"
+    public_url = os.getenv("R2_PUBLIC_URL", "https://stream.shortlovers.id")
+    return f"{public_url}/{r2_key}"
 
 
 def extract_metadata(detail, list_item=None):
