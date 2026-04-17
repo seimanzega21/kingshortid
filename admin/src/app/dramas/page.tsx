@@ -120,7 +120,8 @@ export default function DramaManagement() {
                 body: JSON.stringify({
                     title: "🎬 Drama Baru Tersedia!",
                     body: `"${dramaTitle}" sudah bisa ditonton sekarang!`,
-                    data: { type: "new_drama", dramaId: id },
+                    type: "new_drama",
+                    dramaId: id,
                     imageUrl: dramas.find(d => d.id === id)?.cover || undefined,
                 }),
             });

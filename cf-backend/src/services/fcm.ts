@@ -106,8 +106,6 @@ async function sendFcmMessage(
     // the right in collapsed view (Android 7+ / MIUI / Samsung OneUI etc.)
     const androidNotification: Record<string, any> = {
         channel_id: 'kingshort_notifications',
-        // Use USER_INTERACTION so expo-notifications fires the tap handler
-        click_action: 'expo.modules.notifications.USER_INTERACTION',
         default_sound: true,
         default_vibrate_timings: true,
         notification_priority: 'PRIORITY_HIGH',
