@@ -122,14 +122,7 @@ def generate_placeholder_cover(book_id: str, title: str, output_path: Path) -> s
     draw.text((x + 2, y + 2), subtitle, fill=(0, 0, 0, 128), font=subtitle_font)
     draw.text((x, y), subtitle, fill=(255, 255, 255), font=subtitle_font)
     
-    # Draw watermark
-    watermark = "KingShortID"
-    bbox = draw.textbbox((0, 0), watermark, font=subtitle_font)
-    text_width = bbox[2] - bbox[0]
-    x = (width - text_width) // 2
-    y = height - 80
-    
-    draw.text((x, y), watermark, fill=(255, 255, 255, 180), font=subtitle_font)
+    # Removed watermark implementation here
     
     # Save
     output_path = output_path.with_suffix('.jpg')

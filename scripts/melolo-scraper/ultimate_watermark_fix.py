@@ -59,7 +59,7 @@ def main():
                 best_match_title = log_title
                 
         if best_match_score < 0.8:
-            print(f"⚠️ No exact match found for: {local_title} (best was {best_match_title} at {best_match_score})")
+            print(f"  [WARN] No exact match found for: {local_title} (best was {best_match_title} at {best_match_score})")
             continue
             
         did = log_mappings[best_match_title]
@@ -72,12 +72,12 @@ def main():
         # 3. Download Source Image
         source_url = fetch_netshort_cover(did)
         if not source_url:
-            print(f"❌ Failed to get API cover for ID {did} ({local_title})")
+            print(f"[FAIL] Failed to get API cover for ID {did} ({local_title})")
             continue
             
         img_res = requests.get(source_url, verify=False, timeout=10)
         if img_res.status_code != 200:
-            print(f"❌ Failed to download source image for {local_title}")
+            print(f"[FAIL] Failed to download source image for {local_title}")
             continue
             
         img_data = img_res.content
@@ -89,7 +89,7 @@ def main():
             s3.put_object(Bucket='shortlovers', Key=f"{slug_dir}/cover.webp", Body=img_data, ContentType=ctype, CacheControl='no-cache, max-age=0')
             s3.put_object(Bucket='shortlovers', Key=f"{slug_dir}/poster.webp", Body=img_data, ContentType=ctype, CacheControl='no-cache, max-age=0')
         except Exception as e:
-            print(f"❌ Error uploading {local_title} to R2: {e}")
+            print(f"[FAIL] Error uploading {local_title} to R2: {e}")
             continue
             
         # 5. Cache-bust Database!
@@ -97,10 +97,10 @@ def main():
         patch_res = requests.patch(f"http://localhost:3000/api/dramas/{d['id']}", json={'cover': nc, 'coverUrl': nc}, headers=headers)
         
         if patch_res.status_code == 200:
-            print(f"✅ Fixed & Busted: {local_title}")
+            print(f"[OK] Fixed & Busted: {local_title}")
             fixed_count += 1
         else:
-            print(f"⚠️ Uploaded but failed to patch DB for: {local_title}")
+            print(f"[WARN] Uploaded but failed to patch DB for: {local_title}")
             
     print(f"\nFINISH! Entirely restored and cache-busted {fixed_count} covers.")
 

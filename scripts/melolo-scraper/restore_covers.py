@@ -98,7 +98,7 @@ for drama in netshort_dramas:
                 break
     
     if not ns_id:
-        print(f'  ⚠️ SKIP: Cannot find Netshort ID for "{title[:40]}"')
+        print(f'  [SKIP] Cannot find Netshort ID for "{title[:40]}"')
         skip += 1
         continue
     
@@ -112,7 +112,7 @@ for drama in netshort_dramas:
         
         orig_cover_url = drama_data.get('shortPlayCover', '')
         if not orig_cover_url:
-            print(f'  ⚠️ SKIP: No cover URL for "{title[:40]}"')
+            print(f'  [SKIP] No cover URL for "{title[:40]}"')
             skip += 1
             continue
         
@@ -131,16 +131,16 @@ for drama in netshort_dramas:
                                   'CacheControl': 'no-cache, max-age=0'})
         cover_path.unlink(missing_ok=True)
         
-        print(f'  ✅ [{ok+1}] Restored: {title[:45]}')
+        print(f'  [OK] [{ok+1}] Restored: {title[:45]}')
         ok += 1
         
     except Exception as e:
-        print(f'  ❌ FAIL: {title[:40]} - {e}')
+        print(f'  [FAIL] {title[:40]} - {e}')
         fail += 1
     
     time.sleep(0.3)
 
 import shutil
 shutil.rmtree(TEMP_DIR, ignore_errors=True)
-print(f'\n✅ Done! Restored: {ok} | Skipped: {skip} | Failed: {fail}')
+print(f'\n[DONE] Restored: {ok} | Skipped: {skip} | Failed: {fail}')
 print('All Netshort covers restored to original (no logo).')
