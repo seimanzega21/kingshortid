@@ -25,6 +25,8 @@ from datetime import datetime
 sys.stdout.reconfigure(encoding='utf-8')
 
 import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)  # suppress SSL warnings (intentional)
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -143,7 +145,14 @@ def get_all_dramas(max_dramas=TARGET_DRAMAS):
 
 
 def get_drama_detail(drama_id):
-    return api_get(f"/api/drama/{drama_id}", {"lang": LANG})
+    data = api_get(f"/api/drama/{drama_id}", {"lang": LANG})
+    # API sometimes returns a plain string on error
+    if not isinstance(data, dict):
+        raise Exception(f"Invalid drama detail response (not a dict): {str(data)[:80]}")
+    # Some APIs wrap in 'data' key
+    if "data" in data and isinstance(data["data"], dict):
+        return data["data"]
+    return data
 
 
 def get_episode_stream(drama_id, episode_no):
@@ -151,7 +160,12 @@ def get_episode_stream(drama_id, episode_no):
         f"/api/watch/{drama_id}/{episode_no}",
         {"lang": LANG, "code": WATCH_CODE}
     )
+    # Validate response is a dict
+    if not isinstance(data, dict):
+        raise Exception(f"Invalid stream response (not a dict): {str(data)[:80]}")
     result = data.get("data", data)
+    if not isinstance(result, dict):
+        result = data
 
     subtitles = []
     if result.get("subtitles") and isinstance(result["subtitles"], list):
@@ -232,12 +246,22 @@ def extract_metadata(detail, list_item=None):
     if not description or len(description) < 10:
         description = f"Drama pendek Indonesia: {title}"
     
-    # Genres & Tags from labelArray
+    # Genres & Tags from labelArray (API may return strings OR dicts)
     labels = detail.get("labelArray") or []
     if not labels and list_item:
         labels = list_item.get("labelArray") or []
-    genres = list(set([l.get("labelName", "") for l in labels if l.get("labelName")]))
-    tag_list = list(set([l.get("labelName", "") for l in labels if l.get("labelName")]))
+    
+    def extract_label(l):
+        """Handle both string labels and dict labels."""
+        if isinstance(l, str):
+            return l
+        elif isinstance(l, dict):
+            return l.get("labelName") or l.get("name") or ""
+        return ""
+    
+    genres = list(set([extract_label(l) for l in labels if extract_label(l)]))
+    tag_list = list(set([extract_label(l) for l in labels if extract_label(l)]))
+
     
     # Rating from heatScoreShow (e.g. "9.8万" → 9.8, "1.2亿" → 1.2)
     heat_raw = detail.get("heatScoreShow") or detail.get("formatHeatScore") or ""
@@ -406,6 +430,8 @@ def scrape_drama(drama_id, list_item=None, dry_run=False):
     # 1. Get full detail
     try:
         detail = get_drama_detail(drama_id)
+        if not isinstance(detail, dict):
+            raise Exception(f"Detail is not a dict: {type(detail)}")
     except Exception as e:
         log(f"  ❌ Failed to get detail: {e}", "ERROR")
         return None
@@ -623,6 +649,9 @@ def daemon_mode(target=TARGET_DRAMAS, dry_run=False):
 
     to_scrape = []
     for d in all_dramas:
+        # Skip if drama item is not a dict (malformed API response)
+        if not isinstance(d, dict):
+            continue
         did = str(d.get("shortPlayId") or d.get("id") or "")
         if did and did not in scraped and did not in failed_ids:
             to_scrape.append(d)
