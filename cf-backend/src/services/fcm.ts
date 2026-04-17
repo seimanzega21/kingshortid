@@ -108,7 +108,6 @@ async function sendFcmMessage(
         channel_id: 'kingshort_notifications',
         // Use USER_INTERACTION so expo-notifications fires the tap handler
         click_action: 'expo.modules.notifications.USER_INTERACTION',
-        priority: 'high',
         default_sound: true,
         default_vibrate_timings: true,
         notification_priority: 'PRIORITY_HIGH',
