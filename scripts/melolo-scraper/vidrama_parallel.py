@@ -239,6 +239,28 @@ def infer_genres(title):
                 break
     return list(genres) if genres else ['Drama']
 
+def is_anime(drama_info, detail_data=None):
+    """Detect if drama is animated to skip it."""
+    anime_keywords = ['animasi', 'anime', 'kartun', 'donghua', 'animation', '3d', '2d']
+    genres = []
+    if detail_data and detail_data.get("genres"): genres = detail_data["genres"]
+    elif drama_info.get("genres"): genres = drama_info["genres"]
+    elif drama_info.get("tags"): genres = drama_info["tags"]
+    
+    for g in genres:
+        if g.lower() in anime_keywords: return True
+        
+    title = drama_info.get("title", "").lower()
+    for kw in anime_keywords:
+        if f"({kw})" in title or f"[{kw}]" in title: return True
+        
+    desc = drama_info.get("description", "").lower()
+    if detail_data: desc = (detail_data.get("description", "") or "").lower()
+    if "anime" in desc or "animasi" in desc or "donghua" in desc: return True
+        
+    return False
+
+
 
 # ─── VALIDATION GATE ────────────────────────────────────────
 
@@ -385,6 +407,13 @@ def process_drama(drama, slug, index, total):
     total_eps = len(episodes)
     tprint(f"  {tag} Episodes: {total_eps}")
 
+    # Check if Anime to skip
+    if is_anime(drama, detail):
+        tprint(f"  {tag} ❌ Skipped: Detected as ANIME / ANIMATION")
+        with stats_lock:
+            stats["skipped"] += 1
+        return
+        
     # Upload cover — try original URLs first (wsrv.nl proxy URLs expire)
     cover_urls = [
         drama.get("originalImage"),

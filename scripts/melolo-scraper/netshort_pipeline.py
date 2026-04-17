@@ -137,6 +137,27 @@ def extract_dramas_from_provider_page() -> list:
     log(f"  -> Found {len(unique)} unique dramas")
     return unique
 
+def is_anime(drama_info, detail_data=None):
+    """Detect if drama is animated to skip it."""
+    anime_keywords = ['animasi', 'anime', 'kartun', 'donghua', 'animation', '3d', '2d']
+    genres = []
+    if detail_data and detail_data.get("genres"): genres = detail_data["genres"]
+    elif drama_info.get("genres"): genres = drama_info["genres"]
+    elif drama_info.get("tags"): genres = drama_info["tags"]
+    
+    for g in genres:
+        if g.lower() in anime_keywords: return True
+        
+    title = drama_info.get("title", "").lower()
+    for kw in anime_keywords:
+        if f"({kw})" in title or f"[{kw}]" in title: return True
+        
+    desc = drama_info.get("description", "").lower()
+    if detail_data: desc = (detail_data.get("description", "") or "").lower()
+    if "anime" in desc or "animasi" in desc or "donghua" in desc: return True
+        
+    return False
+
 async def extract_drama_metadata_async(drama: dict) -> dict:
     """Extract full metadata like description, genres, out of the detail page using Playwright."""
     try:
@@ -199,7 +220,13 @@ def extract_drama_metadata(drama: dict) -> dict:
     except RuntimeError:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-    return loop.run_until_complete(extract_drama_metadata_async(drama))
+    res = loop.run_until_complete(extract_drama_metadata_async(drama))
+    
+    if is_anime(drama, res):
+        log(f"  ❌ Skipped: Detected as ANIME / ANIMATION")
+        return None
+        
+    return res
 from playwright.async_api import async_playwright
 import asyncio
 
@@ -589,6 +616,9 @@ def main():
         
         # 2. Get full metadata
         drama = extract_drama_metadata(base_drama)
+        if not drama:
+            continue
+            
         total_eps = drama["total_episodes"]
         if total_eps < 1: total_eps = 50 # Fallback
         
