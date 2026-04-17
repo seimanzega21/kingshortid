@@ -45,9 +45,9 @@ def create_title_intro(text, output_path):
 
 def process_and_merge(batch_files, batch_label, output_path):
     """
-    1. Membuat intro video Eps X-Y
-    2. Membuat list file untuk digabung (Intro + Ep1 + Ep2)
-    3. Menggabungkan sekaligus mengaplikasikan filter bebas hak cipta (speedup 5%, crop pinggir)
+    Menggabungkan menggunakan concat filter (BUKAN concat demuxer) untuk memastikan 
+    sinkronisasi Audio dan Subtitle/Video 100% presisi. VFR (Variable Frame Rate) akan 
+    diperbaiki secara otomatis oleh filter ini.
     """
     print(f"  Memproses {batch_label} ...")
     intro_path = os.path.join(TEMP_DIR, f"intro_{batch_label}.mp4")
@@ -56,33 +56,43 @@ def process_and_merge(batch_files, batch_label, output_path):
         print(f"    [!] Gagal membuat intro untuk {batch_label}")
         return False
         
-    list_file = os.path.join(TEMP_DIR, f"concat_{batch_label}.txt")
-    with open(list_file, "w", encoding="utf-8") as f:
-        f.write(f"file '{intro_path.replace(chr(92), '/')}'\n")
-        for ep_path in batch_files:
-            f.write(f"file '{ep_path.replace(chr(92), '/')}'\n")
-            
-    # Filter Anti-Deteksi Hak Cipta (TikTok & Facebook Bypass)
-    # - Mempercepat video 5% (atempo=1.05 & setpts=0.95*PTS)
-    # - Memotong pinggiran video 2% (crop) dan meningkatkan contrast 2%
-    # - Strip Metadata
-    
     cmd = [
         "ffmpeg", "-y",
-        "-f", "concat", "-safe", "0",
-        "-i", list_file,
-        "-filter_complex", "[0:v]crop=iw*0.98:ih*0.98,scale=720:1280,eq=brightness=0.01:contrast=1.02:saturation=1.05,setpts=0.95238*PTS[v];[0:a]atempo=1.05[a]",
-        "-map", "[v]",
-        "-map", "[a]",
+        "-i", intro_path
+    ]
+    
+    for ep in batch_files:
+        cmd.extend(["-i", ep])
+        
+    filter_complex = "[0:v]setsar=1:1,fps=30[v0];"
+    concat_inputs = "[v0][0:a]"
+    
+    # Filter bypass HANYA menggunakan Crop + Color Shift + Strip Metadata.
+    # Speedup dihapus karena memicu masalah sinkronisasi subtitle pada video VFR Tiongkok.
+    for i in range(1, len(batch_files) + 1):
+        filter_complex += f"[{i}:v]crop=iw*0.98:ih*0.98,scale=720:1280,setsar=1:1,eq=brightness=0.01:contrast=1.02:saturation=1.05,fps=30[v{i}];"
+        filter_complex += f"[{i}:a]aresample=44100[a{i}];"
+        concat_inputs += f"[v{i}][a{i}]"
+        
+    n_total = len(batch_files) + 1
+    filter_complex += f"{concat_inputs}concat=n={n_total}:v=1:a=1[vout][aout]"
+    
+    cmd.extend([
+        "-filter_complex", filter_complex,
+        "-map", "[vout]",
+        "-map", "[aout]",
         "-map_metadata", "-1",
         "-c:v", "libx264", "-preset", "fast", "-crf", "26",
         "-c:a", "aac", "-b:a", "128k",
+        "-async", "1",
         "-movflags", "+faststart",
         output_path
-    ]
+    ])
     
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
+        if result.returncode != 0:
+            print(f"    [!] FFmpeg Gagal, Error Log:\n{result.stderr}")
         return result.returncode == 0
     except Exception as e:
         print(f"    [!] Error merge: {e}")
@@ -106,12 +116,16 @@ def main():
     total_eps = len(episodes)
     print(f"Ditemukan {total_eps} episode. Memulai proses penggabungan per {EPISODES_PER_BATCH} episode...")
     
+    logical_ep = 1
+    
     for i in range(0, total_eps, EPISODES_PER_BATCH):
         batch = episodes[i:i+EPISODES_PER_BATCH]
         if not batch: continue
         
-        start_num = extract_ep_num(batch[0])
-        end_num = extract_ep_num(batch[-1])
+        start_num = logical_ep
+        end_num = logical_ep + len(batch) - 1
+        
+        logical_ep += len(batch)
         
         if len(batch) == 1:
             batch_label = f"Eps {start_num}"
