@@ -223,6 +223,40 @@ def download_file(url, dest_path, retries=2):
             else:
                 raise
 
+KINGSHORT_LOGO_PATH = Path("D:/kingshortid/mobile/assets/adaptive-icon-foreground.png")
+
+
+def overlay_kingshort_logo(cover_path: Path) -> None:
+    """Overlay KingShort logo on bottom-left of cover, replacing the original watermark."""
+    try:
+        from PIL import Image
+        cover = Image.open(cover_path).convert("RGBA")
+        w, h = cover.size
+
+        # Load KingShort logo (RGBA)
+        logo = Image.open(KINGSHORT_LOGO_PATH).convert("RGBA")
+
+        # Target: logo width = ~22% of cover width (matches typical Eksklusif watermark size)
+        logo_w = int(w * 0.22)
+        logo_h = int(logo_w * (logo.size[1] / logo.size[0]))  # maintain aspect ratio
+        logo_resized = logo.resize((logo_w, logo_h), Image.LANCZOS)
+
+        # Position: bottom-left corner with 4% padding
+        pad_x = int(w * 0.04)
+        pad_y = int(h * 0.03)
+        x = pad_x
+        y = h - logo_h - pad_y
+
+        # Paste logo on top of existing watermark area
+        cover.paste(logo_resized, (x, y), logo_resized)
+
+        # Save back as JPEG (flatten RGBA -> RGB)
+        cover.convert("RGB").save(cover_path, "JPEG", quality=92)
+        log(f"  🏷️ KingShort logo overlaid on cover")
+    except Exception as e:
+        log(f"  ⚠️ Logo overlay failed: {e}", "WARN")
+
+
 
 def upload_to_r2(local_path, r2_key, content_type="video/mp4"):
     s3 = get_r2_client()
@@ -477,12 +511,13 @@ def scrape_drama(drama_id, list_item=None, dry_run=False):
     temp_dir = Path(tempfile.gettempdir()) / f"netshort_{slug}"
     temp_dir.mkdir(parents=True, exist_ok=True)
 
-    # 2. Upload cover to R2
+    # 2. Upload cover to R2 (with KingShort logo overlay)
     cover_r2_url = meta["cover"]
     if meta["cover"]:
         try:
             cover_path = temp_dir / "cover.jpg"
             download_file(meta["cover"], cover_path)
+            overlay_kingshort_logo(cover_path)  # Replace watermark with KingShort logo
             r2_key = f"dramas/netshort/{slug}/cover.jpg"
             cover_r2_url = upload_to_r2(cover_path, r2_key, "image/jpeg")
             cover_path.unlink(missing_ok=True)
