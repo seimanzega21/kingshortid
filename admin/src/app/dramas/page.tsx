@@ -92,7 +92,7 @@ export default function DramaManagement() {
         } catch { toast.error("Terjadi kesalahan"); }
     };
 
-    const togglePublish = async (id: string, currentActive: boolean) => {
+    const togglePublish = async (id: string, currentActive: boolean, title?: string) => {
         setPublishingId(id);
         setMenuOpenId(null);
         try {
@@ -102,7 +102,28 @@ export default function DramaManagement() {
                 body: JSON.stringify({ isActive: !currentActive }),
             });
             if (res.ok) {
-                toast.success(currentActive ? "Drama dipending dari mobile" : "Drama ditayangkan ke mobile");
+                if (!currentActive) {
+                    // Drama baru di-publish → kirim notifikasi push ke semua user
+                    const dramaTitle = title || "Drama Baru";
+                    try {
+                        await fetch("/api/notifications/broadcast", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                title: "🎬 Drama Baru Tersedia!",
+                                body: `"${dramaTitle}" sudah bisa ditonton sekarang di KingShort!`,
+                                data: { type: "new_drama", dramaId: id },
+                                imageUrl: dramas.find(d => d.id === id)?.cover || undefined,
+                            }),
+                        });
+                        toast.success(`Drama ditayangkan & notifikasi terkirim ke semua user! 🔔`);
+                    } catch {
+                        toast.success("Drama ditayangkan ke mobile");
+                        toast.warning("Notifikasi gagal dikirim");
+                    }
+                } else {
+                    toast.success("Drama dipending dari mobile");
+                }
                 fetchDramas();
             }
         } catch { toast.error("Terjadi kesalahan"); }
@@ -368,7 +389,7 @@ export default function DramaManagement() {
                                                     onMouseDown={(e) => {
                                                         e.stopPropagation();
                                                         e.preventDefault();
-                                                        togglePublish(item.id, item.isActive !== false);
+                                                        togglePublish(item.id, item.isActive !== false, item.title);
                                                     }}
                                                     className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-zinc-500/20 transition-colors cursor-pointer"
                                                 >
