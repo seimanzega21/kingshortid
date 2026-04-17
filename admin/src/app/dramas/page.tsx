@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Search, Plus, Film, CheckCircle, Eye, MoreVertical, Smartphone, Trash2, Loader2, AlertTriangle } from "lucide-react";
+import { Search, Plus, Film, CheckCircle, Eye, MoreVertical, Smartphone, Trash2, Loader2, AlertTriangle, Bell } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -92,7 +92,7 @@ export default function DramaManagement() {
         } catch { toast.error("Terjadi kesalahan"); }
     };
 
-    const togglePublish = async (id: string, currentActive: boolean, title?: string) => {
+    const togglePublish = async (id: string, currentActive: boolean) => {
         setPublishingId(id);
         setMenuOpenId(null);
         try {
@@ -102,31 +102,34 @@ export default function DramaManagement() {
                 body: JSON.stringify({ isActive: !currentActive }),
             });
             if (res.ok) {
-                if (!currentActive) {
-                    // Drama baru di-publish → kirim notifikasi push ke semua user
-                    const dramaTitle = title || "Drama Baru";
-                    try {
-                        await fetch("/api/notifications/broadcast", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                title: "🎬 Drama Baru Tersedia!",
-                                body: `"${dramaTitle}" sudah bisa ditonton sekarang di KingShort!`,
-                                data: { type: "new_drama", dramaId: id },
-                                imageUrl: dramas.find(d => d.id === id)?.cover || undefined,
-                            }),
-                        });
-                        toast.success(`Drama ditayangkan & notifikasi terkirim ke semua user! 🔔`);
-                    } catch {
-                        toast.success("Drama ditayangkan ke mobile");
-                        toast.warning("Notifikasi gagal dikirim");
-                    }
-                } else {
-                    toast.success("Drama dipending dari mobile");
-                }
+                toast.success(currentActive ? "Drama dipending dari mobile" : "Drama ditayangkan ke mobile");
                 fetchDramas();
             }
         } catch { toast.error("Terjadi kesalahan"); }
+        finally { setPublishingId(null); }
+    };
+
+    const sendPushNotification = async (id: string, title?: string) => {
+        setPublishingId(id);
+        setMenuOpenId(null);
+        try {
+            const dramaTitle = title || "Drama Baru";
+            const res = await fetch("/api/notifications/broadcast", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title: "🎬 Drama Baru Tersedia!",
+                    body: `"${dramaTitle}" sudah bisa ditonton sekarang!`,
+                    data: { type: "new_drama", dramaId: id },
+                    imageUrl: dramas.find(d => d.id === id)?.cover || undefined,
+                }),
+            });
+            if (res.ok) {
+                toast.success(`Notifikasi push (baru rilis)  terkirim ke semua user! 🔔`);
+            } else {
+                toast.error("Gagal mengirim notifikasi push");
+            }
+        } catch { toast.error("Terjadi kesalahan sistem"); }
         finally { setPublishingId(null); }
     };
 
@@ -389,7 +392,7 @@ export default function DramaManagement() {
                                                     onMouseDown={(e) => {
                                                         e.stopPropagation();
                                                         e.preventDefault();
-                                                        togglePublish(item.id, item.isActive !== false, item.title);
+                                                        togglePublish(item.id, item.isActive !== false);
                                                     }}
                                                     className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-zinc-500/20 transition-colors cursor-pointer"
                                                 >
@@ -398,6 +401,21 @@ export default function DramaManagement() {
                                                         {item.isActive !== false ? "Pending dari Mobile" : "Tayangkan ke Mobile"}
                                                     </span>
                                                 </button>
+                                                {item.isActive !== false && (
+                                                    <button
+                                                        onMouseDown={(e) => {
+                                                            e.stopPropagation();
+                                                            e.preventDefault();
+                                                            sendPushNotification(item.id, item.title);
+                                                        }}
+                                                        className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-blue-500/20 transition-colors cursor-pointer"
+                                                    >
+                                                        <Bell size={16} className="text-blue-400" />
+                                                        <span className="text-blue-300">
+                                                            Kirim Notif Baru Tayang
+                                                        </span>
+                                                    </button>
+                                                )}
                                                 <div className="border-t border-zinc-600 my-0.5" />
                                                 <button
                                                     onMouseDown={(e) => {
