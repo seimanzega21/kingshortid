@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.shortlovers.id';
+// Gunakan BACKEND_URL (https://api.shortlovers.id/api) agar tidak error infinite loop ke localhost
+const BACKEND_API = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
 const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
 
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
 
-        const res = await fetch(`${API_URL}/api/notifications/broadcast`, {
+        // Mengirim langsung ke Endpoint Server Produksi dari Backend (VPS / Cloudflare)
+        const res = await fetch(`${BACKEND_API}/notifications/broadcast`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
