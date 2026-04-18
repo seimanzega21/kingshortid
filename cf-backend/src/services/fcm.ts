@@ -103,9 +103,9 @@ async function sendFcmMessage(
 
     // ── Android notification payload ──────────────────────────────────────────
     // `image` in android.notification = BigPicture (expanded) AND thumbnail on
-    // the right in collapsed view (Android 7+ / MIUI / Samsung OneUI etc.)
     const androidNotification: Record<string, any> = {
         channel_id: 'kingshort_notifications',
+        click_action: 'android.intent.action.MAIN',
         default_sound: true,
         default_vibrate_timings: true,
         notification_priority: 'PRIORITY_HIGH',
