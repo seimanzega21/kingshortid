@@ -89,10 +89,10 @@ async def main():
         """)
         print("  ✅ Auth token injected!")
 
-        # ─── Step 2: Navigate to /provider/netshort → get drama list ───
-        print("\n[2] Loading /provider/netshort drama list...")
+        # ─── Step 2: Navigate to /provider/netshortv2 → get drama list ───
+        print("\n[2] Loading /provider/netshortv2 drama list...")
         captured_requests.clear()
-        await page.goto("https://vidrama.asia/provider/netshort", timeout=30000)
+        await page.goto("https://vidrama.asia/provider/netshortv2", timeout=30000)
         await page.wait_for_timeout(5000)
 
         # Scroll to load all dramas
@@ -144,7 +144,7 @@ async def main():
         # ─── Step 3: Load one drama movie page ───
         if dramas:
             drama = dramas[0]
-            movie_url = f"https://vidrama.asia/movie/{drama['slug']}--{drama['id']}?provider=netshort"
+            movie_url = f"https://vidrama.asia/movie/{drama['slug']}--{drama['id']}?provider=netshortv2"
             print(f"\n[3] Loading drama: {drama['title']}")
             captured_requests.clear()
             await page.goto(movie_url, timeout=30000)
@@ -214,7 +214,7 @@ async def main():
             print("  No episode links found - trying URL directly")
             if dramas:
                 d = dramas[0]
-                watch_url = f"https://vidrama.asia/watch/{d['slug']}--{d['id']}/1?provider=netshort"
+                watch_url = f"https://vidrama.asia/watch/{d['slug']}--{d['id']}/1?provider=netshortv2"
                 captured_requests.clear()
                 await page.goto(watch_url, timeout=30000)
                 await page.wait_for_timeout(8000)
