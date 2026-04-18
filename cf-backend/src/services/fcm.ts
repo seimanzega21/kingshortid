@@ -102,46 +102,21 @@ async function sendFcmMessage(
     const url = `https://fcm.googleapis.com/v1/projects/${sa.project_id}/messages:send`;
 
     // ── Android notification payload ──────────────────────────────────────────
-    // `image` in android.notification = BigPicture (expanded) AND thumbnail on
     // ── DATA-ONLY MESSAGE ──────────────────────────────────────────
     // Sending a Data-Only message forces `expo-notifications` to handle the
     // background notification building itself. This GUARANTEES that the
     // `PendingIntent` and `click_action` are perfectly aligned with the app,
     // solving the Android 13/14 "Drop Intent" bug.
-    // ── NATIVE ANDROID PAYLOAD ──────────────────────────────────────────
-    // Mengembalikan payload Native Firebase untuk memunculkan Cover secara NATIVE
-    // (Thumbnail kanan + Gambar besar di bawah).
-    // Tombol Action "Putar" bisa dipancing pakai categoryId (meski gambar besar lebih prioritas)
-    const androidNotification: Record<string, any> = {
-        channel_id: 'kingshort_notifications',
-        click_action: 'expo.modules.notifications.action.DEFAULT',
-        default_sound: true,
-        default_vibrate_timings: true,
-        notification_priority: 'PRIORITY_HIGH',
-        visibility: 'PUBLIC',
-        ...(categoryId ? { category_id: categoryId } : {}),
-    };
-
-    if (imageUrl) {
-        // Memicu BigPictureStyle dan LargeIcon native dari Android Firebase
-        androidNotification.image = imageUrl;
-    }
-
     const message: any = {
         message: {
             token,
-            notification: {
-                title: title,
-                body: body,
-                ...(imageUrl ? { image: imageUrl } : {})
-            },
             android: {
-                priority: 'high',
-                notification: androidNotification,
+                priority: 'high'
             },
             data: {
                 title: title,
                 message: body,
+                _displayInForeground: 'true',
                 ...(categoryId ? { categoryId } : {}),
                 body: JSON.stringify({
                     ...(data || {}),
