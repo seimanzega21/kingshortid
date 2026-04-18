@@ -111,6 +111,11 @@ async function sendFcmMessage(
     const message: any = {
         message: {
             token,
+            // Mutlak wajib HIGH priority agar notif Data-Only langsung dikirim detik itu juga
+            // tanpa ditunda berjam-jam oleh penghemat baterai (Doze Mode) Android
+            android: {
+                priority: 'high'
+            },
             data: {
                 title: title,
                 message: body,
