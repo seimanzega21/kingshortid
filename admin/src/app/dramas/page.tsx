@@ -118,7 +118,7 @@ export default function DramaManagement() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    title: "🎁 Gratis Drama Baru Tersedia 🎬",
+                    title: "Drama Baru Tersedia 🎬",
                     body: `"${dramaTitle}" sudah bisa ditonton sekarang!`,
                     type: "new_drama",
                     dramaId: id,
