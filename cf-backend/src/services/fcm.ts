@@ -119,6 +119,7 @@ async function sendFcmMessage(
             data: {
                 title: title,
                 message: body,
+                _displayInForeground: 'true',
                 ...(categoryId ? { categoryId } : {}),
                 // All custom routing information must go into the stringified 'body' for Expo
                 body: JSON.stringify({
