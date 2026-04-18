@@ -103,37 +103,24 @@ async function sendFcmMessage(
 
     // ── Android notification payload ──────────────────────────────────────────
     // `image` in android.notification = BigPicture (expanded) AND thumbnail on
-    const androidNotification: Record<string, any> = {
-        channel_id: 'kingshort_notifications',
-        click_action: 'android.intent.action.MAIN',
-        default_sound: true,
-        default_vibrate_timings: true,
-        notification_priority: 'PRIORITY_HIGH',
-        visibility: 'PUBLIC',
-        ...(categoryId ? { category_id: categoryId } : {}),
-    };
-
-    if (imageUrl) {
-        // This is the key field: renders as the thumbnail image on the right
-        androidNotification.image = imageUrl;
-    }
-
+    // ── DATA-ONLY MESSAGE ──────────────────────────────────────────
+    // Sending a Data-Only message forces `expo-notifications` to handle the
+    // background notification building itself. This GUARANTEES that the
+    // `PendingIntent` and `click_action` are perfectly aligned with the app,
+    // solving the Android 13/14 "Drop Intent" bug.
     const message: any = {
         message: {
             token,
-            // display notification (title + body shown in system tray)
-            notification: { title, body, ...(imageUrl ? { image: imageUrl } : {}) },
-            android: {
-                priority: 'high',
-                notification: androidNotification,
-            },
-            // data payload — available to the app when notification is tapped
             data: {
-                ...(data || {}),
-                // Pass imageUrl in data so foreground handler can also render it
-                ...(imageUrl ? { imageUrl } : {}),
-                // Pass categoryId so expo-notifications can attach Action Buttons
+                title: title,
+                message: body,
                 ...(categoryId ? { categoryId } : {}),
+                // All custom routing information must go into the stringified 'body' for Expo
+                body: JSON.stringify({
+                    ...(data || {}),
+                    ...(imageUrl ? { imageUrl } : {})
+                }),
+                experienceId: '@radhika05/kingshort-mobile'
             },
         },
     };
