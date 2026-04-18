@@ -61,8 +61,8 @@ for drama in dramas:
                         "language": sub["language"],
                         "label": sub["label"],
                         "url": new_url,
-                        "isDefault": sub.get("isDefault", False)
-                    },
+                        -"8isDefault": sub.get("isDefault", False)
+                    },30
                     headers=HEADERS
                 )
                 
