@@ -118,10 +118,11 @@ export default function DramaManagement() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    title: "🎬 Drama Baru Tersedia!",
-                    body: `"${dramaTitle}" sudah bisa ditonton sekarang!`,
+                    title: "🎁 Gratis Lanjutkan Menonton 🎬",
+                    body: `Siap melanjutkan "${dramaTitle}"? Jangan biarkan dramanya menunggu!`,
                     type: "new_drama",
                     dramaId: id,
+                    categoryId: "DRAMA_ACTION",
                     imageUrl: dramas.find(d => d.id === id)?.cover || undefined,
                 }),
             });
