@@ -509,6 +509,10 @@ dramasRoute.patch('/:id', async (c) => {
             .returning();
 
         // ─── TRIGGER: New Release Broadcast Notification ───
+        // UPDATE (April 2026): Dinonaktifkan sementara atas permintaan user
+        // agar tidak terjadi spam notifikasi saat banyak drama diaktifkan sekaligus.
+        // Notifikasi rilis baru sekarang dikirim secara manual via Kotak Pesan / Notifikasi Admin.
+        /*
         if (existing.isActive === false && body.isActive === true) {
             // Kickoff in background
             void sendBroadcastNotification(
@@ -521,6 +525,7 @@ dramasRoute.patch('/:id', async (c) => {
                 'DRAMA_ACTION' // Pass custom action category (Putar button)
             );
         }
+        */
 
         return c.json(enrichDrama(updated));
     } catch (error) {
