@@ -3,6 +3,7 @@ import { asc, eq } from 'drizzle-orm';
 import { getDb, parseJsonArray } from '../db';
 import { categories, dramas } from '../db/schema';
 import type { Env } from '../middleware/auth';
+import { requireAdmin } from '../middleware/auth';
 
 const categoriesRoute = new Hono<Env>();
 
@@ -15,6 +16,43 @@ categoriesRoute.get('/', async (c) => {
     } catch (error) {
         console.error('Get categories error:', error);
         return c.json({ error: 'Failed to get categories' }, 500);
+    }
+});
+
+// POST /api/categories
+categoriesRoute.post('/', requireAdmin, async (c) => {
+    try {
+        const body = await c.req.json();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        const slug = body.slug || body.name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+        
+        const result = await db.insert(categories).values({
+            name: body.name,
+            slug,
+            icon: body.icon || null,
+            order: body.order || 0
+        }).returning();
+        
+        return c.json(result[0], 201);
+    } catch (error: any) {
+        console.error('Create category error:', error);
+        return c.json({ error: error.message || 'Failed to create category' }, 500);
+    }
+});
+
+// DELETE /api/categories/:id
+categoriesRoute.delete('/:id', requireAdmin, async (c) => {
+    try {
+        const id = c.req.param('id');
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        await db.delete(categories).where(eq(categories.id, id));
+        
+        return c.json({ success: true });
+    } catch (error) {
+        console.error('Delete category error:', error);
+        return c.json({ error: 'Failed to delete category' }, 500);
     }
 });
 
