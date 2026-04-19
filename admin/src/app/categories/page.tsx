@@ -212,8 +212,8 @@ export default function CategoriesPage() {
                                 <input
                                     type="number"
                                     className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white"
-                                    value={order}
-                                    onChange={e => setOrder(parseInt(e.target.value))}
+                                    value={Number.isNaN(order) ? '' : order}
+                                    onChange={e => setOrder(e.target.value === '' ? 0 : parseInt(e.target.value))}
                                 />
                             </div>
                             <button
