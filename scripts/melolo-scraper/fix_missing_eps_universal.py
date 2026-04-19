@@ -116,14 +116,25 @@ def process_episode(ep_num, netshort_drama_id, backend_drama_id, slug, s3, temp_
     subprocess.run(['ffmpeg', '-y', '-i', str(ep_path), '-c', 'copy', '-movflags', '+faststart', str(fs_path)],
                    capture_output=True, timeout=120)
     if fs_path.exists() and fs_path.stat().st_size > 1000:
-        ep_path.unlink(missing_ok=True)
-        fs_path.rename(ep_path)
+        import time
+        for _ in range(10):
+            try:
+                ep_path.unlink(missing_ok=True)
+                break
+            except Exception:
+                time.sleep(1)
+        fs_path.replace(ep_path)
 
     size_mb = ep_path.stat().st_size / 1024 / 1024
     r2_key = f'dramas/netshort/{slug}/ep{ep_num:03d}.mp4'
     s3.upload_file(str(ep_path), R2_BUCKET, r2_key, ExtraArgs={'ContentType': 'video/mp4'})
     ep_r2_url = f'{R2_PUBLIC}/{r2_key}'
-    ep_path.unlink(missing_ok=True)
+    for _ in range(5):
+        try:
+            ep_path.unlink(missing_ok=True)
+            break
+        except Exception:
+            time.sleep(1)
 
     payload = {'dramaId': backend_drama_id, 'episodeNumber': ep_num,
                'videoUrl': ep_r2_url, 'title': f'Episode {ep_num}', 'duration': 0}

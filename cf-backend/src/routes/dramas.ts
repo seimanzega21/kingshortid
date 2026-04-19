@@ -339,8 +339,12 @@ dramasRoute.get('/:id', async (c) => {
         if (!drama) return c.json({ error: 'Drama not found' }, 404);
 
         // Get episodes
+        const episodeWhereClause = includeInactive
+            ? eq(episodes.dramaId, id)
+            : and(eq(episodes.dramaId, id), eq(episodes.isActive, true));
+
         const eps = await db.select().from(episodes)
-            .where(and(eq(episodes.dramaId, id), eq(episodes.isActive, true)))
+            .where(episodeWhereClause)
             .orderBy(asc(episodes.episodeNumber));
 
         return c.json({

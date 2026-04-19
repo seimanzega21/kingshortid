@@ -32,7 +32,7 @@ def main():
             import os
             env = os.environ.copy()
             env["PYTHONIOENCODING"] = "utf-8"
-            process = subprocess.Popen(cmd, env=env, shell=True)
+            process = subprocess.Popen(cmd, env=env, shell=False)
             process.communicate()
         except Exception as e:
             print(f"Error processing {title}: {e}")
