@@ -71,6 +71,11 @@ export async function requireAuth(c: Context<Env>, next: Next) {
 
 // Middleware: require admin role
 export async function requireAdmin(c: Context<Env>, next: Next) {
+    const adminKey = c.req.header('X-Admin-Key');
+    if (adminKey && adminKey === c.env.ADMIN_API_KEY) {
+        return await next();
+    }
+
     const user = await getAuthUser(c);
     if (!user || user.role !== 'admin') {
         return c.json({ error: 'Admin access required' }, 403);
