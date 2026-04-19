@@ -61,10 +61,28 @@ export default function DramaManagement() {
     const [dramas, setDramas] = useState<Drama[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    const [activeFilter, setActiveFilter] = useState<"all" | "active" | "inactive">("all");
     const [publishFilter, setPublishFilter] = useState<"all" | "tayang" | "pending">("all");
     const [statusFilter, setStatusFilter] = useState<"all" | "completed" | "ongoing">("all");
     const [sortOrder, setSortOrder] = useState<"newest" | "az" | "za">("newest");
+
+    // Initialize from sessionStorage on mount
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const savedSearch = sessionStorage.getItem("drama_searchTerm");
+            const savedTab = sessionStorage.getItem("drama_publishFilter") as any;
+            const savedStatus = sessionStorage.getItem("drama_statusFilter") as any;
+            if (savedSearch) setSearchTerm(savedSearch);
+            if (savedTab) setPublishFilter(savedTab);
+            if (savedStatus) setStatusFilter(savedStatus);
+        }
+    }, []);
+
+    // Save to sessionStorage on change
+    useEffect(() => {
+        sessionStorage.setItem("drama_searchTerm", searchTerm);
+        sessionStorage.setItem("drama_publishFilter", publishFilter);
+        sessionStorage.setItem("drama_statusFilter", statusFilter);
+    }, [searchTerm, publishFilter, statusFilter]);
     const [publishingId, setPublishingId] = useState<string | null>(null);
     const [menuOpenId, setMenuOpenId] = useState<string | null>(null);
     const [completing, setCompleting] = useState(false);
@@ -146,17 +164,7 @@ export default function DramaManagement() {
         // Search
         if (searchTerm && !d.title.toLowerCase().includes(searchTerm.toLowerCase())) return false;
 
-        // Stats card filter
-        if (activeFilter === "active") {
-            const ok = d.isActive !== false && d.cover && d.cover.length > 5 && d.description && d.description.length > 10 && d.totalEpisodes > 0;
-            if (!ok) return false;
-        }
-        if (activeFilter === "inactive") {
-            const ok = d.isActive !== false && d.cover && d.cover.length > 5 && d.description && d.description.length > 10 && d.totalEpisodes > 0;
-            if (ok) return false;
-        }
-
-        // Publish filter
+        // Publish filter (Tabs)
         if (publishFilter === "tayang" && d.isActive === false) return false;
         if (publishFilter === "pending" && d.isActive !== false) return false;
 
@@ -214,28 +222,25 @@ export default function DramaManagement() {
                         </div>
                     </div>
 
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-3 mb-4">
-                        <button onClick={() => setActiveFilter("all")}
-                            className={`rounded-xl border p-4 text-left transition-all ${activeFilter === "all" ? "border-cyan-500/40 bg-cyan-500/5" : "border-zinc-800 bg-zinc-900/50 hover:border-zinc-700"}`}>
-                            <div className="flex items-center gap-3">
-                                <div className={`p-2.5 rounded-xl ${activeFilter === "all" ? "bg-cyan-500/15 text-cyan-400" : "bg-zinc-800 text-zinc-500"}`}><Film size={18} /></div>
-                                <div><span className="text-2xl font-bold text-white">{totalAll}</span><p className="text-xs text-zinc-500">Total Drama</p></div>
-                            </div>
+                    {/* Navigation Tabs for Separation */}
+                    <div className="flex border-b border-zinc-800/80 mb-5">
+                        <button 
+                            onClick={() => setPublishFilter("all")} 
+                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "all" ? "border-cyan-500 text-cyan-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        >
+                            Total Semua Drama <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "all" ? "bg-cyan-500/20 text-cyan-300" : "bg-zinc-800 text-zinc-400"}`}>{totalAll}</span>
                         </button>
-                        <button onClick={() => setActiveFilter(activeFilter === "active" ? "all" : "active")}
-                            className={`rounded-xl border p-4 text-left transition-all ${activeFilter === "active" ? "border-emerald-500/40 bg-emerald-500/5" : "border-zinc-800 bg-zinc-900/50 hover:border-zinc-700"}`}>
-                            <div className="flex items-center gap-3">
-                                <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400"><CheckCircle size={18} /></div>
-                                <div><span className="text-2xl font-bold text-white">{healthyCount}</span><p className="text-xs text-zinc-500">Tayang di Mobile</p></div>
-                            </div>
+                        <button 
+                            onClick={() => setPublishFilter("tayang")} 
+                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "tayang" ? "border-emerald-500 text-emerald-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        >
+                            Sedang Tayang <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "tayang" ? "bg-emerald-500/20 text-emerald-300" : "bg-zinc-800 text-zinc-400"}`}>{healthyCount}</span>
                         </button>
-                        <button onClick={() => setActiveFilter(activeFilter === "inactive" ? "all" : "inactive")}
-                            className={`rounded-xl border p-4 text-left transition-all ${activeFilter === "inactive" ? "border-amber-500/40 bg-amber-500/5" : "border-zinc-800 bg-zinc-900/50 hover:border-zinc-700"}`}>
-                            <div className="flex items-center gap-3">
-                                <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><AlertTriangle size={18} /></div>
-                                <div><span className="text-2xl font-bold text-white">{pendingCount}</span><p className="text-xs text-zinc-500">Belum Publikasi</p></div>
-                            </div>
+                        <button 
+                            onClick={() => setPublishFilter("pending")} 
+                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "pending" ? "border-amber-500 text-amber-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        >
+                            Pending (Belum Tayang) <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "pending" ? "bg-amber-500/20 text-amber-300" : "bg-zinc-800 text-zinc-400"}`}>{pendingCount}</span>
                         </button>
                     </div>
 
@@ -248,13 +253,6 @@ export default function DramaManagement() {
                                 className="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50"
                                 value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                         </div>
-
-                        {/* Filter Publikasi */}
-                        <select value={publishFilter} onChange={(e) => setPublishFilter(e.target.value as any)} className={selectClass}>
-                            <option value="all">Semua Publikasi</option>
-                            <option value="tayang">Tayang</option>
-                            <option value="pending">Pending</option>
-                        </select>
 
                         {/* Filter Status */}
                         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as any)} className={selectClass}>

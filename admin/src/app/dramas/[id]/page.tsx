@@ -199,6 +199,22 @@ export default function DramaDetailPage() {
         } catch { toast.error("Gagal hapus episode"); }
     };
 
+    const toggleActive = async () => {
+        if (!drama) return;
+        const newStatus = !drama.isActive;
+        try {
+            const res = await fetch(`/api/dramas/${id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ isActive: newStatus }),
+            });
+            if (res.ok) {
+                toast.success(newStatus ? "Drama berhasil ditayangkan! 🚀" : "Drama disembunyikan!");
+                fetchData();
+            } else throw new Error("Failed");
+        } catch { toast.error("Gagal mengubah status penayangan"); }
+    };
+
     const addGenre = (genreName: string) => {
         if (!formData.genres.includes(genreName)) {
             setFormData({ ...formData, genres: [...formData.genres, genreName] });
@@ -241,19 +257,28 @@ export default function DramaDetailPage() {
                     <span className="text-sm font-medium">Kembali</span>
                 </button>
                 <div className="flex gap-2">
+                    {!isEditing && drama && (
+                        <button 
+                            onClick={toggleActive} 
+                            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-lg transition-colors border ${drama.isActive ? 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:bg-zinc-700' : 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-700'}`}
+                        >
+                            {drama.isActive ? <ToggleRight size={16} className="text-emerald-400" /> : <ToggleLeft size={16} />}
+                            {drama.isActive ? 'Sedang Tayang' : 'Tayangkan Drama'}
+                        </button>
+                    )}
                     {isEditing ? (
                         <>
                             <button onClick={() => { setIsEditing(false); resetCoverState(); fetchData(); }} className="px-4 py-2 text-sm text-zinc-400 border border-zinc-700 rounded-lg hover:bg-zinc-800">
                                 Batal
                             </button>
-                            <button onClick={handleSave} disabled={isSaving} className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg font-semibold text-sm">
+                            <button onClick={handleSave} disabled={isSaving} className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg font-semibold text-sm">
                                 {isSaving ? <Loader2 className="animate-spin" size={16} /> : <Save size={16} />}
                                 Simpan
                             </button>
                         </>
                     ) : (
-                        <button onClick={() => setIsEditing(true)} className="px-4 py-2 text-sm text-white bg-cyan-600 hover:bg-cyan-700 rounded-lg font-semibold">
-                            Edit Drama
+                        <button onClick={() => setIsEditing(true)} className="px-4 py-2 text-sm text-zinc-300 bg-zinc-800 hover:bg-zinc-700 hover:text-white border border-zinc-700 rounded-lg font-semibold">
+                            Edit Data
                         </button>
                     )}
                 </div>
@@ -355,9 +380,13 @@ export default function DramaDetailPage() {
                             </div>
                             <div className="flex items-center gap-2 flex-shrink-0">
                                 {drama.isActive ? (
-                                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Active</span>
+                                    <button onClick={toggleActive} className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors shadow-sm cursor-pointer flex items-center gap-1" title="Klik untuk menyembunyikan">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Active
+                                    </button>
                                 ) : (
-                                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">Inactive</span>
+                                    <button onClick={toggleActive} className="px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 transition-colors shadow-sm cursor-pointer flex items-center gap-1" title="Klik untuk menayangkan">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div> Inactive
+                                    </button>
                                 )}
                             </div>
                         </div>
