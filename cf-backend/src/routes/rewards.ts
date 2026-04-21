@@ -449,13 +449,27 @@ rewardsRoute.post('/claim-milestone', async (c) => {
 
         const newBalance = user.coins + milestone.bonus;
 
-        await db.update(users).set({ coins: newBalance, updatedAt: new Date() }).where(eq(users.id, userId));
+        let vipUpdate = {};
+        let vipMessage = '';
+        if (target === 5000) {
+            const now = new Date();
+            let currentExpiry = user.vipExpiry ? new Date(user.vipExpiry) : now;
+            if (currentExpiry.getTime() < now.getTime()) {
+                currentExpiry = now; 
+            }
+            // Add 24 hours VIP
+            const newExpiry = new Date(currentExpiry.getTime() + 24 * 60 * 60 * 1000); 
+            vipUpdate = { vipExpiry: newExpiry, vipStatus: true };
+            vipMessage = ' + VIP 24 Jam Gratis';
+        }
+
+        await db.update(users).set({ coins: newBalance, updatedAt: new Date(), ...vipUpdate }).where(eq(users.id, userId));
 
         await db.insert(coinTransactions).values({
             userId,
             type: 'bonus',
             amount: milestone.bonus,
-            description: `🎉 Milestone ${target} koin — ${milestone.label}`,
+            description: `🎉 Milestone ${target} koin — ${milestone.label}${vipMessage}`,
             // balanceAfter: newBalance,
         });
 
