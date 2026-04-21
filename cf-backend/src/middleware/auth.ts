@@ -56,7 +56,18 @@ export async function getAuthUser(c: Context<Env>) {
         .where(and(eq(users.id, payload.id), eq(users.isActive, true)))
         .limit(1);
 
-    return result[0] || null;
+    const user = result[0] || null;
+
+    // Auto-expire VIP status
+    if (user && user.vipStatus && user.vipExpiry) {
+        if (new Date(user.vipExpiry).getTime() < Date.now()) {
+            user.vipStatus = false;
+            // Fire-and-forget: update DB
+            db.update(users).set({ vipStatus: false }).where(eq(users.id, user.id)).catch(() => {});
+        }
+    }
+
+    return user;
 }
 
 // Middleware: require authentication
