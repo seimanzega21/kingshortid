@@ -471,5 +471,48 @@ rewardsRoute.post('/claim-milestone', async (c) => {
         return c.json({ error: 'Failed to claim milestone' }, 500);
     }
 });
+// POST /api/rewards/exchange-vip
+rewardsRoute.post('/exchange-vip', async (c) => {
+    try {
+        const userId = c.get('user').id;
+        const now = new Date();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
+        if (!user) return c.json({ error: 'User not found' }, 404);
+
+        if (user.coins < 500) {
+            return c.json({ error: 'Koin tidak cukup' }, 400);
+        }
+
+        const newBalance = user.coins - 500;
+        
+        let currentExpiry = user.vipExpiry ? new Date(user.vipExpiry) : now;
+        if (currentExpiry.getTime() < now.getTime()) {
+            currentExpiry = now; 
+        }
+        
+        const newExpiry = new Date(currentExpiry.getTime() + 60 * 60 * 1000); 
+        
+        await db.update(users).set({ 
+            coins: newBalance, 
+            vipStatus: true,
+            vipExpiry: newExpiry,
+            updatedAt: now 
+        }).where(eq(users.id, userId));
+
+        await db.insert(coinTransactions).values({
+            userId,
+            type: 'spend',
+            amount: -500,
+            description: 'Tukar Koin: VIP Bebas Iklan (1 Jam)',
+        });
+
+        return c.json({ success: true, newBalance, vipExpiry: newExpiry, vipStatus: true });
+    } catch (error) {
+        console.error('Exchange VIP error:', error);
+        return c.json({ error: 'Failed to exchange VIP' }, 500);
+    }
+});
 
 export default rewardsRoute;
