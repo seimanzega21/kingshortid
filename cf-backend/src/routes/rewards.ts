@@ -49,15 +49,9 @@ rewardsRoute.post('/check-in', async (c) => {
             return c.json({ error: 'Already checked in today', streak: user.checkInStreak }, 400);
         }
 
-        let newStreak = 1;
-        if (user.lastCheckIn) {
-            const yesterday = new Date(now);
-            yesterday.setDate(yesterday.getDate() - 1);
-            const lastCheckInDate = new Date(user.lastCheckIn);
-            if (isSameDay(lastCheckInDate, yesterday)) {
-                newStreak = (user.checkInStreak % 7) + 1;
-            }
-        }
+        const todayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        const dayOfWeek = todayWIB.getUTCDay() === 0 ? 7 : todayWIB.getUTCDay();
+        let newStreak = dayOfWeek; // Day 1 = Monday, Day 7 = Sunday
 
         const bonusInfo = STREAK_BONUSES.find(b => b.day === newStreak) || STREAK_BONUSES[0];
         const newBalance = user.coins + bonusInfo.coins;
@@ -138,6 +132,27 @@ rewardsRoute.get('/status', async (c) => {
             ));
         const claimedMilestones = milestoneResults.map(r => parseInt(r.rewardType.replace('milestone_', '')));
 
+        // Calculate weekly check-ins for the calendar grid
+        const todayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        const dayOfWeek = todayWIB.getUTCDay() === 0 ? 7 : todayWIB.getUTCDay();
+        const startOfWeek = new Date(todayStart);
+        // JS getDay() is local, but our todayStart is local server time, so we should subtract based on server's todayStart day
+        const serverDay = startOfWeek.getDay() === 0 ? 7 : startOfWeek.getDay();
+        startOfWeek.setDate(startOfWeek.getDate() - (serverDay - 1));
+        
+        const weeklyCheckInsResult = await db.select().from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                eq(dailyRewards.rewardType, 'check_in'),
+                gte(dailyRewards.claimedAt, startOfWeek),
+            ));
+        
+        const claimedDaysOfWeek = weeklyCheckInsResult.map(r => {
+            // Using assumed WIB relative day for consistency
+            const claimedWIB = new Date(r.claimedAt.getTime() + 7 * 60 * 60 * 1000);
+            return claimedWIB.getUTCDay() === 0 ? 7 : claimedWIB.getUTCDay();
+        });
+
         return c.json({
             coins: user.coins,
             canCheckIn,
@@ -147,6 +162,8 @@ rewardsRoute.get('/status', async (c) => {
             claimedDailyTasks,
             hasRatedApp,
             claimedMilestones,
+            claimedDaysOfWeek,
+            currentDayOfWeek: dayOfWeek,
         });
     } catch (error) {
         console.error('Get status error:', error);
