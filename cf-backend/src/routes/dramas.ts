@@ -100,7 +100,7 @@ dramasRoute.get('/', async (c) => {
         const whereClause = includeInactive ? undefined : eq(dramas.isActive, true);
 
         let query = db.select().from(dramas)
-            .orderBy(desc(dramas.createdAt))
+            .orderBy(desc(dramas.updatedAt))
             .limit(limit)
             .offset((page - 1) * limit);
 
@@ -239,7 +239,7 @@ dramasRoute.get('/new', async (c) => {
 
         const result = await db.select().from(dramas)
             .where(eq(dramas.isActive, true))
-            .orderBy(desc(dramas.createdAt))
+            .orderBy(desc(dramas.updatedAt))
             .limit(limit);
 
         // Include firstVideoUrl for each drama
