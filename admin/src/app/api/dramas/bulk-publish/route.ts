@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
         if (ready.length > 0) {
             await prisma.drama.updateMany({
                 where: { id: { in: ready } },
-                data: { isActive: true },
+                data: { isActive: true, createdAt: new Date() },
             });
         }
 
