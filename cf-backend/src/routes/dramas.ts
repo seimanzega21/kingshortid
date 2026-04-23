@@ -239,7 +239,7 @@ dramasRoute.get('/new', async (c) => {
 
         const result = await db.select().from(dramas)
             .where(eq(dramas.isActive, true))
-            .orderBy(desc(dramas.updatedAt))
+            .orderBy(desc(dramas.createdAt))
             .limit(limit);
 
         // Include firstVideoUrl for each drama
@@ -494,7 +494,13 @@ dramasRoute.patch('/:id', async (c) => {
         if (body.status) updates.status = body.status;
         if (typeof body.views === 'number') updates.views = body.views;
         if (typeof body.likes === 'number') updates.likes = body.likes;
-        if (typeof body.isActive === 'boolean') updates.isActive = body.isActive;
+        if (typeof body.isActive === 'boolean') {
+            updates.isActive = body.isActive;
+            // Set createdAt to now when publishing for the first time, to bump to top of "Baru Rilis"
+            if (existing.isActive === false && body.isActive === true) {
+                updates.createdAt = new Date();
+            }
+        }
         if (typeof body.isFeatured === 'boolean') updates.isFeatured = body.isFeatured;
         if (typeof body.isVip === 'boolean') updates.isVip = body.isVip;
         if (body.genres) updates.genres = toJsonArray(body.genres);
@@ -585,7 +591,7 @@ dramasRoute.post('/bulk-publish', async (c) => {
 
         for (const id of ready) {
             await db.update(dramas)
-                .set({ isActive: true, updatedAt: new Date() })
+                .set({ isActive: true, updatedAt: new Date(), createdAt: new Date() })
                 .where(eq(dramas.id, id));
         }
 

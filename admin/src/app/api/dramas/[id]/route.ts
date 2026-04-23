@@ -78,6 +78,15 @@ export async function PATCH(
             updateData.banner = updateData.cover;
         }
 
+        const existing = await prisma.drama.findUnique({ where: { id }, select: { isActive: true } });
+        if (!existing) {
+            return NextResponse.json({ message: 'Drama not found' }, { status: 404 });
+        }
+
+        if (updateData.isActive === true && existing.isActive === false) {
+            updateData.createdAt = new Date();
+        }
+
         const drama = await prisma.drama.update({
             where: { id },
             data: updateData,
