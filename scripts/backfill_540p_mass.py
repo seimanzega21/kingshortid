@@ -29,9 +29,9 @@ R2_SECRET   = '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
 R2_BUCKET   = 'shortlovers'
 R2_PUBLIC   = 'https://stream.shortlovers.id'
 
-TEMP_DIR        = Path('/tmp/backfill_540p_tmp')
-CHECKPOINT_FILE = Path('/tmp/backfill_540p_checkpoint.json')
-SKIP_FILE       = Path('/tmp/backfill_540p_skipped.json')
+TEMP_DIR        = Path('d:/kingshortid/scripts/tmp/backfill_540p_tmp')
+CHECKPOINT_FILE = Path('d:/kingshortid/scripts/tmp/backfill_540p_checkpoint.json')
+SKIP_FILE       = Path('d:/kingshortid/scripts/tmp/backfill_540p_skipped.json')
 
 HEADERS = {'x-admin-key': ADMIN_KEY, 'Content-Type': 'application/json'}
 
@@ -90,7 +90,7 @@ def fetch_all_dramas():
         if not batch:
             break
         dramas.extend(batch)
-        total = data.get('total', 0)
+        total = int(data.get('total', 0))
         print(f"  Fetched page {page}: {len(batch)} dramas (total so far: {len(dramas)}/{total})")
         if len(dramas) >= total:
             break
@@ -185,12 +185,12 @@ def process_episode(r2c, ep, drama_title, cp, skip_set):
     try:
         # Check if 540p already exists on R2 (just missing DB record)
         if r2_key_exists(r2c, key_540):
-            print(f"    → 540p already on R2, just patching DB...")
+            print(f"    -> 540p already on R2, just patching DB...")
             ok, st = patch_episode_540p(ep_id, url_540)
             if ok:
                 return 'patched_existing'
             else:
-                print(f"    ✗ PATCH failed HTTP {st}")
+                print(f"    [!] PATCH failed HTTP {st}")
                 return 'patch_failed'
 
         # Download 720p from R2 and encode 540p
@@ -206,7 +206,7 @@ def process_episode(r2c, ep, drama_title, cp, skip_set):
         ]
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
         if result.returncode != 0 or not t_540.exists():
-            print(f"    ✗ ffmpeg failed: {result.stderr[-200:]}")
+            print(f"    [!] ffmpeg failed: {result.stderr[-200:]}")
             return 'encode_failed'
 
         # Upload to R2
@@ -217,14 +217,14 @@ def process_episode(r2c, ep, drama_title, cp, skip_set):
         if ok:
             return 'success'
         else:
-            print(f"    ✗ PATCH failed HTTP {st}")
+            print(f"    [!] PATCH failed HTTP {st}")
             return 'patch_failed'
 
     except subprocess.TimeoutExpired:
-        print(f"    ✗ Timeout on ep {ep_num}")
+        print(f"    [!] Timeout on ep {ep_num}")
         return 'timeout'
     except Exception as e:
-        print(f"    ✗ Error: {e}")
+        print(f"    [!] Error: {e}")
         return 'error'
     finally:
         if t_540.exists():
@@ -236,7 +236,7 @@ def main():
     start_time = time.time()
 
     print("=" * 65)
-    print("  MASS 540p BACKFILL — KingShort")
+    print("  MASS 540p BACKFILL - KingShort")
     print(f"  Started: {time.strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 65)
 
@@ -245,7 +245,7 @@ def main():
     skip_set = load_skipped()
     done_ids = set(cp.get('processed_ep_ids', []))
     print(f"\n  Checkpoint: {len(done_ids)} episodes already done")
-    print(f"  Stats so far → success: {cp['success']}, failed: {cp['failed']}, skipped: {cp['skipped']}\n")
+    print(f"  Stats so far -> success: {cp['success']}, failed: {cp['failed']}, skipped: {cp['skipped']}\n")
 
     r2c = get_r2()
 
@@ -272,7 +272,7 @@ def main():
         if not to_process:
             continue
 
-        print(f"\n[Drama {drama_idx+1}/{len(dramas)}] {drama_title} — {len(to_process)} ep(s) need 540p")
+        print(f"\n[Drama {drama_idx+1}/{len(dramas)}] {drama_title} - {len(to_process)} ep(s) need 540p")
 
         for ep in to_process:
             ep_id  = ep.get('id', '')
@@ -283,24 +283,24 @@ def main():
             total_processed += 1
 
             if result == 'success':
-                print("✅")
+                print("[+]")
                 cp['success'] += 1
             elif result == 'patched_existing':
-                print("✅ (was already on R2)")
+                print("[+] (was already on R2)")
                 cp['success'] += 1
             elif result == 'already_has_540p':
-                print("⏭️  skip (already has 540p)")
+                print("[>] skip (already has 540p)")
                 cp['skipped'] += 1
             elif result == 'not_on_r2':
-                print("⏭️  skip (external URL)")
+                print("[>] skip (external URL)")
                 cp['skipped'] += 1
                 skip_set.add(ep_id)
             elif result == 'cant_derive_key':
-                print("⏭️  skip (can't derive key)")
+                print("[>] skip (can't derive key)")
                 cp['skipped'] += 1
                 skip_set.add(ep_id)
             else:
-                print(f"❌ {result}")
+                print(f"[!] {result}")
                 cp['failed'] += 1
 
             # Mark as processed & save checkpoint every 10 episodes
@@ -311,9 +311,9 @@ def main():
                 save_skipped(skip_set)
                 elapsed = (time.time() - start_time) / 60
                 rate    = total_processed / elapsed if elapsed > 0 else 0
-                print(f"\n  ── Checkpoint: {total_processed} processed | "
-                      f"✅{cp['success']} ❌{cp['failed']} ⏭️{cp['skipped']} | "
-                      f"{rate:.1f} ep/min | elapsed {elapsed:.0f}min ──\n")
+                print(f"\n  -- Checkpoint: {total_processed} processed | "
+                      f"[+]{cp['success']} [!]{cp['failed']} [>]{cp['skipped']} | "
+                      f"{rate:.1f} ep/min | elapsed {elapsed:.0f}min --\n")
 
         time.sleep(0.2)  # polite rate-limiting between dramas
 
@@ -325,9 +325,9 @@ def main():
     print("\n" + "=" * 65)
     print("  BACKFILL COMPLETE!")
     print(f"  Total processed : {total_processed}")
-    print(f"  ✅ Success      : {cp['success']}")
-    print(f"  ❌ Failed       : {cp['failed']}")
-    print(f"  ⏭️  Skipped      : {cp['skipped']}")
+    print(f"  [+] Success     : {cp['success']}")
+    print(f"  [!] Failed      : {cp['failed']}")
+    print(f"  [>] Skipped     : {cp['skipped']}")
     print(f"  Time elapsed    : {elapsed:.0f} min ({elapsed/60:.1f} hours)")
     print(f"  Finished: {time.strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 65)
