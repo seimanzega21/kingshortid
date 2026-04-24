@@ -44,8 +44,7 @@ def do_login():
         page = context.new_page()
         page.goto("https://vidrama.asia/login")
         print("\n*** PLEASE LOGIN IN THE BROWSER WINDOW ***")
-        print("*** AFTER LOGGING IN, CLOSE THE BROWSER WINDOW TO SAVE SESSION ***\n")
-        page.wait_for_event("close", timeout=0)
+        input("*** AFTER LOGGING IN, PRESS ENTER IN THIS TERMINAL TO SAVE SESSION ***\n")
         context.storage_state(path=AUTH_FILE)
         print(f"Session saved to {AUTH_FILE}. You can now run the scraper without --login")
 
