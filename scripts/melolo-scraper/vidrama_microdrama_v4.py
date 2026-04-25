@@ -357,9 +357,13 @@ def main():
     d1_titles = get_d1_titles()
 
     new = []
-    # Only skip if the drama is completely in D1 AND we are sure it has 540p (which we aren't, so we just process all limits)
-    # To avoid checking every drama, we only check the first `limit` dramas from the API
-    new = dramas[start:start + limit]
+    for d in dramas:
+        slug = slugify(d.get("title", ""))
+        title = d.get("title", "")
+        if slug not in r2_slugs and title not in d1_titles:
+            new.append(d)
+        if len(new) >= limit:
+            break
 
     if not new:
         log("  Nothing new!"); return
