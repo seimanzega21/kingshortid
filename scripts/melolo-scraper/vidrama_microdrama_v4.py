@@ -99,17 +99,17 @@ def get_r2_slugs() -> set:
     log(f"    R2: {len(slugs)} existing slugs")
     return slugs
 
-def get_d1_titles() -> set:
-    log("[3] Fetching D1 drama titles (Microdrama only)...")
+def get_supabase_titles() -> set:
+    log("[3] Fetching Supabase drama titles (Microdrama only)...")
     try:
         r = requests.get(f"{BACKEND_URL}/dramas?limit=1000", timeout=15)
         data = r.json()
         items = data if isinstance(data, list) else data.get("dramas", [])
         titles = {d["title"] for d in items if d.get("provider") in ("microdrama", "idrama")}
-        log(f"    D1 (Microdrama): {len(titles)} dramas")
+        log(f"    Supabase (Microdrama): {len(titles)} dramas")
         return titles
     except Exception as e:
-        log(f"    D1 error: {e}")
+        log(f"    Supabase error: {e}")
         return set()
 
 # ──────────────────── EPISODE DATA ────────────────────
@@ -196,12 +196,16 @@ def upload_cover(cover_url: str, slug: str) -> bool:
         resp = requests.get(cover_url, timeout=15)
         resp.raise_for_status()
         if len(resp.content) < 100: return False
+        # Detect content type and set extension
+        ctype = resp.headers.get("content-type", "image/jpeg")
+        ext = "webp" if "webp" in ctype else "png" if "png" in ctype else "jpg"
         get_s3().put_object(Bucket=R2_BUCKET,
-                            Key=f"{R2_PREFIX}/{slug}/cover.webp",
+                            Key=f"{R2_PREFIX}/{slug}/cover.{ext}",
                             Body=resp.content,
-                            ContentType=resp.headers.get("content-type", "image/webp"))
-        return True
-    except: return False
+                            ContentType=ctype)
+        # We need to return the URL so it can be saved to the database!
+        return f"{R2_PUBLIC}/{R2_PREFIX}/{slug}/cover.{ext}"
+    except: return None
 
 # ──────────────────── EPISODE WORKER (parallel) ────────────────────
 def process_episode(ep, drama_temp, total_eps, slug, r2_prefix):
@@ -268,9 +272,6 @@ def process_drama(drama: dict, slug: str) -> list | None:
     drama_id = str(drama["id"])
     total_eps = drama.get("episodes", 0)
 
-    cover_ok = upload_cover(drama.get("cover", ""), slug)
-    log(f"  Cover: {'OK' if cover_ok else 'FAIL'}")
-
     episodes_data = fetch_episodes(drama_id, slug)
     if not episodes_data:
         log(f"  FAIL: no episodes data"); return None
@@ -300,9 +301,9 @@ def process_drama(drama: dict, slug: str) -> list | None:
     return uploaded if uploaded else None
 
 # ──────────────────── D1 REGISTRATION ────────────────────
-def register_drama(drama: dict, slug: str, episodes: list) -> bool:
+def register_drama(drama: dict, slug: str, episodes: list, cover_url: str) -> bool:
     title = drama.get("title", slug)
-    cover = f"{R2_PUBLIC}/{R2_PREFIX}/{slug}/cover.webp"
+    cover = cover_url if cover_url else f"{R2_PUBLIC}/{R2_PREFIX}/{slug}/cover.jpg"
     try:
         resp = requests.post(f"{BACKEND_URL}/dramas", json={
             "title": title,
@@ -354,13 +355,13 @@ def main():
 
     dramas    = discover_dramas(target=limit + 100)
     r2_slugs  = get_r2_slugs()
-    d1_titles = get_d1_titles()
+    supabase_titles = get_supabase_titles()
 
     new = []
     for d in dramas:
         slug = slugify(d.get("title", ""))
         title = d.get("title", "")
-        if slug not in r2_slugs and title not in d1_titles:
+        if slug not in r2_slugs and title not in supabase_titles:
             new.append(d)
         if len(new) >= limit:
             break
@@ -378,11 +379,13 @@ def main():
         log(f"  [{i}/{len(new)}] {title}")
         log(f"  Slug: {slug}")
 
+        cover_url = upload_cover(drama.get("cover", ""), slug)
+        
         eps = process_drama(drama, slug)
         if not eps:
             stats["fail"] += 1; continue
 
-        if register_drama(drama, slug, eps):
+        if register_drama(drama, slug, eps, cover_url):
             stats["ok"] += 1; stats["eps"] += len(eps)
         else:
             stats["fail"] += 1
