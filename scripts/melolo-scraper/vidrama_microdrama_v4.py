@@ -361,7 +361,9 @@ def main():
     for d in dramas:
         slug = slugify(d.get("title", ""))
         title = d.get("title", "")
-        if slug not in r2_slugs and title not in supabase_titles:
+        # If title is in Supabase, it is fully completed and registered.
+        # If it's only in R2, it crashed midway. Process it to finish missing eps & register!
+        if title not in supabase_titles:
             new.append(d)
         if len(new) >= limit:
             break

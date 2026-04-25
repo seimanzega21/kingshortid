@@ -495,11 +495,11 @@ rewardsRoute.post('/exchange-vip', async (c) => {
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
         if (!user) return c.json({ error: 'User not found' }, 404);
 
-        if (user.coins < 500) {
+        if (user.coins < 2000) {
             return c.json({ error: 'Koin tidak cukup' }, 400);
         }
 
-        const newBalance = user.coins - 500;
+        const newBalance = user.coins - 2000;
         
         let currentExpiry = user.vipExpiry ? new Date(user.vipExpiry) : now;
         if (currentExpiry.getTime() < now.getTime()) {
@@ -518,7 +518,7 @@ rewardsRoute.post('/exchange-vip', async (c) => {
         await db.insert(coinTransactions).values({
             userId,
             type: 'spend',
-            amount: -500,
+            amount: -2000,
             description: 'Tukar Koin: VIP Bebas Iklan (1 Jam)',
         });
 
