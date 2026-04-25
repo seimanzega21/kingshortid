@@ -61,7 +61,7 @@ export default function DramaManagement() {
     const [dramas, setDramas] = useState<Drama[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    const [publishFilter, setPublishFilter] = useState<"all" | "tayang" | "pending">("all");
+    const [publishFilter, setPublishFilter] = useState<"all" | "tayang" | "pending" | "anime">("all");
     const [statusFilter, setStatusFilter] = useState<"all" | "completed" | "ongoing">("all");
     const [sortOrder, setSortOrder] = useState<"newest" | "az" | "za">("newest");
 
@@ -159,6 +159,15 @@ export default function DramaManagement() {
     ).length;
     const pendingCount = totalAll - healthyCount;
 
+    const isAnime = (d: Drama) => {
+        const ANIME_KW = ['anime', 'animasi', 'kartun', 'donghua'];
+        return ANIME_KW.some(kw => 
+            (d.title || '').toLowerCase().includes(kw) || 
+            (d.genres || []).some(g => g.toLowerCase().includes(kw))
+        );
+    };
+    const animeCount = dramas.filter(isAnime).length;
+
     // Apply all filters
     let filteredDramas = dramas.filter(d => {
         // Search
@@ -167,6 +176,7 @@ export default function DramaManagement() {
         // Publish filter (Tabs)
         if (publishFilter === "tayang" && d.isActive === false) return false;
         if (publishFilter === "pending" && d.isActive !== false) return false;
+        if (publishFilter === "anime" && !isAnime(d)) return false;
 
         // Status filter
         if (statusFilter !== "all" && d.status !== statusFilter) return false;
@@ -241,6 +251,12 @@ export default function DramaManagement() {
                             className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "pending" ? "border-amber-500 text-amber-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
                             Pending (Belum Tayang) <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "pending" ? "bg-amber-500/20 text-amber-300" : "bg-zinc-800 text-zinc-400"}`}>{pendingCount}</span>
+                        </button>
+                        <button 
+                            onClick={() => setPublishFilter("anime")} 
+                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "anime" ? "border-purple-500 text-purple-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        >
+                            Khusus Anime <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "anime" ? "bg-purple-500/20 text-purple-300" : "bg-zinc-800 text-zinc-400"}`}>{animeCount}</span>
                         </button>
                     </div>
 
