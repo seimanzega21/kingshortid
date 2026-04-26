@@ -105,7 +105,7 @@ def get_supabase_titles() -> set:
         r = requests.get(f"{BACKEND_URL}/dramas?limit=1000", timeout=15)
         data = r.json()
         items = data if isinstance(data, list) else data.get("dramas", [])
-        titles = {d["title"] for d in items if d.get("provider") in ("microdrama", "idrama")}
+        titles = {d["title"] for d in items}
         log(f"    Supabase (Microdrama): {len(titles)} dramas")
         return titles
     except Exception as e:

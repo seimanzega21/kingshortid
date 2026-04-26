@@ -152,75 +152,96 @@ export default function UserManagement() {
     const nonAdminUsers = users.filter(u => u.role !== "admin");
     const allNonAdminSelected = nonAdminUsers.length > 0 && selectedIds.size === nonAdminUsers.length;
 
+    // Helper for smart pagination
+    const getVisiblePages = () => {
+        if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+        if (page <= 4) return [1, 2, 3, 4, 5, '...', totalPages];
+        if (page >= totalPages - 3) return [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+        return [1, '...', page - 1, page, page + 1, '...', totalPages];
+    };
+
     return (
-        <div className="p-8 space-y-6">
+        <div className="p-4 md:p-8 space-y-8 max-w-full overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between">
-                <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-white">Manajemen Pengguna</h1>
-                    <p className="text-zinc-400 mt-1">Kelola, pantau, dan atur akses pengguna platform KingShort.</p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div className="space-y-2">
+                    <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-500">
+                        Manajemen Pengguna
+                    </h1>
+                    <p className="text-zinc-400 text-sm md:text-base">Pantau, kelola, dan atur akses semua pengguna KingShort.</p>
                 </div>
-                <div className="text-sm text-zinc-500">
-                    Total: <span className="text-white font-semibold">{totalCount}</span> pengguna
+                
+                <div className="flex items-center gap-4 bg-gradient-to-br from-zinc-900/80 to-[#121212] border border-zinc-800/80 rounded-2xl px-6 py-4 shadow-2xl backdrop-blur-md relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="p-3 bg-cyan-500/10 border border-cyan-500/20 rounded-xl relative z-10 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+                        <Users size={22} className="text-cyan-400" />
+                    </div>
+                    <div className="relative z-10">
+                        <p className="text-[11px] text-zinc-500 font-bold uppercase tracking-widest mb-1">Total Pengguna</p>
+                        <p className="text-2xl font-black text-white drop-shadow-md">{totalCount.toLocaleString()}</p>
+                    </div>
                 </div>
             </div>
 
             {/* Filters & Actions Bar */}
-            <div className="flex flex-col md:flex-row gap-4 justify-between bg-[#121212] p-4 rounded-xl border border-zinc-800">
-                <div className="flex gap-3 flex-1">
-                    <div className="relative flex-1 max-w-sm">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={18} />
+            <div className="flex flex-col xl:flex-row gap-4 justify-between bg-zinc-900/40 backdrop-blur-md p-2.5 rounded-2xl border border-zinc-800 shadow-inner">
+                <div className="flex flex-wrap gap-2.5 flex-1 items-center">
+                    <div className="relative flex-1 min-w-[200px] max-w-sm">
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500" size={16} />
                         <input
                             type="text"
                             placeholder="Cari email atau nama..."
-                            className="w-full bg-black/50 border border-zinc-700 rounded-lg pl-10 pr-4 py-2 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                            className="w-full bg-black/40 border border-zinc-700/50 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500/50 focus:bg-zinc-800/50 transition-all placeholder:text-zinc-600"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <select
-                        value={filterRole}
-                        onChange={(e) => setFilterRole(e.target.value)}
-                        className="bg-black/50 border border-zinc-700 text-zinc-400 text-sm rounded-lg px-4 py-2 outline-none focus:border-cyan-500"
-                    >
-                        <option value="">Semua Role</option>
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                    <select
-                        value={filterAccountType}
-                        onChange={(e) => setFilterAccountType(e.target.value)}
-                        className="bg-black/50 border border-zinc-700 text-zinc-400 text-sm rounded-lg px-4 py-2 outline-none focus:border-cyan-500"
-                    >
-                        <option value="">Semua Tipe Akun</option>
-                        <option value="guest">🎭 Tamu</option>
-                        <option value="google">🔵 Google</option>
-                        <option value="registered">📧 Terdaftar</option>
-                    </select>
+                    <div className="flex gap-2.5 flex-1 sm:flex-none">
+                        <select
+                            value={filterRole}
+                            onChange={(e) => setFilterRole(e.target.value)}
+                            className="flex-1 sm:flex-none bg-black/40 border border-zinc-700/50 text-zinc-300 text-sm rounded-xl px-4 py-2.5 outline-none focus:border-cyan-500/50 hover:bg-zinc-800/50 cursor-pointer transition-colors"
+                        >
+                            <option value="">Semua Role</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <select
+                            value={filterAccountType}
+                            onChange={(e) => setFilterAccountType(e.target.value)}
+                            className="flex-1 sm:flex-none bg-black/40 border border-zinc-700/50 text-zinc-300 text-sm rounded-xl px-4 py-2.5 outline-none focus:border-cyan-500/50 hover:bg-zinc-800/50 cursor-pointer transition-colors"
+                        >
+                            <option value="">Semua Akun</option>
+                            <option value="guest">🎭 Tamu</option>
+                            <option value="google">🔵 Google</option>
+                            <option value="registered">📧 Terdaftar</option>
+                        </select>
+                    </div>
                 </div>
 
                 {/* Bulk Actions */}
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2.5 items-center px-1">
                     {selectedIds.size > 0 && (
                         <button
                             onClick={() => setConfirmAction("selected")}
-                            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20 text-sm font-medium transition-colors"
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/20 text-sm font-semibold transition-all shadow-[0_0_15px_rgba(239,68,68,0.1)] hover:shadow-[0_0_20px_rgba(239,68,68,0.3)]"
                         >
-                            <Trash2 size={14} /> Hapus Terpilih ({selectedIds.size})
+                            <Trash2 size={16} /> Hapus ({selectedIds.size})
                         </button>
                     )}
                     <button
                         onClick={() => setConfirmAction("all")}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-800 text-zinc-400 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/20 border border-zinc-700 text-sm font-medium transition-colors"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-800/60 text-zinc-400 hover:bg-red-500 hover:text-white border border-zinc-700/50 text-sm font-semibold transition-all hover:border-red-500/50"
                     >
-                        <Trash2 size={14} /> Hapus Semua
+                        <AlertTriangle size={16} /> Hapus Semua
                     </button>
                 </div>
             </div>
 
             {/* User Table */}
-            <div className="rounded-xl border border-zinc-800 bg-[#121212] overflow-hidden">
-                <table className="w-full text-left text-sm">
+            <div className="rounded-2xl border border-zinc-800/60 bg-[#121212]/80 backdrop-blur-sm overflow-hidden shadow-xl">
+                <div className="overflow-x-auto w-full">
+                    <table className="w-full text-left text-sm whitespace-nowrap">
                     <thead className="bg-[#1A1A1A] border-b border-zinc-800 text-xs uppercase text-zinc-500">
                         <tr>
                             <th className="px-4 py-4 w-10">
@@ -354,26 +375,49 @@ export default function UserManagement() {
                         )}
                     </tbody>
                 </table>
+                </div>
 
                 {/* Pagination */}
                 {totalPages > 1 && (
-                    <div className="p-4 border-t border-zinc-800 flex items-center justify-between">
-                        <span className="text-xs text-zinc-500">
-                            Halaman {page} dari {totalPages}
+                    <div className="p-4 bg-[#161616] border-t border-zinc-800/80 flex flex-col sm:flex-row gap-4 items-center justify-between overflow-x-auto">
+                        <span className="text-xs font-medium text-zinc-500 tracking-wide uppercase whitespace-nowrap">
+                            Halaman <span className="text-zinc-300">{page}</span> dari {totalPages}
                         </span>
-                        <div className="flex gap-1">
-                            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                                <button
-                                    key={p}
-                                    onClick={() => setPage(p)}
-                                    className={`px-3 py-1 rounded text-sm ${page === p
-                                        ? 'bg-cyan-600 text-white'
-                                        : 'hover:bg-zinc-800 text-zinc-400'
-                                        }`}
-                                >
-                                    {p}
-                                </button>
-                            ))}
+                        <div className="flex items-center gap-1.5">
+                            <button
+                                onClick={() => setPage(p => Math.max(1, p - 1))}
+                                disabled={page === 1}
+                                className="px-3 py-1.5 rounded-lg text-sm font-medium transition-all bg-zinc-800/30 hover:bg-zinc-800 text-zinc-400 disabled:opacity-30 disabled:hover:bg-zinc-800/30"
+                            >
+                                ← Prev
+                            </button>
+                            
+                            <div className="flex gap-1">
+                                {getVisiblePages().map((p, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => typeof p === 'number' && setPage(p)}
+                                        disabled={p === '...'}
+                                        className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                                            p === '...' 
+                                                ? 'text-zinc-600 cursor-default px-2' 
+                                                : page === p
+                                                    ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 shadow-inner'
+                                                    : 'bg-zinc-800/50 hover:bg-zinc-700 text-zinc-400 border border-transparent'
+                                            }`}
+                                    >
+                                        {p}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <button
+                                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                                disabled={page === totalPages}
+                                className="px-3 py-1.5 rounded-lg text-sm font-medium transition-all bg-zinc-800/30 hover:bg-zinc-800 text-zinc-400 disabled:opacity-30 disabled:hover:bg-zinc-800/30"
+                            >
+                                Next →
+                            </button>
                         </div>
                     </div>
                 )}
