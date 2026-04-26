@@ -1,19 +1,21 @@
 import requests
-
-url = 'https://gkcnbnlfqdlotnjaizxx.supabase.co/rest/v1/episodes?select=*&drama_id=eq.dubbingsopir-taksi-mantan-dewa-balap--846959'
-
-jwt_token = "eyJhbGciOiJFUzI1NiIsImtpZCI6ImY0NTAxYzU1LTY5ZmMtNDczNy05NzFkLTU1OTVjZmRmZDAwNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2drY25ibmxmcWRsb3RuamFpenh4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI2ZjNlNWMxNS1hMjFjLTRkMTAtYjg2Yy1lODgxNzBlN2I3MmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzc3MTkzMzg2LCJpYXQiOjE3NzcxODk3ODYsImVtYWlsIjoic2VpbWFuemVnYTIxQGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSIsImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImF2YXRhcl91cmwiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMT2MwbkFudS01bTcxbmNqRjQ0cDJ0dWJ5cUVjRktVTVg5T25pZW1tX1p3TEdJTVJtdz1zOTYtYyIsImVtYWlsIjoic2VpbWFuemVnYTIxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmdWxsX25hbWwiOiJzZWltYW4gemVnYSIsImlzcyI6Imh0dHBzOi8vYWNjb3VudHMuZ29vZ2xlLmNvbSIsIm5hbWUiOiJzZWltYW4gemVnYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMT2MwbkFudS01bTcxbmNqRjQ0cDJ0dWJ5cUVjRktVTVg5T25pZW1tX1p3TEdJTVJtdz1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTExODcyOTEzNTI0NDY1MTU0Njg3Iiwic3ViIjoiMTExODcyOTEzNTI0NDY1MTU0Njg3In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NzcxODk3ODZ9XSwic2Vzc2lvbl9pZCI6ImE4YWRiMmQ5LTM1NDQtNDk5OC04ZmViLWNkNjY1ZDY1YzI0NiIsImlzX2Fub255bW91cyI6ZmFsc2V9.jO_nQ5DCLqRkEclv_8D1U631lCq8TjC3zS39nN8E4jJntYp66aYf4XQzZt8yS7iQ9W7u0Jp5pM8JbJ_bQjL0Bw"
+import json
 
 headers = {
     'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdrY25ibmxmcWRsb3RuamFpenh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NjQ5ODEsImV4cCI6MjA4NDA0MDk4MX0.EFP6qcUAT_Dk0bV3ycjxpduZ1MBuhCWOTE0ArIsS9Xo',
-    'authorization': f'Bearer {jwt_token}'
+    'authorization': 'Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6ImY0NTAxYzU1LTY5ZmMtNDczNy05NzFkLTU1OTVjZmRmZDAwNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2drY25ibmxmcWRsb3RuamFpenh4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI2ZjNlNWMxNS1hMjFjLTRkMTAtYjg2Yy1lODgxNzBlN2I3MmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzc3MTkzMzg2LCJpYXQiOjE3NzcxODk3ODYsImVtYWlsIjoic2VpbWFuemVnYTIxQGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfX0.Qc6T8rXG6XbZ5Q2sT8K2V6P_5Y5_s6-y5g3g7X5sXyqX4yv1_ZtqYk7L_2Vn1H9d5P0zZqUvJ5t0WbT4o1m0Zg'
 }
 
+# 1. Let's see what tables are available, or query 'episodes' table directly
+url = "https://gkcnbnlfqdlotnjaizxx.supabase.co/rest/v1/"
 r = requests.get(url, headers=headers)
-print("Episodes Table:")
-print(r.text[:1000])
+print("Root:", r.text[:200])
 
-url_drama = 'https://gkcnbnlfqdlotnjaizxx.supabase.co/rest/v1/dramas?select=*&slug=eq.dubbingsopir-taksi-mantan-dewa-balap--846959'
-r_drama = requests.get(url_drama, headers=headers)
-print("\nDramas Table:")
-print(r_drama.text[:1000])
+url2 = "https://gkcnbnlfqdlotnjaizxx.supabase.co/rest/v1/episodes?limit=5"
+r2 = requests.get(url2, headers=headers)
+print("Episodes:", r2.text[:500])
+
+url3 = "https://gkcnbnlfqdlotnjaizxx.supabase.co/rest/v1/shortmax_episodes?limit=5"
+r3 = requests.get(url3, headers=headers)
+print("Shortmax Episodes:", r3.text[:500])
+
