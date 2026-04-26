@@ -1,2 +1,3 @@
-2026/04/26-16:10:06.615 7948 Creating DB d:\kingshortid\scripts\melolo-scraper\vidrama_profile\Default\shared_proto_db since it was missing.
-2026/04/26-16:10:07.522 7948 Reusing MANIFEST d:\kingshortid\scripts\melolo-scraper\vidrama_profile\Default\shared_proto_db/MANIFEST-000001
+2026/04/26-18:37:33.483 73b0 Reusing MANIFEST d:\kingshortid\scripts\melolo-scraper\vidrama_profile\Default\shared_proto_db/MANIFEST-000001
+2026/04/26-18:37:33.483 73b0 Recovering log #3
+2026/04/26-18:37:33.483 73b0 Reusing old log d:\kingshortid\scripts\melolo-scraper\vidrama_profile\Default\shared_proto_db/000003.log 
