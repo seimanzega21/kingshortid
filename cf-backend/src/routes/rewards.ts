@@ -362,6 +362,8 @@ const earnBonusVideoHandler = async (c: any) => {
     }
 };
 
+rewardsRoute.post('/complete-task', earnBonusVideoHandler);
+// Keep old routes for backward compatibility with old APKs
 rewardsRoute.post('/earn-bonus-video', earnBonusVideoHandler);
 rewardsRoute.post('/claim-ad', earnBonusVideoHandler);
 
