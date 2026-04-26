@@ -21,10 +21,10 @@ print("Got token:", token[:10] + "...")
 r2 = requests.get(f"{API_URL}/rewards/status", headers={"Authorization": f"Bearer {token}"})
 print("Initial status:", r2.json())
 
-# 3. Call earn-bonus-video
+# 3. Call complete-task
 payload = {"type": "checkin_bonus", "amount": 50}
-print("Calling earn-bonus-video with payload:", payload)
-r3 = requests.post(f"{API_URL}/rewards/earn-bonus-video", json=payload, headers={"Authorization": f"Bearer {token}"})
+print("Calling complete-task with payload:", payload)
+r3 = requests.post(f"{API_URL}/rewards/complete-task", json=payload, headers={"Authorization": f"Bearer {token}"})
 print("Earn bonus response status:", r3.status_code)
 print("Earn bonus response body:", r3.text)
 
