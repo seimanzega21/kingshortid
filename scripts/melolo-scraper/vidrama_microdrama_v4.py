@@ -64,27 +64,19 @@ def get_s3():
     return _s3
 
 # ──────────────────── DISCOVERY ────────────────────
-def discover_dramas(target=200) -> list:
+def discover_dramas(target=300) -> list:
     log("[1] Discovering Indonesian MicroDrama dramas...")
-    all_dramas = []
-    page = 0
-    while len(all_dramas) < target:
-        try:
-            r = requests.get(f"{API_LIST_URL}&limit=50&offset={page * 50}", timeout=30)
-            if r.status_code != 200: break
+    try:
+        # Vidrama API ignores offset/page, so we must fetch all at once with limit=300
+        r = requests.get(f"https://vidrama.asia/api/microdrama?action=list&lang=id&limit=300", timeout=30)
+        if r.status_code == 200:
             data = r.json()
             dramas = data.get("dramas", [])
-            if not dramas: break
-            all_dramas.extend(dramas)
-            log(f"    Page {page+1}: +{len(dramas)} dramas (total: {len(all_dramas)})")
-            if len(all_dramas) >= data.get("total", 9999): break
-            page += 1
-            time.sleep(0.3)
-        except Exception as e:
-            log(f"    Error: {e}")
-            break
-    log(f"    Discovered: {len(all_dramas)} dramas")
-    return all_dramas[:target]
+            log(f"    Discovered: {len(dramas)} dramas")
+            return dramas[:target]
+    except Exception as e:
+        log(f"    Error: {e}")
+    return []
 
 # ──────────────────── R2/D1 CHECKS ────────────────────
 def get_r2_slugs() -> set:
