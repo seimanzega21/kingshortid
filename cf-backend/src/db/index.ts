@@ -4,16 +4,23 @@ import * as schema from './schema';
 
 export type Database = ReturnType<typeof drizzle<typeof schema>>;
 
+let cachedDb: Database | null = null;
+let cachedClient: postgres.Sql<any> | null = null;
+
 // Create Drizzle DB instance connected to Supabase PostgreSQL
 export function getDb(supabaseUrl: string, supabaseDbPassword: string): Database {
+    if (cachedDb) return cachedDb;
+
     // Prefer explicit DATABASE_URL (used in VPS Docker deployment)
     const connectionString = process.env.DATABASE_URL || buildConnectionString(supabaseUrl, supabaseDbPassword);
-    const client = postgres(connectionString, {
-        max: 5,
+    cachedClient = postgres(connectionString, {
+        max: 30, // Increased max connections for singleton pool
         idle_timeout: 20,
         connect_timeout: 10,
     });
-    return drizzle(client, { schema });
+    
+    cachedDb = drizzle(cachedClient, { schema });
+    return cachedDb;
 }
 
 // Build Supabase PostgreSQL direct connection string
