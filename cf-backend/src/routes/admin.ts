@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { eq, and, desc, like, or, sql, ne, gte, asc } from 'drizzle-orm';
+import { eq, and, desc, like, or, sql, ne, gte, asc, lte, inArray } from 'drizzle-orm';
 import { getDb } from '../db';
 import { users, dramas, episodes, watchHistory, watchlist, favorites, collections, coinTransactions, feedbacks } from '../db/schema';
 import { requireAdmin, getAuthUser } from '../middleware/auth';
@@ -289,6 +289,35 @@ adminRoute.put('/system/episodes/:id', async (c) => {
     } catch (error) {
         console.error('Update episode error:', error);
         return c.json({ error: 'Failed to update episode' }, 500);
+    }
+});
+
+// POST /api/admin/system/delete-small-dramas
+adminRoute.post('/system/delete-small-dramas', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        // Find all dramas with <= 2 episodes
+        const targetDramas = await db.select({ id: dramas.id, title: dramas.title, totalEpisodes: dramas.totalEpisodes })
+            .from(dramas)
+            .where(lte(dramas.totalEpisodes, 2));
+
+        if (targetDramas.length === 0) {
+            return c.json({ success: true, message: 'No dramas found with 2 or fewer episodes', count: 0 });
+        }
+
+        const dramaIds = targetDramas.map(d => d.id);
+
+        // Delete them (Cascade will handle episodes)
+        // Note: lte is imported from drizzle-orm, let's make sure it's available
+        // Actually we can just do IN clause to be safer
+        // wait, we can just delete using lte!
+        await db.delete(dramas).where(lte(dramas.totalEpisodes, 2));
+
+        return c.json({ success: true, message: `Deleted ${targetDramas.length} dramas`, count: targetDramas.length, deleted: targetDramas });
+    } catch (error) {
+        console.error('Delete small dramas error:', error);
+        return c.json({ error: 'Failed to delete small dramas' }, 500);
     }
 });
 
