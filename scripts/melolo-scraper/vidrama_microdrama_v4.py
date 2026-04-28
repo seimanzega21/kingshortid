@@ -379,6 +379,11 @@ def main():
         if not eps:
             stats["fail"] += 1; continue
 
+        # Cegah memasukkan drama dengan episode 1 atau 2 ke database
+        if len(eps) <= 2:
+            log(f"  [SKIP] Drama hanya memiliki {len(eps)} episode aktif. Batal diregistrasi ke database.")
+            stats["fail"] += 1; continue
+
         if register_drama(drama, slug, eps, cover_url):
             stats["ok"] += 1; stats["eps"] += len(eps)
         else:
