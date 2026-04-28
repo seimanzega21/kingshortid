@@ -296,23 +296,22 @@ adminRoute.put('/system/episodes/:id', async (c) => {
 adminRoute.post('/system/delete-small-dramas', async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const body = await c.req.json().catch(() => ({}));
+        const maxEps = typeof body.maxEpisodes === 'number' ? body.maxEpisodes : 2;
         
-        // Find all dramas with <= 2 episodes
-        const targetDramas = await db.select({ id: dramas.id, title: dramas.title, totalEpisodes: dramas.totalEpisodes })
+        // Find all dramas with <= maxEps episodes
+        const targetDramas = await db.select({ id: dramas.id, title: dramas.title, cover: dramas.cover, totalEpisodes: dramas.totalEpisodes })
             .from(dramas)
-            .where(lte(dramas.totalEpisodes, 2));
+            .where(lte(dramas.totalEpisodes, maxEps));
 
         if (targetDramas.length === 0) {
-            return c.json({ success: true, message: 'No dramas found with 2 or fewer episodes', count: 0 });
+            return c.json({ success: true, message: `No dramas found with ${maxEps} or fewer episodes`, count: 0 });
         }
 
         const dramaIds = targetDramas.map(d => d.id);
 
         // Delete them (Cascade will handle episodes)
-        // Note: lte is imported from drizzle-orm, let's make sure it's available
-        // Actually we can just do IN clause to be safer
-        // wait, we can just delete using lte!
-        await db.delete(dramas).where(lte(dramas.totalEpisodes, 2));
+        await db.delete(dramas).where(lte(dramas.totalEpisodes, maxEps));
 
         return c.json({ success: true, message: `Deleted ${targetDramas.length} dramas`, count: targetDramas.length, deleted: targetDramas });
     } catch (error) {
