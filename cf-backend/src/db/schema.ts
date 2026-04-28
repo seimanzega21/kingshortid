@@ -21,7 +21,7 @@ export const users = pgTable('users', {
     isGuest: boolean('is_guest').notNull().default(false),
     guestId: text('guest_id').unique(),
 
-    coins: integer('coins').notNull().default(100),
+    coins: integer('coins').notNull().default(200),
     vipStatus: boolean('vip_status').notNull().default(false),
     vipExpiry: timestampOpt('vip_expiry'),
 

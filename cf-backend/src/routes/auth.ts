@@ -65,15 +65,15 @@ auth.post('/register', async (c) => {
             provider: 'local',
             guestId: numericId,
             isGuest: false,
-            coins: 100,
+            coins: 200,
         }).returning();
 
         await db.insert(coinTransactions).values({
             userId: user.id,
             type: 'bonus',
-            amount: 100,
-            description: 'Welcome bonus',
-            balanceAfter: 100,
+            amount: 200,
+            description: 'Registration bonus',
+            balanceAfter: 200,
         });
 
         const token = await generateToken(c, { id: user.id, role: user.role });

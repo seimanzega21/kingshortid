@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
                 password: '',
                 isGuest: true,
                 guestId: guestId,
-                coins: 10,
+                coins: 50,
                 isActive: true,
             },
         });
