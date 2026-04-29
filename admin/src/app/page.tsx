@@ -125,64 +125,6 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* Data Health Section */}
-      {!loading && h && (
-        <div className="rounded-xl border border-zinc-800 bg-[#111] p-6">
-          <div className="flex items-center justify-between mb-5">
-            <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-              <Activity size={20} className="text-emerald-500" />
-              Data Quality
-            </h3>
-            <Link href="/scraper" className="text-xs text-cyan-500 hover:text-cyan-400 flex items-center gap-1">
-              Detail Audit <ArrowRight size={12} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
-            <HealthCard label="Healthy" value={h.healthy} color="emerald" icon="✅" />
-            <div className="relative">
-              <HealthCard label="Genre Generic" value={h.genericGenre} color={h.genericGenre > 0 ? "amber" : "emerald"} icon="🏷️" />
-              {h.genericGenre > 0 && (
-                <button
-                  onClick={async () => {
-                    setFixingGenres(true);
-                    try {
-                      const res = await fetch('/api/dramas/fix-genres', { method: 'POST' });
-                      const result = await res.json();
-                      toast.success(`${result.updated} drama berhasil di-fix! Sisa ${result.remaining} generic.`);
-                      fetchDashboard();
-                    } catch { toast.error('Gagal fix genre'); }
-                    setFixingGenres(false);
-                  }}
-                  disabled={fixingGenres}
-                  className="absolute top-1 right-1 p-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 transition-colors disabled:opacity-50"
-                  title="Auto-fix genres"
-                >
-                  <Wrench size={12} className={fixingGenres ? 'animate-spin' : ''} />
-                </button>
-              )}
-            </div>
-            <HealthCard label="No Description" value={h.noDescription} color={h.noDescription > 0 ? "amber" : "emerald"} icon="📝" />
-            <HealthCard label="No Cover" value={h.noCover} color={h.noCover > 0 ? "red" : "emerald"} icon="🖼️" />
-            <HealthCard label="Deactivated" value={h.deactivated} color="zinc" icon="🚫" />
-          </div>
-
-          {/* Health Bar */}
-          <div className="mt-4">
-            <div className="flex items-center justify-between text-xs text-zinc-500 mb-1">
-              <span>Coverage Score</span>
-              <span>{Math.round((h.healthy / Math.max(1, s?.activeDramas || 1)) * 100)}%</span>
-            </div>
-            <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-1000"
-                style={{ width: `${(h.healthy / Math.max(1, s?.activeDramas || 1)) * 100}%` }}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Popular Dramas */}

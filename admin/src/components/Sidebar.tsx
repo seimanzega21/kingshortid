@@ -39,11 +39,6 @@ const menuItems = [
         href: "/categories",
     },
     {
-        title: "Scraper Monitor",
-        icon: Activity,
-        href: "/scraper",
-    },
-    {
         title: "Pengguna",
         icon: Users,
         href: "/users",
