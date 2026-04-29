@@ -333,6 +333,75 @@ adminRoute.post('/system/delete-small-dramas', async (c) => {
     }
 });
 
+// ==================== ONLINE USERS ====================
+adminRoute.get('/users/online', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
+
+        const onlineUsers = await db.select({
+            id: users.id,
+            name: users.name,
+            email: users.email,
+            provider: users.provider,
+            isGuest: users.isGuest,
+            vipStatus: users.vipStatus,
+            lastSeen: users.lastSeen,
+        }).from(users)
+            .where(and(
+                gte(users.lastSeen, fiveMinAgo),
+                eq(users.isActive, true)
+            ))
+            .orderBy(desc(users.lastSeen))
+            .limit(100);
+
+        const total = await db.select({ count: sql<number>`count(*)` })
+            .from(users)
+            .where(and(
+                gte(users.lastSeen, fiveMinAgo),
+                eq(users.isActive, true)
+            ))
+            .limit(1).then((r: any[]) => r[0]);
+
+        return c.json({ users: onlineUsers, total: total?.count || 0 });
+    } catch (error) {
+        console.error('Admin online users error:', error);
+        return c.json({ error: 'Failed to fetch online users' }, 500);
+    }
+});
+
+// ==================== VIP STATS ====================
+adminRoute.get('/stats/vip', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const now = new Date();
+
+        const [activeVip, totalVip, premiumCount] = await Promise.all([
+            db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(and(eq(users.vipStatus, true), or(sql`${users.vipExpiry} IS NULL`, gte(users.vipExpiry, now))))
+                .limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(eq(users.vipStatus, true))
+                .limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(gte(users.coins, 2000))
+                .limit(1).then((r: any[]) => r[0]),
+        ]);
+
+        return c.json({
+            activeVip: activeVip?.count || 0,
+            totalVip: totalVip?.count || 0,
+            premiumEligible: premiumCount?.count || 0,
+        });
+    } catch (error) {
+        console.error('Admin VIP stats error:', error);
+        return c.json({ error: 'Failed to fetch VIP stats' }, 500);
+    }
+});
+
 // ==================== LIST USERS ====================
 adminRoute.get('/users', async (c) => {
     try {
@@ -402,6 +471,38 @@ adminRoute.get('/users', async (c) => {
     } catch (error) {
         console.error('Admin list users error:', error);
         return c.json({ error: 'Failed to fetch users' }, 500);
+    }
+});
+
+// ==================== BULK DELETE USERS ====================
+adminRoute.post('/users/bulk-delete', async (c) => {
+    try {
+        const { userIds, deleteAll } = await c.req.json();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        if (deleteAll) {
+            const result = await db.delete(users).where(ne(users.role, 'admin'));
+            const count = (result as any).meta?.changes || 0;
+            return c.json({ message: `${count} users deleted permanently`, count });
+        }
+
+        if (!userIds || userIds.length === 0) {
+            return c.json({ error: 'userIds array is required' }, 400);
+        }
+
+        let deleted = 0;
+        for (const uid of userIds) {
+            const user = await db.select({ role: users.role }).from(users).where(eq(users.id, uid)).limit(1).then((r: any[]) => r[0]);
+            if (user && user.role !== 'admin') {
+                await db.delete(users).where(eq(users.id, uid));
+                deleted++;
+            }
+        }
+
+        return c.json({ message: `${deleted} users deleted permanently`, count: deleted });
+    } catch (error) {
+        console.error('Admin bulk delete error:', error);
+        return c.json({ error: 'Failed to delete users' }, 500);
     }
 });
 
@@ -514,38 +615,6 @@ adminRoute.delete('/users/:id', async (c) => {
     }
 });
 
-// ==================== BULK DELETE USERS ====================
-adminRoute.post('/users/bulk-delete', async (c) => {
-    try {
-        const { userIds, deleteAll } = await c.req.json();
-        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-
-        if (deleteAll) {
-            const result = await db.delete(users).where(ne(users.role, 'admin'));
-            const count = (result as any).meta?.changes || 0;
-            return c.json({ message: `${count} users deleted permanently`, count });
-        }
-
-        if (!userIds || userIds.length === 0) {
-            return c.json({ error: 'userIds array is required' }, 400);
-        }
-
-        let deleted = 0;
-        for (const uid of userIds) {
-            const user = await db.select({ role: users.role }).from(users).where(eq(users.id, uid)).limit(1).then((r: any[]) => r[0]);
-            if (user && user.role !== 'admin') {
-                await db.delete(users).where(eq(users.id, uid));
-                deleted++;
-            }
-        }
-
-        return c.json({ message: `${deleted} users deleted permanently`, count: deleted });
-    } catch (error) {
-        console.error('Admin bulk delete error:', error);
-        return c.json({ error: 'Failed to delete users' }, 500);
-    }
-});
-
 // ==================== UPDATE DRAMA ====================
 adminRoute.patch('/dramas/:id', async (c) => {
     try {
@@ -571,75 +640,6 @@ adminRoute.patch('/dramas/:id', async (c) => {
     } catch (error) {
         console.error('Admin update drama error:', error);
         return c.json({ error: 'Failed to update drama' }, 500);
-    }
-});
-
-// ==================== ONLINE USERS ====================
-adminRoute.get('/users/online', async (c) => {
-    try {
-        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-        const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
-
-        const onlineUsers = await db.select({
-            id: users.id,
-            name: users.name,
-            email: users.email,
-            provider: users.provider,
-            isGuest: users.isGuest,
-            vipStatus: users.vipStatus,
-            lastSeen: users.lastSeen,
-        }).from(users)
-            .where(and(
-                gte(users.lastSeen, fiveMinAgo),
-                eq(users.isActive, true)
-            ))
-            .orderBy(desc(users.lastSeen))
-            .limit(100);
-
-        const total = await db.select({ count: sql<number>`count(*)` })
-            .from(users)
-            .where(and(
-                gte(users.lastSeen, fiveMinAgo),
-                eq(users.isActive, true)
-            ))
-            .limit(1).then((r: any[]) => r[0]);
-
-        return c.json({ users: onlineUsers, total: total?.count || 0 });
-    } catch (error) {
-        console.error('Admin online users error:', error);
-        return c.json({ error: 'Failed to fetch online users' }, 500);
-    }
-});
-
-// ==================== VIP STATS ====================
-adminRoute.get('/stats/vip', async (c) => {
-    try {
-        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-        const now = new Date();
-
-        const [activeVip, totalVip, premiumCount] = await Promise.all([
-            db.select({ count: sql<number>`count(*)` })
-                .from(users)
-                .where(and(eq(users.vipStatus, true), or(sql`${users.vipExpiry} IS NULL`, gte(users.vipExpiry, now))))
-                .limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` })
-                .from(users)
-                .where(eq(users.vipStatus, true))
-                .limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` })
-                .from(users)
-                .where(gte(users.coins, 2000))
-                .limit(1).then((r: any[]) => r[0]),
-        ]);
-
-        return c.json({
-            activeVip: activeVip?.count || 0,
-            totalVip: totalVip?.count || 0,
-            premiumEligible: premiumCount?.count || 0,
-        });
-    } catch (error) {
-        console.error('Admin VIP stats error:', error);
-        return c.json({ error: 'Failed to fetch VIP stats' }, 500);
     }
 });
 
