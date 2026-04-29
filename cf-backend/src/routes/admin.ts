@@ -200,10 +200,11 @@ adminRoute.get('/analytics', async (c) => {
         // Helper to format days 
         const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
         const formatDailyData = (queryResult: any) => {
+            const rows = Array.isArray(queryResult) ? queryResult : (queryResult as any).rows || [];
             const result = [];
             for (let d = new Date(startDate); d <= now; d.setDate(d.getDate() + 1)) {
                 const dateStr = d.toISOString().split('T')[0];
-                const found = (queryResult as any).rows?.find((r: any) => {
+                const found = rows.find((r: any) => {
                     const rowDateStr = new Date(r.date + 'T00:00:00Z').toISOString().split('T')[0];
                     return rowDateStr === dateStr;
                 });
