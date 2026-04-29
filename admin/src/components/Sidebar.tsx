@@ -49,11 +49,6 @@ const menuItems = [
         href: "/users/online",
     },
     {
-        title: "Moderasi",
-        icon: Shield,
-        href: "/moderation",
-    },
-    {
         title: "Notifikasi",
         icon: Bell,
         href: "/notifications/broadcast",
