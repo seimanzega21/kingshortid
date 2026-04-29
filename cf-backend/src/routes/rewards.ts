@@ -54,14 +54,17 @@ rewardsRoute.post('/check-in', async (c) => {
         let newStreak = dayOfWeek; // Day 1 = Monday, Day 7 = Sunday
 
         const bonusInfo = STREAK_BONUSES.find(b => b.day === newStreak) || STREAK_BONUSES[0];
-        const newBalance = user.coins + bonusInfo.coins;
-
+        // Use atomic increment for better reliability
         await db.update(users).set({
-            coins: newBalance,
+            coins: sql`${users.coins} + ${bonusInfo.coins}`,
             lastCheckIn: now,
             checkInStreak: newStreak,
             updatedAt: now,
         }).where(eq(users.id, userId));
+
+        // Fetch updated balance
+        const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const newBalance = updatedUser?.coins || user.coins + bonusInfo.coins;
 
         await db.insert(coinTransactions).values({
             userId,
@@ -209,9 +212,15 @@ rewardsRoute.post('/claim-watch', async (c) => {
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
         if (!user) return c.json({ error: 'User not found' }, 404);
 
-        const newBalance = user.coins + task.bonus;
+        // Use atomic increment
+        await db.update(users).set({ 
+            coins: sql`${users.coins} + ${task.bonus}`, 
+            updatedAt: now 
+        }).where(eq(users.id, userId));
 
-        await db.update(users).set({ coins: newBalance, updatedAt: now }).where(eq(users.id, userId));
+        // Fetch new balance
+        const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const newBalance = updatedUser?.coins || user.coins + task.bonus;
 
         await db.insert(coinTransactions).values({
             userId,
@@ -257,9 +266,13 @@ rewardsRoute.post('/claim-rate', async (c) => {
         if (!user) return c.json({ error: 'User not found' }, 404);
 
         const bonus = 100;
-        const newBalance = user.coins + bonus;
+        await db.update(users).set({ 
+            coins: sql`${users.coins} + ${bonus}`, 
+            updatedAt: now 
+        }).where(eq(users.id, userId));
 
-        await db.update(users).set({ coins: newBalance, updatedAt: now }).where(eq(users.id, userId));
+        const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const newBalance = updatedUser?.coins || user.coins + bonus;
 
         await db.insert(coinTransactions).values({
             userId,
@@ -321,9 +334,14 @@ const earnBonusVideoHandler = async (c: any) => {
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
         if (!user) return c.json({ error: 'User not found' }, 404);
 
-        const newBalance = user.coins + amount;
+        // Use atomic increment
+        await db.update(users).set({ 
+            coins: sql`${users.coins} + ${amount}`, 
+            updatedAt: now 
+        }).where(eq(users.id, userId));
 
-        await db.update(users).set({ coins: newBalance, updatedAt: now }).where(eq(users.id, userId));
+        const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const newBalance = updatedUser?.coins || user.coins + amount;
 
         const description = type === 'checkin_bonus'
             ? 'Bonus Cek Lainnya (Iklan)'
@@ -465,7 +483,15 @@ rewardsRoute.post('/claim-milestone', async (c) => {
             vipMessage = ' + VIP 24 Jam Gratis';
         }
 
-        await db.update(users).set({ coins: newBalance, updatedAt: new Date(), ...vipUpdate }).where(eq(users.id, userId));
+        // Use atomic increment
+        await db.update(users).set({ 
+            coins: sql`${users.coins} + ${milestone.bonus}`, 
+            updatedAt: new Date(), 
+            ...vipUpdate 
+        }).where(eq(users.id, userId));
+
+        const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const newBalance = updatedUser?.coins || user.coins + milestone.bonus;
 
         await db.insert(coinTransactions).values({
             userId,
