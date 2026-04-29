@@ -692,11 +692,6 @@ adminRoute.post('/run-migration', async (c) => {
         return c.json({ ok: false, error: error?.message || String(error) }, 500);
     }
 });
-    } catch (error: any) {
-        console.error('Migration error:', error);
-        return c.json({ ok: false, error: error?.message || String(error) }, 500);
-    }
-});
 
 // ==================== FEEDBACKS ====================
 
