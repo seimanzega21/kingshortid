@@ -331,17 +331,20 @@ auth.post('/google', async (c) => {
 auth.post('/sync-subscription', requireAuth, async (c) => {
     try {
         const user = c.get('user');
-        const { expiryDate } = await c.req.json();
-
-        if (!expiryDate) {
-            return c.json({ message: 'expiryDate is required' }, 400);
-        }
+        const { expiryDate, productId } = await c.req.json();
 
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-        const expiry = new Date(expiryDate);
+        let expiry: Date | null = null;
 
-        if (isNaN(expiry.getTime())) {
-            return c.json({ message: 'Invalid expiryDate' }, 400);
+        if (expiryDate) {
+            expiry = new Date(expiryDate);
+            if (isNaN(expiry.getTime())) {
+                return c.json({ message: 'Invalid expiryDate' }, 400);
+            }
+        } else {
+            // Default to 7 days from now if missing, or handle based on productId
+            const days = productId?.includes('monthly') ? 30 : 7;
+            expiry = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
         }
 
         const [updated] = await db.update(users)

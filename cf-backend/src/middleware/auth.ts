@@ -58,12 +58,29 @@ export async function getAuthUser(c: Context<Env>) {
 
     const user = result[0] || null;
 
-    // Auto-expire VIP status
-    if (user && user.vipStatus && user.vipExpiry) {
-        if (new Date(user.vipExpiry).getTime() < Date.now()) {
+    if (user) {
+        const now = new Date();
+        const lastSeenTime = user.lastSeen ? new Date(user.lastSeen).getTime() : 0;
+        // Update lastSeen at most once every 2 minutes (120000 ms) to reduce DB writes
+        const needsLastSeenUpdate = now.getTime() - lastSeenTime > 120000;
+        
+        let vipExpired = false;
+        if (user.vipStatus && user.vipExpiry && new Date(user.vipExpiry).getTime() < now.getTime()) {
             user.vipStatus = false;
+            vipExpired = true;
+        }
+
+        if (needsLastSeenUpdate || vipExpired) {
+            const updateData: any = {};
+            if (needsLastSeenUpdate) {
+                updateData.lastSeen = now;
+                user.lastSeen = now;
+            }
+            if (vipExpired) {
+                updateData.vipStatus = false;
+            }
             // Fire-and-forget: update DB
-            db.update(users).set({ vipStatus: false }).where(eq(users.id, user.id)).catch(() => {});
+            db.update(users).set(updateData).where(eq(users.id, user.id)).catch(() => {});
         }
     }
 
