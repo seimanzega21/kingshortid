@@ -17,7 +17,8 @@ import {
     Shield,
     Activity,
     Bell,
-    Inbox
+    Inbox,
+    Wifi
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -46,6 +47,11 @@ const menuItems = [
         title: "Pengguna",
         icon: Users,
         href: "/users",
+    },
+    {
+        title: "Online Users",
+        icon: Wifi,
+        href: "/users/online",
     },
     {
         title: "Moderasi",

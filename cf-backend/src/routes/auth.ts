@@ -92,9 +92,9 @@ auth.get('/me', async (c) => {
         const user = await getAuthUser(c);
         if (!user) return c.json({ error: 'Unauthorized' }, 401);
 
-        // Fire-and-forget: touch updatedAt as heartbeat for "Online" tracking
+        // Fire-and-forget: touch lastSeen for online tracking + updatedAt
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
+        db.update(users).set({ lastSeen: new Date(), updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
 
         const { password: _, ...userWithoutPassword } = user;
         return c.json(userWithoutPassword);
@@ -315,7 +315,7 @@ auth.post('/google', async (c) => {
         const token = await generateToken(c, { id: user.id, role: user.role });
 
         // Fire-and-forget: heartbeat for "Online" tracking
-        db.update(users).set({ updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
+        db.update(users).set({ lastSeen: new Date(), updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
         const { password: _, ...userWithoutPassword } = user;
 
         return c.json({ token, user: { ...userWithoutPassword, coins: user.coins, vipStatus: user.vipStatus, vipExpiry: user.vipExpiry } });

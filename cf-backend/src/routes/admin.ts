@@ -41,11 +41,23 @@ adminRoute.get('/dashboard', async (c) => {
             db.select({ count: sql<number>`count(*)` }).from(episodes).limit(1).then((r: any[]) => r[0]),
         ]);
 
-        // Online users (updatedAt heartbeat within last 12 hours = active today)
-        const twelveHoursAgo = new Date(Date.now() - 12 * 60 * 60 * 1000);
+        // Online users (lastSeen within 5 minutes)
+        const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
         const onlineResult = await db.select({ count: sql<number>`count(*)` })
             .from(users)
-            .where(gte(users.updatedAt, twelveHoursAgo))
+            .where(gte(users.lastSeen, fiveMinAgo))
+            .limit(1).then((r: any[]) => r[0]);
+
+        // Active VIP users
+        const activeVipResult = await db.select({ count: sql<number>`count(*)` })
+            .from(users)
+            .where(and(
+                eq(users.vipStatus, true),
+                or(
+                    sql`${users.vipExpiry} IS NULL`,
+                    gte(users.vipExpiry, new Date())
+                )
+            ))
             .limit(1).then((r: any[]) => r[0]);
 
         // Total views
@@ -134,6 +146,7 @@ adminRoute.get('/dashboard', async (c) => {
                 totalUsers: totalUsersResult?.count || 0,
                 activeUsers: activeUsersResult?.count || 0,
                 onlineUsers: onlineResult?.count || 0,
+                activeVip: activeVipResult?.count || 0,
                 totalDramas: totalDramasResult?.count || 0,
                 activeDramas: activeDramaCount,
                 inactiveDramas: inactiveDramasResult?.count || 0,
@@ -329,12 +342,23 @@ adminRoute.get('/users', async (c) => {
         const search = c.req.query('q');
         const role = c.req.query('role');
         const accountType = c.req.query('accountType');
+        const vipFilter = c.req.query('vip');
 
         let conditions = [];
         if (role) conditions.push(eq(users.role, role));
         if (accountType === 'guest') conditions.push(eq(users.isGuest, true));
         else if (accountType === 'google') conditions.push(eq(users.provider, 'google'));
         else if (accountType === 'registered') conditions.push(eq(users.isGuest, false));
+        if (vipFilter === 'active') {
+            conditions.push(eq(users.vipStatus, true));
+            conditions.push(or(sql`${users.vipExpiry} IS NULL`, gte(users.vipExpiry, new Date()))!);
+        } else if (vipFilter === 'expired') {
+            conditions.push(eq(users.vipStatus, true));
+            conditions.push(sql`${users.vipExpiry} IS NOT NULL`);
+            conditions.push(lte(users.vipExpiry, new Date()));
+        } else if (vipFilter === 'regular') {
+            conditions.push(eq(users.vipStatus, false));
+        }
         if (search) {
             conditions.push(or(
                 like(users.name, `%${search}%`),
@@ -354,6 +378,9 @@ adminRoute.get('/users', async (c) => {
                 isActive: users.isActive,
                 isGuest: users.isGuest,
                 provider: users.provider,
+                vipStatus: users.vipStatus,
+                vipExpiry: users.vipExpiry,
+                lastSeen: users.lastSeen,
                 createdAt: users.createdAt,
             }).from(users)
                 .where(whereClause)
@@ -446,6 +473,10 @@ adminRoute.patch('/users/:id', async (c) => {
 
         if (typeof body.isActive === 'boolean') updateData.isActive = body.isActive;
         if (body.role) updateData.role = body.role;
+
+        // VIP/Premium management
+        if (typeof body.vipStatus === 'boolean') updateData.vipStatus = body.vipStatus;
+        if (body.vipExpiry !== undefined) updateData.vipExpiry = body.vipExpiry ? new Date(body.vipExpiry) : null;
 
         // Add coins (increment)
         if (typeof body.coins === 'number' && body.coins > 0) {
@@ -543,27 +574,124 @@ adminRoute.patch('/dramas/:id', async (c) => {
     }
 });
 
+// ==================== ONLINE USERS ====================
+adminRoute.get('/users/online', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
+
+        const onlineUsers = await db.select({
+            id: users.id,
+            name: users.name,
+            email: users.email,
+            provider: users.provider,
+            isGuest: users.isGuest,
+            vipStatus: users.vipStatus,
+            lastSeen: users.lastSeen,
+        }).from(users)
+            .where(and(
+                gte(users.lastSeen, fiveMinAgo),
+                eq(users.isActive, true)
+            ))
+            .orderBy(desc(users.lastSeen))
+            .limit(100);
+
+        const total = await db.select({ count: sql<number>`count(*)` })
+            .from(users)
+            .where(and(
+                gte(users.lastSeen, fiveMinAgo),
+                eq(users.isActive, true)
+            ))
+            .limit(1).then((r: any[]) => r[0]);
+
+        return c.json({ users: onlineUsers, total: total?.count || 0 });
+    } catch (error) {
+        console.error('Admin online users error:', error);
+        return c.json({ error: 'Failed to fetch online users' }, 500);
+    }
+});
+
+// ==================== VIP STATS ====================
+adminRoute.get('/stats/vip', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const now = new Date();
+
+        const [activeVip, totalVip, premiumCount] = await Promise.all([
+            db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(and(eq(users.vipStatus, true), or(sql`${users.vipExpiry} IS NULL`, gte(users.vipExpiry, now))))
+                .limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(eq(users.vipStatus, true))
+                .limit(1).then((r: any[]) => r[0]),
+            db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(gte(users.coins, 2000))
+                .limit(1).then((r: any[]) => r[0]),
+        ]);
+
+        return c.json({
+            activeVip: activeVip?.count || 0,
+            totalVip: totalVip?.count || 0,
+            premiumEligible: premiumCount?.count || 0,
+        });
+    } catch (error) {
+        console.error('Admin VIP stats error:', error);
+        return c.json({ error: 'Failed to fetch VIP stats' }, 500);
+    }
+});
+
 // ==================== RUN MIGRATION (one-time) ====================
 adminRoute.post('/run-migration', async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const results: Record<string, boolean> = {};
 
         // Add video_url_540p column if not exists
-        await db.execute(sql`ALTER TABLE episodes ADD COLUMN IF NOT EXISTS video_url_540p text`);
+        try {
+            await db.execute(sql`ALTER TABLE episodes ADD COLUMN IF NOT EXISTS video_url_540p text`);
+            results.episodes_540p = true;
+        } catch (e: any) {
+            results.episodes_540p = false;
+        }
 
-        // Verify column exists
+        // Add last_seen column if not exists (for online tracking)
+        try {
+            await db.execute(sql`ALTER TABLE users ADD COLUMN IF NOT EXISTS last_seen TIMESTAMP WITH TIME ZONE DEFAULT NOW()`);
+            results.users_last_seen = true;
+        } catch (e: any) {
+            results.users_last_seen = false;
+        }
+
+        // Backfill last_seen from updated_at for existing rows
+        try {
+            await db.execute(sql`UPDATE users SET last_seen = updated_at WHERE last_seen IS NULL`);
+            results.backfill_last_seen = true;
+        } catch (e: any) {
+            results.backfill_last_seen = false;
+        }
+
+        // Verify columns exist
         const check = await db.execute(sql`
             SELECT column_name FROM information_schema.columns
-            WHERE table_name = 'episodes' AND column_name = 'video_url_540p'
+            WHERE table_name = 'users' AND column_name = 'last_seen'
         `);
+        const lastSeenExists = (check as any).rows && (check as any).rows.length > 0;
 
-        const columnExists = (check as any).rows && (check as any).rows.length > 0;
         return c.json({
-            ok: columnExists,
-            message: columnExists
-                ? 'Migration complete: video_url_540p column now exists in episodes table'
-                : 'ALTER ran but column not found - check DB manually',
+            ok: lastSeenExists,
+            results,
+            message: lastSeenExists
+                ? 'Migration complete: last_seen column exists, online tracking active (5 min threshold)'
+                : 'Migration may have failed - check DB manually',
         });
+    } catch (error: any) {
+        console.error('Migration error:', error);
+        return c.json({ ok: false, error: error?.message || String(error) }, 500);
+    }
+});
     } catch (error: any) {
         console.error('Migration error:', error);
         return c.json({ ok: false, error: error?.message || String(error) }, 500);

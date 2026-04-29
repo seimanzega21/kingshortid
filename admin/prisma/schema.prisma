@@ -44,6 +44,7 @@ model User {
   notifySystem   Boolean @default(true)
 
   isActive  Boolean  @default(true)
+  lastSeen  DateTime @default(now())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

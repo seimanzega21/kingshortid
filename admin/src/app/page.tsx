@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, Video, Film, Eye, ShieldCheck, AlertTriangle, XCircle, Activity, Clock, ArrowRight, Wrench, Wifi, Database, Zap } from "lucide-react";
+import { Users, Video, Film, Eye, ShieldCheck, AlertTriangle, XCircle, Activity, Clock, ArrowRight, Wrench, Wifi, Database, Zap, Crown } from "lucide-react";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
@@ -11,6 +11,7 @@ interface DashboardData {
     totalUsers: number;
     activeUsers: number;
     onlineUsers: number;
+    activeVip: number;
     totalDramas: number;
     activeDramas: number;
     inactiveDramas: number;
@@ -109,15 +110,16 @@ export default function Dashboard() {
       </div>
 
       {/* Main Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
         {loading ? (
-          Array(5).fill(0).map((_, i) => <Skeleton key={i} className="h-28 rounded-xl bg-zinc-900" />)
+           Array(6).fill(0).map((_, i) => <Skeleton key={i} className="h-28 rounded-xl bg-zinc-900" />)
         ) : (
           <>
             <StatCard label="Total Users" value={s?.totalUsers || 0} icon={Users} accent="blue" />
             <StatCard label="User Online" value={s?.onlineUsers || 0} icon={Wifi} accent="green" />
+            <StatCard label="VIP Aktif" value={s?.activeVip || 0} icon={Crown} accent="amber" />
             <StatCard label="Drama Aktif" value={s?.activeDramas || 0} icon={Film} accent="emerald" />
-            <StatCard label="Total Episode" value={s?.totalEpisodes || 0} icon={Video} accent="amber" />
+            <StatCard label="Total Episode" value={s?.totalEpisodes || 0} icon={Video} accent="cyan" />
             <StatCard label="Total Views" value={s?.totalViews || 0} icon={Eye} accent="cyan" />
           </>
         )}

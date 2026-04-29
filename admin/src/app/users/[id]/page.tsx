@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import {
     ChevronLeft, User, Mail, Shield, Coins, Eye, Heart, BookMarked,
     MessageSquare, Clock, Calendar, Crown, Ban, Trash2, Loader2,
-    Plus, Flame, Wifi
+    Plus, Flame, Wifi, ToggleLeft, ToggleRight
 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
@@ -51,6 +51,8 @@ export default function UserDetailPage() {
     const [actionLoading, setActionLoading] = useState(false);
     const [addCoinsAmount, setAddCoinsAmount] = useState("");
     const [showCoinInput, setShowCoinInput] = useState(false);
+    const [vipLoading, setVipLoading] = useState(false);
+    const [vipDuration, setVipDuration] = useState("1hour");
 
     useEffect(() => {
         if (id) fetchUser();
@@ -132,6 +134,47 @@ export default function UserDetailPage() {
             toast.error("Gagal hapus user");
         } finally {
             setActionLoading(false);
+        }
+    };
+
+    const handleToggleVip = async () => {
+        if (!user) return;
+        setVipLoading(true);
+        try {
+            if (user.vipStatus) {
+                const res = await fetch(`/api/users/${id}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ vipStatus: false, vipExpiry: new Date().toISOString() }),
+                });
+                if (res.ok) {
+                    toast.success("VIP/nonaktif berhasil");
+                    fetchUser();
+                } else throw new Error();
+            } else {
+                const durations: Record<string, number> = {
+                    "1hour": 60 * 60 * 1000,
+                    "1day": 24 * 60 * 60 * 1000,
+                    "1week": 7 * 24 * 60 * 60 * 1000,
+                    "1month": 30 * 24 * 60 * 60 * 1000,
+                    "3months": 90 * 24 * 60 * 60 * 1000,
+                };
+                const ms = durations[vipDuration] || durations["1month"];
+                const expiry = new Date(Date.now() + ms).toISOString();
+                const res = await fetch(`/api/users/${id}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ vipStatus: true, vipExpiry: expiry }),
+                });
+                if (res.ok) {
+                    toast.success("VIP berhasil diaktifkan");
+                    fetchUser();
+                } else throw new Error();
+            }
+        } catch {
+            toast.error("Gagal mengubah status VIP");
+        } finally {
+            setVipLoading(false);
         }
     };
 
@@ -256,26 +299,87 @@ export default function UserDetailPage() {
                     </div>
                 </div>
 
-                {/* Add Coins Input */}
-                {showCoinInput && (
-                    <div className="mt-4 flex items-center gap-3 p-3 bg-zinc-900 rounded-lg border border-zinc-800">
-                        <Coins size={16} className="text-amber-400" />
-                        <input
-                            type="number"
-                            placeholder="Jumlah koin..."
-                            className="flex-1 bg-transparent text-white text-sm focus:outline-none"
-                            value={addCoinsAmount}
-                            onChange={e => setAddCoinsAmount(e.target.value)}
-                        />
-                        <button
-                            onClick={handleAddCoins}
-                            disabled={actionLoading}
-                            className="px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50"
-                        >
-                            {actionLoading ? <Loader2 className="animate-spin" size={14} /> : "Tambah"}
-                        </button>
+            {/* Add Coins Input */}
+            {showCoinInput && (
+                <div className="mt-4 flex items-center gap-3 p-3 bg-zinc-900 rounded-lg border border-zinc-800">
+                    <Coins size={16} className="text-amber-400" />
+                    <input
+                        type="number"
+                        placeholder="Jumlah koin..."
+                        className="flex-1 bg-transparent text-white text-sm focus:outline-none"
+                        value={addCoinsAmount}
+                        onChange={e => setAddCoinsAmount(e.target.value)}
+                    />
+                    <button
+                        onClick={handleAddCoins}
+                        disabled={actionLoading}
+                        className="px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50"
+                    >
+                        {actionLoading ? <Loader2 className="animate-spin" size={14} /> : "Tambah"}
+                    </button>
+                </div>
+            )}
+
+            {/* VIP/Premium Management */}
+            <div className="mt-6 rounded-xl border border-zinc-800 bg-[#0d0d00] p-5">
+                <div className="flex items-center gap-2 mb-4">
+                    <Crown size={18} className="text-amber-400" />
+                    <h3 className="text-base font-semibold text-white">Kelola VIP/Premium</h3>
+                    {user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date()) && (
+                        <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center gap-1">
+                            <Crown size={11} /> VIP Aktif
+                        </span>
+                    )}
+                    {user.vipStatus && user.vipExpiry && new Date(user.vipExpiry) <= new Date() && (
+                        <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20">
+                            VIP Expired
+                        </span>
+                    )}
+                </div>
+
+                {user.vipStatus && user.vipExpiry ? (
+                    <div className="text-sm text-zinc-400 mb-3">
+                        Berlaku hingga: <span className="text-white font-medium">
+                            {new Date(user.vipExpiry).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+                        </span>
                     </div>
-                )}
+                ) : null}
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                    {user.vipStatus ? (
+                        <button
+                            onClick={handleToggleVip}
+                            disabled={vipLoading}
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 transition-colors disabled:opacity-50"
+                        >
+                            {vipLoading ? <Loader2 className="animate-spin" size={14} /> : <ToggleRight size={14} />}
+                            Nonaktifkan VIP
+                        </button>
+                    ) : (
+                        <>
+                            <select
+                                value={vipDuration}
+                                onChange={e => setVipDuration(e.target.value)}
+                                className="bg-black/40 border border-zinc-700/50 text-zinc-300 text-sm rounded-lg px-3 py-2.5 outline-none focus:border-amber-500/50 hover:bg-zinc-800/50 cursor-pointer transition-colors"
+                            >
+                                <option value="1hour">1 Jam</option>
+                                <option value="1day">1 Hari</option>
+                                <option value="1week">1 Minggu</option>
+                                <option value="1month">1 Bulan</option>
+                                <option value="3months">3 Bulan</option>
+                            </select>
+                            <button
+                                onClick={handleToggleVip}
+                                disabled={vipLoading}
+                                className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition-colors disabled:opacity-50"
+                            >
+                                {vipLoading ? <Loader2 className="animate-spin" size={14} /> : <ToggleLeft size={14} />}
+                                Aktifkan VIP
+                            </button>
+                        </>
+                    )}
+                </div>
+            </div>
             </div>
 
             {/* Stats Cards */}

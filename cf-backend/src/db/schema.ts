@@ -37,6 +37,7 @@ export const users = pgTable('users', {
     notifySystem: boolean('notify_system').notNull().default(true),
 
     isActive: boolean('is_active').notNull().default(true),
+    lastSeen: timestampOpt('last_seen'),
     createdAt: timestampNow('created_at'),
     updatedAt: timestampNow('updated_at'),
 });

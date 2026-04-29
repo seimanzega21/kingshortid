@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Search, Users, Ban, CheckCircle2, Trash2, AlertTriangle, UserX, Chrome } from "lucide-react";
+import { Search, Users, Ban, CheckCircle2, Trash2, AlertTriangle, UserX, Chrome, Crown, Circle } from "lucide-react";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
@@ -15,6 +15,9 @@ interface User {
     isGuest: boolean;
     provider: string;
     coins: number;
+    vipStatus: boolean;
+    vipExpiry: string | null;
+    lastSeen: string | null;
     createdAt: string;
 }
 
@@ -24,6 +27,7 @@ export default function UserManagement() {
     const [searchTerm, setSearchTerm] = useState("");
     const [filterRole, setFilterRole] = useState("");
     const [filterAccountType, setFilterAccountType] = useState("");
+    const [filterVip, setFilterVip] = useState("");
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
@@ -41,6 +45,7 @@ export default function UserManagement() {
             if (searchTerm) params.set("q", searchTerm);
             if (filterRole) params.set("role", filterRole);
             if (filterAccountType) params.set("accountType", filterAccountType);
+            if (filterVip) params.set("vip", filterVip);
 
             const res = await fetch(`/api/users?${params.toString()}`);
             const data = await res.json();
@@ -53,7 +58,7 @@ export default function UserManagement() {
         } finally {
             setIsLoading(false);
         }
-    }, [page, searchTerm, filterRole, filterAccountType]);
+    }, [page, searchTerm, filterRole, filterAccountType, filterVip]);
 
     useEffect(() => {
         const timeout = setTimeout(() => fetchUsers(), 500);
@@ -216,6 +221,16 @@ export default function UserManagement() {
                             <option value="google">🔵 Google</option>
                             <option value="registered">📧 Terdaftar</option>
                         </select>
+                        <select
+                            value={filterVip}
+                            onChange={(e) => setFilterVip(e.target.value)}
+                            className="flex-1 sm:flex-none bg-black/40 border border-zinc-700/50 text-zinc-300 text-sm rounded-xl px-4 py-2.5 outline-none focus:border-cyan-500/50 hover:bg-zinc-800/50 cursor-pointer transition-colors"
+                        >
+                            <option value="">Semua VIP</option>
+                            <option value="active">👑 VIP Aktif</option>
+                            <option value="expired">⚠️ VIP Expired</option>
+                            <option value="regular">👤 Regular</option>
+                        </select>
                     </div>
                 </div>
 
@@ -256,7 +271,9 @@ export default function UserManagement() {
                             <th className="px-4 py-4 font-semibold">Tipe</th>
                             <th className="px-4 py-4 font-semibold">Role</th>
                             <th className="px-4 py-4 font-semibold">Status</th>
+                            <th className="px-4 py-4 font-semibold">VIP</th>
                             <th className="px-4 py-4 font-semibold">Koin</th>
+                            <th className="px-4 py-4 font-semibold">Online</th>
                             <th className="px-4 py-4 font-semibold">Bergabung</th>
                             <th className="px-4 py-4 text-right font-semibold">Aksi</th>
                         </tr>
@@ -336,7 +353,32 @@ export default function UserManagement() {
                                         )}
                                     </td>
                                     <td className="px-4 py-4">
+                                        {user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date()) ? (
+                                            <span className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium border bg-amber-500/10 text-amber-400 border-amber-500/20 w-fit">
+                                                <Crown size={11} /> VIP
+                                            </span>
+                                        ) : user.vipStatus ? (
+                                            <span className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium border bg-zinc-500/10 text-zinc-400 border-zinc-500/20 w-fit">
+                                                <Crown size={11} /> Expired
+                                            </span>
+                                        ) : (
+                                            <span className="text-zinc-600 text-xs">—</span>
+                                        )}
+                                    </td>
+                                    <td className="px-4 py-4">
                                         <span className="text-amber-400 text-xs font-medium">{user.coins?.toLocaleString() || 0}</span>
+                                    </td>
+                                    <td className="px-4 py-4">
+                                        {user.lastSeen && (Date.now() - new Date(user.lastSeen).getTime()) < 5 * 60 * 1000 ? (
+                                            <span className="relative flex h-2.5 w-2.5">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                                            </span>
+                                        ) : (
+                                            <span className="relative flex h-2.5 w-2.5">
+                                                <span className="rounded-full h-2.5 w-2.5 bg-zinc-700" />
+                                            </span>
+                                        )}
                                     </td>
                                     <td className="px-4 py-4">
                                         <span className="text-zinc-500 text-xs">{new Date(user.createdAt).toLocaleDateString('id-ID')}</span>
@@ -368,7 +410,7 @@ export default function UserManagement() {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={8} className="px-6 py-12 text-center text-zinc-500">
+                                <td colSpan={10} className="px-6 py-12 text-center text-zinc-500">
                                     Tidak ada pengguna ditemukan.
                                 </td>
                             </tr>
