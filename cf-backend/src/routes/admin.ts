@@ -621,7 +621,7 @@ adminRoute.post('/dramas', async (c) => {
             tagList: JSON.stringify([]),
             totalEpisodes: body.totalEpisodes || 0,
             status: body.status || (body.isComplete ? 'completed' : 'ongoing'),
-            isActive: true,
+            isActive: false,
             isVip: false,
             isFeatured: false,
             country: body.country || 'China',
@@ -674,7 +674,7 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
             isVip: false,
             coinPrice: 0,
             views: 0,
-            isActive: true,
+            isActive: false,
         }).returning({ id: episodes.id });
 
         return c.json({ id: created.id, updated: false }, 201);
