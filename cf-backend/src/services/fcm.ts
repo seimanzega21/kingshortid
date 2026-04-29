@@ -154,7 +154,7 @@ export async function sendPushNotification(
     categoryId?: string
 ): Promise<{ success: boolean; error?: string }> {
     try {
-        const db = getDb();
+        const db = getDb(process.env.SUPABASE_URL || '', process.env.SUPABASE_DB_PASSWORD || '');
         const userTokens = await db
             .select({ fcmToken: users.pushToken })
             .from(users)

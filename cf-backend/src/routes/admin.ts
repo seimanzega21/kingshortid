@@ -24,22 +24,17 @@ adminRoute.get('/dashboard', async (c) => {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
         const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
 
-        // Basic stats
-        const [
-            totalUsersResult,
-            activeUsersResult,
-            totalDramasResult,
-            activeDramasResult,
-            inactiveDramasResult,
-            totalEpisodesResult,
-        ] = await Promise.all([
-            db.select({ count: sql<number>`count(*)` }).from(users).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` }).from(users).where(eq(users.role, 'user')).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` }).from(dramas).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` }).from(dramas).where(eq(dramas.isActive, true)).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` }).from(dramas).where(eq(dramas.isActive, false)).limit(1).then((r: any[]) => r[0]),
-            db.select({ count: sql<number>`count(*)` }).from(episodes).limit(1).then((r: any[]) => r[0]),
-        ]);
+        // Combine basic stats into 1 query using subqueries
+        const statsQuery = await db.execute(sql`
+            SELECT 
+                (SELECT COUNT(*) FROM users) as total_users,
+                (SELECT COUNT(*) FROM users WHERE role = 'user') as active_users,
+                (SELECT COUNT(*) FROM dramas) as total_dramas,
+                (SELECT COUNT(*) FROM dramas WHERE is_active = true) as active_dramas,
+                (SELECT COUNT(*) FROM dramas WHERE is_active = false) as inactive_dramas,
+                (SELECT COUNT(*) FROM episodes) as total_episodes
+        `);
+        const statsRow = (statsQuery as any)[0] || {};
 
         // Online users (lastSeen within 5 minutes)
         const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
@@ -65,46 +60,30 @@ adminRoute.get('/dashboard', async (c) => {
             .from(dramas)
             .limit(1).then((r: any[]) => r[0]);
 
-        // Data health — match scraper audit criteria
-        const [noDescResult, noCoverResult, noEpisodesResult, genericGenreResult] = await Promise.all([
-            // Bad description: empty, too short, or equals title
-            db.select({ count: sql<number>`count(*)` }).from(dramas)
-                .where(and(
-                    eq(dramas.isActive, true),
-                    sql`(${dramas.description} = '' OR ${dramas.description} = ${dramas.title} OR length(${dramas.description}) < 10)`
-                )).limit(1).then((r: any[]) => r[0]),
-            // No cover
-            db.select({ count: sql<number>`count(*)` }).from(dramas)
-                .where(and(eq(dramas.isActive, true), eq(dramas.cover, ''))).limit(1).then((r: any[]) => r[0]),
-            // No episodes
-            db.select({ count: sql<number>`count(*)` }).from(dramas)
-                .where(and(eq(dramas.isActive, true), eq(dramas.totalEpisodes, 0))).limit(1).then((r: any[]) => r[0]),
-            // Generic genre: empty array, or single "Drama" genre
-            db.select({ count: sql<number>`count(*)` }).from(dramas)
-                .where(and(
-                    eq(dramas.isActive, true),
-                    sql`(${dramas.genres}::jsonb = '[]'::jsonb OR ${dramas.genres}::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(${dramas.genres}::jsonb) = 0)`
-                )).limit(1).then((r: any[]) => r[0]),
-        ]);
+        // Data health — optimized into 1 single pass using FILTER
+        const healthQuery = await db.execute(sql`
+            SELECT 
+                COUNT(*) FILTER (WHERE description = '' OR description = title OR length(description) < 10) as no_desc,
+                COUNT(*) FILTER (WHERE cover = '') as no_cover,
+                COUNT(*) FILTER (WHERE total_episodes = 0) as no_eps,
+                COUNT(*) FILTER (WHERE genres::jsonb = '[]'::jsonb OR genres::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(genres::jsonb) = 0) as generic_genre,
+                COUNT(*) FILTER (WHERE 
+                    (description = '' OR description = title OR length(description) < 10) OR
+                    (cover = '') OR
+                    (total_episodes = 0) OR
+                    (genres::jsonb = '[]'::jsonb OR genres::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(genres::jsonb) = 0)
+                ) as total_with_issues
+            FROM dramas
+            WHERE is_active = true
+        `);
+        const healthRow = (healthQuery as any)[0] || {};
 
-        const activeDramaCount = activeDramasResult?.count || 0;
-        const noDesc = noDescResult?.count || 0;
-        const noCover = noCoverResult?.count || 0;
-        const noEps = noEpisodesResult?.count || 0;
-        const genericGenre = genericGenreResult?.count || 0;
-
-        // Count dramas with ANY issue (avoid double-counting)
-        const issueCountResult = await db.select({ count: sql<number>`count(*)` }).from(dramas)
-            .where(and(
-                eq(dramas.isActive, true),
-                sql`(
-                    ${dramas.description} = '' OR ${dramas.description} = ${dramas.title} OR length(${dramas.description}) < 10
-                    OR ${dramas.cover} = ''
-                    OR ${dramas.totalEpisodes} = 0
-                    OR ${dramas.genres}::jsonb = '[]'::jsonb OR ${dramas.genres}::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(${dramas.genres}::jsonb) = 0
-                )`
-            )).limit(1).then((r: any[]) => r[0]);
-        const totalWithIssues = issueCountResult?.count || 0;
+        const activeDramaCount = Number(statsRow.active_dramas) || 0;
+        const noDesc = Number(healthRow.no_desc) || 0;
+        const noCover = Number(healthRow.no_cover) || 0;
+        const noEps = Number(healthRow.no_eps) || 0;
+        const genericGenre = Number(healthRow.generic_genre) || 0;
+        const totalWithIssues = Number(healthRow.total_with_issues) || 0;
 
         // Recent users
         const recentUsers = await db.select({
@@ -141,16 +120,15 @@ adminRoute.get('/dashboard', async (c) => {
             genres: dramas.genres,
         }).from(dramas).orderBy(desc(dramas.createdAt)).limit(5);
 
-        return c.json({
-            stats: {
-                totalUsers: totalUsersResult?.count || 0,
-                activeUsers: activeUsersResult?.count || 0,
+        return c.json({            stats: {
+                totalUsers: Number(statsRow.total_users) || 0,
+                activeUsers: Number(statsRow.active_users) || 0,
                 onlineUsers: onlineResult?.count || 0,
                 activeVip: activeVipResult?.count || 0,
-                totalDramas: totalDramasResult?.count || 0,
+                totalDramas: Number(statsRow.total_dramas) || 0,
                 activeDramas: activeDramaCount,
-                inactiveDramas: inactiveDramasResult?.count || 0,
-                totalEpisodes: totalEpisodesResult?.count || 0,
+                inactiveDramas: Number(statsRow.inactive_dramas) || 0,
+                totalEpisodes: Number(statsRow.total_episodes) || 0,
                 totalViews: viewsResult?.total || 0,
             },
             dataHealth: {
@@ -159,7 +137,7 @@ adminRoute.get('/dashboard', async (c) => {
                 noDescription: noDesc,
                 noCover: noCover,
                 noEpisodes: noEps,
-                deactivated: inactiveDramasResult?.count || 0,
+                deactivated: Number(statsRow.inactive_dramas) || 0,
             },
             recentUsers,
             popularDramas,

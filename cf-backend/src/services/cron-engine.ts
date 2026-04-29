@@ -28,7 +28,7 @@ export function initCronJobs() {
 
 
 async function runRandomPromo() {
-    const db = getDb();
+    const db = getDb(process.env.SUPABASE_URL || '', process.env.SUPABASE_DB_PASSWORD || '');
     
     // Pick 1 random active drama
     const randomDramas = await db.select({ id: dramas.id, title: dramas.title, cover: dramas.cover })
