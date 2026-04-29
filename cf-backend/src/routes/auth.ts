@@ -327,4 +327,42 @@ auth.post('/google', async (c) => {
 
 
 
+// POST /api/auth/sync-subscription
+auth.post('/sync-subscription', requireAuth, async (c) => {
+    try {
+        const user = c.get('user');
+        const { expiryDate } = await c.req.json();
+
+        if (!expiryDate) {
+            return c.json({ message: 'expiryDate is required' }, 400);
+        }
+
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const expiry = new Date(expiryDate);
+
+        if (isNaN(expiry.getTime())) {
+            return c.json({ message: 'Invalid expiryDate' }, 400);
+        }
+
+        const [updated] = await db.update(users)
+            .set({
+                vipStatus: true,
+                vipExpiry: expiry,
+                updatedAt: new Date(),
+            })
+            .where(eq(users.id, user.id))
+            .returning();
+
+        const { password: _, ...userWithoutPassword } = updated;
+        return c.json({
+            vipStatus: true,
+            vipExpiry: expiry,
+            user: userWithoutPassword,
+        });
+    } catch (error) {
+        console.error('Sync subscription error:', error);
+        return c.json({ message: 'Failed to sync subscription' }, 500);
+    }
+});
+
 export default auth;
