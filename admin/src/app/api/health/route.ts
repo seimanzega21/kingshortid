@@ -41,6 +41,6 @@ export async function GET() {
     }
 
     return NextResponse.json(result, {
-        status: result.status === 'ok' ? 200 : 503,
+        status: 200, // Always 200 to allow UI to show error details
     });
 }

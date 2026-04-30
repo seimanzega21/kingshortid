@@ -24,59 +24,87 @@ adminRoute.get('/dashboard', async (c) => {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
         const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
 
-        // Combine basic stats into 1 query using subqueries
-        const statsQuery = await db.execute(sql`
-            SELECT 
-                (SELECT COUNT(*) FROM users) as total_users,
-                (SELECT COUNT(*) FROM users WHERE role = 'user') as active_users,
-                (SELECT COUNT(*) FROM dramas) as total_dramas,
-                (SELECT COUNT(*) FROM dramas WHERE is_active = true) as active_dramas,
-                (SELECT COUNT(*) FROM dramas WHERE is_active = false) as inactive_dramas,
-                (SELECT COUNT(*) FROM episodes) as total_episodes
-        `);
-        const statsRow = (statsQuery as any)[0] || {};
+        // 1. Basic Stats
+        let statsRow: any = {};
+        try {
+            const statsQuery = await db.execute(sql`
+                SELECT 
+                    (SELECT COUNT(*) FROM users) as total_users,
+                    (SELECT COUNT(*) FROM users WHERE role = 'user') as active_users,
+                    (SELECT COUNT(*) FROM dramas) as total_dramas,
+                    (SELECT COUNT(*) FROM dramas WHERE is_active = true) as active_dramas,
+                    (SELECT COUNT(*) FROM dramas WHERE is_active = false) as inactive_dramas,
+                    (SELECT COUNT(*) FROM episodes) as total_episodes
+            `);
+            statsRow = Array.isArray(statsQuery) ? statsQuery[0] : (statsQuery as any).rows?.[0] || {};
+        } catch (e) {
+            console.error("Dashboard Basic Stats Error:", e);
+        }
 
-        // Online users (lastSeen within 5 minutes)
-        const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
-        const onlineResult = await db.select({ count: sql<number>`count(*)` })
-            .from(users)
-            .where(gte(users.lastSeen, fiveMinAgo))
-            .limit(1).then((r: any[]) => r[0]);
+        // 2. Online users
+        let onlineCount = 0;
+        try {
+            const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
+            const onlineResult = await db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(gte(users.lastSeen, fiveMinAgo))
+                .limit(1).then((r: any[]) => r[0]);
+            onlineCount = Number(onlineResult?.count) || 0;
+        } catch (e) {
+            console.error("Dashboard Online Users Error:", e);
+        }
 
-        // Active VIP users
-        const activeVipResult = await db.select({ count: sql<number>`count(*)` })
-            .from(users)
-            .where(and(
-                eq(users.vipStatus, true),
-                or(
-                    sql`${users.vipExpiry} IS NULL`,
-                    gte(users.vipExpiry, new Date())
-                )
-            ))
-            .limit(1).then((r: any[]) => r[0]);
+        // 3. VIP users
+        let activeVip = 0;
+        try {
+            const activeVipResult = await db.select({ count: sql<number>`count(*)` })
+                .from(users)
+                .where(and(
+                    eq(users.vipStatus, true),
+                    or(
+                        sql`${users.vipExpiry} IS NULL`,
+                        gte(users.vipExpiry, new Date())
+                    )
+                ))
+                .limit(1).then((r: any[]) => r[0]);
+            activeVip = Number(activeVipResult?.count) || 0;
+        } catch (e) {
+            console.error("Dashboard VIP Stats Error:", e);
+        }
 
-        // Total views
-        const viewsResult = await db.select({ total: sql<number>`COALESCE(SUM(views), 0)` })
-            .from(dramas)
-            .limit(1).then((r: any[]) => r[0]);
+        // 4. Views
+        let totalViews = 0;
+        try {
+            const viewsResult = await db.select({ total: sql<number>`COALESCE(SUM(views), 0)` })
+                .from(dramas)
+                .limit(1).then((r: any[]) => r[0]);
+            totalViews = Number(viewsResult?.total) || 0;
+        } catch (e) {
+            console.error("Dashboard Views Error:", e);
+        }
 
-        // Data health — optimized into 1 single pass using FILTER
-        const healthQuery = await db.execute(sql`
-            SELECT 
-                COUNT(*) FILTER (WHERE description = '' OR description = title OR length(description) < 10) as no_desc,
-                COUNT(*) FILTER (WHERE cover = '') as no_cover,
-                COUNT(*) FILTER (WHERE total_episodes = 0) as no_eps,
-                COUNT(*) FILTER (WHERE genres::jsonb = '[]'::jsonb OR genres::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(genres::jsonb) = 0) as generic_genre,
-                COUNT(*) FILTER (WHERE 
-                    (description = '' OR description = title OR length(description) < 10) OR
-                    (cover = '') OR
-                    (total_episodes = 0) OR
-                    (genres::jsonb = '[]'::jsonb OR genres::jsonb = '["Drama"]'::jsonb OR jsonb_array_length(genres::jsonb) = 0)
-                ) as total_with_issues
-            FROM dramas
-            WHERE is_active = true
-        `);
-        const healthRow = (healthQuery as any)[0] || {};
+        // 5. Health Data
+        let healthRow: any = {};
+        try {
+            const healthQuery = await db.execute(sql`
+                SELECT 
+                    COUNT(*) FILTER (WHERE description = '' OR description = title OR length(description) < 10) as no_desc,
+                    COUNT(*) FILTER (WHERE cover = '') as no_cover,
+                    COUNT(*) FILTER (WHERE total_episodes = 0) as no_eps,
+                    COUNT(*) FILTER (WHERE CAST(genres AS TEXT) = '[]' OR CAST(genres AS TEXT) = '["Drama"]' OR jsonb_array_length(genres::jsonb) = 0) as generic_genre,
+                    COUNT(*) FILTER (WHERE 
+                        (description = '' OR description = title OR length(description) < 10) OR
+                        (cover = '') OR
+                        (total_episodes = 0) OR
+                        (CAST(genres AS TEXT) = '[]' OR jsonb_array_length(genres::jsonb) = 0)
+                    ) as total_with_issues
+                FROM dramas
+                WHERE is_active = true
+            `);
+            healthRow = Array.isArray(healthQuery) ? healthQuery[0] : (healthQuery as any).rows?.[0] || {};
+        } catch (e) {
+            console.error("Dashboard Health Query Error:", e);
+        }
 
         const activeDramaCount = Number(statsRow.active_dramas) || 0;
         const noDesc = Number(healthRow.no_desc) || 0;
@@ -85,51 +113,67 @@ adminRoute.get('/dashboard', async (c) => {
         const genericGenre = Number(healthRow.generic_genre) || 0;
         const totalWithIssues = Number(healthRow.total_with_issues) || 0;
 
-        // Recent users
-        const recentUsers = await db.select({
-            id: users.id,
-            name: users.name,
-            email: users.email,
-            avatar: users.avatar,
-            createdAt: users.createdAt,
-            role: users.role,
-            isActive: users.isActive,
-        }).from(users).orderBy(desc(users.createdAt)).limit(5);
+        // 6. Recent users
+        let recentUsers: any[] = [];
+        try {
+            recentUsers = await db.select({
+                id: users.id,
+                name: users.name,
+                email: users.email,
+                avatar: users.avatar,
+                createdAt: users.createdAt,
+                role: users.role,
+                isActive: users.isActive,
+            }).from(users).orderBy(desc(users.createdAt)).limit(5);
+        } catch (e) {
+            console.error("Dashboard Recent Users Error:", e);
+        }
 
-        // Popular dramas
-        const popularDramas = await db.select({
-            id: dramas.id,
-            title: dramas.title,
-            cover: dramas.cover,
-            views: dramas.views,
-            rating: dramas.rating,
-            status: dramas.status,
-        }).from(dramas)
-            .where(eq(dramas.isActive, true))
-            .orderBy(desc(dramas.views))
-            .limit(8);
+        // 7. Popular dramas
+        let popularDramas: any[] = [];
+        try {
+            popularDramas = await db.select({
+                id: dramas.id,
+                title: dramas.title,
+                cover: dramas.cover,
+                views: dramas.views,
+                rating: dramas.rating,
+                status: dramas.status,
+            }).from(dramas)
+                .where(eq(dramas.isActive, true))
+                .orderBy(desc(dramas.views))
+                .limit(8);
+        } catch (e) {
+            console.error("Dashboard Popular Dramas Error:", e);
+        }
 
-        // Recent dramas
-        const recentDramas = await db.select({
-            id: dramas.id,
-            title: dramas.title,
-            cover: dramas.cover,
-            totalEpisodes: dramas.totalEpisodes,
-            createdAt: dramas.createdAt,
-            status: dramas.status,
-            genres: dramas.genres,
-        }).from(dramas).orderBy(desc(dramas.createdAt)).limit(5);
+        // 8. Recent dramas
+        let recentDramas: any[] = [];
+        try {
+            recentDramas = await db.select({
+                id: dramas.id,
+                title: dramas.title,
+                cover: dramas.cover,
+                totalEpisodes: dramas.totalEpisodes,
+                createdAt: dramas.createdAt,
+                status: dramas.status,
+                genres: dramas.genres,
+            }).from(dramas).orderBy(desc(dramas.createdAt)).limit(5);
+        } catch (e) {
+            console.error("Dashboard Recent Dramas Error:", e);
+        }
 
-        return c.json({            stats: {
+        return c.json({
+            stats: {
                 totalUsers: Number(statsRow.total_users) || 0,
                 activeUsers: Number(statsRow.active_users) || 0,
-                onlineUsers: onlineResult?.count || 0,
-                activeVip: activeVipResult?.count || 0,
+                onlineUsers: onlineCount,
+                activeVip: activeVip,
                 totalDramas: Number(statsRow.total_dramas) || 0,
                 activeDramas: activeDramaCount,
                 inactiveDramas: Number(statsRow.inactive_dramas) || 0,
                 totalEpisodes: Number(statsRow.total_episodes) || 0,
-                totalViews: viewsResult?.total || 0,
+                totalViews: totalViews,
             },
             dataHealth: {
                 healthy: Math.max(0, activeDramaCount - totalWithIssues),
@@ -143,6 +187,7 @@ adminRoute.get('/dashboard', async (c) => {
             popularDramas,
             recentDramas,
         });
+
     } catch (error) {
         console.error('Admin dashboard error:', error);
         return c.json({ error: 'Failed to fetch dashboard stats' }, 500);
