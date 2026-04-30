@@ -17,7 +17,7 @@ episodesRoute.post('/', async (c) => {
         }
 
         // Validate video URL (skip for R2 URLs - we control those uploads)
-        if (!videoUrl.includes('.r2.dev') && !videoUrl.includes('.r2.cloudflarestorage.com')) {
+        if (!videoUrl.includes('.r2.dev') && !videoUrl.includes('.r2.cloudflarestorage.com') && !videoUrl.includes('stream.shortlovers.id')) {
             try {
                 const videoCheck = await fetch(videoUrl, { method: 'HEAD', signal: AbortSignal.timeout(10000) });
                 if (!videoCheck.ok) {
@@ -217,35 +217,6 @@ episodesRoute.post('/:id/subtitles', async (c) => {
     } catch (error) {
         console.error('Create subtitle error:', error);
         return c.json({ error: 'Failed to create subtitle' }, 500);
-    }
-});
-
-// PATCH /api/episodes/:id - Update episode fields
-episodesRoute.patch('/:id', async (c) => {
-    try {
-        const id = c.req.param('id');
-        const body = await c.req.json();
-        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-
-        const existing = await db.select().from(episodes).where(eq(episodes.id, id)).limit(1).then((r: any[]) => r[0]);
-        if (!existing) return c.json({ error: 'Episode not found' }, 404);
-
-        const updates: Record<string, unknown> = { updatedAt: new Date() };
-        if (body.episodeNumber !== undefined) updates.episodeNumber = parseInt(body.episodeNumber);
-        if (body.videoUrl) updates.videoUrl = body.videoUrl;
-        if (body.videoUrl540p !== undefined) updates.videoUrl540p = body.videoUrl540p || null;
-        if (body.duration !== undefined) updates.duration = parseInt(body.duration);
-        if (body.title) updates.title = body.title;
-
-        const [updated] = await db.update(episodes)
-            .set(updates)
-            .where(eq(episodes.id, id))
-            .returning();
-
-        return c.json(updated);
-    } catch (error) {
-        console.error('Patch episode error:', error);
-        return c.json({ error: 'Failed to update episode' }, 500);
     }
 });
 
