@@ -89,7 +89,7 @@ def main():
         if activated > 0:
             total_activated += activated
             dramas_fixed += 1
-            print(f'    ✓ {activated} episodes activated')
+            print(f'    OK {activated} episodes activated')
         
         # Progress update setiap 10 drama
         if (i + 1) % 10 == 0:
