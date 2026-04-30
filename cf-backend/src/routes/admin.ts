@@ -350,6 +350,8 @@ adminRoute.get('/users/online', async (c) => {
 });
 
 // ==================== VIP STATS ====================
+adminRoute.get('/ping-v2', (c) => c.json({ pong: 'v2' }));
+
 adminRoute.get('/stats/vip', async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
@@ -659,6 +661,8 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
             await db.update(episodes).set({
                 videoUrl: body.videoUrl,
                 ...(body.videoUrl540p ? { videoUrl540p: body.videoUrl540p } : {}),
+                ...(body.isActive !== undefined ? { isActive: body.isActive } : {}),
+                ...(body.coinPrice !== undefined ? { coinPrice: body.coinPrice } : {}),
                 updatedAt: new Date(),
             }).where(eq(episodes.id, existing.id));
             return c.json({ id: existing.id, updated: true });
@@ -671,10 +675,10 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
             videoUrl: body.videoUrl,
             videoUrl540p: body.videoUrl540p || null,
             duration: 0,
-            isVip: false,
-            coinPrice: 0,
+            isVip: body.isVip || false,
+            coinPrice: body.coinPrice || 0,
             views: 0,
-            isActive: false,
+            isActive: body.isActive !== undefined ? body.isActive : false,
         }).returning({ id: episodes.id });
 
         return c.json({ id: created.id, updated: false }, 201);

@@ -137,13 +137,19 @@ episodesRoute.patch('/:id', async (c) => {
         const body = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        // PATCH videoUrl540p specifically (no HEAD validation)
-        if (body.videoUrl540p !== undefined) {
-            const url540 = body.videoUrl540p || null;
-            await db.execute(
-                sql`UPDATE episodes SET video_url_540p = ${url540} WHERE id = ${id}`
-            );
+        const updateData: Record<string, any> = { updatedAt: new Date() };
+        if (body.isActive !== undefined) {
+            await db.execute(sql`UPDATE episodes SET is_active = ${body.isActive} WHERE id = ${id}`);
         }
+        if (body.isVip !== undefined) updateData.isVip = body.isVip;
+        if (body.coinPrice !== undefined) updateData.coinPrice = body.coinPrice;
+        if (body.videoUrl540p !== undefined) updateData.videoUrl540p = body.videoUrl540p || null;
+        if (body.videoUrl !== undefined) updateData.videoUrl = body.videoUrl;
+        if (body.title !== undefined) updateData.title = body.title;
+
+        await db.update(episodes)
+            .set(updateData)
+            .where(eq(episodes.id, id));
 
         const updated = await db.select().from(episodes).where(eq(episodes.id, id)).limit(1).then((r: any[]) => r[0]);
         if (!updated) return c.json({ error: 'Episode not found' }, 404);

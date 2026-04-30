@@ -151,7 +151,7 @@ def api_get_or_create_drama(detail, slug, cover_url):
     return r.json().get('id') if r.ok else None
 
 def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
-    payload = {'episodeNumber': ep_no, 'title': f'Episode {ep_no}', 'videoUrl': url_720, 'isActive': False}
+    payload = {'episodeNumber': ep_no, 'title': f'Episode {ep_no}', 'videoUrl': url_720, 'isActive': True}
     if url_540: payload['videoUrl540p'] = url_540
     r = requests.post(f"{API_BASE}/api/admin/dramas/{drama_db_id}/episodes", headers=ADMIN_HDR, json=payload, timeout=20)
     if not r.ok: return None
@@ -164,7 +164,11 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
             'url': sub_url,
             'isDefault': True
         }
-        requests.post(f"{API_BASE}/api/admin/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
+        r_sub = requests.post(f"{API_BASE}/api/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
+        if r_sub.ok:
+            print(f" (Sub Synced)", end="", flush=True)
+        else:
+            print(f" (Sub Failed: {r_sub.status_code})", end="", flush=True)
     return ep_id
 
 # ── Processing ───────────────────────────────────────────────────────────────
@@ -182,9 +186,9 @@ def process_drama(cfg, r2):
     prefix = f"netshortv2/{slug}"
     print(f"\n{'='*65}\n[DRAMA] {slug} ({drama_id})")
     
-    try: detail = get_drama_detail(drama_id)
-    except: return
-    
+    detail = get_drama_detail(drama_id)
+    db_id = api_get_or_create_drama(detail, slug, detail['cover']) # Get ID early
+
     cover_key = f"{prefix}/cover.webp"
     cover_url = f"{R2_PUBLIC}/{cover_key}"
     if not r2_exists(r2, cover_key):
@@ -220,12 +224,9 @@ def process_drama(cfg, r2):
                         final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
                 except: pass
             
-            ready_episodes.append({
-                'no': no, 
-                'u720': f"{R2_PUBLIC}/{k720}", 
-                'u540': f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None,
-                'sub': final_sub_r2
-            })
+            u720, u540 = f"{R2_PUBLIC}/{k720}", f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None
+            api_upsert_episode(db_id, no, u720, u540, final_sub_r2)
+            ready_episodes.append({'no': no, 'u720': u720, 'u540': u540, 'sub': final_sub_r2})
             continue
         
         # Process new episode

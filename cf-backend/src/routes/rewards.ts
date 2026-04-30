@@ -491,7 +491,7 @@ rewardsRoute.post('/claim-milestone', async (c) => {
         }).where(eq(users.id, userId));
 
         const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
-        const newBalance = updatedUser?.coins || user.coins + milestone.bonus;
+        const finalBalance = updatedUser?.coins || user.coins + milestone.bonus;
 
         await db.insert(coinTransactions).values({
             userId,
