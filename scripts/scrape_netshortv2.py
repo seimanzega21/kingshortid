@@ -48,6 +48,11 @@ def slugify(text):
     text = re.sub(r'[^a-z0-9]+', '-', text)
     return text.strip('-')
 
+def has_non_latin(text):
+    # Detects Chinese, Korean, Japanese characters
+    # Range: \u4e00-\u9fff (Chinese), \u3040-\u30ff (Japanese), \uac00-\ud7af (Korean)
+    return bool(re.search(r'[\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]', text))
+
 # ── R2 ────────────────────────────────────────────────────────────────────────
 def get_r2():
     return boto3.client('s3', endpoint_url=R2_ENDPOINT,
@@ -81,11 +86,15 @@ def discover_dramas():
             items = r.json().get('data', [])
             if not items: break
             for it in items:
-                print(f"  - Found: {it.get('title')}", flush=True)
+                title = it.get('title', '')
+                if has_non_latin(title):
+                    print(f"  - Skipping (Non-Latin): {title}", flush=True)
+                    continue
+                print(f"  - Found: {title}", flush=True)
                 found.append({
-                    'title': it.get('title'),
+                    'title': title,
                     'drama_id': it.get('id'),
-                    'slug': slugify(it.get('title'))
+                    'slug': slugify(title)
                 })
             page += 1
         except: break
@@ -105,12 +114,25 @@ def get_episode_url(drama_id, ep_no, retries=3):
             if data.get('code') == 200:
                 videos = data['data'].get('videos', [])
                 ep_id  = data['data'].get('episodeId', '')
+                
+                # Extract Subtitles
+                subs = data['data'].get('subtitles', [])
+                id_sub = next((s['url'] for s in subs if s.get('language') == 'id_ID'), None)
+                if not id_sub and subs: id_sub = subs[0]['url'] # Fallback to first
+                
+                best_video = None
                 for q in ['720p', '1080p', '540p']:
                     for v in videos:
-                        if v.get('quality') == q: return v['url'], ep_id
-                if videos: return videos[0]['url'], ep_id
+                        if v.get('quality') == q: 
+                            best_video = v['url']
+                            break
+                    if best_video: break
+                
+                if not best_video and videos: best_video = videos[0]['url']
+                
+                return best_video, ep_id, id_sub
         except: time.sleep(2)
-    return None, None
+    return None, None, None
 
 # ── Backend API ───────────────────────────────────────────────────────────────
 def api_get_or_create_drama(detail, slug, cover_url):
@@ -128,11 +150,22 @@ def api_get_or_create_drama(detail, slug, cover_url):
     r = requests.post(f"{API_BASE}/api/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=20)
     return r.json().get('id') if r.ok else None
 
-def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None):
+def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
     payload = {'episodeNumber': ep_no, 'title': f'Episode {ep_no}', 'videoUrl': url_720, 'isActive': False}
     if url_540: payload['videoUrl540p'] = url_540
     r = requests.post(f"{API_BASE}/api/admin/dramas/{drama_db_id}/episodes", headers=ADMIN_HDR, json=payload, timeout=20)
-    return r.ok
+    if not r.ok: return None
+    
+    ep_id = r.json().get('id')
+    if ep_id and sub_url:
+        sub_payload = {
+            'language': 'indonesia',
+            'label': 'Indonesia',
+            'url': sub_url,
+            'isDefault': True
+        }
+        requests.post(f"{API_BASE}/api/admin/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
+    return ep_id
 
 # ── Processing ───────────────────────────────────────────────────────────────
 def encode_720_and_540(inp, out_720, out_540):
@@ -175,17 +208,44 @@ def process_drama(cfg, r2):
         is_in_r2 = r2_exists(r2, k720)
         
         if is_in_r2:
-            print(f"  ep{no:03d}: ALREADY in R2", flush=True)
-            ready_episodes.append({'no': no, 'u720': f"{R2_PUBLIC}/{k720}", 'u540': f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None})
+            print(f"  ep{no:03d}: ALREADY in R2 (Checking subtitles...)", flush=True)
+            _, _, v_sub_url = get_episode_url(drama_id, no)
+            final_sub_r2 = None
+            if v_sub_url:
+                sub_key = f"{prefix}/ep{no:03d}.vtt"
+                try:
+                    sub_r = requests.get(v_sub_url, timeout=10, verify=False)
+                    if sub_r.ok:
+                        r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_r.content, ContentType='text/vtt')
+                        final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
+                except: pass
+            
+            ready_episodes.append({
+                'no': no, 
+                'u720': f"{R2_PUBLIC}/{k720}", 
+                'u540': f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None,
+                'sub': final_sub_r2
+            })
             continue
         
         # Process new episode
         print(f"  ep{no:03d}: downloading & transcoding...", flush=True)
-        vurl, _ = get_episode_url(drama_id, no)
+        vurl, ns_ep_id, v_sub_url = get_episode_url(drama_id, no)
         if not vurl: 
             print(f"    [WARN] No URL for ep{no}, skipping this drama for now to ensure integrity.")
             return # Abort this drama so it doesn't enter DB incomplete
         
+        # Subtitle handle
+        final_sub_r2 = None
+        if v_sub_url:
+            sub_key = f"{prefix}/ep{no:03d}.vtt"
+            try:
+                sub_r = requests.get(v_sub_url, timeout=10, verify=False)
+                if sub_r.ok:
+                    r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_r.content, ContentType='text/vtt')
+                    final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
+            except: pass
+
         raw, o720, o540 = TEMP_DIR/f"{slug}_raw.mp4", TEMP_DIR/f"{slug}_720.mp4", TEMP_DIR/f"{slug}_540.mp4"
         try:
             with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False) as r:
@@ -195,7 +255,7 @@ def process_drama(cfg, r2):
             if encode_720_and_540(raw, o720, o540):
                 u720 = r2_upload(r2, o720, k720)
                 u540 = r2_upload(r2, o540, k540) if o540.exists() else None
-                ready_episodes.append({'no': no, 'u720': u720, 'u540': u540})
+                ready_episodes.append({'no': no, 'u720': u720, 'u540': u540, 'sub': final_sub_r2})
                 print(f"    ep{no:03d}: SUCCESS", flush=True)
             else:
                 print(f"    [ERROR] Ffmpeg failed for ep{no}. Aborting drama sync.")
@@ -213,7 +273,7 @@ def process_drama(cfg, r2):
         db_id = api_get_or_create_drama(detail, slug, cover_url)
         if db_id:
             for rep in ready_episodes:
-                api_upsert_episode(db_id, rep['no'], rep['u720'], rep['u540'])
+                api_upsert_episode(db_id, rep['no'], rep['u720'], rep['u540'], rep.get('sub'))
             print(f"[SUCCESS] {slug} is now complete in Admin Panel.")
         else:
             print(f"[ERROR] Failed to register drama {slug} in DB.")
@@ -226,6 +286,7 @@ def main():
     
     # 4 Priority Dramas first
     priority = [
+        {'title': 'Jenderal, Masakanku Siap', 'drama_id': '2045396177699995650', 'slug': 'jenderal-masakanku-siap'},
         {'title': '(Sulih suara) Dia Kembali dari Balik Legenda', 'drama_id': '2011980833696841730', 'slug': 'dia-kembali-dari-balik-legenda'},
         {'title': 'Krisis Mineral Penuh Intrik', 'drama_id': '1996524173033156610', 'slug': 'krisis-mineral-penuh-intrik'},
         {'title': 'Permainan Hasrat Khusus Sang CEO', 'drama_id': '2045032067133079554', 'slug': 'permainan-hasrat-sang-ceo'},
@@ -233,7 +294,6 @@ def main():
         {'title': '(Sulih suara) Demi Putriku, Identitasku Bocor', 'drama_id': '2036701497621741570', 'slug': 'demi-putriku-identitasku-bocor'},
         {'title': 'Kode Cinta Robot', 'drama_id': '2044326309693227010', 'slug': 'kode-cinta-robot'},
         {'title': '(Sulih suara) Pemilik Kitab Pedang', 'drama_id': '2036690458087784450', 'slug': 'pemilik-kitab-pedang'},
-        {'title': 'Jenderal, Masakanku Siap', 'drama_id': '2045396177699995650', 'slug': 'jenderal-masakanku-siap'},
     ]
     
     print(f"[INFO] Processing {len(priority)} Priority Dramas...")
