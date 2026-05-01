@@ -710,6 +710,14 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
                 ...(body.coinPrice !== undefined ? { coinPrice: body.coinPrice } : {}),
                 updatedAt: new Date(),
             }).where(eq(episodes.id, existing.id));
+
+            // Update totalEpisodes count (ensure correct if drama somehow drifted)
+            const countResult = await db.select({ count: sql<number>`count(*)` }).from(episodes)
+                .where(eq(episodes.dramaId, dramaId));
+            await db.update(dramas)
+                .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
+                .where(eq(dramas.id, dramaId));
+
             return c.json({ id: existing.id, updated: true });
         }
 
@@ -725,6 +733,13 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
             views: 0,
             isActive: body.isActive !== undefined ? body.isActive : false,
         }).returning({ id: episodes.id });
+
+        // Update totalEpisodes count
+        const countResult = await db.select({ count: sql<number>`count(*)` }).from(episodes)
+            .where(eq(episodes.dramaId, dramaId));
+        await db.update(dramas)
+            .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
+            .where(eq(dramas.id, dramaId));
 
         return c.json({ id: created.id, updated: false }, 201);
     } catch (error) {
@@ -747,6 +762,7 @@ adminRoute.patch('/dramas/:id', async (c) => {
         if (body.cover !== undefined) updateData.cover = body.cover;
         if (typeof body.isActive === 'boolean') updateData.isActive = body.isActive;
         if (typeof body.isVip === 'boolean') updateData.isVip = body.isVip;
+        if (typeof body.totalEpisodes === 'number') updateData.totalEpisodes = body.totalEpisodes;
 
         const [updated] = await db.update(dramas)
             .set(updateData)
