@@ -1,24 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Single Drama Scraper - Perjuangan Pewaris Sejati
-Scrape satu drama spesifik dengan mekanisme resume (skip episode yg sudah di R2).
-"""
-import sys
-sys.path.insert(0, 'D:\\kingshortid\\scripts')
-
-import requests
-import boto3
-import subprocess
-import time
-import json
-import tempfile
-import urllib3
+import requests, boto3, subprocess, time, tempfile, urllib3
 import re
 from pathlib import Path
 from botocore.config import Config
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+urllib3.disable_warnings()
 
 # ── Config ──────────────────────────────────────────────────────────────────
 API_BASE    = 'https://api.shortlovers.id'
@@ -41,19 +28,6 @@ WEB_HDRS    = {
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_scraper'
 TEMP_DIR.mkdir(exist_ok=True)
 
-# ── Drama Config ─────────────────────────────────────────────────────────────
-DRAMA_CONFIG = {
-    'title': 'Perjuangan Pewaris Sejati',
-    'drama_id': '2009874568801701890',
-    'slug': 'perjuangan-pewaris-sejati'
-}
-
-# ── Helpers ───────────────────────────────────────────────────────────────────
-def slugify(text):
-    text = text.lower()
-    text = re.sub(r'[^a-z0-9]+', '-', text)
-    return text.strip('-')
-
 # ── R2 ────────────────────────────────────────────────────────────────────────
 def get_r2():
     return boto3.client('s3', endpoint_url=R2_ENDPOINT,
@@ -73,11 +47,6 @@ def r2_upload(r2, local_path, key, content_type='video/mp4'):
     return f"{R2_PUBLIC}/{key}"
 
 # ── Vidrama API ───────────────────────────────────────────────────────────────
-def get_drama_detail(drama_id):
-    url = f"{VIDRAMA_API}/detail/{drama_id}?lang=id_ID"
-    r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
-    return r.json()['data']
-
 def get_episode_url(drama_id, ep_no, retries=3):
     url = f"{VIDRAMA_API}/episode/{drama_id}/{ep_no}?lang=id_ID"
     for attempt in range(retries):
@@ -86,21 +55,20 @@ def get_episode_url(drama_id, ep_no, retries=3):
             data = r.json()
             if data.get('code') == 200:
                 videos = data['data'].get('videos', [])
-                ep_id  = data['data'].get('episodeId', '')
                 subs = data['data'].get('subtitles', [])
                 id_sub = next((s['url'] for s in subs if s.get('language') == 'id_ID'), None)
                 if not id_sub and subs: id_sub = subs[0]['url']
                 best_video = None
                 for q in ['720p', '1080p', '540p']:
                     for v in videos:
-                        if v.get('quality') == q: 
+                        if v.get('quality') == q:
                             best_video = v['url']
                             break
                     if best_video: break
                 if not best_video and videos: best_video = videos[0]['url']
-                return best_video, ep_id, id_sub
+                return best_video, id_sub
         except: time.sleep(2)
-    return None, None, None
+    return None, None
 
 # ── Backend API ───────────────────────────────────────────────────────────────
 def api_get_or_create_drama(detail, slug, cover_url):
@@ -127,8 +95,7 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
     if ep_id and sub_url:
         sub_payload = {'language': 'indonesia', 'label': 'Indonesia', 'url': sub_url, 'isDefault': True}
         r_sub = requests.post(f"{API_BASE}/api/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
-        if r_sub.ok: print(f" (Sub Synced)", end="", flush=True)
-        else: print(f" (Sub Failed: {r_sub.status_code})", end="", flush=True)
+        if r_sub.ok: print(" (Sub)", end="", flush=True)
     return ep_id
 
 # ── Processing ───────────────────────────────────────────────────────────────
@@ -141,20 +108,34 @@ def encode_720_and_540(inp, out_720, out_540):
             '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', '-loglevel', 'error', str(out_540)]
     return subprocess.run(cmd3, timeout=600).returncode == 0
 
-def process_single_drama(cfg):
+# ── Main ──────────────────────────────────────────────────────────────────────
+DRAMA_CONFIG = {
+    'title': 'Bangkitnya Penguasa Kegelapan',
+    'drama_id': '2018622760517980162',
+    'slug': 'bangkitnya-penguasa-kegelapan'
+}
+
+def main():
     r2 = get_r2()
-    slug, drama_id = cfg['slug'], cfg['drama_id']
+    slug = DRAMA_CONFIG['slug']
+    drama_vidrama_id = DRAMA_CONFIG['drama_id']
     prefix = f"netshortv2/{slug}"
-    print(f"\n{'='*65}\n[DRAMA] {cfg['title']} ({drama_id})")
-    
-    detail = get_drama_detail(drama_id)
+
+    # 1. Get Vidrama detail
+    detail_r = requests.get(f"{VIDRAMA_API}/detail/{drama_vidrama_id}?lang=id_ID", headers=WEB_HDRS, timeout=15, verify=False)
+    detail = detail_r.json()['data']
+    total_eps = detail.get('totalEpisodes', 0)
+    print(f"[INFO] {detail['title']} — {total_eps} episodes")
+
+    # 2. Get or create drama in DB
     db_id = api_get_or_create_drama(detail, slug, detail['cover'])
     if not db_id:
-        print(f"[ERROR] Failed to create drama in DB")
+        print("[ERROR] Failed to create drama in DB")
         return
+    print(f"[DB] Drama ID: {db_id}")
 
+    # 3. Cover
     cover_key = f"{prefix}/cover.webp"
-    cover_url = f"{R2_PUBLIC}/{cover_key}"
     if not r2_exists(r2, cover_key):
         try:
             cov = requests.get(detail['cover'], headers=WEB_HDRS, timeout=30, verify=False)
@@ -162,97 +143,83 @@ def process_single_drama(cfg):
             p.write_bytes(cov.content)
             r2_upload(r2, p, cover_key, 'image/webp')
             p.unlink()
-            print(f"[COVER] Uploaded to R2")
-        except Exception as e:
-            print(f"[WARN] Cover upload failed: {e}")
-            cover_url = detail['cover']
+            print("[COVER] Uploaded")
+        except: pass
     else:
-        print(f"[COVER] Already in R2")
-    
-    episodes = detail.get('episodes', [])
-    ready_episodes = []
+        print("[COVER] Already in R2")
+
+    # 4. Process episodes 10-67 (skip 1-9 if already in R2)
+    ready = []
     skipped = 0
     success = 0
     failed = 0
-    
-    for ep in episodes:
-        no = ep['episodeNo']
-        k720, k540 = f"{prefix}/ep{no:03d}.mp4", f"{prefix}/ep{no:03d}_540p.mp4"
-        
-        is_in_r2 = r2_exists(r2, k720)
-        
-        if is_in_r2:
-            print(f"  ep{no:03d}: ALREADY in R2", flush=True)
-            _, _, v_sub_url = get_episode_url(drama_id, no)
-            final_sub_r2 = None
-            if v_sub_url:
-                sub_key = f"{prefix}/ep{no:03d}.vtt"
-                try:
-                    sub_r = requests.get(v_sub_url, timeout=10, verify=False)
-                    if sub_r.ok:
-                        r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_r.content, ContentType='text/vtt')
-                        final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
-                except: pass
-            
+
+    for ep_no in range(10, total_eps + 1):
+        k720 = f"{prefix}/ep{ep_no:03d}.mp4"
+        k540 = f"{prefix}/ep{ep_no:03d}_540p.mp4"
+        ksub = f"{prefix}/ep{ep_no:03d}.vtt"
+
+        if r2_exists(r2, k720):
+            print(f"  ep{ep_no:03d}: ALREADY in R2", flush=True)
             u720 = f"{R2_PUBLIC}/{k720}"
             u540 = f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None
-            api_upsert_episode(db_id, no, u720, u540, final_sub_r2)
-            ready_episodes.append({'no': no, 'u720': u720, 'u540': u540, 'sub': final_sub_r2})
+            sub_url = None
+            if r2_exists(r2, ksub):
+                sub_url = f"{R2_PUBLIC}/{ksub}"
+            api_upsert_episode(db_id, ep_no, u720, u540, sub_url)
+            ready.append(ep_no)
             success += 1
             continue
-        
-        print(f"  ep{no:03d}: downloading & transcoding...", flush=True)
-        vurl, ns_ep_id, v_sub_url = get_episode_url(drama_id, no)
-        if not vurl: 
-            print(f"    [WARN] No URL for ep{no}, skipping.")
+
+        print(f"  ep{ep_no:03d}: downloading...", flush=True)
+        vurl, sub_url_raw = get_episode_url(drama_vidrama_id, ep_no)
+        if not vurl:
+            print(f"    [WARN] No URL for ep{ep_no}")
             skipped += 1
             continue
-        
+
+        # Subtitle
         final_sub_r2 = None
-        if v_sub_url:
-            sub_key = f"{prefix}/ep{no:03d}.vtt"
+        if sub_url_raw:
             try:
-                sub_r = requests.get(v_sub_url, timeout=10, verify=False)
+                sub_r = requests.get(sub_url_raw, timeout=10, verify=False)
                 if sub_r.ok:
-                    r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_r.content, ContentType='text/vtt')
-                    final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
+                    r2.put_object(Bucket=R2_BUCKET, Key=ksub, Body=sub_r.content, ContentType='text/vtt')
+                    final_sub_r2 = f"{R2_PUBLIC}/{ksub}"
             except: pass
 
-        raw = TEMP_DIR / f"{slug}_raw_{no}.mp4"
-        o720 = TEMP_DIR / f"{slug}_720_{no}.mp4"
-        o540 = TEMP_DIR / f"{slug}_540_{no}.mp4"
-        
+        raw = TEMP_DIR / f"{slug}_raw_{ep_no}.mp4"
+        o720 = TEMP_DIR / f"{slug}_720_{ep_no}.mp4"
+        o540 = TEMP_DIR / f"{slug}_540_{ep_no}.mp4"
+
         try:
             with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False) as r:
                 with open(raw, 'wb') as f:
                     for c in r.iter_content(2*1024*1024): f.write(c)
-            
+
             if encode_720_and_540(raw, o720, o540):
                 u720 = r2_upload(r2, o720, k720)
                 u540 = r2_upload(r2, o540, k540) if o540.exists() else None
-                api_upsert_episode(db_id, no, u720, u540, final_sub_r2)
-                ready_episodes.append({'no': no, 'u720': u720, 'u540': u540, 'sub': final_sub_r2})
-                print(f"    ep{no:03d}: SUCCESS", flush=True)
+                api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
+                print(f"    ep{ep_no:03d}: SUCCESS", flush=True)
+                ready.append(ep_no)
                 success += 1
             else:
-                print(f"    [ERROR] Ffmpeg failed for ep{no}. Skipping.")
+                print(f"    [ERROR] Ffmpeg failed")
                 failed += 1
-        except Exception as e: 
-            print(f"    [ERROR] ep{no}: {e}. Skipping.")
+        except Exception as e:
+            print(f"    [ERROR] {e}")
             failed += 1
         finally:
             for p in [raw, o720, o540]:
                 if p.exists(): p.unlink()
 
-    print(f"\n{'='*65}")
-    print(f"[SUMMARY] {cfg['title']}")
-    print(f"  Total episodes in source: {len(episodes)}")
-    print(f"  Already in R2 + synced: {len(ready_episodes) - (success if success > 0 else 0)}")
+    print(f"\n{'='*60}")
+    print(f"[DONE] Total: {total_eps}")
     print(f"  Newly processed: {success}")
     print(f"  Skipped (no URL): {skipped}")
     print(f"  Failed: {failed}")
-    print(f"  DB Drama ID: {db_id}")
-    print(f"{'='*65}")
+    print(f"  DB ID: {db_id}")
 
 if __name__ == "__main__":
-    process_single_drama(DRAMA_CONFIG)
+    main()
