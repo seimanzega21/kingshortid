@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Netshort V2 Scraper - KingShort Pipeline (Auto-Discovery)
-======================================================
-Automatically discovers all dramas from NetshortV2 feeds,
-downloads episodes using VIP cookie, transcodes to 720p/540p,
-uploads to R2, and syncs to KingShort via API.
+Single Drama Scraper - Perjuangan Pewaris Sejati
+Scrape satu drama spesifik dengan mekanisme resume (skip episode yg sudah di R2).
 """
 import sys
+sys.path.insert(0, 'D:\\kingshortid\\scripts')
+
 import requests
 import boto3
 import subprocess
@@ -42,16 +41,18 @@ WEB_HDRS    = {
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_scraper'
 TEMP_DIR.mkdir(exist_ok=True)
 
+# ── Drama Config ─────────────────────────────────────────────────────────────
+DRAMA_CONFIG = {
+    'title': 'Perjuangan Pewaris Sejati',
+    'drama_id': '2009874568801701890',
+    'slug': 'perjuangan-pewaris-sejati'
+}
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 def slugify(text):
     text = text.lower()
     text = re.sub(r'[^a-z0-9]+', '-', text)
     return text.strip('-')
-
-def has_non_latin(text):
-    # Detects Chinese, Korean, Japanese characters
-    # Range: \u4e00-\u9fff (Chinese), \u3040-\u30ff (Japanese), \uac00-\ud7af (Korean)
-    return bool(re.search(r'[\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]', text))
 
 # ── R2 ────────────────────────────────────────────────────────────────────────
 def get_r2():
@@ -72,34 +73,6 @@ def r2_upload(r2, local_path, key, content_type='video/mp4'):
     return f"{R2_PUBLIC}/{key}"
 
 # ── Vidrama API ───────────────────────────────────────────────────────────────
-def discover_dramas():
-    """Fetches all dramas from netshortv2 feeds."""
-    found = []
-    page = 1
-    max_pages = 20
-    while page <= max_pages:
-        print(f"[DISCOVER] Page {page}...", flush=True)
-        url = f"{VIDRAMA_API}/feed/{page}?lang=id_ID"
-        try:
-            r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
-            if not r.ok: break
-            items = r.json().get('data', [])
-            if not items: break
-            for it in items:
-                title = it.get('title', '')
-                if has_non_latin(title):
-                    print(f"  - Skipping (Non-Latin): {title}", flush=True)
-                    continue
-                print(f"  - Found: {title}", flush=True)
-                found.append({
-                    'title': title,
-                    'drama_id': it.get('id'),
-                    'slug': slugify(title)
-                })
-            page += 1
-        except: break
-    return found
-
 def get_drama_detail(drama_id):
     url = f"{VIDRAMA_API}/detail/{drama_id}?lang=id_ID"
     r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
@@ -114,12 +87,9 @@ def get_episode_url(drama_id, ep_no, retries=3):
             if data.get('code') == 200:
                 videos = data['data'].get('videos', [])
                 ep_id  = data['data'].get('episodeId', '')
-                
-                # Extract Subtitles
                 subs = data['data'].get('subtitles', [])
                 id_sub = next((s['url'] for s in subs if s.get('language') == 'id_ID'), None)
-                if not id_sub and subs: id_sub = subs[0]['url'] # Fallback to first
-                
+                if not id_sub and subs: id_sub = subs[0]['url']
                 best_video = None
                 for q in ['720p', '1080p', '540p']:
                     for v in videos:
@@ -127,9 +97,7 @@ def get_episode_url(drama_id, ep_no, retries=3):
                             best_video = v['url']
                             break
                     if best_video: break
-                
                 if not best_video and videos: best_video = videos[0]['url']
-                
                 return best_video, ep_id, id_sub
         except: time.sleep(2)
     return None, None, None
@@ -155,20 +123,12 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
     if url_540: payload['videoUrl540p'] = url_540
     r = requests.post(f"{API_BASE}/api/admin/dramas/{drama_db_id}/episodes", headers=ADMIN_HDR, json=payload, timeout=20)
     if not r.ok: return None
-    
     ep_id = r.json().get('id')
     if ep_id and sub_url:
-        sub_payload = {
-            'language': 'indonesia',
-            'label': 'Indonesia',
-            'url': sub_url,
-            'isDefault': True
-        }
+        sub_payload = {'language': 'indonesia', 'label': 'Indonesia', 'url': sub_url, 'isDefault': True}
         r_sub = requests.post(f"{API_BASE}/api/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
-        if r_sub.ok:
-            print(f" (Sub Synced)", end="", flush=True)
-        else:
-            print(f" (Sub Failed: {r_sub.status_code})", end="", flush=True)
+        if r_sub.ok: print(f" (Sub Synced)", end="", flush=True)
+        else: print(f" (Sub Failed: {r_sub.status_code})", end="", flush=True)
     return ep_id
 
 # ── Processing ───────────────────────────────────────────────────────────────
@@ -181,13 +141,17 @@ def encode_720_and_540(inp, out_720, out_540):
             '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', '-loglevel', 'error', str(out_540)]
     return subprocess.run(cmd3, timeout=600).returncode == 0
 
-def process_drama(cfg, r2):
+def process_single_drama(cfg):
+    r2 = get_r2()
     slug, drama_id = cfg['slug'], cfg['drama_id']
     prefix = f"netshortv2/{slug}"
-    print(f"\n{'='*65}\n[DRAMA] {slug} ({drama_id})")
+    print(f"\n{'='*65}\n[DRAMA] {cfg['title']} ({drama_id})")
     
     detail = get_drama_detail(drama_id)
-    db_id = api_get_or_create_drama(detail, slug, detail['cover']) # Get ID early
+    db_id = api_get_or_create_drama(detail, slug, detail['cover'])
+    if not db_id:
+        print(f"[ERROR] Failed to create drama in DB")
+        return
 
     cover_key = f"{prefix}/cover.webp"
     cover_url = f"{R2_PUBLIC}/{cover_key}"
@@ -198,21 +162,27 @@ def process_drama(cfg, r2):
             p.write_bytes(cov.content)
             r2_upload(r2, p, cover_key, 'image/webp')
             p.unlink()
-        except: cover_url = detail['cover']
+            print(f"[COVER] Uploaded to R2")
+        except Exception as e:
+            print(f"[WARN] Cover upload failed: {e}")
+            cover_url = detail['cover']
+    else:
+        print(f"[COVER] Already in R2")
     
     episodes = detail.get('episodes', [])
-    # Temporary list to hold episode data before DB sync
     ready_episodes = []
+    skipped = 0
+    success = 0
+    failed = 0
     
     for ep in episodes:
         no = ep['episodeNo']
         k720, k540 = f"{prefix}/ep{no:03d}.mp4", f"{prefix}/ep{no:03d}_540p.mp4"
         
-        # Check if already in R2
         is_in_r2 = r2_exists(r2, k720)
         
         if is_in_r2:
-            print(f"  ep{no:03d}: ALREADY in R2 (Checking subtitles...)", flush=True)
+            print(f"  ep{no:03d}: ALREADY in R2", flush=True)
             _, _, v_sub_url = get_episode_url(drama_id, no)
             final_sub_r2 = None
             if v_sub_url:
@@ -224,19 +194,20 @@ def process_drama(cfg, r2):
                         final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
                 except: pass
             
-            u720, u540 = f"{R2_PUBLIC}/{k720}", f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None
+            u720 = f"{R2_PUBLIC}/{k720}"
+            u540 = f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None
             api_upsert_episode(db_id, no, u720, u540, final_sub_r2)
             ready_episodes.append({'no': no, 'u720': u720, 'u540': u540, 'sub': final_sub_r2})
+            success += 1
             continue
         
-        # Process new episode
         print(f"  ep{no:03d}: downloading & transcoding...", flush=True)
         vurl, ns_ep_id, v_sub_url = get_episode_url(drama_id, no)
         if not vurl: 
-            print(f"    [WARN] No URL for ep{no}, skipping episode.")
-            continue # SKIP episode ini, lanjut ke episode berikutnya
+            print(f"    [WARN] No URL for ep{no}, skipping.")
+            skipped += 1
+            continue
         
-        # Subtitle handle
         final_sub_r2 = None
         if v_sub_url:
             sub_key = f"{prefix}/ep{no:03d}.vtt"
@@ -247,7 +218,10 @@ def process_drama(cfg, r2):
                     final_sub_r2 = f"{R2_PUBLIC}/{sub_key}"
             except: pass
 
-        raw, o720, o540 = TEMP_DIR/f"{slug}_raw.mp4", TEMP_DIR/f"{slug}_720.mp4", TEMP_DIR/f"{slug}_540.mp4"
+        raw = TEMP_DIR / f"{slug}_raw_{no}.mp4"
+        o720 = TEMP_DIR / f"{slug}_720_{no}.mp4"
+        o540 = TEMP_DIR / f"{slug}_540_{no}.mp4"
+        
         try:
             with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False) as r:
                 with open(raw, 'wb') as f:
@@ -256,66 +230,29 @@ def process_drama(cfg, r2):
             if encode_720_and_540(raw, o720, o540):
                 u720 = r2_upload(r2, o720, k720)
                 u540 = r2_upload(r2, o540, k540) if o540.exists() else None
+                api_upsert_episode(db_id, no, u720, u540, final_sub_r2)
                 ready_episodes.append({'no': no, 'u720': u720, 'u540': u540, 'sub': final_sub_r2})
                 print(f"    ep{no:03d}: SUCCESS", flush=True)
+                success += 1
             else:
-                print(f"    [ERROR] Ffmpeg failed for ep{no}. Skipping episode.")
-                # cleanup files
-                for p in [raw, o720, o540]:
-                    if p.exists(): p.unlink()
-                continue # SKIP episode ini
+                print(f"    [ERROR] Ffmpeg failed for ep{no}. Skipping.")
+                failed += 1
         except Exception as e: 
-            print(f"    [ERROR] ep{no}: {e}. Skipping episode.")
-            # cleanup files
+            print(f"    [ERROR] ep{no}: {e}. Skipping.")
+            failed += 1
+        finally:
             for p in [raw, o720, o540]:
                 if p.exists(): p.unlink()
-            continue # SKIP episode ini
 
-    # PHASE 2: SYNC TO DATABASE (Only if we reached here with all episodes processed)
-    if len(ready_episodes) > 0:
-        print(f"\n[SYNC] Registering {slug} to Database with {len(ready_episodes)} episodes...")
-        db_id = api_get_or_create_drama(detail, slug, cover_url)
-        if db_id:
-            for rep in ready_episodes:
-                api_upsert_episode(db_id, rep['no'], rep['u720'], rep['u540'], rep.get('sub'))
-            print(f"[SUCCESS] {slug} is now complete in Admin Panel.")
-        else:
-            print(f"[ERROR] Failed to register drama {slug} in DB.")
-    else:
-        print(f"[SKIP] No episodes processed for {slug}.")
-
-def main():
-    print("[START] NetshortV2 Scraper - Priority & Discovery Mode")
-    r2 = get_r2()
-    
-    # Priority Dramas first
-    priority = [
-        {'title': 'Perjuangan Pewaris Sejati', 'drama_id': '2009874568801701890', 'slug': 'perjuangan-pewaris-sejati'},
-        {'title': 'Jenderal, Masakanku Siap', 'drama_id': '2045396177699995650', 'slug': 'jenderal-masakanku-siap'},
-        {'title': '(Sulih suara) Dia Kembali dari Balik Legenda', 'drama_id': '2011980833696841730', 'slug': 'dia-kembali-dari-balik-legenda'},
-        {'title': 'Krisis Mineral Penuh Intrik', 'drama_id': '1996524173033156610', 'slug': 'krisis-mineral-penuh-intrik'},
-        {'title': 'Permainan Hasrat Khusus Sang CEO', 'drama_id': '2045032067133079554', 'slug': 'permainan-hasrat-sang-ceo'},
-        {'title': '(Sulih suara) Menantu Kerajaan dari Masa Depan', 'drama_id': '2033434071169761281', 'slug': 'menantu-kerajaan-masa-depan'},
-        {'title': '(Sulih suara) Demi Putriku, Identitasku Bocor', 'drama_id': '2036701497621741570', 'slug': 'demi-putriku-identitasku-bocor'},
-        {'title': 'Kode Cinta Robot', 'drama_id': '2044326309693227010', 'slug': 'kode-cinta-robot'},
-        {'title': '(Sulih suara) Pemilik Kitab Pedang', 'drama_id': '2036690458087784450', 'slug': 'pemilik-kitab-pedang'},
-    ]
-    
-    print(f"[INFO] Processing {len(priority)} Priority Dramas...")
-    for d in priority:
-        process_drama(d, r2)
-        
-    print("\n[INFO] Starting Discovery for other dramas...")
-    dramas = discover_dramas()
-    # Filter out priority ones from discovery to avoid double check
-    priority_ids = [p['drama_id'] for p in priority]
-    to_process = [d for d in dramas if d['drama_id'] not in priority_ids]
-    
-    print(f"[INFO] {len(to_process)} more dramas found in discovery.")
-    for d in to_process:
-        process_drama(d, r2)
-    
-    print("\n[DONE]")
+    print(f"\n{'='*65}")
+    print(f"[SUMMARY] {cfg['title']}")
+    print(f"  Total episodes in source: {len(episodes)}")
+    print(f"  Already in R2 + synced: {len(ready_episodes) - (success if success > 0 else 0)}")
+    print(f"  Newly processed: {success}")
+    print(f"  Skipped (no URL): {skipped}")
+    print(f"  Failed: {failed}")
+    print(f"  DB Drama ID: {db_id}")
+    print(f"{'='*65}")
 
 if __name__ == "__main__":
-    main()
+    process_single_drama(DRAMA_CONFIG)
