@@ -61,7 +61,6 @@ export async function getAuthUser(c: Context<Env>) {
     if (user) {
         const now = new Date();
         const lastSeenTime = user.lastSeen ? new Date(user.lastSeen).getTime() : 0;
-        // Update lastSeen at most once every 2 minutes (120000 ms) to reduce DB writes
         const needsLastSeenUpdate = now.getTime() - lastSeenTime > 120000;
         
         let vipExpired = false;
@@ -87,18 +86,15 @@ export async function getAuthUser(c: Context<Env>) {
             if (adFreeExpired) {
                 updateData.adFreeExpiry = null;
             }
-            // Fire-and-forget: update DB
             db.update(users).set(updateData).where(eq(users.id, user.id)).catch(() => {});
         }
         
-        // Set computed fields for convenience
         (user as any).isAdFreeActive = user.adFreeExpiry ? new Date(user.adFreeExpiry).getTime() > now.getTime() : false;
     }
 
     return user;
 }
 
-// Middleware: require authentication
 export async function requireAuth(c: Context<Env>, next: Next) {
     const user = await getAuthUser(c);
     if (!user) {
@@ -108,7 +104,6 @@ export async function requireAuth(c: Context<Env>, next: Next) {
     await next();
 }
 
-// Middleware: require admin role
 export async function requireAdmin(c: Context<Env>, next: Next) {
     const adminKey = c.req.header('X-Admin-Key');
     if (adminKey && adminKey === c.env.ADMIN_API_KEY) {
