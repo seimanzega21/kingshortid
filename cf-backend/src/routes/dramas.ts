@@ -351,8 +351,11 @@ dramasRoute.get('/:id', async (c) => {
         const episodeIds = eps.map(e => e.id);
         let allSubtitles: any[] = [];
         if (episodeIds.length > 0) {
-            allSubtitles = await db.select().from(subtitles)
-                .where(sql`${subtitles.episodeId} IN (${sql.join(episodeIds, sql`, `)})`);
+            for (const epId of episodeIds) {
+                const subs = await db.select().from(subtitles)
+                    .where(eq(subtitles.episodeId, epId));
+                allSubtitles.push(...subs);
+            }
         }
 
         const epsWithSubs = eps.map(ep => ({
