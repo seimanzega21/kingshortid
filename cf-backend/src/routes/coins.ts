@@ -106,6 +106,7 @@ coinsRoute.post('/watch-ad', async (c) => {
     try {
         const userId = c.get('user').id;
         const { type = 'general' } = await c.req.json();
+        const now = new Date();
         // WIB = UTC+7. Midnight WIB is 17:00 UTC of previous day.
         const wibNow = new Date(now.getTime() + 7 * 60 * 60 * 1000);
         const y = wibNow.getUTCFullYear();
