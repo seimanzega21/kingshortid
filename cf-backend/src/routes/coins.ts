@@ -332,4 +332,94 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
     }
 });
 
+// ── POST /api/coins/fix-vip-status ────────────────────────────────────────────
+// Fix single user VIP status manually (for users affected by old bug)
+coinsRoute.post('/fix-vip-status', async (c) => {
+    try {
+        const { email } = await c.req.json();
+        if (!email) return c.json({ error: 'Email diperlukan' }, 400);
+
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const user = await db.select().from(users).where(eq(users.email, email)).limit(1).then((r: any[]) => r[0]);
+        if (!user) return c.json({ error: 'User tidak ditemukan' }, 404);
+
+        const now = new Date();
+        const hasActiveAdFree = user.adFreeExpiry && new Date(user.adFreeExpiry) > now;
+        const alreadyVip = user.vipStatus === true;
+
+        let patched = false;
+        if (hasActiveAdFree && !alreadyVip) {
+            await db.update(users).set({
+                vipStatus: true,
+                vipExpiry: user.adFreeExpiry,
+                updatedAt: now,
+            }).where(eq(users.id, user.id));
+            patched = true;
+        }
+
+        return c.json({
+            success: true,
+            patched,
+            email: user.email,
+            name: user.name,
+            before: {
+                vipStatus: user.vipStatus,
+                vipExpiry: user.vipExpiry,
+                adFreeExpiry: user.adFreeExpiry,
+            },
+            after: patched ? {
+                vipStatus: true,
+                vipExpiry: user.adFreeExpiry,
+            } : null,
+            message: patched
+                ? `VIP status berhasil diperbaiki untuk ${email}`
+                : `Tidak perlu patch: ${alreadyVip ? 'sudah VIP' : 'tidak punya adFree aktif'}`,
+        });
+    } catch (error: any) {
+        console.error('Fix VIP status error:', error);
+        return c.json({ error: 'Gagal memperbaiki VIP status', message: error?.message }, 500);
+    }
+});
+
+// ── POST /api/coins/migrate-vip ───────────────────────────────────────────────
+// Mass-migrate all users with active adFreeExpiry but vipStatus=false
+coinsRoute.post('/migrate-vip', async (c) => {
+    try {
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        const now = new Date();
+
+        // Find all users with active adFree but vipStatus=false
+        const affectedUsers = await db.select({
+            id: users.id,
+            email: users.email,
+            name: users.name,
+            adFreeExpiry: users.adFreeExpiry,
+            vipStatus: users.vipStatus,
+        }).from(users).where(
+            sql`${users.adFreeExpiry} IS NOT NULL AND ${users.adFreeExpiry} > ${now} AND (${users.vipStatus} = false OR ${users.vipStatus} IS NULL)`
+        );
+
+        let fixedCount = 0;
+        for (const u of affectedUsers) {
+            await db.update(users).set({
+                vipStatus: true,
+                vipExpiry: u.adFreeExpiry,
+                updatedAt: now,
+            }).where(eq(users.id, u.id));
+            fixedCount++;
+        }
+
+        return c.json({
+            success: true,
+            affectedCount: affectedUsers.length,
+            fixedCount,
+            users: affectedUsers.map(u => ({ email: u.email, name: u.name, adFreeExpiry: u.adFreeExpiry })),
+            message: `${fixedCount} user berhasil dimigrasi ke VIP status`,
+        });
+    } catch (error: any) {
+        console.error('Migrate VIP error:', error);
+        return c.json({ error: 'Gagal migrasi VIP', message: error?.message }, 500);
+    }
+});
+
 export default coinsRoute;
