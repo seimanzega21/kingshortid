@@ -193,6 +193,9 @@ coinsRoute.post('/topup', async (c) => {
         const serverKey = c.env.MIDTRANS_SERVER_KEY;
         const isProduction = String(c.env.MIDTRANS_IS_PRODUCTION || '').toLowerCase() === 'true';
 
+        console.log('[TOPUP DEBUG] Server Key exists:', !!serverKey, 'First 10 chars:', serverKey?.slice(0, 10));
+        console.log('[TOPUP DEBUG] isProduction:', isProduction);
+
         const snapUrl = isProduction
             ? 'https://app.midtrans.com/snap/v1/transactions'
             : 'https://app.sandbox.midtrans.com/snap/v1/transactions';
@@ -214,6 +217,8 @@ coinsRoute.post('/topup', async (c) => {
             },
         };
 
+        console.log('[TOPUP DEBUG] Request body:', JSON.stringify(requestBody));
+
         const snapRes = await fetch(snapUrl, {
             method: 'POST',
             headers: {
@@ -222,6 +227,8 @@ coinsRoute.post('/topup', async (c) => {
             },
             body: JSON.stringify(requestBody),
         });
+
+        console.log('[TOPUP DEBUG] Midtrans response status:', snapRes.status);
 
         if (!snapRes.ok) {
             const errBody = await snapRes.text().catch(() => 'Unknown error');
