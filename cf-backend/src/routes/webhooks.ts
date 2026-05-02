@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
-import { eq } from 'drizzle-orm';
+import { eq, sql } from 'drizzle-orm';
 import { getDb } from '../db';
-import { users } from '../db/schema';
+import { users, coinTransactions } from '../db/schema';
 import type { Env } from '../middleware/auth';
 
 const webhooksRoute = new Hono<Env>();
@@ -88,4 +88,92 @@ webhooksRoute.post('/revenuecat', async (c) => {
     return c.json({ ok: true });
 });
 
+// POST /api/webhooks/midtrans
+// Called by Midtrans when a Top Up payment completes
+webhooksRoute.post('/midtrans', async (c) => {
+    try {
+        let body: any;
+        try {
+            body = await c.req.json();
+        } catch {
+            return c.json({ ok: true });
+        }
+
+        const { order_id, transaction_status, gross_amount, status_code } = body;
+        console.log(`Midtrans webhook: order_id=${order_id}, status=${transaction_status}`);
+
+        // Only process successful payments
+        const successStatuses = ['capture', 'settlement'];
+        const pendingStatuses = ['pending', 'authorize'];
+        const failedStatuses = ['deny', 'cancel', 'expire', 'failure'];
+
+        if (!order_id || !order_id.toString().startsWith('KU-')) {
+            return c.json({ ok: true });
+        }
+
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        // Find the transaction
+        const tx = await db.select()
+            .from(coinTransactions)
+            .where(eq(coinTransactions.reference, order_id.toString()))
+            .limit(1)
+            .then((r: any[]) => r[0]);
+
+        if (!tx) {
+            console.warn(`Midtrans webhook: transaction ${order_id} not found`);
+            return c.json({ ok: true });
+        }
+
+        // Already processed?
+        if (tx.type === 'topup' && tx.status === 'success') {
+            return c.json({ ok: true, alreadyProcessed: true });
+        }
+
+        const userId = tx.userId;
+        const coinAmount = tx.amount;
+
+        if (successStatuses.includes(transaction_status)) {
+            // Update user coins
+            await db.update(users)
+                .set({
+                    coins: sql`${users.coins} + ${coinAmount}`,
+                    updatedAt: new Date(),
+                })
+                .where(eq(users.id, userId));
+
+            // Update transaction to success
+            await db.update(coinTransactions)
+                .set({
+                    type: 'topup',
+                    status: 'success',
+                    balanceAfter: sql`(${users.coins} + ${coinAmount})`,
+                    description: tx.description.replace('Top Up', 'Top Up Success'),
+                })
+                .where(eq(coinTransactions.reference, order_id.toString()));
+
+            console.log(`Midtrans webhook: added ${coinAmount} coins to user ${userId}`);
+        } else if (failedStatuses.includes(transaction_status)) {
+            // Mark as failed
+            await db.update(coinTransactions)
+                .set({
+                    status: 'failed',
+                    description: tx.description + ' (FAILED)',
+                })
+                .where(eq(coinTransactions.reference, order_id.toString()));
+
+            console.log(`Midtrans webhook: marked ${order_id} as failed`);
+        } else if (pendingStatuses.includes(transaction_status)) {
+            // Keep as pending
+            console.log(`Midtrans webhook: transaction ${order_id} still pending`);
+        }
+
+        return c.json({ ok: true });
+    } catch (error: any) {
+        console.error('Midtrans webhook error:', error);
+        return c.json({ error: 'Webhook processing failed' }, 500);
+    }
+});
+
 export default webhooksRoute;
+

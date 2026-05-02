@@ -172,9 +172,89 @@ coinsRoute.post('/watch-ad', async (c) => {
 });
 
 // ── POST /api/coins/topup ───────────────────────────────────────────────────
-// LOCKED: Payment gateway integration not complete
 coinsRoute.post('/topup', async (c) => {
-    return c.json({ error: 'Top Up sedang dalam pengembangan. Fitur ini akan segera hadir!' }, 503);
+    try {
+        const user = c.get('user');
+        const userId = user.id;
+        const { packageId } = await c.req.json<{ packageId?: number }>();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        if (!packageId) {
+            return c.json({ error: 'packageId diperlukan' }, 400);
+        }
+
+        // Cari paket
+        const pkg = TOPUP_PACKAGES.find((p) => p.coins === packageId);
+        if (!pkg) {
+            return c.json({ error: 'Paket tidak valid', available: TOPUP_PACKAGES }, 400);
+        }
+
+        const orderId = `KU-${userId}-${Date.now()}`;
+        const serverKey = c.env.MIDTRANS_SERVER_KEY;
+        const isProduction = String(c.env.MIDTRANS_IS_PRODUCTION || '').toLowerCase() === 'true';
+
+        const snapUrl = isProduction
+            ? 'https://app.midtrans.com/snap/v1/transactions'
+            : 'https://app.sandbox.midtrans.com/snap/v1/transactions';
+
+        const authToken = btoa(`${serverKey}:`);
+
+        const requestBody = {
+            transaction_details: {
+                order_id: orderId,
+                gross_amount: pkg.price,
+            },
+            customer_details: {
+                first_name: user.name || 'User',
+                email: user.email || '',
+                phone: '',
+            },
+            credit_card: {
+                secure: true,
+            },
+        };
+
+        const snapRes = await fetch(snapUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Basic ${authToken}`,
+            },
+            body: JSON.stringify(requestBody),
+        });
+
+        if (!snapRes.ok) {
+            const errBody = await snapRes.text().catch(() => 'Unknown error');
+            console.error('Midtrans error:', snapRes.status, errBody);
+            return c.json({ error: 'Gagal membuat transaksi Midtrans', detail: errBody }, 502);
+        }
+
+        const snapData: any = await snapRes.json();
+
+        // Simpan transaksi pending
+        await db.insert(coinTransactions).values({
+            userId,
+            type: 'topup_pending',
+            amount: pkg.coins,
+            description: `Top Up ${pkg.label} - ${orderId}`,
+            reference: orderId,
+            status: 'pending',
+        });
+
+        return c.json({
+            success: true,
+            orderId,
+            snapToken: snapData.token,
+            redirectUrl: snapData.redirect_url,
+            package: {
+                coins: pkg.coins,
+                price: pkg.price,
+            },
+        });
+    } catch (error: any) {
+        console.error('Topup error:', error);
+        return c.json({ error: 'Gagal memproses top up', message: error?.message || String(error) }, 500);
+    }
 });
 
 // ── POST /api/coins/redeem-ad-free ────────────────────────────────────────────

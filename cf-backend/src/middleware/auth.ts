@@ -17,6 +17,8 @@ export type Env = {
         ADMIN_API_KEY: string;
         REVENUECAT_WEBHOOK_SECRET: string;
         REVENUECAT_SECRET_KEY: string;
+        MIDTRANS_SERVER_KEY: string;
+        MIDTRANS_IS_PRODUCTION: string;
     };
     Variables: {
         user: typeof users.$inferSelect;

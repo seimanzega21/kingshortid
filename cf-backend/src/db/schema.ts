@@ -184,6 +184,7 @@ export const coinTransactions = pgTable('coin_transactions', {
     description: text('description').notNull(),
     reference: text('reference'),
     balanceAfter: integer('balance_after'),
+    status: text('status').default('completed'),
 
     createdAt: timestampNow('created_at'),
 }, (table) => ({
