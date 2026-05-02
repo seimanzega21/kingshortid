@@ -76,15 +76,12 @@ coinsRoute.get('/status', async (c) => {
         return c.json({
             coins: user.coins,
             purchasedCoins: user.purchasedCoins || 0,
-            // General ad (Keuntungan Umum/Tonton): max 10/day
-            adWatchCount: generalCount,
-            adsRemaining: Math.max(0, 10 - generalCount),
-            // Cek Lainnya (after check-in): max 5/day
+            adWatchCount: 0,
+            adsRemaining: 0,
             cekLainnyaCount,
-            cekLainnyaRemaining: Math.max(0, 5 - cekLainnyaCount),
-            // Total per day
-            totalAdCount: generalCount + cekLainnyaCount,
-            totalAdsRemaining: Math.max(0, 15 - (generalCount + cekLainnyaCount)),
+            cekLainnyaRemaining: Math.max(0, 15 - cekLainnyaCount),
+            totalAdCount: cekLainnyaCount,
+            totalAdsRemaining: Math.max(0, 15 - cekLainnyaCount),
             adFreeRemaining,
             vipRemaining,
             adFreePackages: AD_FREE_PACKAGES,
@@ -114,7 +111,10 @@ coinsRoute.post('/watch-ad', async (c) => {
         // Determine reward config based on ad type
         const isCekLainnya = type === 'cek_lainnya';
         const rewardType = isCekLainnya ? 'cek_lainnya' : 'ad_general';
-        const maxPerDay = isCekLainnya ? 5 : 10;
+        const maxPerDay = isCekLainnya ? 15 : 0;
+        if (!isCekLainnya) {
+            return c.json({ error: 'Iklan umum sudah diganti dengan Cek Lainnya (Ad). Silakan gunakan tombol Cek Lainnya.' }, 400);
+        }
         const rewardCoins = AD_REWARD; // 20
 
         // Check daily limit from dailyRewards table
