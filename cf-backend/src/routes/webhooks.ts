@@ -125,8 +125,8 @@ webhooksRoute.post('/midtrans', async (c) => {
             return c.json({ ok: true });
         }
 
-        // Already processed?
-        if (tx.type === 'topup' && tx.status === 'success') {
+        // Already processed? (type sudah 'topup' dan bukan 'topup_pending')
+        if (tx.type === 'topup' && !tx.description?.includes('pending')) {
             return c.json({ ok: true, alreadyProcessed: true });
         }
 
