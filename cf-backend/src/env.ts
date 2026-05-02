@@ -25,4 +25,10 @@ export const serverEnv = {
     get FIREBASE_SERVICE_ACCOUNT() {
         return process.env.FIREBASE_SERVICE_ACCOUNT || '';
     },
+    get MIDTRANS_SERVER_KEY() {
+        return process.env.MIDTRANS_SERVER_KEY || '';
+    },
+    get MIDTRANS_IS_PRODUCTION() {
+        return process.env.MIDTRANS_IS_PRODUCTION || 'false';
+    },
 };
