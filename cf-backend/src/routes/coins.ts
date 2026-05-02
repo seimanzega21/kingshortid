@@ -197,7 +197,7 @@ coinsRoute.post('/topup', async (c) => {
             ? 'https://app.midtrans.com/snap/v1/transactions'
             : 'https://app.sandbox.midtrans.com/snap/v1/transactions';
 
-        const authToken = btoa(`${serverKey}:`);
+        const authToken = Buffer.from(`${serverKey}:`).toString('base64');
 
         const requestBody = {
             transaction_details: {
