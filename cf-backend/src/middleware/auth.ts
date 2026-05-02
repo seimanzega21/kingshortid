@@ -58,31 +58,43 @@ export async function getAuthUser(c: Context<Env>) {
 
     const user = result[0] || null;
 
-    if (user) {
-        const now = new Date();
-        const lastSeenTime = user.lastSeen ? new Date(user.lastSeen).getTime() : 0;
-        // Update lastSeen at most once every 2 minutes (120000 ms) to reduce DB writes
-        const needsLastSeenUpdate = now.getTime() - lastSeenTime > 120000;
-        
-        let vipExpired = false;
-        if (user.vipStatus && user.vipExpiry && new Date(user.vipExpiry).getTime() < now.getTime()) {
-            user.vipStatus = false;
-            vipExpired = true;
-        }
+        if (user) {
+            const now = new Date();
+            const lastSeenTime = user.lastSeen ? new Date(user.lastSeen).getTime() : 0;
+            // Update lastSeen at most once every 2 minutes (120000 ms) to reduce DB writes
+            const needsLastSeenUpdate = now.getTime() - lastSeenTime > 120000;
+            
+            let vipExpired = false;
+            if (user.vipStatus && user.vipExpiry && new Date(user.vipExpiry).getTime() < now.getTime()) {
+                user.vipStatus = false;
+                vipExpired = true;
+            }
 
-        if (needsLastSeenUpdate || vipExpired) {
-            const updateData: any = {};
-            if (needsLastSeenUpdate) {
-                updateData.lastSeen = now;
-                user.lastSeen = now;
+            let adFreeExpired = false;
+            if (user.adFreeExpiry && new Date(user.adFreeExpiry).getTime() < now.getTime()) {
+                adFreeExpired = true;
             }
-            if (vipExpired) {
-                updateData.vipStatus = false;
+
+            if (needsLastSeenUpdate || vipExpired || adFreeExpired) {
+                const updateData: any = {};
+                if (needsLastSeenUpdate) {
+                    updateData.lastSeen = now;
+                    user.lastSeen = now;
+                }
+                if (vipExpired) {
+                    updateData.vipStatus = false;
+                }
+                if (adFreeExpired) {
+                    updateData.adFreeExpiry = null;
+                }
+                // Fire-and-forget: update DB
+                db.update(users).set(updateData).where(eq(users.id, user.id)).catch(() => {});
             }
-            // Fire-and-forget: update DB
-            db.update(users).set(updateData).where(eq(users.id, user.id)).catch(() => {});
+            
+            // Set computed fields for convenience (outside the update block so always set)
+            (user as any).isAdFreeActive = user.adFreeExpiry ? new Date(user.adFreeExpiry).getTime() > now.getTime() : false;
         }
-    }
+        }
 
     return user;
 }
