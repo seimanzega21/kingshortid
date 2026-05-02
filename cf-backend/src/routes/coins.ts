@@ -320,8 +320,9 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
             userId,
             type: 'spend',
             amount: -pkg.coins,
-            description: pkg.label,
-            reference: `ad_free_${hours}h`,
+            description: `Tukar VIP ${pkg.hours} Jam`,
+            reference: `ad_free_${pkg.hours}h`,
+            balanceAfter: updatedUser?.coins || (user.coins - pkg.coins),
         });
 
         const totalSeconds = Math.floor((newExpiry.getTime() - now.getTime()) / 1000);
