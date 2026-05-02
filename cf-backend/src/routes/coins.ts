@@ -172,55 +172,9 @@ coinsRoute.post('/watch-ad', async (c) => {
 });
 
 // ── POST /api/coins/topup ───────────────────────────────────────────────────
+// LOCKED: Payment gateway integration not complete
 coinsRoute.post('/topup', async (c) => {
-    try {
-        const userId = c.get('user').id;
-        const { packageId } = await c.req.json();
-        const now = new Date();
-        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-
-        const pkg = TOPUP_PACKAGES.find(p => p.coins === packageId || p.label === packageId);
-        if (!pkg) {
-            return c.json({ error: 'Invalid package', available: TOPUP_PACKAGES }, 400);
-        }
-
-        const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
-        if (!user) return c.json({ error: 'User not found' }, 404);
-
-        // In production, this should integrate with payment gateway (Midtrans/Xendit)
-        // For now, we create a pending transaction record
-        const transactionId = `topup_${Date.now()}_${userId.slice(0, 8)}`;
-
-        await db.insert(coinTransactions).values({
-            userId,
-            type: 'topup',
-            amount: pkg.coins,
-            description: `Top Up ${pkg.label} - Rp ${pkg.price.toLocaleString('id-ID')}`,
-            reference: transactionId,
-        });
-
-        // NOTE: In real implementation, coins are added AFTER payment confirmation
-        // For testing/demo, we add immediately
-        await db.update(users).set({
-            coins: sql`${users.coins} + ${pkg.coins}`,
-            purchasedCoins: sql`${users.purchasedCoins} + ${pkg.coins}`,
-            updatedAt: now,
-        }).where(eq(users.id, userId));
-
-        const updatedUser = await db.select({ coins: users.coins, purchasedCoins: users.purchasedCoins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
-
-        return c.json({
-            success: true,
-            transactionId,
-            package: pkg,
-            newBalance: updatedUser?.coins,
-            purchasedCoins: updatedUser?.purchasedCoins,
-            message: 'Top up berhasil! (Demo mode - payment gateway belum terintegrasi)',
-        });
-    } catch (error) {
-        console.error('Topup error:', error);
-        return c.json({ error: 'Failed to process top up' }, 500);
-    }
+    return c.json({ error: 'Top Up sedang dalam pengembangan. Fitur ini akan segera hadir!' }, 503);
 });
 
 // ── POST /api/coins/redeem-ad-free ────────────────────────────────────────────
