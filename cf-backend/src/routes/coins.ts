@@ -36,7 +36,12 @@ coinsRoute.get('/status', async (c) => {
     try {
         const userId = c.get('user').id;
         const now = new Date();
-        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        // WIB = UTC+7. Midnight WIB is 17:00 UTC of previous day.
+        const wibNow = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        const y = wibNow.getUTCFullYear();
+        const m = wibNow.getUTCMonth();
+        const d = wibNow.getUTCDate();
+        const todayStart = new Date(Date.UTC(y, m, d) - 7 * 60 * 60 * 1000);
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
@@ -101,8 +106,12 @@ coinsRoute.post('/watch-ad', async (c) => {
     try {
         const userId = c.get('user').id;
         const { type = 'general' } = await c.req.json();
-        const now = new Date();
-        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        // WIB = UTC+7. Midnight WIB is 17:00 UTC of previous day.
+        const wibNow = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        const y = wibNow.getUTCFullYear();
+        const m = wibNow.getUTCMonth();
+        const d = wibNow.getUTCDate();
+        const todayStart = new Date(Date.UTC(y, m, d) - 7 * 60 * 60 * 1000);
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
