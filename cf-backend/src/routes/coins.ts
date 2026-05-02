@@ -238,7 +238,6 @@ coinsRoute.post('/topup', async (c) => {
             amount: pkg.coins,
             description: `Top Up ${pkg.label} - ${orderId}`,
             reference: orderId,
-            status: 'pending',
         });
 
         return c.json({

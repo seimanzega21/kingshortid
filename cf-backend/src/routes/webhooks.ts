@@ -146,7 +146,6 @@ webhooksRoute.post('/midtrans', async (c) => {
             await db.update(coinTransactions)
                 .set({
                     type: 'topup',
-                    status: 'success',
                     balanceAfter: sql`(${users.coins} + ${coinAmount})`,
                     description: tx.description.replace('Top Up', 'Top Up Success'),
                 })
@@ -157,7 +156,6 @@ webhooksRoute.post('/midtrans', async (c) => {
             // Mark as failed
             await db.update(coinTransactions)
                 .set({
-                    status: 'failed',
                     description: tx.description + ' (FAILED)',
                 })
                 .where(eq(coinTransactions.reference, order_id.toString()));
