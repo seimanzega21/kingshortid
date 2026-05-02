@@ -807,6 +807,25 @@ adminRoute.post('/run-migration', async (c) => {
             results.backfill_last_seen = false;
         }
 
+        // MONETIZATION MIGRATION: Add new columns for ad-free system
+        const monetizationMigrations = [
+            { name: 'ad_free_expiry', sql: `ALTER TABLE users ADD COLUMN IF NOT EXISTS ad_free_expiry TIMESTAMP WITH TIME ZONE` },
+            { name: 'purchased_coins', sql: `ALTER TABLE users ADD COLUMN IF NOT EXISTS purchased_coins INTEGER NOT NULL DEFAULT 0` },
+            { name: 'ad_watch_count', sql: `ALTER TABLE users ADD COLUMN IF NOT EXISTS ad_watch_count INTEGER NOT NULL DEFAULT 0` },
+            { name: 'ad_watch_date', sql: `ALTER TABLE users ADD COLUMN IF NOT EXISTS ad_watch_date TIMESTAMP WITH TIME ZONE` },
+            { name: 'device_fingerprint', sql: `ALTER TABLE users ADD COLUMN IF NOT EXISTS device_fingerprint TEXT` },
+        ];
+
+        for (const mig of monetizationMigrations) {
+            try {
+                await db.execute(sql.raw(mig.sql));
+                results[mig.name] = true;
+            } catch (e: any) {
+                results[mig.name] = false;
+                console.error(`Migration failed for ${mig.name}:`, e?.message || e);
+            }
+        }
+
         // Verify columns exist
         const check = await db.execute(sql`
             SELECT column_name FROM information_schema.columns
