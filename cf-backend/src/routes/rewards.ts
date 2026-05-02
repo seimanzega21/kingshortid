@@ -8,13 +8,13 @@ const rewardsRoute = new Hono<Env>();
 rewardsRoute.use('*', requireAuth);
 
 const STREAK_BONUSES = [
-    { day: 1, coins: 10 },
-    { day: 2, coins: 15 },
-    { day: 3, coins: 20 },
-    { day: 4, coins: 25 },
-    { day: 5, coins: 30 },
-    { day: 6, coins: 40 },
-    { day: 7, coins: 100 },
+    { day: 1, coins: 50 },
+    { day: 2, coins: 50 },
+    { day: 3, coins: 50 },
+    { day: 4, coins: 50 },
+    { day: 5, coins: 50 },
+    { day: 6, coins: 50 },
+    { day: 7, coins: 500 },
 ];
 
 // Coin milestones: target → bonus reward
@@ -49,9 +49,19 @@ rewardsRoute.post('/check-in', async (c) => {
             return c.json({ error: 'Already checked in today', streak: user.checkInStreak }, 400);
         }
 
-        const todayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000);
-        const dayOfWeek = todayWIB.getUTCDay() === 0 ? 7 : todayWIB.getUTCDay();
-        let newStreak = dayOfWeek; // Day 1 = Monday, Day 7 = Sunday
+        // Check if user checked in yesterday (WIB)
+        const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
+        const yesterdayDateStr = toWIBDateString(yesterdayWIB);
+        const lastCheckInDateStr = user.lastCheckIn ? toWIBDateString(new Date(user.lastCheckIn)) : null;
+
+        let newStreak: number;
+        if (lastCheckInDateStr === yesterdayDateStr) {
+            // Checked in yesterday - increment streak
+            newStreak = Math.min((user.checkInStreak || 0) + 1, 7);
+        } else {
+            // Missed a day - reset to day 1
+            newStreak = 1;
+        }
 
         const bonusInfo = STREAK_BONUSES.find(b => b.day === newStreak) || STREAK_BONUSES[0];
         // Use atomic increment for better reliability
@@ -86,6 +96,7 @@ rewardsRoute.post('/check-in', async (c) => {
             reward: bonusInfo.coins,
             newBalance,
             isWeeklyBonus: newStreak === 7,
+            message: newStreak === 7 ? 'Selamat! Bonus mingguan 500 koin!' : `Hari ke-${newStreak}: +${bonusInfo.coins} koin`,
         });
     } catch (error) {
         console.error('Check-in error:', error);
