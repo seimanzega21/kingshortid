@@ -41,13 +41,13 @@ export async function GET(request: NextRequest) {
         }
 
         const rewards = [
-            { day: 1, coins: 5, claimed: streak >= 1, claimable: canCheckIn && streak === 0 },
-            { day: 2, coins: 10, claimed: streak >= 2, claimable: canCheckIn && streak === 1 },
-            { day: 3, coins: 15, claimed: streak >= 3, claimable: canCheckIn && streak === 2 },
-            { day: 4, coins: 20, claimed: streak >= 4, claimable: canCheckIn && streak === 3 },
-            { day: 5, coins: 25, claimed: streak >= 5, claimable: canCheckIn && streak === 4 },
-            { day: 6, coins: 30, claimed: streak >= 6, claimable: canCheckIn && streak === 5 },
-            { day: 7, coins: 50, claimed: streak >= 7, claimable: canCheckIn && streak === 6 },
+            { day: 1, coins: 50, claimed: streak >= 1, claimable: canCheckIn && streak === 0 },
+            { day: 2, coins: 50, claimed: streak >= 2, claimable: canCheckIn && streak === 1 },
+            { day: 3, coins: 50, claimed: streak >= 3, claimable: canCheckIn && streak === 2 },
+            { day: 4, coins: 50, claimed: streak >= 4, claimable: canCheckIn && streak === 3 },
+            { day: 5, coins: 50, claimed: streak >= 5, claimable: canCheckIn && streak === 4 },
+            { day: 6, coins: 50, claimed: streak >= 6, claimable: canCheckIn && streak === 5 },
+            { day: 7, coins: 500, claimed: streak >= 7, claimable: canCheckIn && streak === 6 },
         ];
 
         return NextResponse.json({

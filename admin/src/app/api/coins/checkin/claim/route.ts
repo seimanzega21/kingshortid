@@ -21,21 +21,19 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ message: 'Already claimed today' }, { status: 400 });
         }
 
-        // Calculate streak
-        const yesterday = new Date(today);
-        yesterday.setDate(yesterday.getDate() - 1);
-
+        // Calculate streak — if didn't check in yesterday, reset to day 1
         let newStreak = 1;
         if (lastCheckInDay && lastCheckInDay.getTime() === yesterday.getTime()) {
-            // Consecutive day
+            // Consecutive day (cycle 1-7)
             newStreak = (user.checkInStreak % 7) + 1;
         }
+        // If missed >1 day, streak stays 1 (reset by default)
 
-        // Reward based on day
+        // Reward: Day 1-6 = 50, Day 7 = 500 (Shopee concept)
         const rewardMap: Record<number, number> = {
-            1: 10, 2: 15, 3: 20, 4: 25, 5: 30, 6: 40, 7: 100,
+            1: 50, 2: 50, 3: 50, 4: 50, 5: 50, 6: 50, 7: 500,
         };
-        const coins = rewardMap[newStreak] || 10;
+        const coins = rewardMap[newStreak] || 50;
         const newBalance = user.coins + coins;
 
         // Update user
