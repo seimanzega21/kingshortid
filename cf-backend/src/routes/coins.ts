@@ -295,10 +295,12 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
             newExpiry = new Date(new Date(user.adFreeExpiry).getTime() + hours * 60 * 60 * 1000);
         }
 
-        // Deduct coins atomically
+        // Deduct coins atomically + set VIP status
         await db.update(users).set({
             coins: sql`${users.coins} - ${pkg.coins}`,
             adFreeExpiry: newExpiry,
+            vipStatus: true,
+            vipExpiry: newExpiry,
             updatedAt: now,
         }).where(eq(users.id, userId));
 
