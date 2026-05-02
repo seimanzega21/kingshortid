@@ -30,6 +30,8 @@ type VpsEnv = {
         JWT_SECRET: string;
         ADMIN_API_KEY: string;
         FIREBASE_SERVICE_ACCOUNT: string;
+        MIDTRANS_SERVER_KEY: string;
+        MIDTRANS_IS_PRODUCTION: string;
     };
     Variables: Record<string, unknown>;
 };
@@ -38,8 +40,13 @@ const app = new Hono<VpsEnv>();
 
 // Inject process.env into c.env for all routes
 app.use('*', async (c, next) => {
-    // Make c.env work like CF Bindings
-    Object.assign(c.env, serverEnv);
+    c.env.SUPABASE_URL = serverEnv.SUPABASE_URL;
+    c.env.SUPABASE_DB_PASSWORD = serverEnv.SUPABASE_DB_PASSWORD;
+    c.env.JWT_SECRET = serverEnv.JWT_SECRET;
+    c.env.ADMIN_API_KEY = serverEnv.ADMIN_API_KEY;
+    c.env.FIREBASE_SERVICE_ACCOUNT = serverEnv.FIREBASE_SERVICE_ACCOUNT;
+    c.env.MIDTRANS_SERVER_KEY = serverEnv.MIDTRANS_SERVER_KEY;
+    c.env.MIDTRANS_IS_PRODUCTION = serverEnv.MIDTRANS_IS_PRODUCTION;
     await next();
 });
 
