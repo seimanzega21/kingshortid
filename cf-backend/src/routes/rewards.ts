@@ -35,8 +35,8 @@ function isSameDay(date1: Date, date2: Date): boolean {
     return toWIBDateString(date1) === toWIBDateString(date2);
 }
 
-// POST /api/rewards/check-in
-rewardsRoute.post('/check-in', async (c) => {
+// POST /api/rewards/claim-daily
+rewardsRoute.post('/claim-daily', async (c) => {
     try {
         const userId = c.get('user').id;
         const now = new Date();
@@ -49,22 +49,19 @@ rewardsRoute.post('/check-in', async (c) => {
             return c.json({ error: 'Already checked in today', streak: user.checkInStreak }, 400);
         }
 
-        // Check if user checked in yesterday (WIB)
         const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
         const yesterdayDateStr = toWIBDateString(yesterdayWIB);
         const lastCheckInDateStr = user.lastCheckIn ? toWIBDateString(new Date(user.lastCheckIn)) : null;
 
         let newStreak: number;
         if (lastCheckInDateStr === yesterdayDateStr) {
-            // Checked in yesterday - increment streak
             newStreak = Math.min((user.checkInStreak || 0) + 1, 7);
         } else {
-            // Missed a day - reset to day 1
             newStreak = 1;
         }
 
         const bonusInfo = STREAK_BONUSES.find(b => b.day === newStreak) || STREAK_BONUSES[0];
-        // Use atomic increment for better reliability
+        
         await db.update(users).set({
             coins: sql`${users.coins} + ${bonusInfo.coins}`,
             lastCheckIn: now,
@@ -72,7 +69,6 @@ rewardsRoute.post('/check-in', async (c) => {
             updatedAt: now,
         }).where(eq(users.id, userId));
 
-        // Fetch updated balance
         const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
         const newBalance = updatedUser?.coins || user.coins + bonusInfo.coins;
 
@@ -81,7 +77,6 @@ rewardsRoute.post('/check-in', async (c) => {
             type: 'bonus',
             amount: bonusInfo.coins,
             description: `Check-In Hari ke-${newStreak}`,
-            // balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -93,10 +88,8 @@ rewardsRoute.post('/check-in', async (c) => {
         return c.json({
             success: true,
             streak: newStreak,
-            reward: bonusInfo.coins,
+            coins: bonusInfo.coins,
             newBalance,
-            isWeeklyBonus: newStreak === 7,
-            message: newStreak === 7 ? 'Selamat! Bonus mingguan 500 koin!' : `Hari ke-${newStreak}: +${bonusInfo.coins} koin`,
         });
     } catch (error) {
         console.error('Check-in error:', error);
@@ -104,22 +97,35 @@ rewardsRoute.post('/check-in', async (c) => {
     }
 });
 
+// Deprecated endpoint alias
+rewardsRoute.post('/check-in', async (c) => {
+    return c.redirect('/api/rewards/claim-daily', 307);
+});
+
+
 // GET /api/rewards/status
 rewardsRoute.get('/status', async (c) => {
     try {
         const userId = c.get('user').id;
         const now = new Date();
-        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        
+        // WIB = UTC+7. Midnight WIB is 17:00 UTC of previous day.
+        const wibNow = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        const y = wibNow.getUTCFullYear();
+        const m = wibNow.getUTCMonth();
+        const d = wibNow.getUTCDate();
+        const todayStart = new Date(Date.UTC(y, m, d) - 7 * 60 * 60 * 1000);
+        
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
         if (!user) return c.json({ error: 'User not found' }, 404);
 
-        const canCheckIn = !user.lastCheckIn || !isSameDay(new Date(user.lastCheckIn), now);
+        const hasClaimedToday = user.lastCheckIn && isSameDay(new Date(user.lastCheckIn), now);
 
         const dailyEpisodesResult = await db.select({ count: sql<number>`count(*)` }).from(watchHistory)
             .where(and(eq(watchHistory.userId, userId), gte(watchHistory.watchedAt, todayStart)));
-        const dailyEpisodesWatched = dailyEpisodesResult[0]?.count || 0;
+        const watchCount = dailyEpisodesResult[0]?.count || 0;
 
         const claimedDailyRewardsResult = await db.select().from(dailyRewards)
             .where(and(
@@ -127,32 +133,27 @@ rewardsRoute.get('/status', async (c) => {
                 sql`${dailyRewards.rewardType} LIKE 'watch_%'`,
                 gte(dailyRewards.claimedAt, todayStart),
             ));
-        const claimedDailyTasks = claimedDailyRewardsResult.map(r => r.rewardType.replace('watch_', ''));
+        const claimedWatchRewards = claimedDailyRewardsResult.map(r => r.rewardType.replace('watch_', ''));
 
-        // Check if user has rated the app (lifetime, not daily)
+        // Check if user has rated the app (lifetime)
         const rateAppClaim = await db.select().from(dailyRewards)
-            .where(and(
-                eq(dailyRewards.userId, userId),
-                eq(dailyRewards.rewardType, 'rate_app'),
-            ))
+            .where(and(eq(dailyRewards.userId, userId), eq(dailyRewards.rewardType, 'rate_app')))
             .limit(1).then((r: any[]) => r[0]);
-        const hasRatedApp = !!rateAppClaim;
+        const hasRated = !!rateAppClaim;
 
-        // Check claimed milestones (lifetime)
-        const milestoneResults = await db.select().from(dailyRewards)
-            .where(and(
-                eq(dailyRewards.userId, userId),
-                sql`${dailyRewards.rewardType} LIKE 'milestone_%'`,
-            ));
-        const claimedMilestones = milestoneResults.map(r => parseInt(r.rewardType.replace('milestone_', '')));
+        // Ad Stats (Keuntungan Umum & Cek Lainnya)
+        const todayGeneralAds = await db.select({ count: sql<number>`count(*)` }).from(dailyRewards)
+            .where(and(eq(dailyRewards.userId, userId), eq(dailyRewards.rewardType, 'ad_general'), gte(dailyRewards.claimedAt, todayStart)));
+        const todayCekLainnya = await db.select({ count: sql<number>`count(*)` }).from(dailyRewards)
+            .where(and(eq(dailyRewards.userId, userId), eq(dailyRewards.rewardType, 'cek_lainnya'), gte(dailyRewards.claimedAt, todayStart)));
 
-        // Calculate weekly check-ins for the calendar grid
-        const todayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000);
-        const dayOfWeek = todayWIB.getUTCDay() === 0 ? 7 : todayWIB.getUTCDay();
+        const adCount = todayGeneralAds[0]?.count || 0;
+        const cekLainnyaCount = todayCekLainnya[0]?.count || 0;
+
+        // Calculate weekly check-ins
+        const dayOfWeek = wibNow.getUTCDay() === 0 ? 7 : wibNow.getUTCDay();
         const startOfWeek = new Date(todayStart);
-        // JS getDay() is local, but our todayStart is local server time, so we should subtract based on server's todayStart day
-        const serverDay = startOfWeek.getDay() === 0 ? 7 : startOfWeek.getDay();
-        startOfWeek.setDate(startOfWeek.getDate() - (serverDay - 1));
+        startOfWeek.setDate(startOfWeek.getDate() - (dayOfWeek - 1));
         
         const weeklyCheckInsResult = await db.select().from(dailyRewards)
             .where(and(
@@ -161,29 +162,32 @@ rewardsRoute.get('/status', async (c) => {
                 gte(dailyRewards.claimedAt, startOfWeek),
             ));
         
-        const claimedDaysOfWeek = weeklyCheckInsResult.map(r => {
-            // Using assumed WIB relative day for consistency
+        const claimedDays = weeklyCheckInsResult.map(r => {
             const claimedWIB = new Date(r.claimedAt.getTime() + 7 * 60 * 60 * 1000);
             return claimedWIB.getUTCDay() === 0 ? 7 : claimedWIB.getUTCDay();
         });
 
         return c.json({
             coins: user.coins,
-            canCheckIn,
-            checkInStreak: user.checkInStreak,
-            lastCheckIn: user.lastCheckIn,
-            dailyEpisodesWatched,
-            claimedDailyTasks,
-            hasRatedApp,
-            claimedMilestones,
-            claimedDaysOfWeek,
-            currentDayOfWeek: dayOfWeek,
+            hasClaimedToday,
+            streak: user.checkInStreak || 0,
+            claimedDays,
+            dayOfWeek,
+            watchCount,
+            claimedWatchRewards,
+            hasRated,
+            adCount,
+            adsRemaining: Math.max(0, 10 - adCount),
+            cekLainnyaCount,
+            cekLainnyaRemaining: Math.max(0, 15 - cekLainnyaCount),
+            vipExpiry: user.vipExpiry
         });
     } catch (error) {
         console.error('Get status error:', error);
         return c.json({ error: 'Failed to get status' }, 500);
     }
 });
+
 
 // POST /api/rewards/claim-watch
 rewardsRoute.post('/claim-watch', async (c) => {
