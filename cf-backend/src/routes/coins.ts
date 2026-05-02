@@ -8,7 +8,7 @@ const coinsRoute = new Hono<Env>();
 coinsRoute.use('*', requireAuth);
 
 const AD_REWARD = 20;
-const MAX_ADS_PER_DAY = 15;
+const MAX_ADS_PER_DAY = 10; // Tonton Iklan (Keuntungan Umum) = max 10/hari
 
 const AD_FREE_PACKAGES = [
     { hours: 1,  coins: 1000,  label: 'Bebas Iklan 1 Jam' },
@@ -36,16 +36,30 @@ coinsRoute.get('/status', async (c) => {
     try {
         const userId = c.get('user').id;
         const now = new Date();
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
         if (!user) return c.json({ error: 'User not found' }, 404);
 
-        // Ad watch count today
-        let adWatchCount = 0;
-        if (user.adWatchDate && isSameDay(new Date(user.adWatchDate), now)) {
-            adWatchCount = user.adWatchCount || 0;
-        }
+        // Count today's ads by type
+        const todayGeneralAds = await db.select({ count: sql<number>`count(*)` })
+            .from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                eq(dailyRewards.rewardType, 'ad_general'),
+                gte(dailyRewards.claimedAt, todayStart),
+            ));
+        const todayCekLainnya = await db.select({ count: sql<number>`count(*)` })
+            .from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                eq(dailyRewards.rewardType, 'cek_lainnya'),
+                gte(dailyRewards.claimedAt, todayStart),
+            ));
+
+        const generalCount = todayGeneralAds[0]?.count || 0;
+        const cekLainnyaCount = todayCekLainnya[0]?.count || 0;
 
         // Ad-free time remaining
         let adFreeRemaining = 0;
@@ -62,8 +76,15 @@ coinsRoute.get('/status', async (c) => {
         return c.json({
             coins: user.coins,
             purchasedCoins: user.purchasedCoins || 0,
-            adWatchCount,
-            adsRemaining: Math.max(0, MAX_ADS_PER_DAY - adWatchCount),
+            // General ad (Keuntungan Umum/Tonton): max 10/day
+            adWatchCount: generalCount,
+            adsRemaining: Math.max(0, 10 - generalCount),
+            // Cek Lainnya (after check-in): max 5/day
+            cekLainnyaCount,
+            cekLainnyaRemaining: Math.max(0, 5 - cekLainnyaCount),
+            // Total per day
+            totalAdCount: generalCount + cekLainnyaCount,
+            totalAdsRemaining: Math.max(0, 15 - (generalCount + cekLainnyaCount)),
             adFreeRemaining,
             vipRemaining,
             adFreePackages: AD_FREE_PACKAGES,
@@ -76,51 +97,73 @@ coinsRoute.get('/status', async (c) => {
 });
 
 // ── POST /api/coins/watch-ad ────────────────────────────────────────────────
+// Supports 2 ad types:
+//   type='general'  → Keuntungan Umum "Tonton" (max 10/day)
+//   type='cek_lainnya' → Cek Lainnya after check-in (max 5/day)
 coinsRoute.post('/watch-ad', async (c) => {
     try {
         const userId = c.get('user').id;
+        const { type = 'general' } = await c.req.json();
         const now = new Date();
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
         if (!user) return c.json({ error: 'User not found' }, 404);
 
-        // Check daily limit
-        let todayCount = 0;
-        if (user.adWatchDate && isSameDay(new Date(user.adWatchDate), now)) {
-            todayCount = user.adWatchCount || 0;
+        // Determine reward config based on ad type
+        const isCekLainnya = type === 'cek_lainnya';
+        const rewardType = isCekLainnya ? 'cek_lainnya' : 'ad_general';
+        const maxPerDay = isCekLainnya ? 5 : 10;
+        const rewardCoins = AD_REWARD; // 20
+
+        // Check daily limit from dailyRewards table
+        const todayAdsResult = await db.select({ count: sql<number>`count(*)` })
+            .from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                eq(dailyRewards.rewardType, rewardType),
+                gte(dailyRewards.claimedAt, todayStart),
+            ));
+        const todayCount = todayAdsResult[0]?.count || 0;
+
+        if (todayCount >= maxPerDay) {
+            return c.json({ error: 'Daily ad limit reached', adsRemaining: 0, type }, 400);
         }
 
-        if (todayCount >= MAX_ADS_PER_DAY) {
-            return c.json({ error: 'Daily ad limit reached', adsRemaining: 0 }, 400);
-        }
-
-        // Atomic update: increment coins and ad count
+        // Atomic update: increment coins
         const newCount = todayCount + 1;
         await db.update(users).set({
-            coins: sql`${users.coins} + ${AD_REWARD}`,
-            adWatchCount: newCount,
-            adWatchDate: now,
+            coins: sql`${users.coins} + ${rewardCoins}`,
             updatedAt: now,
         }).where(eq(users.id, userId));
 
         const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
-        const newBalance = updatedUser?.coins || (user.coins + AD_REWARD);
+        const newBalance = updatedUser?.coins || (user.coins + rewardCoins);
 
         await db.insert(coinTransactions).values({
             userId,
             type: 'earn',
-            amount: AD_REWARD,
-            description: `Nonton Iklan (${newCount}/${MAX_ADS_PER_DAY})`,
-            reference: `ad_watch_${newCount}`,
+            amount: rewardCoins,
+            description: isCekLainnya
+                ? `Cek Lainnya (${newCount}/${maxPerDay})`
+                : `Nonton Iklan (${newCount}/${maxPerDay})`,
+            reference: `${rewardType}_${newCount}`,
+        });
+
+        await db.insert(dailyRewards).values({
+            userId,
+            rewardType,
+            amount: rewardCoins,
         });
 
         return c.json({
             success: true,
-            reward: AD_REWARD,
+            reward: rewardCoins,
             adCount: newCount,
-            adsRemaining: MAX_ADS_PER_DAY - newCount,
+            adsRemaining: maxPerDay - newCount,
             newBalance,
+            type,
         });
     } catch (error) {
         console.error('Watch ad error:', error);
