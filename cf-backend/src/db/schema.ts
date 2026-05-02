@@ -22,11 +22,17 @@ export const users = pgTable('users', {
     guestId: text('guest_id').unique(),
 
     coins: integer('coins').notNull().default(200),
+    purchasedCoins: integer('purchased_coins').notNull().default(0),
     vipStatus: boolean('vip_status').notNull().default(false),
     vipExpiry: timestampOpt('vip_expiry'),
+    adFreeExpiry: timestampOpt('ad_free_expiry'),
 
     lastCheckIn: timestampOpt('last_check_in'),
     checkInStreak: integer('check_in_streak').notNull().default(0),
+
+    adWatchCount: integer('ad_watch_count').notNull().default(0),
+    adWatchDate: timestampOpt('ad_watch_date'),
+    deviceFingerprint: text('device_fingerprint'),
 
     preferences: text('preferences'),
     totalWatchTime: integer('total_watch_time').notNull().default(0),
