@@ -77,6 +77,7 @@ rewardsRoute.post('/claim-daily', async (c) => {
             type: 'bonus',
             amount: bonusInfo.coins,
             description: `Check-In Hari ke-${newStreak}`,
+            balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -150,6 +151,14 @@ rewardsRoute.get('/status', async (c) => {
         const adCount = todayGeneralAds[0]?.count || 0;
         const cekLainnyaCount = todayCekLainnya[0]?.count || 0;
 
+        // Check claimed milestones (lifetime)
+        const milestoneResults = await db.select().from(dailyRewards)
+            .where(and(
+                eq(dailyRewards.userId, userId),
+                sql`${dailyRewards.rewardType} LIKE 'milestone_%'`,
+            ));
+        const claimedMilestones = milestoneResults.map(r => parseInt(r.rewardType.replace('milestone_', '')));
+
         // Calculate weekly check-ins
         const dayOfWeek = wibNow.getUTCDay() === 0 ? 7 : wibNow.getUTCDay();
         const startOfWeek = new Date(todayStart);
@@ -176,6 +185,7 @@ rewardsRoute.get('/status', async (c) => {
             watchCount,
             claimedWatchRewards,
             hasRated,
+            claimedMilestones,
             adCount,
             adsRemaining: Math.max(0, 10 - adCount),
             cekLainnyaCount,
