@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, like, or, sql, asc } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
-import { dramas, episodes, seasons } from '../db/schema';
+import { dramas, episodes, seasons, subtitles } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
 import type { Env } from '../middleware/auth';
 
@@ -347,9 +347,22 @@ dramasRoute.get('/:id', async (c) => {
             ))
             .orderBy(asc(episodes.episodeNumber));
 
+        // Attach subtitles to each episode
+        const episodeIds = eps.map(e => e.id);
+        let allSubtitles: any[] = [];
+        if (episodeIds.length > 0) {
+            allSubtitles = await db.select().from(subtitles)
+                .where(sql`${subtitles.episodeId} IN (${sql.join(episodeIds, sql`, `)})`);
+        }
+
+        const epsWithSubs = eps.map(ep => ({
+            ...ep,
+            subtitles: allSubtitles.filter(s => s.episodeId === ep.id)
+        }));
+
         return c.json({
             ...enrichDrama(drama),
-            episodes: eps,
+            episodes: epsWithSubs,
         });
     } catch (error) {
         console.error('Get drama error:', error);
