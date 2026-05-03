@@ -35,7 +35,7 @@ app.get('/', (c) => c.json({
     status: 'ok',
     service: 'KingShortID API',
     version: '2.0.1',
-    runtime: 'Cloudflare Workers',
+    runtime: 'Bun (VPS)',
 }));
 
 app.get('/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOString() }));
