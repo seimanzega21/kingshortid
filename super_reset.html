@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KingShort - Super Reset</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-zinc-900 p-8 rounded-3xl border border-zinc-800 shadow-2xl">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-orange-500 mb-2">Super Reset</h1>
+            <p class="text-zinc-500 text-sm">Menembus Firewall via API Backend</p>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-zinc-400 uppercase mb-1">Email Target</label>
+                <input id="email" type="email" value="seimanzega92@gmail.com" class="w-full bg-black border border-zinc-800 p-3 rounded-xl focus:outline-none focus:border-orange-500 transition-colors">
+            </div>
+
+            <button onclick="executeReset()" id="btn" class="w-full bg-orange-600 hover:bg-orange-700 p-4 rounded-xl font-bold transition-all shadow-lg shadow-orange-900/20">
+                TEMBAK API SEKARANG
+            </button>
+        </div>
+
+        <div id="status" class="mt-8 hidden p-4 rounded-xl text-center font-medium"></div>
+
+        <div class="mt-8 text-[10px] text-zinc-600 text-center leading-relaxed">
+            Metode ini mencoba memicu endpoint pembersihan di backend VPS.<br>
+            Pastikan Backend sudah merespon di port 3000.
+        </div>
+    </div>
+
+    <script>
+        async function executeReset() {
+            const email = document.getElementById('email').value;
+            const btn = document.getElementById('btn');
+            const status = document.getElementById('status');
+
+            btn.disabled = true;
+            btn.innerText = 'SEDANG MENEMBAK...';
+            status.className = 'mt-8 p-4 rounded-xl text-center font-medium bg-zinc-800 text-zinc-400';
+            status.innerText = '⏳ Menghubungi server VPS...';
+            status.classList.remove('hidden');
+
+            try {
+                const res = await fetch('http://141.11.160.187:3000/api/admin/cleanup-user-coins', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Key': '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    status.className = 'mt-8 p-4 rounded-xl text-center font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+                    status.innerText = '✅ BERHASIL! Saldo di server sudah menjadi 0.';
+                } else {
+                    throw new Error(data.message || 'Server merespon error: ' + res.status);
+                }
+            } catch (err) {
+                status.className = 'mt-8 p-4 rounded-xl text-center font-medium bg-red-500/20 text-red-400 border border-red-500/30';
+                status.innerText = '❌ GAGAL: ' + err.message + '\n\n(Pastikan Backend sudah versi 2.0.1)';
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'TEMBAK API SEKARANG';
+            }
+        }
+    </script>
+</body>
+</html>
