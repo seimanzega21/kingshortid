@@ -178,6 +178,7 @@ rewardsRoute.get('/status', async (c) => {
 
         return c.json({
             coins: user.coins,
+            purchasedCoins: user.purchasedCoins || 0,
             hasClaimedToday,
             streak: user.checkInStreak || 0,
             claimedDays,

@@ -34,7 +34,7 @@ app.use('/api/*', apiLimiter);
 app.get('/', (c) => c.json({
     status: 'ok',
     service: 'KingShortID API',
-    version: '2.0.0',
+    version: '2.0.1',
     runtime: 'Cloudflare Workers',
 }));
 

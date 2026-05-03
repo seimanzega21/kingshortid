@@ -911,6 +911,36 @@ adminRoute.delete('/feedbacks/:id', async (c) => {
     }
 });
 
+// ── POST /api/admin/cleanup-user-coins ─────────────────────────────────────────
+// Reset purchasedCoins to 0 for a specific user (clean up test data)
+adminRoute.post('/cleanup-user-coins', async (c) => {
+    try {
+        const { email, userId } = await c.req.json();
+        if (!email && !userId) return c.json({ error: 'Email or userId required' }, 400);
+
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        let targetId = userId;
+        if (email && !targetId) {
+            const user = await db.select().from(users).where(eq(users.email, email)).limit(1).then((r: any[]) => r[0]);
+            if (!user) return c.json({ error: 'User not found' }, 404);
+            targetId = user.id;
+        }
+
+        await db.update(users)
+            .set({ 
+                purchasedCoins: 0,
+                updatedAt: new Date()
+            })
+            .where(eq(users.id, targetId));
+
+        return c.json({ success: true, message: `Purchased coins reset to 0 for user ${targetId}` });
+    } catch (error) {
+        console.error('Cleanup coins error:', error);
+        return c.json({ error: 'Failed to cleanup coins' }, 500);
+    }
+});
+
 export default adminRoute;
 
 
