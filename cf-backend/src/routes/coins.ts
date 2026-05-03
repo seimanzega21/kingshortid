@@ -248,14 +248,7 @@ coinsRoute.post('/topup', async (c) => {
 
         const snapData: any = await snapRes.json();
 
-        // Simpan transaksi pending
-        await db.insert(coinTransactions).values({
-            userId,
-            type: 'topup_pending',
-            amount: pkg.coins,
-            description: `Top Up ${pkg.label} - ${orderId}`,
-            reference: orderId,
-        });
+        // Transactions will be recorded upon successful payment notification via webhook
 
         return c.json({
             success: true,

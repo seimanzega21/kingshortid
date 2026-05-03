@@ -929,6 +929,7 @@ adminRoute.post('/cleanup-user-coins', async (c) => {
 
         await db.update(users)
             .set({ 
+                coins: 0,
                 purchasedCoins: 0,
                 updatedAt: new Date()
             })
