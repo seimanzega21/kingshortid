@@ -134,10 +134,10 @@ webhooksRoute.post('/midtrans', async (c) => {
         const coinAmount = tx.amount;
 
         if (successStatuses.includes(transaction_status)) {
-            // Update user coins
+            // Update user purchasedCoins
             await db.update(users)
                 .set({
-                    coins: sql`${users.coins} + ${coinAmount}`,
+                    purchasedCoins: sql`${users.purchasedCoins} + ${coinAmount}`,
                     updatedAt: new Date(),
                 })
                 .where(eq(users.id, userId));
@@ -146,7 +146,7 @@ webhooksRoute.post('/midtrans', async (c) => {
             await db.update(coinTransactions)
                 .set({
                     type: 'topup',
-                    balanceAfter: sql`(${users.coins} + ${coinAmount})`,
+                    balanceAfter: sql`(${users.coins} + ${users.purchasedCoins})`,
                     description: tx.description.replace('Top Up', 'Top Up Success'),
                 })
                 .where(eq(coinTransactions.reference, order_id.toString()));

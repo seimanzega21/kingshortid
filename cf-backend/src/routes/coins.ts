@@ -305,16 +305,32 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
             newExpiry = new Date(new Date(user.adFreeExpiry).getTime() + hours * 60 * 60 * 1000);
         }
 
-        // Deduct coins atomically + set VIP status
+        // Priority: Deduct from purchasedCoins first, then coins (bonus)
+        let remainToDeduct = pkg.coins;
+        let newPurchased = user.purchasedCoins || 0;
+        let newBonus = user.coins || 0;
+
+        if (newPurchased >= remainToDeduct) {
+            newPurchased -= remainToDeduct;
+            remainToDeduct = 0;
+        } else {
+            remainToDeduct -= newPurchased;
+            newPurchased = 0;
+            newBonus = Math.max(0, newBonus - remainToDeduct);
+        }
+
+        // Update atomically
         await db.update(users).set({
-            coins: sql`${users.coins} - ${pkg.coins}`,
+            purchasedCoins: newPurchased,
+            coins: newBonus,
             adFreeExpiry: newExpiry,
             vipStatus: true,
             vipExpiry: newExpiry,
             updatedAt: now,
         }).where(eq(users.id, userId));
 
-        const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const updatedUser = await db.select({ coins: users.coins, purchasedCoins: users.purchasedCoins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
+        const totalBalanceAfter = (updatedUser?.coins || 0) + (updatedUser?.purchasedCoins || 0);
 
         await db.insert(coinTransactions).values({
             userId,
@@ -322,7 +338,7 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
             amount: -pkg.coins,
             description: `Tukar VIP ${pkg.hours} Jam`,
             reference: `ad_free_${pkg.hours}h`,
-            balanceAfter: updatedUser?.coins || (user.coins - pkg.coins),
+            balanceAfter: totalBalanceAfter,
         });
 
         const totalSeconds = Math.floor((newExpiry.getTime() - now.getTime()) / 1000);
@@ -331,7 +347,7 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
         return c.json({
             success: true,
             package: pkg,
-            newBalance: updatedUser?.coins,
+            newBalance: totalBalanceAfter,
             adFreeUntil: newExpiry.toISOString(),
             adFreeRemainingSeconds: totalSeconds,
             adFreeRemainingHours: totalHours,
