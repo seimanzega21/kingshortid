@@ -1,5 +1,7 @@
 FROM oven/bun:1.2-alpine AS builder
 WORKDIR /app
+# Cache buster to force rebuild
+ARG CACHE_BUST=20260503-1456
 
 # Install dependencies
 COPY package.json bun.lockb* ./
