@@ -18,14 +18,6 @@ interface DashboardData {
     totalEpisodes: number;
     totalViews: number;
   };
-  dataHealth: {
-    healthy: number;
-    genericGenre: number;
-    noDescription: number;
-    noCover: number;
-    noEpisodes: number;
-    deactivated: number;
-  };
   recentUsers: Array<{ id: string; name: string; email: string; role: string; createdAt: string }>;
   popularDramas: Array<{ id: string; title: string; cover: string; views: number }>;
   recentDramas: Array<{ id: string; title: string; cover: string; totalEpisodes: number; createdAt: string; genres: string[] }>;
@@ -64,7 +56,6 @@ export default function Dashboard() {
   }, []);
 
   const s = data?.stats;
-  const h = data?.dataHealth;
   const dbConnected = health?.database?.connected;
 
   return (
@@ -73,7 +64,7 @@ export default function Dashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-white">Dashboard</h1>
-          <p className="text-zinc-400 mt-1 text-sm">Overview statistik dan data quality KingShort.</p>
+          <p className="text-zinc-400 mt-1 text-sm">Overview statistik KingShort.</p>
         </div>
         <div className="flex items-center gap-3">
           {/* Database Connection Status */}
@@ -237,30 +228,6 @@ function StatCard({ label, value, icon: Icon, accent }: { label: string; value: 
       </div>
       <h3 className="text-2xl font-bold text-white mt-3">{value.toLocaleString()}</h3>
       <p className="text-xs text-zinc-500 mt-0.5">{label}</p>
-    </div>
-  );
-}
-
-function HealthCard({ label, value, color, icon }: { label: string; value: number; color: string; icon: string }) {
-  const colors: Record<string, string> = {
-    emerald: 'border-emerald-500/20 bg-emerald-500/5',
-    amber: 'border-amber-500/20 bg-amber-500/5',
-    red: 'border-red-500/20 bg-red-500/5',
-    zinc: 'border-zinc-700 bg-zinc-800/50',
-  };
-  const textColors: Record<string, string> = {
-    emerald: 'text-emerald-400',
-    amber: 'text-amber-400',
-    red: 'text-red-400',
-    zinc: 'text-zinc-400',
-  };
-  return (
-    <div className={`rounded-lg border p-3 ${colors[color] || colors.zinc}`}>
-      <div className="flex items-center justify-between">
-        <span className="text-lg">{icon}</span>
-        <span className={`text-xl font-bold ${textColors[color] || textColors.zinc}`}>{value}</span>
-      </div>
-      <p className="text-[11px] text-zinc-500 mt-1">{label}</p>
     </div>
   );
 }

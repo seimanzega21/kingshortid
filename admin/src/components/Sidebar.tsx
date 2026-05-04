@@ -14,8 +14,6 @@ import {
     MessageSquare,
     ChevronRight,
     DollarSign,
-    Shield,
-    Activity,
     Bell,
     Inbox,
     Wifi
