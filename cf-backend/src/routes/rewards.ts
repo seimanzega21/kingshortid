@@ -88,7 +88,6 @@ rewardsRoute.post('/claim-daily', async (c) => {
             type: 'bonus',
             amount: bonusCoins,
             description: `Check-In Hari ke-${newStreak}`,
-            balanceAfter: newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -101,19 +100,6 @@ rewardsRoute.post('/claim-daily', async (c) => {
             success: true,
             streak: newStreak,
             coins: bonusCoins,
-            newBalance,
-        });
-
-        await db.insert(dailyRewards).values({
-            userId,
-            rewardType: 'check_in',
-            amount: bonusInfo.coins,
-        });
-
-        return c.json({
-            success: true,
-            streak: newStreak,
-            coins: bonusInfo.coins,
             newBalance,
         });
     } catch (error) {

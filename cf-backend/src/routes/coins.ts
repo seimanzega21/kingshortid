@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { eq, and, sql, gte } from 'drizzle-orm';
+import { eq, and, sql, gte, desc } from 'drizzle-orm';
 import { getDb } from '../db';
 import { users, coinTransactions, dailyRewards } from '../db/schema';
 import { Env, requireAuth } from '../middleware/auth';
