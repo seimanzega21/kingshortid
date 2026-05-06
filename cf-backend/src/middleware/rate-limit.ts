@@ -47,5 +47,5 @@ function createRateLimiter(maxRequests: number, windowMs: number) {
 // Rate limiters matching the original Express backend
 export const apiLimiter = createRateLimiter(100, 60 * 1000);      // 100 req/min
 export const authLimiter = createRateLimiter(5, 60 * 1000);       // 5 req/min
-export const rewardLimiter = createRateLimiter(10, 60 * 1000);    // 10 req/min
+export const rewardLimiter = createRateLimiter(20, 60 * 1000);    // 20 req/min
 export const sensitiveLimiter = createRateLimiter(10, 60 * 1000); // 10 req/min
