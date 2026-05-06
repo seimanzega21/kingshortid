@@ -55,13 +55,16 @@ rewardsRoute.post('/claim-daily', async (c) => {
 
         let newStreak: number;
         if (lastCheckInDateStr === yesterdayDateStr) {
-            // Lanjut streak
-            newStreak = Math.min((user.checkInStreak || 0) + 1, 7);
+            if (user.checkInStreak === 7) {
+                // Completed 7-day cycle, start new cycle as day 1
+                newStreak = 1;
+            } else {
+                newStreak = (user.checkInStreak || 0) + 1;
+            }
         } else if (user.lastCheckIn && isSameDay(new Date(user.lastCheckIn), now)) {
-            // Sudah check-in hari ini — tidak seharusnya sampai di sini karena check sebelumnya
             return c.json({ error: 'Already checked in today', streak: user.checkInStreak }, 400);
         } else {
-            // Bolong absen — RESET streak
+            // Bolong absen — RESET streak to day 1
             newStreak = 1;
         }
 
@@ -134,13 +137,7 @@ rewardsRoute.get('/status', async (c) => {
 
         const hasClaimedToday = user.lastCheckIn && isSameDay(new Date(user.lastCheckIn), now);
 
-        // Define streak and dayOfWeek for the response
         const streak = user.checkInStreak || 0;
-        const dayOfWeek = (() => {
-            const wibNow = new Date(now.getTime() + 7 * 60 * 60 * 1000);
-            let dow = wibNow.getUTCDay();
-            return dow === 0 ? 7 : dow; // 1=Mon ... 7=Sun
-        })();
 
         const dailyEpisodesResult = await db.select({ count: sql<number>`count(*)` }).from(watchHistory)
             .where(and(eq(watchHistory.userId, userId), gte(watchHistory.watchedAt, todayStart)));
@@ -177,25 +174,40 @@ rewardsRoute.get('/status', async (c) => {
             ));
         const claimedMilestones = milestoneResults.map(r => parseInt(r.rewardType.replace('milestone_', '')));
 
-        // Calculate claimed days based on CURRENT streak (not weekly history)
-        // This ensures if user missed a day, UI shows reset state
+        // Calculate claimed days based on CURRENT streak (sequential absolute)
         const claimedDays = (() => {
             if (streak === 0) return [];
             if (!hasClaimedToday) {
-                // Streak is from yesterday, so claimed days are previous streak days
-                return Array.from({ length: Math.min(streak, 6) }, (_, i) => i + 1);
+                // Check if last claim was yesterday; if not, user missed = reset
+                const lastCheckIn = user.lastCheckIn ? new Date(user.lastCheckIn) : null;
+                const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
+                if (lastCheckIn && !isSameDay(lastCheckIn, yesterdayWIB)) {
+                    return []; // Missed a day = all uncheck
+                }
+                return Array.from({ length: Math.min(streak, 7) }, (_, i) => i + 1);
             }
-            // Today claimed, claimed days include today
             return Array.from({ length: Math.min(streak, 7) }, (_, i) => i + 1);
+        })();
+
+        // Compute displayStreak: 0 if missed or cycle complete
+        const displayStreak = (() => {
+            if (streak === 0) return 0;
+            if (!hasClaimedToday) {
+                const lastCheckIn = user.lastCheckIn ? new Date(user.lastCheckIn) : null;
+                const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
+                if (lastCheckIn && !isSameDay(lastCheckIn, yesterdayWIB)) {
+                    return 0; // Missed
+                }
+            }
+            return streak;
         })();
 
         return c.json({
             coins: user.coins,
             purchasedCoins: user.purchasedCoins || 0,
             hasClaimedToday,
-            streak: user.checkInStreak || 0,
+            streak: displayStreak,
             claimedDays,
-            dayOfWeek,
             watchCount,
             claimedWatchRewards,
             hasRated,
