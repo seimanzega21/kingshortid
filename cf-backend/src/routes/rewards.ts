@@ -148,6 +148,14 @@ rewardsRoute.get('/status', async (c) => {
 
         const hasClaimedToday = user.lastCheckIn && isSameDay(new Date(user.lastCheckIn), now);
 
+        // Define streak and dayOfWeek for the response
+        const streak = user.checkInStreak || 0;
+        const dayOfWeek = (() => {
+            const wibNow = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+            let dow = wibNow.getUTCDay();
+            return dow === 0 ? 7 : dow; // 1=Mon ... 7=Sun
+        })();
+
         const dailyEpisodesResult = await db.select({ count: sql<number>`count(*)` }).from(watchHistory)
             .where(and(eq(watchHistory.userId, userId), gte(watchHistory.watchedAt, todayStart)));
         const watchCount = dailyEpisodesResult[0]?.count || 0;
