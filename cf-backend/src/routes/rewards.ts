@@ -14,7 +14,7 @@ const STREAK_BONUSES = [
     { day: 4, coins: 50 },
     { day: 5, coins: 50 },
     { day: 6, coins: 50 },
-    { day: 7, coins: 500 },
+    { day: 7, coins: 200 }, // Base 200, will be randomized 200-500 at runtime
 ];
 
 // Coin milestones: target → bonus reward
@@ -55,29 +55,53 @@ rewardsRoute.post('/claim-daily', async (c) => {
 
         let newStreak: number;
         if (lastCheckInDateStr === yesterdayDateStr) {
+            // Lanjut streak
             newStreak = Math.min((user.checkInStreak || 0) + 1, 7);
+        } else if (user.lastCheckIn && isSameDay(new Date(user.lastCheckIn), now)) {
+            // Sudah check-in hari ini — tidak seharusnya sampai di sini karena check sebelumnya
+            return c.json({ error: 'Already checked in today', streak: user.checkInStreak }, 400);
         } else {
+            // Bolong absen — RESET streak
             newStreak = 1;
         }
 
-        const bonusInfo = STREAK_BONUSES.find(b => b.day === newStreak) || STREAK_BONUSES[0];
+        // Hitung bonus koin
+        let bonusCoins = STREAK_BONUSES.find(b => b.day === newStreak)?.coins || 50;
         
+        // Hari 7: random 200-500 koin (default 200)
+        if (newStreak === 7) {
+            bonusCoins = Math.floor(Math.random() * 301) + 200; // 200-500
+        }
+
         await db.update(users).set({
-            coins: sql`${users.coins} + ${bonusInfo.coins}`,
+            coins: sql`${users.coins} + ${bonusCoins}`,
             lastCheckIn: now,
             checkInStreak: newStreak,
             updatedAt: now,
         }).where(eq(users.id, userId));
 
         const updatedUser = await db.select({ coins: users.coins }).from(users).where(eq(users.id, userId)).limit(1).then(r => r[0]);
-        const newBalance = updatedUser?.coins || user.coins + bonusInfo.coins;
+        const newBalance = updatedUser?.coins || user.coins + bonusCoins;
 
         await db.insert(coinTransactions).values({
             userId,
             type: 'bonus',
-            amount: bonusInfo.coins,
+            amount: bonusCoins,
             description: `Check-In Hari ke-${newStreak}`,
             balanceAfter: newBalance,
+        });
+
+        await db.insert(dailyRewards).values({
+            userId,
+            rewardType: 'check_in',
+            amount: bonusCoins,
+        });
+
+        return c.json({
+            success: true,
+            streak: newStreak,
+            coins: bonusCoins,
+            newBalance,
         });
 
         await db.insert(dailyRewards).values({
@@ -159,22 +183,17 @@ rewardsRoute.get('/status', async (c) => {
             ));
         const claimedMilestones = milestoneResults.map(r => parseInt(r.rewardType.replace('milestone_', '')));
 
-        // Calculate weekly check-ins
-        const dayOfWeek = wibNow.getUTCDay() === 0 ? 7 : wibNow.getUTCDay();
-        const startOfWeek = new Date(todayStart);
-        startOfWeek.setDate(startOfWeek.getDate() - (dayOfWeek - 1));
-        
-        const weeklyCheckInsResult = await db.select().from(dailyRewards)
-            .where(and(
-                eq(dailyRewards.userId, userId),
-                eq(dailyRewards.rewardType, 'check_in'),
-                gte(dailyRewards.claimedAt, startOfWeek),
-            ));
-        
-        const claimedDays = weeklyCheckInsResult.map(r => {
-            const claimedWIB = new Date(r.claimedAt.getTime() + 7 * 60 * 60 * 1000);
-            return claimedWIB.getUTCDay() === 0 ? 7 : claimedWIB.getUTCDay();
-        });
+        // Calculate claimed days based on CURRENT streak (not weekly history)
+        // This ensures if user missed a day, UI shows reset state
+        const claimedDays = (() => {
+            if (streak === 0) return [];
+            if (!hasClaimedToday) {
+                // Streak is from yesterday, so claimed days are previous streak days
+                return Array.from({ length: Math.min(streak, 6) }, (_, i) => i + 1);
+            }
+            // Today claimed, claimed days include today
+            return Array.from({ length: Math.min(streak, 7) }, (_, i) => i + 1);
+        })();
 
         return c.json({
             coins: user.coins,
