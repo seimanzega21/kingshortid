@@ -23,9 +23,9 @@ WEB_HDRS = {
 }
 
 DRAMAS = [
-    {"vidrama_id": "2050068409973997569", "db_id": "cmlyu7p1q0001uxfx7dt279tt", "slug": "raja-yang-ditakuti-musuh", "total": 82},
-    {"vidrama_id": "2033798825713336321", "db_id": "cmlyu8p1r0002uxfx8dt279tt", "slug": "menghabisi-yang-jahat", "total": 91},
-    {"vidrama_id": "2020778605549871106", "db_id": "cmlyu9p1s0003uxfx9dt279tt", "slug": "dua-kuasa-menjadi-satu", "total": 102}
+    {"vidrama_id": "2050068409973997569", "db_id": "a5t2801mi1n7ubbd5279wnab", "slug": "raja-yang-ditakuti-musuh", "total": 82},
+    {"vidrama_id": "2033798825713336321", "db_id": "woxgf5gu2f97cs02mkmjhkln", "slug": "menghabisi-yang-jahat", "total": 91},
+    {"vidrama_id": "2020778605549871106", "db_id": "d40yxdr4m35sdkdrw6ezu64n", "slug": "dua-kuasa-menjadi-satu", "total": 102}
 ]
 
 TEMP_DIR = Path("D:/kingshortid/scripts/tmp/bulk_process")
