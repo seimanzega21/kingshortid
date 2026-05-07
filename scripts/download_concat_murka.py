@@ -65,7 +65,7 @@ def download_and_concat():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
         
-    print(f"\nMulai mendownload ke {OUTPUT_DIR}...")
+    print(f"\nMulai mendownload dan BURNING SUBTITLE (Hardsub) ke {OUTPUT_DIR}...")
     local_files = []
     
     for ep in episodes:
@@ -77,36 +77,51 @@ def download_and_concat():
             continue
             
         local_filename = os.path.join(OUTPUT_DIR, f"ep_{ep_num:03d}.mp4")
+        sub_filename = f"ep_{ep_num:03d}.vtt" # local name for CWD
         
         if not os.path.exists(local_filename):
             sub_url = get_subtitles(ep_id)
             if sub_url:
-                print(f"Downloading Episode {ep_num} (+ Subtitle) -> ep_{ep_num:03d}.mp4")
-                # Embed subtitle sebagai soft-sub (mov_text) agar prosesnya cepat tanpa re-encoding
+                print(f"Downloading Episode {ep_num} (Membakar Subtitle / Hardsub) -> ep_{ep_num:03d}.mp4")
+                print(f"  -> Harap sabar, proses hardsub memakan waktu lebih lama...")
+                
+                # Download subtitle file locally first
+                sub_path = os.path.join(OUTPUT_DIR, sub_filename)
+                try:
+                    r = requests.get(sub_url, timeout=10)
+                    with open(sub_path, 'wb') as f:
+                        f.write(r.content)
+                except Exception as e:
+                    print(f"  -> Gagal download subtitle: {e}")
+                    continue
+
+                # Burn subtitle via FFmpeg. We run in OUTPUT_DIR to avoid absolute path escaping hell.
                 cmd = [
                     'ffmpeg', '-y', 
                     '-i', video_url, 
-                    '-i', sub_url, 
-                    '-map', '0:v', 
-                    '-map', '0:a?', 
-                    '-map', '1:s', 
-                    '-c:v', 'copy', 
+                    '-vf', f"subtitles={sub_filename}", 
+                    '-c:v', 'libx264', 
+                    '-crf', '26', 
+                    '-preset', 'veryfast', 
                     '-c:a', 'copy', 
-                    '-c:s', 'mov_text', 
-                    local_filename
+                    f"ep_{ep_num:03d}.mp4"
                 ]
+                subprocess.run(cmd, cwd=OUTPUT_DIR, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+                
+                # Cleanup subtitle file
+                if os.path.exists(sub_path):
+                    os.remove(sub_path)
             else:
                 print(f"Downloading Episode {ep_num} (Tanpa Subtitle) -> ep_{ep_num:03d}.mp4")
-                cmd = ['ffmpeg', '-y', '-i', video_url, '-c', 'copy', local_filename]
-                
-            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+                cmd = ['ffmpeg', '-y', '-i', video_url, '-c', 'copy', f"ep_{ep_num:03d}.mp4"]
+                subprocess.run(cmd, cwd=OUTPUT_DIR, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         else:
             print(f"File ep_{ep_num:03d}.mp4 sudah ada, skip download.")
             
         if os.path.exists(local_filename):
             local_files.append((ep_num, local_filename))
         
-    print("\nSemua episode berhasil didownload.")
+    print("\nSemua episode berhasil didownload dan subtitle telah dibakar permanen.")
     print("Mulai menggabungkan video per 3 episode...")
     
     batch_size = 3
@@ -131,7 +146,6 @@ def download_and_concat():
                 f.write(f"file '{safe_path}'\n")
                 
         try:
-            # Gunakan concat dan pastikan stream video, audio, dan subtitle di-copy
             cmd = [
                 'ffmpeg', '-y', 
                 '-f', 'concat', 
@@ -148,7 +162,7 @@ def download_and_concat():
         if os.path.exists(list_filename):
             os.remove(list_filename)
 
-    print("\nSelesai! Semua video beserta subtitle telah digabung per 3 episode.")
+    print("\nSelesai! Semua video telah digabung per 3 episode dengan Hardsub.")
     print(f"Silakan cek folder: {OUTPUT_DIR}")
 
 if __name__ == "__main__":
