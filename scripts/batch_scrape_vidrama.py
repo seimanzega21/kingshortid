@@ -33,13 +33,18 @@ VIDRAMA_API = 'https://vidrama.asia/api/netshortv2'
 WEB_HDRS    = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
     'Referer': 'https://vidrama.asia/',
-    'Cookie': '_fbp=fb.1.1770653154777.876935444165455244; _tt_enable_cookie=1; _ttp=01KH1JE0K4H648BY6E3FQ6EXRZ_.tt.1; _ga=GA1.1.1826262121.1771037718; HstCfa5004644=1772873251576; c_ref_5004644=https%3A%2F%2Fwww.google.com%2F; __dtsu=4C301774685394D291D3AB624E4AA57E; _pubcid=8a5abbf9-164b-422f-b349-0e1ba702ea69; _cc_id=a4a99f9a552125d19ea447bfafb9c63b; HstCmu5004644=1776164034743; HstPn5004644=1; cf_clearance=AQRjv4.Cj2nHbg_KLivmkViGOllnwGPpIVkj35_jfKI-1777471778-1.2.1.1-TEdhFr7wBXOwe6l8ybhNx3V3OAO2FmEP81fCwLc_mclcsLHuLye6b0vcwrShIGHIdgmlaY14VoOLGlccyUA11WHrRIEncihkGDwdc8C44c79F_3U4SEVsPeQAtPP.1_v6j.daxeE5gMBUPycNwj8rIn4fxg5dhhxrCsZvPIyDKo0BUWtkSEcjfRXcll7MrK8y3YSM8WhGmqI.PzKcfsFF.006ENmy7BGlLwqjy_QDYg8Y7xuxVKlIr_3ApmsnXItGKvJ2DDt_XQUqh1H5hqKnf50BS4QFNfxQEUeytk94ofP8SYQwlqg1HEIz3BMlJC4OQhzn5m0L6muYtASD.jwaw; HstCla5004644=1777471778959; HstPt5004644=72; HstCnv5004644=31; HstCns5004644=35; panoramaId_expiry=1777558180696; _ga_HCQQPKGEVH=GS2.1.s1777476684$o70$g1$t1777477281$j55$l0$h0; ttcsid_D5SNQPRC77UDQTF8A5EG=1777476683162::JiaNdPsba2GCy8oVLuyE.75.1777477294114.1; ttcsid=1777476683155::c9Pa9Oee_DaSEml_Mj5I.85.1777477294114.0::1.610918.6485::610880.63.113.1122::610008.512.600'
+    'Cookie': '_fbp=fb.1.1770653154777.876935444165455244; _tt_enable_cookie=1; _ttp=01KH1JE0K4H648BY6E3FQ6EXRZ_.tt.1; _ga=GA1.1.1826262121.1771037718; HstCfa5004644=1772873251576; c_ref_5004644=https%3A%2F%2Fwww.google.com%2F; __dtsu=4C301774685394D291D3AB624E4AA57E; _pubcid=8a5abbf9-164b-422f-b349-0e1ba702ea69; _cc_id=a4a99f9a552125d19ea447bfafb9c63b; HstCmu5004644=1776164034743; global_ui_lang=id; cf_clearance=gi8rBDL4U_sV5dFUP.Dckjr.DONUzFar9fJlBMJx5_c-1778228148-1.2.1.1-rcSC4qbKF5H0KxB5Zt6Ic88iCIyXH7DESdcJA5w9WLWZvk58Y70clfcHFfqOyxmSRb1I97eRy.96PRr0zF1vV_PWs7vWkLZg2IsJNYLl5ZJvxdv7AnK4pZgxEBspgbrAod7jxce171vMiENcKPDXk_1eVFpBk_P5H8TA07xIBdq5HsL3uPTZKn8BCJv.HufjCR4mRr3DVOGDRagaNcc1CD_VmnRYY6tkanYH9QuDUyPeqreywRNxjb_5tsJVseZjz24po7Gw9o9ZVi3mSl9Ypm88Po1s4zr5n3DfE5R4BCKekPgqBAog2SDMQmDCWQJjMpzKKsJ_iXUHRaincYv9WQ; HstCnv5004644=43; HstCns5004644=47; panoramaId_expiry=1778314550106; HstCla5004644=1778228186632; HstPn5004644=2; HstPt5004644=85; _ga_HCQQPKGEVH=GS2.1.s1778254581$o93$g1$t1778255275$j47$l0$h0; ttcsid=1778254562634::VcwgkELj7wu61kAQZ9m6.110.1778255284779.0::1.721869.41379::721754.142.108.1170::721919.457.0; ttcsid_D5SNQPRC77UDQTF8A5EG=1778254578670::ru6ctqp2kzVRkgnn0scK.94.1778255284779.1'
 }
 
 # DAFTAR PRIORITAS MANUAL (Permintaan User)
 MANUAL_TARGETS = [
-    {'id': '2044966103939022850', 'slug': 'ceo-cantik-dan-suami-kayanya'},
-    {'id': '2049446787831300098', 'slug': 'agenda-sang-pengawal'}
+    {'id': '2029132719803334658', 'slug': 'penebusan-sang-tabib'},
+    {'id': '2049033017741017090', 'slug': 'istri-pewaris-yang-ditakuti'},
+    {'id': '1918527325729849346', 'slug': 'dewa-biliar'},
+    {'id': '1985174871400595458', 'slug': 'tebus-langit'},
+    {'id': '1953357739876122626', 'slug': 'jangan-kira-dia-polos'},
+    {'id': '2038878546117525506', 'slug': 'menghabisi-yang-jahat'},
+    {'id': '2020778605818306562', 'slug': 'penjahat-nomor-satu'}
 ]
 
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_batch_scraper'
@@ -144,10 +149,11 @@ def fetch_auto_discovery_list():
     # 1. Coba dari Beranda
     try:
         r = requests.get(f"{VIDRAMA_API}/home?lang=id_ID", headers=WEB_HDRS, timeout=15, verify=False)
-        data = r.json().get('data', {})
-        modules = data.get('modules', [])
+        json_resp = r.json()
+        data = json_resp.get('data') or {}
+        modules = data.get('modules') or []
         for mod in modules:
-            for item in mod.get('items', []):
+            for item in (mod.get('items') or []):
                 vid_id = str(item.get('id', ''))
                 title = item.get('title', '')
                 if vid_id and title:
