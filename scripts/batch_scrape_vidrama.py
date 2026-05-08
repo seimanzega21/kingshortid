@@ -137,31 +137,41 @@ def encode_720_and_540(inp, out_720, out_540):
     return subprocess.run(cmd3, timeout=600).returncode == 0
 
 def fetch_auto_discovery_list():
-    """Mengambil daftar drama berbahasa Indonesia terbaru dari Homepage/Kategori Vidrama"""
+    """Mengambil daftar drama berbahasa Indonesia terbaru dari Beranda Vidrama dan Pencarian"""
     print("\n--- AUTO DISCOVERY: Mencari drama-drama baru berbahasa Indonesia ---")
     discovered = []
+    
+    # 1. Coba dari Beranda
     try:
         r = requests.get(f"{VIDRAMA_API}/home?lang=id_ID", headers=WEB_HDRS, timeout=15, verify=False)
-        data = r.json()
-        if data.get('code') == 200:
-            modules = data.get('data', {}).get('modules', [])
-            for mod in modules:
-                items = mod.get('items', [])
-                for item in items:
-                    vid_id = str(item.get('id', ''))
-                    title = item.get('title', '')
-                    if vid_id and title:
-                        discovered.append({
-                            'id': vid_id,
-                            'title': title,
-                            'slug': slugify(title)
-                        })
+        data = r.json().get('data', {})
+        modules = data.get('modules', [])
+        for mod in modules:
+            for item in mod.get('items', []):
+                vid_id = str(item.get('id', ''))
+                title = item.get('title', '')
+                if vid_id and title:
+                    discovered.append({'id': vid_id, 'title': title, 'slug': slugify(title)})
     except Exception as e:
-        print(f"Gagal melakukan Auto-Discovery: {e}")
-    
+        print(f"Gagal memindai beranda: {e}")
+
+    # 2. Coba dari Pencarian menggunakan kata kunci Indonesia yang sangat umum di judul Vidrama
+    keywords = ["cinta", "suami", "istri", "bos", "kaya", "menantu", "balas dendam", "presiden"]
+    print(f"Memindai kata kunci populer: {', '.join(keywords)}...")
+    for kw in keywords:
+        try:
+            r = requests.get(f"{VIDRAMA_API}/search?keyword={kw}&page=1&size=20", headers=WEB_HDRS, timeout=10, verify=False)
+            items = r.json().get('data', {}).get('list', [])
+            for item in items:
+                vid_id = str(item.get('id', ''))
+                title = item.get('title', '')
+                if vid_id and title:
+                    discovered.append({'id': vid_id, 'title': title, 'slug': slugify(title)})
+        except: pass
+
     # Remove duplicates within the discovered list
     unique_discovered = {v['id']:v for v in discovered}.values()
-    print(f"Berhasil menemukan {len(unique_discovered)} judul potensial dari Beranda Vidrama.")
+    print(f"Berhasil menemukan {len(unique_discovered)} judul potensial.")
     return list(unique_discovered)
 
 def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
@@ -181,9 +191,11 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
     
     # Pengecekan Bahasa & Duplikat
     lang = detail.get('language', '').lower()
-    is_indo = 'id' in lang or 'indo' in lang
     
-    if not is_indo:
+    is_manual = any(m['id'] == str(vidrama_id) for m in MANUAL_TARGETS)
+    
+    # Jika bukan target manual dan kolom bahasanya terisi (tapi bukan bahasa Indonesia), maka kita lewati
+    if not is_manual and lang and not ('id' in lang or 'indo' in lang):
         print(f"  -> BUKAN BAHASA INDONESIA (Language: {lang}). Skip!")
         return False
         
@@ -191,15 +203,10 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
         print(f"  -> DUPLIKAT! Judul '{title}' sudah ada di database KingShort. Skip!")
         return False
 
-    db_id = api_get_or_create_drama(detail, slug, detail['cover'])
-    if not db_id:
-        print("  -> [ERROR] Gagal membuat data di DB.")
-        return False
-        
-    print(f"  -> [DB] Terdaftar dengan ID: {db_id} (Status: Pending)")
-
     # Upload Cover Kualitas Tinggi
     cover_key = f"{prefix}/cover.webp"
+    r2_cover_url = f"{R2_PUBLIC}/{cover_key}"
+    
     if not r2_exists(r2, cover_key):
         try:
             cov = requests.get(detail['cover'], headers=WEB_HDRS, timeout=30, verify=False)
@@ -208,6 +215,14 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
             r2_upload(r2, p, cover_key, 'image/webp')
             p.unlink()
         except: pass
+
+    # Buat Drama dengan Cover R2 yang benar (bukan link luar)
+    db_id = api_get_or_create_drama(detail, slug, r2_cover_url)
+    if not db_id:
+        print("  -> [ERROR] Gagal membuat data di DB.")
+        return False
+        
+    print(f"  -> [DB] Terdaftar dengan ID: {db_id} (Status: Pending)")
 
     skipped = success = failed = 0
     for ep_no in range(1, total_eps + 1):
