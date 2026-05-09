@@ -119,21 +119,27 @@ def main():
                 print(f"  -> [Render Sub] Ep {ep}...", end="", flush=True)
                 
                 # SETTING SUBTITLE UNTUK FACEBOOK REELS:
-                # Alignment=2 (Bawah-Tengah), MarginV=350 (Naik ke tengah layar), Fontsize=22 (Ukuran proporsional)
                 style = "Alignment=2,MarginV=350,Fontname=Arial,Fontsize=22,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=1,Bold=-1"
                 
                 if raw_vtt.exists():
                     vtt_filename = f"ep_{ep:03d}.vtt"
-                    # Escape karakter titik dua (:) pada drive Windows jika tidak menggunakan CWD
-                    vf = f"subtitles={vtt_filename}:force_style='{style}'"
+                    vf_sub = f"subtitles={vtt_filename}:force_style='{style}'"
                 else:
-                    vf = "scale=iw:ih"
+                    vf_sub = "scale=iw:ih"
+                    
+                # FITUR ANTI-HAK CIPTA FACEBOOK (Mengecoh Algoritma Audio)
+                # 1. Video dipercepat 6% (0.94 * PTS) -> Subtitle aman karena dibakar sebelum dipercepat
+                # 2. Audio dipercepat 6% (atempo=1.06)
+                # 3. Bass dikurangi (bass=g=-6) untuk melemahkan ketukan musik BGM
+                vf_final = f"{vf_sub},setpts=0.94*PTS"
+                af_final = "atempo=1.06,bass=g=-6,treble=g=2"
                     
                 cmd = [
                     "ffmpeg", "-y", "-i", f"ep_{ep:03d}.mp4",
-                    "-vf", vf,
+                    "-vf", vf_final,
+                    "-af", af_final,
                     "-c:v", "libx264", "-crf", "26", "-preset", "fast",
-                    "-c:a", "copy",
+                    "-c:a", "aac", "-b:a", "128k",
                     f"ep_{ep:03d}_subbed.mp4"
                 ]
                 
