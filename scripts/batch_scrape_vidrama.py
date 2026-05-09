@@ -38,13 +38,8 @@ WEB_HDRS    = {
 
 # DAFTAR PRIORITAS MANUAL (Permintaan User)
 MANUAL_TARGETS = [
-    {'id': '2029132719803334658', 'slug': 'penebusan-sang-tabib'},
-    {'id': '2049033017741017090', 'slug': 'istri-pewaris-yang-ditakuti'},
-    {'id': '1918527325729849346', 'slug': 'dewa-biliar'},
-    {'id': '1985174871400595458', 'slug': 'tebus-langit'},
-    {'id': '1953357739876122626', 'slug': 'jangan-kira-dia-polos'},
-    {'id': '2038878546117525506', 'slug': 'menghabisi-yang-jahat'},
-    {'id': '2020778605818306562', 'slug': 'penjahat-nomor-satu'}
+    # Kosongkan daftar ini karena semua target manual sudah 100% selesai dan lengkap di R2.
+    # Jika ada target spesifik lagi di masa depan, masukkan di sini.
 ]
 
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_batch_scraper'
@@ -161,6 +156,8 @@ def fetch_auto_discovery_list():
                 title = item.get('title', '')
                 if vid_id and title:
                     discovered.append({'id': vid_id, 'title': title, 'slug': slugify(title)})
+        if not discovered:
+            print(f"[DEBUG] Beranda API Code: {json_resp.get('code')}")
     except Exception as e:
         print(f"Gagal memindai beranda: {e}")
 
@@ -170,10 +167,17 @@ def fetch_auto_discovery_list():
     for kw in keywords:
         try:
             r = requests.get(f"{VIDRAMA_API}/search?keyword={kw}&page=1&size=20", headers=WEB_HDRS, timeout=10, verify=False)
-            items = r.json().get('data', {}).get('list', [])
+            resp = r.json()
+            items = resp.get('data', {}).get('list', [])
+            if not items and kw == 'cinta':
+                print(f"[DEBUG] Search API '{kw}' Code: {resp.get('code')} - Message: {resp.get('message')}")
+            elif items and kw == 'cinta':
+                print(f"[DEBUG] Contoh data pencarian: {list(items[0].keys())}")
+                
             for item in items:
-                vid_id = str(item.get('id', ''))
-                title = item.get('title', '')
+                # Coba berbagai kemungkinan nama kunci (id, movieId, title, movieName)
+                vid_id = str(item.get('id') or item.get('movieId') or '')
+                title = item.get('title') or item.get('movieName') or ''
                 if vid_id and title:
                     discovered.append({'id': vid_id, 'title': title, 'slug': slugify(title)})
         except: pass
