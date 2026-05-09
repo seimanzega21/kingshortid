@@ -93,17 +93,20 @@ def get_episode_url(drama_id, ep_no, retries=3):
                 subs = data['data'].get('subtitles', [])
                 id_sub = next((s['url'] for s in subs if s.get('language') == 'id_ID'), None)
                 if not id_sub and subs: id_sub = subs[0]['url']
-                best_video = None
+                
+                video_urls = []
                 for q in ['720p', '1080p', '540p']:
                     for v in videos:
-                        if v.get('quality') == q:
-                            best_video = v['url']
-                            break
-                    if best_video: break
-                if not best_video and videos: best_video = videos[0]['url']
-                return best_video, id_sub
+                        if v.get('quality') == q and v['url'] not in video_urls:
+                            video_urls.append(v['url'])
+                            
+                for v in videos:
+                    if v['url'] not in video_urls:
+                        video_urls.append(v['url'])
+                        
+                return video_urls, id_sub
         except: time.sleep(2)
-    return None, None
+    return [], None
 
 def api_get_or_create_drama(detail, slug, cover_url):
     title = detail.get('title', 'Unknown Title')
@@ -248,8 +251,8 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
             success += 1
             continue
 
-        vurl, sub_url_raw = get_episode_url(vidrama_id, ep_no)
-        if not vurl:
+        vurls, sub_url_raw = get_episode_url(vidrama_id, ep_no)
+        if not vurls:
             print(f"    [WARN] URL tidak ditemukan untuk ep{ep_no}")
             skipped += 1
             continue
@@ -269,23 +272,24 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
         o540 = TEMP_DIR / f"{slug}_540_{ep_no}.mp4"
 
         try:
-            # Fungsi untuk mendownload dengan retry
             download_success = False
-            for dl_attempt in range(3):
-                with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False, timeout=60) as r:
-                    if r.status_code == 200:
-                        with open(raw, 'wb') as f:
-                            for c in r.iter_content(2*1024*1024): 
-                                if c: f.write(c)
-                        # Pastikan ukuran file masuk akal (minimal 500KB)
-                        if raw.exists() and raw.stat().st_size > 500000:
-                            download_success = True
-                            break
-                print(" [RETRY DL]", end="", flush=True)
-                time.sleep(3)
+            for vurl in vurls:
+                if download_success: break
+                for dl_attempt in range(2):
+                    with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False, timeout=60) as r:
+                        if r.status_code == 200:
+                            with open(raw, 'wb') as f:
+                                for c in r.iter_content(2*1024*1024): 
+                                    if c: f.write(c)
+                            # Pastikan ukuran file masuk akal (minimal 50KB)
+                            if raw.exists() and raw.stat().st_size > 50000:
+                                download_success = True
+                                break
+                    print(" [TRY ALT URL]" if dl_attempt > 0 else "", end="", flush=True)
+                    time.sleep(2)
 
             if not download_success:
-                print(" [ERROR] Gagal download file utuh dari CDN")
+                print(" [ERROR] Semua URL resolusi gagal didownload dari CDN")
                 failed += 1
                 continue
 
