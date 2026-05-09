@@ -31,7 +31,7 @@ R2_PUBLIC   = 'https://stream.shortlovers.id'
 VIDRAMA_API = 'https://vidrama.asia/api/netshortv2'
 
 WEB_HDRS    = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
     'Referer': 'https://vidrama.asia/',
     'Cookie': '_fbp=fb.1.1770653154777.876935444165455244; _tt_enable_cookie=1; _ttp=01KH1JE0K4H648BY6E3FQ6EXRZ_.tt.1; _ga=GA1.1.1826262121.1771037718; HstCfa5004644=1772873251576; c_ref_5004644=https%3A%2F%2Fwww.google.com%2F; __dtsu=4C301774685394D291D3AB624E4AA57E; _pubcid=8a5abbf9-164b-422f-b349-0e1ba702ea69; _cc_id=a4a99f9a552125d19ea447bfafb9c63b; HstCmu5004644=1776164034743; global_ui_lang=id; cf_clearance=gi8rBDL4U_sV5dFUP.Dckjr.DONUzFar9fJlBMJx5_c-1778228148-1.2.1.1-rcSC4qbKF5H0KxB5Zt6Ic88iCIyXH7DESdcJA5w9WLWZvk58Y70clfcHFfqOyxmSRb1I97eRy.96PRr0zF1vV_PWs7vWkLZg2IsJNYLl5ZJvxdv7AnK4pZgxEBspgbrAod7jxce171vMiENcKPDXk_1eVFpBk_P5H8TA07xIBdq5HsL3uPTZKn8BCJv.HufjCR4mRr3DVOGDRagaNcc1CD_VmnRYY6tkanYH9QuDUyPeqreywRNxjb_5tsJVseZjz24po7Gw9o9ZVi3mSl9Ypm88Po1s4zr5n3DfE5R4BCKekPgqBAog2SDMQmDCWQJjMpzKKsJ_iXUHRaincYv9WQ; HstCnv5004644=43; HstCns5004644=47; panoramaId_expiry=1778314550106; HstCla5004644=1778228186632; HstPn5004644=2; HstPt5004644=85; _ga_HCQQPKGEVH=GS2.1.s1778254581$o93$g1$t1778255275$j47$l0$h0; ttcsid=1778254562634::VcwgkELj7wu61kAQZ9m6.110.1778255284779.0::1.721869.41379::721754.142.108.1170::721919.457.0; ttcsid_D5SNQPRC77UDQTF8A5EG=1778254578670::ru6ctqp2kzVRkgnn0scK.94.1778255284779.1'
 }
@@ -276,15 +276,46 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
             for vurl in vurls:
                 if download_success: break
                 for dl_attempt in range(2):
-                    with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False, timeout=60) as r:
+                    # CDN tidak butuh Cookie Cloudflare (malah bisa bikin 403 ditolak WAF AWS)
+                    cdn_hdrs = {
+                        'User-Agent': WEB_HDRS['User-Agent'],
+                        'Referer': 'https://vidrama.asia/',
+                        'Accept': '*/*'
+                    }
+                    with requests.get(vurl, stream=True, headers=cdn_hdrs, verify=False, timeout=60) as r:
                         if r.status_code == 200:
                             with open(raw, 'wb') as f:
                                 for c in r.iter_content(2*1024*1024): 
                                     if c: f.write(c)
-                            # Pastikan ukuran file masuk akal (minimal 50KB)
-                            if raw.exists() and raw.stat().st_size > 50000:
+                            size_kb = raw.stat().st_size / 1024 if raw.exists() else 0
+                            if size_kb > 50:
                                 download_success = True
                                 break
+                            else:
+                                print(f" [UKURAN KECIL: {size_kb:.1f} KB]", end="", flush=True)
+                        elif r.status_code == 403:
+                            # Jika Python requests diblokir (TLS fingerprint), gunakan cURL bawaan Windows!
+                            print(" [COBA CURL]", end="", flush=True)
+                            import subprocess
+                            curl_cmd = [
+                                "curl", "-s", "-L",
+                                "-H", f"User-Agent: {cdn_hdrs['User-Agent']}",
+                                "-H", f"Referer: {cdn_hdrs['Referer']}",
+                                "-o", str(raw),
+                                vurl
+                            ]
+                            try:
+                                subprocess.run(curl_cmd, timeout=60)
+                                size_kb = raw.stat().st_size / 1024 if raw.exists() else 0
+                                if size_kb > 50:
+                                    download_success = True
+                                    break
+                                else:
+                                    print(" [CURL GAGAL/KECIL]", end="", flush=True)
+                            except:
+                                print(" [CURL ERROR]", end="", flush=True)
+                        else:
+                            print(f" [HTTP {r.status_code}]", end="", flush=True)
                     print(" [TRY ALT URL]" if dl_attempt > 0 else "", end="", flush=True)
                     time.sleep(2)
 

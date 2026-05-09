@@ -15,12 +15,12 @@ def check_ep(ep):
         videos = data['data'].get('videos', [])
         print(f"EP {ep} videos found:", len(videos))
         if videos:
-            vurl = videos[0]['url']
-            print("URL:", vurl[:100] + "...")
-            r2 = requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False)
-            print("Status Code:", r2.status_code)
-            length = r2.headers.get('Content-Length')
-            print("Content-Length:", length)
+            for i, v in enumerate(videos):
+                vurl = v['url']
+                q = v.get('quality', 'unknown')
+                print(f"  [{q}] URL: {vurl[:80]}...")
+                r2 = requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False)
+                print(f"  [{q}] Status Code: {r2.status_code}, Content-Length: {r2.headers.get('Content-Length')}")
     else:
         print(f"EP {ep} API error:", data)
 
