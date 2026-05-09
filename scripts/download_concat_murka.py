@@ -95,15 +95,24 @@ def download_and_concat():
                     print(f"  -> Gagal download subtitle: {e}")
                     continue
 
+                # FITUR ANTI-HAK CIPTA & SUBTITLE FACEBOOK
+                style = "Alignment=2,MarginV=100,Fontname=Arial,Fontsize=11,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&HFF000000,BorderStyle=1,Outline=1,Shadow=0,Bold=-1"
+                vf_sub = f"subtitles={sub_filename}:force_style='{style}'"
+                
+                # Mempercepat video/audio 6% untuk anti-hak cipta Facebook
+                vf_final = f"{vf_sub},setpts=0.94*PTS"
+                af_final = "atempo=1.06,bass=g=-6,treble=g=2"
+                
                 # Burn subtitle via FFmpeg. We run in OUTPUT_DIR to avoid absolute path escaping hell.
                 cmd = [
                     'ffmpeg', '-y', 
                     '-i', video_url, 
-                    '-vf', f"subtitles={sub_filename}", 
+                    '-vf', vf_final,
+                    '-af', af_final,
                     '-c:v', 'libx264', 
                     '-crf', '26', 
                     '-preset', 'veryfast', 
-                    '-c:a', 'copy', 
+                    '-c:a', 'aac', '-b:a', '128k',
                     f"ep_{ep_num:03d}.mp4"
                 ]
                 subprocess.run(cmd, cwd=OUTPUT_DIR, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)

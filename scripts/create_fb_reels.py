@@ -119,7 +119,7 @@ def main():
                 print(f"  -> [Render Sub] Ep {ep}...", end="", flush=True)
                 
                 # SETTING SUBTITLE UNTUK FACEBOOK REELS:
-                style = "Alignment=2,MarginV=350,Fontname=Arial,Fontsize=22,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=1,Bold=-1"
+                style = "Alignment=2,MarginV=100,Fontname=Arial,Fontsize=11,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&HFF000000,BorderStyle=1,Outline=1,Shadow=0,Bold=-1"
                 
                 if raw_vtt.exists():
                     vtt_filename = f"ep_{ep:03d}.vtt"
