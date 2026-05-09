@@ -74,9 +74,9 @@ def check_duplicate_in_db(title):
         dramas = r.json().get('dramas', [])
         for d in dramas:
             if d['title'].lower().strip() == title.lower().strip():
-                return True
+                return d['id']
     except: pass
-    return False
+    return None
 
 def slugify(text):
     text = text.lower()
@@ -205,14 +205,25 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
         print(f"  -> BUKAN BAHASA INDONESIA (Language: {lang}). Skip!")
         return False
         
-    if check_duplicate_in_db(title):
-        print(f"  -> DUPLIKAT! Judul '{title}' sudah ada di database KingShort. Skip!")
-        return False
+    db_id = check_duplicate_in_db(title)
+    if db_id:
+        if is_manual:
+            print(f"  -> [INFO] Judul '{title}' sudah ada di DB. Melanjutkan proses BACKFILL untuk mengisi episode yang bolong/gagal!")
+        else:
+            print(f"  -> DUPLIKAT! Judul '{title}' sudah ada di database KingShort. Skip!")
+            return False
+    else:
+        # Buat Drama dengan Cover R2 yang benar (bukan link luar)
+        cover_key = f"{prefix}/cover.webp"
+        r2_cover_url = f"{R2_PUBLIC}/{cover_key}"
+        db_id = api_get_or_create_drama(detail, slug, r2_cover_url)
+        if not db_id:
+            print("  -> [ERROR] Gagal membuat data di DB.")
+            return False
+        print(f"  -> [DB] Terdaftar dengan ID: {db_id} (Status: Pending)")
 
-    # Upload Cover Kualitas Tinggi
+    # Upload Cover Kualitas Tinggi jika belum ada
     cover_key = f"{prefix}/cover.webp"
-    r2_cover_url = f"{R2_PUBLIC}/{cover_key}"
-    
     if not r2_exists(r2, cover_key):
         try:
             cov = requests.get(detail['cover'], headers=WEB_HDRS, timeout=30, verify=False)
@@ -221,14 +232,6 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
             r2_upload(r2, p, cover_key, 'image/webp')
             p.unlink()
         except: pass
-
-    # Buat Drama dengan Cover R2 yang benar (bukan link luar)
-    db_id = api_get_or_create_drama(detail, slug, r2_cover_url)
-    if not db_id:
-        print("  -> [ERROR] Gagal membuat data di DB.")
-        return False
-        
-    print(f"  -> [DB] Terdaftar dengan ID: {db_id} (Status: Pending)")
 
     skipped = success = failed = 0
     for ep_no in range(1, total_eps + 1):
@@ -266,9 +269,25 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
         o540 = TEMP_DIR / f"{slug}_540_{ep_no}.mp4"
 
         try:
-            with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False) as r:
-                with open(raw, 'wb') as f:
-                    for c in r.iter_content(2*1024*1024): f.write(c)
+            # Fungsi untuk mendownload dengan retry
+            download_success = False
+            for dl_attempt in range(3):
+                with requests.get(vurl, stream=True, headers=WEB_HDRS, verify=False, timeout=60) as r:
+                    if r.status_code == 200:
+                        with open(raw, 'wb') as f:
+                            for c in r.iter_content(2*1024*1024): 
+                                if c: f.write(c)
+                        # Pastikan ukuran file masuk akal (minimal 500KB)
+                        if raw.exists() and raw.stat().st_size > 500000:
+                            download_success = True
+                            break
+                print(" [RETRY DL]", end="", flush=True)
+                time.sleep(3)
+
+            if not download_success:
+                print(" [ERROR] Gagal download file utuh dari CDN")
+                failed += 1
+                continue
 
             print(f"    ep{ep_no:03d}: Encoding...", end="", flush=True)
             if encode_720_and_540(raw, o720, o540):
@@ -278,7 +297,7 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
                 print(" BERHASIL")
                 success += 1
             else:
-                print(" [ERROR] Encoding Gagal")
+                print(" [ERROR] Encoding Gagal (File korup/moov atom missing)")
                 failed += 1
         except Exception as e:
             print(f" [ERROR] {e}")
