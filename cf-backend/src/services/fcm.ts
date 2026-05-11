@@ -89,26 +89,6 @@ async function getAccessToken(): Promise<string> {
  *  - imageUrl  → large thumbnail shown on the RIGHT side of the notification (Android 7+)
  *  - data.dramaId + data.episodeNumber → deep-link to player on tap
  */
-/**
- * Optimizes image URL for mobile notifications using Cloudflare Image Resizing.
- * Android notifications work best with images around 600-800px wide and < 200KB.
- */
-function optimizeNotificationImage(url?: string): string | undefined {
-    if (!url) return undefined;
-    
-    // If it's already a Cloudflare Resizing URL or not a full URL, return as is
-    if (url.includes('/cdn-cgi/image/')) return url;
-    
-    try {
-        const urlObj = new URL(url);
-        // We use Cloudflare's built-in resizing service
-        // Parameters: width=600 (ideal for tray), quality=80, format=auto (webp for smaller size)
-        return `${urlObj.origin}/cdn-cgi/image/width=600,quality=80,format=auto${urlObj.pathname}`;
-    } catch (e) {
-        return url; // Fallback to original if URL is invalid
-    }
-}
-
 async function sendFcmMessage(
     token: string,
     title: string,
@@ -121,9 +101,6 @@ async function sendFcmMessage(
     const accessToken = await getAccessToken();
     const url = `https://fcm.googleapis.com/v1/projects/${sa.project_id}/messages:send`;
 
-    // Optimize image for mobile (auto-resize via Cloudflare)
-    const optimizedImageUrl = optimizeNotificationImage(imageUrl);
-
     // ── HYBRID MESSAGE (Notification + Data) ──────────────────────────────────
     // Including a `notification` block ensures the OS (Android/iOS) renders the 
     // image natively. Including the `data` block ensures deep-linking (dramaId)
@@ -135,14 +112,14 @@ async function sendFcmMessage(
             notification: {
                 title: title,
                 body: body,
-                ...(optimizedImageUrl ? { image: optimizedImageUrl } : {})
+                ...(imageUrl ? { image: imageUrl } : {})
             },
             // 2. Android Specific Config
             android: {
                 priority: 'high',
                 notification: {
                     channelId: 'kingshort_notifications', // Matches mobile/services/notifications.ts
-                    ...(optimizedImageUrl ? { image: optimizedImageUrl } : {}),
+                    ...(imageUrl ? { image: imageUrl } : {}),
                     visibility: 'public', // Show on lock screen
                 }
             },
@@ -151,11 +128,11 @@ async function sendFcmMessage(
                 payload: {
                     aps: {
                         sound: 'default',
-                        mutableContent: optimizedImageUrl ? true : false, // Required for rich notifications on iOS
+                        mutableContent: imageUrl ? true : false, // Required for rich notifications on iOS
                     }
                 },
                 fcm_options: {
-                    ...(optimizedImageUrl ? { image: optimizedImageUrl } : {})
+                    ...(imageUrl ? { image: imageUrl } : {})
                 }
             },
             // 4. Data Block (Required for expo-notifications app routing)
@@ -167,7 +144,7 @@ async function sendFcmMessage(
                 // The app expects JSON-stringified body containing all data
                 body: JSON.stringify({
                     ...(data || {}),
-                    ...(optimizedImageUrl ? { imageUrl: optimizedImageUrl } : {})
+                    ...(imageUrl ? { imageUrl } : {})
                 }),
                 // Add flat keys for robustness (deep-linking)
                 ...(data || {}),
