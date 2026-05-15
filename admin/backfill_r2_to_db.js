@@ -19,7 +19,8 @@ const s3 = new S3Client({
 const BUCKET = process.env.R2_BUCKET_NAME;
 
 function slugToTitle(slug) {
-    return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const cleanSlug = slug.includes('--') ? slug.split('--')[0] : slug;
+    return cleanSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').trim();
 }
 
 async function listR2Dramas(prefix) {
@@ -39,7 +40,7 @@ async function listR2Dramas(prefix) {
 }
 
 async function getEpisodeFiles(prefix, slug) {
-    const episodes = [];
+    const episodesMap = new Map();
     let token;
     do {
         const res = await s3.send(new ListObjectsV2Command({
@@ -47,12 +48,36 @@ async function getEpisodeFiles(prefix, slug) {
         }));
         for (const obj of (res.Contents || [])) {
             const mp4 = obj.Key.match(/ep(\d+)\.mp4$/);
+            const mp4_540p = obj.Key.match(/ep(\d+)_540p\.mp4$/);
             const hls = obj.Key.match(/ep(\d+)\/playlist\.m3u8$/);
-            if (mp4) episodes.push({ number: parseInt(mp4[1]), videoUrl: `${R2_PUBLIC}/${obj.Key}` });
-            else if (hls) episodes.push({ number: parseInt(hls[1]), videoUrl: `${R2_PUBLIC}/${obj.Key}` });
+            
+            if (mp4) {
+                const num = parseInt(mp4[1]);
+                if (!episodesMap.has(num)) episodesMap.set(num, {});
+                episodesMap.get(num).videoUrl = `${R2_PUBLIC}/${obj.Key}`;
+            } else if (mp4_540p) {
+                const num = parseInt(mp4_540p[1]);
+                if (!episodesMap.has(num)) episodesMap.set(num, {});
+                episodesMap.get(num).videoUrl540p = `${R2_PUBLIC}/${obj.Key}`;
+            } else if (hls) {
+                const num = parseInt(hls[1]);
+                if (!episodesMap.has(num)) episodesMap.set(num, {});
+                episodesMap.get(num).videoUrl = `${R2_PUBLIC}/${obj.Key}`;
+            }
         }
         token = res.NextContinuationToken;
     } while (token);
+    
+    const episodes = [];
+    for (const [number, data] of episodesMap.entries()) {
+        if (data.videoUrl) {
+            episodes.push({ 
+                number, 
+                videoUrl: data.videoUrl, 
+                videoUrl540p: data.videoUrl540p || null 
+            });
+        }
+    }
     return episodes.sort((a, b) => a.number - b.number);
 }
 
@@ -62,7 +87,8 @@ async function main() {
     const melolo = await listR2Dramas('melolo/');
     const vidrama = await listR2Dramas('vidrama/');
     const microdrama = await listR2Dramas('microdrama/');
-    console.log(`Found ${melolo.length} melolo + ${vidrama.length} vidrama + ${microdrama.length} microdrama in R2`);
+    const goodshort = await listR2Dramas('goodshort/');
+    console.log(`Found ${melolo.length} melolo + ${vidrama.length} vidrama + ${microdrama.length} microdrama + ${goodshort.length} goodshort in R2`);
 
     const dbDramas = await p.drama.findMany({ select: { id: true, title: true } });
     const existingMap = new Map(dbDramas.map(d => [d.title.toLowerCase(), d.id]));
@@ -71,6 +97,7 @@ async function main() {
         ...melolo.map(s => ({ slug: s, prefix: 'melolo/' })),
         ...vidrama.map(s => ({ slug: s, prefix: 'vidrama/' })),
         ...microdrama.map(s => ({ slug: s, prefix: 'microdrama/' })),
+        ...goodshort.map(s => ({ slug: s, prefix: 'goodshort/' })),
     ];
 
     let registered = 0, skipped = 0, failed = 0, epsAdded = 0;
@@ -91,10 +118,10 @@ async function main() {
                     try {
                         await p.episode.upsert({
                             where: { dramaId_episodeNumber: { dramaId, episodeNumber: ep.number } },
-                            update: { videoUrl: ep.videoUrl },
+                            update: { videoUrl: ep.videoUrl, videoUrl540p: ep.videoUrl540p },
                             create: {
                                 dramaId, episodeNumber: ep.number,
-                                title: `Episode ${ep.number}`, videoUrl: ep.videoUrl,
+                                title: `Episode ${ep.number}`, videoUrl: ep.videoUrl, videoUrl540p: ep.videoUrl540p,
                                 isActive: true, isVip: false, coinPrice: 0, views: 0, duration: 0,
                             },
                         });
@@ -116,12 +143,13 @@ async function main() {
 
         try {
             // Create drama directly via Prisma
+            const coverExt = prefix === 'goodshort/' ? 'jpg' : 'webp';
             const drama = await p.drama.create({
                 data: {
                     title, description: title,
-                    cover: `${R2_PUBLIC}/${prefix}${slug}/cover.webp`,
+                    cover: `${R2_PUBLIC}/${prefix}${slug}/cover.${coverExt}`,
                     genres: ['Drama'], status: 'completed', country: 'China', language: 'Indonesia',
-                    isActive: true, views: 0, rating: 0, totalEpisodes: episodes.length,
+                    isActive: false, views: 0, rating: 0, totalEpisodes: episodes.length,
                 },
             });
 
@@ -129,13 +157,13 @@ async function main() {
             await p.episode.createMany({
                 data: episodes.map(ep => ({
                     dramaId: drama.id, episodeNumber: ep.number,
-                    title: `Episode ${ep.number}`, videoUrl: ep.videoUrl,
-                    isActive: true, isVip: false, coinPrice: 0, views: 0, duration: 0,
+                    title: `Episode ${ep.number}`, videoUrl: ep.videoUrl, videoUrl540p: ep.videoUrl540p,
+                    isActive: false, isVip: false, coinPrice: 0, views: 0, duration: 0,
                 })),
                 skipDuplicates: true,
             });
 
-            console.log(`  ✅ ${title}: ${episodes.length} eps`);
+            console.log(`  ✅ ${title}: ${episodes.length} eps (Added to Database!)`);
             registered++;
             existingMap.set(title.toLowerCase(), drama.id);
         } catch (e) {
