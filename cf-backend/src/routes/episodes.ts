@@ -2,12 +2,13 @@ import { Hono } from 'hono';
 import { eq, and, sql, asc, desc } from 'drizzle-orm';
 import { getDb } from '../db';
 import { episodes, dramas, subtitles } from '../db/schema';
+import { requireAdmin, getAuthUser } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
 
 const episodesRoute = new Hono<Env>();
 
 // POST /api/episodes - Register episode (scraper)
-episodesRoute.post('/', async (c) => {
+episodesRoute.post('/', requireAdmin, async (c) => {
     try {
         const { dramaId, episodeNumber, title, videoUrl, videoUrl540p, duration } = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
@@ -89,13 +90,20 @@ episodesRoute.get('/:id/stream', async (c) => {
 
         // VIP check
         if (episode.isVip) {
-            const authHeader = c.req.header('Authorization');
-            if (!authHeader) {
+            const user = await getAuthUser(c);
+            if (!user) {
                 return c.json({
                     error: 'VIP content requires authentication',
                     isVip: true,
                     coinPrice: episode.coinPrice,
                 }, 401);
+            }
+            if (user.role !== 'admin' && !user.vipStatus) {
+                return c.json({
+                    error: 'VIP subscription required',
+                    isVip: true,
+                    coinPrice: episode.coinPrice,
+                }, 403);
             }
         }
 
@@ -126,12 +134,8 @@ episodesRoute.get('/:id/stream', async (c) => {
 });
 
 // PATCH /api/episodes/:id - Update episode fields (no URL validation for 540p)
-episodesRoute.patch('/:id', async (c) => {
+episodesRoute.patch('/:id', requireAdmin, async (c) => {
     try {
-        const adminKey = c.req.header('X-Admin-Key');
-        if (!adminKey || adminKey !== (c.env as any).ADMIN_API_KEY) {
-            return c.json({ error: 'Unauthorized' }, 401);
-        }
 
         const id = c.req.param('id');
         const body = await c.req.json();
@@ -179,7 +183,7 @@ episodesRoute.get('/:id/subtitles', async (c) => {
 });
 
 // POST /api/episodes/:id/subtitles - Register subtitle (scraper)
-episodesRoute.post('/:id/subtitles', async (c) => {
+episodesRoute.post('/:id/subtitles', requireAdmin, async (c) => {
     try {
         const id = c.req.param('id');
         const { language, label, url, isDefault } = await c.req.json();
@@ -221,7 +225,7 @@ episodesRoute.post('/:id/subtitles', async (c) => {
 });
 
 // DELETE /api/episodes/:id - Delete episode and update drama count
-episodesRoute.delete('/:id', async (c) => {
+episodesRoute.delete('/:id', requireAdmin, async (c) => {
     try {
         const id = c.req.param('id');
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
@@ -248,7 +252,7 @@ episodesRoute.delete('/:id', async (c) => {
 // POST /api/episodes/shift - Shift episode numbers for a drama
 // Body: { dramaId, startFrom: number, shiftBy: number }
 // Shifts all episodes with episodeNumber >= startFrom by shiftBy
-episodesRoute.post('/shift', async (c) => {
+episodesRoute.post('/shift', requireAdmin, async (c) => {
     try {
         const { dramaId, startFrom, shiftBy } = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);

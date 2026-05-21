@@ -2,19 +2,14 @@ import { Hono } from 'hono';
 import { eq, and, desc, sql, gte } from 'drizzle-orm';
 import { getDb } from '../db';
 import { notifications, users } from '../db/schema';
-import { Env, requireAuth } from '../middleware/auth';
+import { Env, requireAuth, requireAdmin } from '../middleware/auth';
 import { sendBroadcastNotification } from '../services/fcm';
 
 const notificationsRoute = new Hono<Env>();
 
 // POST /api/notifications/broadcast — Admin-only broadcast push notification
-notificationsRoute.post('/broadcast', async (c) => {
+notificationsRoute.post('/broadcast', requireAdmin, async (c) => {
     try {
-        const apiKey = c.req.header('X-Admin-Key') || c.req.header('Authorization')?.replace('Bearer ', '');
-        if (apiKey !== c.env.ADMIN_API_KEY) {
-            return c.json({ error: 'Unauthorized' }, 401);
-        }
-
         const { title, body, type = 'system', imageUrl, dramaId, episodeNumber } = await c.req.json();
         if (!title || !body) {
             return c.json({ error: 'Title and body are required' }, 400);

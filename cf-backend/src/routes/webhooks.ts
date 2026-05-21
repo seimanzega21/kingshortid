@@ -88,6 +88,14 @@ webhooksRoute.post('/revenuecat', async (c) => {
     return c.json({ ok: true });
 });
 
+async function calculateSHA512(str: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-512', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 // POST /api/webhooks/midtrans
 // Called by Midtrans when a Top Up payment completes
 webhooksRoute.post('/midtrans', async (c) => {
@@ -99,8 +107,22 @@ webhooksRoute.post('/midtrans', async (c) => {
             return c.json({ ok: true });
         }
 
-        const { order_id, transaction_status, gross_amount, status_code } = body;
+        const { order_id, transaction_status, gross_amount, status_code, signature_key } = body;
         console.log(`Midtrans webhook: order_id=${order_id}, status=${transaction_status}`);
+
+        const serverKey = c.env.MIDTRANS_SERVER_KEY;
+        if (!serverKey) {
+            console.error('MIDTRANS_SERVER_KEY is not defined in environment');
+            return c.json({ error: 'Server configuration error' }, 500);
+        }
+
+        const payloadToSign = `${order_id}${status_code}${gross_amount}${serverKey}`;
+        const calculatedSignature = await calculateSHA512(payloadToSign);
+
+        if (calculatedSignature !== signature_key) {
+            console.warn(`Midtrans webhook: signature verification failed. Calculated=${calculatedSignature}, Got=${signature_key}`);
+            return c.json({ error: 'Invalid signature key' }, 403);
+        }
 
         // Only process successful payments
         const successStatuses = ['capture', 'settlement'];

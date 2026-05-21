@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { getDb } from '../db';
 import { sql } from 'drizzle-orm';
+import { requireAdmin } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
 
 const settingsRoute = new Hono<Env>();
@@ -52,7 +53,7 @@ settingsRoute.get('/', async (c) => {
 });
 
 // POST /api/settings - Save all settings
-settingsRoute.post('/', async (c) => {
+settingsRoute.post('/', requireAdmin, async (c) => {
     try {
         const body = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);

@@ -39,7 +39,18 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        return NextResponse.json({ token: data.token, user: data.user }, { status: 200 });
+        const response = NextResponse.json({ token: data.token, user: data.user }, { status: 200 });
+        
+        // Set the admin_token cookie securely
+        response.cookies.set('admin_token', data.token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 7 * 24 * 60 * 60, // 7 days
+            path: '/',
+        });
+
+        return response;
     } catch (error) {
         console.error('Admin Login error:', error);
         return NextResponse.json(

@@ -3,6 +3,7 @@ import { eq, and, desc, like, or, sql, asc } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
 import { dramas, episodes, seasons, subtitles } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
+import { requireAdmin } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
 
 const dramasRoute = new Hono<Env>();
@@ -24,7 +25,7 @@ function enrichDrama(d: typeof dramas.$inferSelect) {
 }
 
 // POST /api/dramas - Create/register a drama (scraper)
-dramasRoute.post('/', async (c) => {
+dramasRoute.post('/', requireAdmin, async (c) => {
     try {
         const body = await c.req.json();
         const { title, description, cover, genres, status, country, language } = body;
@@ -476,7 +477,7 @@ dramasRoute.get('/:id/seasons', async (c) => {
 });
 
 // DELETE /api/dramas/:id - Delete a drama and its episodes
-dramasRoute.delete('/:id', async (c) => {
+dramasRoute.delete('/:id', requireAdmin, async (c) => {
     try {
         const id = c.req.param('id');
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
@@ -497,7 +498,7 @@ dramasRoute.delete('/:id', async (c) => {
 });
 
 // PATCH /api/dramas/:id - Update drama fields by ID
-dramasRoute.patch('/:id', async (c) => {
+dramasRoute.patch('/:id', requireAdmin, async (c) => {
     try {
         const id = c.req.param('id');
         const body = await c.req.json();
@@ -564,7 +565,7 @@ dramasRoute.patch('/:id', async (c) => {
 });
 
 // POST /api/dramas/bulk-complete - Mark all ongoing → completed
-dramasRoute.post('/bulk-complete', async (c) => {
+dramasRoute.post('/bulk-complete', requireAdmin, async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
         const ongoing = await db.select({ id: dramas.id }).from(dramas)
@@ -586,7 +587,7 @@ dramasRoute.post('/bulk-complete', async (c) => {
 });
 
 // POST /api/dramas/bulk-publish - Activate all ready dramas
-dramasRoute.post('/bulk-publish', async (c) => {
+dramasRoute.post('/bulk-publish', requireAdmin, async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
         const inactive = await db.select().from(dramas)
