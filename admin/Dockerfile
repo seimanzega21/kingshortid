@@ -13,6 +13,9 @@ RUN npx prisma generate
 # Copy source code and build Next.js app
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV JWT_SECRET="dummy-jwt-secret-min-32-characters-for-build-stage-only"
+ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
+ENV ADMIN_API_KEY="dummy-admin-api-key-for-build-stage-only"
 RUN npm run build
 
 # Production Stage
