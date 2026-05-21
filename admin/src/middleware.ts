@@ -168,7 +168,7 @@ export async function middleware(request: NextRequest) {
 
             response.cookies.set('admin_token', renewedToken, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
+                secure: false,
                 sameSite: 'strict',
                 maxAge: 7 * 24 * 60 * 60,
                 path: '/',

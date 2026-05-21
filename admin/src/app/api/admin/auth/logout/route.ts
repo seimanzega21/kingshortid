@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     // Clear the admin_token cookie
     response.cookies.set('admin_token', '', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: false,
         sameSite: 'strict',
         maxAge: 0,
         path: '/',
