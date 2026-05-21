@@ -29,9 +29,14 @@ model User {
   checkInStreak Int       @default(0) @map("check_in_streak")
   lastSpinDate  DateTime? @map("last_spin_date")
   totalSpins    Int       @default(0) @map("total_spins")
+  spinCount     Int?      @default(0) @map("spin_count")
 
-  preferences    Json? // AI recommendation preferences
-  totalWatchTime Int   @default(0) // in seconds @map("total_watch_time")
+  preferences    String? // Changed from Json? to String? to match text type in DB
+  totalWatchTime Int     @default(0) @map("total_watch_time") // in seconds
+
+  purchasedCoins Int       @default(0) @map("purchased_coins")
+  adWatchCount   Int       @default(0) @map("ad_watch_count")
+  adWatchDate    DateTime? @map("ad_watch_date")
 
   // Social stats
   followerCount  Int     @default(0) @map("follower_count")
@@ -93,7 +98,7 @@ model Drama {
   banner      String?
 
   genres  String[]
-  tagList String[] // Simple tag array for backward compatibility @map("tag_list")
+  tagList String[] @map("tag_list") // Simple tag array for backward compatibility
 
   totalEpisodes Int   @default(0) @map("total_episodes")
   rating        Float @default(0)
@@ -108,7 +113,7 @@ model Drama {
   isVip      Boolean @default(false) @map("is_vip")
   isFeatured Boolean @default(false) @map("is_featured")
   isActive   Boolean @default(true) @map("is_active")
-  ageRating  String  @default("all") // all, 13+, 16+, 18+ @map("age_rating")
+  ageRating  String  @default("all") @map("age_rating") // all, 13+, 16+, 18+
 
   releaseDate DateTime? @map("release_date")
   director    String?
@@ -317,7 +322,7 @@ model DailyReward {
   userId String @map("user_id")
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  rewardType String // spin_wheel, check_in, bonus @map("reward_type")
+  rewardType String @map("reward_type") // spin_wheel, check_in, bonus
   amount     Int // coins awarded
   claimedAt  DateTime @default(now()) @map("claimed_at")
 
@@ -443,7 +448,7 @@ model WatchParty {
   isPublic Boolean @default(true) @map("is_public")
   maxUsers Int     @default(10) @map("max_users")
 
-  currentTime Int     @default(0) // current playback position in seconds @map("current_time")
+  currentTime Int     @default(0) @map("current_time") // current playback position in seconds
   isPlaying   Boolean @default(false) @map("is_playing")
 
   createdAt DateTime  @default(now()) @map("created_at")
@@ -521,7 +526,7 @@ model Playlist {
   cover       String?
 
   isPublic   Boolean @default(false) @map("is_public")
-  isOfficial Boolean @default(false) // for admin-created playlists @map("is_official")
+  isOfficial Boolean @default(false) @map("is_official") // for admin-created playlists
 
   itemCount Int @default(0) @map("item_count")
 
@@ -670,7 +675,7 @@ model Report {
   reporterId String @map("reporter_id")
 
   type     String // comment, review, user, drama
-  targetId String // id of the reported item @map("target_id")
+  targetId String @map("target_id") // id of the reported item
   reason   String
   details  String? @db.Text
 
@@ -722,5 +727,13 @@ model SyncQueue {
   @@index([userId, status])
   @@index([status, createdAt])
   @@map("sync_queue")
+}
+
+model AppSettings {
+  key       String  @id
+  value     String?
+  updatedAt Int?    @map("updated_at")
+
+  @@map("app_settings")
 }
 
