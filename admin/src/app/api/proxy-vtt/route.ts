@@ -15,7 +15,14 @@ export async function GET(request: Request) {
             return new Response(`Failed to fetch from CDN: ${res.status}`, { status: res.status });
         }
 
-        const text = await res.text();
+        let text = await res.text();
+
+        // Convert SRT to VTT if needed
+        if (!text.trim().startsWith('WEBVTT')) {
+            // Replace SRT comma with dot in timestamps
+            // e.g. 00:00:02,426 --> 00:00:03,320
+            text = 'WEBVTT\n\n' + text.replace(/(\d{2}:\d{2}:\d{2}),(\d{3})/g, '$1.$2');
+        }
 
         return new Response(text, {
             headers: {
