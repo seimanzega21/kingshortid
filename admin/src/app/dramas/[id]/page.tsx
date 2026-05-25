@@ -110,7 +110,7 @@ export default function DramaDetailPage() {
                 id: ep.id,
                 title: ep.title || `Episode ${ep.episodeNumber}`,
                 videoUrl: ep.videoUrl,
-                subtitleUrl: subUrl ? `/api/proxy-vtt?url=${encodeURIComponent(subUrl)}` : null
+                subtitleUrl: subUrl ? `/api/proxy-vtt?url=${encodeURIComponent(subUrl)}&cb=${Date.now()}` : null
             });
         } catch (e: any) {
             console.error("Subtitle fetch error:", e);
