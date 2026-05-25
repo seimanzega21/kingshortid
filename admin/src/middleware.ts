@@ -98,7 +98,8 @@ async function signJwt(payload: any, secret: string, expiresInSeconds: number = 
 const BYPASS_PATHS = [
     '/api/admin/auth/login',
     '/api/admin/auth/register',
-    '/api/health'
+    '/api/health',
+    '/api/proxy-vtt'
 ];
 
 export async function middleware(request: NextRequest) {
