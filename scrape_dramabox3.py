@@ -209,7 +209,7 @@ def register_subtitles(episode_id, subtitles_list):
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 def main():
     print("=" * 60)
-    print("SCRAPER RESUME: Suami Untuk Tiga Tahun")
+    print(f"SCRAPER RESUME: {BOOK_SLUG}")
     print(f"Book ID: {BOOK_ID} | Resuming from EP {START_EP}")
     print("=" * 60)
     
