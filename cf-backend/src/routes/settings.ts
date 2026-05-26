@@ -45,6 +45,10 @@ settingsRoute.get('/', async (c) => {
             adUnitBanner: settings.adUnitBanner || '',
             adUnitInterstitial: settings.adUnitInterstitial || '',
             adUnitRewarded: settings.adUnitRewarded || '',
+
+            // Banner settings
+            bannerMode: settings.bannerMode || 'auto',
+            bannerRotationDays: parseInt(settings.bannerRotationDays || '2'),
         });
     } catch (error) {
         console.error('Get settings error:', error);
@@ -69,6 +73,7 @@ settingsRoute.post('/', requireAdmin, async (c) => {
             'adsRewardedEnabled', 'adsFrequency', 'maxDailyAds',
             'interstitialCloseDelay', 'rewardedCoinsAmount', 'bannerPosition',
             'adUnitBanner', 'adUnitInterstitial', 'adUnitRewarded',
+            'bannerMode', 'bannerRotationDays',
         ];
 
         // Upsert each setting using Drizzle raw SQL

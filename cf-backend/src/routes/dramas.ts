@@ -270,12 +270,45 @@ dramasRoute.get('/banners', async (c) => {
     try {
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        const result = await db.select().from(dramas)
+        // Fetch settings
+        const settingsRows = await db.execute(sql`SELECT key, value FROM app_settings WHERE key IN ('bannerMode', 'bannerRotationDays')`);
+        let bannerMode = 'auto';
+        let rotationDays = 2;
+        for (const row of settingsRows as any[]) {
+            if (row.key === 'bannerMode') bannerMode = row.value;
+            if (row.key === 'bannerRotationDays') rotationDays = parseInt(row.value) || 2;
+        }
+
+        // 1. Fetch admin's manual picks
+        const featured = await db.select().from(dramas)
             .where(and(eq(dramas.isActive, true), eq(dramas.isFeatured, true)))
             .orderBy(desc(dramas.updatedAt))
             .limit(10);
 
-        return c.json(result.map(enrichDrama));
+        let finalBanners = [...featured];
+
+        // 2. If 'auto' mode and less than 10, fill the rest automatically
+        if (bannerMode === 'auto' && finalBanners.length < 10) {
+            const limitNeeded = 10 - finalBanners.length;
+            
+            // Pool of active non-featured dramas, trending first
+            const pool = await db.select().from(dramas)
+                .where(and(eq(dramas.isActive, true), eq(dramas.isFeatured, false)))
+                .orderBy(desc(dramas.views), desc(dramas.createdAt))
+                .limit(40); // larger pool to shuffle
+
+            // Seeded shuffle that changes every N days
+            const seedNum = Math.floor(Date.now() / (Math.max(1, rotationDays) * 24 * 60 * 60 * 1000));
+            const shuffled = [...pool];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(((seedNum * (i + 1) * 9301 + 49297) % 233280) / 233280 * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            finalBanners = [...finalBanners, ...shuffled.slice(0, limitNeeded)];
+        }
+
+        return c.json(finalBanners.map(enrichDrama));
     } catch (error) {
         console.error('Get banners error:', error);
         return c.json({ error: 'Failed to get banners' }, 500);

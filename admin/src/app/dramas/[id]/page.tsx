@@ -15,7 +15,7 @@ interface DramaData {
     id: string; title: string; description: string; cover: string;
     banner: string | null; genres: string[]; status: string;
     country: string; language: string; totalEpisodes: number;
-    views: number; rating: number; isActive: boolean; isVip: boolean;
+    views: number; rating: number; isActive: boolean; isVip: boolean; isFeatured: boolean;
     createdAt: string; updatedAt: string;
 }
 
@@ -52,7 +52,7 @@ export default function DramaDetailPage() {
     const coverInputRef = useRef<HTMLInputElement>(null);
 
     const [formData, setFormData] = useState({
-        title: "", description: "", status: "", isVip: false, genres: [] as string[]
+        title: "", description: "", status: "", isVip: false, isFeatured: false, genres: [] as string[]
     });
 
     useEffect(() => { if (id) fetchData(); }, [id]);
@@ -76,6 +76,7 @@ export default function DramaDetailPage() {
                 description: dataDrama.description || "",
                 status: dataDrama.status,
                 isVip: dataDrama.isVip,
+                isFeatured: dataDrama.isFeatured || false,
                 genres: dataDrama.genres || [],
             });
         } catch (error) {
@@ -488,20 +489,36 @@ export default function DramaDetailPage() {
                             </span>
                         </div>
 
-                        {/* VIP */}
-                        {isEditing ? (
-                            <button
-                                onClick={() => setFormData({ ...formData, isVip: !formData.isVip })}
-                                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-colors ${formData.isVip ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' : 'bg-zinc-800 text-zinc-400 border-zinc-700'}`}
-                            >
-                                {formData.isVip ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
-                                {formData.isVip ? 'VIP' : 'Free'}
-                            </button>
-                        ) : drama.isVip && (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                                ⭐ VIP Exclusive
-                            </span>
-                        )}
+                        {/* Featured & VIP */}
+                        <div className="flex gap-2">
+                            {isEditing ? (
+                                <button
+                                    onClick={() => setFormData({ ...formData, isFeatured: !formData.isFeatured })}
+                                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-colors ${formData.isFeatured ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' : 'bg-zinc-800 text-zinc-400 border-zinc-700'}`}
+                                >
+                                    {formData.isFeatured ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
+                                    {formData.isFeatured ? 'Tampil di Banner' : 'Sembunyikan dr Banner'}
+                                </button>
+                            ) : drama.isFeatured && (
+                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                                    🌟 Featured Banner
+                                </span>
+                            )}
+
+                            {isEditing ? (
+                                <button
+                                    onClick={() => setFormData({ ...formData, isVip: !formData.isVip })}
+                                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-colors ${formData.isVip ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' : 'bg-zinc-800 text-zinc-400 border-zinc-700'}`}
+                                >
+                                    {formData.isVip ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
+                                    {formData.isVip ? 'VIP' : 'Free'}
+                                </button>
+                            ) : drama.isVip && (
+                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                    ⭐ VIP Exclusive
+                                </span>
+                            )}
+                        </div>
 
                         {/* Description */}
                         <div>

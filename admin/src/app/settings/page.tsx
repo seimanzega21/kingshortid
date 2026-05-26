@@ -24,6 +24,9 @@ interface AppSettings {
     registrationsOpen: boolean;
     language: string;
     currency: string;
+    // Banner
+    bannerMode: string;
+    bannerRotationDays: number;
     // Legal
     termsUrl: string;
     privacyUrl: string;
@@ -84,6 +87,8 @@ export default function SettingsPage() {
                     registrationsOpen: data.registrationsOpen ?? true,
                     language: data.language || "id",
                     currency: data.currency || "IDR",
+                    bannerMode: data.bannerMode || "auto",
+                    bannerRotationDays: data.bannerRotationDays || 2,
                     termsUrl: data.termsUrl || "",
                     privacyUrl: data.privacyUrl || "",
                     contactEmail: data.contactEmail || "",
@@ -197,6 +202,33 @@ export default function SettingsPage() {
                             <div className="bg-[#121212] border border-zinc-800 rounded-xl p-6">
                                 <ToggleRow title="Mode Pemeliharaan" desc="Tutup akses publik sementara" enabled={settings.maintenanceMode} onChange={() => updateSetting('maintenanceMode', !settings.maintenanceMode)} />
                                 <ToggleRow title="Registrasi Terbuka" desc="Izinkan pengguna baru mendaftar" enabled={settings.registrationsOpen} onChange={() => updateSetting('registrationsOpen', !settings.registrationsOpen)} />
+                            </div>
+                            <div className="bg-[#121212] border border-zinc-800 rounded-xl p-6 space-y-6">
+                                <div className="flex items-center gap-3">
+                                    <div className="p-2 bg-orange-500/10 rounded-lg text-orange-500"><SettingsIcon size={20} /></div>
+                                    <h3 className="text-lg font-bold text-white">Pengaturan Banner</h3>
+                                </div>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm text-zinc-400">Mode Banner</label>
+                                        <select
+                                            value={settings.bannerMode}
+                                            onChange={(e) => updateSetting('bannerMode', e.target.value)}
+                                            className="w-full bg-[#18181b] border border-zinc-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-purple-500"
+                                        >
+                                            <option value="auto">Otomatis (Campuran & Rotasi)</option>
+                                            <option value="manual">Manual (Hanya yang Dicentang)</option>
+                                        </select>
+                                    </div>
+                                    {settings.bannerMode === 'auto' && (
+                                        <InputField 
+                                            label="Interval Rotasi (Hari)" 
+                                            value={settings.bannerRotationDays} 
+                                            onChange={(v) => updateSetting('bannerRotationDays', v)} 
+                                            type="number" 
+                                        />
+                                    )}
+                                </div>
                             </div>
                         </>
                     )}

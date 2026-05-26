@@ -1,15 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, readFile, mkdir } from 'fs/promises';
-import { join } from 'path';
-
-const SETTINGS_FILE = join(process.cwd(), 'config', 'settings.json');
-
-// Ensure config dir exists
-async function ensureConfigDir() {
-    try {
-        await mkdir(join(process.cwd(), 'config'), { recursive: true });
-    } catch { }
-}
+import prisma from '@/lib/prisma';
 
 const DEFAULT_SETTINGS = {
     // Basic
@@ -22,45 +12,70 @@ const DEFAULT_SETTINGS = {
     currency: "IDR",
     language: "id",
 
+    // === BANNERS ===
+    bannerMode: 'auto',
+    bannerRotationDays: 2,
+
     // === IKLAN (ADS) ===
-    adsEnabled: true,                    // Master switch untuk semua iklan
-    adsBannerEnabled: true,              // Banner ads di bawah layar
-    adsInterstitialEnabled: true,        // Full-screen ads antar episode
-    adsRewardedEnabled: true,            // Rewarded ads untuk koin
-    adsFrequency: 3,                     // Tampilkan iklan setiap X episode
-    maxDailyAds: 10,                     // Maksimal iklan per hari per user
+    adsEnabled: true,
+    adsBannerEnabled: true,
+    adsInterstitialEnabled: true,
+    adsRewardedEnabled: true,
+    adsFrequency: 3,
+    maxDailyAds: 10,
 
     // === FITUR BERBAYAR (PREMIUM) ===
-    premiumEnabled: true,                // Master switch fitur premium
-    vipSystemEnabled: true,              // VIP membership system
-    coinSystemEnabled: true,             // Sistem koin
-    vipEpisodeEnabled: true,             // Episode khusus VIP
-    subscriptionEnabled: true,           // Langganan bulanan
+    premiumEnabled: true,
+    vipSystemEnabled: true,
+    coinSystemEnabled: true,
+    vipEpisodeEnabled: true,
+    subscriptionEnabled: true,
 
     // === MONETIZATION ===
-    coinPricePerEpisode: 10,             // Harga unlock episode dalam koin
-    dailySpinEnabled: true,              // Daily spin wheel
-    dailyCheckInEnabled: true,           // Daily check-in reward
-    freeCoinsOnRegister: 100,            // Koin gratis saat daftar
+    coinPricePerEpisode: 10,
+    dailySpinEnabled: true,
+    dailyCheckInEnabled: true,
+    freeCoinsOnRegister: 100,
 
     // === VIP PRICING (dalam IDR) ===
     vipMonthlyPrice: 49000,
     vipYearlyPrice: 490000,
 };
 
-
 // GET /api/settings
 export async function GET() {
     try {
-        await ensureConfigDir();
-        try {
-            const data = await readFile(SETTINGS_FILE, 'utf-8');
-            return NextResponse.json(JSON.parse(data));
-        } catch (err) {
-            // File doesn't exist, return defaults
-            return NextResponse.json(DEFAULT_SETTINGS);
+        const rows = await prisma.appSettings.findMany();
+        const settings: Record<string, any> = {};
+        for (const row of rows) {
+            settings[row.key] = row.value;
         }
+
+        return NextResponse.json({
+            ...DEFAULT_SETTINGS,
+            ...settings,
+            // Convert specific types back
+            maintenanceMode: settings.maintenanceMode === 'true',
+            registrationsOpen: settings.registrationsOpen !== 'false',
+            bannerRotationDays: parseInt(settings.bannerRotationDays || '2'),
+            adsEnabled: settings.adsEnabled !== 'false',
+            adsBannerEnabled: settings.adsBannerEnabled !== 'false',
+            adsInterstitialEnabled: settings.adsInterstitialEnabled !== 'false',
+            adsRewardedEnabled: settings.adsRewardedEnabled !== 'false',
+            adsFrequency: parseInt(settings.adsFrequency || '3'),
+            maxDailyAds: parseInt(settings.maxDailyAds || '10'),
+            premiumEnabled: settings.premiumEnabled !== 'false',
+            vipSystemEnabled: settings.vipSystemEnabled !== 'false',
+            coinSystemEnabled: settings.coinSystemEnabled !== 'false',
+            vipEpisodeEnabled: settings.vipEpisodeEnabled !== 'false',
+            subscriptionEnabled: settings.subscriptionEnabled !== 'false',
+            coinPricePerEpisode: parseInt(settings.coinPricePerEpisode || '10'),
+            freeCoinsOnRegister: parseInt(settings.freeCoinsOnRegister || '100'),
+            vipMonthlyPrice: parseInt(settings.vipMonthlyPrice || '49000'),
+            vipYearlyPrice: parseInt(settings.vipYearlyPrice || '490000'),
+        });
     } catch (error) {
+        console.error('Settings GET Error:', error);
         return NextResponse.json(DEFAULT_SETTINGS, { status: 500 });
     }
 }
@@ -68,22 +83,28 @@ export async function GET() {
 // POST /api/settings
 export async function POST(request: NextRequest) {
     try {
-        await ensureConfigDir();
         const body = await request.json();
+        const now = Math.floor(Date.now() / 1000);
 
-        // Merge with existing or defaults
-        let current = DEFAULT_SETTINGS;
-        try {
-            const data = await readFile(SETTINGS_FILE, 'utf-8');
-            current = JSON.parse(data);
-        } catch { }
+        // Filter keys and update
+        const updates = [];
+        for (const key of Object.keys(DEFAULT_SETTINGS)) {
+            if (body[key] !== undefined) {
+                updates.push(
+                    prisma.appSettings.upsert({
+                        where: { key },
+                        update: { value: String(body[key]), updatedAt: now },
+                        create: { key, value: String(body[key]), updatedAt: now },
+                    })
+                );
+            }
+        }
 
-        const newSettings = { ...current, ...body };
+        await prisma.$transaction(updates);
 
-        await writeFile(SETTINGS_FILE, JSON.stringify(newSettings, null, 2));
-
-        return NextResponse.json(newSettings);
+        return NextResponse.json({ success: true, message: 'Settings saved' });
     } catch (error) {
+        console.error('Settings POST Error:', error);
         return NextResponse.json({ message: 'Failed to save settings' }, { status: 500 });
     }
 }
