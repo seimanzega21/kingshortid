@@ -12,11 +12,11 @@ urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ─── CONFIG ─────────────────────────────────────────────────────────────────
-BOOK_ID     = '42000000999'
-BOOK_SLUG   = 'jangan-tangisi-kepergianku'
-TOTAL_EPS   = 75
+BOOK_ID     = '41000113291'
+BOOK_SLUG   = 'melangkah-tegas-putriku'
+TOTAL_EPS   = 77
 START_EP    = 1
-DRAMA_ID_EXISTING = 'v8zkp55vraxr5vivucx7l6d3'
+DRAMA_ID_EXISTING = 'h2dw1y37lbeh5gp4m8hsbrqs'
 
 API_BASE    = 'https://api.shortlovers.id'
 ADMIN_KEY   = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
