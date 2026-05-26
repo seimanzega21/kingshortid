@@ -8,7 +8,7 @@ ADMIN_KEY = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 VIDRAMA_HDR = {'cookie': '_tt_enable_cookie=1;'}
 
 dramas = [
-    {"title": "Pedang Sakti Sang Menantu Desa", "bookId": "42000011187", "slug": "pedang-sakti-sang-menantu-desa"}
+    {"title": "Insinyur Modern Di Desa Kuno", "bookId": "42000005975", "slug": "insiyur-modern-di-desa-kuno"}
 ]
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -39,7 +39,7 @@ def get_total_eps(book_id):
 
 def main():
     print("=" * 60)
-    print("STARTING QUEUE SCRAPER 3")
+    print("STARTING QUEUE SCRAPER - INSINYUR MODERN")
     print("=" * 60)
     
     for drama in dramas:
