@@ -8,7 +8,8 @@ ADMIN_KEY = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 VIDRAMA_HDR = {'cookie': '_tt_enable_cookie=1;'}
 
 dramas = [
-    {"title": "Bayi Ajaib Pembawa Harta", "bookId": "42000012097", "slug": "bayi-ajaib-pembawa-harta"}
+    {"title": "Bayi Ajaib Pembawa Harta", "bookId": "42000012097", "slug": "bayi-ajaib-pembawa-harta"},
+    {"title": "Pedang Sakti Sang Menantu Desa", "bookId": "42000011187", "slug": "pedang-sakti-sang-menantu-desa"}
 ]
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
