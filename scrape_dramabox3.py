@@ -12,11 +12,11 @@ urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ─── CONFIG ─────────────────────────────────────────────────────────────────
-BOOK_ID     = '42000009069'
-BOOK_SLUG   = 'menjebak-di-dalam-jebakan'
-TOTAL_EPS   = 70  # confirmed by binary search
-START_EP    = 8   # Resume from this episode (1-7 already done)
-DRAMA_ID_EXISTING = 'byv3jp8t6vuqbnyxhfk08qlk'  # Already registered
+BOOK_ID     = '42000000999'
+BOOK_SLUG   = 'jangan-tangisi-kepergianku'
+TOTAL_EPS   = 75
+START_EP    = 1
+DRAMA_ID_EXISTING = 'v8zkp55vraxr5vivucx7l6d3'
 
 API_BASE    = 'https://api.shortlovers.id'
 ADMIN_KEY   = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
@@ -209,7 +209,7 @@ def register_subtitles(episode_id, subtitles_list):
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 def main():
     print("=" * 60)
-    print("SCRAPER RESUME: Menjebak di Dalam Jebakan")
+    print("SCRAPER RESUME: Jangan Tangisi Kepergianku")
     print(f"Book ID: {BOOK_ID} | Resuming from EP {START_EP}")
     print("=" * 60)
     
