@@ -1,7 +1,7 @@
 import requests, time
 hdr={'cookie':'_tt_enable_cookie=1;'}
 def check(ep):
-    r = requests.get(f'https://vidrama.asia/api/dramabox3/watch?bookId=42000006950&episode={ep}&lang=in', headers=hdr)
+    r = requests.get(f'https://vidrama.asia/api/dramabox3/watch?bookId=42000012098&episode={ep}&lang=in', headers=hdr)
     if not r.ok: return False
     return r.json().get('success') == True
 

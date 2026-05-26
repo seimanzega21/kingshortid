@@ -14,8 +14,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 # ─── CONFIG ─────────────────────────────────────────────────────────────────
 BOOK_ID     = '42000008521'
 BOOK_SLUG   = 'di-balik-ruang-rahasia-ceo'
-TOTAL_EPS   = 74
-START_EP    = 1
+TOTAL_EPS   = 65
+START_EP    = 63
 DRAMA_ID_EXISTING = 'w4haci51vhdjxiascjb14i54'
 
 API_BASE    = 'https://api.shortlovers.id'
