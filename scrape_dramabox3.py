@@ -12,11 +12,11 @@ urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ─── CONFIG ─────────────────────────────────────────────────────────────────
-BOOK_ID     = '42000011814'
-BOOK_SLUG   = 'miliarder-cilik-mata-dewa'
-TOTAL_EPS   = 60
+BOOK_ID     = '42000000651'
+BOOK_SLUG   = 'suami-untuk-tiga-tahun'
+TOTAL_EPS   = 65
 START_EP    = 1
-DRAMA_ID_EXISTING = 'zxlq9e741sq7zqlzcmczwrqz'
+DRAMA_ID_EXISTING = 'mu51ozh9gjiyvv6a167co5fd'
 
 API_BASE    = 'https://api.shortlovers.id'
 ADMIN_KEY   = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
@@ -209,7 +209,7 @@ def register_subtitles(episode_id, subtitles_list):
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 def main():
     print("=" * 60)
-    print("SCRAPER RESUME: Miliarder Cilik Mata Dewa")
+    print("SCRAPER RESUME: Suami Untuk Tiga Tahun")
     print(f"Book ID: {BOOK_ID} | Resuming from EP {START_EP}")
     print("=" * 60)
     
