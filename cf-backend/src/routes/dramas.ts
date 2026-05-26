@@ -207,18 +207,46 @@ dramasRoute.get('/feed', async (c) => {
         const available = results.filter(Boolean) as NonNullable<typeof results[0]>[];
 
 
-        // Seeded shuffle
+        // Separate newest 20 dramas
+        const availableSortedByNew = [...available].sort((a, b) => 
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+        const newDramas = availableSortedByNew.slice(0, 20);
+        const newDramaIds = new Set(newDramas.map(d => d.id));
+        const otherDramas = available.filter(d => !newDramaIds.has(d.id));
+
+        // Seeded shuffle function
         const seedNum = parseInt(seed) || Date.now();
-        const shuffled = [...available];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(((seedNum * (i + 1) * 9301 + 49297) % 233280) / 233280 * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        const shuffleArray = (arr: any[]) => {
+            const shuffled = [...arr];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(((seedNum * (i + 1) * 9301 + 49297) % 233280) / 233280 * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        };
+
+        const shuffledNew = shuffleArray(newDramas);
+        const shuffledOther = shuffleArray(otherDramas);
+
+        // Interleave: 1 new drama, then 3 other dramas
+        const mixedFeed = [];
+        let newIdx = 0;
+        let otherIdx = 0;
+        
+        while (newIdx < shuffledNew.length || otherIdx < shuffledOther.length) {
+            if (newIdx < shuffledNew.length) {
+                mixedFeed.push(shuffledNew[newIdx++]);
+            }
+            for (let i = 0; i < 3 && otherIdx < shuffledOther.length; i++) {
+                mixedFeed.push(shuffledOther[otherIdx++]);
+            }
         }
 
         // Paginate
         const start = (page - 1) * limit;
-        const pageItems = shuffled.slice(start, start + limit);
-        const hasMore = start + limit < shuffled.length;
+        const pageItems = mixedFeed.slice(start, start + limit);
+        const hasMore = start + limit < mixedFeed.length;
 
         return c.json({
             dramas: pageItems,
