@@ -252,7 +252,7 @@ dramasRoute.get('/feed', async (c) => {
             dramas: pageItems,
             page,
             hasMore,
-            total: shuffled.length,
+            total: mixedFeed.length,
         });
     } catch (error) {
         console.error('Get feed error:', error);
