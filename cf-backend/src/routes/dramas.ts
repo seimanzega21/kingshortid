@@ -254,9 +254,9 @@ dramasRoute.get('/feed', async (c) => {
             hasMore,
             total: mixedFeed.length,
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Get feed error:', error);
-        return c.json({ error: 'Failed to get feed' }, 500);
+        return c.json({ error: 'Failed to get feed', msg: error.message, stack: error.stack }, 500);
     }
 });
 

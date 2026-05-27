@@ -1,12 +1,25 @@
-import { getDb } from './src/db/index';
+import { getDb, parseJsonArray } from './src/db/index';
 import { dramas, episodes } from './src/db/schema';
 import { eq, desc, and, asc, sql } from 'drizzle-orm';
-import { enrichDrama } from './src/routes/dramas';
+
+function enrichDrama(d: typeof dramas.$inferSelect) {
+    let finalCover = d.cover;
+    if (finalCover && finalCover.startsWith('/api/uploads')) {
+        finalCover = `https://admin.shortlovers.id${finalCover}`;
+    }
+
+    return {
+        ...d,
+        cover: finalCover,
+        genres: parseJsonArray(d.genres),
+        tagList: parseJsonArray(d.tagList),
+        cast: parseJsonArray(d.cast),
+    };
+}
 
 async function main() {
     const db = getDb('http://141.11.160.187:8000', 'GoZViiH1AXLl73BqLdKDtpeGgwUzfW64');
     const allDramas = await db.select().from(dramas).where(eq(dramas.isActive, true)).orderBy(desc(dramas.views)).limit(500);
-    console.log(`Fetched ${allDramas.length} active dramas`);
 
     const results = await Promise.all(
         allDramas.map(async (drama) => {
@@ -31,15 +44,12 @@ async function main() {
     );
 
     const available = results.filter(Boolean) as NonNullable<typeof results[0]>[];
-    console.log(`Available dramas: ${available.length}`);
-
-    console.log('First available createdAt:', available[0].createdAt, typeof available[0].createdAt);
 
     try {
-        const availableSortedByNew = [...available].sort((a, b) => 
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
-        console.log('Sorted successfully');
+        const availableSortedByNew = [...available].sort((a, b) => {
+            if (!a.createdAt || !b.createdAt) throw new Error("Missing createdAt");
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        });
         
         const newDramas = availableSortedByNew.slice(0, 20);
         const newDramaIds = new Set(newDramas.map(d => d.id));
