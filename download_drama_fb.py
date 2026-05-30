@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Download drama dari R2 Cloudflare ke folder lokal.
-# Target folder: D:/Video Drama/Upload Facebook
+# Bucket struktur: dramas/{slug}/ep{N}_{res}.mp4
+# Cover: dari URL langsung di field 'cover'
 
 import sys
 import os
@@ -9,7 +10,6 @@ import boto3
 import requests
 from botocore.config import Config
 
-# Fix encoding for Windows console
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
@@ -19,6 +19,7 @@ R2_KEY_ID   = '07c99c897986ea52703c1285308d5e2c'
 R2_SECRET   = '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
 BUCKET      = 'shortlovers'
 API_BASE    = 'https://api.shortlovers.id'
+CDN_BASE    = 'https://stream.shortlovers.id'
 
 # -- Target folder -----------------------------------------------------------
 DEST_ROOT = 'D:/Video Drama/Upload Facebook'
@@ -48,6 +49,13 @@ r2 = boto3.client(
 def normalize(title: str) -> str:
     return re.sub(r'\s+', ' ', title.strip().lower())
 
+def title_to_slug(title: str) -> str:
+    """Convert 'Jangan Tangisi Kepergianku' -> 'jangan-tangisi-kepergianku'"""
+    slug = title.lower().strip()
+    slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+    slug = re.sub(r'\s+', '-', slug)
+    return slug
+
 def fetch_all_dramas() -> list:
     print("[*] Fetching drama list dari API...")
     try:
@@ -63,19 +71,17 @@ def fetch_all_dramas() -> list:
 
 def find_drama(all_dramas: list, title: str) -> dict | None:
     norm_target = normalize(title)
-    # Exact match dulu
     for d in all_dramas:
         if normalize(d.get('title', '')) == norm_target:
             return d
-    # Partial match
     for d in all_dramas:
         if norm_target in normalize(d.get('title', '')):
             return d
-    # Keyword match (kata kunci utama)
+    # Keyword match
     keywords = [w for w in norm_target.split() if len(w) > 4]
     for d in all_dramas:
         drama_norm = normalize(d.get('title', ''))
-        if all(kw in drama_norm for kw in keywords[:2]):
+        if keywords and all(kw in drama_norm for kw in keywords[:3]):
             return d
     return None
 
@@ -87,46 +93,59 @@ def list_r2_files(prefix: str) -> list:
             files.append(obj)
     return files
 
-def pick_highest_res(files: list) -> dict | None:
-    """Pilih video resolusi tertinggi."""
-    video_ext = ('.mp4', '.m3u8', '.ts', '.mkv', '.avi', '.mov', '.webm')
+def pick_highest_res_episode(files: list, ep_num: int) -> dict | None:
+    """Ambil file episode dengan resolusi tertinggi untuk ep tertentu."""
+    ep_files = [f for f in files if f'ep{ep_num}_' in f['Key'] or f'ep{ep_num}.' in f['Key']]
+    if not ep_files:
+        return None
+    res_priority = [1080, 720, 540, 480, 360]
+    for res in res_priority:
+        for f in ep_files:
+            if str(res) in f['Key']:
+                return f
+    return max(ep_files, key=lambda x: x.get('Size', 0))
+
+def pick_best_full_video(files: list) -> dict | None:
+    """
+    Pilih 1 file video terbaik (resolusi tertinggi, ukuran terbesar).
+    Prioritas: file non-episode (full movie), lalu episode terbesar.
+    """
+    video_ext = ('.mp4', '.mkv', '.avi', '.mov', '.webm')
     video_files = [f for f in files if f['Key'].lower().endswith(video_ext)]
     if not video_files:
         return None
-
+    
+    # Cari resolusi tertinggi
     res_priority = [1080, 720, 540, 480, 360, 240]
+    
+    # Untuk drama per-episode: cari episode 1 resolusi tertinggi
+    # sebagai sample, tapi kita ambil SEMUA dan download yang resolusi tertinggi per episode
+    
+    # Deteksi resolusi
+    best_res = None
     for res in res_priority:
-        for f in video_files:
-            if str(res) in f['Key']:
-                return f
-    # Fallback: file terbesar
-    return max(video_files, key=lambda x: x.get('Size', 0))
-
-def pick_cover(files: list) -> dict | None:
-    """Cari file cover/thumbnail."""
-    img_ext = ('.jpg', '.jpeg', '.png', '.webp')
-    img_files = [f for f in files if f['Key'].lower().endswith(img_ext)]
-    if not img_files:
-        return None
-    priority = ['cover', 'thumb', 'poster', 'banner']
-    for kw in priority:
-        for f in img_files:
-            if kw in f['Key'].lower():
-                return f
-    # Ambil yang terbesar (biasanya cover lebih besar dari thumbnail kecil)
-    return max(img_files, key=lambda x: x.get('Size', 0))
+        if any(str(res) in f['Key'] for f in video_files):
+            best_res = res
+            break
+    
+    if best_res:
+        res_files = [f for f in video_files if str(best_res) in f['Key']]
+        return best_res, res_files
+    
+    return None, video_files
 
 def safe_folder_name(title: str) -> str:
     return re.sub(r'[<>:"/\\|?*]', '', title).strip()
 
-def download_file(r2_key: str, dest_path: str):
+def download_r2_file(r2_key: str, dest_path: str):
+    """Download dari R2 ke lokal."""
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
     
     head = r2.head_object(Bucket=BUCKET, Key=r2_key)
     total_size = head.get('ContentLength', 0)
     size_mb = total_size / (1024 * 1024)
-    
-    print(f"    [DL] {os.path.basename(dest_path)} ({size_mb:.1f} MB)")
+    fname = os.path.basename(dest_path)
+    print(f"    [DL] {fname} ({size_mb:.1f} MB)")
     
     downloaded = [0]
     def progress(chunk):
@@ -134,13 +153,48 @@ def download_file(r2_key: str, dest_path: str):
         pct = (downloaded[0] / total_size * 100) if total_size else 0
         print(f"\r         {pct:.1f}% ({downloaded[0]/(1024*1024):.1f}/{size_mb:.1f} MB)", end='', flush=True)
     
-    r2.download_file(
-        Bucket=BUCKET,
-        Key=r2_key,
-        Filename=dest_path,
-        Callback=progress
-    )
+    r2.download_file(Bucket=BUCKET, Key=r2_key, Filename=dest_path, Callback=progress)
     print()
+
+def download_url_file(url: str, dest_path: str):
+    """Download file dari URL HTTP."""
+    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+    
+    # Cek apakah URL R2 atau CDN
+    r2_prefix = 'stream.shortlovers.id/'
+    if r2_prefix in url:
+        # Ambil key dari URL
+        key = url.split(r2_prefix)[-1]
+        # Handle query string
+        key = key.split('?')[0]
+        print(f"    [CDN->R2] Fetching key: {key}")
+        try:
+            download_r2_file(key, dest_path)
+            return True
+        except Exception as e:
+            print(f"    [WARN] R2 key gagal, coba HTTP: {e}")
+    
+    # Fallback HTTP download
+    try:
+        print(f"    [HTTP DL] {os.path.basename(dest_path)}")
+        resp = requests.get(url, stream=True, timeout=60)
+        resp.raise_for_status()
+        total = int(resp.headers.get('content-length', 0))
+        total_mb = total / (1024*1024)
+        
+        downloaded = 0
+        with open(dest_path, 'wb') as f:
+            for chunk in resp.iter_content(chunk_size=1024*1024):
+                if chunk:
+                    f.write(chunk)
+                    downloaded += len(chunk)
+                    pct = (downloaded / total * 100) if total else 0
+                    print(f"\r         {pct:.1f}% ({downloaded/(1024*1024):.1f}/{total_mb:.1f} MB)", end='', flush=True)
+        print()
+        return True
+    except Exception as e:
+        print(f"    [FAIL] HTTP download error: {e}")
+        return False
 
 def main():
     print("=" * 60)
@@ -154,53 +208,60 @@ def main():
         print("[ERROR] Tidak bisa mendapatkan daftar drama.")
         return
     
+    # Get all R2 prefixes dulu
+    print("[*] Fetching semua prefix di R2 dramas/...")
+    all_r2_prefixes = []
+    paginator = r2.get_paginator('list_objects_v2')
+    for page in paginator.paginate(Bucket=BUCKET, Delimiter='/', Prefix='dramas/'):
+        for cp in page.get('CommonPrefixes', []):
+            all_r2_prefixes.append(cp['Prefix'])
+    print(f"    -> {len(all_r2_prefixes)} folder drama di R2")
+    
     results = []
     
     for title in TARGET_DRAMAS:
         print(f"\n{'─'*60}")
         print(f"[CARI] {title}")
         
+        # Cari di API untuk dapat cover URL
         drama = find_drama(all_dramas, title)
-        if not drama:
-            print(f"    [X] Drama tidak ditemukan di API: {title}")
-            print(f"    [INFO] Semua judul di API:")
-            for d in all_dramas[:30]:
-                print(f"          - {d.get('title','')}")
-            results.append({'title': title, 'status': 'NOT FOUND'})
-            continue
+        cover_url = drama.get('cover', '') if drama else ''
+        drama_title = drama.get('title', title) if drama else title
         
-        drama_id = drama.get('id', drama.get('drama_id', ''))
-        drama_title = drama.get('title', title)
-        print(f"    [OK] Ditemukan: {drama_title} (ID: {drama_id})")
+        # Buat slug dari judul
+        slug = title_to_slug(drama_title)
+        r2_prefix = f"dramas/{slug}/"
         
-        # Coba berbagai prefix R2
-        all_files = []
-        prefixes_to_try = [
-            f"dramas/{drama_id}/",
-            f"{drama_id}/",
-            f"videos/{drama_id}/",
-            f"drama/{drama_id}/",
-        ]
+        # Cek apakah prefix ada di R2
+        if r2_prefix not in all_r2_prefixes:
+            # Coba cari dengan partial match di R2 prefixes
+            matched = [p for p in all_r2_prefixes if slug[:10] in p or any(w in p for w in slug.split('-')[:3] if len(w) > 4)]
+            if matched:
+                r2_prefix = matched[0]
+                print(f"    [SLUG MATCH] '{r2_prefix}'")
+            else:
+                print(f"    [X] Prefix tidak ditemukan di R2: '{r2_prefix}'")
+                print(f"    [INFO] Tersedia di R2: {[p for p in all_r2_prefixes]}")
+                results.append({'title': drama_title, 'status': 'NO R2 FOLDER'})
+                continue
         
-        for prefix in prefixes_to_try:
-            files = list_r2_files(prefix)
-            if files:
-                print(f"    [R2] Prefix: '{prefix}' -> {len(files)} file")
-                all_files = files
-                break
+        print(f"    [OK] R2 prefix: {r2_prefix}")
+        
+        # List semua file
+        all_files = list_r2_files(r2_prefix)
         
         if not all_files:
-            print(f"    [X] Tidak ada file R2 (prefix dicoba: {prefixes_to_try})")
-            results.append({'title': drama_title, 'status': 'NO FILES IN R2'})
+            print(f"    [X] Folder ada tapi kosong!")
+            results.append({'title': drama_title, 'status': 'EMPTY FOLDER'})
             continue
         
-        # Tampilkan daftar file
-        print(f"    [FILES] Daftar file di R2:")
-        for f in all_files[:15]:
-            size_mb = f.get('Size', 0) / (1024 * 1024)
+        # Tampilkan sample file
+        print(f"    [FILES] {len(all_files)} file ditemukan:")
+        for f in all_files[:10]:
+            size_mb = f.get('Size', 0) / (1024*1024)
             print(f"      - {f['Key']} ({size_mb:.1f} MB)")
-        if len(all_files) > 15:
-            print(f"      ... dan {len(all_files) - 15} file lainnya")
+        if len(all_files) > 10:
+            print(f"      ... +{len(all_files)-10} file lainnya")
         
         # Buat folder tujuan
         folder_name = safe_folder_name(drama_title)
@@ -209,39 +270,48 @@ def main():
         
         downloaded_files = []
         
-        # Download cover
-        cover_file = pick_cover(all_files)
-        if cover_file:
-            ext = os.path.splitext(cover_file['Key'])[1] or '.jpg'
+        # 1. Download cover dari URL API
+        if cover_url:
+            ext = os.path.splitext(cover_url.split('?')[0])[1] or '.jpg'
             cover_dest = os.path.join(dest_folder, f"cover{ext}")
-            try:
-                download_file(cover_file['Key'], cover_dest)
+            if not os.path.exists(cover_dest):
+                ok = download_url_file(cover_url, cover_dest)
+                if ok:
+                    downloaded_files.append(cover_dest)
+                    print(f"    [DONE] Cover: {cover_dest}")
+            else:
+                print(f"    [SKIP] Cover sudah ada: {cover_dest}")
                 downloaded_files.append(cover_dest)
-                print(f"    [DONE] Cover: {cover_dest}")
-            except Exception as e:
-                print(f"    [FAIL] Cover error: {e}")
-        else:
-            print(f"    [WARN] Tidak ada cover ditemukan")
         
-        # Download video resolusi tertinggi
-        video_file = pick_highest_res(all_files)
-        if video_file:
-            ext = os.path.splitext(video_file['Key'])[1] or '.mp4'
-            video_name = f"{folder_name}{ext}"
-            video_dest = os.path.join(dest_folder, video_name)
-            try:
-                download_file(video_file['Key'], video_dest)
-                downloaded_files.append(video_dest)
-                print(f"    [DONE] Video: {video_dest}")
-            except Exception as e:
-                print(f"    [FAIL] Video error: {e}")
+        # 2. Download semua video dengan resolusi tertinggi yang tersedia
+        best_res, res_files = pick_best_full_video(all_files)
+        if res_files:
+            print(f"\n    [VIDEO] Resolusi terbaik: {best_res}p | {len(res_files)} episode")
+            
+            for vid_file in res_files:
+                ep_name = os.path.basename(vid_file['Key'])
+                vid_dest = os.path.join(dest_folder, ep_name)
+                
+                if os.path.exists(vid_dest):
+                    size_local = os.path.getsize(vid_dest)
+                    size_r2 = vid_file.get('Size', 0)
+                    if size_local == size_r2:
+                        print(f"    [SKIP] {ep_name} sudah ada")
+                        downloaded_files.append(vid_dest)
+                        continue
+                
+                try:
+                    download_r2_file(vid_file['Key'], vid_dest)
+                    downloaded_files.append(vid_dest)
+                except Exception as e:
+                    print(f"    [FAIL] {ep_name}: {e}")
         else:
-            print(f"    [WARN] Tidak ada file video ditemukan")
+            print(f"    [WARN] Tidak ada file video di folder ini")
         
         results.append({
             'title': drama_title,
             'status': 'OK' if downloaded_files else 'FAILED',
-            'files': downloaded_files
+            'count': len(downloaded_files)
         })
     
     # Summary
@@ -249,8 +319,9 @@ def main():
     print("RINGKASAN DOWNLOAD:")
     print(f"{'='*60}")
     for r in results:
-        icon = "[OK]" if r['status'] == 'OK' else ("[SKIP]" if 'NO FILES' in r['status'] else "[FAIL]")
-        print(f"  {icon} {r['title']} -> {r['status']}")
+        icon = "[OK]" if r['status'] == 'OK' else "[FAIL]"
+        count = r.get('count', 0)
+        print(f"  {icon} {r['title']} -> {r['status']} ({count} file)")
     print(f"\nSemua file di: {DEST_ROOT}")
 
 if __name__ == "__main__":
