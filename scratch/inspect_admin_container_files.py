@@ -3,7 +3,7 @@ import paramiko
 SSH_HOST = '141.11.160.187'
 SSH_USER = 'root'
 SSH_PASS = 'Surya123!'
-ADMIN_CONTAINER = 'l40cccg8ck4g48w8kgss8ggk-161926297332'
+ADMIN_CONTAINER = 'zc44ggkksk0oc8oockko44oo-140214505134'
 
 def main():
     try:
@@ -24,8 +24,8 @@ def main():
         
         # 3. Print the content of any .env file if found
         # We can also check if there is an env file in the working directory (which is usually /app)
-        stdin, stdout, stderr = ssh.exec_command(f'docker exec -t {ADMIN_CONTAINER} cat .env')
-        print("\n--- Content of .env in Container ---")
+        stdin, stdout, stderr = ssh.exec_command(f'docker exec -t {ADMIN_CONTAINER} cat package.json')
+        print("\n--- Content of package.json in Container ---")
         print(stdout.read().decode('utf-8'))
         
         ssh.close()
