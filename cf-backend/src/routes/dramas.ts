@@ -1,9 +1,9 @@
 import { Hono } from 'hono';
-import { eq, and, desc, like, or, sql, asc } from 'drizzle-orm';
+import { eq, and, desc, like, or, sql, asc, gte } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
-import { dramas, episodes, seasons, subtitles } from '../db/schema';
+import { dramas, episodes, seasons, subtitles, watchHistory } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
-import { requireAdmin } from '../middleware/auth';
+import { requireAdmin, getAuthUser } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
 
 const dramasRoute = new Hono<Env>();
@@ -172,19 +172,41 @@ dramasRoute.get('/feed', async (c) => {
         const seed = c.req.query('seed') || '0';
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        // Get all active dramas with their first episode (Drizzle ORM - PostgreSQL compatible)
+        // Optional User Personalization - Get user from JWT
+        const user = await getAuthUser(c);
+        const userId = user?.id;
+
+        // 1. Fetch recent views map (popularity over last 7 days)
+        const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+        const recentViews = await db.select({
+            dramaId: watchHistory.dramaId,
+            count: sql<number>`count(${watchHistory.id})`
+        })
+        .from(watchHistory)
+        .where(gte(watchHistory.watchedAt, sevenDaysAgo))
+        .groupBy(watchHistory.dramaId);
+
+        const recentViewsMap = new Map<string, number>();
+        recentViews.forEach(rv => recentViewsMap.set(rv.dramaId, Number(rv.count) || 0));
+
+        // 2. Fetch watch history of the user to apply penalty (de-prioritization)
+        const userHistory: any[] = userId 
+            ? await db.select().from(watchHistory).where(eq(watchHistory.userId, userId))
+            : [];
+        const watchedDramaIds = new Set<string>(userHistory.map(h => h.dramaId));
+
+        // 3. Get all active dramas (up to 500 for the feed pool)
         const allDramas = await db.select().from(dramas)
             .where(eq(dramas.isActive, true))
-            .orderBy(desc(dramas.views))
-            .limit(500); // cap at 500 for feed pool
+            .limit(500);
 
-        // Fetch first episode for each drama (batch)
+        // 4. Fetch first episode for each drama
         const results = await Promise.all(
             allDramas.map(async (drama) => {
                 const firstEp = await db.select().from(episodes)
                     .where(and(
                         eq(episodes.dramaId, drama.id),
-                        sql`${episodes.videoUrl} IS NOT NULL`,
+                        sql`${episodes.videoUrl} IS NOT NULL`
                     ))
                     .orderBy(asc(episodes.episodeNumber))
                     .limit(1)
@@ -206,53 +228,75 @@ dramasRoute.get('/feed', async (c) => {
 
         const available = results.filter(Boolean) as NonNullable<typeof results[0]>[];
 
-
-        // Separate newest 20 dramas
-        const availableSortedByNew = [...available].sort((a, b) => 
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
-        const newDramas = availableSortedByNew.slice(0, 20);
-        const newDramaIds = new Set(newDramas.map(d => d.id));
-        const otherDramas = available.filter(d => !newDramaIds.has(d.id));
-
-        // Seeded shuffle function
-        const seedNum = parseInt(seed) || Date.now();
-        const shuffleArray = (arr: any[]) => {
-            const shuffled = [...arr];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(((seedNum * (i + 1) * 9301 + 49297) % 233280) / 233280 * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        };
-
-        const shuffledNew = shuffleArray(newDramas);
-        const shuffledOther = shuffleArray(otherDramas);
-
-        // Interleave: 1 new drama, then 3 other dramas
-        const mixedFeed = [];
-        let newIdx = 0;
-        let otherIdx = 0;
+        // 5. Calculate Score for each drama
+        const now = Date.now();
+        const seedNum = parseInt(seed) || Math.floor(now / (24 * 60 * 60 * 1000));
         
-        while (newIdx < shuffledNew.length || otherIdx < shuffledOther.length) {
-            if (newIdx < shuffledNew.length) {
-                mixedFeed.push(shuffledNew[newIdx++]);
-            }
-            for (let i = 0; i < 3 && otherIdx < shuffledOther.length; i++) {
-                mixedFeed.push(shuffledOther[otherIdx++]);
-            }
-        }
+        // Seeded random generator
+        const getSeededRandom = (s: number) => {
+            return () => {
+                const x = Math.sin(s++) * 10000;
+                return x - Math.floor(x);
+            };
+        };
+        const random = getSeededRandom(seedNum);
 
-        // Paginate
+        const dramasWithScores = available.map(item => {
+            // A. Recency Score (R) - max 100
+            const ageInDays = Math.max(0, (now - new Date(item.createdAt).getTime()) / (1000 * 60 * 60 * 24));
+            const recencyScore = Math.max(0, 100 - ageInDays);
+
+            // B. Recent Popularity Score (P) - max 100
+            const rvCount = recentViewsMap.get(item.id) || 0;
+            const popularityScore = Math.min(100, rvCount * 10); // 10 unique users in 7d = 100 points
+
+            // C. Quality Score (Q) - max 100
+            const ratingVal = Number(item.rating) || 4.5;
+            const qualityScore = Math.min(100, ratingVal * 20);
+
+            // D. Combined base score (Quality 40%, Popularity 30%, Recency 30%)
+            const baseScore = (qualityScore * 0.4) + (popularityScore * 0.3) + (recencyScore * 0.3);
+
+            // E. Apply watch history penalty (started: -200, completed: -1000)
+            let penalty = 0;
+            if (watchedDramaIds.has(item.id)) {
+                const hRecord = userHistory.find(h => h.dramaId === item.id);
+                const watchedEpisode = hRecord?.episodeNumber || 1;
+                const totalEpisodes = item.totalEpisodes || 1;
+
+                if (watchedEpisode >= totalEpisodes) {
+                    penalty = 1000; // Tamat
+                } else {
+                    penalty = 200; // Sedang ditonton
+                }
+            }
+
+            // F. Daily Seeded Random offset (-30 to +30)
+            const randomOffset = (random() * 60 - 30);
+
+            const finalScore = baseScore - penalty + randomOffset;
+
+            return {
+                item,
+                finalScore,
+            };
+        });
+
+        // 6. Sort by final score
+        const sortedFeed = dramasWithScores
+            .sort((a, b) => b.finalScore - a.finalScore)
+            .map(x => x.item);
+
+        // 7. Paginate
         const start = (page - 1) * limit;
-        const pageItems = mixedFeed.slice(start, start + limit);
-        const hasMore = start + limit < mixedFeed.length;
+        const pageItems = sortedFeed.slice(start, start + limit);
+        const hasMore = start + limit < sortedFeed.length;
 
         return c.json({
             dramas: pageItems,
             page,
             hasMore,
-            total: mixedFeed.length,
+            total: sortedFeed.length,
         });
     } catch (error: any) {
         console.error('Get feed error:', error);
