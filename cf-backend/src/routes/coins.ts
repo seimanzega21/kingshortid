@@ -98,11 +98,8 @@ coinsRoute.get('/status', async (c) => {
     }
 });
 
-// ── POST /api/coins/watch-ad ────────────────────────────────────────────────
-// Supports 2 ad types:
-//   type='general'  → Keuntungan Umum "Tonton" (max 10/day)
-//   type='cek_lainnya' → Cek Lainnya after check-in (max 5/day)
-coinsRoute.post('/watch-ad', async (c) => {
+// ── POST /api/coins/watch-video (Bypasses adblockers, legacy alias /watch-ad supported) ──
+const watchVideoHandler = async (c: any) => {
     try {
         const userId = c.get('user').id;
         const { type = 'general' } = await c.req.json();
@@ -179,7 +176,11 @@ coinsRoute.post('/watch-ad', async (c) => {
         console.error('Watch ad error:', error);
         return c.json({ error: 'Failed to reward ad watch' }, 500);
     }
-});
+};
+
+coinsRoute.post('/watch-video', watchVideoHandler);
+coinsRoute.post('/watch-ad', watchVideoHandler); // Legacy alias
+
 
 // ── POST /api/coins/topup ───────────────────────────────────────────────────
 coinsRoute.post('/topup', async (c) => {
@@ -266,8 +267,8 @@ coinsRoute.post('/topup', async (c) => {
     }
 });
 
-// ── POST /api/coins/redeem-ad-free ────────────────────────────────────────────
-coinsRoute.post('/redeem-ad-free', async (c) => {
+// ── POST /api/coins/redeem-vip (Bypasses adblockers, legacy alias /redeem-ad-free supported) ──
+const redeemVipHandler = async (c: any) => {
     try {
         const userId = c.get('user').id;
         const { hours } = await c.req.json();
@@ -287,7 +288,7 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
                 error: 'Koin tidak cukup',
                 required: pkg.coins,
                 current: user.coins,
-                shortfall: pkg.coins - user.coins,
+                shortfold: pkg.coins - user.coins,
             }, 400);
         }
 
@@ -350,7 +351,11 @@ coinsRoute.post('/redeem-ad-free', async (c) => {
         console.error('Redeem ad-free error:', error);
         return c.json({ error: 'Failed to redeem ad-free' }, 500);
     }
-});
+};
+
+coinsRoute.post('/redeem-vip', redeemVipHandler);
+coinsRoute.post('/redeem-ad-free', redeemVipHandler); // Legacy alias
+
 
 // ── POST /api/coins/fix-vip-status ────────────────────────────────────────────
 // Fix single user VIP status manually (for users affected by old bug)
