@@ -99,7 +99,7 @@ coinsRoute.get('/status', async (c) => {
 });
 
 // ── POST /api/coins/watch-video (Bypasses adblockers, legacy alias /watch-ad supported) ──
-const watchVideoHandler = async (c: any) => {
+export const watchVideoHandler = async (c: any) => {
     try {
         const userId = c.get('user').id;
         const { type = 'general' } = await c.req.json();
@@ -268,7 +268,7 @@ coinsRoute.post('/topup', async (c) => {
 });
 
 // ── POST /api/coins/redeem-vip (Bypasses adblockers, legacy alias /redeem-ad-free supported) ──
-const redeemVipHandler = async (c: any) => {
+export const redeemVipHandler = async (c: any) => {
     try {
         const userId = c.get('user').id;
         const { hours } = await c.req.json();

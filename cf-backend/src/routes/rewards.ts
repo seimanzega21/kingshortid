@@ -3,6 +3,7 @@ import { eq, and, sql, desc, gte } from 'drizzle-orm';
 import { getDb } from '../db';
 import { users, coinTransactions, dailyRewards, watchHistory, achievements, userAchievements } from '../db/schema';
 import { Env, requireAuth } from '../middleware/auth';
+import { watchVideoHandler, redeemVipHandler } from './coins';
 
 const rewardsRoute = new Hono<Env>();
 rewardsRoute.use('*', requireAuth);
@@ -605,6 +606,42 @@ rewardsRoute.post('/exchange-vip', async (c) => {
     } catch (error) {
         console.error('Exchange VIP error:', error);
         return c.json({ error: 'Failed to exchange VIP' }, 500);
+    }
+});
+
+rewardsRoute.post('/watch-video', watchVideoHandler);
+rewardsRoute.post('/redeem-vip', redeemVipHandler);
+
+rewardsRoute.get('/history', async (c) => {
+    try {
+        const userId = c.get('user').id;
+        const page = parseInt(c.req.query('page') || '1');
+        const limit = parseInt(c.req.query('limit') || '50');
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        const items = await db.select()
+            .from(coinTransactions)
+            .where(eq(coinTransactions.userId, userId))
+            .orderBy(desc(coinTransactions.createdAt))
+            .limit(limit)
+            .offset((page - 1) * limit);
+
+        return c.json({
+            data: items.map(item => ({
+                id: item.id,
+                type: item.type,
+                amount: item.amount,
+                description: item.description,
+                reference: item.reference,
+                balanceAfter: item.balanceAfter,
+                createdAt: item.createdAt,
+            })),
+            page,
+            limit,
+        });
+    } catch (error) {
+        console.error('Get rewards history error:', error);
+        return c.json({ error: 'Failed to get rewards history' }, 500);
     }
 });
 
