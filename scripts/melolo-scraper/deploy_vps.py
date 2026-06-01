@@ -7,7 +7,7 @@ user = "root"
 password = "Surya123!"
 
 REMOTE_DIR = "/opt/microdrama"
-FILES_TO_UPLOAD = ["vidrama_microdrama_v4.py", ".env"]
+FILES_TO_UPLOAD = ["vidrama_microdrama_v5.py", ".env"]
 
 print(f"Connecting to {host}...")
 ssh = paramiko.SSHClient()
@@ -41,7 +41,7 @@ try:
     
     rm -f scraper.log
     # Run in background via screen
-    screen -dmS microdrama bash -c "source venv/bin/activate && python3 vidrama_microdrama_v4.py --limit 400 > scraper.log 2>&1"
+    screen -dmS microdrama bash -c "source venv/bin/activate && python3 vidrama_microdrama_v5.py --limit 400 > scraper.log 2>&1"
     
     echo "VPS Setup & Start OK"
     """
