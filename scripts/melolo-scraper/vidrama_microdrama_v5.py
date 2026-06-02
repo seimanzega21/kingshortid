@@ -101,20 +101,24 @@ def get_supabase_dramas() -> list:
         log(f"    Supabase fetch error: {e}")
         return []
 
-def get_existing_episodes(drama_id: str) -> set:
-    try:
-        r = requests.get(f"{BACKEND_URL}/dramas/{drama_id}?includeInactive=true", headers=ADMIN_HDR, timeout=15)
-        if r.status_code == 200:
-            data = r.json()
-            eps = data.get("episodes", [])
-            # Only consider complete if it has both 720p (videoUrl) and 540p (videoUrl540p)
-            completed_eps = {
-                e["episodeNumber"] for e in eps 
-                if e.get("videoUrl") and e.get("videoUrl540p")
-            }
-            return completed_eps
-    except Exception as e:
-        log(f"    Failed to get existing episodes for drama {drama_id}: {e}")
+def get_existing_episodes(drama_id: str, retries=3, delay=2) -> set:
+    for attempt in range(retries):
+        try:
+            r = requests.get(f"{BACKEND_URL}/dramas/{drama_id}?includeInactive=true", headers=ADMIN_HDR, timeout=15)
+            if r.status_code == 200:
+                data = r.json()
+                eps = data.get("episodes", [])
+                completed_eps = {
+                    e["episodeNumber"] for e in eps 
+                    if e.get("videoUrl") and e.get("videoUrl540p")
+                }
+                return completed_eps
+            else:
+                log(f"    [WARNING] get_existing_episodes status {r.status_code} on attempt {attempt+1}/{retries}")
+        except Exception as e:
+            log(f"    [WARNING] get_existing_episodes error on attempt {attempt+1}/{retries}: {e}")
+        if attempt < retries - 1:
+            time.sleep(delay)
     return set()
 
 # ──────────────────── EPISODE DATA ────────────────────
@@ -262,18 +266,28 @@ def get_or_create_drama(drama: dict, slug: str, cover_url: str) -> str | None:
         log(f"  Register drama error: {e}")
     return None
 
-def register_episode(drama_id: str, ep_number: int, url_720: str, url_540: str) -> bool:
-    try:
-        resp = requests.post(f"{BACKEND_URL}/episodes", json={
-            "dramaId": drama_id,
-            "episodeNumber": ep_number,
-            "videoUrl": url_720,
-            "videoUrl540p": url_540,
-            "duration": 0,
-        }, headers=ADMIN_HDR, timeout=10)
-        return resp.status_code in [200, 201]
-    except Exception as e:
-        log(f"  Episode DB register error: {e}")
+def register_episode(drama_id: str, ep_number: int, url_720: str, url_540: str, retries=3, delay=2) -> bool:
+    for attempt in range(retries):
+        try:
+            resp = requests.post(f"{BACKEND_URL}/episodes", json={
+                "dramaId": drama_id,
+                "episodeNumber": ep_number,
+                "videoUrl": url_720,
+                "videoUrl540p": url_540,
+                "duration": 0,
+            }, headers=ADMIN_HDR, timeout=10)
+            if resp.status_code in [200, 201]:
+                return True
+            elif resp.status_code in [400, 409]:
+                # Unique constraint violation / already exists
+                log(f"    Episode {ep_number} already exists in DB (Conflict/400).")
+                return True
+            else:
+                log(f"    [WARNING] register_episode status {resp.status_code} (attempt {attempt+1}/{retries})")
+        except Exception as e:
+            log(f"    [WARNING] register_episode error (attempt {attempt+1}/{retries}): {e}")
+        if attempt < retries - 1:
+            time.sleep(delay)
     return False
 
 # ──────────────────── MAIN ────────────────────
@@ -300,8 +314,32 @@ def main():
     # Build maps of existing titles for filtering
     registered_titles = {d["title"].lower().strip(): d for d in supabase_dramas}
 
-    new_to_process = []
+    # Theme keywords for prioritizing action/system/magic/war dramas
+    KEYWORDS_PRIORITY = [
+        "sakti", "perang", "sistem", "pedang", "ajaib", "pendekar", "naga",
+        "tombak", "dewa", "kultivasi", "tanding", "dendam", "kaisar", "warisan",
+        "beladiri", "kungfu", "senjata"
+    ]
+
+    def is_priority(drama_item: dict) -> bool:
+        t = drama_item.get("title", "").lower()
+        desc = drama_item.get("description", "").lower()
+        return any(kw in t or kw in desc for kw in KEYWORDS_PRIORITY)
+
+    # Separate discovered dramas into priority and normal
+    priority_dramas = []
+    normal_dramas = []
     for d in discovered:
+        if is_priority(d):
+            priority_dramas.append(d)
+        else:
+            normal_dramas.append(d)
+
+    log(f"    Prioritizing matching themes: Found {len(priority_dramas)} priority and {len(normal_dramas)} normal dramas.")
+    sorted_discovered = priority_dramas + normal_dramas
+
+    new_to_process = []
+    for d in sorted_discovered:
         title = d.get("title", "").lower().strip()
         
         # Check if already registered
