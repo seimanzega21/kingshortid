@@ -115,7 +115,7 @@ dramasRoute.get('/', async (c) => {
         const totalResult = whereClause
             ? await countQuery.where(whereClause)
             : await countQuery;
-        const total = totalResult[0]?.count || 0;
+        const total = Number(totalResult[0]?.count || 0);
 
         return c.json({
             dramas: allDramas.map(enrichDrama),
@@ -418,7 +418,7 @@ dramasRoute.get('/search', async (c) => {
 
         return c.json({
             dramas: results.map(enrichDrama),
-            total: totalResult[0]?.count || 0,
+            total: Number(totalResult[0]?.count || 0),
             page,
         });
     } catch (error) {

@@ -63,8 +63,8 @@ coinsRoute.get('/status', async (c) => {
                 gte(dailyRewards.claimedAt, todayStart),
             ));
 
-        const generalCount = todayGeneralAds[0]?.count || 0;
-        const cekLainnyaCount = todayCekLainnya[0]?.count || 0;
+        const generalCount = Number(todayGeneralAds[0]?.count || 0);
+        const cekLainnyaCount = Number(todayCekLainnya[0]?.count || 0);
 
         // Ad-free time remaining
         let adFreeRemaining = 0;
@@ -132,7 +132,7 @@ export const watchVideoHandler = async (c: any) => {
                 eq(dailyRewards.rewardType, rewardType),
                 gte(dailyRewards.claimedAt, todayStart),
             ));
-        const todayCount = todayAdsResult[0]?.count || 0;
+        const todayCount = Number(todayAdsResult[0]?.count || 0);
 
         if (todayCount >= maxPerDay) {
             return c.json({ error: 'Daily ad limit reached', adsRemaining: 0, type }, 400);
@@ -476,7 +476,7 @@ coinsRoute.get('/history', async (c) => {
                 balanceAfter: item.balanceAfter,
                 createdAt: item.createdAt,
             })),
-            total: totalResult[0]?.count || 0,
+            total: Number(totalResult[0]?.count || 0),
             page,
             limit,
         });

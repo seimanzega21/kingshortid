@@ -91,8 +91,8 @@ notificationsRoute.get('/', async (c) => {
 
         return c.json({
             notifications: items,
-            total: totalResult[0]?.count || 0,
-            unread: unreadResult[0]?.count || 0,
+            total: Number(totalResult[0]?.count || 0),
+            unread: Number(unreadResult[0]?.count || 0),
             page,
             limit,
         });
