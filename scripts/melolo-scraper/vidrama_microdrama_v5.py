@@ -34,6 +34,14 @@ QUALITY_PREF  = ["720P", "540P", "480P", "360P"]
 ADMIN_KEY = os.getenv("ADMIN_API_KEY") or "00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14"
 ADMIN_HDR = {"x-admin-key": ADMIN_KEY, "Content-Type": "application/json"}
 
+# Modern Browser Headers to bypass Cloudflare protection
+HEADERS_BROWSER = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Referer": "https://vidrama.asia/provider/microdrama"
+}
+
 _log_fh = open(LOG_FILE, "a", encoding="utf-8")
 
 def log(msg="", end="\n"):
@@ -67,12 +75,14 @@ def get_s3():
 def discover_dramas(target=300) -> list:
     log("[1] Discovering Indonesian MicroDrama dramas...")
     try:
-        r = requests.get(f"{API_LIST_URL}&limit={target}", timeout=30)
+        r = requests.get(f"{API_LIST_URL}&limit={target}", headers=HEADERS_BROWSER, timeout=30)
         if r.status_code == 200:
             data = r.json()
             dramas = data.get("dramas", [])
             log(f"    Discovered: {len(dramas)} dramas")
             return dramas
+        else:
+            log(f"    [WARNING] Discover failed with status {r.status_code}: {r.text[:150]}")
     except Exception as e:
         log(f"    Error: {e}")
     return []
@@ -108,15 +118,24 @@ def get_existing_episodes(drama_id: str) -> set:
     return set()
 
 # ──────────────────── EPISODE DATA ────────────────────
-def fetch_episodes(drama_id: str) -> list:
+def fetch_episodes(drama_id: str, retries=3, initial_delay=3) -> list:
     url = f"https://vidrama.asia/api/microdrama?action=detail&id={drama_id}&lang=id"
-    try:
-        r = requests.get(url, timeout=30)
-        if r.status_code == 200:
-            data = r.json()
-            return data.get("episodes", [])
-    except Exception as e:
-        log(f"  Episode fetch error: {e}")
+    delay = initial_delay
+    for attempt in range(retries):
+        try:
+            r = requests.get(url, headers=HEADERS_BROWSER, timeout=30)
+            if r.status_code == 200:
+                data = r.json()
+                return data.get("episodes", [])
+            else:
+                log(f"  [WARNING] Episode fetch attempt {attempt+1}/{retries} failed with status {r.status_code}. Response: {r.text[:150]}")
+        except Exception as e:
+            log(f"  [WARNING] Episode fetch error on attempt {attempt+1}/{retries}: {e}")
+        
+        if attempt < retries - 1:
+            log(f"  [WARNING] Retrying details fetch in {delay}s (Cloudflare/Rate Limit check)...")
+            time.sleep(delay)
+            delay *= 2
     return []
 
 def get_best_url(videos: list) -> str | None:
@@ -129,9 +148,10 @@ def get_best_url(videos: list) -> str | None:
 
 # ──────────────────── VIDEO PROCESSING ────────────────────
 def download_mp4(url: str, dest: Path) -> bool:
+    headers = {"User-Agent": HEADERS_BROWSER["User-Agent"]}
     for attempt in range(3):
         try:
-            resp = requests.get(url, timeout=120, stream=True)
+            resp = requests.get(url, headers=headers, timeout=120, stream=True)
             resp.raise_for_status()
             total = 0
             with open(dest, "wb") as f:
@@ -191,8 +211,9 @@ def upload_mp4(mp4_file: Path, r2_key: str) -> str | None:
 
 def upload_cover(cover_url: str, slug: str) -> str | None:
     if not cover_url: return None
+    headers = {"User-Agent": HEADERS_BROWSER["User-Agent"]}
     try:
-        resp = requests.get(cover_url, timeout=15)
+        resp = requests.get(cover_url, headers=headers, timeout=15)
         resp.raise_for_status()
         if len(resp.content) < 100: return None
         ctype = resp.headers.get("content-type", "image/jpeg")
@@ -327,6 +348,13 @@ def main():
         # 3. Get existing episodes in DB to avoid processing them again
         existing_eps = get_existing_episodes(drama_id)
         log(f"  Episodes already in DB (with 720p & 540p): {len(existing_eps)}")
+
+        # Check if drama is already completed in DB based on discovery API total episode count
+        total_eps_expected = drama.get("episodes", 0)
+        if total_eps_expected > 0 and len(existing_eps) >= total_eps_expected:
+            log(f"  Already completed in DB ({len(existing_eps)}/{total_eps_expected} episodes). Skipping Provider API details fetch.")
+            stats["ok"] += 1
+            continue
 
         # 4. Fetch episode list from Provider API
         episodes_provider = fetch_episodes(drama_id_provider)

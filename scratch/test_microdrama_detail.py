@@ -1,17 +1,29 @@
 import requests, json
 
-DRAMA_ID = "2010948201357684738" # Legenda Naga Kembali
-url = f"https://vidrama.asia/api/microdrama?action=detail&id={DRAMA_ID}&lang=id"
+DRAMA_ID = "1924655580142809089" # Dia yang Paling Mencintaiku
 
-print(f"Requesting: {url}")
-r = requests.get(url, timeout=20)
-if r.ok:
-    data = r.json()
-    print("Top-level keys in drama detail:")
-    for k, v in data.items():
-        if k != "episodes":
-            print(f"  {k}: {str(v)[:200]}")
-        else:
-            print(f"  episodes: [List of {len(v)} episodes]")
-else:
-    print(f"Error: {r.status_code}")
+urls = [
+    f"https://vidrama.asia/api/microdrama?action=detail&id={DRAMA_ID}&lang=id",
+    f"https://vidrama.asia/api/microdrama?action=detail&id={DRAMA_ID}"
+]
+
+for url in urls:
+    print(f"Requesting: {url}")
+    r = requests.get(url, timeout=20)
+    print(f"Status Code: {r.status_code}")
+    if r.ok:
+        try:
+            data = r.json()
+            print("Keys:", data.keys())
+            if "drama" in data:
+                print("Drama Title:", data["drama"].get("title"))
+            eps = data.get("episodes", [])
+            print(f"Episodes count: {len(eps)}")
+            if eps:
+                print("First ep sample:", eps[0])
+        except Exception as e:
+            print("Failed to parse JSON:", e)
+            print("Snippet:", r.text[:200])
+    else:
+        print("Response text:", r.text[:200])
+    print()
