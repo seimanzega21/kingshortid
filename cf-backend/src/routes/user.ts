@@ -282,7 +282,7 @@ userRoute.get('/history', async (c) => {
             drama: { ...item.drama, genres: parseJsonArray(item.drama.genres), cast: parseJsonArray(item.drama.cast) },
         }));
 
-        return c.json({ history: enriched, total: totalResult[0]?.count || 0, page, limit });
+        return c.json({ history: enriched, total: Number(totalResult[0]?.count || 0), page, limit });
     } catch (error) {
         console.error('Get history error:', error);
         return c.json({ error: 'Failed to get history' }, 500);

@@ -142,7 +142,7 @@ rewardsRoute.get('/status', async (c) => {
 
         const dailyEpisodesResult = await db.select({ count: sql<number>`count(*)` }).from(watchHistory)
             .where(and(eq(watchHistory.userId, userId), gte(watchHistory.watchedAt, todayStart)));
-        const watchCount = dailyEpisodesResult[0]?.count || 0;
+        const watchCount = Number(dailyEpisodesResult[0]?.count || 0);
 
         const claimedDailyRewardsResult = await db.select().from(dailyRewards)
             .where(and(
@@ -164,8 +164,8 @@ rewardsRoute.get('/status', async (c) => {
         const todayCekLainnya = await db.select({ count: sql<number>`count(*)` }).from(dailyRewards)
             .where(and(eq(dailyRewards.userId, userId), eq(dailyRewards.rewardType, 'cek_lainnya'), gte(dailyRewards.claimedAt, todayStart)));
 
-        const adCount = todayGeneralAds[0]?.count || 0;
-        const cekLainnyaCount = todayCekLainnya[0]?.count || 0;
+        const adCount = Number(todayGeneralAds[0]?.count || 0);
+        const cekLainnyaCount = Number(todayCekLainnya[0]?.count || 0);
 
         // Check claimed milestones (lifetime)
         const milestoneResults = await db.select().from(dailyRewards)
@@ -255,7 +255,7 @@ rewardsRoute.post('/claim-watch', async (c) => {
 
         const watchedResult = await db.select({ count: sql<number>`count(*)` }).from(watchHistory)
             .where(and(eq(watchHistory.userId, userId), gte(watchHistory.watchedAt, todayStart)));
-        const watchedCount = watchedResult[0]?.count || 0;
+        const watchedCount = Number(watchedResult[0]?.count || 0);
 
         if (watchedCount < task.target) {
             return c.json({ error: `Need ${task.target} episodes, watched ${watchedCount}` }, 400);
@@ -377,7 +377,7 @@ const earnBonusVideoHandler = async (c: any) => {
                     eq(dailyRewards.rewardType, 'ad_general'),
                     gte(dailyRewards.claimedAt, todayStart),
                 ));
-            const adCount = todayAds[0]?.count || 0;
+            const adCount = Number(todayAds[0]?.count || 0);
             if (adCount >= 10) {
                 return c.json({ error: 'Daily ad limit reached', adsRemaining: 0 }, 400);
             }
@@ -422,7 +422,7 @@ const earnBonusVideoHandler = async (c: any) => {
                     eq(dailyRewards.rewardType, 'ad_general'),
                     gte(dailyRewards.claimedAt, todayStart),
                 ));
-            adsRemaining = Math.max(10 - (todayAdsAfter[0]?.count || 0), 0);
+            adsRemaining = Math.max(10 - Number(todayAdsAfter[0]?.count || 0), 0);
         }
 
         return c.json({ success: true, bonus: amount, newBalance, adsRemaining });
@@ -483,7 +483,7 @@ rewardsRoute.get('/transactions', async (c) => {
 
         console.log('DEBUG TRANSACTIONS LENGTH:', transactions.length);
         console.log('DEBUG TRANSACTIONS LIMIT/PAGE:', limit, page, 'USER_ID:', userId);
-        return c.json({ transactions, total: totalResult[0]?.count || 0, page, limit });
+        return c.json({ transactions, total: Number(totalResult[0]?.count || 0), page, limit });
     } catch (error) {
         console.error('Get transactions error:', error);
         return c.json({ error: 'Failed to get transactions' }, 500);

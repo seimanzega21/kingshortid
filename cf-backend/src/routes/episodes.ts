@@ -69,7 +69,7 @@ episodesRoute.post('/', requireAdmin, async (c) => {
             .where(eq(episodes.dramaId, dramaId));
 
         await db.update(dramas)
-            .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
+            .set({ totalEpisodes: Number(countResult[0]?.count || 0), updatedAt: new Date() })
             .where(eq(dramas.id, dramaId));
 
         return c.json(episode, 201);
@@ -240,7 +240,7 @@ episodesRoute.delete('/:id', requireAdmin, async (c) => {
         const countResult = await db.select({ count: sql<number>`count(*)` }).from(episodes)
             .where(eq(episodes.dramaId, episode.dramaId));
         await db.update(dramas)
-            .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
+            .set({ totalEpisodes: Number(countResult[0]?.count || 0), updatedAt: new Date() })
             .where(eq(dramas.id, episode.dramaId));
 
         return c.json({ success: true, message: 'Episode deleted' });
@@ -284,7 +284,7 @@ episodesRoute.post('/shift', requireAdmin, async (c) => {
         const countResult = await db.select({ count: sql<number>`count(*)` }).from(episodes)
             .where(eq(episodes.dramaId, dramaId));
         await db.update(dramas)
-            .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
+            .set({ totalEpisodes: Number(countResult[0]?.count || 0), updatedAt: new Date() })
             .where(eq(dramas.id, dramaId));
 
         return c.json({ shifted, message: `Shifted ${shifted} episodes by ${shiftBy}` });
