@@ -1,5 +1,5 @@
 import requests
-import json
+import time
 import urllib3
 
 urllib3.disable_warnings()
@@ -12,19 +12,34 @@ VIDRAMA_HDR = {
     'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
     'cookie': COOKIE,
     'priority': 'u=1, i',
-    'referer': f'https://vidrama.asia/watch/janji-kuno--{BOOK_ID}/26?provider=dramabox3&lang=in',
+    'referer': f'https://vidrama.asia/watch/janji-kuno--{BOOK_ID}/28?provider=dramabox3&lang=in',
     'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36'
 }
 
-for ep in [26]:
-    url = f'https://vidrama.asia/api/dramabox3/watch?bookId={BOOK_ID}&episode={ep}&lang=in'
-    print(f"Fetching EP {ep}...")
-    r = requests.get(url, headers=VIDRAMA_HDR, verify=False)
-    if r.ok:
-        res = r.json()
-        print(f"Success: {res.get('success')}")
-        print("Subtitles keys/count:", len(res.get('subtitles', [])))
-        print("Subtitles:", json.dumps(res.get('subtitles', []), indent=2))
-        print("Available Qualities:", json.dumps(res.get('availableQualities', []), indent=2)[:500])
-    else:
-        print(f"Failed to fetch: {r.status_code} - {r.text}")
+# Get watch page API response for ep 28
+print("Fetching Watch API response for ep 28...")
+url = f'https://vidrama.asia/api/dramabox3/watch?bookId={BOOK_ID}&episode=28&lang=in'
+r = requests.get(url, headers=VIDRAMA_HDR, verify=False)
+if r.ok:
+    data = r.json()
+    print("Success:", data.get('success'))
+    qualities = data.get('availableQualities', [])
+    for q in qualities:
+        print(f"Quality: {q['label']} -> {q['url']}")
+        
+        # Test downloading first 100KB of the stream
+        t0 = time.time()
+        try:
+            stream_r = requests.get(q['url'], headers=VIDRAMA_HDR, stream=True, timeout=10, verify=False)
+            print(f"  Stream status code: {stream_r.status_code}")
+            print(f"  Stream headers: {dict(stream_r.headers)}")
+            size = 0
+            for chunk in stream_r.iter_content(chunk_size=1024):
+                size += len(chunk)
+                if size >= 100 * 1024:
+                    break
+            print(f"  Downloaded 100KB successfully in {time.time() - t0:.2f}s")
+        except Exception as e:
+            print(f"  Failed: {e}")
+else:
+    print(f"Failed: {r.status_code}")
