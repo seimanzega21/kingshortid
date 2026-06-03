@@ -13,9 +13,9 @@ def main():
         print("Connected.")
         
         # Run query inside the database container
-        cmd = 'docker exec -i supabase-db-og8gwooogk480gcws0o84ssc psql -U postgres -d postgres -c "SELECT id, type, amount, description, reference, balance_after, created_at FROM coin_transactions WHERE user_id = \'p5ntsk0nv4a0c2aqyxjdwl7y\' ORDER BY created_at DESC LIMIT 15;"'
+        cmd = 'docker exec -i supabase-db-og8gwooogk480gcws0o84ssc psql -U postgres -d postgres -c "SELECT id, title, description, cover FROM dramas WHERE cover LIKE \'%/dramas/covers/%\';"'
         stdin, stdout, stderr = ssh.exec_command(cmd)
-        print("\n--- LATEST USERS ---")
+        print("\n--- DRAMAS WITH MANUAL COVERS ---")
         print(stdout.read().decode('utf-8'))
         print("Errors:")
         print(stderr.read().decode('utf-8'))
