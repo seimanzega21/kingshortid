@@ -3,9 +3,10 @@
 """
 KingShort Vidrama Scraper for cubetv Provider
 =============================================
-Downloads dramas from cubetv provider on vidrama.asia,
+Downloads dramas from cubetv provider on vidrama.asia using Proxy API,
 transcodes each episode to 720p and 540p with faststart,
 uploads to Cloudflare R2, and registers to database with status Pending.
+Deletes incomplete newly created entries on failure or cancellation.
 """
 import requests
 import boto3
@@ -33,7 +34,6 @@ R2_SECRET   = '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
 R2_BUCKET   = 'shortlovers'
 R2_PUBLIC   = 'https://stream.shortlovers.id'
 
-VIDRAMA_API = 'https://vidrama.asia/api/netshortv2'
 WEB_HDRS    = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'Referer': 'https://vidrama.asia/',
@@ -74,54 +74,40 @@ def check_duplicate_in_db(title):
 
 def slugify(text):
     text = text.lower()
-    # Replace non-word chars with -
     slug = re.sub(r'[\W_]+', '-', text).strip('-')
     return slug
 
-def get_episode_url(drama_id, ep_no, retries=3):
-    url = f"{VIDRAMA_API}/episode/{drama_id}/{ep_no}?lang=id_ID"
-    for attempt in range(retries):
-        try:
-            r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
-            data = r.json()
-            if data.get('code') == 200:
-                videos = data['data'].get('videos', [])
-                subs = data['data'].get('subtitles', [])
-                
-                # Check for Indonesian subtitle
-                id_sub = next((s['url'] for s in subs if s.get('language') == 'id_ID'), None)
-                if not id_sub and subs: 
-                    id_sub = subs[0]['url']
-                
-                video_urls = []
-                # Prioritize qualities
-                for q in ['720p', '1080p', '540p']:
-                    for v in videos:
-                        if v.get('quality') == q and v['url'] not in video_urls:
-                            video_urls.append(v['url'])
-                            
-                for v in videos:
-                    if v['url'] not in video_urls:
-                        video_urls.append(v['url'])
-                        
-                return video_urls, id_sub
-        except Exception as e:
-            print(f"      [WARN] Episode API failed for ep{ep_no} (attempt {attempt+1}): {e}")
-            time.sleep(2)
-    return [], None
+def srt_to_vtt(srt_content):
+    if srt_content.strip().startswith("WEBVTT"):
+        return srt_content
+        
+    lines = srt_content.replace('\r\n', '\n').split('\n')
+    vtt_lines = ["WEBVTT\n"]
+    
+    timestamp_re = re.compile(r'(\d{2}:\d{2}:\d{2}),(\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}),(\d{3})')
+    
+    for line in lines:
+        match = timestamp_re.search(line)
+        if match:
+            new_line = timestamp_re.sub(r'\1.\2 --> \3.\4', line)
+            vtt_lines.append(new_line)
+        else:
+            vtt_lines.append(line)
+            
+    return "\n".join(vtt_lines)
 
 def api_get_or_create_drama(detail, slug, cover_url):
-    title = detail.get('title', 'Unknown Title')
+    title = detail.get('videoName', 'Unknown Title')
     payload = {
         'title': title,
-        'description': detail.get('description', title),
+        'description': detail.get('summary', title),
         'cover': cover_url,
-        'genres': detail.get('labels', ['Drama']) or ['Drama'],
-        'totalEpisodes': detail.get('totalEpisodes', 0),
-        'isComplete': detail.get('isFinished', False),
+        'genres': detail.get('tagInfo', ['Drama']) or ['Drama'],
+        'totalEpisodes': detail.get('totalEpisodeNum', 0),
+        'isComplete': detail.get('isEnd') == 1,
         'country': 'China', 
         'language': 'Indonesia',
-        'status': 'completed' if detail.get('isFinished') else 'ongoing',
+        'status': 'completed' if detail.get('isEnd') == 1 else 'ongoing',
         'isActive': False, # Pending!
     }
     try:
@@ -164,7 +150,6 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
     return None
 
 def encode_720_and_540(inp, out_720, out_540):
-    # Transcode raw to 720p with faststart
     cmd_720 = [
         'ffmpeg', '-y', '-i', str(inp), 
         '-c:v', 'libx264', '-crf', '26', '-maxrate', '1500k', '-bufsize', '3000k',
@@ -175,7 +160,6 @@ def encode_720_and_540(inp, out_720, out_540):
     if res_720.returncode != 0: 
         return False
         
-    # Transcode 720p to 540p with faststart
     cmd_540 = [
         'ffmpeg', '-y', '-i', str(out_720), 
         '-vf', 'scale=-2:540', 
@@ -187,24 +171,34 @@ def encode_720_and_540(inp, out_720, out_540):
 
 def fetch_cubetv_provider_dramas():
     dramas = []
-    print("=== Disclosing dramas from provider cubetv ===")
-    for page in range(1, 15):
-        url = f"{VIDRAMA_API}/feed/{page}?provider=cubetv&lang=id_ID"
+    seen_ids = set()
+    print("=== Disclosing dramas from provider cubetv (proxy API) ===")
+    for page in range(1, 6):
+        url = f"https://vidrama.asia/api/proxy-cubetv/home?page={page}&lang=id"
         try:
             r = requests.get(url, headers=WEB_HDRS, timeout=20, verify=False)
             if r.status_code == 200:
-                items = r.json().get('data', [])
-                if not items:
+                data = r.json()
+                rows = data.get('rows', [])
+                if not rows:
                     break
-                print(f"  Page {page}: Found {len(items)} dramas")
-                for it in items:
-                    # Deduplicate in current list
-                    if not any(d['id'] == it['id'] for d in dramas):
-                        dramas.append({
-                            'id': it.get('id'),
-                            'title': it.get('title'),
-                            'slug': slugify(it.get('title', ''))
-                        })
+                page_dramas_found = 0
+                for row in rows:
+                    videos = row.get('videos', [])
+                    for v in videos:
+                        vid_id = v.get('id') or v.get('videoid')
+                        title = v.get('title') or v.get('videoName')
+                        if not vid_id or not title:
+                            continue
+                        if vid_id not in seen_ids:
+                            seen_ids.add(vid_id)
+                            dramas.append({
+                                'id': vid_id,
+                                'title': title,
+                                'slug': slugify(title)
+                            })
+                            page_dramas_found += 1
+                print(f"  Page {page}: Found {page_dramas_found} new unique dramas")
             else:
                 break
         except Exception as e:
@@ -218,171 +212,223 @@ def scrape_single_drama(r2, vid_id, slug, title):
     prefix = f"netshortv2/{slug}"
     print(f"\nProcessing drama: '{title}' (ID: {vid_id}, Slug: {slug})")
     
-    # 1. Check duplicate in database
-    db_id = check_duplicate_in_db(title)
-    if db_id:
-        print(f"  -> Title already exists in database (ID: {db_id}). Skipping creation.")
-    else:
-        # Get Metadata
-        url = f"{VIDRAMA_API}/detail/{vid_id}?lang=id_ID"
-        try:
-            r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
-            if not r.ok or r.json().get('code') != 200:
-                print(f"  -> [ERROR] Failed to fetch metadata details for ID {vid_id}.")
-                return False
-            detail = r.json()['data']
-        except Exception as e:
-            print(f"  -> [ERROR] Exception fetching metadata: {e}")
-            return False
-            
-        # Create cover WebP URL
-        cover_key = f"{prefix}/cover.webp"
-        r2_cover_url = f"{R2_PUBLIC}/{cover_key}"
-        
-        # Register in database
-        db_id = api_get_or_create_drama(detail, slug, r2_cover_url)
-        if not db_id:
-            print("  -> [ERROR] Failed to register drama in DB.")
-            return False
-        print(f"  -> [DB] Created drama entry (ID: {db_id}, status: Pending)")
-        
-        # Upload Cover to R2
-        if not r2_exists(r2, cover_key):
-            try:
-                cov_res = requests.get(detail['cover'], headers=WEB_HDRS, timeout=30, verify=False)
-                if cov_res.ok:
-                    p = TEMP_DIR / f"{slug}_cover.webp"
-                    p.write_bytes(cov_res.content)
-                    r2_upload(r2, p, cover_key, 'image/webp')
-                    p.unlink()
-                    print("  -> [R2] Cover uploaded successfully")
-            except Exception as e:
-                print(f"  -> [WARN] Failed to upload cover to R2: {e}")
-                
-    # 2. Scrape episodes
-    url = f"{VIDRAMA_API}/detail/{vid_id}?lang=id_ID"
+    db_id = None
+    newly_created = False
+    
     try:
-        r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
-        detail = r.json()['data']
-    except Exception as e:
-        print(f"  -> [ERROR] Failed to fetch episode list metadata: {e}")
-        return False
-        
-    total_eps = detail.get('totalEpisodes', 0)
-    print(f"  -> Total Episodes to process: {total_eps}")
-    
-    success_count = 0
-    failed_count = 0
-    skipped_count = 0
-    
-    for ep_no in range(1, total_eps + 1):
-        k720 = f"{prefix}/ep{ep_no:03d}.mp4"
-        k540 = f"{prefix}/ep{ep_no:03d}_540p.mp4"
-        ksub = f"{prefix}/ep{ep_no:03d}.vtt"
-        
-        # If both 720p and 540p exist in R2, skip download/transcode
-        if r2_exists(r2, k720) and r2_exists(r2, k540):
-            print(f"    ep{ep_no:03d}: already exists in R2. Linking to DB...", end="", flush=True)
-            u720 = f"{R2_PUBLIC}/{k720}"
-            u540 = f"{R2_PUBLIC}/{k540}"
-            sub_url = f"{R2_PUBLIC}/{ksub}" if r2_exists(r2, ksub) else None
-            api_upsert_episode(db_id, ep_no, u720, u540, sub_url)
-            print(" LINKED")
-            success_count += 1
-            continue
-            
-        print(f"    ep{ep_no:03d}: processing... ", end="", flush=True)
-        vurls, sub_url_raw = get_episode_url(vid_id, ep_no)
-        if not vurls:
-            print("SKIPPED (No URLs)")
-            skipped_count += 1
-            continue
-            
-        # Download subtitle VTT
-        final_sub_r2 = None
-        if sub_url_raw:
+        # 1. Check duplicate in database
+        db_id = check_duplicate_in_db(title)
+        if db_id:
+            print(f"  -> Title already exists in database (ID: {db_id}). Skipping creation.")
+        else:
+            # Get Metadata from Proxy Detail
+            url = f"https://vidrama.asia/api/proxy-cubetv/detail/{vid_id}?lang=id"
             try:
-                sub_res = requests.get(sub_url_raw, timeout=10, verify=False)
-                if sub_res.ok:
-                    r2.put_object(Bucket=R2_BUCKET, Key=ksub, Body=sub_res.content, ContentType='text/vtt')
-                    final_sub_r2 = f"{R2_PUBLIC}/{ksub}"
+                r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
+                if not r.ok:
+                    print(f"  -> [ERROR] Failed to fetch metadata details for ID {vid_id}. HTTP: {r.status_code}")
+                    return False
+                detail = r.json().get('data', {})
+                if not detail:
+                    print(f"  -> [ERROR] Details data empty for ID {vid_id}")
+                    return False
             except Exception as e:
-                pass
+                print(f"  -> [ERROR] Exception fetching metadata: {e}")
+                return False
                 
-        # Download video files
-        raw_path = TEMP_DIR / f"{slug}_raw_{ep_no}.mp4"
-        o720_path = TEMP_DIR / f"{slug}_720_{ep_no}.mp4"
-        o540_path = TEMP_DIR / f"{slug}_540_{ep_no}.mp4"
-        
-        download_success = False
-        for vurl in vurls:
-            if download_success:
-                break
-                
-            for attempt in range(2):
-                cdn_headers = {
-                    'User-Agent': WEB_HDRS['User-Agent'],
-                    'Referer': 'https://vidrama.asia/',
-                    'Accept': '*/*'
-                }
-                try:
-                    with requests.get(vurl, stream=True, headers=cdn_headers, verify=False, timeout=60) as res:
-                        if res.status_code == 200:
-                            with open(raw_path, 'wb') as f_out:
-                                for chunk in res.iter_content(2*1024*1024):
-                                    if chunk:
-                                        f_out.write(chunk)
-                            size_kb = raw_path.stat().st_size / 1024 if raw_path.exists() else 0
-                            if size_kb > 50:
-                                download_success = True
-                                break
-                        elif res.status_code == 403:
-                            # Use curl
-                            curl_cmd = [
-                                "curl", "-s", "-L",
-                                "-H", f"User-Agent: {cdn_headers['User-Agent']}",
-                                "-H", f"Referer: {cdn_headers['Referer']}",
-                                "-o", str(raw_path),
-                                vurl
-                            ]
-                            subprocess.run(curl_cmd, timeout=60)
-                            size_kb = raw_path.stat().st_size / 1024 if raw_path.exists() else 0
-                            if size_kb > 50:
-                                download_success = True
-                                break
-                except:
-                    pass
-                time.sleep(1)
-                
-        if not download_success:
-            print("ERROR (Download failed)")
-            failed_count += 1
-            continue
+            # Create cover WebP URL
+            cover_key = f"{prefix}/cover.webp"
+            r2_cover_url = f"{R2_PUBLIC}/{cover_key}"
             
-        # Transcode & Upload
-        try:
-            if encode_720_and_540(raw_path, o720_path, o540_path):
-                u720 = r2_upload(r2, o720_path, k720)
-                u540 = r2_upload(r2, o540_path, k540)
-                api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
-                print("SUCCESS")
-                success_count += 1
-            else:
-                print("ERROR (Transcode failed)")
-                failed_count += 1
-        except Exception as e:
-            print(f"ERROR ({e})")
-            failed_count += 1
-        finally:
-            for p in [raw_path, o720_path, o540_path]:
-                if p.exists():
-                    p.unlink()
+            # Register in database
+            db_id = api_get_or_create_drama(detail, slug, r2_cover_url)
+            if not db_id:
+                print("  -> [ERROR] Failed to register drama in DB.")
+                return False
+            newly_created = True
+            print(f"  -> [DB] Created drama entry (ID: {db_id}, status: Pending)")
+            
+            # Upload Cover to R2
+            if not r2_exists(r2, cover_key):
+                try:
+                    cover_src = detail.get('cover')
+                    if cover_src:
+                        cov_res = requests.get(cover_src, headers=WEB_HDRS, timeout=30, verify=False)
+                        if cov_res.ok:
+                            p = TEMP_DIR / f"{slug}_cover.webp"
+                            p.write_bytes(cov_res.content)
+                            r2_upload(r2, p, cover_key, 'image/webp')
+                            p.unlink()
+                            print("  -> [R2] Cover uploaded successfully")
+                except Exception as e:
+                    print(f"  -> [WARN] Failed to upload cover to R2: {e}")
                     
-        # Sleep to avoid rate limiting
-        time.sleep(2)
+        # 2. Get episodes list
+        eps_url = f"https://vidrama.asia/api/proxy-cubetv/episodes/{vid_id}?lang=id"
+        try:
+            r_eps = requests.get(eps_url, headers=WEB_HDRS, timeout=15, verify=False)
+            if not r_eps.ok:
+                print(f"  -> [ERROR] Failed to fetch episodes list. HTTP: {r_eps.status_code}")
+                if newly_created and db_id:
+                    print(f"  -> [DB] Cleaning up incomplete drama (ID: {db_id})...")
+                    requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
+                return False
+            data_eps = r_eps.json()
+            eps = data_eps if isinstance(data_eps, list) else data_eps.get('rows', data_eps.get('data', []))
+            if not eps:
+                print("  -> [WARN] No episodes found in API response.")
+                if newly_created and db_id:
+                    print(f"  -> [DB] Cleaning up empty drama (ID: {db_id})...")
+                    requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
+                return False
+        except Exception as e:
+            print(f"  -> [ERROR] Exception fetching episodes list: {e}")
+            if newly_created and db_id:
+                print(f"  -> [DB] Cleaning up incomplete drama (ID: {db_id})...")
+                requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
+            return False
+            
+        total_eps = len(eps)
+        print(f"  -> Total Episodes to process: {total_eps}")
         
-    print(f"  -> Scrape results for '{title}': {success_count} success, {failed_count} failed, {skipped_count} skipped.")
-    return True
+        success_count = 0
+        failed_count = 0
+        skipped_count = 0
+        
+        for ep in eps:
+            ep_no = ep.get('episodeNumber')
+            if ep_no is None:
+                continue
+                
+            k720 = f"{prefix}/ep{ep_no:03d}.mp4"
+            k540 = f"{prefix}/ep{ep_no:03d}_540p.mp4"
+            ksub = f"{prefix}/ep{ep_no:03d}.vtt"
+            
+            # If both 720p and 540p exist in R2, skip download/transcode
+            if r2_exists(r2, k720) and r2_exists(r2, k540):
+                print(f"    ep{ep_no:03d}: already exists in R2. Linking to DB...", end="", flush=True)
+                u720 = f"{R2_PUBLIC}/{k720}"
+                u540 = f"{R2_PUBLIC}/{k540}"
+                sub_url = f"{R2_PUBLIC}/{ksub}" if r2_exists(r2, ksub) else None
+                api_upsert_episode(db_id, ep_no, u720, u540, sub_url)
+                print(" LINKED")
+                success_count += 1
+                continue
+                
+            print(f"    ep{ep_no:03d}: processing... ", end="", flush=True)
+            
+            # Extract video URLs
+            vurls = [v['url'] for v in ep.get('videoUrls', []) if v.get('url')]
+            if not vurls:
+                print("SKIPPED (No URLs)")
+                skipped_count += 1
+                continue
+                
+            # Extract Indonesian subtitle
+            id_sub_url = None
+            for s in ep.get('subtitles', []):
+                lang = s.get('lang', '').lower()
+                if lang in ['id', 'id_id']:
+                    id_sub_url = s.get('url')
+                    break
+                    
+            # Download subtitle VTT if Indonesian subtitle exists
+            final_sub_r2 = None
+            if id_sub_url:
+                try:
+                    sub_res = requests.get(id_sub_url, timeout=10, verify=False)
+                    if sub_res.ok:
+                        content = sub_res.content.decode('utf-8', errors='ignore')
+                        vtt_content = srt_to_vtt(content)
+                        r2.put_object(Bucket=R2_BUCKET, Key=ksub, Body=vtt_content.encode('utf-8'), ContentType='text/vtt')
+                        final_sub_r2 = f"{R2_PUBLIC}/{ksub}"
+                except Exception as e:
+                    pass
+                    
+            # Download video files
+            raw_path = TEMP_DIR / f"{slug}_raw_{ep_no}.mp4"
+            o720_path = TEMP_DIR / f"{slug}_720_{ep_no}.mp4"
+            o540_path = TEMP_DIR / f"{slug}_540_{ep_no}.mp4"
+            
+            download_success = False
+            for vurl in vurls:
+                if download_success:
+                    break
+                    
+                headers_str = f"Referer: https://vidrama.asia/\r\nUser-Agent: {WEB_HDRS['User-Agent']}\r\n"
+                cmd = [
+                    'ffmpeg', '-y',
+                    '-headers', headers_str,
+                    '-i', vurl,
+                    '-c', 'copy',
+                    '-loglevel', 'error',
+                    str(raw_path)
+                ]
+                try:
+                    res = subprocess.run(cmd, timeout=300)
+                    if res.returncode == 0 and raw_path.exists() and raw_path.stat().st_size > 50*1024:
+                        download_success = True
+                        break
+                except Exception as e:
+                    pass
+                    
+            if not download_success:
+                print("ERROR (Download failed)")
+                failed_count += 1
+                if raw_path.exists():
+                    raw_path.unlink()
+                continue
+                
+            # Transcode & Upload
+            try:
+                if encode_720_and_540(raw_path, o720_path, o540_path):
+                    u720 = r2_upload(r2, o720_path, k720)
+                    u540 = r2_upload(r2, o540_path, k540)
+                    api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
+                    print("SUCCESS")
+                    success_count += 1
+                else:
+                    print("ERROR (Transcode failed)")
+                    failed_count += 1
+            except Exception as e:
+                print(f"ERROR ({e})")
+                failed_count += 1
+            finally:
+                for p in [raw_path, o720_path, o540_path]:
+                    if p.exists():
+                        p.unlink()
+                        
+            time.sleep(2)
+            
+        print(f"  -> Scrape results for '{title}': {success_count} success, {failed_count} failed, {skipped_count} skipped.")
+        
+        # Deletion logic on failure
+        if failed_count > 0:
+            print(f"  -> [ERROR] Drama '{title}' has {failed_count} failed episodes.")
+            if newly_created and db_id:
+                print(f"  -> [DB] Deleting incomplete newly created drama entry (ID: {db_id})...")
+                r_del = requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
+                if r_del.ok:
+                    print(f"  -> [DB] Deleted incomplete drama entry (ID: {db_id})")
+                else:
+                    print(f"  -> [DB] Failed to delete drama entry (Status: {r_del.status_code})")
+            return False
+            
+        return True
+        
+    except (Exception, KeyboardInterrupt) as e:
+        print(f"\n  -> [ERROR] Aborting/Error processing drama '{title}': {e}")
+        if newly_created and db_id:
+            print(f"  -> [DB] Deleting incomplete newly created drama entry (ID: {db_id})...")
+            r_del = requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
+            if r_del.ok:
+                print(f"  -> [DB] Deleted incomplete drama entry (ID: {db_id})")
+            else:
+                print(f"  -> [DB] Failed to delete drama entry (Status: {r_del.status_code})")
+        if isinstance(e, KeyboardInterrupt):
+            print("  -> Interrupted by user. Exiting.")
+            raise e
+        return False
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────
 def main():
@@ -391,8 +437,8 @@ def main():
     # Optional single drama test argument
     if len(sys.argv) > 1 and sys.argv[1] == '--test':
         print("=== TEST RUN: Processing 1 drama only ===")
-        # Felix nelayan: "Mencari Sinar di Lautan" (ID: 2056946805631225858)
-        scrape_single_drama(r2, "2056946805631225858", "mencari-sinar-di-lautan", "Mencari Sinar di Lautan")
+        # Hubungan Berbahaya (ID: MZJk8a)
+        scrape_single_drama(r2, "MZJk8a", "hubungan-berbahaya", "Hubungan Berbahaya")
         print("=== TEST RUN COMPLETED ===")
         return
         
@@ -403,7 +449,6 @@ def main():
     for idx, d in enumerate(dramas):
         print(f"\n--- Progress: {idx+1}/{len(dramas)} ---")
         scrape_single_drama(r2, d['id'], d['slug'], d['title'])
-        # Sleep between dramas
         time.sleep(5)
         
     print("\n=== SCRAPING COMPLETED FOR ALL CUBETV DRAMAS ===")
