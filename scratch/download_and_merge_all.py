@@ -154,18 +154,6 @@ def get_video_duration(video_path):
         print(f"Error getting duration for {video_path}: {e}")
     return 0.0
 
-def get_video_height(video_path):
-    cmd = f'ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=noprint_wrappers=1:nokey=1 "{video_path}"'
-    try:
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-        if res.returncode == 0:
-            val = res.stdout.strip()
-            if val.isdigit():
-                return int(val)
-    except Exception as e:
-        print(f"Error getting height for {video_path}: {e}")
-    return 1280 # Fallback
-
 def build_temp_vtt(dest_folder: str, ep_vtt_files: dict, ep_video_files: dict, start: int, end: int):
     """Build a combined shifted VTT file for the episode chunk. Returns (vtt_filename, has_subtitles)."""
     temp_vtt_filename = f"eps_{start}-{end}_temp.vtt"
@@ -250,25 +238,11 @@ def merge_episodes_hardsub(dest_folder: str, ep_files: dict, ep_vtt_files: dict,
     temp_vtt, has_subs = build_temp_vtt(dest_folder, ep_vtt_files, ep_files, start, end)
     
     if has_subs and temp_vtt:
-        # Determine the height of the first video to dynamically place and scale subtitles
-        first_video_path = None
-        for ep in range(start, end + 1):
-            if ep in ep_files:
-                p = os.path.join(dest_folder, ep_files[ep])
-                if os.path.exists(p):
-                    first_video_path = p
-                    break
-        
-        height = 1280
-        if first_video_path:
-            height = get_video_height(first_video_path)
-            
-        # 1/3 of the height from the bottom center
-        margin_v = int(height / 3)
-        # Font size scales proportionally with the screen height
-        font_size = max(18, int(height * 0.022))
-        
-        print(f"    [SUB STYLE] Height: {height}p | MarginV: {margin_v} | FontSize: {font_size}")
+        # Libass defaults to 288 script pixels height for VTT subtitles, which automatically
+        # scales to the video resolution. Setting MarginV=95 places the subtitle exactly
+        # 1/3 height up from the bottom (288 / 3 = 96). FontSize=16 is optimized for 288p canvas.
+        margin_v = 95
+        font_size = 16
         
         # Use FFmpeg to concat AND burn subtitles
         cmd = f'ffmpeg -f concat -safe 0 -i list.txt -vf "subtitles={temp_vtt}:force_style=\'Alignment=2,MarginV={margin_v},FontSize={font_size},Outline=1.5,Shadow=0,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1\'" -c:v libx264 -crf 22 -preset veryfast -c:a aac -pix_fmt yuv420p "{output_filename}"'
