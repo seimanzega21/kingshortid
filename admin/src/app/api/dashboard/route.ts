@@ -5,10 +5,10 @@ let cache: { data: any; ts: number } | null = null;
 const CACHE_TTL = 10_000; // 10 seconds — keeps totalUsers in sync
 
 const VPS_API = 'https://api.shortlovers.id/api/admin/dashboard';
-const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
 
 // GET /api/dashboard — Stats from VPS Backend API
 export async function GET(request: NextRequest) {
+    const adminKey = process.env.ADMIN_API_KEY || '';
     try {
         // Return cached data if fresh (instant response)
         if (cache && Date.now() - cache.ts < CACHE_TTL) {
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
         }
 
         const res = await fetch(VPS_API, {
-            headers: { 'X-Admin-Key': ADMIN_KEY },
+            headers: { 'X-Admin-Key': adminKey },
             cache: 'no-store', // always fresh from VPS
         });
 

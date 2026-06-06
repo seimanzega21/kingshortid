@@ -113,8 +113,8 @@ export default function Dashboard() {
         ) : (
           <>
             <StatCard label="Total Users" value={s?.totalUsers || 0} icon={Users} accent="blue" />
-            {s?.activeUsers ? (
-              <ActiveUsersCard activeUsers={s.activeUsers} />
+            {s?.activeUsers && typeof s.activeUsers === 'object' && 'h24' in s.activeUsers ? (
+              <ActiveUsersCard activeUsers={s.activeUsers as any} />
             ) : (
               <StatCard label="User Online" value={s?.onlineUsers || 0} icon={Wifi} accent="green" />
             )}
