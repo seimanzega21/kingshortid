@@ -18,6 +18,31 @@ adminRoute.use('*', async (c, next) => {
     return requireAdmin(c, next);
 });
 
+// Seeded random number generator (Mulberry32)
+function seededRandom(seedStr: string) {
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < seedStr.length; i++) {
+        h = Math.imul(h ^ seedStr.charCodeAt(i), 16777619);
+    }
+    let seed = h >>> 0;
+    return function() {
+        let z = (seed += 0x6D2B79F5 | 0);
+        z = Math.imul(z ^ (z >>> 15), z | 1);
+        z ^= z + Math.imul(z ^ (z >>> 7), z | 61);
+        return ((z ^ (z >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+// Fisher-Yates shuffle using custom random function
+function shuffleArray<T>(array: T[], randFn: () => number): T[] {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(randFn() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
 // ==================== DASHBOARD ====================
 adminRoute.get('/dashboard', async (c) => {
     try {
@@ -52,6 +77,22 @@ adminRoute.get('/dashboard', async (c) => {
             onlineCount = Number(onlineResult?.count) || 0;
         } catch (e) {
             console.error("Dashboard Online Users Error:", e);
+        }
+
+        // 2.5 Active Users stats from watch history
+        let activeUsersRow: any = {};
+        try {
+            const activeUsersQuery = await db.execute(sql`
+                SELECT
+                    (SELECT COUNT(DISTINCT user_id) FROM watch_history WHERE watched_at >= NOW() - INTERVAL '12 hours') as active_12h,
+                    (SELECT COUNT(DISTINCT user_id) FROM watch_history WHERE watched_at >= NOW() - INTERVAL '24 hours') as active_24h,
+                    (SELECT COUNT(DISTINCT user_id) FROM watch_history WHERE watched_at AT TIME ZONE 'Asia/Jakarta' >= (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Jakarta')::date - 1 AND watched_at AT TIME ZONE 'Asia/Jakarta' < (CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Jakarta')::date) as active_yesterday,
+                    (SELECT COUNT(DISTINCT user_id) FROM watch_history WHERE watched_at >= NOW() - INTERVAL '7 days') as active_7d,
+                    (SELECT COUNT(DISTINCT user_id) FROM watch_history WHERE watched_at >= NOW() - INTERVAL '30 days') as active_30d
+            `);
+            activeUsersRow = Array.isArray(activeUsersQuery) ? activeUsersQuery[0] : (activeUsersQuery as any).rows?.[0] || {};
+        } catch (e) {
+            console.error("Dashboard Active Users Query Error:", e);
         }
 
         // 3. VIP users
@@ -129,10 +170,10 @@ adminRoute.get('/dashboard', async (c) => {
             console.error("Dashboard Recent Users Error:", e);
         }
 
-        // 7. Popular dramas
+        // 7. Popular dramas (Seeded Daily Shuffle)
         let popularDramas: any[] = [];
         try {
-            popularDramas = await db.select({
+            const allActiveDramas = await db.select({
                 id: dramas.id,
                 title: dramas.title,
                 cover: dramas.cover,
@@ -140,9 +181,19 @@ adminRoute.get('/dashboard', async (c) => {
                 rating: dramas.rating,
                 status: dramas.status,
             }).from(dramas)
-                .where(eq(dramas.isActive, true))
-                .orderBy(desc(dramas.views))
-                .limit(8);
+                .where(and(
+                    eq(dramas.isActive, true),
+                    ne(dramas.cover, ''),
+                    gte(dramas.totalEpisodes, 1)
+                ));
+
+            if (allActiveDramas.length > 0) {
+                // Seed based on WIB date: e.g. "6/6/2026"
+                const wibDateStr = new Date().toLocaleDateString("en-US", { timeZone: "Asia/Jakarta" });
+                const randFn = seededRandom(wibDateStr);
+                const shuffled = shuffleArray(allActiveDramas, randFn);
+                popularDramas = shuffled.slice(0, 8);
+            }
         } catch (e) {
             console.error("Dashboard Popular Dramas Error:", e);
         }
@@ -166,7 +217,13 @@ adminRoute.get('/dashboard', async (c) => {
         return c.json({
             stats: {
                 totalUsers: Number(statsRow.total_users) || 0,
-                activeUsers: Number(statsRow.active_users) || 0,
+                activeUsers: {
+                    h12: Number(activeUsersRow.active_12h) || 0,
+                    h24: Number(activeUsersRow.active_24h) || 0,
+                    yesterday: Number(activeUsersRow.active_yesterday) || 0,
+                    d7: Number(activeUsersRow.active_7d) || 0,
+                    d30: Number(activeUsersRow.active_30d) || 0,
+                },
                 onlineUsers: onlineCount,
                 activeVip: activeVip,
                 totalDramas: Number(statsRow.total_dramas) || 0,

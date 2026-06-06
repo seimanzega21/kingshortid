@@ -9,7 +9,13 @@ import { toast } from "sonner";
 interface DashboardData {
   stats: {
     totalUsers: number;
-    activeUsers: number;
+    activeUsers?: {
+      h12: number;
+      h24: number;
+      yesterday: number;
+      d7: number;
+      d30: number;
+    };
     onlineUsers: number;
     activeVip: number;
     totalDramas: number;
@@ -107,7 +113,11 @@ export default function Dashboard() {
         ) : (
           <>
             <StatCard label="Total Users" value={s?.totalUsers || 0} icon={Users} accent="blue" />
-            <StatCard label="User Online" value={s?.onlineUsers || 0} icon={Wifi} accent="green" />
+            {s?.activeUsers ? (
+              <ActiveUsersCard activeUsers={s.activeUsers} />
+            ) : (
+              <StatCard label="User Online" value={s?.onlineUsers || 0} icon={Wifi} accent="green" />
+            )}
             <StatCard label="VIP Aktif" value={s?.activeVip || 0} icon={Crown} accent="amber" />
             <StatCard label="Drama Aktif" value={s?.activeDramas || 0} icon={Film} accent="emerald" />
             <StatCard label="Total Episode" value={s?.totalEpisodes || 0} icon={Video} accent="cyan" />
@@ -228,6 +238,81 @@ function StatCard({ label, value, icon: Icon, accent }: { label: string; value: 
       </div>
       <h3 className="text-2xl font-bold text-white mt-3">{value.toLocaleString()}</h3>
       <p className="text-xs text-zinc-500 mt-0.5">{label}</p>
+    </div>
+  );
+}
+
+function ActiveUsersCard({ 
+  activeUsers 
+}: { 
+  activeUsers: { h12: number; h24: number; yesterday: number; d7: number; d30: number } 
+}) {
+  const [period, setPeriod] = useState<'h12' | 'h24' | 'yesterday' | 'd7' | 'd30'>('h24');
+  const [isOpen, setIsOpen] = useState(false);
+
+  const periods = {
+    h12: { label: "User Aktif (12 Jam)", value: activeUsers.h12 },
+    h24: { label: "User Aktif (24 Jam)", value: activeUsers.h24 },
+    yesterday: { label: "User Aktif (Kemarin)", value: activeUsers.yesterday },
+    d7: { label: "User Aktif (1 Minggu)", value: activeUsers.d7 },
+    d30: { label: "User Aktif (1 Bulan)", value: activeUsers.d30 },
+  };
+
+  const current = periods[period];
+
+  return (
+    <div 
+      className="relative rounded-xl border border-zinc-800 bg-[#111] p-5 hover:border-zinc-700 transition-all duration-300 group select-none cursor-pointer flex flex-col justify-between"
+      onClick={() => setIsOpen(!isOpen)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      <div className="flex items-center justify-between w-full">
+        <div className="p-2 rounded-lg bg-green-500/10 text-green-500 w-fit">
+          <Activity size={20} />
+        </div>
+        <div className="relative">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(!isOpen);
+            }}
+            className="text-[10px] font-semibold text-zinc-400 bg-zinc-900 border border-zinc-800 rounded px-2 py-1 hover:text-white hover:bg-zinc-800 transition-all flex items-center gap-1 active:scale-95"
+          >
+            Pilih Periode
+            <Clock size={10} className="text-zinc-500" />
+          </button>
+          {isOpen && (
+            <div className="absolute right-0 mt-1.5 w-36 bg-zinc-950 border border-zinc-800 rounded-lg shadow-xl py-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+              {(Object.keys(periods) as Array<keyof typeof periods>).map((k) => (
+                <button
+                  key={k}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setPeriod(k);
+                    setIsOpen(false);
+                  }}
+                  className={`w-full text-left px-3 py-1.5 text-xs hover:bg-zinc-900 transition-colors flex items-center justify-between ${
+                    period === k ? 'text-green-500 font-semibold bg-green-500/5' : 'text-zinc-400'
+                  }`}
+                >
+                  <span>
+                    {k === 'h12' && '12 Jam'}
+                    {k === 'h24' && '24 Jam'}
+                    {k === 'yesterday' && 'Kemarin'}
+                    {k === 'd7' && '1 Minggu'}
+                    {k === 'd30' && '1 Bulan'}
+                  </span>
+                  {period === k && <span className="h-1 w-1 rounded-full bg-green-500" />}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="mt-3">
+        <h3 className="text-2xl font-bold text-white tracking-tight">{current.value.toLocaleString()}</h3>
+        <p className="text-xs text-zinc-500 mt-0.5">{current.label}</p>
+      </div>
     </div>
   );
 }
