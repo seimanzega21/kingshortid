@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+import requests
+import json
+import urllib3
+import sys
+
+urllib3.disable_warnings()
+sys.stdout.reconfigure(encoding='utf-8')
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36',
+    'Referer': 'https://vidrama.asia/watch/penyembuhnya-istrinya--ahTFgKtAU6/1?provider=dramawave&lang=id-ID',
+    'Cookie': '_fbp=fb.1.1770653154777.876935444165455244; _tt_enable_cookie=1; _ttp=01KH1JE0K4H648BY6E3FQ6EXRZ_.tt.1; _ga=GA1.1.1826262121.1771037718; HstCfa5004644=1772873251576; c_ref_5004644=https%3A%2F%2Fwww.google.com%2F; __dtsu=4C301774685394D291D3AB624E4AA57E; _pubcid=8a5abbf9-164b-422f-b349-0e1ba702ea69; _cc_id=a4a99f9a552125d19ea447bfafb9c63b; global_ui_lang=id; HstCmu5004644=1779384259258; vidrama_chat_anon=45cc06417e3a261dc8f368a8; cf_clearance=J8QFuJs0er_WIP38vGy8bjQfQaQL7sFTKyEKgGeK3VA-1780795517-1.2.1.1-Obw73xI.dqmiSQdVtDuHFyZsbOD__sHZFc41Z7WuSJ_1XtPMHcVP7WGAmZM8UgRkfx1RmvPS8Mw6RV1Mxfy8nk9u5mLxnsCPd5XkJDAuQt5e1ZGXCvwfimrkbxXEBc0HLaV.tjy8GFC4chNPLXWwIu4XnAHluPvijjp6AziSEihvKlcO8S0gch2..hjZ.VvlLPFiQbKEWQd199XmWcHUjSlN1UbWgD9KtCXDZbIrrDBBDMAs874kQ6SiYfvaMVnn6MnmPE8TK1BVmFSj7tZDw.BioSjkB.O90BCUGYiLXLNnyCCnQCK4EiOE3hE7YmiOB08mCTr7Kh7ZZrGjyJQQaA; HstCnv5004644=64; HstCns5004644=86; panoramaId_expiry=1780881920064; HstCla5004644=1780795871370; HstPn5004644=2; HstPt5004644=159; ttcsid=1780795518124::qxBtmNAk35AwC3LWSvED.147.1780796502041.0::1.983569.353633::983547.23.360.812::604689.184.0; ttcsid_D5SNQPRC77UDQTF8A5EG=1780795518124::Zbl64-bTTugcPcmu7xs9.128.1780796502041.1; _ga_HCQQPKGEVH=GS2.1.s1780795517$o130$g1$t1780796502$j60$l0$h0'
+}
+
+movie_id = 'ahTFgKtAU6'
+
+results = {}
+
+def get_url(url, label):
+    try:
+        r = requests.get(url, headers=headers, timeout=15, verify=False)
+        if r.ok:
+            try:
+                results[label] = r.json()
+            except:
+                results[label] = {"text": r.text}
+        else:
+            results[label] = {"error": f"HTTP {r.status_code}", "text": r.text}
+    except Exception as e:
+        results[label] = {"exception": str(e)}
+
+get_url(f"https://vidrama.asia/api/dramawave?action=detail&id={movie_id}", "detail")
+get_url(f"https://vidrama.asia/api/dramawave?action=stream&id={movie_id}&episode=1", "stream_episode_1")
+get_url(f"https://vidrama.asia/api/dramawave?action=stream&id={movie_id}&ep=1", "stream_ep_1")
+get_url(f"https://vidrama.asia/api/dramawave?action=stream&id={movie_id}&episodeNum=1", "stream_episodeNum_1")
+
+# Also let's try action=stream with other possible parameter names:
+get_url(f"https://vidrama.asia/api/dramawave?action=stream&id={movie_id}&chapter=1", "stream_chapter_1")
+get_url(f"https://vidrama.asia/api/dramawave?action=stream&id={movie_id}&chapterNum=1", "stream_chapterNum_1")
+get_url(f"https://vidrama.asia/api/dramawave?action=stream&id={movie_id}&num=1", "stream_num_1")
+
+# Write to file
+with open("d:/kingshortid/scratch/explore_dramawave_api_results.json", "w", encoding="utf-8") as f:
+    json.dump(results, f, indent=2, ensure_ascii=False)
+
+print("Results written successfully!")

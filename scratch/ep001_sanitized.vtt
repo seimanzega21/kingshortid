@@ -1,0 +1,199 @@
+WEBVTT
+
+STYLE
+::cue(.f66) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.f63) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.f60) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(41, 31, 31, 0.6);
+  text-align: left;
+}
+::cue(.f60c) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(41, 31, 31, 0.6);
+  text-align: center;
+}
+::cue(.f57) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(41, 31, 31, 0.6);
+  text-align: left;
+}
+::cue(.f54) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(41, 31, 31, 0.6);
+  text-align: left;
+}
+::cue(.f81) {
+  
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.f81c) {
+  
+  font-weight: medium;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.f78) {
+  
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.f75) {
+  
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.f72) {
+  
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+::cue(.color0) {
+  color: #FFFFFF;
+}
+
+00:00:00.291 --> 00:00:01.851 line:36.46% position:92.00% align:end size:80.00%
+<c.f75.color0>Irene Dawson</c.f75><br>
+<c.f54.color0>Istri Kyle Moore</c.f54>
+
+00:00:03.113 --> 00:00:03.825 line:11.00% position:8.00% align:start size:80.00%
+<c.f75.color0>Bella Hartford</c.f75><br>
+<c.f54.color0>Putri Sebastian Hartford</c.f54>
+
+00:00:12.178 --> 00:00:13.471 line:58.5% position:50% align:center size:80%
+<c.f81c>Tidak apa-apa, Sayang.</c.f81c>
+
+00:00:13.763 --> 00:00:14.848 line:58.5% position:50% align:center size:80%
+<c.f81c>Kamu aman.</c.f81c>
+
+00:00:15.348 --> 00:00:17.016 line:58.5% position:50% align:center size:80%
+<c.f81c>Di mana ibu dan ayahmu?</c.f81c>
+
+00:00:17.767 --> 00:00:18.893 line:58.5% position:50% align:center size:80%
+<c.f81c>Ya Tuhan!</c.f81c>
+
+00:00:19.436 --> 00:00:21.646 line:58.5% position:50% align:center size:80%
+<c.f81c>Oh, oh, Nona Hartford.</c.f81c>
+
+00:00:20.433 --> 00:00:21.584 line:40.04% position:8.00% align:start size:80.00%
+<c.f75.color0>James</c.f75><br>
+<c.f54.color0>Asisten Sebastian</c.f54>
+
+00:00:22.480 --> 00:00:24.357 line:58.5% position:50% align:center size:80%
+<c.f81c>Ayo, kita kembali ke mobil.</c.f81c>
+
+00:00:26.151 --> 00:00:27.402 line:58.5% position:50% align:center size:80%
+<c.f81c>Dia bersamamu?</c.f81c>
+
+00:00:27.819 --> 00:00:28.695 line:58.5% position:50% align:center size:80%
+<c.f81c>Saya bekerja untuk ayahnya.</c.f81c>
+
+00:00:28.695 --> 00:00:30.029 line:58.5% position:50% align:center size:80%
+<c.f81c>Dia ada di sebelah sana.</c.f81c>
+
+00:00:31.531 --> 00:00:33.616 line:58.5% position:50% align:center size:80%
+<c.f81c>Nama ayahnya adalah Sebastian Hartford.</c.f81c>
+
+00:00:33.992 --> 00:00:35.827 line:58.5% position:50% align:center size:80%
+<c.f81c>Pendiri Grup Hartford.</c.f81c>
+
+00:00:35.952 --> 00:00:37.912 line:58.5% position:50% align:center size:80%
+<c.f81c>Anaknya hampir tertabrak,</c.f81c>
+
+00:00:37.912 --> 00:00:38.830 line:58.5% position:50% align:center size:80%
+<c.f81c>dia bahkan tidak mau repot-repot</c.f81c>
+
+00:00:38.830 --> 00:00:39.956 line:58.5% position:50% align:center size:80%
+<c.f81c>untuk keluar dari mobil?</c.f81c>
+
+00:00:42.041 --> 00:00:43.460 line:58.5% position:50% align:center size:80%
+<c.f81c>Apa itu benar-benar ayahmu?</c.f81c>
+
+00:00:46.963 --> 00:00:48.047 line:58.5% position:50% align:center size:80%
+<c.f81c>Tunggu, Nona!</c.f81c>
+
+00:00:50.049 --> 00:00:52.010 line:58.5% position:50% align:center size:80%
+<c.f81c>Saya mengagumi disiplin Anda, Tuan Hartford,</c.f81c>
+
+00:00:50.711 --> 00:00:52.294 line:11.00% position:8.00% align:start size:80.00%
+<c.f75.color0>Sebastian Hartford</c.f75><br>
+<c.f54.color0>CEO Grup Hartford</c.f54>
+
+00:00:52.177 --> 00:00:53.970 line:58.5% position:50% align:center size:80%
+<c.f81c>tapi sayangnya,</c.f81c>
+
+00:00:54.053 --> 00:00:55.638 line:58.5% position:50% align:center size:80%
+<c.f81c>sindrom rangsangan sentuhan Anda</c.f81c>
+
+00:00:55.638 --> 00:00:58.558 line:58.5% position:50% align:center size:80%
+<c.f81c>tidak lagi merespons pengobatan saja.</c.f81c>
+
+00:00:58.850 --> 00:01:01.019 line:58.5% position:50% align:center size:80%
+<c.f81c>Kontak fisik apa pun dengan orang dewasa,</c.f81c>
+
+00:01:01.060 --> 00:01:03.021 line:58.5% position:50% align:center size:80%
+<c.f81c>subjek wanita akan memicu</c.f81c>
+
+00:01:03.104 --> 00:01:05.064 line:58.5% position:50% align:center size:80%
+<c.f81c>respons rangsangan sistemik.</c.f81c>
+
+00:01:05.148 --> 00:01:06.524 line:58.5% position:50% align:center size:80%
+<c.f81c>Pada tahap ini, Anda...</c.f81c>
+
+00:01:11.780 --> 00:01:13.323 line:58.5% position:50% align:center size:80%
+<c.f81c>Sepenting itukah pekerjaan?</c.f81c>
+
+00:01:13.531 --> 00:01:14.365 line:58.5% position:50% align:center size:80%
+<c.f81c>Putri Anda nyaris</c.f81c>
+
+00:01:14.365 --> 00:01:16.576 line:58.5% position:50% align:center size:80%
+<c.f81c>terbunuh dan Anda hanya duduk di sini sambil main ponsel?</c.f81c>
+
+00:01:30.089 --> 00:01:31.424 line:58.5% position:50% align:center size:80%
+<c.f81c>Terima kasih sudah menolong Bella.</c.f81c>
+
+00:01:31.841 --> 00:01:32.884 line:58.5% position:50% align:center size:80%
+<c.f81c>Sebutkan hargamu.</c.f81c>
+
+00:01:33.301 --> 00:01:33.927 line:58.5% position:50% align:center size:80%
+<c.f81c>Apa?</c.f81c>
+
+00:01:34.594 --> 00:01:36.221 line:58.5% position:50% align:center size:80%
+<c.f81c>Aku tidak menyelamatkannya demi uang.</c.f81c>
+
+00:01:40.141 --> 00:01:40.767 line:58.5% position:50% align:center size:80%
+<c.f81c>I-</c.f81c>
+
+00:01:41.142 --> 00:01:42.393 line:58.5% position:50% align:center size:80%
+<c.f81c>Ibu!</c.f81c>
+
