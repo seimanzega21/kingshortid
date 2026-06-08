@@ -526,7 +526,7 @@ adminRoute.get('/users', async (c) => {
                 name: users.name,
                 email: users.email,
                 role: users.role,
-                coins: users.coins,
+                coins: sql<number>`${users.coins} + COALESCE(${users.purchasedCoins}, 0)`,
                 isActive: users.isActive,
                 isGuest: users.isGuest,
                 provider: users.provider,
@@ -622,9 +622,12 @@ adminRoute.get('/users/:id', async (c) => {
 
         // Remove password from response
         const { password, ...safeUser } = user;
+        // Tampilkan total saldo gabungan (coins + purchasedCoins) sebagai "coins"
+        const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
 
         return c.json({
             ...safeUser,
+            coins: totalCoins,
             _count: {
                 watchHistory: watchHistoryCount?.count || 0,
                 watchlist: watchlistCount?.count || 0,
