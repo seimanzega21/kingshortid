@@ -67,6 +67,16 @@ def check_duplicate_in_db(title):
         for d in dramas:
             if d['title'].lower().strip() == title.lower().strip():
                 return d['id']
+                
+        # Fallback to check inactive dramas
+        r_all = requests.get(f"{API_BASE}/dramas?limit=1000&includeInactive=true", timeout=15)
+        if r_all.ok:
+            all_dramas = r_all.json()
+            if isinstance(all_dramas, dict):
+                all_dramas = all_dramas.get('dramas', [])
+            for d in all_dramas:
+                if d['title'].lower().strip() == title.lower().strip():
+                    return d['id']
     except Exception as e:
         print(f"Error checking duplicate for '{title}': {e}")
     return None
