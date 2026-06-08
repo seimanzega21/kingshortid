@@ -78,9 +78,12 @@ coinsRoute.get('/status', async (c) => {
             vipRemaining = Math.max(0, Math.floor((new Date(user.vipExpiry).getTime() - now.getTime()) / 1000));
         }
 
+        const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
+
         return c.json({
             coins: user.coins,
             purchasedCoins: user.purchasedCoins || 0,
+            totalCoins,
             adWatchCount: 0,
             adsRemaining: 0,
             cekLainnyaCount,

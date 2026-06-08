@@ -203,9 +203,12 @@ rewardsRoute.get('/status', async (c) => {
             return streak;
         })();
 
+        const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
+
         return c.json({
             coins: user.coins,
             purchasedCoins: user.purchasedCoins || 0,
+            totalCoins,
             hasClaimedToday,
             streak: displayStreak,
             claimedDays,
