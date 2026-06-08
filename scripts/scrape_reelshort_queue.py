@@ -93,16 +93,39 @@ def srt_to_vtt(srt_content):
             
     return "\n".join(vtt_lines)
 
+def generate_rich_description(title, genres):
+    if not genres:
+        genres = ['Drama', 'Romansa']
+    genre_str = ", ".join(genres)
+    title_lower = title.lower()
+    
+    if any(k in title_lower for k in ["suami", "istri", "nikah", "pengantin"]):
+        return f"Drama pernikahan dan romansa menarik '{title}' bertema {genre_str}. Mengisahkan lika-liku hubungan rumah tangga, konflik keluarga, dan perjuangan cinta penuh kejutan."
+    elif any(k in title_lower for k in ["bos", "ceo", "miliarder", "kaya", "triliuner"]):
+        return f"Drama romansa perkotaan '{title}' bertema {genre_str}. Mengisahkan hubungan cinta beda status, konflik kekuasaan, intrik dunia bisnis/CEO, dan perjuangan meraih kebahagiaan."
+    elif any(k in title_lower for k in ["putri", "ratu", "kaisar", "dewa"]):
+        return f"Drama fantasi dan romansa '{title}' bertema {genre_str}. Mengisahkan perjuangan takdir, intrik kekuasaan, kebangkitan karakter utama, dan lika-liku cinta yang menghanyutkan."
+    elif any(k in title_lower for k in ["dendam", "penjara", "hancur", "khianat"]):
+        return f"Drama balas dendam dan kebangkitan emosional '{title}' bertema {genre_str}. Mengisahkan perjuangan merebut kembali hak, mengatasi pengkhianatan, dan lika-liku takdir penuh ketegangan."
+    else:
+        return f"Drama romansa dan kehidupan menarik '{title}' bertema {genre_str}. Mengisahkan konflik cinta, perjuangan meraih impian, dan lika-liku takdir penuh kejutan di setiap episodenya."
+
 def api_get_or_create_drama(detail, slug, cover_url):
     title = detail.get('title') or 'Unknown Title'
     title = title.replace("(Sulih Suara)", "[Versi Dub]")
     title = title.replace("[Dubbing]", "[Versi Dub]")
     title = title.replace("[Dijuluki]", "[Versi Dub]")
+    
+    genres = detail.get('tags') or detail.get('theme') or ['Drama']
+    desc_val = detail.get('desc') or detail.get('description')
+    if not desc_val or desc_val.strip() == "":
+        desc_val = generate_rich_description(title, genres)
+        
     payload = {
         'title': title,
-        'description': detail.get('desc') or detail.get('description') or title,
+        'description': desc_val,
         'cover': cover_url,
-        'genres': detail.get('tags') or detail.get('theme') or ['Drama'],
+        'genres': genres,
         'totalEpisodes': detail.get('chapters') or 70,
         'isComplete': detail.get('isCompleted') == 1 or True,
         'country': 'China', 
@@ -383,47 +406,55 @@ def save_queue(queue):
 
 def main():
     test_mode = "--test" in sys.argv
-    queue = load_queue()
-    
-    # Find pending drama
-    pending_drama = None
-    for item in queue:
-        if item.get('status') == 'pending':
-            pending_drama = item
-            break
-            
-    if not pending_drama:
-        print("=== NO PENDING DRAMAS FOUND IN QUEUE ===")
-        return
-        
-    print(f"=== PROCESSING QUEUE ITEM ===")
-    print(f"ID: {pending_drama['id']}")
-    print(f"Title: {pending_drama['title']}")
-    print(f"Status: {pending_drama['status']}")
-    if test_mode:
-        print("Running in TEST MODE (only Episode 1 will be processed).")
-        
     r2 = get_r2()
-    success = scrape_drama(r2, pending_drama['id'], test_mode=test_mode)
     
-    # Reload queue to prevent overwriting modifications
-    queue = load_queue()
-    for item in queue:
-        if item['id'] == pending_drama['id']:
-            if success:
-                item['status'] = 'completed'
-            else:
-                item['status'] = 'failed'
-            item['processedAt'] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    while True:
+        queue = load_queue()
+        
+        # Find pending drama
+        pending_drama = None
+        for item in queue:
+            if item.get('status') == 'pending':
+                pending_drama = item
+                break
+                
+        if not pending_drama:
+            print("=== NO MORE PENDING DRAMAS FOUND IN QUEUE ===")
             break
             
-    save_queue(queue)
-    
-    if success:
-        print(f"\nSuccessfully processed and marked '{pending_drama['title']}' as completed.")
-    else:
-        print(f"\nFailed to process '{pending_drama['title']}'. Marked as failed.")
-        sys.exit(1)
+        print(f"\n=== PROCESSING QUEUE ITEM ===")
+        print(f"ID: {pending_drama['id']}")
+        print(f"Title: {pending_drama['title']}")
+        print(f"Status: {pending_drama['status']}")
+        if test_mode:
+            print("Running in TEST MODE (only Episode 1 will be processed).")
+            
+        success = scrape_drama(r2, pending_drama['id'], test_mode=test_mode)
+        
+        # Reload queue to prevent overwriting modifications
+        queue = load_queue()
+        for item in queue:
+            if item['id'] == pending_drama['id']:
+                if success:
+                    item['status'] = 'completed'
+                else:
+                    item['status'] = 'failed'
+                item['processedAt'] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                break
+                
+        save_queue(queue)
+        
+        if success:
+            print(f"Successfully processed and marked '{pending_drama['title']}' as completed.")
+        else:
+            print(f"Failed to process '{pending_drama['title']}'. Marked as failed.")
+            
+        if test_mode:
+            print("\nTest mode completed. Exiting loop.")
+            break
+            
+        print("\nWaiting 5 seconds before next drama to avoid rate limiting...")
+        time.sleep(5)
 
 if __name__ == "__main__":
     main()
