@@ -97,7 +97,9 @@ auth.get('/me', async (c) => {
         db.update(users).set({ lastSeen: new Date(), updatedAt: new Date() }).where(eq(users.id, user.id)).catch(() => { });
 
         const { password: _, ...userWithoutPassword } = user;
-        return c.json(userWithoutPassword);
+        // Expose totalCoins (coins + purchasedCoins) as unified balance
+        const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
+        return c.json({ ...userWithoutPassword, coins: totalCoins });
     } catch (error) {
         console.error('Get me error:', error);
         return c.json({ error: 'Failed to get user' }, 500);
