@@ -124,6 +124,12 @@ app.get('/health', (c) => c.json({
     db: process.env.SUPABASE_URL ? 'configured' : 'missing',
 }));
 
+app.get('/api/health', (c) => c.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    db: process.env.SUPABASE_URL ? 'configured' : 'missing',
+}));
+
 // Cache-Control for read-heavy GET endpoints (CDN edge caching)
 app.use('/api/dramas/*', async (c, next) => {
     await next();

@@ -23,8 +23,14 @@ const TOPUP_PACKAGES = [
 ];
 
 function toWIBDateString(date: Date): string {
-    const wib = new Date(date.getTime() + 7 * 60 * 60 * 1000);
-    return wib.toISOString().slice(0, 10);
+    const d = typeof date === 'string' || typeof date === 'number' ? new Date(date) : date;
+    if (isNaN(d.getTime())) return '';
+    return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Jakarta',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).format(d);
 }
 
 function isSameDay(date1: Date, date2: Date): boolean {

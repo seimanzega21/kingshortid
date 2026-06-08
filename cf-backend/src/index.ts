@@ -39,6 +39,7 @@ app.get('/', (c) => c.json({
 }));
 
 app.get('/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOString() }));
+app.get('/api/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOString() }));
 
 // Mount routes
 app.route('/api/auth', auth);

@@ -27,9 +27,14 @@ const COIN_MILESTONES = [
 ];
 
 function toWIBDateString(date: Date): string {
-    // WIB = UTC+7, offset 7 hours
-    const wib = new Date(date.getTime() + 7 * 60 * 60 * 1000);
-    return wib.toISOString().slice(0, 10); // YYYY-MM-DD in WIB
+    const d = typeof date === 'string' || typeof date === 'number' ? new Date(date) : date;
+    if (isNaN(d.getTime())) return '';
+    return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Jakarta',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).format(d);
 }
 
 function isSameDay(date1: Date, date2: Date): boolean {
@@ -50,8 +55,8 @@ rewardsRoute.post('/claim-daily', async (c) => {
             return c.json({ error: 'Already checked in today', streak: user.checkInStreak }, 400);
         }
 
-        const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
-        const yesterdayDateStr = toWIBDateString(yesterdayWIB);
+        const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+        const yesterdayDateStr = toWIBDateString(yesterday);
         const lastCheckInDateStr = user.lastCheckIn ? toWIBDateString(new Date(user.lastCheckIn)) : null;
 
         let newStreak: number;
@@ -181,8 +186,8 @@ rewardsRoute.get('/status', async (c) => {
             if (!hasClaimedToday) {
                 // Check if last claim was yesterday; if not, user missed = reset
                 const lastCheckIn = user.lastCheckIn ? new Date(user.lastCheckIn) : null;
-                const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
-                if (lastCheckIn && !isSameDay(lastCheckIn, yesterdayWIB)) {
+                const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+                if (lastCheckIn && !isSameDay(lastCheckIn, yesterday)) {
                     return []; // Missed a day = all uncheck
                 }
                 return Array.from({ length: Math.min(streak, 7) }, (_, i) => i + 1);
@@ -195,8 +200,8 @@ rewardsRoute.get('/status', async (c) => {
             if (streak === 0) return 0;
             if (!hasClaimedToday) {
                 const lastCheckIn = user.lastCheckIn ? new Date(user.lastCheckIn) : null;
-                const yesterdayWIB = new Date(now.getTime() + 7 * 60 * 60 * 1000 - 24 * 60 * 60 * 1000);
-                if (lastCheckIn && !isSameDay(lastCheckIn, yesterdayWIB)) {
+                const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+                if (lastCheckIn && !isSameDay(lastCheckIn, yesterday)) {
                     return 0; // Missed
                 }
             }
