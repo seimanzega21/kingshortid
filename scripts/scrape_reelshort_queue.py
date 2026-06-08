@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-KingShort Vidrama Scraper for ReelShort Provider
-================================================
-Downloads dubbed dramas from reelshort provider on vidrama.asia,
-transcodes each episode to 720p and 540p with faststart,
-uploads to Cloudflare R2, and registers to database with status Pending.
+KingShort Vidrama Scraper for ReelShort Provider - Queue Processor
+===================================================================
+Reads scripts/reelshort_queue.json, processes the next pending drama,
+transcodes episodes to 720p/540p faststart, uploads to R2, links to DB (Pending),
+and updates the queue status.
 """
 import requests
 import boto3
@@ -15,6 +15,7 @@ import tempfile
 import urllib3
 import re
 import sys
+import json
 from pathlib import Path
 from botocore.config import Config
 
@@ -37,7 +38,8 @@ WEB_HDRS    = {
     'Referer': 'https://vidrama.asia/',
 }
 
-TEMP_DIR = Path(tempfile.gettempdir()) / 'reelshort_scraper'
+QUEUE_PATH = Path(__file__).parent / 'reelshort_queue.json'
+TEMP_DIR = Path(tempfile.gettempdir()) / 'reelshort_queue_scraper'
 TEMP_DIR.mkdir(exist_ok=True)
 
 # ── HELPERS ──────────────────────────────────────────────────────────────────
@@ -94,6 +96,8 @@ def srt_to_vtt(srt_content):
 def api_get_or_create_drama(detail, slug, cover_url):
     title = detail.get('title') or 'Unknown Title'
     title = title.replace("(Sulih Suara)", "[Versi Dub]")
+    title = title.replace("[Dubbing]", "[Versi Dub]")
+    title = title.replace("[Dijuluki]", "[Versi Dub]")
     payload = {
         'title': title,
         'description': detail.get('desc') or detail.get('description') or title,
@@ -184,6 +188,9 @@ def scrape_drama(r2, vid_id, test_mode=False):
         return False
 
     title = detail.get('title', 'Unknown Title')
+    title = title.replace("(Sulih Suara)", "[Versi Dub]")
+    title = title.replace("[Dubbing]", "[Versi Dub]")
+    title = title.replace("[Dijuluki]", "[Versi Dub]")
     slug = slugify(title)
     prefix = f"netshortv2/{slug}"
     
@@ -356,16 +363,66 @@ def scrape_drama(r2, vid_id, test_mode=False):
         
     return failed_count == 0
 
+# ── QUEUE MANAGEMENT ─────────────────────────────────────────────────────────
+def load_queue():
+    if not QUEUE_PATH.exists():
+        return []
+    try:
+        with open(QUEUE_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"[ERROR] Failed to load queue: {e}")
+        sys.exit(1)
+
+def save_queue(queue):
+    try:
+        with open(QUEUE_PATH, 'w', encoding='utf-8') as f:
+            json.dump(queue, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"[ERROR] Failed to save queue: {e}")
+
 def main():
-    r2 = get_r2()
-    movie_id = "69faa1fdb23e0401d004e225"
     test_mode = "--test" in sys.argv
+    queue = load_queue()
     
-    success = scrape_drama(r2, movie_id, test_mode=test_mode)
+    # Find pending drama
+    pending_drama = None
+    for item in queue:
+        if item.get('status') == 'pending':
+            pending_drama = item
+            break
+            
+    if not pending_drama:
+        print("=== NO PENDING DRAMAS FOUND IN QUEUE ===")
+        return
+        
+    print(f"=== PROCESSING QUEUE ITEM ===")
+    print(f"ID: {pending_drama['id']}")
+    print(f"Title: {pending_drama['title']}")
+    print(f"Status: {pending_drama['status']}")
+    if test_mode:
+        print("Running in TEST MODE (only Episode 1 will be processed).")
+        
+    r2 = get_r2()
+    success = scrape_drama(r2, pending_drama['id'], test_mode=test_mode)
+    
+    # Reload queue to prevent overwriting modifications
+    queue = load_queue()
+    for item in queue:
+        if item['id'] == pending_drama['id']:
+            if success:
+                item['status'] = 'completed'
+            else:
+                item['status'] = 'failed'
+            item['processedAt'] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            break
+            
+    save_queue(queue)
+    
     if success:
-        print("\n=== SCRAPING PROCESS COMPLETED SUCCESSFULLY ===")
+        print(f"\nSuccessfully processed and marked '{pending_drama['title']}' as completed.")
     else:
-        print("\n=== SCRAPING PROCESS FAILED OR ENCOUNTERED ERRORS ===")
+        print(f"\nFailed to process '{pending_drama['title']}'. Marked as failed.")
         sys.exit(1)
 
 if __name__ == "__main__":
