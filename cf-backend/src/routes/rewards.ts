@@ -209,6 +209,7 @@ rewardsRoute.get('/status', async (c) => {
         })();
 
         const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
+        const isVipActive = user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > now);
 
         return c.json({
             coins: user.coins,
@@ -225,6 +226,7 @@ rewardsRoute.get('/status', async (c) => {
             adsRemaining: Math.max(0, 10 - adCount),
             cekLainnyaCount,
             cekLainnyaRemaining: Math.max(0, 15 - cekLainnyaCount),
+            vipStatus: isVipActive,
             vipExpiry: user.vipExpiry
         });
     } catch (error) {
