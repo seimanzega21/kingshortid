@@ -378,13 +378,19 @@ def scrape_drama(r2, vid_id, test_mode=False):
 
     print(f"  -> Scrape results for '{title}': {success_count} success, {failed_count} failed, {skipped_count} skipped.")
     
-    # Deletion logic on failure (only if newly created and there were errors)
-    if failed_count > 0 and newly_created:
-        print(f"  -> [DB] Cleaning up incomplete drama (ID: {db_id})...")
+    total = success_count + failed_count
+    success_rate = success_count / total if total > 0 else 0
+
+    # Hanya hapus drama jika success rate < 70% (episode yang di-lock/premium dari sumber wajar gagal)
+    if failed_count > 0 and newly_created and success_rate < 0.70:
+        print(f"  -> [DB] Success rate terlalu rendah ({success_rate:.0%}). Cleaning up drama (ID: {db_id})...")
         requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
         return False
+    
+    if failed_count > 0:
+        print(f"  -> [WARN] {failed_count} episode gagal (kemungkinan di-lock/premium di sumber). Drama tetap disimpan ({success_rate:.0%} success rate).")
         
-    return failed_count == 0
+    return True
 
 # ── QUEUE MANAGEMENT ─────────────────────────────────────────────────────────
 def load_queue():
