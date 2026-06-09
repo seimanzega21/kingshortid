@@ -7,10 +7,10 @@ with open(QUEUE_PATH, 'r', encoding='utf-8') as f:
     queue = json.load(f)
 
 new_drama = {
-    'id': '69fab9d7b5b22259190f00f8',
-    'title': '[Versi Dub] Di Dunia Manusia, Aku Tak Tertandingi',
+    'id': '6a0572b216e8f854a6012561',
+    'title': '[Versi Dub] Ratu Kuliner: Resep Balas Dendam',
     'status': 'pending',
-    'addedAt': '2026-06-09T00:51:00Z',
+    'addedAt': '2026-06-09T01:38:00Z',
     'processedAt': None
 }
 
