@@ -1,57 +1,32 @@
-import requests
-import warnings
+import requests, warnings
 warnings.filterwarnings('ignore')
 
-DRAMA_ID = '14pt69lgiygn834gag5nqse'
 API = 'https://api.shortlovers.id/api'
+DRAMA_ID = 'jayoo8vm9088eggxp69bcd5r'  # Dikuasai Ayah Mantanku - has subtitles
 
-# Load admin token from config
-import os
-token_path = os.path.join(os.path.dirname(__file__), '..', 'scripts', '.admin_token')
-ADMIN_TOKEN = ''
-if os.path.exists(token_path):
-    with open(token_path) as f:
-        ADMIN_TOKEN = f.read().strip()
+r = requests.get(f'{API}/dramas/{DRAMA_ID}', verify=False, timeout=15)
+d = r.json()
+eps = d.get('episodes', [])
+ep1 = sorted(eps, key=lambda x: x.get('episodeNumber', 0))[0]
+ep1_id = ep1['id']
+print('Drama:', d.get('title'))
+print('Ep1 video URL:', ep1.get('videoUrl', '')[:100])
 
-HEADERS = {'Authorization': f'Bearer {ADMIN_TOKEN}'} if ADMIN_TOKEN else {}
+# Get subtitle
+r2 = requests.get(f'{API}/episodes/{ep1_id}/subtitles', verify=False, timeout=10)
+subs = r2.json().get('subtitles', [])
+print(f'Subtitles: {len(subs)}')
+for s in subs:
+    lang = s.get('language')
+    url = s.get('url', '')[:100]
+    print(f'  lang={lang} | url={url}')
 
-print(f'Checking drama: {DRAMA_ID}')
-r = requests.get(f'{API}/dramas/{DRAMA_ID}', headers=HEADERS, verify=False, timeout=15)
-print(f'Status: {r.status_code}')
-
-if not r.ok:
-    print('ERROR:', r.text[:300])
-    exit(1)
-
-data = r.json()
-print(f'Title: {data.get("title")}')
-eps = data.get('episodes', [])
-print(f'Episodes in response: {len(eps)}')
-
-if not eps:
-    print('No episodes found. Trying /dramas/{id}/episodes...')
-    r2 = requests.get(f'{API}/dramas/{DRAMA_ID}/episodes', headers=HEADERS, verify=False, timeout=15)
-    print(f'Episodes status: {r2.status_code}')
-    print(r2.text[:500])
-    exit(0)
-
-# Check first 3 episodes for subtitles
-print()
-for ep in eps[:3]:
-    ep_id = ep.get('id')
-    ep_no = ep.get('episodeNumber')
-    print(f'--- Episode {ep_no} (ID: {ep_id}) ---')
-    print(f'  Subtitles in drama response: {ep.get("subtitles")}')
-    
-    # Direct subtitle fetch
-    r_sub = requests.get(f'{API}/episodes/{ep_id}/subtitles', headers=HEADERS, verify=False, timeout=10)
-    print(f'  Direct subtitle API: {r_sub.status_code}')
-    sub_data = r_sub.json()
-    subs = sub_data.get('subtitles', [])
-    print(f'  Subtitle count: {len(subs)}')
-    for s in subs:
-        print(f'    - lang={s.get("language")} | url={s.get("url")[:80]}...')
-    
-    if not subs:
-        print(f'  >> NO SUBTITLES in DB for this episode!')
-    print()
+# Now check if the VTT URL actually works
+if subs:
+    vtt_url = subs[0].get('url')
+    r3 = requests.get(vtt_url, verify=False, timeout=10)
+    print(f'\nVTT URL status: {r3.status_code}')
+    if r3.ok:
+        print('VTT content (first 200 chars):', r3.text[:200])
+    else:
+        print('VTT not accessible!')

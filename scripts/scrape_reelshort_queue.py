@@ -409,6 +409,11 @@ def main():
     r2 = get_r2()
     
     while True:
+        # Pengecekan file sinyal STOP
+        if Path("STOP").exists():
+            print("--- STOP SIGNAL DETECTED. Exiting... ---")
+            break
+
         queue = load_queue()
         
         # Find pending drama
