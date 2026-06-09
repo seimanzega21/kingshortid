@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { eq, and, desc, like, or, sql, asc, gte } from 'drizzle-orm';
+import { eq, and, desc, like, or, sql, asc, gte, inArray } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
 import { dramas, episodes, seasons, subtitles, watchHistory } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
@@ -200,31 +200,36 @@ dramasRoute.get('/feed', async (c) => {
             .where(eq(dramas.isActive, true))
             .limit(500);
 
-        // 4. Fetch first episode for each drama
-        const results = await Promise.all(
-            allDramas.map(async (drama) => {
-                const firstEp = await db.select().from(episodes)
-                    .where(and(
-                        eq(episodes.dramaId, drama.id),
-                        sql`${episodes.videoUrl} IS NOT NULL`
-                    ))
-                    .orderBy(asc(episodes.episodeNumber))
-                    .limit(1)
-                    .then((r: any[]) => r[0]);
+        // 4. Fetch first episode for each drama in a single optimized query
+        const firstEpisodes = await db.execute(sql`
+            SELECT DISTINCT ON (drama_id) id, drama_id, video_url, episode_number, title, duration
+            FROM episodes
+            WHERE video_url IS NOT NULL
+            ORDER BY drama_id, episode_number ASC
+        `);
 
-                if (!firstEp?.videoUrl) return null;
-                return {
-                    ...enrichDrama(drama),
-                    episodes: [{
-                        id: firstEp.id,
-                        videoUrl: firstEp.videoUrl,
-                        episodeNumber: firstEp.episodeNumber,
-                        title: firstEp.title,
-                        duration: firstEp.duration,
-                    }],
-                };
-            })
-        );
+        const firstEpMap = new Map<string, any>();
+        for (const ep of firstEpisodes as any[]) {
+            const dramaId = ep.drama_id || ep.dramaId;
+            if (dramaId) {
+                firstEpMap.set(dramaId, {
+                    id: ep.id,
+                    videoUrl: ep.video_url || ep.videoUrl,
+                    episodeNumber: ep.episode_number || ep.episodeNumber,
+                    title: ep.title,
+                    duration: ep.duration,
+                });
+            }
+        }
+
+        const results = allDramas.map((drama) => {
+            const firstEp = firstEpMap.get(drama.id);
+            if (!firstEp) return null;
+            return {
+                ...enrichDrama(drama),
+                episodes: [firstEp],
+            };
+        });
 
         const available = results.filter(Boolean) as NonNullable<typeof results[0]>[];
 
@@ -453,15 +458,13 @@ dramasRoute.get('/:id', async (c) => {
             ))
             .orderBy(asc(episodes.episodeNumber));
 
-        // Attach subtitles to each episode
+        // Attach subtitles to all episodes in a single query
         const episodeIds = eps.map(e => e.id);
         let allSubtitles: any[] = [];
         if (episodeIds.length > 0) {
-            for (const epId of episodeIds) {
-                const subs = await db.select().from(subtitles)
-                    .where(eq(subtitles.episodeId, epId));
-                allSubtitles.push(...subs);
-            }
+            allSubtitles = await db.select()
+                .from(subtitles)
+                .where(inArray(subtitles.episodeId, episodeIds));
         }
 
         const epsWithSubs = eps.map(ep => ({
