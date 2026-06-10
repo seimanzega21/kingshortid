@@ -31,7 +31,7 @@ R2_ENDPOINT = 'https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com
 R2_KEY_ID   = '07c99c897986ea52703c1285308d5e2c'
 R2_SECRET   = '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
 R2_BUCKET   = 'shortlovers'
-R2_PUBLIC   = 'https://stream.shortlovers.id'
+R2_PUBLIC   = "https://stream.shortlovers.id"
 
 WEB_HDRS    = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
@@ -92,6 +92,33 @@ def srt_to_vtt(srt_content):
             vtt_lines.append(line)
             
     return "\n".join(vtt_lines)
+
+
+def check_duplicate_in_api(title):
+    try:
+        import urllib.parse
+        import re
+        import requests
+        words = title.replace('[Versi Dub]', '').replace('(Sulih Suara)', '').replace('[Dubbing]', '').replace('[Dijuluki]', '').split()
+        if not words: return False
+        q = ' '.join(words[:3])
+        r = requests.get(f"{API_BASE}/dramas/search?q={urllib.parse.quote(q)}", timeout=10)
+        if r.ok:
+            dramas = r.json().get('dramas', [])
+            def clean_title(t):
+                t = t.lower()
+                t = re.sub(r'\[versi dub\]|\(sulih suara\)|\[dubbing\]|\[dijuluki\]', '', t)
+                return re.sub(r'[^a-z0-9]', '', t)
+            my_clean = clean_title(title)
+            for d in dramas:
+                if clean_title(d['title']) == my_clean:
+                    # Check if it was created by freereels
+                    if d.get('cover') and 'freereels' in d['cover']:
+                        return False # created by freereels scraper, do not skip
+                    return True # Duplicate found!
+    except Exception as e:
+        print(f"      [WARN] Error checking duplicate: {e}")
+    return False
 
 def generate_rich_description(title, genres):
     if not genres:
@@ -419,6 +446,17 @@ def main():
         print(f"ID: {pending_drama['id']}")
         print(f"Title: {pending_drama['title']}")
         print(f"Status: {pending_drama['status']}")
+        
+        if check_duplicate_in_api(pending_drama['title']):
+            print(f"  -> Skipping, drama '{pending_drama['title']}' already exists in Admin Panel (Duplicate Check).")
+            # Mark as completed in queue
+            for item in queue:
+                if item['id'] == pending_drama['id']:
+                    item['status'] = 'completed'
+                    item['processedAt'] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            save_queue(queue)
+            continue
+
         if test_mode:
             print("Running in TEST MODE (only Episode 1 will be processed).")
             

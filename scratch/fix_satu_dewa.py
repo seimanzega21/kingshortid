@@ -17,9 +17,8 @@ with open('scripts/scrape_freereels_queue.py', 'r', encoding='utf-8') as f:
 API_BASE = 'https://api.shortlovers.id/api'
 ADMIN_HDR = {'x-admin-key': admin_key, 'Content-Type': 'application/json'}
 
-# CORRECT ID FROM LOG AND SCREENSHOT: dt9wnyumb4fj2i51p6r9kwds
 db_id = 'dt9wnyumb4fj2i51p6r9kwds'
-R2_PUBLIC = 'https://shortlovers.id'
+R2_PUBLIC = 'https://stream.shortlovers.id'
 prefix = 'netshortv2/satu-dewa-perang-tujuh-ratu-versi-dub'
 
 for ep in [33, 38]:
