@@ -1,15 +1,21 @@
 [
   {
+    "id": "7605896042286470152",
+    "title": "Sang legenda yang kembali",
+    "totalEpisodes": 60,
+    "status": "done"
+  },
+  {
     "id": "7646413653666911250",
     "title": "Dendam kesatria terakhir",
     "totalEpisodes": 82,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7646964476893402132",
     "title": "Master tenis meja tersembunyi",
     "totalEpisodes": 54,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7644896821504201749",
@@ -21,42 +27,36 @@
     "id": "7647030977172329493",
     "title": "Istriku Ternyata Kaisar Wanita",
     "totalEpisodes": 78,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7646458746113364993",
     "title": "Satpam jadi master dadakan",
     "totalEpisodes": 62,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7638977329955984405",
     "title": "Ayahku sang juara tersembunyi",
     "totalEpisodes": 75,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7646413641771717639",
     "title": "Tiga istri untuk sang prajurit",
     "totalEpisodes": 79,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7644855730528785428",
     "title": "Suami kontrak sang putri",
     "totalEpisodes": 73,
-    "status": "failed"
+    "status": "pending"
   },
   {
     "id": "7647572433456698376",
     "title": "Dokter Hewan Para Raja Iblis",
     "totalEpisodes": 75,
-    "status": "failed"
-  },
-  {
-    "id": "7605896042286470152",
-    "title": "Sang legenda yang kembali",
-    "totalEpisodes": 60,
     "status": "pending"
   },
   {

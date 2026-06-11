@@ -253,9 +253,6 @@ def scrape_drama(r2, drama_info):
 
     # 1. Check for duplicate in DB
     dup_id = check_duplicate_in_db(title)
-    if dup_id:
-        print(f"  -> [SKIP] Already in DB (ID: {dup_id})")
-        return True
 
     # 2. Get full detail
     detail = get_pine_detail(collection_id)
@@ -274,35 +271,39 @@ def scrape_drama(r2, drama_info):
     slug = slugify(title)
     prefix = f"pine/{slug}"
 
-    # 3. Download & upload cover
-    cover_r2_key = f"{prefix}/cover.jpg"
-    if r2_exists(r2, cover_r2_key):
-        cover_r2_url = f"{R2_PUBLIC}/{cover_r2_key}"
-        print(f"  -> [R2] Cover already exists")
-    elif not cover_url_raw or cover_url_raw == 'None':
-        # No cover available - use a default placeholder
-        cover_r2_url = "https://stream.shortlovers.id/pine/sang-legenda/cover.jpg"
-        print(f"  -> [WARN] No cover URL from API, using placeholder cover")
+    if dup_id:
+        print(f"  -> [DB] Already exists in DB (ID: {dup_id}). Resuming episode check...")
+        drama_db_id = dup_id
     else:
-        try:
-            cov_r = requests.get(cover_url_raw, headers=WEB_HDRS, timeout=30, verify=False)
-            cov_r.raise_for_status()
-            cover_path = TEMP_DIR / f"{slug}_cover.jpg"
-            cover_path.write_bytes(cov_r.content)
-            cover_r2_url = r2_upload(r2, cover_path, cover_r2_key, 'image/jpeg')
-            cover_path.unlink(missing_ok=True)
-            print(f"  -> [R2] Cover uploaded successfully")
-        except Exception as e:
-            print(f"  -> [WARN] Cover upload failed: {e}, using placeholder")
+        # 3. Download & upload cover
+        cover_r2_key = f"{prefix}/cover.jpg"
+        if r2_exists(r2, cover_r2_key):
+            cover_r2_url = f"{R2_PUBLIC}/{cover_r2_key}"
+            print(f"  -> [R2] Cover already exists")
+        elif not cover_url_raw or cover_url_raw == 'None':
+            # No cover available - use a default placeholder
             cover_r2_url = "https://stream.shortlovers.id/pine/sang-legenda/cover.jpg"
+            print(f"  -> [WARN] No cover URL from API, using placeholder cover")
+        else:
+            try:
+                cov_r = requests.get(cover_url_raw, headers=WEB_HDRS, timeout=30, verify=False)
+                cov_r.raise_for_status()
+                cover_path = TEMP_DIR / f"{slug}_cover.jpg"
+                cover_path.write_bytes(cov_r.content)
+                cover_r2_url = r2_upload(r2, cover_path, cover_r2_key, 'image/jpeg')
+                cover_path.unlink(missing_ok=True)
+                print(f"  -> [R2] Cover uploaded successfully")
+            except Exception as e:
+                print(f"  -> [WARN] Cover upload failed: {e}, using placeholder")
+                cover_r2_url = "https://stream.shortlovers.id/pine/sang-legenda/cover.jpg"
 
-    # 4. Create drama in DB
-    desc = generate_description(title, categories, description)
-    drama_db_id = api_create_drama(title, desc, cover_r2_url, total_eps, categories)
-    if not drama_db_id:
-        print(f"  -> [ERROR] Failed to create drama in DB")
-        return False
-    print(f"  -> [DB] Created drama entry (ID: {drama_db_id}, status: Pending)")
+        # 4. Create drama in DB
+        desc = generate_description(title, categories, description)
+        drama_db_id = api_create_drama(title, desc, cover_r2_url, total_eps, categories)
+        if not drama_db_id:
+            print(f"  -> [ERROR] Failed to create drama in DB")
+            return False
+        print(f"  -> [DB] Created drama entry (ID: {drama_db_id}, status: Pending)")
 
     # 5. Get episode list
     episodes = get_pine_episodes(collection_id)
