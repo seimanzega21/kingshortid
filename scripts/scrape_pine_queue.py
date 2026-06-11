@@ -1,18 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-KingShort Scraper untuk Provider Pine (via vidrama.asia)
-=========================================================
-RUN INSTRUCTIONS:
-  python scripts/scrape_pine_provider.py
-
-Cara Kerja:
-1. Ambil daftar semua drama dari API Pine (?action=list)
-2. Cek duplikat terhadap database
-3. Ambil detail drama (?action=detail&collection_id=ID)
-4. Ambil daftar episode (?action=episodes&collection_id=ID)
-5. Per episode: ambil video URL (?action=play&collection_id=ID&episode=N)
-6. Download, encode (720p + 540p), upload ke R2, simpan ke DB (status Pending)
+KingShort - Pine Queue Scraper
+==============================
+Membaca scripts/pine_queue.json dan memproses drama satu per satu.
 """
 import requests
 import boto3
@@ -29,7 +20,7 @@ from botocore.config import Config
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 sys.stdout.reconfigure(encoding='utf-8')
 
-# ── CONFIG ───────────────────────────────────────────────────────────────────
+# ── CONFIG ────────────────────────────────────────────────────────────────────
 API_BASE    = 'https://api.shortlovers.id/api'
 ADMIN_KEY   = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 ADMIN_HDR   = {'x-admin-key': ADMIN_KEY, 'Content-Type': 'application/json'}
@@ -41,17 +32,18 @@ R2_BUCKET   = 'shortlovers'
 R2_PUBLIC   = 'https://stream.shortlovers.id'
 
 PINE_API    = 'https://vidrama.asia/api/pine'
+QUEUE_PATH  = Path(__file__).parent / 'pine_queue.json'
 
-WEB_HDRS    = {
+WEB_HDRS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'Referer': 'https://vidrama.asia/',
     'Cookie': '_fbp=fb.1.1770653154777.876935444165455244; global_ui_lang=id; cf_clearance=gi8rBDL4U_sV5dFUP.Dckjr.DONUzFar9fJlBMJx5_c-1778228148-1.2.1.1-rcSC4qbKF5H0KxB5Zt6Ic88iCIyXH7DESdcJA5w9WLWZvk58Y70clfcHFfqOyxmSRb1I97eRy.96PRr0zF1vV_PWs7vWkLZg2IsJNYLl5ZJvxdv7AnK4pZgxEBspgbrAod7jxce171vMiENcKPDXk_1eVFpBk_P5H8TA07xIBdq5HsL3uPTZKn8BCJv.HufjCR4mRr3DVOGDRagaNcc1CD_VmnRYY6tkanYH9QuDUyPeqreywRNxjb_5tsJVseZjz24po7Gw9o9ZVi3mSl9Ypm88Po1s4zr5n3DfE5R4BCKekPgqBAog2SDMQmDCWQJjMpzKKsJ_iXUHRaincYv9WQ'
 }
 
-TEMP_DIR = Path(tempfile.gettempdir()) / 'pine_scraper'
+TEMP_DIR = Path(tempfile.gettempdir()) / 'pine_queue_scraper'
 TEMP_DIR.mkdir(exist_ok=True)
 
-# ── HELPERS ──────────────────────────────────────────────────────────────────
+# ── HELPERS ───────────────────────────────────────────────────────────────────
 def get_r2():
     return boto3.client('s3', endpoint_url=R2_ENDPOINT,
                         aws_access_key_id=R2_KEY_ID, aws_secret_access_key=R2_SECRET,
@@ -77,7 +69,6 @@ def slugify(text):
     return re.sub(r'[\W_]+', '-', text).strip('-')
 
 def check_duplicate_in_db(title):
-    """Check if drama already exists in DB. Returns drama ID or None."""
     try:
         import urllib.parse
         words = title.strip().split()
@@ -86,8 +77,7 @@ def check_duplicate_in_db(title):
         if r.ok:
             dramas = r.json().get('dramas', [])
             def clean_t(t):
-                t = t.lower()
-                return re.sub(r'[^a-z0-9]', '', t)
+                return re.sub(r'[^a-z0-9]', '', t.lower())
             my_clean = clean_t(title)
             for d in dramas:
                 if clean_t(d['title']) == my_clean:
@@ -99,17 +89,18 @@ def check_duplicate_in_db(title):
 def generate_description(title, categories, api_desc=None):
     if api_desc and len(api_desc.strip()) > 20:
         return api_desc.strip()
-    if not categories:
-        categories = 'Drama, Romansa'
     title_lower = title.lower()
-    if any(k in title_lower for k in ["suami", "istri", "nikah", "pengantin"]):
-        return f"Drama pernikahan dan romansa menarik '{title}'. Kisah lika-liku hubungan rumah tangga, konflik keluarga, dan perjuangan cinta penuh kejutan."
-    elif any(k in title_lower for k in ["bos", "ceo", "miliarder", "kaya"]):
-        return f"Drama romansa perkotaan '{title}'. Kisah cinta beda status, konflik kekuasaan, dan intrik dunia bisnis penuh kejutan."
-    elif any(k in title_lower for k in ["dendam", "khianat", "bangkit", "juara", "legenda"]):
-        return f"Drama kebangkitan '{title}'. Kisah perjuangan merebut hak, mengatasi pengkhianatan, dan takdir yang penuh ketegangan."
+    cats = categories or 'Drama'
+    if any(k in title_lower for k in ["dendam", "balas", "khianat", "bangkit", "juara", "legenda", "master"]):
+        return f"Drama kebangkitan dan balas dendam '{title}'. Kisah perjuangan merebut hak, mengatasi pengkhianatan, dan takdir penuh ketegangan yang memukau di setiap episodenya."
+    elif any(k in title_lower for k in ["suami", "istri", "nikah", "kontrak"]):
+        return f"Drama romansa '{title}'. Kisah lika-liku hubungan, konflik cinta, dan perjuangan menuju kebahagiaan sejati yang penuh kejutan."
+    elif any(k in title_lower for k in ["raja", "dewa", "kaisar", "ratu", "putri"]):
+        return f"Drama fantasi epik '{title}'. Kisah kekuasaan, kebangkitan sang tokoh utama, dan perjuangan menghadapi takdir yang menghanyutkan."
+    elif any(k in title_lower for k in ["dokter", "satpam", "master", "peramal"]):
+        return f"Drama aksi seru '{title}'. Kisah seseorang yang menyembunyikan kemampuan tersembunyinya, mengejutkan semua orang di sekitarnya."
     else:
-        return f"Drama seru '{title}' bertema {categories}. Nikmati kisah yang penuh emosi, konflik mendalam, dan perjuangan cinta yang menghanyutkan di setiap episodenya."
+        return f"Drama seru '{title}' bertema {cats}. Penuh emosi, konflik mendalam, dan perjuangan cinta yang menghanyutkan di setiap episodenya."
 
 def api_create_drama(title, description, cover_url, total_eps, categories):
     payload = {
@@ -123,111 +114,68 @@ def api_create_drama(title, description, cover_url, total_eps, categories):
         'language': 'Indonesia',
         'status': 'completed',
         'provider': 'pine',
-        'isActive': False,  # Pending!
+        'isActive': False,
     }
     try:
         r = requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=20)
         if r.ok:
             return r.json().get('id')
-        print(f"      [ERROR] Failed to create drama. Status: {r.status_code}, Body: {r.text[:200]}")
+        print(f"      [ERROR] Create drama failed: {r.status_code} {r.text[:200]}")
     except Exception as e:
-        print(f"      [ERROR] Exception creating drama: {e}")
+        print(f"      [ERROR] Create drama exception: {e}")
     return None
 
 def api_mark_active(drama_db_id):
     try:
         r = requests.patch(f"{API_BASE}/admin/dramas/{drama_db_id}",
-                          headers=ADMIN_HDR, json={'isActive': True}, timeout=15)
+                           headers=ADMIN_HDR, json={'isActive': True}, timeout=15)
         return r.ok
     except:
         return False
 
 def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None):
-    payload = {
-        'episodeNumber': ep_no,
-        'title': f'Episode {ep_no}',
-        'videoUrl': url_720,
-        'isActive': True
-    }
+    payload = {'episodeNumber': ep_no, 'title': f'Episode {ep_no}', 'videoUrl': url_720, 'isActive': True}
     if url_540:
         payload['videoUrl540p'] = url_540
     try:
         r = requests.post(f"{API_BASE}/admin/dramas/{drama_db_id}/episodes",
                           headers=ADMIN_HDR, json=payload, timeout=20)
         if not r.ok:
-            print(f"      [WARN] DB Episode upsert failed. Status: {r.status_code}")
+            print(f"      [WARN] Episode upsert failed: {r.status_code}")
             return None
         return r.json().get('id')
     except Exception as e:
-        print(f"      [ERROR] DB Episode upsert exception: {e}")
+        print(f"      [ERROR] Episode upsert exception: {e}")
     return None
 
-def encode_720_and_540(inp, out_720, out_540):
-    cmd_720 = [
-        'ffmpeg', '-y', '-i', str(inp),
-        '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
-        '-maxrate', '1500k', '-bufsize', '3000k',
-        '-c:a', 'aac', '-b:a', '128k',
-        '-movflags', '+faststart',
-        '-loglevel', 'error', str(out_720)
-    ]
-    res = subprocess.run(cmd_720, timeout=600)
-    if res.returncode != 0:
+def encode_video(inp, out_720, out_540):
+    cmd = ['ffmpeg', '-y', '-i', str(inp),
+           '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
+           '-maxrate', '1500k', '-bufsize', '3000k',
+           '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart',
+           '-loglevel', 'error', str(out_720)]
+    if subprocess.run(cmd, timeout=600).returncode != 0:
         return False
-    cmd_540 = [
-        'ffmpeg', '-y', '-i', str(out_720),
-        '-vf', 'scale=-2:540',
-        '-c:v', 'libx264', '-crf', '28', '-preset', 'fast',
-        '-c:a', 'aac', '-b:a', '96k',
-        '-movflags', '+faststart',
-        '-loglevel', 'error', str(out_540)
-    ]
-    return subprocess.run(cmd_540, timeout=600).returncode == 0
+    cmd2 = ['ffmpeg', '-y', '-i', str(out_720), '-vf', 'scale=-2:540',
+            '-c:v', 'libx264', '-crf', '28', '-preset', 'fast',
+            '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart',
+            '-loglevel', 'error', str(out_540)]
+    return subprocess.run(cmd2, timeout=600).returncode == 0
 
-def get_pine_drama_list():
-    """Get all dramas from Pine provider."""
-    r = requests.get(f"{PINE_API}?action=list", headers=WEB_HDRS, verify=False, timeout=15)
-    if r.ok:
-        return r.json().get('dramas', [])
-    print(f"[ERROR] Failed to get drama list. Status: {r.status_code}")
-    return []
-
-def get_pine_detail(collection_id):
-    """Get drama detail from Pine."""
-    r = requests.get(f"{PINE_API}?action=detail&collection_id={collection_id}",
-                     headers=WEB_HDRS, verify=False, timeout=15)
-    if r.ok:
-        return r.json()
-    return None
-
-def get_pine_episodes(collection_id):
-    """Get episode list from Pine."""
-    r = requests.get(f"{PINE_API}?action=episodes&collection_id={collection_id}",
-                     headers=WEB_HDRS, verify=False, timeout=15)
-    if r.ok:
-        return r.json().get('episodes', [])
-    return []
-
-def get_pine_video_url(collection_id, ep_num, retries=3):
-    """Get video playback URL for a specific episode."""
+def get_video_url(collection_id, ep_num, retries=3):
     for attempt in range(retries):
         try:
             r = requests.get(f"{PINE_API}?action=play&collection_id={collection_id}&episode={ep_num}",
                              headers=WEB_HDRS, verify=False, timeout=15)
             if r.ok:
-                data = r.json()
-                return data.get('playUrl')
+                return r.json().get('playUrl')
         except Exception as e:
-            print(f"      [WARN] Attempt {attempt+1} failed: {e}")
+            print(f"      [WARN] Attempt {attempt+1} play URL failed: {e}")
             time.sleep(2)
     return None
 
 def download_video(url, out_path, retries=3):
-    """Download a video file."""
-    dl_hdrs = {
-        'User-Agent': 'Mozilla/5.0',
-        'Referer': 'https://www.tiktok.com/',
-    }
+    dl_hdrs = {'User-Agent': 'Mozilla/5.0', 'Referer': 'https://www.tiktok.com/'}
     for attempt in range(retries):
         try:
             with requests.get(url, stream=True, headers=dl_hdrs, verify=False, timeout=120) as r:
@@ -243,38 +191,48 @@ def download_video(url, out_path, retries=3):
             time.sleep(3)
     return False
 
-def scrape_drama(r2, drama_info):
-    """Scrape a single drama from Pine provider."""
-    collection_id = drama_info['id']
-    title = drama_info.get('title', 'Unknown')
-    
-    print(f"\n{'='*60}")
-    print(f"Processing: '{title}' (ID: {collection_id})")
+def load_queue():
+    with open(QUEUE_PATH, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
-    # 1. Check for duplicate in DB
+def save_queue(queue):
+    with open(QUEUE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(queue, f, ensure_ascii=False, indent=2)
+
+def scrape_drama(r2, item):
+    collection_id = item['id']
+    title = item['title']
+
+    print(f"\n{'='*60}")
+    print(f"=== PROCESSING QUEUE ITEM ===")
+    print(f"ID: {collection_id}")
+    print(f"Title: {title}")
+    print(f"Status: pending")
+
+    # Check duplicate
     dup_id = check_duplicate_in_db(title)
     if dup_id:
         print(f"  -> [SKIP] Already in DB (ID: {dup_id})")
-        return True
+        return 'skipped'
 
-    # 2. Get full detail
-    detail = get_pine_detail(collection_id)
-    if not detail:
-        print(f"  -> [ERROR] Failed to get detail")
-        return False
+    # Get detail
+    r = requests.get(f"{PINE_API}?action=detail&collection_id={collection_id}",
+                     headers=WEB_HDRS, verify=False, timeout=15)
+    if not r.ok or not r.json().get('title'):
+        print(f"  -> [ERROR] Failed to get detail: {r.status_code}")
+        return 'failed'
+    detail = r.json()
 
     total_eps = detail.get('totalEpisodes', 0)
     categories = detail.get('categories', 'Drama')
     description = detail.get('description', '')
     cover_url_raw = detail.get('cover') or detail.get('image', '')
-
-    print(f"  -> Total episodes: {total_eps}")
-    print(f"  -> Categories: {categories}")
-
     slug = slugify(title)
     prefix = f"pine/{slug}"
 
-    # 3. Download & upload cover
+    print(f"\nProcessing drama: '{title}' (ID: {collection_id}, Slug: {slug})")
+
+    # Upload cover
     cover_r2_key = f"{prefix}/cover.jpg"
     if r2_exists(r2, cover_r2_key):
         cover_r2_url = f"{R2_PUBLIC}/{cover_r2_key}"
@@ -296,34 +254,33 @@ def scrape_drama(r2, drama_info):
             print(f"  -> [WARN] Cover upload failed: {e}, using placeholder")
             cover_r2_url = "https://stream.shortlovers.id/pine/sang-legenda/cover.jpg"
 
-    # 4. Create drama in DB
+    # Create drama in DB
     desc = generate_description(title, categories, description)
     drama_db_id = api_create_drama(title, desc, cover_r2_url, total_eps, categories)
     if not drama_db_id:
         print(f"  -> [ERROR] Failed to create drama in DB")
-        return False
+        return 'failed'
     print(f"  -> [DB] Created drama entry (ID: {drama_db_id}, status: Pending)")
 
-    # 5. Get episode list
-    episodes = get_pine_episodes(collection_id)
+    # Get episodes
+    ep_r = requests.get(f"{PINE_API}?action=episodes&collection_id={collection_id}",
+                        headers=WEB_HDRS, verify=False, timeout=15)
+    episodes = ep_r.json().get('episodes', []) if ep_r.ok else []
     if not episodes:
         print(f"  -> [ERROR] No episodes found")
-        return False
+        return 'failed'
 
-    print(f"  -> Total episodes to process: {len(episodes)}")
+    print(f"  -> Total Episodes to process: {len(episodes)}")
 
-    # 6. Process each episode
     success_count = 0
     fail_count = 0
 
     for ep_info in episodes:
         ep_num = ep_info['num']
         ep_tag = f"ep{ep_num:03d}"
-        
         r2_720_key = f"{prefix}/{ep_tag}_720.mp4"
         r2_540_key = f"{prefix}/{ep_tag}_540.mp4"
 
-        # Check if already uploaded
         if r2_exists(r2, r2_720_key):
             url_720 = f"{R2_PUBLIC}/{r2_720_key}"
             url_540 = f"{R2_PUBLIC}/{r2_540_key}" if r2_exists(r2, r2_540_key) else None
@@ -332,27 +289,24 @@ def scrape_drama(r2, drama_info):
             success_count += 1
             continue
 
-        # Get video URL
-        video_url = get_pine_video_url(collection_id, ep_num)
+        print(f"    {ep_tag}: processing...", end='', flush=True)
+
+        video_url = get_video_url(collection_id, ep_num)
         if not video_url:
-            print(f"    {ep_tag}: processing... FAILED (no video URL)")
+            print(f" FAILED (no video URL)")
             fail_count += 1
             continue
 
-        # Download
         raw_path = TEMP_DIR / f"{slug}_{ep_tag}_raw.mp4"
-        out_720 = TEMP_DIR / f"{slug}_{ep_tag}_720.mp4"
-        out_540 = TEMP_DIR / f"{slug}_{ep_tag}_540.mp4"
-
-        print(f"    {ep_tag}: processing...", end='', flush=True)
+        out_720  = TEMP_DIR / f"{slug}_{ep_tag}_720.mp4"
+        out_540  = TEMP_DIR / f"{slug}_{ep_tag}_540.mp4"
 
         if not download_video(video_url, raw_path):
             print(f" FAILED (download error)")
             fail_count += 1
             continue
 
-        # Encode
-        if not encode_720_and_540(raw_path, out_720, out_540):
+        if not encode_video(raw_path, out_720, out_540):
             print(f" FAILED (encode error)")
             raw_path.unlink(missing_ok=True)
             fail_count += 1
@@ -360,14 +314,11 @@ def scrape_drama(r2, drama_info):
 
         raw_path.unlink(missing_ok=True)
 
-        # Upload to R2
         try:
             url_720 = r2_upload(r2, out_720, r2_720_key)
-            url_540 = None
-            if out_540.exists() and out_540.stat().st_size > 1000:
-                url_540 = r2_upload(r2, out_540, r2_540_key)
+            url_540 = r2_upload(r2, out_540, r2_540_key) if out_540.exists() and out_540.stat().st_size > 1000 else None
         except Exception as e:
-            print(f" FAILED (R2 upload error: {e})")
+            print(f" FAILED (R2 upload: {e})")
             out_720.unlink(missing_ok=True)
             out_540.unlink(missing_ok=True)
             fail_count += 1
@@ -376,67 +327,53 @@ def scrape_drama(r2, drama_info):
         out_720.unlink(missing_ok=True)
         out_540.unlink(missing_ok=True)
 
-        # Save to DB
         api_upsert_episode(drama_db_id, ep_num, url_720, url_540)
-
         print(f" SUCCESS")
         success_count += 1
 
-    print(f"\n  -> Scrape results for '{title}': {success_count} success, {fail_count} failed")
+    result_str = f"{success_count} success, {fail_count} failed, 0 skipped."
+    print(f"  -> Scrape results for '{title}': {result_str}")
 
-    # Mark drama as active if all episodes done
-    if success_count > 0 and fail_count == 0:
+    if success_count > 0:
         api_mark_active(drama_db_id)
-        print(f"  -> [DB] Drama marked as Active!")
-    else:
-        print(f"  -> [DB] Drama stays Pending (review needed)")
-
-    return success_count > 0
+        print(f"Successfully processed and marked '{title}' as completed.")
+        return 'done'
+    return 'failed'
 
 def main():
     print("=" * 60)
-    print("  KingShort - Pine Provider Scraper")
+    print("  KingShort - Pine Queue Scraper")
     print("=" * 60)
 
-    r2 = get_r2()
-
-    # Get all dramas from Pine
-    print("\nFetching drama list from Pine provider...")
-    dramas = get_pine_drama_list()
-    if not dramas:
-        print("[ERROR] No dramas found in Pine provider!")
+    if not QUEUE_PATH.exists():
+        print(f"[ERROR] Queue file not found: {QUEUE_PATH}")
         return
 
-    print(f"Found {len(dramas)} dramas in Pine provider:")
-    for d in dramas:
-        print(f"  - [{d['id']}] {d.get('title', 'N/A')}")
+    r2 = get_r2()
+    queue = load_queue()
+    pending = [item for item in queue if item.get('status') == 'pending']
 
-    print(f"\n{'='*60}")
-    print("Starting scraping process...")
-    print("=" * 60)
+    print(f"\nTotal pending items: {len(pending)}")
 
-    total_success = 0
-    total_skip = 0
-    total_fail = 0
+    for i, item in enumerate(queue):
+        if item.get('status') != 'pending':
+            continue
 
-    for i, drama in enumerate(dramas, 1):
-        print(f"\n[{i}/{len(dramas)}]", end='')
-        
-        success = scrape_drama(r2, drama)
-        if success:
-            total_success += 1
-        else:
-            total_fail += 1
+        result = scrape_drama(r2, item)
+        item['status'] = result
+        save_queue(queue)
 
-        # Wait between dramas to avoid rate limiting
-        if i < len(dramas):
-            print(f"\nWaiting 5 seconds before next drama...")
+        pending_left = sum(1 for x in queue if x.get('status') == 'pending')
+        if pending_left > 0:
+            print(f"\nWaiting 5 seconds before next drama to avoid rate limiting...")
             time.sleep(5)
 
     print(f"\n{'='*60}")
-    print("SCRAPING COMPLETE!")
-    print(f"  Success: {total_success}")
-    print(f"  Failed:  {total_fail}")
+    done  = sum(1 for x in queue if x.get('status') == 'done')
+    skip  = sum(1 for x in queue if x.get('status') == 'skipped')
+    fail  = sum(1 for x in queue if x.get('status') == 'failed')
+    print(f"=== NO MORE PENDING DRAMAS FOUND IN QUEUE ===")
+    print(f"Done: {done} | Skipped: {skip} | Failed: {fail}")
     print("=" * 60)
 
 if __name__ == '__main__':
