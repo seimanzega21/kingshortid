@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Scraper and Ingestion Script for "Aku Lahirkan Anak Serigala Presiden"
+Batch Scraper and Ingestion Script for 10 Dramas
 Provider: idrama2
-Upstream ID: 160001641891
-- Fetches metadata and unlocks episodes 1 to 39.
-- Downloads M3U8 streams using FFmpeg.
-- Transcodes to 720p and downscales to 540p faststart MP4.
-- Uploads to Cloudflare R2.
-- Ingests into Database with Pending status (isActive = False).
+- Loops through a list of upstream drama IDs.
+- Fetches metadata, registers the drama as Pending if missing.
+- Downloads M3U8 streams, transcodes to 720p & 540p faststart MP4.
+- Uploads to Cloudflare R2 and registers episodes to DB.
+- Logs detailed progress to scratch/batch_scrape.log.
 """
 import requests
 import boto3
@@ -25,10 +24,7 @@ from botocore.config import Config
 urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
 
-# ─── CONFIG ─────────────────────────────────────────────────────────────────
-DRAMA_UPSTREAM_ID = '161004641891'
-SLUG = 'aku-lahirkan-anak-serigala-presiden-sulih-suara'
-
+# Configuration
 API_BASE = 'https://api.shortlovers.id/api'
 ADMIN_KEY = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 ADMIN_HDR = {'x-admin-key': ADMIN_KEY, 'Content-Type': 'application/json'}
@@ -46,8 +42,16 @@ HEADERS = {
 
 # Directories
 WORKSPACE_DIR = Path(__file__).resolve().parent.parent
-TEMP_DIR = WORKSPACE_DIR / 'temp_serigala'
+TEMP_DIR = WORKSPACE_DIR / 'temp_batch'
 TEMP_DIR.mkdir(exist_ok=True)
+LOG_FILE = WORKSPACE_DIR / 'scratch' / 'batch_scrape.log'
+
+def log(msg):
+    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+    full_msg = f"[{timestamp}] {msg}"
+    print(full_msg, flush=True)
+    with open(LOG_FILE, 'a', encoding='utf-8') as f:
+        f.write(full_msg + '\n')
 
 def get_r2():
     return boto3.client(
@@ -77,7 +81,7 @@ def get_db_drama_by_title(title):
                 if d.get('title', '').lower().strip() == title.lower().strip():
                     return d.get('id')
     except Exception as e:
-        print(f"  ⚠ DB duplicate check failed: {e}")
+        log(f"  [WARN] DB duplicate check failed: {e}")
     return None
 
 def register_drama_api(title, meta, cover_r2_url):
@@ -87,7 +91,7 @@ def register_drama_api(title, meta, cover_r2_url):
         'description': meta.get('introduction', ''),
         'cover': cover_r2_url,
         'genres': [],
-        'totalEpisodes': meta.get('current_count', 39),
+        'totalEpisodes': meta.get('current_count', 0),
         'status': 'ongoing',
         'country': 'China',
         'language': 'Indonesia',
@@ -97,7 +101,7 @@ def register_drama_api(title, meta, cover_r2_url):
     r = requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=30)
     if r.ok:
         return r.json().get('id')
-    print(f"  ✗ Failed to register drama in DB. Status: {r.status_code}, Body: {r.text[:200]}")
+    log(f"  [ERROR] Failed to register drama in DB. Status: {r.status_code}, Body: {r.text[:200]}")
     return None
 
 def get_registered_episodes(drama_db_id):
@@ -110,9 +114,9 @@ def get_registered_episodes(drama_db_id):
         return {e.get('episodeNumber') for e in ep_list}
     return set()
 
-def fetch_episode_unlock_info(ep_no):
+def fetch_episode_unlock_info(upstream_id, ep_no):
     """Call unlock API for the episode"""
-    url = f"https://vidrama.asia/api/idrama2/unlock/{DRAMA_UPSTREAM_ID}/{ep_no}?lang=id"
+    url = f"https://vidrama.asia/api/idrama2/unlock/{upstream_id}/{ep_no}?lang=id"
     r = requests.get(url, headers=HEADERS, verify=False, timeout=20)
     if r.ok:
         data = r.json()
@@ -187,122 +191,112 @@ def register_subtitles_db(episode_db_id, r2_sub_url):
     r = requests.post(f"{API_BASE}/episodes/{episode_db_id}/subtitles", headers=ADMIN_HDR, json=payload, timeout=15)
     return r.ok
 
-def main():
-    parser = argparse.ArgumentParser(description="Scrape and ingest Aku Lahirkan Anak Serigala Presiden from idrama2")
-    parser.add_argument('--dry-run', action='store_true', help='Validate endpoints and metadata without processing')
-    parser.add_argument('--limit-episodes', type=int, default=None, help='Limit number of episodes to process for testing')
-    args = parser.parse_args()
-
-    print("=" * 60)
-    print("STARTING PIPELINE: Aku Lahirkan Anak Serigala Presiden")
-    print("=" * 60)
-
-    if args.dry_run:
-        print("!!! DRY RUN MODE ACTIVE !!!")
-        print("=" * 60)
-    else:
-        # Cleanup temp directory
-        if TEMP_DIR.exists():
-            import shutil
-            print("Cleaning up temp directory...")
-            for child in TEMP_DIR.iterdir():
-                try:
-                    if child.is_file() or child.is_symlink():
-                        child.unlink()
-                    elif child.is_dir():
-                        shutil.rmtree(child)
-                except Exception as e:
-                    print(f"  ⚠ Cleanup temp file failed for {child.name}: {e}")
-
-    r2 = None if args.dry_run else get_r2()
+def process_single_drama(r2, upstream_id, dry_run=False, limit_eps=None):
+    log("-" * 50)
+    log(f"Processing Upstream ID: {upstream_id}")
+    log("-" * 50)
 
     # 1. Fetch metadata
-    print("Fetching drama metadata from Vidrama...")
-    meta_url = f"https://vidrama.asia/api/idrama2/drama/{DRAMA_UPSTREAM_ID}?lang=id"
-    r = requests.get(meta_url, headers=HEADERS, verify=False, timeout=20)
-    if not r.ok:
-        print(f"Failed to fetch metadata. Status: {r.status_code}")
-        return
+    meta_url = f"https://vidrama.asia/api/idrama2/drama/{upstream_id}?lang=id"
+    try:
+        r = requests.get(meta_url, headers=HEADERS, verify=False, timeout=20)
+        if not r.ok:
+            log(f"  [ERROR] Failed to fetch metadata. Status: {r.status_code}")
+            return False
+    except Exception as e:
+        log(f"  [ERROR] Metadata request failed: {e}")
+        return False
     
     meta = r.json()
-    title = meta.get('short_play_name', 'Aku Lahirkan Anak Serigala Presiden').strip()
-    total_eps = meta.get('current_count', 39)
+    raw_title = meta.get('short_play_name', '').strip()
+    if not raw_title:
+        log("  [ERROR] Drama title is empty, skipping.")
+        return False
+
+    total_eps = meta.get('current_count', 0) or len(meta.get('episode_list', []))
     cover_raw = meta.get('cover_url')
-    print(f"Drama: {title}")
-    print(f"Total Episodes: {total_eps}")
-    print(f"Cover URL: {cover_raw}")
 
-    # Check database duplicate
-    if "(Sulih Suara)" not in title:
-        search_title = f"(Sulih Suara) {title}"
+    # Standardize Title Prefix
+    if "(Sulih Suara)" in raw_title:
+        search_title = raw_title
     else:
-        search_title = title
+        # Check if the metadata contains dubbed tags or categories
+        tags = [t.get('tag_local', '').lower() for t in meta.get('content_tag', [])]
+        if 'sulih suara' in tags or 'dubbed' in tags or 'dubbing' in tags:
+            search_title = f"(Sulih Suara) {raw_title}"
+        else:
+            search_title = raw_title
+
+    slug = make_slug(search_title)
+
+    log(f"  Title: {search_title}")
+    log(f"  Slug: {slug}")
+    log(f"  Total Episodes: {total_eps}")
+    log(f"  Cover: {cover_raw}")
+
+    # Check DB duplicate
     drama_db_id = get_db_drama_by_title(search_title)
-
     if drama_db_id:
-        print(f"✓ Drama already exists in DB. ID: {drama_db_id}")
-    elif args.dry_run:
-        print(f"[DRY RUN] Would register drama: {search_title}")
-        drama_db_id = "dry-run-drama-id"
+        log(f"  [OK] Drama already exists in DB. ID: {drama_db_id}")
+    elif dry_run:
+        log(f"  [DRY RUN] Would register drama: {search_title}")
+        drama_db_id = "dry-run-id"
     else:
-        # Upload cover to R2
+        # Upload cover
         cover_r2_url = ''
         if cover_raw:
-            print("Uploading cover to R2...")
+            log("  Uploading cover to R2...")
             try:
                 cov_r = requests.get(cover_raw, timeout=20, verify=False)
                 if cov_r.ok:
-                    cover_key = f"dramas/{SLUG}/cover.jpg"
+                    cover_key = f"dramas/{slug}/cover.jpg"
                     r2.put_object(Bucket=R2_BUCKET, Key=cover_key, Body=cov_r.content, ContentType='image/jpeg')
                     cover_r2_url = f"{R2_PUBLIC}/{cover_key}"
-                    print(f"  ✓ Cover uploaded: {cover_r2_url}")
+                    log(f"    [OK] Cover uploaded: {cover_r2_url}")
             except Exception as e:
-                print(f"  ⚠ Failed to upload cover: {e}")
-                cover_r2_url = cover_raw # fallback
+                log(f"    [WARN] Cover upload failed: {e}")
+                cover_r2_url = cover_raw
 
-        # Register drama
-        print("Registering drama in database (status=Pending)...")
+        # Register drama in DB
+        log("  Registering drama in DB (status=Pending)...")
         drama_db_id = register_drama_api(search_title, meta, cover_r2_url)
         if not drama_db_id:
-            print("Failed to register drama. Exiting.")
-            return
-        print(f"✓ Drama registered! DB ID: {drama_db_id}")
+            log("  [ERROR] Failed to register drama. Skipping.")
+            return False
+        log(f"  [OK] Drama registered! DB ID: {drama_db_id}")
 
     # 2. Episode loop
-    registered_eps = get_registered_episodes(drama_db_id) if not args.dry_run else set()
-    print("Registered episode numbers:", sorted(list(registered_eps)))
+    registered_eps = get_registered_episodes(drama_db_id) if not dry_run else set()
+    log(f"  Registered episode numbers: {sorted(list(registered_eps))}")
 
-    processed = 0
+    processed_eps = 0
     for ep_no in range(1, total_eps + 1):
         if ep_no in registered_eps:
-            print(f"  ✓ EP {ep_no} already registered. Skipping.")
             continue
 
-        if args.limit_episodes and processed >= args.limit_episodes:
-            print(f"\nLimit of {args.limit_episodes} episodes reached. Stopping loop.")
+        if limit_eps and processed_eps >= limit_eps:
+            log(f"  Reached limit of {limit_eps} episodes for this drama.")
             break
 
-        print(f"\n📹 Processing Episode {ep_no}/{total_eps}:")
-        
-        # A. Fetch unlock info
+        log(f"  EP {ep_no}/{total_eps}:")
+
+        # Fetch unlock info
         unlock_info = {}
         for attempt in range(5):
             try:
-                unlock_info = fetch_episode_unlock_info(ep_no)
+                unlock_info = fetch_episode_unlock_info(upstream_id, ep_no)
                 if unlock_info and unlock_info.get('play_url'):
                     break
             except Exception as e:
-                print(f"    ⚠ Attempt {attempt+1} failed: {e}")
+                log(f"    [WARN] Attempt {attempt+1} failed: {e}")
             if attempt < 4:
-                print(f"    Waiting 5 seconds before retry...")
                 time.sleep(5)
 
         if not unlock_info or not unlock_info.get('play_url'):
-            print(f"    ✗ Failed to get play_url for EP {ep_no}")
+            log(f"    [ERROR] Failed to get play_url for EP {ep_no}")
             continue
 
         m3u8_url = unlock_info['play_url']
-        print(f"    HLS M3U8 stream URL found.")
 
         # Find Indonesian subtitle
         sub_url = None
@@ -318,79 +312,64 @@ def main():
                 sub_url = s['url']
                 break
 
-        if sub_url:
-            print(f"    Indonesian subtitle track found: {sub_url[:70]}...")
-        else:
-            print(f"    ⚠ No Indonesian subtitle track found for EP {ep_no}")
-
-        if args.dry_run:
-            print(f"    [DRY RUN] Would download and process EP {ep_no}")
-            processed += 1
+        if dry_run:
+            log(f"    [DRY RUN] Would process EP {ep_no} (has stream, subtitle={bool(sub_url)})")
+            processed_eps += 1
             continue
 
-        # Paths
-        out_720_local = TEMP_DIR / f"ep{ep_no:03d}_720p.mp4"
-        out_540_local = TEMP_DIR / f"ep{ep_no:03d}_540p.mp4"
+        # Local files paths
+        out_720_local = TEMP_DIR / f"{upstream_id}_ep{ep_no:03d}_720p.mp4"
+        out_540_local = TEMP_DIR / f"{upstream_id}_ep{ep_no:03d}_540p.mp4"
 
         try:
-            # B. Download & Transcode 720p
-            print("    ⬇ Downloading and transcoding 720p...", end='', flush=True)
+            # A. Download & Transcode 720p
+            log("    Downloading and transcoding 720p...")
             t0 = time.time()
-            if download_m3u8_stream(m3u8_url, out_720_local):
-                print(f" ✓ {out_720_local.stat().st_size / 1024 / 1024:.1f}MB (took {time.time()-t0:.1f}s)")
-            else:
-                print(" ✗ Transcoding failed")
+            if not download_m3u8_stream(m3u8_url, out_720_local):
+                log("      [ERROR] Transcoding 720p failed")
                 continue
+            log(f"      [OK] 720p done: {out_720_local.stat().st_size / 1024 / 1024:.1f}MB (took {time.time()-t0:.1f}s)")
 
-            # C. Downscale to 540p
-            print("    ⚙ Downscaling to 540p...", end='', flush=True)
+            # B. Downscale to 540p
+            log("    Downscaling to 540p...")
             t0 = time.time()
-            if downscale_to_540p(out_720_local, out_540_local):
-                print(f" ✓ {out_540_local.stat().st_size / 1024 / 1024:.1f}MB (took {time.time()-t0:.1f}s)")
-            else:
-                print(" ✗ Downscale failed")
+            if not downscale_to_540p(out_720_local, out_540_local):
+                log("      [ERROR] Downscaling failed")
                 continue
+            log(f"      [OK] 540p done: {out_540_local.stat().st_size / 1024 / 1024:.1f}MB (took {time.time()-t0:.1f}s)")
 
-            # D. Upload to R2
-            print("    ⬆ Uploading videos to R2...", end='', flush=True)
-            key_720 = f"dramas/{SLUG}/ep{ep_no:03d}_720p.mp4"
-            key_540 = f"dramas/{SLUG}/ep{ep_no:03d}_540p.mp4"
+            # C. Upload to R2
+            log("    Uploading to R2...")
+            key_720 = f"dramas/{slug}/ep{ep_no:03d}_720p.mp4"
+            key_540 = f"dramas/{slug}/ep{ep_no:03d}_540p.mp4"
             r2_url_720 = r2_upload_file(r2, out_720_local, key_720)
             r2_url_540 = r2_upload_file(r2, out_540_local, key_540)
-            print(" ✓ Done")
 
-            # E. Upload Subtitle to R2
+            # D. Subtitle Upload
             r2_sub_url = None
             if sub_url:
-                print("    ⬆ Uploading subtitle to R2...", end='', flush=True)
+                log("    Uploading subtitle...")
                 try:
                     sub_r = requests.get(sub_url, headers=HEADERS, timeout=15, verify=False)
                     if sub_r.ok:
-                        sub_key = f"dramas/{SLUG}/ep{ep_no:03d}_id.vtt"
+                        sub_key = f"dramas/{slug}/ep{ep_no:03d}_id.vtt"
                         r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_r.content, ContentType='text/vtt')
                         r2_sub_url = f"{R2_PUBLIC}/{sub_key}"
-                        print(" ✓ Done")
-                    else:
-                        print(f" ✗ Download failed (HTTP {sub_r.status_code})")
                 except Exception as e:
-                    print(f" ✗ Error: {e}")
+                    log(f"      [WARN] Subtitle upload failed: {e}")
 
-            # F. Register in Database
+            # E. Register in DB
             ep_db_id = register_episode_db(drama_db_id, ep_no, r2_url_720, r2_url_540)
             if ep_db_id:
-                print(f"    ✓ EP {ep_no} registered in DB.")
+                log(f"    [OK] EP {ep_no} registered in DB.")
                 if r2_sub_url:
-                    sub_reg = register_subtitles_db(ep_db_id, r2_sub_url)
-                    if sub_reg:
-                        print("    ✓ Subtitle registered in DB.")
-                    else:
-                        print("    ✗ Failed to register subtitle in DB.")
-                processed += 1
+                    register_subtitles_db(ep_db_id, r2_sub_url)
+                processed_eps += 1
             else:
-                print(f"    ✗ Failed to register EP {ep_no} in DB.")
+                log(f"    [ERROR] EP {ep_no} failed to register in DB.")
 
         except Exception as e:
-            print(f"    ✗ Error: {e}")
+            log(f"    [ERROR] EP {ep_no} error: {e}")
         finally:
             # Cleanup temp files
             for p in [out_720_local, out_540_local]:
@@ -401,9 +380,62 @@ def main():
 
         time.sleep(1.0)
 
-    print("\n" + "=" * 60)
-    print(f"PIPELINE COMPLETED! Processed {processed} new episodes.")
-    print("=" * 60)
+    log(f"Finished Upstream ID: {upstream_id}. Ingested {processed_eps} new episodes.")
+    return True
+
+def main():
+    parser = argparse.ArgumentParser(description="Batch Scrape 10 dramas from idrama2")
+    parser.add_argument('--dry-run', action='store_true', help='Validate metadata and loop structure without transcoding')
+    parser.add_argument('--limit-episodes', type=int, default=None, help='Limit number of episodes per drama for testing')
+    args = parser.parse_args()
+
+    # Clear/Initialize Log
+    with open(LOG_FILE, 'w', encoding='utf-8') as f:
+        f.write(f"--- BATCH SCRAPE START (DRY_RUN={args.dry_run}) ---\n")
+
+    log("============================================================")
+    log("BATCH SCRAPING PIPELINE STARTED")
+    log("============================================================")
+
+    # List of Upstream IDs provided by user
+    drama_ids = [
+        '160000641572',  # Istriku Bisa Bunuh Dewa
+        '160000641860',  # Aku Terlahir Terlalu Patuh
+        '160000641817',  # Suamiku Bos Besar Kukira Tukang Loak
+        '160000641753',  # Duke Jadi Senjata Dendamku
+        '161001641437',  # Kembalinya Sang Master
+        '161001640083',  # Jejak Cinta Manis
+        '160000642054',  # Peraturan Terlarang Wanita Itu Milikku
+        '160000641763',  # Sang Pembunuh di Balik Wajah Manja
+        '161001640339',  # Cinta Bersemi di Peternakan
+        '161001641281',  # Nona Ketua Geng Kembali
+    ]
+
+    r2 = None if args.dry_run else get_r2()
+
+    # Clean up temp dir before start
+    if not args.dry_run:
+        if TEMP_DIR.exists():
+            import shutil
+            for child in TEMP_DIR.iterdir():
+                try:
+                    if child.is_file() or child.is_symlink():
+                        child.unlink()
+                    elif child.is_dir():
+                        shutil.rmtree(child)
+                except Exception as e:
+                    log(f"[WARN] Temp clean error: {e}")
+
+    success_count = 0
+    for idx, uid in enumerate(drama_ids, 1):
+        log(f"\n[DRAMA {idx}/10]")
+        if process_single_drama(r2, uid, dry_run=args.dry_run, limit_eps=args.limit_episodes):
+            success_count += 1
+        time.sleep(2.0)
+
+    log("\n" + "=" * 60)
+    log(f"BATCH PROCESS COMPLETED! Success: {success_count}/{len(drama_ids)}")
+    log("=" * 60)
 
 if __name__ == '__main__':
     main()
