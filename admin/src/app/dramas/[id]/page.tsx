@@ -96,7 +96,7 @@ export default function DramaDetailPage() {
             
             const data = await res.json();
             const subs = data.subtitles || [];
-            const indoSub = subs.find((s: any) => s.language === 'Indonesian' || s.isDefault) || subs[0];
+            const indoSub = subs.find((s: any) => s.language === 'id' || s.language === 'Indonesian' || s.language === 'indonesia' || s.isDefault) || subs[0];
             
             // Standardize CDN urls matching getMediaUrl logic
             let subUrl = indoSub?.url || null;
@@ -633,6 +633,22 @@ export default function DramaDetailPage() {
                                 autoPlay 
                                 className="w-full h-full outline-none"
                                 crossOrigin="anonymous"
+                                ref={(videoEl) => {
+                                    if (!videoEl || !previewEpisode.subtitleUrl) return;
+                                    // Force-enable the subtitle track after a short delay
+                                    // because the `default` attribute is unreliable in Chromium
+                                    const enableTrack = () => {
+                                        const tracks = videoEl.textTracks;
+                                        for (let i = 0; i < tracks.length; i++) {
+                                            if (tracks[i].language === 'id' || tracks[i].label === 'Indonesian') {
+                                                tracks[i].mode = 'showing';
+                                            }
+                                        }
+                                    };
+                                    // Try immediately and after tracks load
+                                    enableTrack();
+                                    videoEl.addEventListener('loadedmetadata', enableTrack, { once: true });
+                                }}
                             >
                                 {previewEpisode.subtitleUrl && (
                                     <track 
