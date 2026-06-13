@@ -9,7 +9,7 @@ API_BASE  = 'https://api.shortlovers.id/api'
 ADMIN_KEY = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 ADMIN_HDR = {'x-admin-key': ADMIN_KEY}
 
-DRAMA_DB_ID = 'lsr7c0n1qxnrfse46j86n88e'
+DRAMA_DB_ID = 'izf99mrrimnlsb32gw0pk4n7'
 
 # Get all episodes
 r = requests.get(f"{API_BASE}/dramas/{DRAMA_DB_ID}/episodes?includeInactive=true", timeout=15)

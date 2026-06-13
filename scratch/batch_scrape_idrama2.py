@@ -18,8 +18,10 @@ import re
 import subprocess
 import argparse
 import urllib3
+import threading
 from pathlib import Path
 from botocore.config import Config
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
@@ -46,12 +48,37 @@ TEMP_DIR = WORKSPACE_DIR / 'temp_batch'
 TEMP_DIR.mkdir(exist_ok=True)
 LOG_FILE = WORKSPACE_DIR / 'scratch' / 'batch_scrape.log'
 
+thread_local = threading.local()
+
 def log(msg):
     timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-    full_msg = f"[{timestamp}] {msg}"
-    print(full_msg, flush=True)
-    with open(LOG_FILE, 'a', encoding='utf-8') as f:
-        f.write(full_msg + '\n')
+    upstream_id = getattr(thread_local, 'upstream_id', None)
+    if upstream_id:
+        full_msg = f"[{timestamp}] [{upstream_id}] {msg}"
+        print(full_msg, flush=True)
+        drama_log_file = WORKSPACE_DIR / 'scratch' / f'batch_scrape_{upstream_id}.log'
+        with open(drama_log_file, 'a', encoding='utf-8') as f:
+            f.write(full_msg + '\n')
+    else:
+        full_msg = f"[{timestamp}] {msg}"
+        print(full_msg, flush=True)
+        with open(LOG_FILE, 'a', encoding='utf-8') as f:
+            f.write(full_msg + '\n')
+
+def srt_to_vtt(srt_text):
+    if srt_text.strip().startswith('WEBVTT'):
+        return srt_text
+    lines = srt_text.splitlines()
+    vtt_lines = ['WEBVTT', '']
+    timestamp_re = re.compile(r'(\d{2}:\d{2}:\d{2}),(\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}),(\d{3})')
+    for line in lines:
+        match = timestamp_re.search(line)
+        if match:
+            formatted_line = line.replace(',', '.')
+            vtt_lines.append(formatted_line)
+        else:
+            vtt_lines.append(line)
+    return '\n'.join(vtt_lines)
 
 def get_r2():
     return boto3.client(
@@ -191,6 +218,17 @@ def register_subtitles_db(episode_db_id, r2_sub_url):
     r = requests.post(f"{API_BASE}/episodes/{episode_db_id}/subtitles", headers=ADMIN_HDR, json=payload, timeout=15)
     return r.ok
 
+def process_single_drama_thread(r2, upstream_id, dry_run=False, limit_eps=None):
+    thread_local.upstream_id = upstream_id
+    drama_log_file = WORKSPACE_DIR / 'scratch' / f'batch_scrape_{upstream_id}.log'
+    with open(drama_log_file, 'w', encoding='utf-8') as f:
+        f.write(f"--- BATCH SCRAPE START FOR {upstream_id} ---\n")
+    try:
+        return process_single_drama(r2, upstream_id, dry_run, limit_eps)
+    except Exception as e:
+        log(f"[EXCEPTION] Thread failed: {e}")
+        return False
+
 def process_single_drama(r2, upstream_id, dry_run=False, limit_eps=None):
     log("-" * 50)
     log(f"Processing Upstream ID: {upstream_id}")
@@ -298,19 +336,22 @@ def process_single_drama(r2, upstream_id, dry_run=False, limit_eps=None):
 
         m3u8_url = unlock_info['play_url']
 
-        # Find Indonesian subtitle
+        # Find Indonesian subtitle: prioritize subtitle_list (dialogue) over screentext_list
         sub_url = None
-        sub_lists = []
-        if 'screentext_list' in unlock_info and isinstance(unlock_info['screentext_list'], list):
-            sub_lists.extend(unlock_info['screentext_list'])
+        
+        # 1. Try subtitle_list first
         if 'subtitle_list' in unlock_info and isinstance(unlock_info['subtitle_list'], list):
-            sub_lists.extend(unlock_info['subtitle_list'])
-
-        for s in sub_lists:
-            lang = s.get('language', '').lower()
-            if lang == 'id' and s.get('url'):
-                sub_url = s['url']
-                break
+            for s in unlock_info['subtitle_list']:
+                if s.get('language', '').lower() == 'id' and s.get('url'):
+                    sub_url = s['url']
+                    break
+        
+        # 2. Try screentext_list as fallback
+        if not sub_url and 'screentext_list' in unlock_info and isinstance(unlock_info['screentext_list'], list):
+            for s in unlock_info['screentext_list']:
+                if s.get('language', '').lower() == 'id' and s.get('url'):
+                    sub_url = s['url']
+                    break
 
         if dry_run:
             log(f"    [DRY RUN] Would process EP {ep_no} (has stream, subtitle={bool(sub_url)})")
@@ -352,8 +393,12 @@ def process_single_drama(r2, upstream_id, dry_run=False, limit_eps=None):
                 try:
                     sub_r = requests.get(sub_url, headers=HEADERS, timeout=15, verify=False)
                     if sub_r.ok:
+                        sub_text = sub_r.text
+                        if not sub_text.strip().startswith('WEBVTT'):
+                            log("      Converting SRT subtitle to WebVTT format...")
+                            sub_text = srt_to_vtt(sub_text)
                         sub_key = f"dramas/{slug}/ep{ep_no:03d}_id.vtt"
-                        r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_r.content, ContentType='text/vtt')
+                        r2.put_object(Bucket=R2_BUCKET, Key=sub_key, Body=sub_text.encode('utf-8'), ContentType='text/vtt')
                         r2_sub_url = f"{R2_PUBLIC}/{sub_key}"
                 except Exception as e:
                     log(f"      [WARN] Subtitle upload failed: {e}")
@@ -427,11 +472,26 @@ def main():
                     log(f"[WARN] Temp clean error: {e}")
 
     success_count = 0
-    for idx, uid in enumerate(drama_ids, 1):
-        log(f"\n[DRAMA {idx}/10]")
-        if process_single_drama(r2, uid, dry_run=args.dry_run, limit_eps=args.limit_episodes):
-            success_count += 1
-        time.sleep(2.0)
+    max_workers = 2  # Scrape up to 2 dramas concurrently to keep CPU utilization under 100%
+    log(f"Starting parallel scraping with {max_workers} workers...")
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(process_single_drama_thread, r2, uid, dry_run=args.dry_run, limit_eps=args.limit_episodes): uid
+            for uid in drama_ids
+        }
+        
+        for future in as_completed(futures):
+            uid = futures[future]
+            try:
+                success = future.result()
+                if success:
+                    success_count += 1
+                    log(f"[OK] Drama {uid} finished successfully.")
+                else:
+                    log(f"[ERROR] Drama {uid} failed.")
+            except Exception as e:
+                log(f"[EXCEPTION] Drama {uid} raised: {e}")
 
     log("\n" + "=" * 60)
     log(f"BATCH PROCESS COMPLETED! Success: {success_count}/{len(drama_ids)}")
