@@ -1,0 +1,4622 @@
+{
+  "guess_plays": null,
+  "is_code": false,
+  "page": {
+    "page_num": 1,
+    "page_size": 20,
+    "total_page": 3,
+    "total_record": 43
+  },
+  "request_id": "",
+  "result_kind": "keyword_search",
+  "results": [
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 6,
+          "tag_local": "Fantasi Ajaib"
+        }
+      ],
+      "collect_count": 45732,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/cc0b1aa9e41b5572ab2b5920bdf27eef.jpg",
+      "content_tag": [
+        {
+          "highlight": [
+            {
+              "end": 3,
+              "start": 0
+            }
+          ],
+          "id": 59,
+          "tag_local": "Anak Jenius"
+        },
+        {
+          "id": 215,
+          "tag_local": "Kehamilan"
+        },
+        {
+          "id": 19,
+          "tag_local": "Bayi Lucu"
+        },
+        {
+          "id": 58,
+          "tag_local": "Cerita Misteri"
+        },
+        {
+          "id": 211,
+          "tag_local": "Kehamilan Palsu"
+        },
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 28,
+          "tag_local": "Identitas Multi"
+        },
+        {
+          "id": 17,
+          "tag_local": "Kisah Pemuas Hati"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 24,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 114,
+          "tag_local": "Pembalikan Identitas"
+        },
+        {
+          "id": 217,
+          "tag_local": "Rahasia"
+        },
+        {
+          "id": 204,
+          "tag_local": "Terlambat"
+        },
+        {
+          "id": 25,
+          "tag_local": "Kekuatan Super"
+        },
+        {
+          "id": 88,
+          "tag_local": "Wanita Kuat"
+        },
+        {
+          "id": 90,
+          "tag_local": "Wanita Mandiri"
+        },
+        {
+          "id": 50,
+          "tag_local": "Werewolf"
+        },
+        {
+          "id": 33,
+          "tag_local": "Kawin Kontrak"
+        },
+        {
+          "id": 207,
+          "tag_local": "Pertumbuhan Diri"
+        },
+        {
+          "id": 194,
+          "tag_local": "Cinta Paksa"
+        },
+        {
+          "id": 75,
+          "tag_local": "Ibu Tunggal"
+        },
+        {
+          "id": 89,
+          "tag_local": "Istri yang Hamil"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "Hot",
+      "cover_theme_color": "#533f2d",
+      "cover_url": "https://p.idrama.video/group1/cc0b1aa9e41b5572ab2b5920bdf27eef.jpg",
+      "current_count": 39,
+      "data_type": "",
+      "favor_count": 129084,
+      "id": 160001641891,
+      "introduction": "Leah, 23 tahun, hanya ingin mencari uang cepat. Dia menandatangani perjanjian kerahasiaan dan bergabung dalam program kehamilan pengganti yang misterius — untuk mengandung pewaris Presiden Amerika Serikat.\nAturannya sederhana: siapa yang melahirkan pewaris lebih dulu, dialah yang akan menjadi Ibu Negara.\nAturannya juga kejam: yang gagal, akan lenyap selamanya.\nLeah tidak bercita-cita menjadi Ibu Negara. Dia hanya ingin mengambil uangnya dan pergi.\nNamun, saat melahirkan, yang dia lahirkan adalah — dua ekor anak anjing.\nKarena ketakutan, dia berbohong mengatakan dia hamil palsu, lalu diturunkan jabatannya menjadi pembantu rumah tangga di Gedung Putih. Dia mengira itulah titik terendah dalam hidupnya, tapi tidak menyadari bahwa rahasia yang lebih besar baru saja dimulai.\nAnak anjing itu bukanlah anak anjing. Mereka adalah anak serigala. Mereka bisa berubah menjadi manusia.\nDan tatapan presiden terhadap mereka jauh lebih rumit daripada tatapannya kepada gadis-gadis pengganti lainnya.\n\"Kamu... sebenarnya siapa?\"",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "en",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 177,
+        "episode_cover": "https://p.idrama.video/group1/b4b06b5ea7266acfa77202a14894a58b/054be5bc9769133ec8c745bb5a49717c.image",
+        "episode_id": 717082,
+        "episode_order": 1,
+        "favor_count": 2959,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 632507,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/b4b06b5ea7266acfa77202a14894a58b/2e187dd5e952294c2ffe72a7e7ba9b5c.m3u8?ts=1781328529&secret=3e45a367c8f2f9b94d9542ac6c79057f&usr=v0012218659",
+            "quality": "normal",
+            "size": 14967348,
+            "width": 540
+          },
+          {
+            "bitrate": 875357,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/b4b06b5ea7266acfa77202a14894a58b/ec8673cfd1a0b5551985b9a61f4bdfbb.m3u8?ts=1781328529&secret=98cc5b94e87c4ad2d91d7230e62ea29f&usr=v0012218659",
+            "quality": "normal",
+            "size": 20480072,
+            "width": 720
+          },
+          {
+            "bitrate": 1551559,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 35787972,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/b4b06b5ea7266acfa77202a14894a58b/ec8673cfd1a0b5551985b9a61f4bdfbb.m3u8?ts=1781328529&secret=98cc5b94e87c4ad2d91d7230e62ea29f",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/ja/e8274247831fde26f70254e1f9960085f39a1c3900de991213ed1193eaa846a1.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/ko/7940c4f825321f4208fd3d62fb4882d8a62aae19fa516b3bab7f7114dfa9ccb1.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/es/59b7c7df9b57fafdc833bfae1913a89dc99539a1badeac0e93d4a735cda97531.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/pt/a355771e023b163069a639a8255e1b4804424d1e89d13fbfcda51f072f9ff436.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/zh-tw/64005792d5035d96148032889c8847352e332e21bbea695be65374adb6e9910f.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/id/6969b1b387a37cf9d4ea80f2c4eeff190588e9cc3a3defe276625f17869be6fe.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/th/c3d563da8ad368ff83dcd6af0fd864fc04c34989cd1acdfe52df9d0b376e6521.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/zh/b12bd333f2eba1819c16219273c357ea61f5c486b42e1881afb4b3af54a37150.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/fr/ccec8ae798d6865273369d7b5e2a3cd97a203be981d0e580abb1ac7dab28021e.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/de/b89d24a81f581dd03ce3174175c29f3386250416ca404725648d6f7c82e701ac.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ar",
+            "language_id": 21,
+            "native_language": "العربية",
+            "sub_id": 21,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/ar/7b6bc115768526a84cd1222799d06f7dd22e455a658e0fd35a9f306d029d452d.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/ja/c4aa4f279a45d211c8d0c7455d3906c7db1e775de29f9836cb2d6ef2229df8ac.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/ko/f014bc02f4d83775c4089e6aad6b0af84e996f4b9baae1bac7caf0f4558d5c1a.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/es/1db0dff5c2b8d206fae0e8cf77a59d41bc466b8563ae5cfd39bfd91291d75606.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/pt/b61b8ecc00fb669fcdb7ce9262c457ba3218d3ad416b27c752641bd5e253f3d6.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/zh-tw/7518447725eb32fe230964349f7f42074b24a3aad2981ad16524dc2f9a6761b7.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/id/3a4d7925cc416bea5e5657ac70c2a188b63272bd7265e40aa566477222c67d96.srt"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/th/de2bc0eaebe63f61689e411db42fc47b57a049bc5419c2887bad963b86548356.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/zh/e6e7130cb5a14547e85c9381b542bcd97732b8e782bfe5322960e9d01c25126e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/fr/99298b405f0a465e2847bed44b1ff1866c28c1b9365b3e9a886d9353eee21e96.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/de/47fa9c09aa298a93eb1a68c87c3446e1e42aa3eb161f9483a8ecbf74c1882eaf.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ar",
+            "language_id": 21,
+            "native_language": "العربية",
+            "sub_id": 21,
+            "url": "https://v-a.idrama.video/13168e6a2e6c84b4b7de9390c0ef5ec5/ar/62c737839bb992e4fa24813fa2edcbb8b09a43f37ed05ee24d547e38b383efba.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Aku Lahirkan Anak Serigala Presiden",
+      "short_play_name_highlight": [
+        {
+          "end": 16,
+          "start": 13
+        },
+        {
+          "end": 25,
+          "start": 18
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 8,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 1720929
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 6,
+          "tag_local": "Fantasi Ajaib"
+        }
+      ],
+      "collect_count": 1135,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/52913487138a18273993aff94d7098a6.jpg",
+      "content_tag": [
+        {
+          "id": 50,
+          "tag_local": "Werewolf"
+        },
+        {
+          "id": 24,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 19,
+          "tag_local": "Bayi Lucu"
+        },
+        {
+          "id": 215,
+          "tag_local": "Kehamilan"
+        },
+        {
+          "id": 33,
+          "tag_local": "Kawin Kontrak"
+        },
+        {
+          "id": 211,
+          "tag_local": "Kehamilan Palsu"
+        },
+        {
+          "id": 58,
+          "tag_local": "Cerita Misteri"
+        },
+        {
+          "id": 217,
+          "tag_local": "Rahasia"
+        },
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 114,
+          "tag_local": "Pembalikan Identitas"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 25,
+          "tag_local": "Kekuatan Super"
+        },
+        {
+          "id": 89,
+          "tag_local": "Istri yang Hamil"
+        },
+        {
+          "id": 154,
+          "tag_local": "Pelayan"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "Ongoing",
+      "cover_theme_color": "#60371f",
+      "cover_url": "https://p.idrama.video/group1/52913487138a18273993aff94d7098a6.jpg",
+      "current_count": 19,
+      "data_type": "",
+      "favor_count": 62051,
+      "id": 160000642047,
+      "introduction": "Leah yang berusia 23 tahun hanya ingin mencari uang cepat. Dia menandatangani perjanjian kerahasiaan dan mengikuti program surogasi misterius — untuk melahirkan pewaris Presiden.\nSyaratnya sederhana: siapa pun yang pertama melahirkan pewaris, akan menjadi Ibu Negara pertama.\nSyaratnya juga kejam: yang gagal, akan hilang selamanya.\nLeah tidak pernah bermimpi menjadi istri Presiden. Dia hanya ingin mengambil uangnya lalu pergi.\nNamun, pada hari persalinan, yang dia lahirkan adalah — dua ekor anak anjing.\nDiliputi ketakutan, dia berbohong dengan mengaku hamil palsu, lalu dihina menjadi pelayan Gedung Putih. Dia mengira ini adalah titik terendah hidupnya, tanpa tahu rahasia yang lebih besar baru saja dimulai.\nAnak anjing itu bukanlah anak anjing biasa. Mereka adalah anak serigala. Mereka bisa berubah menjadi manusia.\nDan tatapan mata Presiden saat melihat mereka, jauh lebih rumit daripada saat melihat gadis penggantian kandungan mana pun.\n\"Siapa....kau sebenarnya?\"",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "en",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 161,
+        "episode_cover": "https://p.idrama.video/group1/d0477830374786597e15998b55c22ada/80dbabca72d7223e9302a5bfbb57d333.image",
+        "episode_id": 814153,
+        "episode_order": 1,
+        "favor_count": 2086,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 713633,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/d0477830374786597e15998b55c22ada/3cdf1a6609608fac77b5b53c0c27d803.m3u8?ts=1781328529&secret=ba308e33bcb853314d73e8de6cdbfed5&usr=v0012218659",
+            "quality": "normal",
+            "size": 15282766,
+            "width": 540
+          },
+          {
+            "bitrate": 989127,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/d0477830374786597e15998b55c22ada/173730fd7e3b5aec1ffc80ff1fc42c75.m3u8?ts=1781328529&secret=71dc31600af649e2308a2a6d383427c3&usr=v0012218659",
+            "quality": "normal",
+            "size": 20965254,
+            "width": 720
+          },
+          {
+            "bitrate": 1741264,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 36454010,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/d0477830374786597e15998b55c22ada/173730fd7e3b5aec1ffc80ff1fc42c75.m3u8?ts=1781328529&secret=71dc31600af649e2308a2a6d383427c3",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/ja/cc94946383bb3e61efbb07afa28ae6503388bb829d70cf642d36a040c6819ffd.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/ko/ca182bb9d882e84219ab0b9e013228290593ddbd006eda46b3e0b5b73fc131e2.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/es/03d53d1c7ec243726e450f0af75707433bd90e83ee79cd095586faa2e17d4af4.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/pt/48bd152f8ec51721286ed8373a986af8a02520025ce7c9892c3e2373f6fdb97b.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/zh-tw/aa85694cf80d15bc1877923f17d982c4617b608e5acad50fab949f8e5a74c31f.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/id/ec99de74a66e7a267acd9cdfe95a38527e2ed268dd893723090c402db10ff546.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/th/d7a72cd0ef3c0c97da766e4e7136557a17638b46613a39653f794678f76ed9da.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/zh/8c6f8268f894ea0958ddaf9571a82a478bb1a05b4c18be770301942873f2e6d6.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/fr/1e6ce0466d0b9ce361dd5bbfbf893b3a6efb68a229dccd22eeb95e99b4a2310f.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/de/5b2590ca56233d7ecd9add501c0a9890912c6aa1a3929d536383244cf1c18c98.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/ja/35a6f4a163855640e29ce977c872a9d279e7ea1aabf841cbf5b59e8965bac9b7.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/ko/9d024d981b967801342b23f8b8eb52732780c58bc8cc41e4bc12ec32fd8b15ec.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/es/e6381380ecbb6561b57be7772767114f7d6579ed7db377db43212119c177ceae.srt2266932668"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/pt/c082bac8aa201d8e1c435045b957a537cf8319e4c3911394a3b00f758c20488b.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/zh-tw/282f1440480bd2e0a14cd265b226dbde1ee2b0e67cf5bbe013907b246de85bfe.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/id/2d23a57e7711714e48127501ce92088245641145634bb2026a97d03d2b2e1d9b.srt1256427330"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/th/d53f0a5ac42487da7c8623a58b95a2580dcd71622e118c5f37ae8c041a71a7e0.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/zh/d7d4d605cbd5a8be572b6c5a024838579c6f7decaf3018fbaf7d1c34f3e044ff.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/fr/3eca0e21ee9b381a306cc64cd1d6511cd9c9fe916963425a6bdb5b6eafa2f193.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/a501bebf79d570651ff601788ea9d16d/de/01adb23bc7acfb4e854dd12d27ee43440e3e8947c3269c98800eb2e033ca2205.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 1,
+      "short_play_name": "Aku Lahirkan Anak Serigala untuk Presiden",
+      "short_play_name_highlight": [
+        {
+          "end": 16,
+          "start": 13
+        },
+        {
+          "end": 25,
+          "start": 18
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 8,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 34207
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 6,
+          "tag_local": "Fantasi Ajaib"
+        }
+      ],
+      "collect_count": 18125,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/cc0b1aa9e41b5572ab2b5920bdf27eef.jpg",
+      "content_tag": [
+        {
+          "highlight": [
+            {
+              "end": 3,
+              "start": 0
+            }
+          ],
+          "id": 59,
+          "tag_local": "Anak Jenius"
+        },
+        {
+          "id": 215,
+          "tag_local": "Kehamilan"
+        },
+        {
+          "id": 19,
+          "tag_local": "Bayi Lucu"
+        },
+        {
+          "id": 58,
+          "tag_local": "Cerita Misteri"
+        },
+        {
+          "id": 211,
+          "tag_local": "Kehamilan Palsu"
+        },
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 28,
+          "tag_local": "Identitas Multi"
+        },
+        {
+          "id": 17,
+          "tag_local": "Kisah Pemuas Hati"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 24,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 114,
+          "tag_local": "Pembalikan Identitas"
+        },
+        {
+          "id": 217,
+          "tag_local": "Rahasia"
+        },
+        {
+          "id": 204,
+          "tag_local": "Terlambat"
+        },
+        {
+          "id": 25,
+          "tag_local": "Kekuatan Super"
+        },
+        {
+          "id": 88,
+          "tag_local": "Wanita Kuat"
+        },
+        {
+          "id": 90,
+          "tag_local": "Wanita Mandiri"
+        },
+        {
+          "id": 50,
+          "tag_local": "Werewolf"
+        },
+        {
+          "id": 33,
+          "tag_local": "Kawin Kontrak"
+        },
+        {
+          "id": 207,
+          "tag_local": "Pertumbuhan Diri"
+        },
+        {
+          "id": 194,
+          "tag_local": "Cinta Paksa"
+        },
+        {
+          "id": 75,
+          "tag_local": "Ibu Tunggal"
+        },
+        {
+          "id": 89,
+          "tag_local": "Istri yang Hamil"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Sulih Suara"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "Dubbed",
+      "cover_theme_color": "#533f2d",
+      "cover_url": "https://p.idrama.video/group1/cc0b1aa9e41b5572ab2b5920bdf27eef.jpg",
+      "current_count": 39,
+      "data_type": "",
+      "favor_count": 134217,
+      "id": 161004641891,
+      "introduction": "Leah, 23 tahun, hanya ingin mencari uang cepat. Dia menandatangani perjanjian kerahasiaan dan bergabung dalam program kehamilan pengganti yang misterius — untuk mengandung pewaris Presiden Amerika Serikat.\nAturannya sederhana: siapa yang melahirkan pewaris lebih dulu, dialah yang akan menjadi Ibu Negara.\nAturannya juga kejam: yang gagal, akan lenyap selamanya.\nLeah tidak bercita-cita menjadi Ibu Negara. Dia hanya ingin mengambil uangnya dan pergi.\nNamun, saat melahirkan, yang dia lahirkan adalah — dua ekor anak anjing.\nKarena ketakutan, dia berbohong mengatakan dia hamil palsu, lalu diturunkan jabatannya menjadi pembantu rumah tangga di Gedung Putih. Dia mengira itulah titik terendah dalam hidupnya, tapi tidak menyadari bahwa rahasia yang lebih besar baru saja dimulai.\nAnak anjing itu bukanlah anak anjing. Mereka adalah anak serigala. Mereka bisa berubah menjadi manusia.\nDan tatapan presiden terhadap mereka jauh lebih rumit daripada tatapannya kepada gadis-gadis pengganti lainnya.\n\"Kamu... sebenarnya siapa?\"",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "en",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 177,
+        "episode_cover": "https://p.idrama.video/group1/25aae4b6c224c8d6bca1b79eaa723671/0c50711353c4a298c3278ff43cdc3d98.image",
+        "episode_id": 888752,
+        "episode_order": 1,
+        "favor_count": 3048,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 666991,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/25aae4b6c224c8d6bca1b79eaa723671/f94fb73a5d177a5f55f24ada49d4647b.m3u8?ts=1781328529&secret=a2c1c5d5478b67cb9b94ec06a31e5751&usr=v0012218659",
+            "quality": "normal",
+            "size": 15754504,
+            "width": 540
+          },
+          {
+            "bitrate": 913470,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/25aae4b6c224c8d6bca1b79eaa723671/49a0c7857bda76ad2df18ba8adff9ffa.m3u8?ts=1781328529&secret=35812d5a01544bc8f0657cb2ac174d07&usr=v0012218659",
+            "quality": "normal",
+            "size": 21351452,
+            "width": 720
+          },
+          {
+            "bitrate": 1658575,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 38229152,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/25aae4b6c224c8d6bca1b79eaa723671/49a0c7857bda76ad2df18ba8adff9ffa.m3u8?ts=1781328529&secret=35812d5a01544bc8f0657cb2ac174d07",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "(Sulih Suara) Aku Lahirkan Anak Serigala Presiden",
+      "short_play_name_highlight": [
+        {
+          "end": 30,
+          "start": 27
+        },
+        {
+          "end": 39,
+          "start": 32
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 8,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 503450
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 6,
+          "tag_local": "Fantasi Ajaib"
+        }
+      ],
+      "collect_count": 1917,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/68e7aeac97679f00abfb980f27eee198.jpg",
+      "content_tag": [
+        {
+          "id": 50,
+          "tag_local": "Werewolf"
+        },
+        {
+          "id": 24,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 215,
+          "tag_local": "Kehamilan"
+        },
+        {
+          "id": 33,
+          "tag_local": "Kawin Kontrak"
+        },
+        {
+          "id": 194,
+          "tag_local": "Cinta Paksa"
+        },
+        {
+          "id": 37,
+          "tag_local": "Cinta Manis"
+        },
+        {
+          "id": 16,
+          "tag_local": "Kisah Cinta Pilu"
+        },
+        {
+          "id": 204,
+          "tag_local": "Terlambat"
+        },
+        {
+          "id": 198,
+          "tag_local": "Musuh menjadi Kekasih"
+        },
+        {
+          "id": 143,
+          "tag_local": "Alpha"
+        },
+        {
+          "id": 108,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 89,
+          "tag_local": "Istri yang Hamil"
+        },
+        {
+          "id": 161,
+          "tag_local": "Karakter Posesif"
+        },
+        {
+          "id": 92,
+          "tag_local": "Sang Pelindung"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 25,
+          "tag_local": "Kekuatan Super"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "Ongoing",
+      "cover_theme_color": "#6a2716",
+      "cover_url": "https://p.idrama.video/group1/68e7aeac97679f00abfb980f27eee198.jpg",
+      "current_count": 16,
+      "data_type": "",
+      "favor_count": 54231,
+      "id": 160000642203,
+      "introduction": "Demi bisa bertahan hidup, seorang Omega kecil yang selalu disiksa tanpa sengaja ditandai oleh Alpha tingkat tertinggi. Setelah hamil, konstitusi tubuhnya yang istimewa sinestesia kehamilan membongkar jati dirinya.\nHal ini membuat CEO sombong yang tadinya menganggapnya wanita pencari harta dan menandatangani kontrak bersamanya, terpaksa mengurungnya di sisinya, lalu mulai memanjakan dan melindungi istri kecilnya.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "en",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 137,
+        "episode_cover": "https://p.idrama.video/group1/a56e363318a43626749a39cce2dec4b5/ec8712427960a2fb0ddb1de1b3fb0f0d.image",
+        "episode_id": 865548,
+        "episode_order": 1,
+        "favor_count": 4559,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 704451,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/a56e363318a43626749a39cce2dec4b5/504ddf40d65571b08bc94d734b0e2aa6.m3u8?ts=1781328529&secret=ed06cf73d3255db933c323819b93281c&usr=v0012218659",
+            "quality": "normal",
+            "size": 12867821,
+            "width": 540
+          },
+          {
+            "bitrate": 985255,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/a56e363318a43626749a39cce2dec4b5/4357060a789a3fb9d2b5382e9b55d1bd.m3u8?ts=1781328529&secret=4d0f46a3a5458c11601237ebc402817a&usr=v0012218659",
+            "quality": "normal",
+            "size": 17807897,
+            "width": 720
+          },
+          {
+            "bitrate": 1764556,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 31483769,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/a56e363318a43626749a39cce2dec4b5/4357060a789a3fb9d2b5382e9b55d1bd.m3u8?ts=1781328529&secret=4d0f46a3a5458c11601237ebc402817a",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/ja/013cc46f005cb5f64777f45ec99483cd28becdc52f833afde47a9daca3c408a3.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/ko/f62b975aff3be3c1017740840bfb265b966a723f67a9e3439f56dfef10a20217.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/es/a6dd4f63613d8837406e6564d8a4f63117419c2baa031c6e444bd2fc9c896f6e.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/pt/7dfd18a1e67f28af0f7189aaea30ac44c175d83a9cab905e76e3e332ee537fa9.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/zh-tw/bcfc5ded1ddfc450fe327cc8e9b899bfd3c910ba43bc10376692b8077fd6c5a9.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/id/5a26a99de65f6098b501f0c4b94f1af9b2ae8b9881d55d8c4ea179bb94996d6c.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/th/c4d0fc667af49e6d06b1796248941bfc1df9831d8267f656cc67e5650688fac5.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/zh/8646dc74d2e522e5093359dcc0ce6e36deb224bd326cc44f20c28ca365d73a1b.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/fr/0dcefbb64131b49e5e6da0dd71dd6bd8e594b74fad24d2d1b3c7f5b30b84cb24.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/de/0c4dce5e00e0236c54dbc3ee22caeb7741ba3c28786719105a45c2a173d7cc1c.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/ja/a2860d21781531c88f6d32d6f3a35dd6b09e6e4f7d52e76a5ac2cea66d9eabec.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/ko/74f1c786e8003a790d21ba42b071cc08b8f57d4f233c08eb195e253252136cc2.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/es/7cb4c81c135648b74f755c764ca8f88af59d8fa4201bb302ff5eebaa7dbae9ae.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/pt/42819b46191f89478170b47b32f699b614038c3afd2eb35a6b535c0f69a3353e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/zh-tw/8430b07531300e386c3f1b7dc0db535c21b52c47d7093ec06fb0dc9c7260fb47.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/id/b7e2fefef8680b662de4efecccbca1478f683b99884bdd40447a5d7197753ee9.srt557868950"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/th/174c30fa5a9af4f16ce563d7e68bd6ff1552d7925b3cbf4a0c10f88476d9a79e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/zh/de79434cf3bc454830c56ad145127b97939a3bea2649ca88534aae52c869d035.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/fr/1234bbbb1948e53c2d3ab19d2b209b4dbcdfd3d50204db0fd4e325a767801993.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/2d969e2cee8cfa07ce7ca0bb13c7a36d/de/18fb5086288ab5dbfdb1fbe31f27ee2a22ac1bd084a205e9792d4409b5e0585c.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 1,
+      "short_play_name": "Dihamili Serigala Alpha",
+      "short_play_name_highlight": [
+        {
+          "end": 16,
+          "start": 9
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 6,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 33964
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 3,
+          "tag_local": "Romansa Modern"
+        }
+      ],
+      "collect_count": 1194,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/f9dcdd9756a5ea5e6788d08084b64bee.jpg",
+      "content_tag": [
+        {
+          "id": 19,
+          "tag_local": "Bayi Lucu"
+        },
+        {
+          "id": 14,
+          "tag_local": "Pengembali"
+        },
+        {
+          "id": 13,
+          "tag_local": "Bersatu Kembali"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#493744",
+      "cover_url": "https://p.idrama.video/group1/f9dcdd9756a5ea5e6788d08084b64bee.jpg",
+      "current_count": 72,
+      "data_type": "",
+      "favor_count": 240682,
+      "id": 160000641566,
+      "introduction": "Sania menikah dengan Bagas, tetapi dua anaknya justru disiksa diam-diam. Lima tahun kemudian, Sania kembali dengan wajah baru dan tiga anak, siap menyelamatkan dua anaknya serta membalas pengkhianatan. Namun, pertukaran dua pasang anak kembar membuat segalanya kacau.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 140,
+        "episode_cover": "https://p.idrama.video/group1/1e9e2495bc72501099f33018800fab5c/a4b3b0957fd46d592e5df44fff44f8e2.image",
+        "episode_id": 537744,
+        "episode_order": 1,
+        "favor_count": 2316,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 849707,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/1e9e2495bc72501099f33018800fab5c/bf25afcb475ce1a908149066415e4682.m3u8?ts=1781328529&secret=97873ed72ba51ba89fb49e6d62eb3faf&usr=v0012218659",
+            "quality": "normal",
+            "size": 15749878,
+            "width": 540
+          },
+          {
+            "bitrate": 1199804,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/1e9e2495bc72501099f33018800fab5c/f1a9968b7178ccf1ae5ede556fc2293b.m3u8?ts=1781328529&secret=a0e177a198fbc2e71e7f82524dc7cde9&usr=v0012218659",
+            "quality": "normal",
+            "size": 22035846,
+            "width": 720
+          },
+          {
+            "bitrate": 2128696,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 38694338,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/1e9e2495bc72501099f33018800fab5c/f1a9968b7178ccf1ae5ede556fc2293b.m3u8?ts=1781328529&secret=a0e177a198fbc2e71e7f82524dc7cde9",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Lima Anak Bikin Ayah Bingung",
+      "short_play_name_highlight": [
+        {
+          "end": 8,
+          "start": 5
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 5,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 23214
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 107,
+          "tag_local": "Fantasi Ajaib"
+        }
+      ],
+      "collect_count": 1905,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/25a429261efe72290ecc2ec8e9f9681c.jpg",
+      "content_tag": [
+        {
+          "id": 35,
+          "tag_local": "Perjalanan Waktu"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 40,
+          "tag_local": "Sistem"
+        },
+        {
+          "id": 44,
+          "tag_local": "Keluarga Berantakan"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#403a45",
+      "cover_url": "https://p.idrama.video/group1/25a429261efe72290ecc2ec8e9f9681c.jpg",
+      "current_count": 64,
+      "data_type": "",
+      "favor_count": 239478,
+      "id": 160000641747,
+      "introduction": "Cedric Simo, seorang pelintas waktu, terbangun dan sadar bahwa dirinya menjadi tuan muda Keluarga Simo yang terkenal buruk di dunia fantasi. Tuan aslinya suka merebut istri orang dan melukai orang lain, hingga musuh lamanya datang balas dendam. Untungnya, ayahnya yang kuat berhasil mengusir musuh. Namun saat ia tanpa sadar mengucap terima kasih, ia hampir dibunuh karena merusak citra anak durhaka. Kini, ia terikat sistem anak berbakti.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 170,
+        "episode_cover": "https://p.idrama.video/group1/fd34e8d5ef20c9a3d31e4c5150ace2b7/4843c7b5a83f0462cf9d8d02d3caf7ed.image",
+        "episode_id": 643941,
+        "episode_order": 1,
+        "favor_count": 4526,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 1485225,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 540,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/fd34e8d5ef20c9a3d31e4c5150ace2b7/7dcfdb75ebe6e8e97eb34d8d8b272e7e.m3u8?ts=1781328529&secret=6ae942985f3ecff30734f769d299537f&usr=v0012218659",
+            "quality": "normal",
+            "size": 33018151,
+            "width": 960
+          },
+          {
+            "bitrate": 2063034,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 720,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/fd34e8d5ef20c9a3d31e4c5150ace2b7/004cc51e4ba299ff2cd59ec4681de40e.m3u8?ts=1781328529&secret=b183a80f9ef37736103f71edd01512de&usr=v0012218659",
+            "quality": "normal",
+            "size": 45624679,
+            "width": 1280
+          },
+          {
+            "bitrate": 3180192,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1080,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 69986283,
+            "width": 1920
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/fd34e8d5ef20c9a3d31e4c5150ace2b7/004cc51e4ba299ff2cd59ec4681de40e.m3u8?ts=1781328529&secret=b183a80f9ef37736103f71edd01512de",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Sistem Anak Berbakti",
+      "short_play_name_highlight": [
+        {
+          "end": 10,
+          "start": 7
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 11,
+      "total_duration_s": 0,
+      "video_orientation": 2,
+      "view_count": 15817
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 136,
+          "tag_local": "Drama Keluarga"
+        }
+      ],
+      "collect_count": 1505,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/9801a8478672db9c74b73e3ffcade75e.jpg",
+      "content_tag": [
+        {
+          "highlight": [
+            {
+              "end": 13,
+              "start": 10
+            }
+          ],
+          "id": 63,
+          "tag_local": "Pencarian Anak"
+        },
+        {
+          "id": 43,
+          "tag_local": "Mencari Keluarga"
+        },
+        {
+          "id": 14,
+          "tag_local": "Pengembali"
+        },
+        {
+          "id": 100,
+          "tag_local": "Kebersamaan Kembali"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 29,
+          "tag_local": "Miliarder"
+        },
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 60,
+          "tag_local": "Takdir Cinta"
+        },
+        {
+          "id": 53,
+          "tag_local": "Kisah Mengharukan"
+        },
+        {
+          "id": 120,
+          "tag_local": "Energi Positif"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#5a3625",
+      "cover_url": "https://p.idrama.video/group1/9801a8478672db9c74b73e3ffcade75e.jpg",
+      "current_count": 88,
+      "data_type": "",
+      "favor_count": 321456,
+      "id": 160000642000,
+      "introduction": "Dua puluh tahun lalu, Yogi terpisah dari orang tuanya karena kecelakaan lalu lintas dan diadopsi oleh direktur utama Grup Yanda. Dua puluh tahun kemudian, Yogi pulang ke kampung halaman sebagai perantau, lalu berhasil bertemu kembali dengan orang tua kandungnya berkat sepasang giok induk dan anak.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 99,
+        "episode_cover": "https://p.idrama.video/group1/ead2f32495eacfee31105d37a0a1ddf8/5e085fed6f8204fda167bc2a82ec9d8b.image",
+        "episode_id": 828879,
+        "episode_order": 1,
+        "favor_count": 4551,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 1661684,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/ead2f32495eacfee31105d37a0a1ddf8/060f110822e97ea9e41be13aaee1ce85.m3u8?ts=1781328529&secret=9f75dab681540ed0238617577d25cf91&usr=v0012218659",
+            "quality": "normal",
+            "size": 21790913,
+            "width": 540
+          },
+          {
+            "bitrate": 2495148,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/ead2f32495eacfee31105d37a0a1ddf8/d151c9f9c81829b621f523f12dd86715.m3u8?ts=1781328529&secret=16d5f645bd1a675a688356c02a508dad&usr=v0012218659",
+            "quality": "normal",
+            "size": 32405017,
+            "width": 720
+          },
+          {
+            "bitrate": 3848916,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 49668869,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/ead2f32495eacfee31105d37a0a1ddf8/d151c9f9c81829b621f523f12dd86715.m3u8?ts=1781328529&secret=16d5f645bd1a675a688356c02a508dad",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/en/75417140948b256ed4043b76c210ee003d8586039e1130b9e8197e3fff3a1cba.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/ja/e58fe7b341587c3aa02dd9f18340a494d774f8f4e497768914dc096e930c2bf3.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/ko/b7312885607f154d175a3934c97a13415c34a725f4b47c0eda7d6b06d91ddf64.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/es/357068fcbd7fe1136a7fef9f39875b71d987c64d19d9c187f9f4a2dd7a9ec419.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/pt/8063715d09331fa0700f5f2980a58e397f298ecce9f815bd5d485ef210fb88dc.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/zh-tw/09e3f64efbc886610e19062ffaf85c51e619713ca0482c1ab4afc45849281901.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/id/953fb2499ee6804f37a19d3699846b6dc0f02ebf80b556792f787946323b4239.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/th/0f92096bf21910a13146d17746bce7f6347a0100ab8b4d0250789cf44bcf3e43.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/fr/48d60a9ea3970093e60bc779e743b91e0f6110367c84718300378ec3f7e63d4a.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/de/b8bc446c139e2eb469d26f1b35a1d6d03036df080926adaeb605eb4d4c75d98c.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/en/49280856ab7c715665f0139f0121922c6ab6859b6811109d912ba30cff3d92cc.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/ja/19fef94502833f8f435d180bde434f0d4c20fa0d07e287c51357676f049c9bb6.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/ko/59f21b219a06ef63fcc253f3ccc85f8c81dc73943409c663e08b4d704aeee27e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/es/8ca33993a888a1e59e52bcea940149d163ef1a1d3db5081582ca3821e94662d3.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/pt/cfa8b779d083fde37d17e885e4464e797e028989069a754c5d1c5b96f5323754.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/zh-tw/2f571c72601697e99d49cc4870a3a5c22ff57f63a2878a0bd6b3c6aeaa52fd7f.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/id/d8fa7f59b29fc9bdcc93e840a457f98febfae772891da705d8a0bd663694f868.srt1117890868"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/th/46530b71ac63a986876fd1d46ac450802b75903c6ccd7f21ab4ebdeb2a8cfd04.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/fr/f9a9a2ac8c75acfbef92ccdf7b3e4ae7f08dc5a090f4577f02a2dae61b95086b.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/08f90c1a417155361a5c4b8d297e0d78/de/f3913770ca759a15f48f0fe7e94442252f2a87f811a045caf7a9ca436f7fe03c.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Anak Pulang ke Rumah",
+      "short_play_name_highlight": [
+        {
+          "end": 3,
+          "start": 0
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 12,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 19767
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 3,
+          "tag_local": "Romansa Modern"
+        }
+      ],
+      "collect_count": 1644,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/58e76b847ff81e662e0eae7fe8bbc896.jpg",
+      "content_tag": [
+        {
+          "id": 27,
+          "tag_local": "Hidup Kedua"
+        },
+        {
+          "id": 193,
+          "tag_local": "Pertukaran Identitas"
+        },
+        {
+          "id": 30,
+          "tag_local": "Balas Dendam"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#562f29",
+      "cover_url": "https://p.idrama.video/group1/58e76b847ff81e662e0eae7fe8bbc896.jpg",
+      "current_count": 61,
+      "data_type": "",
+      "favor_count": 216062,
+      "id": 160000641398,
+      "introduction": "Ketiga Kakak Maura terus salah paham padanya karena terlalu percaya sama adik angkat mereka, Widya. Bahkan kepercayaan mereka membuat Maura meninggal. Setelah terlahir kembali, Maura hanya mau balas dendam, tapi malah dapat cinta juga.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 215,
+        "episode_cover": "https://p.idrama.video/group1/ba5ca2de61de25eb6cf40ed05a9d6eb3/78c92d565b51c1ef4ab46118c26ed16c.image",
+        "episode_id": 441720,
+        "episode_order": 1,
+        "favor_count": 4769,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 770932,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/ba5ca2de61de25eb6cf40ed05a9d6eb3/5d056bb21755a2ef5558824e807084a6.m3u8?ts=1781328529&secret=3f174368fe604303a77f62f495d9c57c&usr=v0012218659",
+            "quality": "normal",
+            "size": 22047940,
+            "width": 540
+          },
+          {
+            "bitrate": 1068179,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/ba5ca2de61de25eb6cf40ed05a9d6eb3/ce7147ae8638f3556c683ddb94d5459c.m3u8?ts=1781328529&secret=86d3001ce602f328b9b4ed1abcb6fc91&usr=v0012218659",
+            "quality": "normal",
+            "size": 30250380,
+            "width": 720
+          },
+          {
+            "bitrate": 2201775,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 61498424,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/ba5ca2de61de25eb6cf40ed05a9d6eb3/ce7147ae8638f3556c683ddb94d5459c.m3u8?ts=1781328529&secret=86d3001ce602f328b9b4ed1abcb6fc91",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Kebangkitan Anak Kandung",
+      "short_play_name_highlight": [
+        {
+          "end": 15,
+          "start": 12
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 9,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 38430
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 3,
+          "tag_local": "Romansa Modern"
+        }
+      ],
+      "collect_count": 1796,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/d3c31329650bbc09d98c6e091273dc56.jpg",
+      "content_tag": [
+        {
+          "id": 19,
+          "tag_local": "Bayi Lucu"
+        },
+        {
+          "id": 25,
+          "tag_local": "Kekuatan Super"
+        },
+        {
+          "id": 14,
+          "tag_local": "Pengembali"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#493737",
+      "cover_url": "https://p.idrama.video/group1/d3c31329650bbc09d98c6e091273dc56.jpg",
+      "current_count": 50,
+      "data_type": "",
+      "favor_count": 187721,
+      "id": 160000641140,
+      "introduction": "Nala Arlo yang berumur 6 tahun memiliki kemampuan membalikkan nasib seseorang. Setelah dia kembali ke sisi ayah kandungnya, Hadi Arlo terbebas dari masalah yang menimpanya. Namun, sejak cinta pertama Hadi kembali, muncul berbagai macam kejadian hingga akhirnya Nala difitnah dan diusir dari rumah.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 204,
+        "episode_cover": "https://p.idrama.video/group1/cf5b0a6380193683e5e576feb837a7ba/ad6d5aa3185e743fda073c6f91babc02.image",
+        "episode_id": 316237,
+        "episode_order": 1,
+        "favor_count": 4010,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 717063,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/cf5b0a6380193683e5e576feb837a7ba/471bec41b7501ece1570ff99659b4e18.m3u8?ts=1781328529&secret=3574c47d96297f292472b56119bb4cdb&usr=v0012218659",
+            "quality": "normal",
+            "size": 19548993,
+            "width": 540
+          },
+          {
+            "bitrate": 996333,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/cf5b0a6380193683e5e576feb837a7ba/ae8356586914d6455f83c611627ca52b.m3u8?ts=1781328529&secret=acd87e5997fd99513161bb5a1a02ebbc&usr=v0012218659",
+            "quality": "normal",
+            "size": 26852417,
+            "width": 720
+          },
+          {
+            "bitrate": 1892963,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 50320833,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/cf5b0a6380193683e5e576feb837a7ba/ae8356586914d6455f83c611627ca52b.m3u8?ts=1781328529&secret=acd87e5997fd99513161bb5a1a02ebbc",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Anak Pengubah Nasib",
+      "short_play_name_highlight": [
+        {
+          "end": 3,
+          "start": 0
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 11,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 14956
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 3,
+          "tag_local": "Romansa Modern"
+        }
+      ],
+      "collect_count": 1743,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/57711f40807a27f1aec96eecf13ea466.jpg",
+      "content_tag": [
+        {
+          "highlight": [
+            {
+              "end": 3,
+              "start": 0
+            }
+          ],
+          "id": 59,
+          "tag_local": "Anak Jenius"
+        },
+        {
+          "id": 18,
+          "tag_local": "Cinta Semalam"
+        },
+        {
+          "id": 24,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 29,
+          "tag_local": "Miliarder"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 215,
+          "tag_local": "Kehamilan"
+        },
+        {
+          "id": 203,
+          "tag_local": "Bayi Rahasia"
+        },
+        {
+          "id": 75,
+          "tag_local": "Ibu Tunggal"
+        },
+        {
+          "id": 14,
+          "tag_local": "Pengembali"
+        },
+        {
+          "id": 66,
+          "tag_local": "Cinta Lama Kembali"
+        },
+        {
+          "id": 13,
+          "tag_local": "Bersatu Kembali"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 17,
+          "tag_local": "Kisah Pemuas Hati"
+        },
+        {
+          "id": 100,
+          "tag_local": "Kebersamaan Kembali"
+        },
+        {
+          "id": 204,
+          "tag_local": "Terlambat"
+        },
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 217,
+          "tag_local": "Rahasia"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 88,
+          "tag_local": "Wanita Kuat"
+        },
+        {
+          "id": 90,
+          "tag_local": "Wanita Mandiri"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "id": 18,
+          "tag_local": "sex"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#5a3f26",
+      "cover_url": "https://p.idrama.video/group1/57711f40807a27f1aec96eecf13ea466.jpg",
+      "current_count": 31,
+      "data_type": "",
+      "favor_count": 117618,
+      "id": 160000641942,
+      "introduction": "Emma difitnah telah kehilangan kesucian, secara tidak sengaja terlibat cinta satu malam dengan orang terkaya Aaron Wilson, kemudian melahirkan lima anak jenius yang imut.\nLima tahun kemudian, dia kembali bersama anak-anak, tepat pada saat Aaron akan bertunangan. Lima anak imut itu memulai misi \"mencari ayah + mempertemukan kedua orangtua\", dengan berbagai cara yang cerdik, membongkar penipuan dan jadi mak comblang.\nSeiring dengan terbukanya kebenaran, bisakah Emma dan Aaron melewati kesalahpahaman di masa lalu dan kembali bersama?",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "en",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 148,
+        "episode_cover": "https://p.idrama.video/group1/3b11a10d925c6f21c6a68017ae095adb/d01dd718b953719e28f7c018b07356cd.image",
+        "episode_id": 752577,
+        "episode_order": 1,
+        "favor_count": 3945,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 733606,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/3b11a10d925c6f21c6a68017ae095adb/9ab4bdef3d22a27abe1e39b70910b5a6.m3u8?ts=1781328529&secret=68130f29e296e5fc64a294e89130ac59&usr=v0012218659",
+            "quality": "normal",
+            "size": 14425059,
+            "width": 540
+          },
+          {
+            "bitrate": 1030913,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/3b11a10d925c6f21c6a68017ae095adb/327451e0dc21f201b9127f3721ac1a58.m3u8?ts=1781328529&secret=34695b0e24c5ab42294ca5e430922a69&usr=v0012218659",
+            "quality": "normal",
+            "size": 20042875,
+            "width": 720
+          },
+          {
+            "bitrate": 1938339,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 37211787,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/3b11a10d925c6f21c6a68017ae095adb/327451e0dc21f201b9127f3721ac1a58.m3u8?ts=1781328529&secret=34695b0e24c5ab42294ca5e430922a69",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/ja/7a57bd8ebd2d81a6228c015d96ef28a3fe8530c5ad57cf32a001b678331dbaac.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/ko/1b771cdbefed33ab0df062aacae46afc8605e82121ef09aebc3e015b1113eba3.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/es/0fb7963f6a61ab96f75c40c6e7932411ab9c0b4f3a467c0611b634b5e1c425ef.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/pt/967302acc439f9f7034e1f3459856b264167f1629d62c3939adbb51c899d0bb0.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/zh-tw/13428dfa562db30507b9bf7b443b376ffde3e72e030a5bfb579e73d2ff80a6b0.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/id/fc9611bb1f0058fb42d81fee921645cd99a4109b5aede14cc8d2c268c9cf7c8b.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/th/a6f4943c165549f61911405fce57006ea4fed79dca2195c83df4949d337fe02c.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/zh/8b13db78489cb7e2d2d6e23e7a1a41b45425a024c2454c507b835b1b1aecf762.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/fr/015fae8800cb97be7d1263150f3c783c07a92a5a4a3c28ea5246b0ad9af2f253.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/de/02dfba64de7a3196cf879da6b6d54aeb64b3e321d64aee92cb8d2cb1988b9c05.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/ja/6951028d9d6d92dbb9696988016777ae68b09c786dc54293502d255d98628f57.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/ko/7a76bcc9cf3c899ecd81578057d28a88ede598264e1e659dc63422d0866249ae.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/es/76a872687562fc8f92d1860acffc0c246c61018f784688a1c1c79ce93778614e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/pt/409e7d2106cfb6e68bf7e9d49a88846caf0f543874fc9be8218934325ac7cf42.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/zh-tw/857009ff5f7729abb3a4c99cabf835519404f87d81f6198bb54b11408a574ab3.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/id/ddf9aa902ea7a2dd3e6d48611ea3ef99ab37860205661e88c1a1744b3cabbb6e.srt3865120087"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/th/ce591e5eac14457146085e383ac258857682f0082b9bfacb96318f37c8a1e4ad.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh",
+            "language_id": 18,
+            "native_language": "简体中文",
+            "sub_id": 18,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/zh/4048f9d0518cfd2a1ad4105f63ede9443bde48f8c1f2fa731e266fe70661c350.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/fr/c3852dec2868c54930451e97c167736175087985a57ccefc335ff2a41067eff4.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/519c84155964659375821f7ca576f095/de/56761c2311384d251e99efccf9c41adddf3ef901b93f4d68b603ed50e9dc8938.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Lima Anak Jenius Cari Ayah",
+      "short_play_name_highlight": [
+        {
+          "end": 8,
+          "start": 5
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 9,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 26928
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 7,
+          "tag_local": "Drama Urban"
+        }
+      ],
+      "collect_count": 2507,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/5f5a626f6afa9b245bb293e52a946ce8.jpg",
+      "content_tag": [
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 28,
+          "tag_local": "Identitas Multi"
+        },
+        {
+          "id": 15,
+          "tag_local": "Pura-pura Rendah"
+        },
+        {
+          "id": 29,
+          "tag_local": "Miliarder"
+        },
+        {
+          "id": 42,
+          "tag_local": "Dewa Perang"
+        },
+        {
+          "id": 24,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 214,
+          "tag_local": "Hubungan Palsu"
+        },
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 114,
+          "tag_local": "Pembalikan Identitas"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 17,
+          "tag_local": "Kisah Pemuas Hati"
+        },
+        {
+          "id": 39,
+          "tag_local": "Komedi"
+        },
+        {
+          "id": 217,
+          "tag_local": "Rahasia"
+        },
+        {
+          "id": 115,
+          "tag_local": "Kembalinya Sang Kuat"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 144,
+          "tag_local": "Pemilik Bisnis"
+        },
+        {
+          "id": 88,
+          "tag_local": "Wanita Kuat"
+        },
+        {
+          "id": 83,
+          "tag_local": "Pengantar Paket"
+        },
+        {
+          "id": 159,
+          "tag_local": "Pengawal"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#5f4921",
+      "cover_url": "https://p.idrama.video/group1/5f5a626f6afa9b245bb293e52a946ce8.jpg",
+      "current_count": 70,
+      "data_type": "",
+      "favor_count": 246002,
+      "id": 160000641913,
+      "introduction": "Tom Sinaro, orang terkaya di dunia, menyamar jadi satpam agar anaknya, Candra Sinaro, tidak menjadi orang kaya tidak berguna. Tanpa diketahui ayahnya, Candra sudah menjadi pemimpin terkenal. Keduanya saling menyembunyikan identitas. Masalah pun muncul ketika mereka bertemu CEO wanita, Kana Sudarsa.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "domestic_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 255,
+        "episode_cover": "https://p.idrama.video/group1/0516c0e8568e601355a83612aecc6022/e528cdfb65a1e11a3401d2f27008dabf.image",
+        "episode_id": 729864,
+        "episode_order": 1,
+        "favor_count": 4284,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 700784,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/0516c0e8568e601355a83612aecc6022/249445429fb4554bb559a574f3b82f8f.m3u8?ts=1781328529&secret=56456b1dab81b946163d897078600fed&usr=v0012218659",
+            "quality": "normal",
+            "size": 23727669,
+            "width": 540
+          },
+          {
+            "bitrate": 971248,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/0516c0e8568e601355a83612aecc6022/d506bd2c7277c7ca0f5c0188f1dc695a.m3u8?ts=1781328529&secret=c33fce0a34a4561461f4c6828da94551&usr=v0012218659",
+            "quality": "normal",
+            "size": 32553141,
+            "width": 720
+          },
+          {
+            "bitrate": 1730768,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 57331729,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/0516c0e8568e601355a83612aecc6022/d506bd2c7277c7ca0f5c0188f1dc695a.m3u8?ts=1781328529&secret=c33fce0a34a4561461f4c6828da94551",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/en/93246b2545ee70f3a0753abed541dda20d37a714f44fa5088365380bd67e918a.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/ja/e16e830ce1928858b5988df137166fbf8b84d16a409ea1c984201e15f2a598f8.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/ko/01a702fbcdbe9c59c1dd01c4df231f9946f306b755158dc5c17c66ad968fe7b7.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/es/ca16bd910819f6985a30480c42ef430a52e0ef422acaa2beb560c8961cbd0510.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/pt/e0e0772f7b468a26e65dbde6f018f2e1ca97d6c382d90ba84cee8fe0dff2c483.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/zh-tw/787aecf5b66c8505f5ac0edcf4fceb59feebad3b74c2b10211963e76637e70a1.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/id/668fa8ef646c81fc3a87928573d9aa4a5b75c26e6e87ed9045a2f45ac0212e57.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/th/6a8d5ff736c36cdb11af299db1815aff6624951b447702aad6fc290489a04e2f.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/fr/a426cb24d05f7f5f739104d44b2c4e902722c05b5e39218fdf875b5f7d7cc9fc.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/de/89757285318316bb1ae9649c98112c4743bc2e00d91786b86bda96acf4adc469.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/en/f1cd602cee339759b329033a3e864e993c08cb1d9c2727f6f1ba512d23986abd.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/ja/7ffe9cfc93245dda4deffdfdefa779f38a5333d36d7cc7d6b56d8283db0ebddb.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/ko/9b9e91037339e6109a97b5ce5217eecbb378d6fd017962e80392b1db29e0cac4.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/es/53cd10f1b71f49c8a4a7a847fab12883ff5c2770ddb023aab8c21a6e59d54c46.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/pt/de709bde1d1a52998311784a9c8094e5fa7d7a8c95bc9ed30475c68dae3af784.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/zh-tw/200dd3b2aeeebe96a616866372964e90282c3dc475b88e676f3db11ae266dcef.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/id/8d85b153cb5b8c3b4d4ff2aa7d1e6979388402af6f28cabebdbfe131737c5286.srt"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/th/eae1d62056ef24ede476e71bd43d4010a7f9ec262f91f2bd88d4b2d5792db9c0.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/fr/c5d72221368ef91b146f85c38430f934edb4acc41b534f980083a09223b23501.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/c44799b04a1c72e3c8593a53e8000c78/de/f2f4248f3844e4b5aff0d4d814250ddc62e56b6cd8cf8ea0abe61bdbacbf0376.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Ayah Naga, Anak Ular",
+      "short_play_name_highlight": [
+        {
+          "end": 14,
+          "start": 11
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 11,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 46224
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 7,
+          "tag_local": "Drama Urban"
+        }
+      ],
+      "collect_count": 1433,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/a5300093391d0b76cab161c4698f1cdb.jpg",
+      "content_tag": [
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 85,
+          "tag_local": "Putri Pewaris"
+        },
+        {
+          "id": 15,
+          "tag_local": "Pura-pura Rendah"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#5F3628",
+      "cover_url": "https://p.idrama.video/group1/a5300093391d0b76cab161c4698f1cdb.jpg",
+      "current_count": 70,
+      "data_type": "",
+      "favor_count": 243784,
+      "id": 160000640566,
+      "introduction": "Gea tidak sengaja menjalin hubungan satu malam dengan ayah mantannya, Rivan. Saat mantan dan pacar barunya pulang, mereka memergoki Gea kabur panik dan menuduhnya masih terobsesi. Ketika Gea hamil dan diperiksa di rumah sakit, sang mantan marah. Hingga ketika Rivan muncul, membuat semua terpaku kaget.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 87,
+        "episode_cover": "https://p.idrama.video/group1/33f2804de6e5d94766875688f04b0ffd/47ad10c9c3ffd60b9b259e3932c7eae1.image",
+        "episode_id": 213182,
+        "episode_order": 1,
+        "favor_count": 3605,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 1049331,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/33f2804de6e5d94766875688f04b0ffd/27569b2197ac67a6ffadb30a4431881b.m3u8?ts=1781328529&secret=a96fd9e3a909af6c1f3a416565444b31&usr=v0012218659",
+            "quality": "normal",
+            "size": 12047595,
+            "width": 540
+          },
+          {
+            "bitrate": 1479520,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/33f2804de6e5d94766875688f04b0ffd/99392c315b0e7a01ee3801496fd85a96.m3u8?ts=1781328529&secret=9386ffdacec5c2061bfa0616745e2291&usr=v0012218659",
+            "quality": "normal",
+            "size": 16857951,
+            "width": 720
+          },
+          {
+            "bitrate": 2615309,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 29549079,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/33f2804de6e5d94766875688f04b0ffd/99392c315b0e7a01ee3801496fd85a96.m3u8?ts=1781328529&secret=9386ffdacec5c2061bfa0616745e2291",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Rahasia Ayah dan Anak Super",
+      "short_play_name_highlight": [
+        {
+          "end": 20,
+          "start": 17
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 12,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 79897
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 60,
+      "category_tag": [
+        {
+          "id": 7,
+          "tag_local": "Drama Urban"
+        }
+      ],
+      "collect_count": 659,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/86400ed28156d25ffc542eb29bbdc9fb.jpg",
+      "content_tag": [
+        {
+          "id": 36,
+          "tag_local": "Setelah Perceraian"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 30,
+          "tag_local": "Balas Dendam"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#523c2e",
+      "cover_url": "https://p.idrama.video/group1/86400ed28156d25ffc542eb29bbdc9fb.jpg",
+      "current_count": 47,
+      "data_type": "",
+      "favor_count": 168473,
+      "id": 160000640240,
+      "introduction": "Putra sulung Keluarga Yudharma, Ardan Yudharma, hilang ketika masih kecil. Untuk menutupi luka itu, kedua orang tuanya mengadopsi seorang anak bernama Juna Yudharma.\nBeberapa tahun kemudian, Ardan akhirnya ditemukan dan kembali ke rumah. Namun bukannya mendapatkan kasih sayang, ia justru disisihkan. Seluruh keluarga lebih memihak Juna dalam segala hal.\nHingga suatu hari, Juna membakar sebuah gedung dan menimbulkan kekacauan besar. Demi melindungi anak angkat mereka, keluarga itu justru menuduh Ardan sebagai pelakunya dan memaksa seluruh kesalahan ditanggung olehnya.\nArdan pun menjadi kambing hitam keluarga sendiri—semua itu hanya karena mereka lebih memilih anak yang bukan darah daging mereka.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 138,
+        "episode_cover": "https://p.idrama.video/group1/86087f5cc0e32044ad69a0c2c1fd5412/73168433c046da82fb57ab959355adda.image",
+        "episode_id": 316755,
+        "episode_order": 1,
+        "favor_count": 2166,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 1154595,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/86087f5cc0e32044ad69a0c2c1fd5412/8fdb801239c0a5549192d7fa930051b1.m3u8?ts=1781328529&secret=4b2f1bd817b89fcf8972ad81494d146e&usr=v0012218659",
+            "quality": "normal",
+            "size": 20979457,
+            "width": 540
+          },
+          {
+            "bitrate": 1638805,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/86087f5cc0e32044ad69a0c2c1fd5412/0d8498ebbb6d7cfd1d525b1cf0d0c9fa.m3u8?ts=1781328529&secret=1148d984e35da9592ae8834acf0f4d38&usr=v0012218659",
+            "quality": "normal",
+            "size": 29551693,
+            "width": 720
+          },
+          {
+            "bitrate": 2820122,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 50489441,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/86087f5cc0e32044ad69a0c2c1fd5412/0d8498ebbb6d7cfd1d525b1cf0d0c9fa.m3u8?ts=1781328529&secret=1148d984e35da9592ae8834acf0f4d38",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Ketika Keluargaku Memilih Anak Itu",
+      "short_play_name_highlight": [
+        {
+          "end": 29,
+          "start": 26
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 14,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 18445
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 5,
+          "tag_local": "Drama Keluarga"
+        }
+      ],
+      "collect_count": 760,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/b9d2de3c0fe9b26597555afff912e13c.jpg",
+      "content_tag": [
+        {
+          "id": 212,
+          "tag_local": "Moral & Etika"
+        },
+        {
+          "id": 206,
+          "tag_local": "Karma"
+        },
+        {
+          "id": 44,
+          "tag_local": "Keluarga Berantakan"
+        },
+        {
+          "id": 69,
+          "tag_local": "Penyesalan yang Terlambat"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#523c2d",
+      "cover_url": "https://p.idrama.video/group1/b9d2de3c0fe9b26597555afff912e13c.jpg",
+      "current_count": 51,
+      "data_type": "",
+      "favor_count": 170870,
+      "id": 160000641451,
+      "introduction": "Untuk menyelamatkan ibu yang lumpuh dari penculikan, Dewi kehilangan kehormatannya dan dipuji netizen sebagai “anak yang paling berbakti”. Lima tahun kemudian, sang ibu justru memberikan seluruh tabungan pensiunnya pada mantan penjahat itu dan memaksa putrinya merawatnya.\nKetika ibu dan seorang jurnalis memulai siaran rahasia untuk memamerkan “pengabdian” putrinya, netizen marah pada sang ibu yang dianggap “gila cinta”. Namun, semua kemarahan itu berbalik arah ketika tindakan sebenarnya Dewi akhirnya terungkap — membongkar wajah asli di balik kedok kesalehan yang selama ini dipujikan.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "domestic_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 195,
+        "episode_cover": "https://p.idrama.video/group1/95b963fdac9837e1899f7a329b004b5a/7e0bf8c01679ee8bb33c437ec1f4aa68.image",
+        "episode_id": 502777,
+        "episode_order": 1,
+        "favor_count": 3717,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 571232,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/95b963fdac9837e1899f7a329b004b5a/dc0300a71c826c21406aea619b08900f.m3u8?ts=1781328529&secret=e122c189d9e66204bc983f68e74e03c5&usr=v0012218659",
+            "quality": "normal",
+            "size": 14917597,
+            "width": 540
+          },
+          {
+            "bitrate": 794276,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/95b963fdac9837e1899f7a329b004b5a/5cc4aa9f61a802de8b01c6dc5d4bc320.m3u8?ts=1781328529&secret=b9a25517841e4052686deffea19819e5&usr=v0012218659",
+            "quality": "normal",
+            "size": 20482585,
+            "width": 720
+          },
+          {
+            "bitrate": 1424495,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 36201641,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/95b963fdac9837e1899f7a329b004b5a/5cc4aa9f61a802de8b01c6dc5d4bc320.m3u8?ts=1781328529&secret=b9a25517841e4052686deffea19819e5",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/en/1a81b75fb072abb9d6533dd9b5878209f571dda785442d17d1c8d3a76b574a75.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/ja/9184af687c46c48463ddcbda285d69f497936d325bb85e09c582ea8bb03a72dd.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/ko/73d00515a262b271ee15808d894cd4e77d98f62b8688b3583f418df85fa400d2.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/es/2f0e288ffd55ffeab9278b17ccfada6df38502e56128b42524935ae7f0536f14.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/pt/b745f359de4458bc9b7979888be7cbb4c2d80bc6d55b62ddafc7f3cf54bdd6ba.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/id/08f27b3e8b516478a8590e7d919ff5372bc72da75d927220179431a58313dca3.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/th/88977642605aa51a6d5eb4056aa08c5cb8e12b56dcf6cfb1d2434bf32a4873a4.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/en/8fef94a7d7634ae6e33c82ef07978696f51bb0199881250b3d7fe6eafffe4d38.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/ja/a5a514f42a2763cd76b25cfcb6b4690cb1801fd3d4ccb45c8578d62864cb8ae1.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/ko/78f5ece954d8c26058453a2982d43a87480ff03ee5b264418bfb9430ba07c36b.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/es/7b00527d14ae6607002bd05a2a6a8a089fe249e10d193aa9e73072663e3ff9b4.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/pt/874638194f8468b74a0ddda5630121a97004b29fb0a2f8f242a4fb7fbec7c1bf.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/id/98564d235f7b92d0f19f907b8d9d7c417ef7159191e12d41a6b83bc4da288629.srt1722013416"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/80a8155eb153025ea1d513d0b2c4b675/th/45137ea837acbcf34953e843a85d542831ad14912ca82bc3fb379ec4abb25954.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Di Balik Topeng Anak yang Bakti",
+      "short_play_name_highlight": [
+        {
+          "end": 19,
+          "start": 16
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 8,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 19009
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 5,
+          "tag_local": "Drama Keluarga"
+        }
+      ],
+      "collect_count": 1196,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/47439842eec7c0bb4045d7b6ac3ee4ba.jpg",
+      "content_tag": [
+        {
+          "id": 44,
+          "tag_local": "Keluarga Berantakan"
+        },
+        {
+          "id": 148,
+          "tag_local": "Mahasiswa"
+        },
+        {
+          "id": 206,
+          "tag_local": "Karma"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#603b20",
+      "cover_url": "https://p.idrama.video/group1/47439842eec7c0bb4045d7b6ac3ee4ba.jpg",
+      "current_count": 60,
+      "data_type": "",
+      "favor_count": 210893,
+      "id": 160000641381,
+      "introduction": "Penerimaan di Universitas Jiangbei ternyata bukan awal kebebasan bagi Nan Xia, melainkan awal pengawasan total. Ibunya, Liu Jing, menggunakan fitur “pembayaran intim” untuk mengontrol setiap pengeluaran, pertemanan, bahkan jadwal hariannya.\nDi bawah tekanan dan rasa malu yang konstan di depan teman sekelas, Nan Xia yang selalu patuh mulai mencapai batasnya. Dukungan dari senior Zhou Jingyang mungkin menjadi satu-satunya cahaya, tetapi apakah itu cukup untuk membantunya memutuskan rantai kontrol dan akhirnya hidup untuk dirinya sendiri?",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "domestic_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 279,
+        "episode_cover": "https://p.idrama.video/group1/e20f404e21cdbdafe0b492bd35b79b25/d656002e45f4038183df674dcaacbf17.image",
+        "episode_id": 471123,
+        "episode_order": 1,
+        "favor_count": 2272,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 636727,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/e20f404e21cdbdafe0b492bd35b79b25/e9e0d8a701e08308778feea85d5d22b3.m3u8?ts=1781328529&secret=f323dac52079e2a493877d9c9e298791&usr=v0012218659",
+            "quality": "normal",
+            "size": 23678105,
+            "width": 540
+          },
+          {
+            "bitrate": 875690,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/e20f404e21cdbdafe0b492bd35b79b25/75a8e7f3f7e450ce0785441064b8b459.m3u8?ts=1781328529&secret=e6388bf14c83709999ddad7dda3894a0&usr=v0012218659",
+            "quality": "normal",
+            "size": 32209921,
+            "width": 720
+          },
+          {
+            "bitrate": 1485600,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 53973177,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/e20f404e21cdbdafe0b492bd35b79b25/75a8e7f3f7e450ce0785441064b8b459.m3u8?ts=1781328529&secret=e6388bf14c83709999ddad7dda3894a0",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/en/7b12f33ce021ac1340644f23272b9850004c80ead83518d81671f76ba308fbdc.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/ja/1e3c2ab0ba29af33340ede4bb7fa7f5848a5e0954da68f51d29152e2522727ed.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/es/b89e5ff241242d34a3c5c78918c53a5c1bbd00210af8d0a827614b4c77e49424.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/pt/ad26d324e1648d38584e513e37ea190128813477d506166e0b163782fd6dd66a.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/id/2be0b0fed7b2e7ad8f26fe0855906113e588375db6c1370c12af3b9951a179d7.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/th/bbd335ec1b87be6080fba70e24b1db822a84dac8e77a46ded41be4b11f38b83b.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ar",
+            "language_id": 21,
+            "native_language": "العربية",
+            "sub_id": 21,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/ar/c5f37d80b134a7ad6fe6045905624730703daeac15fdac95844f8a08fe40953a.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/en/50bd25d44bff8fb8b813b7338b730ec7bcf22e7accaf0b7123f2d545f6affc34.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/ja/6825b9a9fdbb44204660c89105ce4fa81fd5617855934f23b6f50747c0f97a9c.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/es/1c1626bf41bf6d92039d092257c0c2292ec3d42373616b93e39c9d7e3a59efcb.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/pt/0b6e9989b3f8caedfc603bc1cb11f3f3374c00d15481515b0298415b158f868f.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/id/2e7bb76bd389e3adbd4f41a830690843610a6f0a57b78d8c7e5c19d1f56f2f9e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/th/bf3f117ebe2d02cf15cf647fa2b3f06c448e8c84030a59829994ef7c2c32cedf.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ar",
+            "language_id": 21,
+            "native_language": "العربية",
+            "sub_id": 21,
+            "url": "https://v-a.idrama.video/d82118376df344b0010f53909b961db3/ar/fbede823c587878adc9e08ba1a14beff24b226fc485765ecbdd058ca87ebb57b.srt660125375"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Anak Perempuan Sempurna Itu  Memberontak",
+      "short_play_name_highlight": [
+        {
+          "end": 3,
+          "start": 0
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 11,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 18712
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 3,
+          "tag_local": "Romansa Modern"
+        }
+      ],
+      "collect_count": 1228,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/0df2a4a1c9d6041c2d1846058f2220b3.jpg",
+      "content_tag": [
+        {
+          "id": 27,
+          "tag_local": "Hidup Kedua"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 88,
+          "tag_local": "Wanita Kuat"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#593327",
+      "cover_url": "https://p.idrama.video/group1/0df2a4a1c9d6041c2d1846058f2220b3.jpg",
+      "current_count": 62,
+      "data_type": "",
+      "favor_count": 214548,
+      "id": 160000641330,
+      "introduction": "Citra tewas demi menyelamatkan sahabatnya, lalu bereinkarnasi sebagai anak Mina. Dalam wujud arwah bayi, dia menyelamatkan Mina dari keputusasaan dan memulai balas dendam. Ibu dan anak ini bekerja sama melawan pria licik dan putri palsu, serta merebut kembali segalanya.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 136,
+        "episode_cover": "https://p.idrama.video/group1/27ad1a870dede1e01289243158814a41/1b095eddc8d45ff60d9b2c6885218e5c.image",
+        "episode_id": 411166,
+        "episode_order": 1,
+        "favor_count": 3705,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 624287,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/27ad1a870dede1e01289243158814a41/7ddfd40f49732af7d0d8bec13445fe0e.m3u8?ts=1781328529&secret=243b785bffa73c4ecb3b77c90a35dec4&usr=v0012218659",
+            "quality": "normal",
+            "size": 11405369,
+            "width": 540
+          },
+          {
+            "bitrate": 853034,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/27ad1a870dede1e01289243158814a41/e79d34177342da17d284661ec42ea654.m3u8?ts=1781328529&secret=72b295122146bd1f2ab8de700fb4b7bb&usr=v0012218659",
+            "quality": "normal",
+            "size": 15400745,
+            "width": 720
+          },
+          {
+            "bitrate": 1505333,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 26778129,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/27ad1a870dede1e01289243158814a41/e79d34177342da17d284661ec42ea654.m3u8?ts=1781328529&secret=72b295122146bd1f2ab8de700fb4b7bb",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Balas Dendam Ibu dan Anak",
+      "short_play_name_highlight": [
+        {
+          "end": 24,
+          "start": 21
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 13,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 24848
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 5,
+          "tag_local": "Drama Keluarga"
+        }
+      ],
+      "collect_count": 1083,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/01f15edc9629b02f17a3f3276c2263ff.jpg",
+      "content_tag": [
+        {
+          "id": 20,
+          "tag_local": "Keluarga Kaya"
+        },
+        {
+          "id": 30,
+          "tag_local": "Balas Dendam"
+        },
+        {
+          "id": 44,
+          "tag_local": "Keluarga Berantakan"
+        },
+        {
+          "id": 45,
+          "tag_local": "Perselingkuhan"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 116,
+          "tag_local": "Karier"
+        },
+        {
+          "id": 121,
+          "tag_local": "Pernikahan"
+        },
+        {
+          "id": 17,
+          "tag_local": "Kisah Pemuas Hati"
+        },
+        {
+          "id": 206,
+          "tag_local": "Karma"
+        },
+        {
+          "id": 212,
+          "tag_local": "Moral & Etika"
+        },
+        {
+          "id": 217,
+          "tag_local": "Rahasia"
+        },
+        {
+          "id": 36,
+          "tag_local": "Setelah Perceraian"
+        },
+        {
+          "id": 108,
+          "tag_local": "CEO"
+        },
+        {
+          "id": 144,
+          "tag_local": "Pemilik Bisnis"
+        },
+        {
+          "id": 88,
+          "tag_local": "Wanita Kuat"
+        },
+        {
+          "id": 90,
+          "tag_local": "Wanita Mandiri"
+        },
+        {
+          "id": 2,
+          "tag_local": "Wanita"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#593a27",
+      "cover_url": "https://p.idrama.video/group1/01f15edc9629b02f17a3f3276c2263ff.jpg",
+      "current_count": 69,
+      "data_type": "",
+      "favor_count": 238085,
+      "id": 160000641947,
+      "introduction": "Presiden Grup Sinar, Siska Permata, menghadiri peresmian kantor hukum suaminya Hendra sekaligus memberinya mobil Porsche dan kartu hitam.\n\nTanpa diduga, putri mereka Sari mengalami luka parah setelah ditabrak kendaraan mewah. Ternyata, pelaku tabrak lari itu adalah Hasan, anak haram Hendra bersama selingkuhannya Maya Lestari.\n\nSiska melakukan penyelidikan bertahap dan mengungkap kebenaran bahwa Hendra telah berselingkuh selama dua puluh tahun, menyalahgunakan dana grup, serta melindungi anak haramnya.\n\nMenghadapi pengkhianatan dan ancaman, ia tidak lagi bersabar. Ia mengumpulkan bukti kesalahan, mengungkap semuanya dalam rapat pemegang saham, hingga akhirnya membuat Hendra, Maya, dan Hasan menanggung hukuman hukum, sekaligus melindungi hak diri dan putrinya.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "domestic_self_made",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 222,
+        "episode_cover": "https://p.idrama.video/group1/5ead2d4791bf1205896d1caf54be8526/6fb028e73bef21bf31eac2f4e076e9fc.image",
+        "episode_id": 799646,
+        "episode_order": 1,
+        "favor_count": 3608,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 818101,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/5ead2d4791bf1205896d1caf54be8526/4d3c7baee80494b6e5f76345f9c6ea10.m3u8?ts=1781328529&secret=400f70b3f56a19c7c1bae172f1391236&usr=v0012218659",
+            "quality": "normal",
+            "size": 24651194,
+            "width": 540
+          },
+          {
+            "bitrate": 1155636,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/5ead2d4791bf1205896d1caf54be8526/2f97d8d14fc514710504d510ac2b3668.m3u8?ts=1781328529&secret=dc1d84ed567a40e37952d50c0eeb016e&usr=v0012218659",
+            "quality": "normal",
+            "size": 34260814,
+            "width": 720
+          },
+          {
+            "bitrate": 2084720,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 60700194,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/5ead2d4791bf1205896d1caf54be8526/2f97d8d14fc514710504d510ac2b3668.m3u8?ts=1781328529&secret=dc1d84ed567a40e37952d50c0eeb016e",
+        "played": false,
+        "screentext_list": [
+          {
+            "format": "webvtt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/en/55ed747601a19af90b7b8f179bba8e969a7fbadc6dabdd76131dbd45ce113abd.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/ja/186f75f9e9ad3702db033aa292411fa27bd4a2416849f6ef33ee74a87e03d895.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/ko/261a9ccd8dad8489ff3b42c008108fe94f95bb8314c95dab423713ad3e5c48f4.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/es/4054d2a706a330447fcc56f004254539817374f161d98e85ad6129bbbb8ea9d4.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/pt/75f61b3252ebab1475dc5040730be8c8e063603f286d7214e207a75657290b2b.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/zh-tw/943dfec44e9ce7bb2d1bee0f4f798946818fd8e48d7852e8878d1c59b1ce4005.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/id/20a8012f014bc3aab07af197f548259c9a313020033918eb8f79516bf38d5ca8.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/th/808c0cdba635723c1bb0cc3a725c620f7dd56b9774dbab4db959c64e508f239c.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/fr/5a0d7aa58cae4752424884f7ebdd3a97aea7f5e72b734d3e33b6e8dd174c6280.vtt"
+          },
+          {
+            "format": "webvtt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/de/d42fea8ffa00474eef5e1025efecbdbba03953d9ff509ac0ee02adb16e8de7fd.vtt"
+          }
+        ],
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/en/895a2bb18c9f91376ceaddaa77dea9208a5d6067b3f8281bc709b635cbeac0a3.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/ja/4e42af2739787517fec98083aac5789163c4e2b72ddf75c089e8e2ba482a5eb2.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/ko/6c8556b5850abe41baf4108fe4eac8b9339f84be09fce9c665f133474b80bc2a.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/es/7fd6c0e80bd60806fd9c882275f17a207cd9ad29fedcb4984d5aab7e15acf641.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/pt/3061e6db0d253058654dd4995090a5531ec2b723425ff448b1e1938e711da26b.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/zh-tw/2d311e4d2912d0533458081dcf61731610be4282ff30ede514cecc4d1da4e010.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/id/6b0cc05c1ebc8907d246fa77757674f02c9af41cf2b2a4df0f4e1dd726c56059.srt2170598535"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/th/78386397f23be4afac57991a0c980219141377a4eb433175cbfd0a12c4cb83f7.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/fr/aaa9db1ed452ae3f2eaac11160a81a4584b117e1c61092868349aaa56de0ae8d.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/de03beffeed9da5f3639a621bcab5dd4/de/62219d9d0d83a7ef8ffdf73ea5ab74d50b438330b8e04e3b9d6995d3083ae4cc.srt"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Demi Anak Aku Bangkit Balas Dendam",
+      "short_play_name_highlight": [
+        {
+          "end": 8,
+          "start": 5
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 9,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 20629
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 107,
+          "tag_local": "Fantasi Ajaib"
+        }
+      ],
+      "collect_count": 1708,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/74813e95f9673965f291110a55e6e7b0.jpg",
+      "content_tag": [
+        {
+          "id": 35,
+          "tag_local": "Perjalanan Waktu"
+        },
+        {
+          "id": 40,
+          "tag_local": "Sistem"
+        },
+        {
+          "id": 25,
+          "tag_local": "Kekuatan Super"
+        },
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 216,
+          "tag_local": "Perisai Plot"
+        },
+        {
+          "id": 215,
+          "tag_local": "Kehamilan"
+        },
+        {
+          "id": 101,
+          "tag_local": "Kisah Harem"
+        },
+        {
+          "id": 67,
+          "tag_local": "Kisah Petualangan"
+        },
+        {
+          "id": 207,
+          "tag_local": "Pertumbuhan Diri"
+        },
+        {
+          "id": 114,
+          "tag_local": "Pembalikan Identitas"
+        },
+        {
+          "id": 42,
+          "tag_local": "Dewa Perang"
+        },
+        {
+          "id": 17,
+          "tag_local": "Kisah Pemuas Hati"
+        },
+        {
+          "id": 96,
+          "tag_local": "Drama Pembalikan Nasib"
+        },
+        {
+          "id": 58,
+          "tag_local": "Cerita Misteri"
+        },
+        {
+          "id": 117,
+          "tag_local": "Bersemangat"
+        },
+        {
+          "id": 151,
+          "tag_local": "Yang Terpilih"
+        },
+        {
+          "id": 94,
+          "tag_local": "Yang tidak diunggulkan"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Anime"
+        },
+        {
+          "tag_local": "animasi"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#474438",
+      "cover_url": "https://p.idrama.video/group1/74813e95f9673965f291110a55e6e7b0.jpg",
+      "current_count": 71,
+      "data_type": "",
+      "favor_count": 249478,
+      "id": 160000641822,
+      "introduction": "Nando, seorang kurir makanan, mengalami kecelakaan lalu lintas dan secara tak terduga terlempar ke dunia fantasi. Dunia ini diselimuti kabut misterius, jumlah laki-laki sangat sedikit dan daya reproduksi mereka menurun drastis, sementara para wanita mampu membangkitkan kekuatan super dan menjadi penguasa dunia. Begitu tiba, ia langsung diperbudak dan dibeli oleh saudari kembar Kimmy dan Anna dengan harga seratus koin tembaga.\nTujuan sebenarnya kedua saudari ini adalah agar Nando menggantikan Baron Gillian yang sudah tua dan tidak mampu bereproduksi untuk melakukan pembuahan, guna mempertahankan gelar bangsawan dan wilayah warisan yang akan mereka peroleh. Tugas aneh ini secara tak terduga memicu \"Sistem Banyak Anak Banyak Rezeki\". Melalui peningkatan tingkat kasih sayang target, Nando bisa mendapatkan hadiah peningkatan kekuatan.\nSaat pertama kali memasuki pekarangan bangsawan, Nando dihadapkan pada provokasi dari kepala budak Happy. Berkat \"Penguatan Fisik Tingkat Pertama\" yang dibuka sistem, ia dengan mudah menang dan menjadi kepala budak yang baru, sekaligus mendapatkan kasih sayang awal dari saudari Kurnia. Tak lama kemudian, Jax, keponakan sang baron, berulang kali mencari gara untuk memperebutkan gelar. Nando maju ke depan dan dengan kekuatan Tingkat Kedua membunuh para pengawalnya secara instan, membuat semua orang terkejut dan takut.\nKetika pergi ke belakang gunung untuk mengambil hadiah misterius dari sistem, Nando menyelamatkan seorang wanita berambut merah berpakaian merah bernama Lisa yang sedang pingsan. Tanpa diduga, ia ternyata adalah Komisaris Wilayah Utara. Lisa berterima kasih atas pertolongan itu dan mengangkatnya menjadi Baron Batu Hitam, mengubah status budaknya secara permanen.\nSeiring dengan peningkatan kekuatan, Nando terlibat dalam persaingan berbagai kekuatan: Perhimpunan Kabut menganggapnya sebagai harta karun laki-laki pembangkit kekuatan, mengirim Cecilia, Yarena dan orang lain untuk menculiknya; sedangkan Ratu Gereja Suci Avis ingin menjadikannya alat reproduksi, dan memaksanya menembus Tingkat Kesembilan dalam waktu satu tahun dengan syarat melindungi orang-orang di sekelilingnya.\nNando terus tumbuh di tengah tekanan, membangkitkan kemampuan seperti Penguasaan Elemen Api. Saat mencapai Tingkat Keempat, ia membunuh Raja Singa Ekor Kalajengking Dua Kepala tingkat lima. Ketika Tingkat Keenam, ia memusnahkan seluruh gerombolan binatang aneh termutasi. Selama ini, ia menjalin ikatan emosi yang dalam dengan Lisa, saudari kembar Kurnia, Natasha dan beberapa wanita lainnya, yang masing-masing melindunginya atau berjuang berdampingan dengannya.\nPuncak cerita terjadi satu demi satu: Nando mengungkap konspirasi Ratu Binatang yang menyamar sebagai pembangkit kekuatan generasi pertama, menelan energinya dan menembus ke Tingkat Kesembilan. Setelah itu, ia mengalahkan Kaisar Binatang yang telah diparasit, dan mengetahui kebenaran tragis bahwa kabut berasal dari tubrukan dunia binatang aneh, dan Kaisar Binatang awalnya adalah pembangkit kekuatan generasi pertama.\nPada akhirnya, menghadapi Dewa Binatang sebagai Bos terakhir, Nando membakar umurnya untuk membuka Darah Kaisar Manusia, menghancurkannya dengan api putih. Lalu, atas nama Kaisar Manusia, ia mengeluarkan kekuatan pemurnian, menghilangkan kabut yang menyelimuti Biru Laut selama dua ratus tahun, mengembalikan kehidupan ke bumi.\nTiga bulan kemudian, dunia kembali damai, ladang gandum luas berhiaskan hijau, asap mengepul dari desa-desa, dan semua orang menjalani kehidupan tenteram. Namun, kabar yang dibawa oleh utusan kerajaan memecah ketenangan — dua orang dari Timur yang datang dari luar kabut tiba untuk bertemu, meninggalkan pertanyaan baru, menandakan dunia yang lebih luas dan tantangan tak dikenal sedang menanti Nando.\n\nSeluruh alur cerita berpusat pada perjalanan Nando dari budak menjadi Kaisar Manusia yang menyelamatkan dunia, memadukan unsur transportasi silang dunia, sistem, kekuatan super, persaingan berbagai kekuatan dan ikatan emosi. Dengan alur yang padat dan momen klimaks yang sering muncul, cerita ini menampilkan petualangan fantasi tentang kelangsungan hidup, pertumbuhan dan perlindungan.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 2,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 115,
+        "episode_cover": "https://p.idrama.video/group1/ee627636d66ebef98bbca26383dcbebf/ca4a31467ca08745dd84291e467d16b5.image",
+        "episode_id": 680619,
+        "episode_order": 1,
+        "favor_count": 2094,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 998212,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 540,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/ee627636d66ebef98bbca26383dcbebf/077499be054dd27a9802961ff78151ef.m3u8?ts=1781328529&secret=4ba16c68efed39e64bea3e81900e4667&usr=v0012218659",
+            "quality": "normal",
+            "size": 15217565,
+            "width": 960
+          },
+          {
+            "bitrate": 1397927,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 720,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/ee627636d66ebef98bbca26383dcbebf/85feac37b0d4a136f594314462eadb5f.m3u8?ts=1781328529&secret=246cc7c9396eccdb83cab50a91f55eba&usr=v0012218659",
+            "quality": "normal",
+            "size": 21133173,
+            "width": 1280
+          },
+          {
+            "bitrate": 2334904,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1080,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 35004189,
+            "width": 1920
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/ee627636d66ebef98bbca26383dcbebf/85feac37b0d4a136f594314462eadb5f.m3u8?ts=1781328529&secret=246cc7c9396eccdb83cab50a91f55eba",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": [
+          {
+            "format": "srt",
+            "language": "en",
+            "language_id": 10,
+            "native_language": "English",
+            "sub_id": 10,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/en/3a7cae6be123a4e1588a1eb1c55b2e3de5d5e204d51a63c6ae9677743cc894b6.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ja",
+            "language_id": 11,
+            "native_language": "日本語",
+            "sub_id": 11,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/ja/70435fa21687f911c9c66fa4adc958ff0538226ea807d0918f3033ace3ba467e.srt"
+          },
+          {
+            "format": "srt",
+            "language": "ko",
+            "language_id": 12,
+            "native_language": "한국어",
+            "sub_id": 12,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/ko/e813c26a2c0233c44c128ff984a418ca3322880392dd21ab8d29b20d8ab400c8.srt"
+          },
+          {
+            "format": "srt",
+            "language": "es",
+            "language_id": 13,
+            "native_language": "Español",
+            "sub_id": 13,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/es/c0d03582f2d797ae150e8171ce7473caaab1fbf8c8114b960b944de9273e2943.srt"
+          },
+          {
+            "format": "srt",
+            "language": "pt",
+            "language_id": 14,
+            "native_language": "Português",
+            "sub_id": 14,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/pt/5a789d2659bc784a7987e31c1158fc68a6a9fa2c33e23464542cf2bb8ac6a8f4.srt"
+          },
+          {
+            "format": "srt",
+            "language": "zh-tw",
+            "language_id": 15,
+            "native_language": "繁體中文",
+            "sub_id": 15,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/zh-tw/ee0123e22e4818b7986b1216c869434667616e336b872a2f84c172f03d0eb1f1.srt"
+          },
+          {
+            "format": "srt",
+            "language": "id",
+            "language_id": 16,
+            "native_language": "Bahasa Indonesia",
+            "sub_id": 16,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/id/d3a4d3a4307f30f63562b887cb59e8ec35ddb26b924b96c5b0941bba248f9507.srt3568975296"
+          },
+          {
+            "format": "srt",
+            "language": "th",
+            "language_id": 17,
+            "native_language": "ไทย",
+            "sub_id": 17,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/th/17aa66424e0dde6baff4b75d6935270e51a7de87a333f994711816b93d9e04d2.srt"
+          },
+          {
+            "format": "srt",
+            "language": "fr",
+            "language_id": 19,
+            "native_language": "Français",
+            "sub_id": 19,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/fr/8e94c6a0e1c663ad2e3c67433372cdcc1755f1cc11924565a8a30bd59d396390.srt"
+          },
+          {
+            "format": "srt",
+            "language": "de",
+            "language_id": 20,
+            "native_language": "Deutsch",
+            "sub_id": 20,
+            "url": "https://v-a.idrama.video/0e087ec55dcbe7b2d7992d6b69b519fb/de/3498112cad663061627eeab907a60fc269fd0b2b48928c528508f11859e14073.srt2062433460"
+          }
+        ],
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Sistem Banyak Anak: Dari Budak Jadi Kaisar",
+      "short_play_name_highlight": [
+        {
+          "end": 17,
+          "start": 14
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 19,
+      "total_duration_s": 0,
+      "video_orientation": 2,
+      "view_count": 58848
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 136,
+          "tag_local": "Drama Keluarga"
+        }
+      ],
+      "collect_count": 1197,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/82085b66bd3f8cff3f8f755c91b87a70.jpg",
+      "content_tag": [
+        {
+          "id": 99,
+          "tag_local": "Balik dari Kekalahan"
+        },
+        {
+          "id": 118,
+          "tag_local": "Aksi"
+        },
+        {
+          "id": 34,
+          "tag_local": "Kebangkitan"
+        },
+        {
+          "id": 206,
+          "tag_local": "Karma"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Original"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "",
+      "cover_theme_color": "#603c20",
+      "cover_url": "https://p.idrama.video/group1/82085b66bd3f8cff3f8f755c91b87a70.jpg",
+      "current_count": 63,
+      "data_type": "",
+      "favor_count": 216716,
+      "id": 160000641434,
+      "introduction": "Handi Jarta, mantan Raja Tinju tak terkalahkan, jatuh ke jurang hidup setelah dikhianati dan kehilangan putrinya. Menjadi kurir makanan, ia menemukan harapan saat melindungi gadis kecil bernama Mimi. Ketika gadis itu diculik sindikat kejam, Handi bangkit, mengepalkan tinju demi penebusan dan keadilan.",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 184,
+        "episode_cover": "https://p.idrama.video/group1/11b9d9c3047adbf02bbf3cd34603b944/2d0ab7f6161924f2292276d1870f1c1c.image",
+        "episode_id": 456294,
+        "episode_order": 1,
+        "favor_count": 3869,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 825471,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/11b9d9c3047adbf02bbf3cd34603b944/2723d1d6a4c668fd588acfb03d0dcd66.m3u8?ts=1781328529&secret=9797f2db7461ea862e9ecbef0088b40d&usr=v0012218659",
+            "quality": "normal",
+            "size": 20090929,
+            "width": 540
+          },
+          {
+            "bitrate": 1154794,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/11b9d9c3047adbf02bbf3cd34603b944/63ca193f1311eb51f9247d3de78a4e83.m3u8?ts=1781328529&secret=1914d7bbc5482103ab9cc58a1822122a&usr=v0012218659",
+            "quality": "normal",
+            "size": 27844049,
+            "width": 720
+          },
+          {
+            "bitrate": 2068350,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 49338841,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/11b9d9c3047adbf02bbf3cd34603b944/63ca193f1311eb51f9247d3de78a4e83.m3u8?ts=1781328529&secret=1914d7bbc5482103ab9cc58a1822122a",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "Sang Juara Bangkit Lagi Demi Anak",
+      "short_play_name_highlight": [
+        {
+          "end": 32,
+          "start": 29
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 9,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 25108
+    },
+    {
+      "alias_name": "",
+      "alias_name_highlight": null,
+      "base_price": 50,
+      "category_tag": [
+        {
+          "id": 7,
+          "tag_local": "Drama Urban"
+        }
+      ],
+      "collect_count": 16994,
+      "collect_type": "",
+      "collected": false,
+      "compress_cover_url": "https://p.idrama.video/group1/a5300093391d0b76cab161c4698f1cdb.jpg",
+      "content_tag": [
+        {
+          "id": 23,
+          "tag_local": "Identitas Tersembunyi"
+        },
+        {
+          "id": 85,
+          "tag_local": "Putri Pewaris"
+        },
+        {
+          "id": 15,
+          "tag_local": "Pura-pura Rendah"
+        },
+        {
+          "id": 1,
+          "tag_local": "Pria"
+        },
+        {
+          "tag_local": "Sulih Suara"
+        },
+        {
+          "tag_local": "Drama Pendek"
+        }
+      ],
+      "cover_tag": "Dubbed",
+      "cover_theme_color": "#5a3426",
+      "cover_url": "https://p.idrama.video/group1/a5300093391d0b76cab161c4698f1cdb.jpg",
+      "current_count": 70,
+      "data_type": "",
+      "favor_count": 243018,
+      "id": 161001640566,
+      "introduction": "Candra Mulyadi memiliki identitas istimewa dan putri super kuat, Tiara Mulyadi. Saat Katak Pemangsa Langit kuno muncul dan mengancam dunia, keduanya menyelamatkannya, mengejutkan para kultivator. Untuk mencegah kehebohan, mereka menyembunyikan identitas. Sementara itu, istrinya Linda Warta menghadapi krisis bisnis dan berjuang menyelamatkan cabang keluarganya yang terpuruk.\n ",
+      "lang": "id",
+      "online_status": 0,
+      "ori_lang": "zh",
+      "preferred_drama": false,
+      "production_format": 1,
+      "production_method": "overseas_imported",
+      "production_type": 0,
+      "project_id": null,
+      "read_progress_episode": {
+        "auth_token": "",
+        "auth_type": 0,
+        "duration": 87,
+        "episode_cover": "https://p.idrama.video/group1/205dc06250bd9d9d323cc7470ca4216a/a60f174cd6236c53575f6eb2797e9cd4.image",
+        "episode_id": 333072,
+        "episode_order": 1,
+        "favor_count": 2878,
+        "favored": false,
+        "play_format": "hls",
+        "play_info_list": [
+          {
+            "bitrate": 915187,
+            "codec": "h264",
+            "definition": "540p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 960,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/205dc06250bd9d9d323cc7470ca4216a/e9d7020ee680253e55796207e36df705.m3u8?ts=1781328529&secret=4ef4e0c1a9bcae9c2c0f7c730f8f7a77&usr=v0012218659",
+            "quality": "normal",
+            "size": 10546039,
+            "width": 540
+          },
+          {
+            "bitrate": 1285519,
+            "codec": "h264",
+            "definition": "720p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1280,
+            "is_vip": false,
+            "play_url": "https://v-a.idrama.video/205dc06250bd9d9d323cc7470ca4216a/4b1d44c137f99019a646a5cb7988263b.m3u8?ts=1781328529&secret=e9073887e242f1b0a8b447a01f9fbe2d&usr=v0012218659",
+            "quality": "normal",
+            "size": 14691815,
+            "width": 720
+          },
+          {
+            "bitrate": 2324674,
+            "codec": "h264",
+            "definition": "1080p",
+            "drm_type": "",
+            "format": "hls",
+            "height": 1920,
+            "is_vip": true,
+            "play_url": "",
+            "quality": "normal",
+            "size": 26303259,
+            "width": 1080
+          }
+        ],
+        "play_url": "https://v-a.idrama.video/205dc06250bd9d9d323cc7470ca4216a/4b1d44c137f99019a646a5cb7988263b.m3u8?ts=1781328529&secret=e9073887e242f1b0a8b447a01f9fbe2d",
+        "played": false,
+        "screentext_list": null,
+        "subtitle_list": null,
+        "token_sign": ""
+      },
+      "request_id": "",
+      "serial_status": 3,
+      "short_play_name": "(Sulih Suara) Rahasia Ayah dan Anak Super",
+      "short_play_name_highlight": [
+        {
+          "end": 34,
+          "start": 31
+        }
+      ],
+      "show_speed": true,
+      "start_charge_point": 12,
+      "total_duration_s": 0,
+      "video_orientation": 1,
+      "view_count": 571320
+    }
+  ]
+}
