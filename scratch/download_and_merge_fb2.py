@@ -142,14 +142,54 @@ def get_video_height(video_path, dry_run=False):
         print(f"Error getting height for {video_path}: {e}")
     return 1280
 
-def build_temp_vtt(dest_folder: str, ep_vtt_files: dict, ep_video_files: dict, start: int, end: int, dry_run=False):
-    """Build a combined shifted VTT file for the episode chunk. Returns (vtt_filename, has_subtitles)."""
-    temp_vtt_filename = f"eps_{start}-{end}_temp.vtt"
-    temp_vtt_path = os.path.join(dest_folder, temp_vtt_filename)
+def get_video_width(video_path, dry_run=False):
+    if dry_run:
+        return 720
+    cmd = f'ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=noprint_wrappers=1:nokey=1 "{video_path}"'
+    try:
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        if res.returncode == 0:
+            return int(res.stdout.strip())
+    except Exception as e:
+        print(f"Error getting width for {video_path}: {e}")
+    return 720
+
+def sec_to_ass_time(sec):
+    if sec < 0:
+        sec = 0.0
+    h = int(sec // 3600)
+    m = int((sec % 3600) // 60)
+    s = sec % 60
+    cs = int(round((s - int(s)) * 100))
+    if cs >= 100:
+        s += 1
+        cs -= 100
+    return f"{h}:{m:02d}:{int(s):02d}.{cs:02d}"
+
+def build_temp_ass(dest_folder: str, ep_vtt_files: dict, ep_video_files: dict, start: int, end: int, width: int, height: int, font_size=40, dry_run=False):
+    """Build a combined shifted ASS file for the episode chunk. Returns (ass_filename, has_subtitles)."""
+    temp_ass_filename = f"eps_{start}-{end}_temp.ass"
+    temp_ass_path = os.path.join(dest_folder, temp_ass_filename)
     
-    merged_lines = ["WEBVTT", ""]
+    margin_v = height // 4
+    ass_header = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {width}
+PlayResY: {height}
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,{font_size},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,2,10,10,{margin_v},1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    
+    dialogues = []
     running_offset = 0.0
     has_subtitles = False
+    timestamp_pattern = re.compile(r'^(\d{2}:\d{2}(?::\d{2})?\.\d{3})\s*-->\s*(\d{2}:\d{2}(?::\d{2})?\.\d{3})')
 
     for ep in range(start, end + 1):
         vtt_file = ep_vtt_files.get(ep)
@@ -164,23 +204,30 @@ def build_temp_vtt(dest_folder: str, ep_vtt_files: dict, ep_video_files: dict, s
                     with open(vtt_path, 'r', encoding='utf-8', errors='ignore') as f:
                         content = f.read()
                     
-                    # Shift timestamps
-                    shifted = shift_vtt_content(content, running_offset)
-                    
-                    # Strip WEBWTT header and append body
-                    lines = shifted.split('\n')
-                    body_started = False
-                    for line in lines:
-                        if body_started:
-                            merged_lines.append(line)
-                        elif line.strip() == "":
-                            continue
-                        elif "WEBVTT" in line:
-                            continue
+                    lines = content.split('\n')
+                    i = 0
+                    while i < len(lines):
+                        line = lines[i].strip()
+                        match = timestamp_pattern.match(line)
+                        if match:
+                            start_str, end_str = match.groups()
+                            start_sec = time_to_sec(start_str) + running_offset
+                            end_sec = time_to_sec(end_str) + running_offset
+                            
+                            text_lines = []
+                            i += 1
+                            while i < len(lines) and lines[i].strip() != "":
+                                text_lines.append(lines[i].strip())
+                                i += 1
+                            
+                            text = "\\N".join(text_lines)
+                            text = re.sub(r'<[^>]+>', '', text)
+                            
+                            start_ass = sec_to_ass_time(start_sec)
+                            end_ass = sec_to_ass_time(end_sec)
+                            dialogues.append(f"Dialogue: 0,{start_ass},{end_ass},Default,,0,0,0,,{text}")
                         else:
-                            body_started = True
-                            merged_lines.append(line)
-                    merged_lines.append("") # Spacer between episodes
+                            i += 1
         
         # 2. Add video duration to running offset
         if video_file:
@@ -189,15 +236,15 @@ def build_temp_vtt(dest_folder: str, ep_vtt_files: dict, ep_video_files: dict, s
             running_offset += duration
 
     if has_subtitles and not dry_run:
-        with open(temp_vtt_path, 'w', encoding='utf-8') as f:
-            f.write("\n".join(merged_lines))
-        return temp_vtt_filename, True
+        with open(temp_ass_path, 'w', encoding='utf-8') as f:
+            f.write(ass_header)
+            f.write("\n".join(dialogues) + "\n")
+        return temp_ass_filename, True
     elif has_subtitles and dry_run:
-        return temp_vtt_filename, True
+        return temp_ass_filename, True
     
     return None, False
 
-# -- Concat + Hardsub + Speedup 1.05x ----------------------------------------
 def merge_episodes_hardsub(dest_folder: str, ep_files: dict, ep_vtt_files: dict, start: int, end: int, dry_run=False):
     """Concat video files, burn subtitles (MarginV=h/4, FontSize=40), speed up 1.05x."""
     output_filename = f"eps_{start}-{end}.mp4"
@@ -227,19 +274,19 @@ def merge_episodes_hardsub(dest_folder: str, ep_files: dict, ep_vtt_files: dict,
         with open(list_path, 'w', encoding='utf-8') as f:
             f.write("\n".join(concat_list) + "\n")
 
-    # Get resolution height to compute MarginV = h / 4
+    # Get resolution properties
     height = get_video_height(first_video_path, dry_run)
-    margin_v = height // 4
-    font_size = 40
+    width = get_video_width(first_video_path, dry_run)
 
-    # 2. Create the temporary shifted VTT subtitle file
-    temp_vtt, has_subs = build_temp_vtt(dest_folder, ep_vtt_files, ep_files, start, end, dry_run)
+    # 2. Create the temporary shifted ASS subtitle file
+    temp_ass, has_subs = build_temp_ass(dest_folder, ep_vtt_files, ep_files, start, end, width, height, font_size=40, dry_run=dry_run)
     
     # We speed up video by 1.05x: setpts = 1/1.05 = 0.95238
     # We speed up audio by 1.05x: atempo = 1.05
-    if has_subs and temp_vtt:
-        cmd = f'ffmpeg -y -f concat -safe 0 -i list.txt -vf "subtitles={temp_vtt}:force_style=\'Alignment=2,MarginV={margin_v},FontSize={font_size},Outline=1.5,Shadow=0,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1\',setpts=0.95238*PTS" -af "atempo=1.05" -c:v libx264 -crf 22 -preset veryfast -c:a aac -pix_fmt yuv420p "{output_filename}"'
-        print(f"    [HARDSUB CONCAT + SPEEDUP] Concat eps {start}-{end} into {output_filename} (MarginV={margin_v}, FontSize=40, Speed=1.05)... ", end='', flush=True)
+    if has_subs and temp_ass:
+        # Note: ASS has absolute styles inside, so no force_style is needed
+        cmd = f'ffmpeg -y -f concat -safe 0 -i list.txt -vf "subtitles={temp_ass},setpts=0.95238*PTS" -af "atempo=1.05" -c:v libx264 -crf 22 -preset veryfast -c:a aac -pix_fmt yuv420p "{output_filename}"'
+        print(f"    [HARDSUB CONCAT + SPEEDUP] Concat eps {start}-{end} into {output_filename} (MarginV={height // 4}, FontSize=40, Speed=1.05)... ", end='', flush=True)
     else:
         cmd = f'ffmpeg -y -f concat -safe 0 -i list.txt -vf "setpts=0.95238*PTS" -af "atempo=1.05" -c:v libx264 -crf 22 -preset veryfast -c:a aac -pix_fmt yuv420p "{output_filename}"'
         print(f"    [CONCAT + SPEEDUP (NO SUBS)] Concat eps {start}-{end} into {output_filename} (Speed=1.05)... ", end='', flush=True)
@@ -260,11 +307,11 @@ def merge_episodes_hardsub(dest_folder: str, ep_files: dict, ep_vtt_files: dict,
         print(f"FAILED: {e}")
         success = False
 
-    # Clean up temp list/vtt files
+    # Clean up temp list/ass files
     if os.path.exists(list_path):
         os.remove(list_path)
-    if temp_vtt and os.path.exists(os.path.join(dest_folder, temp_vtt)):
-        os.remove(os.path.join(dest_folder, temp_vtt))
+    if temp_ass and os.path.exists(os.path.join(dest_folder, temp_ass)):
+        os.remove(os.path.join(dest_folder, temp_ass))
         
     return success
 
