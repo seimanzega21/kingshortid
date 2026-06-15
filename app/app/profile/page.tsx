@@ -147,7 +147,7 @@ export default function ProfilePage() {
                         </div>
                         <div className="flex items-baseline gap-1">
                             <span className="text-3xl font-extrabold">
-                                {coinBalance?.balance.toLocaleString() || user.coins.toLocaleString()}
+                                {(coinBalance?.balance ?? user.coins ?? 0).toLocaleString('id-ID')}
                             </span>
                             <span className="text-sm font-semibold opacity-80">Koin</span>
                         </div>
