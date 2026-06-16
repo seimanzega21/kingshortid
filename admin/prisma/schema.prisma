@@ -153,7 +153,7 @@ model Episode {
   description   String? @db.Text
   thumbnail     String?
   videoUrl      String @map("video_url")
-  videoUrl540p  String? @map("video_url540p")
+  videoUrl540p  String? @map("video_url_540p")
   duration      Int     @default(0) // in seconds
 
   isVip     Boolean @default(false) @map("is_vip")

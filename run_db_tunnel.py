@@ -15,7 +15,7 @@ from sshtunnel import SSHTunnelForwarder
 SSH_HOST = '141.11.160.187'
 SSH_USER = 'root'
 SSH_PASS = 'Surya123!'
-DB_IP = '127.0.0.1'
+DB_IP = '10.0.1.25'
 DB_PORT = 5432
 LOCAL_PORT = 5435
 
