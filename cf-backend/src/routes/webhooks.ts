@@ -11,6 +11,15 @@ const PLAN_DAYS: Record<string, number> = {
     'kingshort_monthly': 30,
 };
 
+const COIN_PACKAGES: Record<string, { base: number; bonus: number }> = {
+    'kingshort_2000_coins': { base: 2000, bonus: 100 },
+    'kingshort_5000_coins': { base: 5000, bonus: 800 },
+    'kingshort_12000_coins': { base: 12000, bonus: 0 },
+    'coins_2000': { base: 2000, bonus: 100 },
+    'coins_5000': { base: 5000, bonus: 800 },
+    'coins_12000': { base: 12000, bonus: 0 },
+};
+
 // POST /api/webhooks/revenuecat
 webhooksRoute.post('/revenuecat', async (c) => {
     // Validate authorization header
@@ -74,6 +83,70 @@ webhooksRoute.post('/revenuecat', async (c) => {
                     .where(eq(users.id, app_user_id));
 
                 console.log(`Deactivated subscription for user ${app_user_id}`);
+                break;
+            }
+
+            case 'NON_SUBSCRIPTION_PURCHASE': {
+                const transactionId = event.transaction_id || event.id;
+
+                // 1. Prevent duplicate processing
+                const existingTx = await db.select()
+                    .from(coinTransactions)
+                    .where(eq(coinTransactions.reference, transactionId))
+                    .limit(1)
+                    .then((r: any[]) => r[0]);
+
+                if (existingTx) {
+                    console.log(`RevenueCat webhook: transaction ${transactionId} already processed.`);
+                    break;
+                }
+
+                // 2. Map package base + bonus
+                let packageInfo = COIN_PACKAGES[product_id];
+                if (!packageInfo) {
+                    // Fallback: parse number from product_id
+                    const match = product_id.match(/\d+/);
+                    if (match) {
+                        packageInfo = { base: parseInt(match[0]), bonus: 0 };
+                    }
+                }
+
+                if (!packageInfo) {
+                    console.error(`RevenueCat webhook: could not determine coin amount for product ${product_id}`);
+                    break;
+                }
+
+                const { base: baseCoins, bonus: bonusCoins } = packageInfo;
+                const totalAdded = baseCoins + bonusCoins;
+
+                // 3. Increment purchasedCoins (paid) and coins (bonus)
+                await db.update(users)
+                    .set({
+                        purchasedCoins: sql`${users.purchasedCoins} + ${baseCoins}`,
+                        coins: sql`${users.coins} + ${bonusCoins}`,
+                        updatedAt: new Date(),
+                    })
+                    .where(eq(users.id, app_user_id));
+
+                // 4. Retrieve new total balance for transaction log
+                const updatedUser = await db.select({
+                    coins: users.coins,
+                    purchasedCoins: users.purchasedCoins
+                }).from(users).where(eq(users.id, app_user_id)).limit(1).then(r => r[0]);
+
+                const totalBalanceAfter = (updatedUser?.coins || 0) + (updatedUser?.purchasedCoins || 0);
+
+                // 5. Log transaction
+                await db.insert(coinTransactions).values({
+                    userId: app_user_id,
+                    type: 'topup',
+                    amount: totalAdded,
+                    description: `Top Up Success (RevenueCat: ${product_id}, Base: ${baseCoins}, Bonus: ${bonusCoins})`,
+                    reference: transactionId,
+                    balanceAfter: totalBalanceAfter,
+                });
+
+                console.log(`RevenueCat webhook: credited ${baseCoins} purchased + ${bonusCoins} bonus coins to user ${app_user_id}`);
                 break;
             }
 
