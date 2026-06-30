@@ -23,9 +23,9 @@ def main():
     r2 = get_r2()
     
     dramas = [
-        {"id": "Rzlxkl9HK2", "title": "Istri XXL Sang Wali Kota Kembali"},
-        {"id": "4VBYClwW9p", "title": "Kebangkitan Ratu Lycan"},
-        {"id": "BYSS2UYOdG", "title": "Utang dan Hasrat"}
+        {"id": "DZ7ojuOfG1", "title": "Putra Sakti Pembawa Rezeki"},
+        {"id": "Fhw9lPgepN", "title": "Mata Ilahi Penguasa Kota"},
+        {"id": "VVgygnCkFl", "title": "Nafsu Gelap"}
     ]
     
     print(f"Starting specific DramaWaveV2 dramas scraping for {len(dramas)} dramas sequentially...")
