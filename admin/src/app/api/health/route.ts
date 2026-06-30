@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const VPS_API = 'https://api.shortlovers.id/api/admin/dashboard';
+const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const VPS_API = `${BACKEND}/admin/dashboard`;
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;

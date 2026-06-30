@@ -4,7 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 let cache: { data: any; ts: number } | null = null;
 const CACHE_TTL = 10_000; // 10 seconds — keeps totalUsers in sync
 
-const VPS_API = 'https://api.shortlovers.id/api/admin/dashboard';
+const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const VPS_API = `${BACKEND}/admin/dashboard`;
 
 // GET /api/dashboard — Stats from VPS Backend API
 export async function GET(request: NextRequest) {

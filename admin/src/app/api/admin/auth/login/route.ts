@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const VPS_API = 'https://api.shortlovers.id/api/auth/login';
+const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const VPS_API = `${BACKEND}/auth/login`;
 
 // POST /api/admin/auth/login — Authenticate via VPS backend
 export async function POST(request: NextRequest) {

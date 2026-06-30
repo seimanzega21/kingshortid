@@ -13,7 +13,7 @@ ENV_VARS = {
     "DATABASE_URL": "postgresql://supabase_admin:GoZViiH1AXLl73BqLdKDtpeGgwUzfW64@supabase-db-og8gwooogk480gcws0o84ssc:5432/postgres",
     "JWT_SECRET": "MYt4Si3dPkRYUtR4EVyaXsnv/MCLmn3jJzJSKxTyClVdX2mxPmcfOY4/CPj1c3012c13",
     "ADMIN_API_KEY": "00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14",
-    "BACKEND_URL": "https://api.shortlovers.id/api",
+    "BACKEND_URL": "http://kingshortid-api:3000/api",
     "R2_ENDPOINT": "https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com",
     "R2_ACCESS_KEY_ID": "07c99c897986ea52703c1285308d5e2c",
     "R2_SECRET_ACCESS_KEY": "44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44",
