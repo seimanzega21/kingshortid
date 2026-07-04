@@ -566,6 +566,32 @@ def main():
 
         # B. Download, Transcode, and Register
         if not m3u8_url:
+            log("  Stream URL empty in detail, attempting fallback stream resolution...")
+            from urllib.parse import unquote
+            stream_api = f"https://vidrama.asia/api/dramawave?action=stream&id={DRAMA_UPSTREAM_ID}&episode={ep_no - 1}"
+            try:
+                r_st = requests.get(stream_api, headers=HEADERS, timeout=15, verify=False)
+                if r_st.ok and r_st.json().get('success'):
+                    st_data = r_st.json().get('data', {})
+                    video_proxy = st_data.get('videoUrl', '')
+                    if 'url=' in video_proxy:
+                        m3u8_url = unquote(video_proxy.split('url=')[-1])
+                        log(f"    [OK] Resolved fallback stream: {m3u8_url[:80]}...")
+                    
+                    st_subs = st_data.get('subtitles', [])
+                    for s in st_subs:
+                        if s.get('language') in ['id-ID', 'id', 'in', 'in-ID', 'id_ID']:
+                            sub_proxy = s.get('url', '')
+                            if 'url=' in sub_proxy:
+                                sub_url = unquote(sub_proxy.split('url=')[-1])
+                                log(f"    [OK] Resolved fallback subtitle: {sub_url[:80]}...")
+                                break
+                else:
+                    log(f"    [ERROR] Stream fallback API request failed or returned success=False. Status: {r_st.status_code}")
+            except Exception as ex:
+                log(f"    [ERROR] Stream fallback request error: {ex}")
+
+        if not m3u8_url:
             log("  [ERROR] No video stream URL found. Skipping.")
             continue
 
