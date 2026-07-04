@@ -1,4 +1,5 @@
 import { Context, Next } from 'hono';
+import { HTTPException } from 'hono/http-exception';
 import * as jose from 'jose';
 import { eq, and } from 'drizzle-orm';
 import { getDb } from '../db';
@@ -32,7 +33,7 @@ function getSecret(c: Context<Env>) {
 export async function generateToken(c: Context<Env>, payload: JWTPayload): Promise<string> {
     return new jose.SignJWT(payload as unknown as jose.JWTPayload)
         .setProtectedHeader({ alg: 'HS256' })
-        .setExpirationTime('7d')
+        .setExpirationTime('365d')
         .sign(getSecret(c));
 }
 
@@ -54,9 +55,17 @@ export async function getAuthUser(c: Context<Env>) {
     if (!payload) return null;
 
     const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
-    const result = await db.select().from(users)
-        .where(and(eq(users.id, payload.id), eq(users.isActive, true)))
-        .limit(1);
+    let result: any[];
+    
+    try {
+        result = await db.select().from(users)
+            .where(and(eq(users.id, payload.id), eq(users.isActive, true)))
+            .limit(1);
+    } catch (err) {
+        console.error('[getAuthUser] Database connection/query error:', err);
+        // Throw a 503 Service Unavailable error instead of returning null (which causes 401)
+        throw new HTTPException(503, { message: 'Service Temporarily Unavailable (Database restarting)' });
+    }
 
     const user = result[0] || null;
 
