@@ -11,7 +11,7 @@ Fitur:
 2. Otomatis mencari judul-judul lain (Auto-Discovery) di beranda Vidrama bahasa Indonesia.
 3. Melewati judul yang sudah ada di database (Anti-Duplikat).
 """
-import requests, boto3, subprocess, time, tempfile, urllib3, re, os
+import requests, boto3, subprocess, time, tempfile, urllib3, re, os, shutil
 from pathlib import Path
 from botocore.config import Config
 
@@ -38,8 +38,7 @@ WEB_HDRS    = {
 
 # DAFTAR PRIORITAS MANUAL (Permintaan User)
 MANUAL_TARGETS = [
-    # Kosongkan daftar ini karena semua target manual sudah 100% selesai dan lengkap di R2.
-    # Jika ada target spesifik lagi di masa depan, masukkan di sini.
+    {'id': '2072272840121225217', 'slug': 'kebangkitan-orang-terpilih'},
 ]
 
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_batch_scraper'
@@ -200,6 +199,9 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
     title = detail.get('title', provided_title or 'Unknown')
     total_eps = detail.get('totalEpisodes', 0)
     
+    local_save_dir = Path("D:/Video Drama/Facebook") / title.replace(":", " ").replace("/", " ")
+    local_save_dir.mkdir(parents=True, exist_ok=True)
+    
     print(f"\n[DRAMA] Memulai proses: {title} ({vidrama_id}) - {total_eps} Episode")
     
     # Pengecekan Bahasa & Duplikat
@@ -252,6 +254,21 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
             u540 = f"{R2_PUBLIC}/{k540}" if r2_exists(r2, k540) else None
             sub_url = f"{R2_PUBLIC}/{ksub}" if r2_exists(r2, ksub) else None
             api_upsert_episode(db_id, ep_no, u720, u540, sub_url)
+            
+            # Cek apakah file 720p sudah ada di lokal, jika belum, download dari R2
+            local_file = local_save_dir / f"ep{ep_no:03d}.mp4"
+            if not local_file.exists():
+                try:
+                    print(f" [INFO] Mengunduh ulang ep{ep_no:03d} dari R2 ke lokal...", end="", flush=True)
+                    r_dl = requests.get(u720, stream=True, timeout=60)
+                    if r_dl.ok:
+                        with open(local_file, 'wb') as f:
+                            for chunk in r_dl.iter_content(chunk_size=1024*1024):
+                                if chunk: f.write(chunk)
+                        print(" SELESAI")
+                except Exception as e:
+                    print(f" [WARN] Gagal download ke lokal: {e}")
+            
             success += 1
             continue
 
@@ -333,6 +350,13 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
                 u720 = r2_upload(r2, o720, k720)
                 u540 = r2_upload(r2, o540, k540) if o540.exists() else None
                 api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
+                
+                # Simpan juga yang 720p ke folder lokal
+                try:
+                    shutil.copy2(o720, local_save_dir / f"ep{ep_no:03d}.mp4")
+                except Exception as e:
+                    print(f" [WARN] Gagal simpan lokal: {e}", end="")
+                    
                 print(" BERHASIL")
                 success += 1
             else:
@@ -360,19 +384,19 @@ def main():
     for target in MANUAL_TARGETS:
         scrape_single_drama(r2, target['id'], target['slug'])
         
-    # 2. Jalankan Auto-Discovery
-    auto_targets = fetch_auto_discovery_list()
-    for target in auto_targets:
-        # Pengecekan awal duplikat untuk menghemat API call Detail
-        if check_duplicate_in_db(target['title']):
-            print(f"\n[SKIP] '{target['title']}' sudah ada di database.")
-            continue
-            
-        # Pengecekan apakah target id ini sudah di-scrape di fase manual
-        if any(m['id'] == target['id'] for m in MANUAL_TARGETS):
-            continue
-            
-        scrape_single_drama(r2, target['id'], target['slug'], provided_title=target['title'])
+    # 2. Jalankan Auto-Discovery (DISABLED FOR NOW)
+    # auto_targets = fetch_auto_discovery_list()
+    # for target in auto_targets:
+    #     # Pengecekan awal duplikat untuk menghemat API call Detail
+    #     if check_duplicate_in_db(target['title']):
+    #         print(f"\n[SKIP] '{target['title']}' sudah ada di database.")
+    #         continue
+    #         
+    #     # Pengecekan apakah target id ini sudah di-scrape di fase manual
+    #     if any(m['id'] == target['id'] for m in MANUAL_TARGETS):
+    #         continue
+    #         
+    #     scrape_single_drama(r2, target['id'], target['slug'], provided_title=target['title'])
         
     print("\n" + "="*60)
     print("🎉 SELURUH ANTRIAN SCRAPING BATCH SELESAI!")
