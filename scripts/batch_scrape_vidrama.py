@@ -38,7 +38,7 @@ WEB_HDRS    = {
 
 # DAFTAR PRIORITAS MANUAL (Permintaan User)
 MANUAL_TARGETS = [
-    {'id': '2072272840121225217', 'slug': 'kebangkitan-orang-terpilih'},
+    {'id': '2071871152587485185', 'slug': 'kebangkitan-pertanian-jamur-cerdas'},
 ]
 
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_batch_scraper'
