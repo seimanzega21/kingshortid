@@ -9,6 +9,7 @@ uploads to Cloudflare R2, and registers to database with status Pending.
 """
 import requests
 import boto3
+import shutil
 import subprocess
 import time
 import tempfile
@@ -220,6 +221,9 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
     slug = slugify(title)
     prefix = f"dramawavev2/{slug}"
     
+    local_save_dir = Path("D:/Video Drama/Facebook") / title.replace(":", " ").replace("/", " ")
+    local_save_dir.mkdir(parents=True, exist_ok=True)
+    
     print(f"\nProcessing drama: '{title}' (ID: {movie_id}, Slug: {slug})")
     
     db_id = None
@@ -309,6 +313,20 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                     sub_url = f"{R2_PUBLIC}/{ksub}"
                     
                 api_upsert_episode(db_id, ep_no, u720, u540, sub_url)
+                
+                # Cek apakah file 720p sudah ada di lokal, jika belum, download dari R2
+                local_file = local_save_dir / f"ep{ep_no:03d}.mp4"
+                if not local_file.exists():
+                    try:
+                        print(f" [INFO] Mengunduh ulang ep{ep_no:03d} dari R2 ke lokal...", end="", flush=True)
+                        r_dl = requests.get(u720, stream=True, timeout=60)
+                        if r_dl.ok:
+                            with open(local_file, 'wb') as f:
+                                for chunk in r_dl.iter_content(chunk_size=1024*1024):
+                                    if chunk: f.write(chunk)
+                    except Exception as e:
+                        print(f" [WARN] Gagal download ke lokal: {e}", end="")
+                        
                 print(" LINKED")
                 success_count += 1
                 continue
@@ -359,6 +377,12 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                         # Convert to VTT if needed
                         content = srt_to_vtt(content)
                         content = sanitize_vtt(content)
+                        
+                        # Save subtitle locally for ffmpeg hardsubbing
+                        local_sub_path = TEMP_DIR / f"{slug}_sub_{ep_no}.vtt"
+                        with open(local_sub_path, 'w', encoding='utf-8') as f:
+                            f.write(content)
+                            
                         r2.put_object(Bucket=R2_BUCKET, Key=ksub, Body=content.encode('utf-8'), ContentType='text/vtt')
                         final_sub_r2 = f"{R2_PUBLIC}/{ksub}"
                 except Exception as e:
@@ -368,6 +392,8 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
             raw_path = TEMP_DIR / f"{slug}_raw_{ep_no}.mp4"
             o720_path = TEMP_DIR / f"{slug}_720_{ep_no}.mp4"
             o540_path = TEMP_DIR / f"{slug}_540_{ep_no}.mp4"
+            o720_hardsub_path = TEMP_DIR / f"{slug}_720_hardsub_{ep_no}.mp4"
+            local_sub_path = TEMP_DIR / f"{slug}_sub_{ep_no}.vtt"
             
             download_success = False
             headers_str = "Referer: https://mydramawave.com/\r\n"
@@ -399,6 +425,29 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                     u720 = r2_upload(r2, o720_path, k720)
                     u540 = r2_upload(r2, o540_path, k540)
                     api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
+                    
+                    try:
+                        if final_sub_r2 and local_sub_path.exists():
+                            print(" [Burning Subtitles...] ", end="", flush=True)
+                            sub_ffmpeg = str(local_sub_path).replace('\\', '/').replace(':', '\\:')
+                            cmd_hardsub = [
+                                'ffmpeg', '-y', '-i', str(raw_path),
+                                '-vf', f"subtitles='{sub_ffmpeg}'",
+                                '-c:v', 'libx264', '-crf', '26', '-maxrate', '1500k', '-bufsize', '3000k',
+                                '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart',
+                                '-loglevel', 'error', str(o720_hardsub_path)
+                            ]
+                            res_sub = subprocess.run(cmd_hardsub, timeout=600)
+                            if res_sub.returncode == 0:
+                                shutil.copy2(o720_hardsub_path, local_save_dir / f"ep{ep_no:03d}.mp4")
+                            else:
+                                print("[WARN: Hardsub failed, using clean 720p] ", end="")
+                                shutil.copy2(o720_path, local_save_dir / f"ep{ep_no:03d}.mp4")
+                        else:
+                            shutil.copy2(o720_path, local_save_dir / f"ep{ep_no:03d}.mp4")
+                    except Exception as e:
+                        print(f" [WARN] Gagal simpan lokal: {e}", end="")
+                        
                     print("SUCCESS")
                     success_count += 1
                 else:
@@ -408,7 +457,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                 print(f"ERROR ({e})")
                 failed_count += 1
             finally:
-                for p in [raw_path, o720_path, o540_path]:
+                for p in [raw_path, o720_path, o540_path, o720_hardsub_path, local_sub_path]:
                     if p.exists():
                         p.unlink()
                         
