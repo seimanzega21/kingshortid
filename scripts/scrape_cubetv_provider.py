@@ -153,7 +153,7 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
                 'url': sub_url, 
                 'isDefault': True
             }
-            requests.post(f"{API_BASE}/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
+            requests.post(f"{API_BASE}/api/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
         return ep_id
     except Exception as e:
         print(f"      [ERROR] DB Episode upsert exception: {e}")
