@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-VPS-BASED PIPELINE: Reinkarnasi Pilot Ulung (ID: 7653295748544465973)
+VPS-BASED PIPELINE: Cinta dan Tombak Purba (ID: 7638940406738062389)
 Bypasses local machine network limits. Downloads direct HEVC MP4 streams,
 transcodes to H.264 (720p & 540p vertical) via FFmpeg, uploads to R2,
 and registers in the admin database.
@@ -19,9 +19,9 @@ from botocore.config import Config
 urllib3.disable_warnings()
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────
-DRAMA_ID_WEB = '7653295748544465973'
-DRAMA_SLUG   = 'reinkarnasi-pilot-ulung'
-GENRES       = ['Action', 'Drama', 'Thriller']
+DRAMA_ID_WEB = '7638940406738062389'
+DRAMA_SLUG   = 'cinta-dan-tombak-purba'
+GENRES       = ['Romantis', 'Fantasy', 'Wuxia', 'Drama']
 
 # Use localhost since it runs directly on the VPS
 API_BASE     = 'http://localhost:3000'
@@ -34,7 +34,7 @@ R2_SECRET    = '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44
 R2_BUCKET    = 'shortlovers'
 R2_PUBLIC    = 'https://stream.shortlovers.id'
 
-TEMP_DIR     = '/tmp/temp_pilot'
+TEMP_DIR     = '/tmp/temp_tombak'
 os.makedirs(TEMP_DIR, exist_ok=True)
 
 # ─── HELPERS ───────────────────────────────────────────────────────────────
@@ -196,8 +196,7 @@ def upload_cover(r2, cover_url):
     return cover_url
 
 def get_or_register_drama(metadata):
-    # Standardize title (strip (Dub) prefix if wanted, or keep it)
-    title = metadata.get('title') or 'Reinkarnasi Pilot Ulung'
+    title = metadata.get('title') or 'Cinta dan Tombak Purba'
     
     # Check if already exists in DB
     r = requests.get(f"{API_BASE}/api/dramas", params={"search": title}, timeout=15)
@@ -221,7 +220,7 @@ def get_or_register_drama(metadata):
         'description': metadata.get('intro') or '',
         'cover': cover_r2,
         'genres': GENRES,
-        'totalEpisodes': metadata.get('episode_count') or 78,
+        'totalEpisodes': metadata.get('episode_count') or 50,
         'status': 'ongoing',
         'country': 'China',
         'language': 'Indonesia',
