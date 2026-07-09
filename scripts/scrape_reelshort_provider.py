@@ -292,6 +292,9 @@ def scrape_drama(r2, vid_id, test_mode=False):
         # Download subtitle if separate
         final_sub_r2 = None
         if id_sub_url:
+            if id_sub_url.startswith('/api/'):
+                id_sub_url = f"https://vidrama.asia{id_sub_url}"
+                
             try:
                 sub_res = requests.get(id_sub_url, timeout=10, verify=False)
                 if sub_res.ok:
