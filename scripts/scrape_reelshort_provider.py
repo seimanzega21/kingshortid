@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -107,6 +108,16 @@ def api_get_or_create_drama(detail, slug, cover_url):
         'provider': 'reelshort',
         'isActive': False, # Pending!
     }
+
+    if payload['genres']:
+        payload['genres'] = list(set(payload['genres']))
+    else:
+        payload['genres'] = ['Drama']
+        
+    extra_genre = os.environ.get('EXTRA_GENRE')
+    if extra_genre and extra_genre not in payload['genres']:
+        payload['genres'].append(extra_genre)
+
     try:
         r = requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=20)
         if r.ok:
