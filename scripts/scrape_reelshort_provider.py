@@ -361,7 +361,12 @@ def scrape_drama(r2, vid_id, test_mode=False):
 
 def main():
     r2 = get_r2()
-    movie_id = "69faa1fdb23e0401d004e225"
+    
+    if len(sys.argv) > 1 and not sys.argv[1].startswith("--"):
+        movie_id = sys.argv[1]
+    else:
+        movie_id = "69eec931b36ddb3bde05ca39" # default if no arg is given (the requested one)
+
     test_mode = "--test" in sys.argv
     
     success = scrape_drama(r2, movie_id, test_mode=test_mode)
