@@ -371,12 +371,12 @@ export default function DramaDetailPage() {
                                 {isEditing ? (
                                     <input
                                         type="text"
-                                        className="text-2xl font-bold text-white bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-1 w-full focus:outline-none focus:border-cyan-500"
+                                        className="text-5xl font-bold text-white bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-cyan-500"
                                         value={formData.title}
                                         onChange={e => setFormData({ ...formData, title: e.target.value })}
                                     />
                                 ) : (
-                                    <h1 className="text-2xl font-bold text-white">{drama.title}</h1>
+                                    <h1 className="text-5xl font-bold text-white leading-tight">{drama.title}</h1>
                                 )}
                             </div>
                             <div className="flex items-center gap-2 flex-shrink-0">
