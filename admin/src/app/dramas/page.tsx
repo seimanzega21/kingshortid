@@ -368,7 +368,7 @@ export default function DramaManagement() {
                 {isLoading ? (
                     viewMode === 'grid' ? (
                         // Grid skeleton
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 py-6">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 py-6">
                             {Array(12).fill(0).map((_, i) => (
                                 <div key={i} className="space-y-2">
                                     <Skeleton className="w-full aspect-[3/4] rounded-xl bg-zinc-800" />
@@ -395,22 +395,16 @@ export default function DramaManagement() {
                 ) : filteredDramas.length > 0 ? (
                     viewMode === 'grid' ? (
                         // ============ GRID VIEW ============
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 py-6">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 py-6">
                             {filteredDramas.map((item) => (
                                 <div
                                     key={item.id}
                                     className="group cursor-pointer"
                                     onClick={() => router.push(`/dramas/${item.id}`)}
                                 >
-                                    {/* Cover dengan hover overlay */}
-                                    <div className="relative rounded-xl overflow-hidden">
+                                    {/* Cover dengan hover efek naik */}
+                                    <div className="relative rounded-xl overflow-hidden transition-transform duration-200 group-hover:-translate-y-1.5">
                                         <CoverImageLarge cover={item.cover} title={item.title} />
-                                        {/* Hover overlay */}
-                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-xl">
-                                            <span className="text-white text-xs font-semibold bg-cyan-600 px-3 py-1.5 rounded-full">
-                                                Lihat Detail
-                                            </span>
-                                        </div>
                                     </div>
                                     {/* Judul */}
                                     <p className="mt-2 text-[12px] font-medium text-zinc-300 group-hover:text-cyan-400 transition-colors line-clamp-2 leading-snug">
