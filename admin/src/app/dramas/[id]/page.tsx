@@ -250,7 +250,7 @@ export default function DramaDetailPage() {
     const currentGenres = isEditing ? formData.genres : (drama.genres as string[]);
 
     return (
-        <div className="p-6 lg:p-8 space-y-6 max-w-6xl mx-auto">
+        <div className="p-6 lg:p-8 space-y-6 max-w-none">
             {/* Back + Actions */}
             <div className="flex items-center justify-between">
                 <button onClick={() => router.back()} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
@@ -289,7 +289,7 @@ export default function DramaDetailPage() {
             <div className="rounded-xl border border-zinc-800 bg-[#111] overflow-hidden">
                 <div className="flex flex-col md:flex-row">
                     {/* Cover */}
-                    <div className="md:w-48 lg:w-56 flex-shrink-0 bg-zinc-900 relative group">
+                    <div className="md:w-56 lg:w-72 flex-shrink-0 bg-zinc-900 relative group">
                         {/* Hidden file input */}
                         <input
                             ref={coverInputRef}
@@ -556,7 +556,7 @@ export default function DramaDetailPage() {
 
                 <div className="p-4">
                     {sortedEpisodes.length > 0 ? (
-                        <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2">
+                        <div className="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2">
                             {sortedEpisodes.map(ep => (
                                 <div
                                     key={ep.id}
