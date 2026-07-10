@@ -40,6 +40,10 @@ export default function DramaDetailPage() {
     const [isEditing, setIsEditing] = useState(false);
     const [showGenrePicker, setShowGenrePicker] = useState(false);
     
+    // Delete Episodes State
+    const [episodesToDelete, setEpisodesToDelete] = useState<string[]>([]);
+    const [isDeletingEpisodes, setIsDeletingEpisodes] = useState(false);
+
     // Video Preview Modal State
     const [previewEpisode, setPreviewEpisode] = useState<{ id: string, title?: string, videoUrl: string, subtitleUrl: string | null } | null>(null);
 
@@ -200,6 +204,33 @@ export default function DramaDetailPage() {
         } catch { toast.error("Gagal hapus episode"); }
     };
 
+    const toggleEpisodeDelete = (epId: string) => {
+        if (episodesToDelete.includes(epId)) {
+            setEpisodesToDelete(episodesToDelete.filter(id => id !== epId));
+        } else {
+            setEpisodesToDelete([...episodesToDelete, epId]);
+        }
+    };
+
+    const deleteSelectedEpisodes = async () => {
+        if (episodesToDelete.length === 0) return;
+        if (!confirm(`Hapus ${episodesToDelete.length} episode terpilih?`)) return;
+        
+        setIsDeletingEpisodes(true);
+        try {
+            await Promise.all(episodesToDelete.map(epId => 
+                fetch(`/api/episodes/${epId}`, { method: "DELETE" })
+            ));
+            toast.success(`${episodesToDelete.length} episode dihapus`);
+            setEpisodesToDelete([]);
+            fetchData();
+        } catch {
+            toast.error("Gagal menghapus beberapa episode");
+        } finally {
+            setIsDeletingEpisodes(false);
+        }
+    };
+
     const toggleActive = async () => {
         if (!drama) return;
         const newStatus = !drama.isActive;
@@ -269,7 +300,7 @@ export default function DramaDetailPage() {
                     )}
                     {isEditing ? (
                         <>
-                            <button onClick={() => { setIsEditing(false); resetCoverState(); fetchData(); }} className="px-4 py-2 text-sm text-zinc-400 border border-zinc-700 rounded-lg hover:bg-zinc-800">
+                            <button onClick={() => { setIsEditing(false); resetCoverState(); setEpisodesToDelete([]); fetchData(); }} className="px-4 py-2 text-sm text-zinc-400 border border-zinc-700 rounded-lg hover:bg-zinc-800">
                                 Batal
                             </button>
                             <button onClick={handleSave} disabled={isSaving} className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg font-semibold text-sm">
@@ -543,10 +574,22 @@ export default function DramaDetailPage() {
             {/* Episode List */}
             <div className="rounded-xl border border-zinc-800 bg-[#111]">
                 <div className="flex items-center justify-between p-5 border-b border-zinc-800">
-                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                        <PlayCircle size={20} className="text-cyan-500" />
-                        Episode ({episodes.length}{drama.totalEpisodes > 0 && episodes.length !== drama.totalEpisodes ? ` / ${drama.totalEpisodes}` : ''})
-                    </h3>
+                    <div className="flex items-center gap-4">
+                        <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+                            <PlayCircle size={20} className="text-cyan-500" />
+                            Episode ({episodes.length}{drama.totalEpisodes > 0 && episodes.length !== drama.totalEpisodes ? ` / ${drama.totalEpisodes}` : ''})
+                        </h3>
+                        {isEditing && episodesToDelete.length > 0 && (
+                            <button 
+                                onClick={deleteSelectedEpisodes}
+                                disabled={isDeletingEpisodes}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-red-500/20 text-red-500 border border-red-500/30 rounded-lg text-xs font-semibold hover:bg-red-500/30 transition-colors"
+                            >
+                                {isDeletingEpisodes ? <Loader2 className="animate-spin" size={14} /> : <Trash2 size={14} />}
+                                Hapus Terpilih ({episodesToDelete.length})
+                            </button>
+                        )}
+                    </div>
                     {drama.totalEpisodes > 0 && episodes.length < drama.totalEpisodes && (
                         <span className="text-xs px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium">
                             {drama.totalEpisodes - episodes.length} episode belum terdaftar
@@ -560,32 +603,42 @@ export default function DramaDetailPage() {
                             {sortedEpisodes.map(ep => (
                                 <div
                                     key={ep.id}
-                                    onClick={() => ep.videoUrl && playEpisode(ep)}
-                                    className={`group relative aspect-[2/1] rounded-lg border border-emerald-500/40 bg-[#1a1a1a] flex items-center justify-center transition-all min-h-[52px] ${ep.videoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
+                                    onClick={() => isEditing ? toggleEpisodeDelete(ep.id) : ep.videoUrl && playEpisode(ep)}
+                                    className={`group relative aspect-[2/1] rounded-lg border transition-all min-h-[52px] flex items-center justify-center ${episodesToDelete.includes(ep.id) ? 'border-red-500 bg-red-500/10 opacity-70' : 'border-emerald-500/40 bg-[#1a1a1a]'} ${isEditing ? 'cursor-pointer hover:border-red-400' : ep.videoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
                                 >
-                                    <span className="text-emerald-400 font-bold text-base">{ep.episodeNumber}</span>
+                                    <span className={`${episodesToDelete.includes(ep.id) ? 'text-red-400 line-through' : 'text-emerald-400'} font-bold text-base`}>{ep.episodeNumber}</span>
 
-                                    {/* Hover tooltip */}
-                                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 w-48">
-                                        <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-3 shadow-xl text-xs">
-                                            <p className="text-white font-semibold truncate">{ep.title || `Episode ${ep.episodeNumber}`}</p>
-                                            <div className="flex items-center gap-3 text-zinc-400 mt-1.5">
-                                                <span className="flex items-center gap-1"><Eye size={10} /> {ep.views}</span>
-                                                {ep.duration > 0 && (
-                                                    <span className="flex items-center gap-1">
-                                                        <Clock size={10} /> {Math.floor(ep.duration / 60)}:{String(ep.duration % 60).padStart(2, '0')}
-                                                    </span>
+                                    {/* Delete icon in edit mode */}
+                                    {isEditing && (
+                                        <button 
+                                            onClick={(e) => { e.stopPropagation(); toggleEpisodeDelete(ep.id); }}
+                                            className={`absolute -top-1.5 -right-1.5 p-0.5 rounded-full text-white z-10 transition-colors shadow-sm ${episodesToDelete.includes(ep.id) ? 'bg-red-500 hover:bg-red-600' : 'bg-zinc-600 hover:bg-red-500'}`}
+                                        >
+                                            <X size={12} strokeWidth={3} />
+                                        </button>
+                                    )}
+
+                                    {/* Hover tooltip (hidden in edit mode) */}
+                                    {!isEditing && (
+                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 w-48">
+                                            <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-3 shadow-xl text-xs">
+                                                <p className="text-white font-semibold truncate">{ep.title || `Episode ${ep.episodeNumber}`}</p>
+                                                <div className="flex items-center gap-3 text-zinc-400 mt-1.5">
+                                                    <span className="flex items-center gap-1"><Eye size={10} /> {ep.views}</span>
+                                                    {ep.duration > 0 && (
+                                                        <span className="flex items-center gap-1">
+                                                            <Clock size={10} /> {Math.floor(ep.duration / 60)}:{String(ep.duration % 60).padStart(2, '0')}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {ep.isVip && (
+                                                    <div className="flex items-center gap-2 mt-2">
+                                                        <span className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px]">VIP</span>
+                                                    </div>
                                                 )}
                                             </div>
-                                            <div className="flex items-center gap-2 mt-2">
-                                                {ep.isVip && <span className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px]">VIP</span>}
-                                                <button onClick={(e) => { e.stopPropagation(); deleteEpisode(ep.id); }}
-                                                    className="text-red-400 hover:text-red-300 flex items-center gap-0.5 ml-auto">
-                                                    <Trash2 size={10} /> Hapus
-                                                </button>
-                                            </div>
                                         </div>
-                                    </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
