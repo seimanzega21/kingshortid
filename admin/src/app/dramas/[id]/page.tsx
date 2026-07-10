@@ -48,6 +48,9 @@ export default function DramaDetailPage() {
     const [showVipModal, setShowVipModal] = useState(false);
     const [vipSettings, setVipSettings] = useState({ isVip: true, coinPrice: 50 });
     const [isUpdatingVip, setIsUpdatingVip] = useState(false);
+    
+    const [showVipRangeModal, setShowVipRangeModal] = useState(false);
+    const [vipRange, setVipRange] = useState({ start: 1, end: 1, isVip: true, coinPrice: 50 });
 
     // Video Preview Modal State
     const [previewEpisode, setPreviewEpisode] = useState<{ id: string, title?: string, videoUrl: string, subtitleUrl: string | null } | null>(null);
@@ -253,6 +256,32 @@ export default function DramaDetailPage() {
             fetchData();
         } catch {
             toast.error("Gagal mengupdate VIP pada beberapa episode");
+        } finally {
+            setIsUpdatingVip(false);
+        }
+    };
+
+    const applyVipRange = async () => {
+        const targetEpisodes = episodes.filter(ep => ep.episodeNumber >= vipRange.start && ep.episodeNumber <= vipRange.end);
+        if (targetEpisodes.length === 0) {
+            toast.error("Tidak ada episode dalam rentang tersebut");
+            return;
+        }
+        
+        setIsUpdatingVip(true);
+        try {
+            await Promise.all(targetEpisodes.map(ep => 
+                fetch(`/api/episodes/${ep.id}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ isVip: vipRange.isVip, coinPrice: vipRange.coinPrice })
+                })
+            ));
+            toast.success(`${targetEpisodes.length} episode berhasil diupdate VIP-nya`);
+            setShowVipRangeModal(false);
+            fetchData();
+        } catch {
+            toast.error("Gagal mengupdate rentang VIP");
         } finally {
             setIsUpdatingVip(false);
         }
@@ -606,22 +635,35 @@ export default function DramaDetailPage() {
                             <PlayCircle size={20} className="text-cyan-500" />
                             Episode ({episodes.length}{drama.totalEpisodes > 0 && episodes.length !== drama.totalEpisodes ? ` / ${drama.totalEpisodes}` : ''})
                         </h3>
-                        {isEditing && episodesToDelete.length > 0 && (
+                        {isEditing && (
                             <div className="flex items-center gap-2">
                                 <button 
-                                    onClick={() => setShowVipModal(true)}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/20 text-amber-500 border border-amber-500/30 rounded-lg text-xs font-semibold hover:bg-amber-500/30 transition-colors"
+                                    onClick={() => {
+                                        setVipRange({ start: 1, end: episodes.length > 0 ? Math.max(...episodes.map(e => e.episodeNumber)) : 1, isVip: true, coinPrice: 50 });
+                                        setShowVipRangeModal(true);
+                                    }}
+                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-cyan-500/10 text-cyan-500 border border-cyan-500/20 rounded-lg text-xs font-semibold hover:bg-cyan-500/20 transition-colors"
                                 >
-                                    👑 Atur VIP ({episodesToDelete.length})
+                                    👑 VIP Range
                                 </button>
-                                <button 
-                                    onClick={deleteSelectedEpisodes}
-                                    disabled={isDeletingEpisodes}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-red-500/20 text-red-500 border border-red-500/30 rounded-lg text-xs font-semibold hover:bg-red-500/30 transition-colors"
-                                >
-                                    {isDeletingEpisodes ? <Loader2 className="animate-spin" size={14} /> : <Trash2 size={14} />}
-                                    Hapus Terpilih ({episodesToDelete.length})
-                                </button>
+                                {episodesToDelete.length > 0 && (
+                                    <>
+                                        <button 
+                                            onClick={() => setShowVipModal(true)}
+                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/20 text-amber-500 border border-amber-500/30 rounded-lg text-xs font-semibold hover:bg-amber-500/30 transition-colors"
+                                        >
+                                            👑 Atur VIP ({episodesToDelete.length})
+                                        </button>
+                                        <button 
+                                            onClick={deleteSelectedEpisodes}
+                                            disabled={isDeletingEpisodes}
+                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-red-500/20 text-red-500 border border-red-500/30 rounded-lg text-xs font-semibold hover:bg-red-500/30 transition-colors"
+                                        >
+                                            {isDeletingEpisodes ? <Loader2 className="animate-spin" size={14} /> : <Trash2 size={14} />}
+                                            Hapus Terpilih ({episodesToDelete.length})
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         )}
                     </div>
@@ -744,6 +786,93 @@ export default function DramaDetailPage() {
                                     className="flex-1 py-2 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors flex items-center justify-center gap-2"
                                 >
                                     {isUpdatingVip ? <Loader2 className="animate-spin" size={16} /> : "Simpan"}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* VIP Range Settings Modal */}
+            {showVipRangeModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl w-full max-w-sm">
+                        <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800 bg-black/50">
+                            <h3 className="text-white font-medium flex items-center gap-2">
+                                <span className="text-cyan-500">👑</span> VIP Range Massal
+                            </h3>
+                            <button onClick={() => setShowVipRangeModal(false)} className="text-zinc-400 hover:text-white transition-colors">
+                                <X size={20} />
+                            </button>
+                        </div>
+                        <div className="p-5 space-y-4">
+                            
+                            <div className="flex items-center gap-3">
+                                <div className="flex-1 space-y-1.5">
+                                    <label className="text-xs text-zinc-400 font-medium ml-1">Dari Episode</label>
+                                    <input 
+                                        type="number" 
+                                        className="w-full bg-[#111] border border-zinc-700 text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-cyan-500 transition-colors"
+                                        value={vipRange.start}
+                                        onChange={e => setVipRange({ ...vipRange, start: parseInt(e.target.value) || 1 })}
+                                        min="1"
+                                    />
+                                </div>
+                                <span className="text-zinc-500 font-medium mt-6">-</span>
+                                <div className="flex-1 space-y-1.5">
+                                    <label className="text-xs text-zinc-400 font-medium ml-1">Sampai Episode</label>
+                                    <input 
+                                        type="number" 
+                                        className="w-full bg-[#111] border border-zinc-700 text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-cyan-500 transition-colors"
+                                        value={vipRange.end}
+                                        onChange={e => setVipRange({ ...vipRange, end: parseInt(e.target.value) || 1 })}
+                                        min="1"
+                                    />
+                                </div>
+                            </div>
+
+                            <label className="flex items-center justify-between cursor-pointer p-3 rounded-lg border border-zinc-800 hover:bg-zinc-800/50 transition-colors">
+                                <span className="text-sm font-medium text-white">Status VIP</span>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-xs font-semibold text-zinc-400">{vipRange.isVip ? "Aktif" : "Gratis"}</span>
+                                    <input 
+                                        type="checkbox" 
+                                        className="w-4 h-4 rounded accent-cyan-500"
+                                        checked={vipRange.isVip}
+                                        onChange={e => setVipRange({ ...vipRange, isVip: e.target.checked })}
+                                    />
+                                </div>
+                            </label>
+
+                            {vipRange.isVip && (
+                                <div className="space-y-1.5">
+                                    <label className="text-xs text-zinc-400 font-medium ml-1">Harga Koin per Episode</label>
+                                    <div className="relative">
+                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-zinc-400">🪙</div>
+                                        <input 
+                                            type="number" 
+                                            className="w-full bg-[#111] border border-zinc-700 text-white rounded-lg pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:border-cyan-500 transition-colors"
+                                            value={vipRange.coinPrice}
+                                            onChange={e => setVipRange({ ...vipRange, coinPrice: parseInt(e.target.value) || 0 })}
+                                            min="0"
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="flex gap-2 pt-2">
+                                <button 
+                                    onClick={() => setShowVipRangeModal(false)}
+                                    className="flex-1 py-2 rounded-lg bg-zinc-800 text-white font-medium hover:bg-zinc-700 transition-colors"
+                                >
+                                    Batal
+                                </button>
+                                <button 
+                                    onClick={applyVipRange}
+                                    disabled={isUpdatingVip}
+                                    className="flex-1 py-2 rounded-lg bg-cyan-600 text-white font-semibold hover:bg-cyan-500 transition-colors flex items-center justify-center gap-2"
+                                >
+                                    {isUpdatingVip ? <Loader2 className="animate-spin" size={16} /> : "Terapkan"}
                                 </button>
                             </div>
                         </div>
