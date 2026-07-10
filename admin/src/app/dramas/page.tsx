@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Search, Plus, Film, CheckCircle, Eye, MoreVertical, Smartphone, Trash2, Loader2, AlertTriangle, Bell, LayoutGrid, List } from "lucide-react";
+import { Search, Plus, Film, CheckCircle, Eye, MoreVertical, Smartphone, Trash2, Loader2, AlertTriangle, Bell, LayoutGrid, List, Lock } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -18,6 +18,7 @@ interface Drama {
     cover: string;
     genres: string[];
     isActive: boolean;
+    isVip: boolean;
 }
 
 // Gradient colors for fallback covers
@@ -87,7 +88,7 @@ export default function DramaManagement() {
     const [dramas, setDramas] = useState<Drama[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    const [publishFilter, setPublishFilter] = useState<"all" | "tayang" | "pending" | "anime">("all");
+    const [publishFilter, setPublishFilter] = useState<"all" | "tayang" | "pending" | "anime" | "vip">("all");
     const [statusFilter, setStatusFilter] = useState<"all" | "completed" | "ongoing">("all");
     const [sortOrder, setSortOrder] = useState<"newest" | "az" | "za">("newest");
     const [viewMode, setViewMode] = useState<"list" | "grid">("list");
@@ -197,6 +198,7 @@ export default function DramaManagement() {
         );
     };
     const animeCount = dramas.filter(isAnime).length;
+    const vipCount = dramas.filter(d => d.isVip).length;
 
     // Apply all filters
     let filteredDramas = dramas.filter(d => {
@@ -207,6 +209,7 @@ export default function DramaManagement() {
         if (publishFilter === "tayang" && d.isActive === false) return false;
         if (publishFilter === "pending" && d.isActive !== false) return false;
         if (publishFilter === "anime" && !isAnime(d)) return false;
+        if (publishFilter === "vip" && !d.isVip) return false;
 
         // Status filter
         if (statusFilter !== "all" && d.status !== statusFilter) return false;
@@ -287,6 +290,12 @@ export default function DramaManagement() {
                             className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "anime" ? "border-purple-500 text-purple-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
                             Khusus Anime <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "anime" ? "bg-purple-500/20 text-purple-300" : "bg-zinc-800 text-zinc-400"}`}>{animeCount}</span>
+                        </button>
+                        <button 
+                            onClick={() => setPublishFilter("vip")} 
+                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "vip" ? "border-yellow-500 text-yellow-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        >
+                            Khusus VIP <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "vip" ? "bg-yellow-500/20 text-yellow-300" : "bg-zinc-800 text-zinc-400"}`}>{vipCount}</span>
                         </button>
                     </div>
 
@@ -405,6 +414,11 @@ export default function DramaManagement() {
                                     {/* Cover dengan hover efek naik */}
                                     <div className="relative rounded-xl overflow-hidden transition-transform duration-200 group-hover:-translate-y-1.5">
                                         <CoverImageLarge cover={item.cover} title={item.title} />
+                                        {item.isVip && (
+                                            <div className="absolute top-2 right-2 bg-yellow-500 text-black text-[10px] font-bold px-1.5 py-0.5 rounded shadow-lg flex items-center gap-1">
+                                                <Lock size={10} /> VIP
+                                            </div>
+                                        )}
                                     </div>
                                     {/* Judul */}
                                     <p className="mt-2 text-[12px] font-medium text-zinc-300 group-hover:text-cyan-400 transition-colors line-clamp-2 leading-snug">
@@ -434,9 +448,16 @@ export default function DramaManagement() {
 
                                     {/* Judul + Deskripsi */}
                                     <div className="min-w-0 pr-4">
-                                        <p className="text-[13px] font-semibold text-white group-hover:text-cyan-400 transition-colors truncate leading-tight">
-                                            {item.title}
-                                        </p>
+                                        <div className="flex items-center gap-2">
+                                            <p className="text-[13px] font-semibold text-white group-hover:text-cyan-400 transition-colors truncate leading-tight">
+                                                {item.title}
+                                            </p>
+                                            {item.isVip && (
+                                                <span className="bg-yellow-500/20 text-yellow-500 text-[10px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 whitespace-nowrap flex-shrink-0">
+                                                    <Lock size={10} /> VIP
+                                                </span>
+                                            )}
+                                        </div>
                                         <p className="text-[12px] text-zinc-500 mt-1 line-clamp-2 leading-snug">
                                             {item.description || <span className="italic text-zinc-700">Belum ada deskripsi</span>}
                                         </p>

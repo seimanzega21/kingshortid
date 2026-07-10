@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import {
     ChevronLeft, Save, PlayCircle, Trash2, Loader2,
     Image as ImageIcon, Eye, Clock, Film, Globe, Languages,
-    ToggleLeft, ToggleRight, ExternalLink, X, Plus, Camera, Link2
+    ToggleLeft, ToggleRight, ExternalLink, X, Plus, Camera, Link2, Lock
 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -463,7 +463,14 @@ export default function DramaDetailPage() {
                                         onChange={e => setFormData({ ...formData, title: e.target.value })}
                                     />
                                 ) : (
-                                    <h1 className="text-4xl font-bold text-white leading-tight">{drama.title}</h1>
+                                    <h1 className="text-4xl font-bold text-white leading-tight flex items-center gap-3">
+                                        {drama.title}
+                                        {drama.isVip && (
+                                            <span className="bg-yellow-500/20 text-yellow-500 text-sm font-bold px-2.5 py-1 rounded-lg flex items-center gap-1.5 whitespace-nowrap flex-shrink-0">
+                                                <Lock size={16} /> VIP
+                                            </span>
+                                        )}
+                                    </h1>
                                 )}
                             </div>
                             <div className="flex items-center gap-2 flex-shrink-0">
