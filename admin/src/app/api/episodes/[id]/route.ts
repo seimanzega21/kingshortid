@@ -26,3 +26,28 @@ export async function DELETE(
         return NextResponse.json({ message: 'Error' }, { status: 500 });
     }
 }
+
+// PATCH /api/episodes/[id]
+export async function PATCH(
+    request: NextRequest,
+    { params }: { params: Promise<{ id: string }> }
+) {
+    try {
+        await requireAdmin(request);
+        const { id } = await params;
+        const body = await request.json();
+
+        const updated = await prisma.episode.update({
+            where: { id },
+            data: {
+                ...(body.isVip !== undefined && { isVip: body.isVip }),
+                ...(body.coinPrice !== undefined && { coinPrice: parseInt(body.coinPrice) || 0 })
+            }
+        });
+
+        return NextResponse.json(updated);
+    } catch (error) {
+        console.error("Error updating episode:", error);
+        return NextResponse.json({ message: 'Error updating episode' }, { status: 500 });
+    }
+}
