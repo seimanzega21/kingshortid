@@ -556,14 +556,14 @@ export default function DramaDetailPage() {
 
                 <div className="p-4">
                     {sortedEpisodes.length > 0 ? (
-                        <div className="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2">
+                        <div className="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-10 gap-3">
                             {sortedEpisodes.map(ep => (
                                 <div
                                     key={ep.id}
                                     onClick={() => ep.videoUrl && playEpisode(ep)}
-                                    className={`group relative aspect-[2/1] rounded-lg border border-emerald-500/40 bg-[#1a1a1a] flex items-center justify-center transition-all ${ep.videoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
+                                    className={`group relative aspect-[2/1] rounded-lg border border-emerald-500/40 bg-[#1a1a1a] flex items-center justify-center transition-all min-h-[52px] ${ep.videoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
                                 >
-                                    <span className="text-emerald-400 font-bold text-sm">{ep.episodeNumber}</span>
+                                    <span className="text-emerald-400 font-bold text-base">{ep.episodeNumber}</span>
 
                                     {/* Hover tooltip */}
                                     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 w-48">
