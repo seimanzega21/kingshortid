@@ -11,8 +11,11 @@ def main():
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(SSH_HOST, username=SSH_USER, password=SSH_PASS, timeout=10)
         
-        # Connect to DB using docker exec psql
-        cmd = "docker exec -i supabase-db-og8gwooogk480gcws0o84ssc psql -U postgres -d postgres -c \"SELECT * FROM subtitles WHERE episode_id IN (SELECT id FROM episodes WHERE drama_id = 'wfwqgc6f6scykh032uy5x554' LIMIT 5);\""
+        # Connect to DB and run activation SQLs
+        cmd = """docker exec -i supabase-db-og8gwooogk480gcws0o84ssc psql -U postgres -d postgres -c "
+            UPDATE dramas SET is_active = true WHERE id = 'wfwqgc6f6scykh032uy5x554';
+            UPDATE episodes SET is_active = true WHERE drama_id = 'wfwqgc6f6scykh032uy5x554';
+        " """
         stdin, stdout, stderr = ssh.exec_command(cmd)
         
         print("STDOUT:")

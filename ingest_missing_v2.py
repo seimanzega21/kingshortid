@@ -34,7 +34,7 @@ DRAMA_ID_DB  = 'wfwqgc6f6scykh032uy5x554'
 DRAMA_ID_SRC = '2030826923818483713'
 SLUG         = 'orang-yang-kunikahi-ternyata-idolaku'
 
-MISSING_EPS  = list(range(47, 60))
+MISSING_EPS  = list(range(54, 60))
 
 def get_r2():
     return boto3.client(
@@ -80,7 +80,7 @@ def download_and_transcode(mp4_url, ep_no):
     print(f"      📥 Downloading source video...")
     for attempt in range(1, 6):
         try:
-            r = requests.get(mp4_url, stream=True, timeout=30)
+            r = requests.get(mp4_url, stream=True, timeout=30, verify=False)
             if r.ok:
                 with open(local_source, 'wb') as f:
                     for chunk in r.iter_content(chunk_size=1024*1024):
@@ -94,7 +94,7 @@ def download_and_transcode(mp4_url, ep_no):
         time.sleep(3)
     else:
         print("      ❌ Failed to download source file after 5 attempts.")
-        return None, None
+        return None, None, 0
         
     # 2. Get duration
     duration = 0
@@ -138,7 +138,7 @@ def download_and_transcode(mp4_url, ep_no):
         subprocess.check_call(cmd_540, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception as e:
         print(f"      ❌ Failed to transcode 540p: {e}")
-        return None, None
+        return None, None, 0
         
     # Cleanup source
     if os.path.exists(local_source):
@@ -150,7 +150,7 @@ def download_subtitle(sub_url, ep_no):
     local_sub = os.path.join(TEMP_DIR, f"ep{ep_no:03d}_id_ID.vtt")
     for attempt in range(1, 6):
         try:
-            r = requests.get(sub_url, timeout=15)
+            r = requests.get(sub_url, timeout=15, verify=False)
             if r.ok:
                 with open(local_sub, 'wb') as f:
                     f.write(r.content)
