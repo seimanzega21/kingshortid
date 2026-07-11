@@ -5,7 +5,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect('141.11.160.187', username='root', password='Surya123!', timeout=10)
 
 def query(q):
-    _, stdout, _ = ssh.exec_command(f'docker exec kingshort-postgres psql -U postgres -d kingshort -t -c "{q}"')
+    _, stdout, _ = ssh.exec_command(f'docker exec supabase-db-og8gwooogk480gcws0o84ssc psql -U supabase_admin -d postgres -t -c "{q}"')
     return stdout.read().decode().strip()
 
 print('Users:', query("SELECT COUNT(*) FROM users;"))
