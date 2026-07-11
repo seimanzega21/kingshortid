@@ -5,9 +5,8 @@ import prisma from '@/lib/prisma';
 export async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url);
-        const period = searchParams.get('period') || '7d'; // 7d, 30d, 90d
+        const period = searchParams.get('period') || '7d';
 
-        // Get date range
         const now = new Date();
         const startDate = new Date();
         let daysBack = 7;
@@ -16,23 +15,19 @@ export async function GET(request: NextRequest) {
         startDate.setDate(now.getDate() - daysBack);
         startDate.setHours(0, 0, 0, 0);
 
-        // Get daily views - group by date using raw SQL to avoid timestamp precision issue
-        const dailyViewsRaw: Array<{ date: string; count: bigint }> = await prisma.$queryRaw`
-            SELECT DATE(watched_at AT TIME ZONE 'Asia/Jakarta') as date, COUNT(*) as count
-            FROM watch_history
-            WHERE watched_at >= ${startDate}
-            GROUP BY DATE(watched_at AT TIME ZONE 'Asia/Jakarta')
-            ORDER BY date ASC
-        `;
+        // Fetch all watch history records in range (timestamp level)
+        const rawViews = await prisma.watchHistory.findMany({
+            select: { watchedAt: true },
+            where: { watchedAt: { gte: startDate } },
+            orderBy: { watchedAt: 'asc' },
+        });
 
-        // Get user growth grouped by day
-        const userGrowthRaw: Array<{ date: string; count: bigint }> = await prisma.$queryRaw`
-            SELECT DATE(created_at AT TIME ZONE 'Asia/Jakarta') as date, COUNT(*) as count
-            FROM users
-            WHERE created_at >= ${startDate}
-            GROUP BY DATE(created_at AT TIME ZONE 'Asia/Jakarta')
-            ORDER BY date ASC
-        `;
+        // Fetch user registrations in range
+        const rawUsers = await prisma.user.findMany({
+            select: { createdAt: true },
+            where: { createdAt: { gte: startDate } },
+            orderBy: { createdAt: 'asc' },
+        });
 
         // Get top dramas by views
         const topDramas = await prisma.drama.findMany({
@@ -43,9 +38,7 @@ export async function GET(request: NextRequest) {
                 title: true,
                 views: true,
                 rating: true,
-                _count: {
-                    select: { episodes: true }
-                }
+                _count: { select: { episodes: true } }
             }
         });
 
@@ -54,18 +47,26 @@ export async function GET(request: NextRequest) {
             prisma.drama.aggregate({ _sum: { views: true } }),
             prisma.user.count(),
             prisma.drama.count(),
-            // Revenue dari tabel payments (completed), bukan coin transactions
+            // Revenue dari tabel payments (completed transactions), bukan coin
             prisma.payment.aggregate({
                 _sum: { amount: true },
                 where: { status: 'completed' }
             })
         ]);
 
-        // Format viewership data for chart
-        const viewershipData = formatDailyData(dailyViewsRaw, startDate, now, daysBack);
-
-        // Format user growth for chart
-        const userGrowthData = formatDailyData(userGrowthRaw, startDate, now, daysBack);
+        // Aggregate per day (WIB = UTC+7)
+        const viewershipData = aggregateByDay(
+            rawViews.map(r => r.watchedAt),
+            startDate,
+            now,
+            daysBack
+        );
+        const userGrowthData = aggregateByDay(
+            rawUsers.map(r => r.createdAt),
+            startDate,
+            now,
+            daysBack
+        );
 
         return NextResponse.json({
             viewershipData,
@@ -90,33 +91,29 @@ export async function GET(request: NextRequest) {
     }
 }
 
-function formatDailyData(
-    data: Array<{ date: string; count: bigint }>,
-    startDate: Date,
-    endDate: Date,
-    daysBack: number
-) {
+// Aggregate timestamps into daily counts, respecting WIB (UTC+7) timezone
+function aggregateByDay(timestamps: Date[], startDate: Date, endDate: Date, daysBack: number) {
     const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+    const WIB_OFFSET_MS = 7 * 60 * 60 * 1000;
 
-    // Build a map of date -> count for O(1) lookup
+    // Build day->count map
     const countMap = new Map<string, number>();
-    for (const row of data) {
-        const dateStr = typeof row.date === 'string'
-            ? row.date.split('T')[0]
-            : new Date(row.date).toISOString().split('T')[0];
-        countMap.set(dateStr, Number(row.count));
+    for (const ts of timestamps) {
+        const wibDate = new Date(ts.getTime() + WIB_OFFSET_MS);
+        const key = wibDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        countMap.set(key, (countMap.get(key) || 0) + 1);
     }
 
     const result = [];
-    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
-        const dateStr = d.toISOString().split('T')[0];
-        result.push({
-            name: daysBack <= 7
-                ? dayNames[d.getDay()]
-                : `${d.getDate()}/${d.getMonth() + 1}`,
-            date: dateStr,
-            value: countMap.get(dateStr) || 0
-        });
+    const cur = new Date(startDate);
+    while (cur <= endDate) {
+        const wibCur = new Date(cur.getTime() + WIB_OFFSET_MS);
+        const key = wibCur.toISOString().split('T')[0];
+        const label = daysBack <= 7
+            ? dayNames[cur.getDay()]
+            : `${cur.getDate()}/${cur.getMonth() + 1}`;
+        result.push({ name: label, date: key, value: countMap.get(key) || 0 });
+        cur.setDate(cur.getDate() + 1);
     }
 
     return result;
