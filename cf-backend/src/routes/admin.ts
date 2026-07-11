@@ -546,7 +546,10 @@ adminRoute.get('/users', async (c) => {
         ]);
 
         return c.json({
-            users: userList,
+            users: userList.map((u: any) => ({
+                ...u,
+                vipStatus: u.vipStatus && (!u.vipExpiry || new Date(u.vipExpiry) > new Date()),
+            })),
             total: totalResult?.count || 0,
             page,
             pages: Math.ceil((totalResult?.count || 0) / limit),
@@ -625,8 +628,19 @@ adminRoute.get('/users/:id', async (c) => {
         // Tampilkan total saldo gabungan (coins + purchasedCoins) sebagai "coins"
         const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
 
+        // Auto-expire VIP: if vipStatus=true but vipExpiry has passed, set to false
+        let effectiveVipStatus = user.vipStatus;
+        if (user.vipStatus && user.vipExpiry && new Date(user.vipExpiry) <= new Date()) {
+            effectiveVipStatus = false;
+            // Update database to reflect expired status
+            await db.update(users)
+                .set({ vipStatus: false, updatedAt: new Date() })
+                .where(eq(users.id, id));
+        }
+
         return c.json({
             ...safeUser,
+            vipStatus: effectiveVipStatus,
             coins: totalCoins,
             _count: {
                 watchHistory: watchHistoryCount?.count || 0,
@@ -648,6 +662,7 @@ adminRoute.get('/users/:id', async (c) => {
         return c.json({ error: 'Failed to fetch user' }, 500);
     }
 });
+
 
 // ==================== UPDATE USER ====================
 adminRoute.patch('/users/:id', async (c) => {
