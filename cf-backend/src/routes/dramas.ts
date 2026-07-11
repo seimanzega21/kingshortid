@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { eq, and, desc, like, or, sql, asc, gte, inArray } from 'drizzle-orm';
+import { eq, and, desc, like, ilike, or, sql, asc, gte, inArray } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
 import { dramas, episodes, seasons, subtitles, watchHistory } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
@@ -406,8 +406,8 @@ dramasRoute.get('/search', async (c) => {
         const whereClause = and(
             eq(dramas.isActive, true),
             or(
-                like(dramas.title, searchTerm),
-                like(dramas.description, searchTerm),
+                ilike(dramas.title, searchTerm),
+                ilike(dramas.description, searchTerm),
             ),
         );
 
