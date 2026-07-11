@@ -39,7 +39,7 @@ export default function AnalyticsPage() {
         setLoading(true);
         try {
             const token = localStorage.getItem('token') || '';
-            const res = await fetch(`/api/admin/analytics?period=${period}`, {
+            const res = await fetch(`/api/analytics?period=${period}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!res.ok) throw new Error("Failed to load analytics");
@@ -56,6 +56,14 @@ export default function AnalyticsPage() {
         if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
         if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
         return num.toString();
+    };
+
+    const formatRevenue = (num: number) => {
+        // Amount in payments table is IDR (e.g. 15000 = Rp 15.000)
+        if (num >= 1000000000) return `Rp ${(num / 1000000000).toFixed(1)}M`;
+        if (num >= 1000000) return `Rp ${(num / 1000000).toFixed(1)}jt`;
+        if (num >= 1000) return `Rp ${(num / 1000).toFixed(0)}rb`;
+        return `Rp ${num.toFixed(0)}`;
     };
 
     if (loading) {
@@ -96,7 +104,7 @@ export default function AnalyticsPage() {
                 <StatCard title="Total Views" value={formatNumber(data?.stats.totalViews || 0)} icon={Eye} color="text-blue-500" bg="bg-blue-500/10" />
                 <StatCard title="Total Users" value={formatNumber(data?.stats.totalUsers || 0)} icon={Users} color="text-green-500" bg="bg-green-500/10" />
                 <StatCard title="Total Dramas" value={formatNumber(data?.stats.totalDramas || 0)} icon={Film} color="text-purple-500" bg="bg-purple-500/10" />
-                <StatCard title="Total Revenue" value={`Rp ${formatNumber(data?.stats.totalRevenue || 0)}`} icon={Coins} color="text-yellow-500" bg="bg-yellow-500/10" />
+                <StatCard title="Total Revenue" value={formatRevenue(data?.stats.totalRevenue || 0)} icon={Coins} color="text-yellow-500" bg="bg-yellow-500/10" />
             </div>
 
             {/* Charts Row */}
@@ -138,7 +146,7 @@ export default function AnalyticsPage() {
                                     <XAxis dataKey="name" stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
                                     <YAxis stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
                                     <Tooltip cursor={{ fill: '#333', opacity: 0.4 }} contentStyle={{ backgroundColor: '#1A1A1A', borderColor: '#333', color: '#fff' }} />
-                                    <Bar dataKey="value" fill="#10B981" radius={[4, 4, 0, 0]} barSize={40} />
+                                    <Bar dataKey="value" fill="#10B981" radius={[4, 4, 0, 0]} barSize={period === '7d' ? 32 : period === '30d' ? 12 : 6} />
                                 </BarChart>
                             </ResponsiveContainer>
                         ) : (

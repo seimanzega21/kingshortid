@@ -9,20 +9,30 @@ export async function GET(request: NextRequest) {
 
         // Get date range
         const now = new Date();
-        let startDate = new Date();
-        if (period === '7d') startDate.setDate(now.getDate() - 7);
-        else if (period === '30d') startDate.setDate(now.getDate() - 30);
-        else startDate.setDate(now.getDate() - 90);
+        const startDate = new Date();
+        let daysBack = 7;
+        if (period === '30d') daysBack = 30;
+        else if (period === '90d') daysBack = 90;
+        startDate.setDate(now.getDate() - daysBack);
+        startDate.setHours(0, 0, 0, 0);
 
-        // Get daily views (from watch history)
-        const dailyViews = await prisma.watchHistory.groupBy({
-            by: ['watchedAt'],
-            _count: { id: true },
-            where: {
-                watchedAt: { gte: startDate }
-            },
-            orderBy: { watchedAt: 'asc' }
-        });
+        // Get daily views - group by date using raw SQL to avoid timestamp precision issue
+        const dailyViewsRaw: Array<{ date: string; count: bigint }> = await prisma.$queryRaw`
+            SELECT DATE(watched_at AT TIME ZONE 'Asia/Jakarta') as date, COUNT(*) as count
+            FROM watch_history
+            WHERE watched_at >= ${startDate}
+            GROUP BY DATE(watched_at AT TIME ZONE 'Asia/Jakarta')
+            ORDER BY date ASC
+        `;
+
+        // Get user growth grouped by day
+        const userGrowthRaw: Array<{ date: string; count: bigint }> = await prisma.$queryRaw`
+            SELECT DATE(created_at AT TIME ZONE 'Asia/Jakarta') as date, COUNT(*) as count
+            FROM users
+            WHERE created_at >= ${startDate}
+            GROUP BY DATE(created_at AT TIME ZONE 'Asia/Jakarta')
+            ORDER BY date ASC
+        `;
 
         // Get top dramas by views
         const topDramas = await prisma.drama.findMany({
@@ -39,32 +49,23 @@ export async function GET(request: NextRequest) {
             }
         });
 
-        // Get user growth
-        const userGrowth = await prisma.user.groupBy({
-            by: ['createdAt'],
-            _count: { id: true },
-            where: {
-                createdAt: { gte: startDate }
-            },
-            orderBy: { createdAt: 'asc' }
-        });
-
         // Get total stats
         const [totalViews, totalUsers, totalDramas, totalRevenue] = await Promise.all([
             prisma.drama.aggregate({ _sum: { views: true } }),
             prisma.user.count(),
             prisma.drama.count(),
-            prisma.coinTransaction.aggregate({
+            // Revenue dari tabel payments (completed), bukan coin transactions
+            prisma.payment.aggregate({
                 _sum: { amount: true },
-                where: { type: 'topup' }
+                where: { status: 'completed' }
             })
         ]);
 
         // Format viewership data for chart
-        const viewershipData = formatDailyData(dailyViews, startDate, now);
+        const viewershipData = formatDailyData(dailyViewsRaw, startDate, now, daysBack);
 
         // Format user growth for chart
-        const userGrowthData = formatDailyData(userGrowth, startDate, now);
+        const userGrowthData = formatDailyData(userGrowthRaw, startDate, now, daysBack);
 
         return NextResponse.json({
             viewershipData,
@@ -89,23 +90,34 @@ export async function GET(request: NextRequest) {
     }
 }
 
-function formatDailyData(data: any[], startDate: Date, endDate: Date) {
+function formatDailyData(
+    data: Array<{ date: string; count: bigint }>,
+    startDate: Date,
+    endDate: Date,
+    daysBack: number
+) {
     const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
-    const result = [];
 
+    // Build a map of date -> count for O(1) lookup
+    const countMap = new Map<string, number>();
+    for (const row of data) {
+        const dateStr = typeof row.date === 'string'
+            ? row.date.split('T')[0]
+            : new Date(row.date).toISOString().split('T')[0];
+        countMap.set(dateStr, Number(row.count));
+    }
+
+    const result = [];
     for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
         const dateStr = d.toISOString().split('T')[0];
-        const found = data.find(item => {
-            const itemDate = new Date(item.watchedAt || item.createdAt);
-            return itemDate.toISOString().split('T')[0] === dateStr;
-        });
-
         result.push({
-            name: dayNames[d.getDay()],
+            name: daysBack <= 7
+                ? dayNames[d.getDay()]
+                : `${d.getDate()}/${d.getMonth() + 1}`,
             date: dateStr,
-            value: found?._count?.id || 0
+            value: countMap.get(dateStr) || 0
         });
     }
 
-    return result.slice(-7); // Last 7 entries for weekly view
+    return result;
 }
