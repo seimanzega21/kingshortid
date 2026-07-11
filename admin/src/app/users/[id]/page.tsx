@@ -248,11 +248,15 @@ export default function UserDetailPage() {
                                 <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20">Guest</span>
                             )}
                             {/* VIP */}
-                            {user.vipStatus && (
+                            {user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date()) ? (
                                 <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center gap-1">
                                     <Crown size={12} /> VIP
                                 </span>
-                            )}
+                            ) : user.vipStatus ? (
+                                <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20 flex items-center gap-1">
+                                    <Crown size={12} /> VIP Expired
+                                </span>
+                            ) : null}
                         </div>
 
                         <div className="flex items-center gap-4 mt-2 text-sm text-zinc-400 flex-wrap">
