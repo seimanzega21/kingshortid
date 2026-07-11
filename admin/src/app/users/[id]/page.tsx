@@ -141,7 +141,8 @@ export default function UserDetailPage() {
         if (!user) return;
         setVipLoading(true);
         try {
-            if (user.vipStatus) {
+            const isVipActive = user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date());
+            if (isVipActive) {
                 const res = await fetch(`/api/users/${id}`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
@@ -248,15 +249,11 @@ export default function UserDetailPage() {
                                 <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20">Guest</span>
                             )}
                             {/* VIP */}
-                            {user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date()) ? (
+                            {user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date()) && (
                                 <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center gap-1">
                                     <Crown size={12} /> VIP
                                 </span>
-                            ) : user.vipStatus ? (
-                                <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20 flex items-center gap-1">
-                                    <Crown size={12} /> VIP Expired
-                                </span>
-                            ) : null}
+                            )}
                         </div>
 
                         <div className="flex items-center gap-4 mt-2 text-sm text-zinc-400 flex-wrap">
@@ -350,7 +347,7 @@ export default function UserDetailPage() {
                 ) : null}
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                    {user.vipStatus ? (
+                    {user.vipStatus && (!user.vipExpiry || new Date(user.vipExpiry) > new Date()) ? (
                         <button
                             onClick={handleToggleVip}
                             disabled={vipLoading}
@@ -378,7 +375,7 @@ export default function UserDetailPage() {
                                 className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition-colors disabled:opacity-50"
                             >
                                 {vipLoading ? <Loader2 className="animate-spin" size={14} /> : <ToggleLeft size={14} />}
-                                Aktifkan VIP
+                                {user.vipStatus ? "Perpanjang VIP" : "Aktifkan VIP"}
                             </button>
                         </>
                     )}
