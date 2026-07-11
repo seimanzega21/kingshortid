@@ -423,6 +423,9 @@ def main():
     print("=================================================================")
     
     for idx, drama in enumerate(dramas, 1):
+        if idx > 70:
+            print("Reached limit of 70 dramas. Stopping pipeline.")
+            break
         print(f"\nProcessing drama {idx}/{len(dramas)}")
         try:
             process_drama(r2, drama)
