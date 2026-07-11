@@ -47,10 +47,10 @@ export async function GET(request: NextRequest) {
             prisma.drama.aggregate({ _sum: { views: true } }),
             prisma.user.count(),
             prisma.drama.count(),
-            // Revenue dari tabel payments (completed transactions), bukan coin
-            prisma.payment.aggregate({
+            // Revenue dari coin topup (tabel payments belum digunakan)
+            prisma.coinTransaction.aggregate({
                 _sum: { amount: true },
-                where: { status: 'completed' }
+                where: { type: 'topup' }
             })
         ]);
 
