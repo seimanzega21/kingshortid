@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-VPS-BASED PIPELINE: Sequential Queue for MeloloV3 dramas
+VPS-BASED PIPELINE: Concurrent Ingestion for MeloloV3 dramas
 """
 import requests
 import boto3
@@ -10,7 +10,9 @@ import time
 import os
 import subprocess
 import urllib3
+import threading
 from botocore.config import Config
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
@@ -45,6 +47,21 @@ DRAMAS_QUEUE = [
     {'id': '7654132839750831157', 'slug': 'legenda-koki-tua', 'genres': ['Drama', 'Koki', 'Komedi']},
     {'id': '7651858956284857397', 'slug': 'karunia-mata-sakti', 'genres': ['Drama', 'Aksi', 'Mata Sakti']},
     {'id': '7654842920003980293', 'slug': 'naga-sejati', 'genres': ['Aksi', 'Drama', 'Naga']},
+    {'id': '7657361522875714565', 'slug': 'ia-kembali-menjadi-penguasa', 'genres': ['Aksi', 'Drama', 'Romantis']},
+    # New parallel-eligible ones
+    {'id': '7659306640595766277', 'slug': 'bangkit-jadi-penguasa', 'genres': ['Aksi', 'Drama', 'Romantis']},
+    {'id': '7657361523697781813', 'slug': 'rara-penakluk-bandar', 'genres': ['Aksi', 'Drama', 'Kejahatan']},
+    {'id': '7644788786492083253', 'slug': 'sistem-memanjakan-istri', 'genres': ['Drama', 'Romantis', 'Sistem']},
+    {'id': '7654871705520704565', 'slug': 'putra-orang-terkaya', 'genres': ['Drama', 'Romantis', 'CEO']},
+    {'id': '7659680058046434309', 'slug': 'mata-sakti-di-meja-judi', 'genres': ['Drama', 'Aksi', 'Mata Sakti']},
+    {'id': '7657821111106669621', 'slug': 'mata-sakti-dari-leluhur', 'genres': ['Drama', 'Aksi', 'Mata Sakti']},
+    {'id': '7650428915613174837', 'slug': 'raja-tambang-emas', 'genres': ['Aksi', 'Drama', 'Kaya']},
+    {'id': '7657014288346778677', 'slug': 'kurir-sakti-mendadak-heboh', 'genres': ['Drama', 'Komedi', 'Kurir']},
+    {'id': '7633800514483784757', 'slug': 'legenda-tangan-emas', 'genres': ['Aksi', 'Drama', 'Wuxia']},
+    {'id': '7653408267212688437', 'slug': 'restoran-instan-viral', 'genres': ['Drama', 'Koki', 'Sistem']},
+    {'id': '7586977345907461173', 'slug': 'keajaiban-kuliner-sistem-rahasia', 'genres': ['Drama', 'Koki', 'Sistem']},
+    {'id': '7583505880100899845', 'slug': 'bangkitnya-sembilan-naga', 'genres': ['Aksi', 'Drama', 'Naga']},
+    {'id': '7658181225206516789', 'slug': 'perlawanan-hak-kerja', 'genres': ['Aksi', 'Drama', 'Keadilan']},
 ]
 
 def get_r2():
@@ -54,7 +71,11 @@ def get_r2():
         config=Config(signature_version='s3v4'), region_name='auto'
     )
 
-def fetch_drama_details(upstream_id):
+def log(slug, msg):
+    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+    print(f"[{timestamp}] [{slug}] {msg}", flush=True)
+
+def fetch_drama_details(upstream_id, slug):
     detail_url = f'https://vidrama.asia/api/melolov3/series?id={upstream_id}&lang=id'
     videos_url = f'https://vidrama.asia/api/melolov3/multi-video?id={upstream_id}&lang=id'
     
@@ -64,7 +85,7 @@ def fetch_drama_details(upstream_id):
         if r.ok:
             metadata = r.json().get('series') or {}
     except Exception as e:
-        print(f"      ⚠ Error fetching metadata: {e}")
+        log(slug, f"⚠ Error fetching metadata: {e}")
         
     episodes = []
     try:
@@ -73,7 +94,7 @@ def fetch_drama_details(upstream_id):
             data = r.json()
             episodes = data.get('episodes') or data or []
     except Exception as e:
-        print(f"      ⚠ Error fetching episodes: {e}")
+        log(slug, f"⚠ Error fetching episodes: {e}")
         
     return metadata, episodes
 
@@ -89,7 +110,7 @@ def upload_cover_to_r2(r2, cover_url, slug, temp_dir):
             
         r = requests.get(url_to_fetch, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}, timeout=30, verify=False)
         if not r.ok:
-            print(f"      ⚠ Failed to download cover. Status: {r.status_code}")
+            log(slug, f"⚠ Failed to download cover. Status: {r.status_code}")
             return ""
         with open(local_jpg, 'wb') as f:
             f.write(r.content)
@@ -106,7 +127,7 @@ def upload_cover_to_r2(r2, cover_url, slug, temp_dir):
             
         return f"{R2_PUBLIC}/{r2_key}"
     except Exception as e:
-        print(f"      ⚠ Cover processing failed: {e}")
+        log(slug, f"⚠ Cover processing failed: {e}")
         return ""
 
 def get_or_register_drama(r2, metadata, slug, genres, temp_dir):
@@ -123,13 +144,12 @@ def get_or_register_drama(r2, metadata, slug, genres, temp_dir):
             for d in dramas:
                 if d.get('title', '').lower().strip() == title.lower().strip():
                     db_id = d.get('id')
-                    print(f"   ✓ Drama already registered in DB: {db_id}")
-                    # Ensure it is active
+                    log(slug, f"✓ Drama already registered in DB: {db_id}")
                     if not d.get('isActive'):
                         requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json={'id': db_id, 'isActive': True}, timeout=10)
                     return db_id
     except Exception as e:
-        print(f"      ⚠ DB duplicate check failed: {e}")
+        log(slug, f"⚠ DB duplicate check failed: {e}")
         
     # Process cover art
     cover_raw = metadata.get('cover') or ''
@@ -153,16 +173,16 @@ def get_or_register_drama(r2, metadata, slug, genres, temp_dir):
         r = requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=30)
         if r.ok:
             db_id = r.json().get('id')
-            print(f"   ✓ New drama registered! ID: {db_id}")
+            log(slug, f"✓ New drama registered! ID: {db_id}")
             return db_id
         else:
-            print(f"      ❌ Failed to register drama. Status: {r.status_code}, Body: {r.text[:200]}")
+            log(slug, f"❌ Failed to register drama. Status: {r.status_code}, Body: {r.text[:200]}")
     except Exception as e:
-        print(f"      ❌ Drama registration exception: {e}")
+        log(slug, f"❌ Drama registration exception: {e}")
         
     return None
 
-def download_source_file(url, local_path):
+def download_source_file(url, local_path, slug):
     try:
         r = requests.get(url, headers=HEADERS, timeout=60, verify=False, stream=True)
         if r.ok:
@@ -172,10 +192,10 @@ def download_source_file(url, local_path):
                         f.write(chunk)
             return True
     except Exception as e:
-        print(f"      ⚠ Source download failed: {e}")
+        log(slug, f"⚠ Source download failed: {e}")
     return False
 
-def transcode_to_resolutions(local_source, ep_no, temp_dir):
+def transcode_to_resolutions(local_source, ep_no, temp_dir, slug):
     local_720 = os.path.join(temp_dir, f"ep{ep_no:03d}_720p.mp4")
     local_540 = os.path.join(temp_dir, f"ep{ep_no:03d}_540p.mp4")
     
@@ -201,7 +221,7 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir):
             success_720 = True
             break
         else:
-            print(f"         ⚠ 720p attempt {attempt} failed.")
+            log(slug, f"⚠ 720p attempt {attempt} failed.")
             if attempt < 2: time.sleep(3)
             
     if not success_720:
@@ -226,7 +246,7 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir):
             success_540 = True
             break
         else:
-            print(f"         ⚠ 540p attempt {attempt} failed.")
+            log(slug, f"⚠ 540p attempt {attempt} failed.")
             if attempt < 2: time.sleep(3)
             
     if not success_540:
@@ -234,32 +254,30 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir):
         
     return local_720, local_540
 
-def process_drama(r2, item):
+def process_drama(item):
     upstream_id = item['id']
     slug = item['slug']
     genres = item['genres']
     
+    r2 = get_r2()
     temp_dir = f"/tmp/temp_melolo_{slug}"
     os.makedirs(temp_dir, exist_ok=True)
     
-    print("\n" + "=" * 60)
-    print(f"🎬 STARTING INGESTION: {slug} (ID: {upstream_id})")
-    print("=" * 60)
+    log(slug, f"🎬 STARTING INGESTION (ID: {upstream_id})")
     
     # 1. Fetch metadata and video list
-    meta, eps_list = fetch_drama_details(upstream_id)
+    meta, eps_list = fetch_drama_details(upstream_id, slug)
     if not meta or not eps_list:
-        print("❌ Failed to fetch metadata or episodes list. Skipping.")
-        return
+        log(slug, "❌ Failed to fetch metadata or episodes list. Skipping.")
+        return False
         
-    print(f"   Title: {meta.get('title')}")
-    print(f"   Episodes: {len(eps_list)}")
+    log(slug, f"Title: {meta.get('title')} | Episodes: {len(eps_list)}")
     
     # 2. Get or register drama
     drama_db_id = get_or_register_drama(r2, meta, slug, genres, temp_dir)
     if not drama_db_id:
-        print("❌ Failed to get/register drama in DB. Skipping.")
-        return
+        log(slug, "❌ Failed to get/register drama in DB. Skipping.")
+        return False
         
     # 3. Fetch done episodes
     done_eps = set()
@@ -270,9 +288,9 @@ def process_drama(r2, item):
             eps_list_db = r_eps.json()
             done_eps = {e.get('episodeNumber') for e in eps_list_db}
     except Exception as e:
-        print(f"   ⚠ Failed to fetch registered episodes: {e}")
+        log(slug, f"⚠ Failed to fetch registered episodes: {e}")
         
-    print(f"   Already done: {len(done_eps)} episodes")
+    log(slug, f"Already done: {len(done_eps)} episodes")
     
     # 4. Process episodes
     for ep in eps_list:
@@ -280,18 +298,18 @@ def process_drama(r2, item):
         if ep_no in done_eps:
             continue
             
-        print(f"\n   ▶ Episode {ep_no}/{len(eps_list)}:")
+        log(slug, f"▶ Episode {ep_no}/{len(eps_list)}")
         stream_url = ep.get('stream_url')
         if not stream_url:
-            print(f"      ❌ No stream URL found for Ep {ep_no}. Skipping.")
+            log(slug, f"❌ No stream URL found for Ep {ep_no}. Skipping.")
             continue
             
         local_raw = os.path.join(temp_dir, f"ep{ep_no:03d}_raw.mp4")
         
         # Download
-        print("      📥 Downloading source file...")
-        if not download_source_file(stream_url, local_raw):
-            print(f"      ❌ Failed to download source for Ep {ep_no}. Skipping.")
+        log(slug, f"📥 Downloading Ep {ep_no} source...")
+        if not download_source_file(stream_url, local_raw, slug):
+            log(slug, f"❌ Failed to download source for Ep {ep_no}. Skipping.")
             continue
             
         # Get duration
@@ -303,16 +321,16 @@ def process_drama(r2, item):
             ]
             duration_str = subprocess.check_output(cmd_dur).decode('utf-8').strip()
             duration = int(round(float(duration_str)))
-        except Exception as e:
+        except:
             pass
             
         # Transcode
-        print("      ⚡ Transcoding to 720p & 540p...")
-        local_720, local_540 = transcode_to_resolutions(local_raw, ep_no, temp_dir)
+        log(slug, f"⚡ Transcoding Ep {ep_no} to 720p & 540p...")
+        local_720, local_540 = transcode_to_resolutions(local_raw, ep_no, temp_dir, slug)
         if os.path.exists(local_raw): os.remove(local_raw)
         
         if not local_720:
-            print("      ❌ Transcoding failed. Skipping.")
+            log(slug, f"❌ Transcoding failed for Ep {ep_no}. Skipping.")
             continue
             
         # Upload
@@ -322,23 +340,23 @@ def process_drama(r2, item):
         r2_url_720 = ""
         r2_url_540 = ""
         
-        print(f"      📤 Uploading 720p: {r2_key_720}")
+        log(slug, f"📤 Uploading 720p Ep {ep_no}...")
         try:
             r2.upload_file(local_720, R2_BUCKET, r2_key_720, ExtraArgs={'ContentType': 'video/mp4'})
             r2_url_720 = f"{R2_PUBLIC}/{r2_key_720}"
             os.remove(local_720)
         except Exception as e:
-            print(f"      ❌ Upload 720p failed: {e}")
+            log(slug, f"❌ Upload 720p failed for Ep {ep_no}: {e}")
             continue
             
         if local_540:
-            print(f"      📤 Uploading 540p: {r2_key_540}")
+            log(slug, f"📤 Uploading 540p Ep {ep_no}...")
             try:
                 r2.upload_file(local_540, R2_BUCKET, r2_key_540, ExtraArgs={'ContentType': 'video/mp4'})
                 r2_url_540 = f"{R2_PUBLIC}/{r2_key_540}"
                 os.remove(local_540)
             except Exception as e:
-                print(f"      ❌ Upload 540p failed: {e}")
+                log(slug, f"❌ Upload 540p failed for Ep {ep_no}: {e}")
                 
         # DB Register
         payload_ep = {
@@ -358,10 +376,10 @@ def process_drama(r2, item):
                 r_reg = requests.post(f"{API_BASE}/admin/dramas/{drama_db_id}/episodes", headers=ADMIN_HDR, json=payload_ep, timeout=20)
                 if r_reg.ok:
                     ep_db_id = r_reg.json().get('id')
-                    print(f"      ✅ Registered! ID: {ep_db_id}")
+                    log(slug, f"✅ Registered Ep {ep_no}! ID: {ep_db_id}")
                     break
             except Exception as e:
-                print(f"      ⚠ Ep DB register failed (attempt {attempt}/5): {e}")
+                log(slug, f"⚠ Ep DB register failed (attempt {attempt}/5): {e}")
             time.sleep(2)
             
     # Cleanup temp directory
@@ -370,23 +388,29 @@ def process_drama(r2, item):
         shutil.rmtree(temp_dir)
     except:
         pass
+        
+    log(slug, "🏁 INGESTION COMPLETED")
+    return True
 
 def main():
     print("=================================================================")
-    print(f"STARTING MELOLOV3 QUEUE: {len(DRAMAS_QUEUE)} dramas to process")
+    print(f"STARTING MELOLOV3 CONCURRENT QUEUE: {len(DRAMAS_QUEUE)} dramas")
     print("=================================================================")
     
-    r2 = get_r2()
+    # We run up to 2 parallel workers (to avoid overloading CPU but increase speed)
+    max_workers = 2
     
-    for idx, item in enumerate(DRAMAS_QUEUE, 1):
-        print(f"\nProcessing item {idx}/{len(DRAMAS_QUEUE)}")
-        try:
-            process_drama(r2, item)
-        except Exception as e:
-            print(f"❌ Exception processing item {item['slug']}: {e}")
-            
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(process_drama, item): item for item in DRAMAS_QUEUE}
+        for future in as_completed(futures):
+            item = futures[future]
+            try:
+                future.result()
+            except Exception as e:
+                print(f"❌ Uncaught exception for item {item['slug']}: {e}")
+                
     print("\n=================================================================")
-    print("ALL MELOLOV3 QUEUE ITEMS COMPLETED!")
+    print("ALL MELOLOV3 CONCURRENT QUEUE ITEMS COMPLETED!")
     print("=================================================================")
 
 if __name__ == '__main__':
