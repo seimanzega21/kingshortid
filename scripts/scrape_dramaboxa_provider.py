@@ -176,7 +176,8 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
     slug = slugify(title)
     prefix = f"dramaboxa/{slug}"
     
-    local_save_dir = Path("D:/Video Drama/Facebook") / title.replace(":", " ").replace("/", " ")
+    safe_title = re.sub(r'[<>:"/\\|?*]', ' ', title).strip()
+    local_save_dir = Path("D:/Video Drama/Facebook") / safe_title
     local_save_dir.mkdir(parents=True, exist_ok=True)
     
     print(f"\nProcessing drama: '{title}' (ID: {movie_id}, Slug: {slug})")
