@@ -62,6 +62,7 @@ DRAMAS_QUEUE = [
     {'id': '7586977345907461173', 'slug': 'keajaiban-kuliner-sistem-rahasia', 'genres': ['Drama', 'Koki', 'Sistem']},
     {'id': '7583505880100899845', 'slug': 'bangkitnya-sembilan-naga', 'genres': ['Aksi', 'Drama', 'Naga']},
     {'id': '7658181225206516789', 'slug': 'perlawanan-hak-kerja', 'genres': ['Aksi', 'Drama', 'Keadilan']},
+    {'id': '7660390573286624261', 'slug': 'sang-raja-dunia-kuasa', 'genres': ['Aksi', 'Drama', 'Kekuasaan']},
 ]
 
 def get_r2():
