@@ -63,6 +63,16 @@ DRAMAS_QUEUE = [
     {'id': '7583505880100899845', 'slug': 'bangkitnya-sembilan-naga', 'genres': ['Aksi', 'Drama', 'Naga']},
     {'id': '7658181225206516789', 'slug': 'perlawanan-hak-kerja', 'genres': ['Aksi', 'Drama', 'Keadilan']},
     {'id': '7660390573286624261', 'slug': 'sang-raja-dunia-kuasa', 'genres': ['Aksi', 'Drama', 'Kekuasaan']},
+    {'id': '7650710584211540997', 'slug': 'buktikan-kebenaran', 'genres': ['Drama', 'Kebenaran', 'Hukum']},
+    {'id': '7655618961110731781', 'slug': 'balas-dendam-pada-bos', 'genres': ['Romantis', 'Drama', 'CEO']},
+    {'id': '7654100361451408437', 'slug': 'balas-dendam-sang-insinyur', 'genres': ['Drama', 'Aksi', 'Teknologi']},
+    {'id': '7640156002427341829', 'slug': 'rezeki-diusir', 'genres': ['Drama', 'Keluarga', 'Kekayaan']},
+    {'id': '7652646260444236805', 'slug': 'juara-dari-rongsokan', 'genres': ['Drama', 'Aksi', 'Inspiratif']},
+    {'id': '7638445078800763909', 'slug': 'air-untuk-desa', 'genres': ['Drama', 'Pedesaan', 'Sosial']},
+    {'id': '7656992785886612533', 'slug': 'tanah-hidup-baru', 'genres': ['Drama', 'Pedesaan', 'Inspiratif']},
+    {'id': '7647826632819887109', 'slug': 'bangkit-demi-reputasi', 'genres': ['Aksi', 'Drama', 'Reputasi']},
+    {'id': '7580206667317382149', 'slug': 'dokter-terhebat-bangkit-kembali', 'genres': ['Drama', 'Pengobatan', 'Aksi']},
+    {'id': '7606257505710115893', 'slug': 'legenda-kultivator-abadi', 'genres': ['Aksi', 'Drama', 'Kultivasi']},
 ]
 
 def get_r2():
