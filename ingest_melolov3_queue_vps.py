@@ -73,6 +73,18 @@ DRAMAS_QUEUE = [
     {'id': '7647826632819887109', 'slug': 'bangkit-demi-reputasi', 'genres': ['Aksi', 'Drama', 'Reputasi']},
     {'id': '7580206667317382149', 'slug': 'dokter-terhebat-bangkit-kembali', 'genres': ['Drama', 'Pengobatan', 'Aksi']},
     {'id': '7606257505710115893', 'slug': 'legenda-kultivator-abadi', 'genres': ['Aksi', 'Drama', 'Kultivasi']},
+    {'id': '7657771952211233845', 'slug': 'tabib-sakti-mengguncang-dunia', 'genres': ['Drama', 'Pengobatan', 'Aksi']},
+    {'id': '7623726685162048517', 'slug': 'sistem-kilat-superku', 'genres': ['Drama', 'Sistem', 'CEO']},
+    {'id': '7654842919571950597', 'slug': 'dewa-perang-atau-kurir', 'genres': ['Aksi', 'Drama', 'Kurir']},
+    {'id': '7658182835848612869', 'slug': 'jurus-sakti-penentu', 'genres': ['Aksi', 'Drama', 'Romantis']},
+    {'id': '7589176079756037173', 'slug': 'bangkitnya-sang-pebisnis-legenda', 'genres': ['Drama', 'CEO', 'Inspiratif']},
+    {'id': '7658870429955656757', 'slug': 'cinta-menyelamatkanku', 'genres': ['Romantis', 'Drama', 'CEO']},
+    {'id': '7528405932376591361', 'slug': 'raja-agung-tak-tertandingi', 'genres': ['Aksi', 'Drama', 'Raja']},
+    {'id': '7658170699046980661', 'slug': 'awal-mula-pernikahan', 'genres': ['Romantis', 'Drama', 'Pernikahan']},
+    {'id': '7620023181935397893', 'slug': 'pendekar-sakti-turun-gunung', 'genres': ['Aksi', 'Drama', 'Wuxia']},
+    {'id': '7635841687977200693', 'slug': 'dewa-turun-ke-sma', 'genres': ['Drama', 'Aksi', 'Sekolah']},
+    {'id': '7632992122391497781', 'slug': 'rahasia-kekuatan', 'genres': ['Aksi', 'Drama', 'Misteri']},
+    {'id': '7621411663584955397', 'slug': 'tukang-jagal-sakti', 'genres': ['Aksi', 'Drama', 'Wuxia']},
 ]
 
 def get_r2():
