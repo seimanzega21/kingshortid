@@ -85,6 +85,7 @@ DRAMAS_QUEUE = [
     {'id': '7635841687977200693', 'slug': 'dewa-turun-ke-sma', 'genres': ['Drama', 'Aksi', 'Sekolah']},
     {'id': '7632992122391497781', 'slug': 'rahasia-kekuatan', 'genres': ['Aksi', 'Drama', 'Misteri']},
     {'id': '7621411663584955397', 'slug': 'tukang-jagal-sakti', 'genres': ['Aksi', 'Drama', 'Wuxia']},
+    {'id': '7659256916681428021', 'slug': 'warisan-yang-menguji-hati', 'genres': ['Drama', 'Keluarga', 'Inspiratif']},
 ]
 
 def get_r2():
