@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, like, or, sql, ne, gte, asc, lte, inArray } from 'drizzle-orm';
 import { getDb } from '../db';
-import { users, dramas, episodes, watchHistory, watchlist, favorites, collections, coinTransactions, feedbacks } from '../db/schema';
+import { users, dramas, episodes, subtitles, watchHistory, watchlist, favorites, collections, coinTransactions, feedbacks } from '../db/schema';
 import { requireAdmin, getAuthUser } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
 
@@ -793,6 +793,24 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
                 .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
                 .where(eq(dramas.id, dramaId));
 
+            // Handle subtitle
+            if (body.subtitleUrl) {
+                const subExisting = await db.select({ id: subtitles.id }).from(subtitles)
+                    .where(and(eq(subtitles.episodeId, existing.id), eq(subtitles.language, 'id')))
+                    .limit(1).then((r: any[]) => r[0]);
+                if (!subExisting) {
+                    await db.insert(subtitles).values({
+                        episodeId: existing.id,
+                        language: 'id',
+                        label: 'Indonesian',
+                        url: body.subtitleUrl,
+                        isDefault: true,
+                    });
+                } else {
+                    await db.update(subtitles).set({ url: body.subtitleUrl }).where(eq(subtitles.id, subExisting.id));
+                }
+            }
+
             return c.json({ id: existing.id, updated: true });
         }
 
@@ -815,6 +833,17 @@ adminRoute.post('/dramas/:dramaId/episodes', async (c) => {
         await db.update(dramas)
             .set({ totalEpisodes: countResult[0]?.count || 0, updatedAt: new Date() })
             .where(eq(dramas.id, dramaId));
+
+        // Handle subtitle for newly created episode
+        if (body.subtitleUrl) {
+            await db.insert(subtitles).values({
+                episodeId: created.id,
+                language: 'id',
+                label: 'Indonesian',
+                url: body.subtitleUrl,
+                isDefault: true,
+            });
+        }
 
         return c.json({ id: created.id, updated: false }, 201);
     } catch (error) {
