@@ -59,6 +59,19 @@ export async function POST(
             },
         });
 
+        // Insert subtitle if provided
+        if (body.subtitleUrl) {
+            await prisma.subtitle.create({
+                data: {
+                    episodeId: episode.id,
+                    language: 'id',
+                    label: 'Indonesian',
+                    url: body.subtitleUrl,
+                    isDefault: true,
+                }
+            });
+        }
+
         // Update drama episode count
         await prisma.drama.update({
             where: { id: dramaId },
