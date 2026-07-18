@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Gunakan BACKEND_URL (https://api.shortlovers.id/api) agar tidak error infinite loop ke localhost
-const BACKEND_API = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+// Gunakan BACKEND_URL (http://kingshortid-api:3000/api) agar tidak error infinite loop ke localhost
+const BACKEND_API = process.env.BACKEND_URL || 'http://kingshortid-api:3000/api';
 const ADMIN_KEY = process.env.ADMIN_API_KEY || '';
 
 export async function POST(request: NextRequest) {

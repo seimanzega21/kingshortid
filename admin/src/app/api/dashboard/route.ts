@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 let cache: { data: any; ts: number } | null = null;
 const CACHE_TTL = 10_000; // 10 seconds — keeps totalUsers in sync
 
-const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const BACKEND = process.env.BACKEND_URL || 'http://kingshortid-api:3000/api';
 const VPS_API = `${BACKEND}/admin/dashboard`;
 
 // GET /api/dashboard — Stats from VPS Backend API

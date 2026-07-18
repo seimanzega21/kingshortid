@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const BACKEND = process.env.BACKEND_URL || 'http://kingshortid-api:3000/api';
 const VPS_API = `${BACKEND}/admin/dashboard`;
 
 export const dynamic = 'force-dynamic';

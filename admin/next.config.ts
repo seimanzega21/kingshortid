@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 // All data API routes are proxied to VPS Supabase backend
 // Local-only routes: /api/dashboard, /api/health, /api/admin/auth/*, /api/scraper/*, /api/uploads/*
-const VPS_API = 'https://api.shortlovers.id';
+const VPS_API = process.env.VPS_API_URL || 'http://kingshortid-api:3000';
 
 const nextConfig: NextConfig = {
   turbopack: {},

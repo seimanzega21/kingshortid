@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         const { id } = await params;
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || process.env.BACKEND_URL || 'http://kingshortid-api:3000/api';
         const url = `${backendUrl}/episodes/${id}/subtitles`;
         
         const res = await fetch(url, { headers: { 'Accept': 'application/json' } });

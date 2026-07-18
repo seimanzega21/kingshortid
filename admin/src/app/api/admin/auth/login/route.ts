@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const BACKEND = process.env.BACKEND_URL || 'https://api.shortlovers.id/api';
+const BACKEND = process.env.BACKEND_URL || 'http://kingshortid-api:3000/api';
 const VPS_API = `${BACKEND}/auth/login`;
 
 // POST /api/admin/auth/login — Authenticate via VPS backend
