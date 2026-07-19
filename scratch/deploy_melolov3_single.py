@@ -8,7 +8,7 @@ SSH_PASS = 'Surya123!'
 
 LOCAL_SCRIPT = r'd:\kingshortid\ingest_melolov3_queue_vps.py'
 REMOTE_SCRIPT = '/root/kingshort-admin/ingest_melolov3_queue_vps.py'
-LOG_FILE = '/var/log/ingest_rahasia_hasil_laut_langka.log'
+LOG_FILE = '/var/log/ingest_batch_21.log'
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
