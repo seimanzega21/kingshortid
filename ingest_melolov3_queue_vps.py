@@ -55,6 +55,7 @@ DRAMAS_QUEUE = [
     {'id': '7628790094173834245', 'slug': 'dewa-turun-ke-kota', 'genres': ['Aksi', 'Drama', 'Kota']},
     {'id': '7662260262753291269', 'slug': 'siasat-cerdik-tukang-las', 'genres': ['Drama', 'Aksi', 'Kecerdikan']},
     {'id': '7632571464314522677', 'slug': 'sistem-jutawan-kerajaan', 'genres': ['Drama', 'Fantasi', 'Sistem']},
+    {'id': '7579934288989129781', 'slug': 'pengantin-dewa-laut', 'genres': ['Fantasi', 'Drama', 'Romantis']},
 ]
 
 
