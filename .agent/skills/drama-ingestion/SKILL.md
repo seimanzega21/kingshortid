@@ -85,7 +85,79 @@ Panduan operasional standar ini wajib diikuti oleh AI saat melakukan *ingestion*
 
 ---
 
-## 5. Mode Penyimpanan
+## 5. Subtitle Detection & Handling (WAJIB — Berlaku Semua Provider)
 
-* **Mode R2 Saja (Khusus Cloud)**: Jika pengguna meminta "simpan di R2 saja, jangan di folder lokal", unduh stream ke direktori *temporary*, konversi 720p & 540p, unggah ke R2, lalu langsung hapus file *temporary*.
+> 🔴 **MANDATORY:** Setiap kali menyedot drama baru, WAJIB cek status subtitle terlebih dahulu sebelum melanjutkan ingestion.
+
+### A. Deteksi Burned-in vs Soft Subtitle
+
+1. **Probe video source** menggunakan `ffprobe` untuk menghitung jumlah stream:
+   ```bash
+   ffprobe -v quiet -print_format json -show_streams <SOURCE_URL>
+   ```
+2. **Jika hanya 2 stream** (1 video + 1 audio) → subtitle kemungkinan **burned-in**.
+3. **Konfirmasi visual**: Screenshot 1 frame dan lihat apakah ada teks di gambar:
+   ```bash
+   ffmpeg -y -ss 15 -i <SOURCE_URL> -frames:v 1 -update 1 /tmp/check_frame.jpg
+   ```
+
+### B. Jika Subtitle BURNED-IN (Hardcoded ke Pixel Video)
+* ✅ Tidak perlu berbuat apa-apa — subtitle sudah ada di video.
+* ✅ Tidak perlu upload VTT atau daftarkan ke tabel `subtitles`.
+* Provider yang biasanya burned-in: **melolov3**, **melolo**.
+
+### C. Jika Subtitle BELUM Burned-in (Soft / External)
+* **WAJIB** cari URL VTT/SRT dari response API provider (cek field `subtitles`, `tracks`, dll).
+* **WAJIB** download file VTT tersebut.
+* **WAJIB** upload ke R2 di path: `dramas/netshort/{slug}/ep{NNN}_id.vtt`
+* **WAJIB** daftarkan ke tabel `subtitles` via API:
+  ```json
+  POST /api/episodes/{ep_id}/subtitles
+  {
+    "language": "id",
+    "label": "Indonesian",
+    "url": "https://stream.shortlovers.id/dramas/netshort/{slug}/ep001_id.vtt",
+    "isDefault": true
+  }
+  ```
+* Provider yang biasanya soft subtitle: **dramawavev2**.
+
+---
+
+## 6. Video Encoding Requirements (WAJIB)
+
+> 🔴 **MANDATORY:** Semua video yang diupload ke R2 HARUS menggunakan `-movflags +faststart`.
+
+### Kenapa Faststart Wajib?
+* `+faststart` memindahkan metadata MP4 (moov atom) ke awal file.
+* Tanpa ini, browser/player harus menunggu seluruh file ter-download sebelum bisa memutar video.
+* Dengan faststart, video bisa langsung diputar sambil streaming (progressive playback).
+
+### FFmpeg Command Standar (720p):
+```bash
+ffmpeg -y -i input.mp4 \
+  -vf scale=720:-2 \
+  -c:v libx264 -crf 23 -preset fast \
+  -maxrate 1500k -bufsize 3000k \
+  -c:a aac -b:a 128k \
+  -movflags +faststart \
+  output_720p.mp4
+```
+
+### FFmpeg Command Standar (540p):
+```bash
+ffmpeg -y -i input_720p.mp4 \
+  -vf scale=540:-2 \
+  -c:v libx264 -crf 26 -preset fast \
+  -maxrate 1000k -bufsize 2000k \
+  -c:a aac -b:a 96k \
+  -movflags +faststart \
+  output_540p.mp4
+```
+
+---
+
+## 7. Mode Penyimpanan
+
+* **Mode R2 Saja (Khusus Cloud)**: Jika pengguna meminta "simpan di R2 saja, jangan di folder lokal", unduh stream ke direktori *temporary*, konversi 720p & 540p dengan faststart, unggah ke R2, lalu langsung hapus file *temporary*.
 * **Mode Burning Lokal**: Jika pengguna meminta pembakaran subtitle (*hardsub*) ke folder lokal, gunakan ukuran font subtitle sesuai permintaan (misalnya Font Size 13) dan simpan di folder `D:/Video Drama/Facebook/<Judul Drama>/`.
