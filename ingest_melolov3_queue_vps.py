@@ -377,23 +377,17 @@ def process_drama(item):
 
 def main():
     print("=================================================================")
-    print(f"STARTING MELOLOV3 CONCURRENT QUEUE: {len(DRAMAS_QUEUE)} dramas")
+    print(f"STARTING MELOLOV3 SEQUENTIAL QUEUE: {len(DRAMAS_QUEUE)} dramas")
     print("=================================================================")
     
-    # We run up to 2 parallel workers (to avoid overloading CPU but increase speed)
-    max_workers = 2
-    
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(process_drama, item): item for item in DRAMAS_QUEUE}
-        for future in as_completed(futures):
-            item = futures[future]
-            try:
-                future.result()
-            except Exception as e:
-                print(f"❌ Uncaught exception for item {item['slug']}: {e}")
+    for item in DRAMAS_QUEUE:
+        try:
+            process_drama(item)
+        except Exception as e:
+            print(f"❌ Uncaught exception for item {item['slug']}: {e}")
                 
     print("\n=================================================================")
-    print("ALL MELOLOV3 CONCURRENT QUEUE ITEMS COMPLETED!")
+    print("ALL MELOLOV3 SEQUENTIAL QUEUE ITEMS COMPLETED!")
     print("=================================================================")
 
 if __name__ == '__main__':
