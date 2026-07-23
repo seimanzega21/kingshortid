@@ -57,6 +57,7 @@ DRAMAS_QUEUE = [
     {'id': '7632571464314522677', 'slug': 'sistem-jutawan-kerajaan', 'genres': ['Drama', 'Fantasi', 'Sistem']},
     {'id': '7579934288989129781', 'slug': 'pengantin-dewa-laut', 'genres': ['Fantasi', 'Drama', 'Romantis']},
     {'id': '7632157003493674037', 'slug': 'kelas-terburuk', 'genres': ['Drama', 'Sekolah', 'Aksi']},
+    {'id': '7633449069112724533', 'slug': 'putri-licik-istana', 'genres': ['Drama', 'Romantis', 'Kerajaan']},
 ]
 
 
