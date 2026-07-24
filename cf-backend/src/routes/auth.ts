@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, like } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 import { getDb } from '../db';
 import { users, coinTransactions } from '../db/schema';
@@ -153,9 +153,30 @@ auth.put('/me', requireAuth, async (c) => {
 // POST /api/auth/guest
 auth.post('/guest', async (c) => {
     try {
+        const { deviceId, deviceName } = await c.req.json().catch(() => ({}));
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+        
+        // Date formatting: YYMMDD
+        const now = new Date();
+        const year = now.getFullYear().toString().slice(2);
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const dateStr = `${year}${month}${day}`;
+
+        // Device name formatting: lowercase alphanumeric
+        const cleanDeviceName = (deviceName || 'device').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        const emailPrefix = `guest.${cleanDeviceName}_${dateStr}_`;
+        
+        // Find existing guests today to determine sequence
+        const existingToday = await db.select()
+            .from(users)
+            .where(like(users.email, `${emailPrefix}%`));
+            
+        const sequence = (existingToday.length + 1).toString().padStart(4, '0');
+        
+        const guestEmail = `${emailPrefix}${sequence}@kingshort.local`;
         const guestId = Math.floor(10000000000 + Math.random() * 90000000000).toString();
-        const guestEmail = `guest_${guestId}@kingshort.local`;
 
         const [user] = await db.insert(users).values({
             email: guestEmail,
