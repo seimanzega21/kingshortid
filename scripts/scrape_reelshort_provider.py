@@ -112,7 +112,7 @@ def api_get_or_create_drama(detail, slug, cover_url):
         print(f"      [ERROR] Exception creating drama in DB: {e}")
     return None
 
-def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None):
+def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
     payload = {
         'episodeNumber': ep_no, 
         'title': f'Episode {ep_no}', 
@@ -127,7 +127,16 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None):
         if not r.ok: 
             print(f"      [WARN] DB Episode upsert failed. Status: {r.status_code}")
             return None
-        return r.json().get('id')
+        ep_id = r.json().get('id')
+        if ep_id and sub_url:
+            sub_payload = {
+                'language': 'indonesia', 
+                'label': 'Indonesia', 
+                'url': sub_url, 
+                'isDefault': True
+            }
+            requests.post(f"{API_BASE}/episodes/{ep_id}/subtitles", headers=ADMIN_HDR, json=sub_payload, timeout=10)
+        return ep_id
     except Exception as e:
         print(f"      [ERROR] DB Episode upsert exception: {e}")
     return None
@@ -255,13 +264,16 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
             k720 = f"{prefix}/ep{ep_no:03d}.mp4"
             k540 = f"{prefix}/ep{ep_no:03d}_540p.mp4"
             
+            ksub = f"{prefix}/ep{ep_no:03d}.vtt"
+            
             # If both 720p and 540p exist in R2, skip download/transcode
             if r2_exists(r2, k720) and r2_exists(r2, k540):
                 print(f"    ep{ep_no:03d}: already exists in R2. Linking to DB...", end="", flush=True)
                 u720 = f"{R2_PUBLIC}/{k720}"
                 u540 = f"{R2_PUBLIC}/{k540}"
                     
-                api_upsert_episode(db_id, ep_no, u720, u540)
+                sub_url = f"{R2_PUBLIC}/{ksub}" if r2_exists(r2, ksub) else None
+                api_upsert_episode(db_id, ep_no, u720, u540, sub_url)
                 
                 # Cek apakah file 720p sudah ada di lokal, jika belum, download dari R2
                 local_file = local_save_dir / f"ep{ep_no:03d}.mp4"
@@ -285,6 +297,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
             # Fetch video metadata with retries
             vid_url = f"https://vidrama.asia/api/reelshort/video?bookId={movie_id}&episode={ep_no}"
             raw_vurl = None
+            subtitles = []
             for attempt in range(5):
                 try:
                     v_res = requests.get(vid_url, headers=WEB_HDRS, timeout=15)
@@ -292,6 +305,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                         data = v_res.json()
                         if data.get('success'):
                             raw_vurl = data.get('rawVideoUrl')
+                            subtitles = data.get('subtitles', [])
                             if raw_vurl: break
                 except Exception as e:
                     pass
@@ -302,6 +316,31 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                 print("ERROR (No video stream found)")
                 failed_count += 1
                 continue
+                
+            # Extract Indonesian subtitle (.vtt)
+            id_sub_url = None
+            for s in subtitles:
+                lang = s.get('language', '').lower()
+                if lang in ['in', 'id', 'id-id']:
+                    id_sub_url = s.get('url')
+                    if id_sub_url and id_sub_url.startswith('/'):
+                        id_sub_url = f"https://vidrama.asia{id_sub_url}"
+                    break
+                    
+            final_sub_r2 = None
+            if id_sub_url:
+                try:
+                    sub_res = requests.get(id_sub_url, headers=WEB_HDRS, timeout=10, verify=False)
+                    if sub_res.ok:
+                        content = sub_res.content.decode('utf-8', errors='ignore')
+                        # Sanitize VTT styles like font-size
+                        import re as _re
+                        content = _re.sub(r'font-size\s*:\s*\d+(?:\.\d+)?%?\s*;?', '', content, flags=_re.IGNORECASE)
+                        
+                        r2.put_object(Bucket=R2_BUCKET, Key=ksub, Body=content.encode('utf-8'), ContentType='text/vtt')
+                        final_sub_r2 = f"{R2_PUBLIC}/{ksub}"
+                except Exception as e:
+                    print(f"(Subtitle error: {e}) ", end="")
             
             # Download video files using FFmpeg directly from m3u8
             raw_path = TEMP_DIR / f"{slug}_raw_{ep_no}.mp4"
@@ -338,7 +377,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                 if encode_720_and_540(raw_path, o720_path, o540_path):
                     u720 = r2_upload(r2, o720_path, k720)
                     u540 = r2_upload(r2, o540_path, k540)
-                    api_upsert_episode(db_id, ep_no, u720, u540)
+                    api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
                     
                     try:
                         shutil.copy2(o720_path, local_save_dir / f"ep{ep_no:03d}.mp4")

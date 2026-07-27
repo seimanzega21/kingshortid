@@ -427,24 +427,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                     api_upsert_episode(db_id, ep_no, u720, u540, final_sub_r2)
                     
                     try:
-                        if final_sub_r2 and local_sub_path.exists():
-                            print(" [Burning Subtitles...] ", end="", flush=True)
-                            sub_ffmpeg = str(local_sub_path).replace('\\', '/').replace(':', '\\:')
-                            cmd_hardsub = [
-                                'ffmpeg', '-y', '-i', str(raw_path),
-                                '-vf', f"subtitles='{sub_ffmpeg}'",
-                                '-c:v', 'libx264', '-crf', '26', '-maxrate', '1500k', '-bufsize', '3000k',
-                                '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart',
-                                '-loglevel', 'error', str(o720_hardsub_path)
-                            ]
-                            res_sub = subprocess.run(cmd_hardsub, timeout=600)
-                            if res_sub.returncode == 0:
-                                shutil.copy2(o720_hardsub_path, local_save_dir / f"ep{ep_no:03d}.mp4")
-                            else:
-                                print("[WARN: Hardsub failed, using clean 720p] ", end="")
-                                shutil.copy2(o720_path, local_save_dir / f"ep{ep_no:03d}.mp4")
-                        else:
-                            shutil.copy2(o720_path, local_save_dir / f"ep{ep_no:03d}.mp4")
+                        shutil.copy2(o720_path, local_save_dir / f"ep{ep_no:03d}.mp4")
                     except Exception as e:
                         print(f" [WARN] Gagal simpan lokal: {e}", end="")
                         
@@ -465,16 +448,9 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
             
         print(f"  -> Scrape results for '{title}': {success_count} success, {failed_count} failed, {skipped_count} skipped.")
         
-        # Deletion logic on failure (only if it was newly created and has failures)
+        # Auto-delete logic removed to allow resuming on failure
         if failed_count > 0 and not is_test_run:
-            print(f"  -> [ERROR] Drama '{title}' has {failed_count} failed episodes.")
-            if newly_created and db_id:
-                print(f"  -> [DB] Deleting incomplete newly created drama entry (ID: {db_id})...")
-                r_del = requests.delete(f"{API_BASE}/dramas/{db_id}", headers=ADMIN_HDR, timeout=20)
-                if r_del.ok:
-                    print(f"  -> [DB] Deleted incomplete drama entry (ID: {db_id})")
-                else:
-                    print(f"  -> [DB] Failed to delete drama entry (Status: {r_del.status_code})")
+            print(f"  -> [ERROR] Drama '{title}' has {failed_count} failed episodes. Progress saved for resume.")
             return False
             
         return True
