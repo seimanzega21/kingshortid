@@ -34,16 +34,9 @@ HEADERS = {
 }
 
 DRAMAS_QUEUE = [
-    {'id': '7663702716283112453', 'slug': 'ratu-sayur-kampung', 'genres': ['Drama', 'Pedesaan', 'Keluarga']},
-    {'id': '7662976183801220149', 'slug': 'rahasia-satu-miliar-rizky', 'genres': ['Drama', 'Bisnis', 'Misteri']},
-    {'id': '7654561800247053365', 'slug': 'medali-tua', 'genres': ['Drama', 'Keluarga', 'Misteri']},
-    {'id': '7661866145783237637', 'slug': 'kerja-keras-pak-surya', 'genres': ['Drama', 'Keluarga', 'Inspiratif']},
-    {'id': '7662217686272723973', 'slug': 'bisnis-dua-dunia', 'genres': ['Drama', 'Bisnis', 'Fantasi']},
-    {'id': '7662271312986901557', 'slug': 'keajaiban-tambang-safir', 'genres': ['Drama', 'Bisnis', 'Fantasi']},
-    {'id': '7662320324192504837', 'slug': 'dari-sopir-jadi-konsultan', 'genres': ['Drama', 'Bisnis', 'Inspiratif']},
-    {'id': '7656127788348345397', 'slug': 'misteri-kolam-terbengkalai', 'genres': ['Drama', 'Misteri', 'Horor']},
-    {'id': '7654112885978713093', 'slug': 'buku-kuno-warisan-kakek', 'genres': ['Drama', 'Misteri', 'Fantasi']},
-    {'id': '7645515419242990645', 'slug': 'legenda-bengkel-rizky', 'genres': ['Drama', 'Aksi', 'Keluarga']},
+    {'id': '7648901065357675525', 'slug': 'suami-kurir-istri-ceo', 'genres': ['Drama', 'Romantis', 'Keluarga']},
+    {'id': '7626247544758078517', 'slug': 'pembalasan-sang-ikan', 'genres': ['Drama', 'Aksi', 'Fantasi']},
+    {'id': '7650305257141963829', 'slug': 'cinta-buta-masa-lalu-istri', 'genres': ['Drama', 'Romantis', 'Keluarga']},
 ]
 
 
