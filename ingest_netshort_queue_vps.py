@@ -30,16 +30,14 @@ TEMP_DIR     = '/tmp/temp_netshort_queue'
 os.makedirs(TEMP_DIR, exist_ok=True)
 
 DRAMAS = [
-    {"id": "2073601289130450945", "slug": "kini-saatnya-menjaga-negara", "genres": ["Drama", "Aksi", "Militer"]},
-    {"id": "2073323232624738306", "slug": "putri-ikan-bangkit-dari-darah-naga", "genres": ["Drama", "Wuxia", "Fantasi"]},
-    {"id": "2073963764476649474", "slug": "tato-terbuka-rahasia-terungkap", "genres": ["Drama", "Misteri", "Romansa"]},
-    {"id": "2073253378811068418", "slug": "ikatan-manis-dengan-pengawal", "genres": ["Drama", "Romansa", "Aksi"]},
-    {"id": "2073980117816287234", "slug": "peluru-pencari-keadilan", "genres": ["Drama", "Aksi", "Misteri"]},
-    {"id": "2072199002440175617", "slug": "ambisi-adalah-racun", "genres": ["Drama", "Romansa", "Aksi"]},
-    {"id": "2071861523530862594", "slug": "sup-pedasku-kalahkan-chef-hebat", "genres": ["Drama", "Kuliner", "Romansa"]},
-    {"id": "2059539265339858946", "slug": "memasak-aku-tak-pernah-kalah", "genres": ["Drama", "Kuliner", "Romansa"]},
-    {"id": "2072569902616489986", "slug": "kebangkitan-tabib-perempuan", "genres": ["Drama", "Wuxia", "Medis"]},
-    {"id": "2071838112737865730", "slug": "legenda-balap-yang-dipuja", "genres": ["Drama", "Aksi", "Olahraga"]}
+    {"id": "2074744811720429569", "slug": "peluru-pencari-keadilan", "genres": ["Drama", "Aksi", "Keadilan"]},
+    {"id": "2080589991311065089", "slug": "warisan-yang-tak-adil", "genres": ["Drama", "Keluarga", "Konflik"]},
+    {"id": "2080589460270235650", "slug": "kain-merah-di-pohon", "genres": ["Drama", "Misteri", "Horor"]},
+    {"id": "2080122486503043074", "slug": "kemenangan-di-gurun", "genres": ["Drama", "Aksi", "Petualangan"]},
+    {"id": "2080588965497556994", "slug": "pernikahan-yang-dibatalkan", "genres": ["Drama", "Romantis", "Keluarga"]},
+    {"id": "2079832158898237441", "slug": "darah-di-hutan", "genres": ["Drama", "Aksi", "Misteri"]},
+    {"id": "2028687317811593218", "slug": "bumbu-cinta-sang-koki", "genres": ["Drama", "Romantis", "Koki"]},
+    {"id": "1958421930776145922", "slug": "sulih-suarapelindung-sang-mawar", "genres": ["Drama", "Aksi", "Romantis"]},
 ]
 
 # ─── HELPERS ───────────────────────────────────────────────────────────────
