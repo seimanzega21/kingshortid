@@ -34,10 +34,7 @@ HEADERS = {
 }
 
 DRAMAS_QUEUE = [
-    {'id': 'GsR0MwJtxN', 'slug': 'gebetan-rahasia-suamiku', 'genres': ['Drama', 'Romantis', 'Keluarga']},
-    {'id': '3xGW2vVeYo', 'slug': 'raja-keberuntungan-berkekuatan-super', 'genres': ['Drama', 'Aksi', 'Fantasi']},
-    {'id': 'QZdqpbvSV9', 'slug': 'kembalinya-legenda-istana', 'genres': ['Drama', 'Aksi', 'Kerajaan']},
-    {'id': 'RiHiKGwgQH', 'slug': 'bos-mafia-hasrat-terlarangku', 'genres': ['Drama', 'Romantis', 'Dewasa']},
+    {'id': '7LU82jdg6f', 'slug': 'poppy-penyihir-cilik', 'genres': ['Drama', 'Keluarga', 'Fantasi']},
 ]
 
 def get_r2():
