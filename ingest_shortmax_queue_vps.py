@@ -17,7 +17,7 @@ from botocore.config import Config
 urllib3.disable_warnings()
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────
-API_BASE     = 'http://localhost:3000'
+API_BASE     = 'http://141.11.160.187:3000'
 ADMIN_KEY    = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 ADMIN_HDR    = {'x-admin-key': ADMIN_KEY, 'Content-Type': 'application/json'}
 
@@ -32,11 +32,7 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 
 # List of dramas to ingest sequentially
 DRAMAS_TO_PROCESS = [
-    {'id': '762157', 'slug': 'tuan-gelap', 'genres': ['Drama', 'Action', 'Thriller']},
-    {'id': '430548', 'slug': 'dubbing-anak-miliarder-yang-memilih-susah', 'genres': ['Romantis', 'Drama', 'Keluarga']},
-    {'id': '819782', 'slug': 'dijulukitakdir-cinta-bersemi', 'genres': ['Romantis', 'Drama']},
-    {'id': '770230', 'slug': 'dijulukiayah-penentu-takdir', 'genres': ['Drama', 'Keluarga']},
-    {'id': '854921', 'slug': 'dijulukipengantin-curian-sang-raja-mafia', 'genres': ['Action', 'Romantis', 'Drama']}
+    {'id': '843859', 'slug': 'dijulukisang-pembangkit-negara', 'genres': ['Drama', 'Action']}
 ]
 
 # ─── HELPERS ───────────────────────────────────────────────────────────────
@@ -48,126 +44,16 @@ def get_r2():
     )
 
 def fetch_drama_details(mid):
-    """Fetch drama metadata and full episode list via Next.js Server Action"""
-    action_id = '60d082460fd19212e46371444b136af44119ce6a25'
-    url = f'https://vidrama.asia/en/watch/slug--{mid}/1?provider=shortmax'
-    
-    hdrs = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Referer': url,
-        'Accept': 'text/x-component',
-        'Content-Type': 'text/plain;charset=UTF-8',
-        'next-action': action_id
+    """Mock drama details since the API changed"""
+    metadata = {
+        'title': '(Sulih suara) Dijuluki Sang Pembangkit Negara',
+        'shortPlayName': '(Sulih suara) Dijuluki Sang Pembangkit Negara',
+        'chapterCount': 80,
+        'cover': 'https://placehold.co/400x600/jpeg'
     }
-    
-    print(f"   🌐 Fetching details for drama ID {mid}...")
-    for attempt in range(1, 6):
-        try:
-            r = requests.post(url, headers=hdrs, data=json.dumps([mid, "id"]), timeout=20, verify=False)
-            if r.ok:
-                metadata = {}
-                episodes = []
-                for line in r.text.split('\n'):
-                    line = line.strip()
-                    if not line or ':' not in line:
-                        continue
-                    try:
-                        idx, content = line.split(':', 1)
-                        obj = json.loads(content)
-                        if isinstance(obj, dict) and 'title' in obj:
-                            metadata = obj
-                            if 'list' in obj and isinstance(obj['list'], list):
-                                episodes = obj['list']
-                    except Exception:
-                        pass
-                
-                if metadata:
-                    return metadata, episodes
-            else:
-                print(f"      ⚠ HTTP {r.status_code} (attempt {attempt}/5)")
-        except Exception as e:
-            print(f"      ⚠ Connection error (attempt {attempt}/5): {e}")
-        time.sleep(3)
-    return None, []
+    episodes = [{'episodeNumber': i} for i in range(1, 81)]
+    return metadata, episodes
 
-def fetch_episode_url(mid, ep_no):
-    """Fetch episode stream url via Next.js Server Action"""
-    action_id = '700a88bb402f0a83f0ac8d827995d0ad3ac3d56b53'
-    url = f'https://vidrama.asia/en/watch/slug--{mid}/{ep_no}?provider=shortmax'
-    
-    hdrs = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Referer': url,
-        'Accept': 'text/x-component',
-        'Content-Type': 'text/plain;charset=UTF-8',
-        'next-action': action_id
-    }
-    
-    for attempt in range(1, 6):
-        try:
-            r = requests.post(url, headers=hdrs, data=json.dumps([mid, ep_no, "id"]), timeout=20, verify=False)
-            if r.ok:
-                for line in r.text.split('\n'):
-                    line = line.strip()
-                    if not line or ':' not in line:
-                        continue
-                    try:
-                        idx, content = line.split(':', 1)
-                        obj = json.loads(content)
-                        if isinstance(obj, dict) and ('videoUrl' in obj or 'url' in obj):
-                            qualities = obj.get('qualities') or {}
-                            m3u8 = qualities.get('video_720') or qualities.get('video_1080') or obj.get('videoUrl') or obj.get('url')
-                            if m3u8:
-                                if 'proxy?url=' in m3u8:
-                                    import urllib.parse
-                                    parsed = urllib.parse.urlparse(m3u8)
-                                    query = urllib.parse.parse_qs(parsed.query)
-                                    m3u8 = query.get('url', [m3u8])[0]
-                                return m3u8
-                    except Exception:
-                        pass
-            else:
-                print(f"      ⚠ Ep HTTP {r.status_code} (attempt {attempt}/5)")
-        except Exception as e:
-            print(f"      ⚠ Ep Connection error (attempt {attempt}/5): {e}")
-        time.sleep(2)
-    return None
-
-def download_and_transcode(m3u8_url, slug, ep_no):
-    local_720 = os.path.join(TEMP_DIR, f"{slug}_ep{ep_no:03d}_720p.mp4")
-    local_540 = os.path.join(TEMP_DIR, f"{slug}_ep{ep_no:03d}_540p.mp4")
-    
-    for f in [local_720, local_540]:
-        if os.path.exists(f): os.remove(f)
-        
-    headers_str = (
-        "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36\r\n"
-        "Referer: https://vidrama.asia/\r\n"
-    )
-    
-    # 720p stream copy
-    success_720 = False
-    for attempt in range(1, 4):
-        cmd = [
-            'ffmpeg', '-y',
-            '-headers', headers_str,
-            '-i', m3u8_url,
-            '-c', 'copy',
-            '-movflags', '+faststart',
-            '-loglevel', 'warning',
-            local_720
-        ]
-        res = subprocess.run(cmd, capture_output=True, text=True, errors='ignore', timeout=300)
-        if res.returncode == 0 and os.path.exists(local_720) and os.path.getsize(local_720) > 50000:
-            success_720 = True
-            break
-        else:
-            print(f"      ⚠ 720p Attempt {attempt} failed: {res.stderr.strip()[-200:]}")
-            if attempt < 3: time.sleep(5)
-            
-    if not success_720:
-        return None, None
         
     # 540p transcode
     success_540 = False
@@ -234,6 +120,96 @@ def upload_cover(r2, slug, cover_url):
     except Exception as e:
         print(f"      ⚠ Cover upload failed: {e}")
     return cover_url
+
+
+def fetch_episode_url(mid, ep_no):
+    import requests, json, time
+    action_id = '7081ea77aada73681c85542d033db73abd6689d036'
+    url = f'https://vidrama.asia/en/watch/slug--{mid}/{ep_no}?provider=shortmax'
+    hdrs = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Referer': url,
+        'Accept': 'text/x-component',
+        'Content-Type': 'text/plain;charset=UTF-8',
+        'next-action': action_id
+    }
+    for attempt in range(1, 6):
+        try:
+            r = requests.post(url, headers=hdrs, data=json.dumps([str(mid), ep_no, 'id']), timeout=20, verify=False)
+            if r.ok:
+                for line in r.text.split('\n'):
+                    line = line.strip()
+                    if not line or ':' not in line: continue
+                    try:
+                        idx, content = line.split(':', 1)
+                        obj = json.loads(content)
+                        if isinstance(obj, dict) and 'videoUrl' in obj:
+                            return 'https://vidrama.asia' + obj['videoUrl']
+                    except Exception: pass
+        except Exception: pass
+        time.sleep(3)
+    return None
+
+
+def download_and_transcode(m3u8_url, slug, ep_no):
+    import os, subprocess, time
+    TEMP_DIR = 'temp_vid'
+    os.makedirs(TEMP_DIR, exist_ok=True)
+    local_720 = os.path.join(TEMP_DIR, f"{slug}_ep{ep_no:03d}_720p.mp4")
+    local_540 = os.path.join(TEMP_DIR, f"{slug}_ep{ep_no:03d}_540p.mp4")
+    
+    for f in [local_720, local_540]:
+        if os.path.exists(f): os.remove(f)
+        
+    headers_str = (
+        "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36\r\n"
+        "Referer: https://vidrama.asia/\r\n"
+    )
+    
+    # 720p stream copy
+    success_720 = False
+    for attempt in range(1, 4):
+        cmd = [
+            'ffmpeg', '-y',
+            '-headers', headers_str,
+            '-i', m3u8_url,
+            '-c', 'copy',
+            '-movflags', '+faststart',
+            '-loglevel', 'warning',
+            local_720
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True, errors='ignore', timeout=300)
+        if res.returncode == 0 and os.path.exists(local_720) and os.path.getsize(local_720) > 50000:
+            success_720 = True
+            break
+        else:
+            print(f"      ⚠ 720p Attempt {attempt} failed: {res.stderr.strip()[-200:]}")
+            if attempt < 3: time.sleep(5)
+            
+    if not success_720:
+        return None, None
+        
+    # 540p transcode
+    success_540 = False
+    for attempt in range(1, 3):
+        cmd_540 = [
+            'ffmpeg', '-y', '-i', local_720,
+            '-vf', 'scale=540:-2', '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
+            '-maxrate', '1000k', '-bufsize', '2000k', '-c:a', 'aac', '-b:a', '96k',
+            '-movflags', '+faststart', '-loglevel', 'warning',
+            local_540
+        ]
+        res = subprocess.run(cmd_540, capture_output=True, text=True, errors='ignore', timeout=900)
+        if res.returncode == 0 and os.path.exists(local_540) and os.path.getsize(local_540) > 50000:
+            success_540 = True
+            break
+        else:
+            print(f"      ⚠ 540p Attempt {attempt} failed: {res.stderr.strip()[-200:]}")
+            if attempt < 2: time.sleep(5)
+            
+    return local_720 if success_720 else None, local_540 if success_540 else None
+
 
 def get_or_register_drama(metadata, slug, genres):
     title = metadata.get('title')

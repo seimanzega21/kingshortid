@@ -18,7 +18,7 @@ urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────
-API_BASE     = 'http://localhost:3000/api'
+API_BASE     = 'http://141.11.160.187:3000/api'
 ADMIN_KEY    = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 ADMIN_HDR    = {'x-admin-key': ADMIN_KEY, 'Content-Type': 'application/json'}
 
@@ -33,9 +33,12 @@ HEADERS = {
     'Referer': 'https://vidrama.asia/',
 }
 
-DRAMAS_QUEUE = [
-    {'id': 'NrXmL4SYuV', 'slug': 'kembalinya-sang-maha-bijak', 'genres': ['Drama', 'Fantasi', 'Aksi']},
-]
+queue_file = os.path.join(os.path.dirname(__file__), 'new_melolov3_dramas.json')
+if os.path.exists(queue_file):
+    with open(queue_file, 'r', encoding='utf-8') as f:
+        DRAMAS_QUEUE = json.load(f)
+else:
+    DRAMAS_QUEUE = []
 
 def get_r2():
     return boto3.client(
@@ -49,18 +52,26 @@ def log(slug, msg):
     print(f"[{timestamp}] [{slug}] {msg}", flush=True)
 
 def fetch_drama_details(upstream_id, slug):
-    detail_url = f'https://vidrama.asia/api/dramawavev2?action=detail&id={upstream_id}'
+    detail_url = f'https://vidrama.asia/api/melolov3/series?id={upstream_id}&lang=id'
+    videos_url = f'https://vidrama.asia/api/melolov3/multi-video?id={upstream_id}&lang=id'
+    
     metadata = {}
-    episodes = []
     try:
         r = requests.get(detail_url, headers=HEADERS, timeout=20, verify=False)
         if r.ok:
-            data = r.json().get('data', {})
-            metadata = data
-            chapter_count = data.get('chapterCount', 0)
-            episodes = [{"index": i} for i in range(1, chapter_count + 1)]
+            metadata = r.json().get('series') or {}
     except Exception as e:
         log(slug, f"⚠ Error fetching metadata: {e}")
+        
+    episodes = []
+    try:
+        r = requests.get(videos_url, headers=HEADERS, timeout=20, verify=False)
+        if r.ok:
+            data = r.json()
+            episodes = data.get('episodes') or data or []
+    except Exception as e:
+        log(slug, f"⚠ Error fetching episodes: {e}")
+        
     return metadata, episodes
 
 def upload_cover_to_r2(r2, cover_url, slug, temp_dir):
@@ -149,27 +160,16 @@ def get_or_register_drama(r2, metadata, slug, genres, temp_dir):
 
 def download_source_file(url, local_path, slug):
     try:
-        import subprocess
-        # Pass headers to ffmpeg so it doesn't get 403 Forbidden from CDN
-        headers = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\\r\\nReferer: https://vidrama.asia/\\r\\n'
-        log(slug, f"URL is {url}")
-        cmd = ["ffmpeg", "-y", "-headers", headers, "-i", url, "-c", "copy", local_path]
-        res = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        if res.returncode == 0:
-            import os
-            size = os.path.getsize(local_path)
-            log(slug, f"Downloaded {size} bytes")
-            if size < 1000:
-                return False
+        r = requests.get(url, headers=HEADERS, timeout=60, verify=False, stream=True)
+        if r.ok:
+            with open(local_path, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=1024*1024):
+                    if chunk:
+                        f.write(chunk)
             return True
-        else:
-            return False
-    except subprocess.CalledProcessError as e:
-        log(slug, f"⚠ Error downloading with ffmpeg: {e}")
-        return False
     except Exception as e:
-        log(slug, f"⚠ Error downloading: {e}")
-        return False
+        log(slug, f"⚠ Source download failed: {e}")
+    return False
 
 def transcode_to_resolutions(local_source, ep_no, temp_dir, slug):
     local_720 = os.path.join(temp_dir, f"ep{ep_no:03d}_720p.mp4")
@@ -178,14 +178,13 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir, slug):
     for f in [local_720, local_540]:
         if os.path.exists(f): os.remove(f)
         
-    vf_720 = 'scale=720:-2'
-    # Transcode 720p
+    # Transcode 720p (H.264, scale width to 720 vertical, faststart)
     success_720 = False
     for attempt in range(1, 3):
         cmd = [
             'ffmpeg', '-y',
             '-i', local_source,
-            '-vf', vf_720,
+            '-vf', 'scale=720:-2',
             '-c:v', 'libx264', '-crf', '23', '-preset', 'fast',
             '-maxrate', '1500k', '-bufsize', '3000k',
             '-c:a', 'aac', '-b:a', '128k',
@@ -204,14 +203,13 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir, slug):
     if not success_720:
         return None, None
         
-    # Transcode 540p
-    vf_540 = 'scale=540:-2'
+    # Transcode 540p (H.264, scale width to 540 vertical, faststart)
     success_540 = False
     for attempt in range(1, 3):
         cmd = [
             'ffmpeg', '-y',
             '-i', local_720,
-            '-vf', vf_540,
+            '-vf', 'scale=540:-2',
             '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
             '-maxrate', '1000k', '-bufsize', '2000k',
             '-c:a', 'aac', '-b:a', '96k',
@@ -238,7 +236,7 @@ def process_drama(item):
     genres = item['genres']
     
     r2 = get_r2()
-    temp_dir = f"/tmp/temp_dramawavev2_{slug}"
+    temp_dir = f"d:/kingshortid/temp_melolo_{slug}"
     os.makedirs(temp_dir, exist_ok=True)
     
     log(slug, f"🎬 STARTING INGESTION (ID: {upstream_id})")
@@ -257,162 +255,118 @@ def process_drama(item):
         log(slug, "❌ Failed to get/register drama in DB. Skipping.")
         return False
         
-    # 3. Fetch done episodes
-    done_eps = set()
-    try:
-        url = f"{API_BASE}/dramas/{drama_db_id}/episodes?includeInactive=true"
-        r_eps = requests.get(url, timeout=15)
-        if r_eps.ok:
-            eps_list_db = r_eps.json()
-            done_eps = {e.get('episodeNumber') for e in eps_list_db}
-    except Exception as e:
-        log(slug, f"⚠ Failed to fetch registered episodes: {e}")
-        
-    log(slug, f"Already done: {len(done_eps)} episodes")
-    
-    # 4. Process episodes
-    for ep in eps_list:
-        ep_no = ep.get('index') or 1
-        if ep_no in done_eps:
-            continue
-            
-        log(slug, f"▶ Episode {ep_no}/{len(eps_list)}")
-        stream_url = None
-        sub_url = None
+    MAX_PASSES = 3
+    for pass_num in range(1, MAX_PASSES + 1):
+        # 3. Fetch done episodes
+        done_eps = set()
         try:
-            r_stream = requests.get(f'https://vidrama.asia/api/dramawavev2?action=stream&id={upstream_id}&episode={ep_no}', headers=HEADERS, timeout=20, verify=False)
-            if r_stream.ok:
-                data = r_stream.json().get('data', {})
-                v_url = data.get('videoUrl', '')
-                import urllib.parse
-                if '?url=' in v_url:
-                    v_url = urllib.parse.unquote(v_url.split('?url=')[1])
-                stream_url = v_url
+            url = f"{API_BASE}/dramas/{drama_db_id}/episodes?includeInactive=true"
+            r_eps = requests.get(url, timeout=15)
+            if r_eps.ok:
+                eps_list_db = r_eps.json()
+                done_eps = {e.get('episodeNumber') for e in eps_list_db}
+        except Exception as e:
+            log(slug, f"⚠ Failed to fetch registered episodes: {e}")
+            
+        log(slug, f"Pass {pass_num}/{MAX_PASSES}: Already done {len(done_eps)}/{len(eps_list)} episodes")
+        
+        missing_eps = [ep for ep in eps_list if (ep.get('index') or 1) not in done_eps]
+        if not missing_eps:
+            log(slug, f"✅ All {len(eps_list)} episodes processed successfully.")
+            break
+            
+        # 4. Process episodes
+        for ep in missing_eps:
+            ep_no = ep.get('index') or 1
+            
+            log(slug, f"▶ Episode {ep_no}/{len(eps_list)}")
+            stream_url = ep.get('stream_url')
+            if not stream_url:
+                log(slug, f"❌ No stream URL found for Ep {ep_no}. Skipping.")
+                continue
                 
-                # Subtitles
-                for sub in data.get('subtitles', []):
-                    if sub.get('language') == 'id-ID' or sub.get('label') == 'Indonesia':
-                        s_url = sub.get('url', '')
-                        if '?url=' in s_url:
-                            s_url = urllib.parse.unquote(s_url.split('?url=')[1])
-                        sub_url = s_url
+            local_raw = os.path.join(temp_dir, f"ep{ep_no:03d}_raw.mp4")
+            
+            # Download
+            log(slug, f"📥 Downloading Ep {ep_no} source...")
+            if not download_source_file(stream_url, local_raw, slug):
+                log(slug, f"❌ Failed to download source for Ep {ep_no}. Skipping.")
+                continue
+                
+            # Get duration
+            duration = 0
+            try:
+                cmd_dur = [
+                    "ffprobe", "-v", "error", "-show_entries", "format=duration",
+                    "-of", "default=noprint_wrappers=1:nokey=1", local_raw
+                ]
+                import subprocess
+                duration_str = subprocess.check_output(cmd_dur).decode('utf-8').strip()
+                duration = int(round(float(duration_str)))
+            except:
+                pass
+                
+            # Transcode
+            log(slug, f"⚡ Transcoding Ep {ep_no} to 720p & 540p...")
+            local_720, local_540 = transcode_to_resolutions(local_raw, ep_no, temp_dir, slug)
+            if os.path.exists(local_raw): os.remove(local_raw)
+            
+            if not local_720:
+                log(slug, f"❌ Transcoding failed for Ep {ep_no}. Skipping.")
+                continue
+                
+            # Upload
+            r2_key_720 = f"dramas/netshort/{slug}/ep{ep_no:03d}.mp4"
+            r2_key_540 = f"dramas/netshort/{slug}/ep{ep_no:03d}_540p.mp4"
+            
+            r2_url_720 = ""
+            r2_url_540 = ""
+            
+            log(slug, f"📤 Uploading 720p Ep {ep_no}...")
+            try:
+                r2.upload_file(local_720, R2_BUCKET, r2_key_720, ExtraArgs={'ContentType': 'video/mp4'})
+                r2_url_720 = f"{R2_PUBLIC}/{r2_key_720}"
+                os.remove(local_720)
+            except Exception as e:
+                log(slug, f"❌ Upload 720p failed for Ep {ep_no}: {e}")
+                continue
+                
+            if local_540:
+                log(slug, f"📤 Uploading 540p Ep {ep_no}...")
+                try:
+                    r2.upload_file(local_540, R2_BUCKET, r2_key_540, ExtraArgs={'ContentType': 'video/mp4'})
+                    r2_url_540 = f"{R2_PUBLIC}/{r2_key_540}"
+                    os.remove(local_540)
+                except Exception as e:
+                    log(slug, f"❌ Upload 540p failed for Ep {ep_no}: {e}")
+                    
+            # DB Register
+            payload_ep = {
+                'episodeNumber': ep_no,
+                'title': f'Episode {ep_no}',
+                'videoUrl': r2_url_720,
+                'videoUrl540p': r2_url_540,
+                'isVip': False,
+                'coinPrice': 0,
+                'isActive': True,
+                'duration': duration
+            }
+            
+            ep_db_id = None
+            for attempt in range(1, 6):
+                try:
+                    r_reg = requests.post(f"{API_BASE}/admin/dramas/{drama_db_id}/episodes", headers=ADMIN_HDR, json=payload_ep, timeout=20)
+                    if r_reg.ok:
+                        ep_db_id = r_reg.json().get('id')
+                        log(slug, f"✅ Registered Ep {ep_no}! ID: {ep_db_id}")
                         break
-        except Exception as e:
-            log(slug, f"⚠ Error fetching stream: {e}")
-
-        if not stream_url:
-            log(slug, f"❌ No stream URL found for Ep {ep_no}. Skipping.")
-            continue
-            
-        local_raw = os.path.join(temp_dir, f"ep{ep_no:03d}_raw.mp4")
-        local_sub = os.path.join(temp_dir, f"ep{ep_no:03d}.vtt")
-        
-        # Download Subtitle
-        if sub_url:
-            try:
-                r_sub = requests.get(sub_url, headers=HEADERS, timeout=20)
-                if r_sub.ok:
-                    with open(local_sub, 'wb') as f:
-                        f.write(r_sub.content)
-                    log(slug, f"📥 Downloaded subtitle for Ep {ep_no}.")
-                else:
-                    local_sub = None
-            except Exception as e:
-                log(slug, f"⚠ Failed to download subtitle: {e}")
-                local_sub = None
-        else:
-            local_sub = None
-            
-        # Download
-        log(slug, f"📥 Downloading Ep {ep_no} source...")
-        if not download_source_file(stream_url, local_raw, slug):
-            log(slug, f"❌ Failed to download source for Ep {ep_no}. Skipping.")
-            continue
-            
-        # Get duration
-        duration = 0
-        try:
-            cmd_dur = [
-                "ffprobe", "-v", "error", "-show_entries", "format=duration",
-                "-of", "default=noprint_wrappers=1:nokey=1", local_raw
-            ]
-            duration_str = subprocess.check_output(cmd_dur).decode('utf-8').strip()
-            duration = int(round(float(duration_str)))
-        except:
-            pass
-            
-        # Transcode
-        log(slug, f"⚡ Transcoding Ep {ep_no} to 720p & 540p...")
-        local_720, local_540 = transcode_to_resolutions(local_raw, ep_no, temp_dir, slug)
-        if os.path.exists(local_raw): os.remove(local_raw)
-        
-        if not local_720:
-            log(slug, f"❌ Transcoding failed for Ep {ep_no}. Skipping.")
-            continue
-            
-        # Upload
-        r2_key_720 = f"dramas/netshort/{slug}/ep{ep_no:03d}.mp4"
-        r2_key_540 = f"dramas/netshort/{slug}/ep{ep_no:03d}_540p.mp4"
-        
-        r2_url_720 = ""
-        r2_url_540 = ""
-        
-        log(slug, f"📤 Uploading 720p Ep {ep_no}...")
-        try:
-            r2.upload_file(local_720, R2_BUCKET, r2_key_720, ExtraArgs={'ContentType': 'video/mp4'})
-            r2_url_720 = f"{R2_PUBLIC}/{r2_key_720}"
-            os.remove(local_720)
-        except Exception as e:
-            log(slug, f"❌ Upload 720p failed for Ep {ep_no}: {e}")
-            continue
-            
-        if local_540:
-            log(slug, f"📤 Uploading 540p Ep {ep_no}...")
-            try:
-                r2.upload_file(local_540, R2_BUCKET, r2_key_540, ExtraArgs={'ContentType': 'video/mp4'})
-                r2_url_540 = f"{R2_PUBLIC}/{r2_key_540}"
-                os.remove(local_540)
-            except Exception as e:
-                log(slug, f"❌ Upload 540p failed for Ep {ep_no}: {e}")
+                except Exception as e:
+                    log(slug, f"⚠ Ep DB register failed (attempt {attempt}/5): {e}")
+                import time
+                time.sleep(2)
                 
-        # Upload Subtitle if exists
-        r2_url_sub = None
-        if local_sub and os.path.exists(local_sub):
-            log(slug, f"📤 Uploading Subtitle Ep {ep_no}...")
-            r2_key_sub = f"dramas/netshort/{slug}/ep{ep_no:03d}_id.vtt"
-            try:
-                r2.upload_file(local_sub, R2_BUCKET, r2_key_sub, ExtraArgs={'ContentType': 'text/vtt'})
-                r2_url_sub = f"{R2_PUBLIC}/{r2_key_sub}"
-                os.remove(local_sub)
-            except Exception as e:
-                log(slug, f"❌ Upload subtitle failed for Ep {ep_no}: {e}")
-
-        # DB Register
-        payload_ep = {
-            'episodeNumber': ep_no,
-            'title': f'Episode {ep_no}',
-            'videoUrl': r2_url_720,
-            'videoUrl540p': r2_url_540,
-            'isVip': False,
-            'coinPrice': 0,
-            'isActive': True,
-            'duration': duration
-        }
-        
-        if r2_url_sub:
-            payload_ep['subtitleUrl'] = r2_url_sub
-        
-        ep_db_id = None
-        for attempt in range(1, 6):
-            try:
-                r_reg = requests.post(f"{API_BASE}/admin/dramas/{drama_db_id}/episodes", headers=ADMIN_HDR, json=payload_ep, timeout=20)
-                if r_reg.ok:
-                    ep_db_id = r_reg.json().get('id')
-                    log(slug, f"✅ Registered Ep {ep_no}! ID: {ep_db_id}")
-                    break
-            except Exception as e:
-                log(slug, f"⚠ Ep DB register failed (attempt {attempt}/5): {e}")
-            time.sleep(2)
+        if pass_num == MAX_PASSES and missing_eps:
+            log(slug, "⚠ Reached max passes. Some episodes might still be missing.")
             
     # Cleanup temp directory
     try:
@@ -426,7 +380,7 @@ def process_drama(item):
 
 def main():
     print("=================================================================")
-    print(f"STARTING DRAMAWAVEV2 SEQUENTIAL QUEUE: {len(DRAMAS_QUEUE)} dramas")
+    print(f"STARTING MELOLOV3 SEQUENTIAL QUEUE: {len(DRAMAS_QUEUE)} dramas")
     print("=================================================================")
     
     for item in DRAMAS_QUEUE:
@@ -436,7 +390,7 @@ def main():
             print(f"❌ Uncaught exception for item {item['slug']}: {e}")
                 
     print("\n=================================================================")
-    print("ALL DRAMAWAVEV2 SEQUENTIAL QUEUE ITEMS COMPLETED!")
+    print("ALL MELOLOV3 SEQUENTIAL QUEUE ITEMS COMPLETED!")
     print("=================================================================")
 
 if __name__ == '__main__':

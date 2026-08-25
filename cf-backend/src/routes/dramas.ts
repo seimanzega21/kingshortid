@@ -4,6 +4,8 @@ import { getDb, parseJsonArray, toJsonArray } from '../db';
 import { dramas, episodes, seasons, subtitles, watchHistory } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
 import { requireAdmin, getAuthUser } from '../middleware/auth';
+import { createId } from '@paralleldrive/cuid2';
+import { S3Client, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 import type { Env } from '../middleware/auth';
 
 const dramasRoute = new Hono<Env>();
@@ -588,17 +590,57 @@ dramasRoute.get('/:id/seasons', async (c) => {
 dramasRoute.delete('/:id', requireAdmin, async (c) => {
     try {
         const id = c.req.param('id');
+        const deleteFromR2 = c.req.query('deleteFromR2') === 'true';
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         const drama = await db.select().from(dramas).where(eq(dramas.id, id)).limit(1).then((r: any[]) => r[0]);
         if (!drama) return c.json({ error: 'Drama not found' }, 404);
+
+        if (deleteFromR2 && drama.cover && drama.cover.includes('stream.shortlovers.id')) {
+            try {
+                const url = new URL(drama.cover);
+                const pathParts = url.pathname.substring(1).split('/');
+                if (pathParts.length >= 2) {
+                    const prefix = `${pathParts[0]}/${pathParts[1]}/`; // e.g. "melolo/balas-dendam/"
+                    
+                    const s3Client = new S3Client({
+                        region: 'auto',
+                        endpoint: process.env.R2_ENDPOINT || 'https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com',
+                        credentials: {
+                            accessKeyId: process.env.R2_KEY_ID || '07c99c897986ea52703c1285308d5e2c',
+                            secretAccessKey: process.env.R2_SECRET || '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
+                        }
+                    });
+                    
+                    const listCmd = new ListObjectsV2Command({
+                        Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
+                        Prefix: prefix
+                    });
+                    
+                    const listRes = await s3Client.send(listCmd);
+                    if (listRes.Contents && listRes.Contents.length > 0) {
+                        const deleteCmd = new DeleteObjectsCommand({
+                            Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
+                            Delete: {
+                                Objects: listRes.Contents.map(obj => ({ Key: obj.Key }))
+                            }
+                        });
+                        await s3Client.send(deleteCmd);
+                        console.log(`Deleted ${listRes.Contents.length} files from R2 for prefix: ${prefix}`);
+                    }
+                }
+            } catch (r2Err) {
+                console.error('Error deleting from R2:', r2Err);
+                // Lanjutkan menghapus dari DB meskipun gagal di R2
+            }
+        }
 
         // Delete all episodes first
         await db.delete(episodes).where(eq(episodes.dramaId, id));
         // Delete the drama
         await db.delete(dramas).where(eq(dramas.id, id));
 
-        return c.json({ message: `Deleted drama '${drama.title}' and its episodes` });
+        return c.json({ message: `Deleted drama '${drama.title}' and its episodes${deleteFromR2 ? ' and R2 files' : ''}` });
     } catch (error) {
         console.error('Delete drama error:', error);
         return c.json({ error: 'Failed to delete drama' }, 500);

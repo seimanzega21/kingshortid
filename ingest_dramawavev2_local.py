@@ -18,7 +18,7 @@ urllib3.disable_warnings()
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────
-API_BASE     = 'http://localhost:3000/api'
+API_BASE     = 'http://141.11.160.187:3000/api'
 ADMIN_KEY    = '00ca04e3e2702be565d7bf44e783255247708289bce9b2fb6187a2e117f87fd14'
 ADMIN_HDR    = {'x-admin-key': ADMIN_KEY, 'Content-Type': 'application/json'}
 
@@ -238,7 +238,7 @@ def process_drama(item):
     genres = item['genres']
     
     r2 = get_r2()
-    temp_dir = f"/tmp/temp_dramawavev2_{slug}"
+    temp_dir = f"d:/kingshortid/temp_dramawavev2_{slug}"
     os.makedirs(temp_dir, exist_ok=True)
     
     log(slug, f"🎬 STARTING INGESTION (ID: {upstream_id})")

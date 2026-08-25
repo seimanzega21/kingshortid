@@ -117,6 +117,13 @@ export default function DramaManagement() {
     const [publishingId, setPublishingId] = useState<string | null>(null);
     const [menuOpenId, setMenuOpenId] = useState<string | null>(null);
     const [completing, setCompleting] = useState(false);
+    
+    // Delete Modal State
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [targetDeleteId, setTargetDeleteId] = useState<string | null>(null);
+    const [deleteFromR2, setDeleteFromR2] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+    
     const router = useRouter();
 
     useEffect(() => { fetchDramas(); }, []);
@@ -133,12 +140,31 @@ export default function DramaManagement() {
         finally { setIsLoading(false); }
     };
 
-    const handleDelete = async (id: string) => {
-        if (!confirm("Apakah Anda yakin ingin menghapus drama ini?")) return;
+    const openDeleteModal = (id: string) => {
+        setTargetDeleteId(id);
+        setDeleteFromR2(false); // default unchecked
+        setDeleteModalOpen(true);
+        setMenuOpenId(null);
+    };
+
+    const confirmDelete = async () => {
+        if (!targetDeleteId) return;
+        setIsDeleting(true);
         try {
-            const res = await fetch(`/api/dramas/${id}`, { method: "DELETE" });
-            if (res.ok) { toast.success("Drama berhasil dihapus"); fetchDramas(); }
-        } catch { toast.error("Terjadi kesalahan"); }
+            const res = await fetch(`/api/dramas/${targetDeleteId}?deleteFromR2=${deleteFromR2}`, { method: "DELETE" });
+            if (res.ok) { 
+                toast.success(deleteFromR2 ? "Drama & file R2 dihapus permanen" : "Drama berhasil dihapus"); 
+                fetchDramas(); 
+            } else {
+                toast.error("Gagal menghapus drama");
+            }
+        } catch { 
+            toast.error("Terjadi kesalahan jaringan"); 
+        } finally {
+            setIsDeleting(false);
+            setDeleteModalOpen(false);
+            setTargetDeleteId(null);
+        }
     };
 
     const togglePublish = async (id: string, currentActive: boolean) => {
@@ -551,8 +577,7 @@ export default function DramaManagement() {
                                                         onMouseDown={(e) => {
                                                             e.stopPropagation();
                                                             e.preventDefault();
-                                                            setMenuOpenId(null);
-                                                            handleDelete(item.id);
+                                                            openDeleteModal(item.id);
                                                         }}
                                                         className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-red-500/20 text-red-400 transition-colors cursor-pointer"
                                                     >
@@ -573,6 +598,55 @@ export default function DramaManagement() {
                     </div>
                 )}
             </div>
+            
+            {/* Delete Confirmation Modal */}
+            {deleteModalOpen && (
+                <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+                    <div className="bg-[#18181b] border border-zinc-800 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                        <div className="p-6">
+                            <div className="flex items-center gap-3 text-red-500 mb-4">
+                                <AlertTriangle size={24} />
+                                <h3 className="text-xl font-bold text-white">Hapus Drama</h3>
+                            </div>
+                            <p className="text-zinc-400 text-sm mb-6">
+                                Anda yakin ingin menghapus drama ini? Tindakan ini akan menghapus data drama dan episodenya dari database.
+                            </p>
+                            
+                            <label className="flex items-start gap-3 p-4 bg-red-500/10 border border-red-500/20 rounded-xl cursor-pointer hover:bg-red-500/20 transition-colors">
+                                <input 
+                                    type="checkbox" 
+                                    checked={deleteFromR2}
+                                    onChange={(e) => setDeleteFromR2(e.target.checked)}
+                                    className="mt-1 w-4 h-4 rounded border-red-500/50 bg-black/50 text-red-500 focus:ring-red-500 focus:ring-offset-0"
+                                />
+                                <div>
+                                    <p className="text-sm font-semibold text-red-400">Hapus juga file dari Server (R2)?</p>
+                                    <p className="text-xs text-red-400/80 mt-1 leading-snug">
+                                        Mencentang ini akan menghapus permanen semua video episode dan cover dari Cloudflare R2 untuk menghemat penyimpanan.
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+                        <div className="flex items-center justify-end gap-3 px-6 py-4 bg-[#121214] border-t border-zinc-800">
+                            <button 
+                                onClick={() => setDeleteModalOpen(false)}
+                                disabled={isDeleting}
+                                className="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                            >
+                                Batal
+                            </button>
+                            <button 
+                                onClick={confirmDelete}
+                                disabled={isDeleting}
+                                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg text-sm font-bold shadow-lg shadow-red-600/20 transition-colors disabled:opacity-50"
+                            >
+                                {isDeleting ? <Loader2 size={16} className="animate-spin" /> : <Trash2 size={16} />}
+                                {isDeleting ? "Menghapus..." : "Hapus Permanen"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

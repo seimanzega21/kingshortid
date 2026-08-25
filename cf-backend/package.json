@@ -15,6 +15,7 @@
         "migrate:d1": "node scripts/migrate_d1_to_supabase.mjs"
     },
     "dependencies": {
+        "@aws-sdk/client-s3": "^3.1102.0",
         "@paralleldrive/cuid2": "^2.2.2",
         "@supabase/supabase-js": "^2.98.0",
         "bcryptjs": "^3.0.3",
