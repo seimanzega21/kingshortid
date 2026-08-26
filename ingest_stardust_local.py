@@ -38,13 +38,10 @@ BASE_HDRS = {
 }
 
 # ─── DRAMA QUEUE ─────────────────────────────────────────────────────────────
-# Only DUBBING-ID dramas (Indonesian audio) — skip NO-DUB
 DRAMAS_TO_PROCESS = [
-    {'id': '20188', 'slug': 'enam-pewaris-untuk-presdir-bo', 'genres': ['Drama', 'Family']},
-    {'id': '21861', 'slug': 'gladiator-api-darah-dan-dendam', 'genres': ['Action', 'Drama']},
-    {'id': '21734', 'slug': 'dari-rival-jadi-kekasih',       'genres': ['Romantis', 'Drama']},
-    {'id': '20849', 'slug': 'mantan-istriku-ternyata-ceo',   'genres': ['Romantis', 'Drama']},
-    {'id': '20119', 'slug': 'aku-cerai-bos-mafia-gila',      'genres': ['Romantis', 'Drama', 'Action']},
+    {'id': '15405', 'slug': 'dia-istri-sang-taipan',       'genres': ['Romantis', 'Drama']},
+    {'id': '14556', 'slug': 'menyala-di-salju',            'genres': ['Drama']},
+    {'id': '11560', 'slug': 'naga-dalam-darahku-bangkit',  'genres': ['Action', 'Drama']},
 ]
 
 # ─── HELPERS ─────────────────────────────────────────────────────────────────

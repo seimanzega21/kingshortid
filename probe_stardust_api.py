@@ -9,30 +9,23 @@ base_headers = {
 }
 
 dramas = [
-    ('20921', 'kakakku-bos-mafia'),
-    ('20188', 'enam-pewaris-untuk-presdir-bo'),
-    ('21861', 'gladiator-api-darah-dan-dendam'),
-    ('21734', 'dari-rival-jadi-kekasih'),
-    ('21045', 'runtuhnya-mahkota'),
-    ('18698', 'berkat-sistem-putri-jadi-milikku'),
-    ('18630', 'sang-penagih-utang-takdir'),
-    ('20849', 'mantan-istriku-ternyata-ceo'),
-    ('21614', 'putri-disakiti-ayah-ternyata-jenderal'),
-    ('20742', 'pelindungku-cinta-terlarangku'),
-    ('20100', 'cinta-takkan-berbalik'),
-    ('20526', 'ratu-hati-sang-pembalap'),
-    ('20119', 'aku-cerai-bos-mafia-gila'),
+    ('15405', 'dia-istri-sang-taipan'),
+    ('14556', 'menyala-di-salju'),
+    ('12053', 'dendam-judi-jari-terakhir'),
+    ('13328', 'raja-judi-kembali-semua-kalah'),
+    ('11560', 'naga-dalam-darahku-bangkit'),
 ]
 
-print(f"{'Slug':<45} {'ID':<7} {'Lang':<10} {'Subtitles'}")
-print("-" * 80)
+print(f"{'Slug':<35} {'ID':<7} {'Lang':<12} {'Total Eps'}")
+print("-" * 70)
 
 for mid, slug in dramas:
     try:
+        # Check language from episode 1
         r = requests.get(f"https://vidrama.asia/api/stardusttv?action=episode&id={mid}&episode=1&lang=id", headers=base_headers, timeout=15, verify=False)
         data = r.json().get('data', {})
         video_url = data.get('videoUrl', '')
-        subs = data.get('subtitles', [])
+        total_eps = data.get('totalEpisodes', '?')
 
         if '_ID_DUB' in video_url or '_id_dub' in video_url.lower():
             lang_type = "DUBBING-ID"
@@ -41,6 +34,6 @@ for mid, slug in dramas:
         else:
             lang_type = "NO-DUB"
 
-        print(f"{slug:<45} {mid:<7} {lang_type:<10} {len(subs)} subtitle(s)")
+        print(f"{slug:<35} {mid:<7} {lang_type:<12} {total_eps}")
     except Exception as e:
-        print(f"{slug:<45} {mid:<7} ERROR: {e}")
+        print(f"{slug:<35} {mid:<7} ERROR: {e}")
