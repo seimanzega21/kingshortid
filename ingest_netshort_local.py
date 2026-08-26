@@ -251,8 +251,8 @@ def get_or_register_drama(metadata, total_eps, slug, genres):
         
         'country': 'China',
         'language': 'Indonesia',
-        'isActive': True,
-        'status': 'completed',
+        'isActive': False,
+        'status': 'pending',
         'isVip': False,
     }
     r = requests.post(f"{API_BASE}/api/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=30)
@@ -273,7 +273,7 @@ def register_episode(drama_id, ep_no, url_720, url_540):
         'videoUrl540p': url_540 or '',
         'isVip': False,
         'coinPrice': 0,
-        'isActive': True,
+        'isActive': False,
     }
     r = requests.post(
         f"{API_BASE}/api/admin/dramas/{drama_id}/episodes",
