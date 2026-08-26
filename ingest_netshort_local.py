@@ -128,7 +128,8 @@ def download_and_transcode(mp4_url, ep_no):
         cmd = [
             'ffmpeg', '-y',
             '-i', local_source,
-            '-c', 'copy',
+            '-vf', 'scale=720:-2', '-c:v', 'libx264', '-crf', '23', '-preset', 'fast',
+            '-maxrate', '1500k', '-bufsize', '3000k', '-c:a', 'aac', '-b:a', '128k',
             '-movflags', '+faststart',
             '-loglevel', 'warning',
             local_720
@@ -151,8 +152,9 @@ def download_and_transcode(mp4_url, ep_no):
         cmd = [
             'ffmpeg', '-y',
             '-i', local_source,
-            '-vf', 'scale=-2:540',
-            '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
+            '-vf', 'scale=540:-2', '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
+            '-maxrate', '1000k', '-bufsize', '2000k', '-c:a', 'aac', '-b:a', '96k',
+            '-movflags', '+faststart',
             '-maxrate', '1200k', '-bufsize', '2400k',
             '-c:a', 'aac', '-b:a', '96k',
             '-movflags', '+faststart',
@@ -191,28 +193,33 @@ def upload_to_r2(r2, local_path, r2_key):
         return None
 
 def upload_cover(r2, cover_url, slug):
-    key = f"dramas/{slug}/cover.jpg"
+    import urllib.parse
+    key = f"dramas/covers/{slug}_cover_hq.jpg"
     try:
         r2.head_object(Bucket=R2_BUCKET, Key=key)
         return f"{R2_PUBLIC}/{key}"
     except Exception:
         pass
-        
+    
     try:
-        url_to_fetch = cover_url
-        if ".heic" in cover_url.lower():
-            import urllib.parse
-            url_to_fetch = f"https://wsrv.nl/?url={urllib.parse.quote(cover_url)}&output=jpg"
-            
-        r = requests.get(url_to_fetch, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}, timeout=30, verify=False)
+        r = requests.get(cover_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30, verify=False)
         if r.ok:
-            r2.upload_fileobj(
-                io.BytesIO(r.content), R2_BUCKET, key,
-                ExtraArgs={'ContentType': 'image/jpeg', 'CacheControl': 'public, max-age=31536000'}
-            )
-            return f"{R2_PUBLIC}/{key}"
+            raw_path = f"{TEMP_DIR}/raw_cover_{slug}.tmp"
+            jpg_path = f"{TEMP_DIR}/cover_{slug}.jpg"
+            with open(raw_path, 'wb') as out:
+                out.write(r.content)
+            
+            subprocess.run(['ffmpeg', '-y', '-i', raw_path, '-update', '1', jpg_path], capture_output=True)
+            
+            if os.path.exists(jpg_path):
+                with open(jpg_path, 'rb') as out:
+                    r2.upload_fileobj(
+                        out, R2_BUCKET, key,
+                        ExtraArgs={'ContentType': 'image/jpeg', 'CacheControl': 'public, max-age=31536000'}
+                    )
+                return f"{R2_PUBLIC}/{key}"
     except Exception as e:
-        print(f"      ⚠ Cover upload failed: {e}")
+        print(f"      Cover upload failed: {e}")
     return cover_url
 
 def get_or_register_drama(metadata, total_eps, slug, genres):
@@ -241,10 +248,11 @@ def get_or_register_drama(metadata, total_eps, slug, genres):
         'cover': cover_r2,
         'genres': genres,
         'totalEpisodes': total_eps,
-        'status': 'pending',
+        
         'country': 'China',
         'language': 'Indonesia',
-        'isActive': False,
+        'isActive': True,
+        'status': 'completed',
         'isVip': False,
     }
     r = requests.post(f"{API_BASE}/api/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=30)
@@ -364,7 +372,7 @@ def process_drama(r2, d):
     print(f"   Total Episodes: {total_eps}")
     
     # 2. Get or Register Drama
-    drama_id = get_or_register_drama(meta, total_eps, d['slug'], d['genres'])
+    drama_id = get_or_register_drama(meta, total_eps, d['slug'], d.get('genres', ['Drama', 'Sulih Suara']))
     if not drama_id:
         print(f"❌ Failed to register drama {d['slug']}! Skipping.")
         return False
