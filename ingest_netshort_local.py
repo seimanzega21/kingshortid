@@ -128,7 +128,7 @@ def download_and_transcode(mp4_url, ep_no):
         cmd = [
             'ffmpeg', '-y',
             '-i', local_source,
-            '-vf', 'scale=720:-2', '-c:v', 'libx264', '-crf', '23', '-preset', 'fast',
+            '-vf', 'scale=720:-2', '-c:v', 'libx264', '-crf', '23', '-preset', 'fast', '-fps_mode', 'cfr', '-af', 'aresample=async=1',
             '-maxrate', '1500k', '-bufsize', '3000k', '-c:a', 'aac', '-b:a', '128k',
             '-movflags', '+faststart',
             '-loglevel', 'warning',
@@ -152,7 +152,7 @@ def download_and_transcode(mp4_url, ep_no):
         cmd = [
             'ffmpeg', '-y',
             '-i', local_source,
-            '-vf', 'scale=540:-2', '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
+            '-vf', 'scale=540:-2', '-c:v', 'libx264', '-crf', '26', '-preset', 'fast', '-fps_mode', 'cfr', '-af', 'aresample=async=1',
             '-maxrate', '1000k', '-bufsize', '2000k', '-c:a', 'aac', '-b:a', '96k',
             '-movflags', '+faststart',
             '-maxrate', '1200k', '-bufsize', '2400k',
