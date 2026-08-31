@@ -1,17 +1,258 @@
 [
-    {"id": "7668531060031900725", "slug": "raja-di-pulau-terpencil", "genres": ["Drama", "Petualangan"]},
-    {"id": "7672662353447504949", "slug": "kontrak-monster-laut-di-desa-nelayan", "genres": ["Drama", "Fantasi"]},
-    {"id": "7665941682252516357", "slug": "pasar-grosir-gadis-desa", "genres": ["Drama", "Romantis"]},
-    {"id": "7670047003832749061", "slug": "pengemis-kaya-dua-dunia", "genres": ["Drama", "Keluarga"]},
-    {"id": "7664885514075376693", "slug": "di-tengah-kekeringan", "genres": ["Drama"]},
-    {"id": "7652214509590809653", "slug": "dari-desa-jadi-raja-energi", "genres": ["Drama"]},
-    {"id": "7652651925862616117", "slug": "petani-genius-bangkit", "genres": ["Drama"]},
-    {"id": "7668522441139866629", "slug": "masakan-lezat-di-masa-lalu", "genres": ["Drama", "Keluarga"]},
-    {"id": "7664843703227255861", "slug": "warung-ajaib-bawa-rezeki", "genres": ["Drama", "Fantasi"]},
-    {"id": "7664890128170486837", "slug": "bangkit-dari-kolam-mati", "genres": ["Drama"]},
-    {"id": "7651858956175805445", "slug": "sang-bos-naga-kembali", "genres": ["Drama", "Aksi"]},
-    {"id": "7641803516108868613", "slug": "kembalinya-raja-naga-1", "genres": ["Drama", "Aksi"]},
-    {"id": "7665550809651743797", "slug": "belut-listrik-penakluk-naga", "genres": ["Drama", "Fantasi"]},
-    {"id": "7673802231203761205", "slug": "penguasa-pedang-kekuasaan", "genres": ["Drama", "Aksi"]},
-    {"id": "7664904748335631413", "slug": "naga-sakti-bangkit", "genres": ["Drama", "Fantasi"]}
+  {
+    "slug": "kotak-antar-ke-masa-lalu",
+    "id": "7668524686103317509",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "balas-budi-penyelamatku",
+    "id": "7665963996851211269",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "kaya-raya-kembali-ke-sma",
+    "id": "7666274601487322165",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "kaya-sebelum-lulus-kuliah-2",
+    "id": "7668524685918751797",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "rahasia-anak-sultan",
+    "id": "7619622710204713989",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "kekayaan-mendadak",
+    "id": "7665940057064393781",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "juragan-hasil-laut",
+    "id": "7679397478600281141",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "lord-koin-emas-harian",
+    "id": "7669998858033712181",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "beban-hidup-sang-kuli",
+    "id": "7673350378645113909",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "dokter-ajaib-dari-desa",
+    "id": "7679395787037477941",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "kembalinya-sang-koki",
+    "id": "7632578881286851589",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "bangkit-sama-kak-putri",
+    "id": "7678225964827937845",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "hidup-lagi-tak-perlu-cinta",
+    "id": "7671948251137838133",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "menaklukkan-liga-eropa-1",
+    "id": "7670431405926517813",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "pemuda-miskin-jadi-bos-kaya",
+    "id": "7672696931004451893",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "ruang-mata-air-spiritual",
+    "id": "7677209787829849141",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "dewa-pedang-legendaris",
+    "id": "7518935469413895184",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "putra-dewa-kegelapan",
+    "id": "7630751381267156021",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "ular-pemangsa-dunia",
+    "id": "7656363850924559413",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "kembalinya-permaisuri",
+    "id": "7597619763061197877",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "keajaiban-kolam-andi",
+    "id": "7660746804895419445",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "kisah-dokter-sakti-andika",
+    "id": "7658188265446444037",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "dipecat-jadi-bos-bengkel",
+    "id": "7665183873151585285",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "sentuhan-ajaib-sang-mekanik",
+    "id": "7598484306838703109",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "raja-daging-rebus",
+    "id": "7649951469453446197",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "dari-turis-jadi-bos-pasar-gelap",
+    "id": "7627152274543873077",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "antar-makanan-dapat-bidadari",
+    "id": "7639705987405859845",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "tahun-1983-dimulai-dari-bengkel",
+    "id": "7600000235787521077",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "sampah-jadi-emas",
+    "id": "7669997668374072373",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "mata-naga-penguasa-harta",
+    "id": "7620403857952082949",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "berkah-sepasang-mata-emas",
+    "id": "7662952819380456501",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  },
+  {
+    "slug": "mata-ajaib-sari",
+    "id": "7636714569318009861",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ]
+  }
 ]

@@ -75,8 +75,28 @@ def fetch_drama_details(upstream_id, slug):
     return metadata, episodes
 
 def upload_cover_to_r2(r2, cover_url, slug, temp_dir):
-    if not cover_url:
-        return ""
+    import subprocess
+    if not cover_url: return ""
+    local_raw = os.path.join(temp_dir, f"{slug}_cover.tmp")
+    local_jpg = os.path.join(temp_dir, f"{slug}_cover_hq.jpg")
+    r2_key = f"dramas/covers/{slug}_cover_hq.jpg"
+    try:
+        r2.head_object(Bucket=R2_BUCKET, Key=r2_key)
+        return f"{R2_PUBLIC}/{r2_key}"
+    except: pass
+    
+    try:
+        r = requests.get(cover_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30, verify=False)
+        if r.ok:
+            with open(local_raw, 'wb') as f:
+                f.write(r.content)
+            subprocess.run(['ffmpeg', '-y', '-i', local_raw, '-update', '1', local_jpg], capture_output=True)
+            if os.path.exists(local_jpg):
+                r2.upload_file(local_jpg, R2_BUCKET, r2_key, ExtraArgs={'ContentType': 'image/jpeg', 'CacheControl': 'public, max-age=31536000'})
+                return f"{R2_PUBLIC}/{r2_key}"
+    except Exception as e:
+        log(slug, f" Cover upload failed: {e}")
+    return ""
     local_jpg = os.path.join(temp_dir, f"{slug}_cover_hq.jpg")
     try:
         url_to_fetch = cover_url
@@ -122,7 +142,7 @@ def get_or_register_drama(r2, metadata, slug, genres, temp_dir):
                     db_id = d.get('id')
                     log(slug, f"✓ Drama already registered in DB: {db_id}")
                     if not d.get('isActive'):
-                        requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json={'id': db_id, 'isActive': True}, timeout=10)
+                        requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json={'id': db_id, 'isActive': False}, timeout=10)
                     return db_id
     except Exception as e:
         log(slug, f"⚠ DB duplicate check failed: {e}")
@@ -141,7 +161,8 @@ def get_or_register_drama(r2, metadata, slug, genres, temp_dir):
         'status': 'ongoing',
         'country': 'China',
         'language': 'Indonesia',
-        'isActive': True,  # MUST BE TRUE!
+        'isActive': False,
+        'status': 'pending',  # MUST BE TRUE!
         'isVip': False
     }
     
@@ -185,7 +206,7 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir, slug):
             'ffmpeg', '-y',
             '-i', local_source,
             '-vf', 'scale=720:-2',
-            '-c:v', 'libx264', '-crf', '23', '-preset', 'fast',
+            '-c:v', 'libx264', '-crf', '23', '-preset', 'fast', '-fps_mode', 'cfr', '-af', 'aresample=async=1',
             '-maxrate', '1500k', '-bufsize', '3000k',
             '-c:a', 'aac', '-b:a', '128k',
             '-movflags', '+faststart',
@@ -210,7 +231,7 @@ def transcode_to_resolutions(local_source, ep_no, temp_dir, slug):
             'ffmpeg', '-y',
             '-i', local_720,
             '-vf', 'scale=540:-2',
-            '-c:v', 'libx264', '-crf', '26', '-preset', 'fast',
+            '-c:v', 'libx264', '-crf', '26', '-preset', 'fast', '-fps_mode', 'cfr', '-af', 'aresample=async=1',
             '-maxrate', '1000k', '-bufsize', '2000k',
             '-c:a', 'aac', '-b:a', '96k',
             '-movflags', '+faststart',
@@ -348,7 +369,8 @@ def process_drama(item):
                 'videoUrl540p': r2_url_540,
                 'isVip': False,
                 'coinPrice': 0,
-                'isActive': True,
+                'isActive': False,
+        'status': 'pending',
                 'duration': duration
             }
             
