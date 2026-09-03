@@ -33,7 +33,7 @@ HEADERS = {
     'Referer': 'https://vidrama.asia/',
 }
 
-queue_file = os.path.join(os.path.dirname(__file__), 'new_melolov3_dramas.json')
+queue_file = os.path.join(os.path.dirname(__file__), 'melolov3_pending_queue.json')
 if os.path.exists(queue_file):
     with open(queue_file, 'r', encoding='utf-8') as f:
         DRAMAS_QUEUE = json.load(f)
