@@ -7,7 +7,7 @@
     "genres": [
       "Drama"
     ],
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Legenda Sang Raja Perang",
@@ -18,7 +18,7 @@
       "Drama",
       "Aksi"
     ],
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dalam Genggaman Iparku",
@@ -28,6 +28,6 @@
     "genres": [
       "Drama"
     ],
-    "status": "pending"
+    "status": "done"
   }
 ]
