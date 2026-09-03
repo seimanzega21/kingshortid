@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Jerat Terlarang Sang Profesor",
+    "slug": "jerat-terlarang-sang-profesor",
+    "id": "2081974314160611329",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ],
+    "status": "pending"
+  },
+  {
+    "title": "Legenda Sang Raja Perang",
+    "slug": "legenda-sang-raja-perang",
+    "id": "2084571179372765186",
+    "lang": "id",
+    "genres": [
+      "Drama",
+      "Aksi"
+    ],
+    "status": "pending"
+  },
+  {
+    "title": "Dalam Genggaman Iparku",
+    "slug": "dalam-genggaman-iparku",
+    "id": "2082668368837992450",
+    "lang": "id",
+    "genres": [
+      "Drama"
+    ],
+    "status": "pending"
+  }
+]
