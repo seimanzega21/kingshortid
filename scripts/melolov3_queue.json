@@ -95,7 +95,7 @@
     "title": "Raja Pencari Seafood, Ambil Hadiahnya!",
     "slug": "raja-pencari-seafood-ambil-hadiahnya",
     "totalEpisodes": 73,
-    "status": "failed"
+    "status": "done"
   },
   {
     "id": "7668240706363739189",
@@ -109,6 +109,6 @@
     "title": "Tambak Pembawa Rezeki",
     "slug": "tambak-pembawa-rezeki",
     "totalEpisodes": 70,
-    "status": "processing"
+    "status": "done"
   }
 ]
