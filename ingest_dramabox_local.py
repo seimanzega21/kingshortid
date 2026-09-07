@@ -33,10 +33,10 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 
 DRAMAS = [
     {
-        "slug": "hati-yang-dihancurkan",
-        "id": "42000025364",
+        "slug": "amarah-sang-dewa-naga",
+        "id": "42000025615",
         "lang": "in",
-        "genres": ["Drama", "Romantis"]
+        "genres": ["Aksi", "Fantasi"]
     }
 ]
 
@@ -70,7 +70,8 @@ def fetch_drama_details(mid, lang):
 
 def fetch_episode_url(mid, ep_no, lang):
     """Fetch a FRESH video URL per episode to avoid token expiry."""
-    url = f"https://vidrama.asia/api/dramabox?action=stream&id={mid}&episode={ep_no}&lang={lang}"
+    api_ep = ep_no - 1  # Fix 0-index off-by-one bug
+    url = f"https://vidrama.asia/api/dramabox?action=stream&id={mid}&episode={api_ep}&lang={lang}"
     for attempt in range(1, 5):
         try:
             r = requests.get(url, headers=HDR, timeout=20)
@@ -87,10 +88,10 @@ def fetch_episode_url(mid, ep_no, lang):
     return None, []
 
 
-def download_and_transcode(video_url, ep_no):
-    src  = os.path.join(TEMP_DIR, f"src_ep{ep_no:03d}.mp4")
-    p720 = os.path.join(TEMP_DIR, f"ep{ep_no:03d}_720p.mp4")
-    p540 = os.path.join(TEMP_DIR, f"ep{ep_no:03d}_540p.mp4")
+def download_and_transcode(video_url, ep_no, slug):
+    src  = os.path.join(TEMP_DIR, f"src_{slug}_ep{ep_no:03d}.mp4")
+    p720 = os.path.join(TEMP_DIR, f"{slug}_ep{ep_no:03d}_720p.mp4")
+    p540 = os.path.join(TEMP_DIR, f"{slug}_ep{ep_no:03d}_540p.mp4")
     for f in [src, p720, p540]:
         if os.path.exists(f): os.remove(f)
 
@@ -297,7 +298,7 @@ def process_drama(r2_client, d):
         except Exception: pass
 
         if not url_720:
-            local_720, local_540 = download_and_transcode(video_url, ep_no)
+            local_720, local_540 = download_and_transcode(video_url, ep_no, d['slug'])
             if not local_720:
                 print(f"      ❌ Transcode failed for EP {ep_no}")
                 fail_count += 1
