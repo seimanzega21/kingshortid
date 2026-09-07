@@ -33,10 +33,10 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 
 DRAMAS = [
     {
-        "slug": "amarah-sang-dewa-naga",
-        "id": "42000025615",
+        "slug": "sihir-curian-takdir-berdarah",
+        "id": "42000026716",
         "lang": "in",
-        "genres": ["Aksi", "Fantasi"]
+        "genres": ["Drama", "Fantasi"]
     }
 ]
 
