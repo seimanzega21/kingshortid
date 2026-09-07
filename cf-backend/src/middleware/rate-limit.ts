@@ -17,10 +17,27 @@ function cleanupStaleEntries() {
     }
 }
 
+function getClientIp(c: Context<Env>): string {
+    const cfIp = c.req.header('CF-Connecting-IP');
+    if (cfIp) return cfIp.trim();
+
+    const forwarded = c.req.header('X-Forwarded-For');
+    if (forwarded) {
+        // X-Forwarded-For can contain comma-separated IPs (client, proxy1, proxy2). Extract the first IP.
+        const firstIp = forwarded.split(',')[0].trim();
+        if (firstIp) return firstIp;
+    }
+
+    const realIp = c.req.header('X-Real-IP');
+    if (realIp) return realIp.trim();
+
+    return 'unknown';
+}
+
 function createRateLimiter(maxRequests: number, windowMs: number) {
     return async (c: Context<Env>, next: Next) => {
         cleanupStaleEntries();
-        const key = c.req.header('CF-Connecting-IP') || c.req.header('X-Forwarded-For') || 'unknown';
+        const key = getClientIp(c);
         const now = Date.now();
 
         const record = rateLimitStore.get(key);
@@ -44,8 +61,8 @@ function createRateLimiter(maxRequests: number, windowMs: number) {
     };
 }
 
-// Rate limiters matching the original Express backend
-export const apiLimiter = createRateLimiter(100, 60 * 1000);      // 100 req/min
-export const authLimiter = createRateLimiter(5, 60 * 1000);       // 5 req/min
-export const rewardLimiter = createRateLimiter(20, 60 * 1000);    // 20 req/min
-export const sensitiveLimiter = createRateLimiter(10, 60 * 1000); // 10 req/min
+// Rate limiters — dinaikkan batasnya agar user mobile normal atau WiFi publik tidak terkena 429
+export const apiLimiter = createRateLimiter(300, 60 * 1000);      // 300 req/min (sebelumnya 100)
+export const authLimiter = createRateLimiter(15, 60 * 1000);       // 15 req/min (sebelumnya 5)
+export const rewardLimiter = createRateLimiter(30, 60 * 1000);    // 30 req/min
+export const sensitiveLimiter = createRateLimiter(20, 60 * 1000); // 20 req/min
