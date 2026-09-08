@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { deleteR2FilesByPrefix, r2Client, R2_BUCKET } from '@/lib/r2-helper';
+import { DeleteObjectCommand } from '@aws-sdk/client-s3';
 
 // GET /api/dramas/[id]
 export async function GET(
@@ -115,10 +117,73 @@ export async function DELETE(
 ) {
     try {
         const { id } = await params;
+        const { searchParams } = new URL(request.url);
+        const deleteFromR2 = searchParams.get('deleteFromR2') === 'true';
 
+        // 1. Ambil detail drama dan episodenya sebelum dihapus dari DB
+        const drama = await prisma.drama.findUnique({
+            where: { id },
+            include: { episodes: true }
+        });
+
+        if (!drama) {
+            return NextResponse.json({ message: 'Drama not found' }, { status: 404 });
+        }
+
+        // 2. Jika user mencentang 'Hapus juga file dari Server (R2)', bersihkan R2
+        if (deleteFromR2) {
+            try {
+                const deletedKeys = new Set<string>();
+
+                // A. Deteksi prefix folder dari video episode pertama (contoh: "dramas/netshort/slug/" atau "melolov3/slug/")
+                const sampleVideo = drama.episodes?.find(e => e.videoUrl && e.videoUrl.includes('stream.shortlovers.id'))?.videoUrl;
+                if (sampleVideo) {
+                    try {
+                        const parsed = new URL(sampleVideo);
+                        const parts = parsed.pathname.replace(/^\//, '').split('/');
+                        if (parts.length >= 2) {
+                            const folderPrefix = `${parts[0]}/${parts[1]}/`;
+                            const deletedCount = await deleteR2FilesByPrefix(folderPrefix);
+                            console.log(`[Admin DELETE] Deleted ${deletedCount} files from R2 folder: ${folderPrefix}`);
+                        }
+                    } catch (e) {
+                        console.error('[Admin DELETE] Error parsing sample video URL:', e);
+                    }
+                }
+
+                // B. Hapus file cover jika tersimpan di R2 (misal: "dramas/covers/slug_cover_hq.jpg")
+                if (drama.cover && drama.cover.includes('stream.shortlovers.id')) {
+                    try {
+                        const coverPath = new URL(drama.cover).pathname.replace(/^\//, '');
+                        await r2Client.send(new DeleteObjectCommand({
+                            Bucket: R2_BUCKET,
+                            Key: coverPath
+                        })).catch(() => {});
+                    } catch { }
+                }
+
+                // C. Hapus banner jika ada di R2
+                if (drama.banner && drama.banner.includes('stream.shortlovers.id')) {
+                    try {
+                        const bannerPath = new URL(drama.banner).pathname.replace(/^\//, '');
+                        await r2Client.send(new DeleteObjectCommand({
+                            Bucket: R2_BUCKET,
+                            Key: bannerPath
+                        })).catch(() => {});
+                    } catch { }
+                }
+            } catch (r2Err) {
+                console.error('[Admin DELETE] Error cleaning R2 files:', r2Err);
+            }
+        }
+
+        // 3. Hapus relasi episode dan drama dari Database
+        await prisma.episode.deleteMany({ where: { dramaId: id } });
         await prisma.drama.delete({ where: { id } });
 
-        return NextResponse.json({ message: 'Drama deleted' });
+        return NextResponse.json({
+            message: `Drama "${drama.title}" berhasil dihapus${deleteFromR2 ? ' beserta seluruh file di Cloudflare R2' : ''}`
+        });
     } catch (error: any) {
         console.error('Delete drama error:', error);
         if (error.code === 'P2025') {

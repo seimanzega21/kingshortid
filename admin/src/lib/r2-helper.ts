@@ -1,9 +1,9 @@
-import { GetObjectCommand } from '@aws-sdk/client-s3';
+import { GetObjectCommand, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { S3Client } from '@aws-sdk/client-s3';
 
 // Initialize R2 client
-const r2Client = new S3Client({
+export const r2Client = new S3Client({
     region: 'auto',
     endpoint: process.env.R2_ENDPOINT!,
     credentials: {
@@ -12,8 +12,43 @@ const r2Client = new S3Client({
     },
 });
 
-const R2_BUCKET = process.env.R2_BUCKET_NAME || 'shortlovers';
-const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL;
+export const R2_BUCKET = process.env.R2_BUCKET_NAME || 'shortlovers';
+export const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL;
+
+/**
+ * Delete all files in R2 associated with a drama prefix or key list
+ */
+export async function deleteR2FilesByPrefix(prefix: string): Promise<number> {
+    if (!prefix || !isR2Configured()) return 0;
+    try {
+        let continuationToken: string | undefined = undefined;
+        let totalDeleted = 0;
+
+        do {
+            const listRes: any = await r2Client.send(new ListObjectsV2Command({
+                Bucket: R2_BUCKET,
+                Prefix: prefix,
+                ContinuationToken: continuationToken,
+            }));
+
+            if (listRes.Contents && listRes.Contents.length > 0) {
+                const keys = listRes.Contents.map((obj: any) => ({ Key: obj.Key! }));
+                await r2Client.send(new DeleteObjectsCommand({
+                    Bucket: R2_BUCKET,
+                    Delete: { Objects: keys },
+                }));
+                totalDeleted += keys.length;
+            }
+
+            continuationToken = listRes.NextContinuationToken;
+        } while (continuationToken);
+
+        return totalDeleted;
+    } catch (err) {
+        console.error(`[R2] Failed to delete files for prefix "${prefix}":`, err);
+        return 0;
+    }
+}
 
 /**
  * Check if R2 is properly configured
