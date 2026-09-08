@@ -280,8 +280,14 @@ def process_drama():
     er = requests.get(f"{API_BASE}/api/dramas/{drama_id}/episodes?includeInactive=true", timeout=15)
     if er.ok:
         for ep in er.json():
-            done_eps[int(ep.get('episodeNumber', 0))] = ep.get('id')
-    print(f"   Already done in DB: {len(done_eps)} episodes")
+            ep_num = int(ep.get('episodeNumber', 0))
+            r2_key_check = f"dramas/{d['slug']}/ep{ep_num:03d}_720p.mp4"
+            try:
+                r2.head_object(Bucket=R2_BUCKET, Key=r2_key_check)
+                done_eps[ep_num] = ep.get('id')
+            except Exception:
+                pass # Not in R2, must re-download!
+    print(f"   Actually present in R2: {len(done_eps)} episodes")
 
     success_count = 0
     fail_count = 0
