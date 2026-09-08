@@ -132,7 +132,10 @@ export default function DramaManagement() {
 
     const fetchDramas = async () => {
         try {
-            const res = await fetch("/api/dramas?includeInactive=true&limit=9999");
+            const res = await fetch(`/api/dramas?includeInactive=true&limit=9999&_t=${Date.now()}`, {
+                cache: 'no-store',
+                headers: { 'Cache-Control': 'no-cache' }
+            });
             const data = await res.json();
             if (Array.isArray(data)) setDramas(data);
             else if (data.dramas) setDramas(data.dramas);
@@ -149,17 +152,20 @@ export default function DramaManagement() {
 
     const confirmDelete = async () => {
         if (!targetDeleteId) return;
+        const deletedId = targetDeleteId;
         setIsDeleting(true);
         try {
-            const res = await fetch(`/api/dramas/${targetDeleteId}?deleteFromR2=${deleteFromR2}`, { method: "DELETE" });
-            if (res.ok) { 
-                toast.success(deleteFromR2 ? "Drama & file R2 dihapus permanen" : "Drama berhasil dihapus"); 
-                fetchDramas(); 
+            const res = await fetch(`/api/dramas/${deletedId}?deleteFromR2=${deleteFromR2}`, { method: "DELETE" });
+            if (res.ok) {
+                toast.success(deleteFromR2 ? "Drama & file R2 dihapus permanen" : "Drama berhasil dihapus");
+                // Optimistic UI update: langsung buang dari layar seketika tanpa perlu F5
+                setDramas(prev => prev.filter(d => d.id !== deletedId));
+                fetchDramas();
             } else {
                 toast.error("Gagal menghapus drama");
             }
-        } catch { 
-            toast.error("Terjadi kesalahan jaringan"); 
+        } catch {
+            toast.error("Terjadi kesalahan jaringan");
         } finally {
             setIsDeleting(false);
             setDeleteModalOpen(false);

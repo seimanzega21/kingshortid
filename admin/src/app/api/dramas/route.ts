@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
             prisma.drama.count({ where }),
         ]);
 
-        return NextResponse.json({
+        const response = NextResponse.json({
             dramas: dramas.map(d => ({
                 ...d,
                 episodeCount: d._count.episodes,
@@ -61,6 +61,9 @@ export async function GET(request: NextRequest) {
             page,
             pages: Math.ceil(total / limit),
         });
+
+        response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        return response;
     } catch (error) {
         console.error('Get dramas error:', error);
         return NextResponse.json(

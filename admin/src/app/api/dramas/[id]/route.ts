@@ -94,7 +94,9 @@ export async function PATCH(
             data: updateData,
         });
 
-        return NextResponse.json(drama);
+        const res = NextResponse.json(drama);
+        res.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        return res;
     } catch (error: any) {
         console.error('Update drama error:', error);
         if (error.code === 'P2025') {
@@ -141,8 +143,9 @@ export async function DELETE(
                     try {
                         const parsed = new URL(sampleVideo);
                         const parts = parsed.pathname.replace(/^\//, '').split('/');
+                        // parts: ['dramas', 'netshort', 'slug', 'ep001.mp4'] -> ambil semua kecuali file terakhir
                         if (parts.length >= 2) {
-                            const folderPrefix = `${parts[0]}/${parts[1]}/`;
+                            const folderPrefix = parts.slice(0, -1).join('/') + '/';
                             const deletedCount = await deleteR2FilesByPrefix(folderPrefix);
                             console.log(`[Admin DELETE] Deleted ${deletedCount} files from R2 folder: ${folderPrefix}`);
                         }

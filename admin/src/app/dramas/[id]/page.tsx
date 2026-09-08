@@ -72,8 +72,14 @@ export default function DramaDetailPage() {
     const fetchData = async () => {
         try {
             const [resDrama, resCats] = await Promise.all([
-                fetch(`/api/dramas/${id}?includeInactive=true`),
-                fetch(`/api/categories`),
+                fetch(`/api/dramas/${id}?includeInactive=true&_t=${Date.now()}`, {
+                    cache: 'no-store',
+                    headers: { 'Cache-Control': 'no-cache' }
+                }),
+                fetch(`/api/categories?_t=${Date.now()}`, {
+                    cache: 'no-store',
+                    headers: { 'Cache-Control': 'no-cache' }
+                }),
             ]);
             const dataDrama = await resDrama.json();
             const dataCats = await resCats.json();
