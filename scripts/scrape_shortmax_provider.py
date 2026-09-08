@@ -106,7 +106,7 @@ def api_get_or_create_drama(detail, slug, cover_url):
         'country': 'China',
         'language': 'Indonesia',
         'status': 'completed',
-        'isActive': True,
+        'isActive': False, # Pending! (Tayang manual lewat admin panel)
     }
     try:
         r = requests.post(f"{API_BASE}/admin/dramas", headers=ADMIN_HDR, json=payload, timeout=20)
@@ -377,9 +377,7 @@ def scrape_shortmax_drama(r2, movie_id, is_test_run=False):
                         except: pass
 
         print(f"\nCompleted '{title}': Success={success_count}, Failed={failed_count}, Skipped={skipped_count}")
-        if success_count > 0 and not is_test_run:
-            api_mark_active(db_id)
-            print(f"  -> [DB] Marked drama as Active (ID: {db_id})")
+        # Note: Dibiarkan status Pending (isActive=False) sesuai permintaan user
         return success_count > 0
     except Exception as e:
         print(f"[FATAL] Error scraping drama: {e}")
@@ -387,14 +385,21 @@ def scrape_shortmax_drama(r2, movie_id, is_test_run=False):
 
 if __name__ == '__main__':
     r2 = get_r2()
-    movie_id = '864494'
-    is_test = False
+    targets = ['859525', '858108', '863857', '863622', '856528']
+
     if len(sys.argv) > 1:
         if sys.argv[1] == '--test':
-            is_test = True
+            scrape_shortmax_drama(r2, targets[0], is_test_run=True)
+            sys.exit(0)
+        elif sys.argv[1] == '--all':
+            pass
         else:
-            movie_id = sys.argv[1]
-    if len(sys.argv) > 2 and sys.argv[2] == '--test':
-        is_test = True
+            targets = [sys.argv[1]]
 
-    scrape_shortmax_drama(r2, movie_id, is_test_run=is_test)
+    print(f"=== Memulai Batch Scraper ShortMax: {len(targets)} Drama ===")
+    for idx, mid in enumerate(targets, 1):
+        print(f"\n[{idx}/{len(targets)}] Scraping drama ID: {mid}...")
+        scrape_shortmax_drama(r2, mid, is_test_run=False)
+        time.sleep(3)
+    print("\n=== SEMUA BATCH SELESAI ===")
+
