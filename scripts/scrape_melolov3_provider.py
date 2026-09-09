@@ -200,19 +200,30 @@ def encode_720_and_540(inp, out_720, out_540):
     return subprocess.run(cmd_540, timeout=600).returncode == 0
 
 def scrape_single_drama(r2, movie_id, is_test_run=False):
-    # 1. Fetch details from API
+    # 1. Fetch details from API with retry
     url = f"https://vidrama.asia/api/melolov3/multi-video?id={movie_id}&lang=id"
     print(f"Fetching details from API: {url}")
-    try:
-        r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
-        if not r.ok:
-            print(f"[ERROR] Failed to fetch drama details. Status: {r.status_code}")
-            return False
-        res_json = r.json()
-        detail = res_json.get('series', {})
-        eps = res_json.get('episodes', [])
-    except Exception as e:
-        print(f"[ERROR] Exception fetching drama details: {e}")
+    detail = {}
+    eps = []
+    for attempt in range(5):
+        try:
+            r = requests.get(url, headers=WEB_HDRS, timeout=30, verify=False)
+            if r.ok:
+                res_json = r.json()
+                detail = res_json.get('series', {})
+                eps = res_json.get('episodes', [])
+                if eps:
+                    break
+                else:
+                    print(f"[WARN] Empty episodes on attempt {attempt+1}. Retrying...")
+            else:
+                print(f"[WARN] HTTP {r.status_code} on attempt {attempt+1}. Retrying...")
+        except Exception as e:
+            print(f"[WARN] Error on attempt {attempt+1}: {e}. Retrying...")
+        time.sleep(5)
+
+    if not eps:
+        print(f"[ERROR] Failed to fetch drama details after 5 attempts.")
         return False
         
     title = detail.get('title') or 'Unknown Title'
