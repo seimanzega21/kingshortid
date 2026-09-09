@@ -110,5 +110,75 @@
     "slug": "tambak-pembawa-rezeki",
     "totalEpisodes": 70,
     "status": "done"
+  },
+  {
+    "id": "7678992456469187637",
+    "title": "Ladang Ajaib Kebangkitan",
+    "slug": "ladang-ajaib-kebangkitan",
+    "totalEpisodes": 79,
+    "status": "processing"
+  },
+  {
+    "id": "7659308671968496645",
+    "title": "Pemuda dan Botol Ajaib",
+    "slug": "pemuda-dan-botol-ajaib",
+    "totalEpisodes": 75,
+    "status": "pending"
+  },
+  {
+    "id": "7662260585676934197",
+    "title": "Botol Ajaib Petani Sakti",
+    "slug": "botol-ajaib-petani-sakti",
+    "totalEpisodes": 68,
+    "status": "pending"
+  },
+  {
+    "id": "7655576592457927685",
+    "title": "Keajaiban Mata Air",
+    "slug": "keajaiban-mata-air",
+    "totalEpisodes": 80,
+    "status": "pending"
+  },
+  {
+    "id": "7680465704042122293",
+    "title": "Tanah Tandus Jadi Ladang Ajaib",
+    "slug": "tanah-tandus-jadi-ladang-ajaib",
+    "totalEpisodes": 80,
+    "status": "pending"
+  },
+  {
+    "id": "7657860524016684037",
+    "title": "Penemuan Ruang Ajaib Jaya",
+    "slug": "penemuan-ruang-ajaib-jaya",
+    "totalEpisodes": 68,
+    "status": "pending"
+  },
+  {
+    "id": "7672664054653045765",
+    "title": "Tanah Sedikit, Beras Ajaib Hasilkan Koin",
+    "slug": "tanah-sedikit-beras-ajaib-hasilkan-koin",
+    "totalEpisodes": 80,
+    "status": "pending"
+  },
+  {
+    "id": "7668570365521562629",
+    "title": "Mangkuk Ajaib Takdir",
+    "slug": "mangkuk-ajaib-takdir",
+    "totalEpisodes": 164,
+    "status": "pending"
+  },
+  {
+    "id": "7664926647753116725",
+    "title": "Legenda Panci Sakti",
+    "slug": "legenda-panci-sakti",
+    "totalEpisodes": 94,
+    "status": "pending"
+  },
+  {
+    "id": "7662320737495026741",
+    "title": "Tambak Ajaib Era 90",
+    "slug": "tambak-ajaib-era-90",
+    "totalEpisodes": 59,
+    "status": "pending"
   }
 ]
