@@ -172,13 +172,13 @@
     "title": "Legenda Panci Sakti",
     "slug": "legenda-panci-sakti",
     "totalEpisodes": 94,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7662320737495026741",
     "title": "Tambak Ajaib Era 90",
     "slug": "tambak-ajaib-era-90",
     "totalEpisodes": 59,
-    "status": "pending"
+    "status": "processing"
   }
 ]
