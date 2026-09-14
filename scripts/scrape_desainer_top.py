@@ -5,6 +5,11 @@ KingShort Scraper - Desainer Top Balik ke Era 95 (Netshort V2)
 URL: https://vidrama.asia/movie/desainer-top-balik-ke-era-95--2096782583337111554?provider=netshortv2&lang=id_ID
 ID: 2096782583337111554
 """
+import sys
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 import requests, boto3, subprocess, time, tempfile, urllib3, re, os, shutil
 from pathlib import Path
 from botocore.config import Config
@@ -34,6 +39,10 @@ TARGET_SLUG = 'desainer-top-balik-ke-era-95'
 
 TEMP_DIR = Path(tempfile.gettempdir()) / 'ns2_desainer_top'
 TEMP_DIR.mkdir(exist_ok=True)
+
+FFMPEG_BIN = r'C:\ProgramData\chocolatey\bin\ffmpeg.exe'
+if not os.path.exists(FFMPEG_BIN):
+    FFMPEG_BIN = shutil.which('ffmpeg') or 'ffmpeg'
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 def get_r2():
@@ -117,11 +126,11 @@ def api_upsert_episode(drama_db_id, ep_no, url_720, url_540=None, sub_url=None):
     return ep_id
 
 def encode_720_and_540(inp, out_720, out_540):
-    cmd = ['ffmpeg', '-y', '-i', str(inp), '-c:v', 'libx264', '-crf', '26', '-maxrate', '1500k', '-bufsize', '3000k',
+    cmd = [FFMPEG_BIN, '-y', '-i', str(inp), '-c:v', 'libx264', '-crf', '26', '-maxrate', '1500k', '-bufsize', '3000k',
            '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', '-loglevel', 'error', str(out_720)]
     res = subprocess.run(cmd, timeout=600)
     if res.returncode != 0: return False
-    cmd3 = ['ffmpeg', '-y', '-i', str(out_720), '-vf', 'scale=-2:540', '-c:v', 'libx264', '-crf', '28', '-preset', 'fast',
+    cmd3 = [FFMPEG_BIN, '-y', '-i', str(out_720), '-vf', 'scale=-2:540', '-c:v', 'libx264', '-crf', '28', '-preset', 'fast',
             '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', '-loglevel', 'error', str(out_540)]
     return subprocess.run(cmd3, timeout=600).returncode == 0
 
