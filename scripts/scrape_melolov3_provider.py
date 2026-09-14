@@ -205,7 +205,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
     print(f"Fetching details from API: {url}")
     detail = {}
     eps = []
-    for attempt in range(5):
+    for attempt in range(10):
         try:
             r = requests.get(url, headers=WEB_HDRS, timeout=30, verify=False)
             if r.ok:
@@ -216,6 +216,9 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                     break
                 else:
                     print(f"[WARN] Empty episodes on attempt {attempt+1}. Retrying...")
+            elif r.status_code == 429:
+                print(f"[WARN] HTTP 429 (Rate Limit) on attempt {attempt+1}. Waiting 30s before retry...")
+                time.sleep(25)
             else:
                 print(f"[WARN] HTTP {r.status_code} on attempt {attempt+1}. Retrying...")
         except Exception as e:
@@ -223,7 +226,7 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
         time.sleep(5)
 
     if not eps:
-        print(f"[ERROR] Failed to fetch drama details after 5 attempts.")
+        print(f"[ERROR] Failed to fetch drama details after 10 attempts.")
         return False
         
     title = detail.get('title') or 'Unknown Title'
