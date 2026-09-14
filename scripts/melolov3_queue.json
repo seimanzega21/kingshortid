@@ -284,13 +284,13 @@
     "title": "Koki Restoran Jadi Bintang",
     "slug": "koki-restoran-jadi-bintang",
     "totalEpisodes": 116,
-    "status": "processing"
+    "status": "failed"
   },
   {
     "id": "7666276364357487669",
     "title": "Nenek Sakti Pulang Rumah",
     "slug": "nenek-sakti-pulang-rumah",
     "totalEpisodes": 66,
-    "status": "pending"
+    "status": "processing"
   }
 ]
