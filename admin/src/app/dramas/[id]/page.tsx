@@ -22,7 +22,7 @@ interface DramaData {
 interface Episode {
     id: string; episodeNumber: number; title: string; videoUrl: string;
     thumbnail: string | null; duration: number; views: number;
-    isVip: boolean; isActive: boolean;
+    isVip: boolean; coinPrice: number; isActive: boolean;
 }
 
 interface Category {

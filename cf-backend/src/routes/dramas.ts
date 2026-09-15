@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq, and, desc, like, ilike, or, sql, asc, gte, inArray } from 'drizzle-orm';
 import { getDb, parseJsonArray, toJsonArray } from '../db';
-import { dramas, episodes, seasons, subtitles, watchHistory } from '../db/schema';
+import { dramas, episodes, seasons, subtitles, watchHistory, coinTransactions } from '../db/schema';
 import { sendBroadcastNotification } from '../services/fcm';
 import { requireAdmin, getAuthUser } from '../middleware/auth';
 import { createId } from '@paralleldrive/cuid2';
@@ -497,7 +497,51 @@ dramasRoute.get('/:id/episodes', async (c) => {
             ))
             .orderBy(asc(episodes.episodeNumber));
 
-        return c.json(eps);
+        // Check user VIP / unlocked status to secure VIP video URLs
+        let isUserVip = false;
+        const unlockedEpisodeIds = new Set<string>();
+
+        try {
+            const user = await getAuthUser(c);
+            if (user) {
+                if (user.role === 'admin' || user.vipStatus) {
+                    isUserVip = true;
+                } else {
+                    // Check unlocked episodes in coin transactions
+                    const unlockedTx = await db.select({ reference: coinTransactions.reference })
+                        .from(coinTransactions)
+                        .where(and(
+                            eq(coinTransactions.userId, user.id),
+                            like(coinTransactions.reference, 'unlock_ep_%')
+                        ));
+                    unlockedTx.forEach(tx => {
+                        if (tx.reference) {
+                            unlockedEpisodeIds.add(tx.reference.replace('unlock_ep_', ''));
+                        }
+                    });
+                }
+            }
+        } catch {
+            // Auth error or unauthenticated: keep locked for VIP
+        }
+
+        // Redact videoUrl for VIP episodes if not unlocked/VIP
+        const secureEps = eps.map(ep => {
+            if (ep.isVip && !isUserVip && !unlockedEpisodeIds.has(ep.id)) {
+                return {
+                    ...ep,
+                    videoUrl: '',
+                    videoUrl540p: null,
+                    isLocked: true,
+                };
+            }
+            return {
+                ...ep,
+                isLocked: false,
+            };
+        });
+
+        return c.json(secureEps);
     } catch (error) {
         console.error('Get episodes error:', error);
         return c.json({ error: 'Failed to get episodes' }, 500);
@@ -520,7 +564,40 @@ dramasRoute.get('/:id/episodes/:episodeNumber', async (c) => {
 
         if (!episode) return c.json({ error: 'Episode not found' }, 404);
 
-        return c.json(episode);
+        if (episode.isVip) {
+            let isAllowed = false;
+            try {
+                const user = await getAuthUser(c);
+                if (user) {
+                    if (user.role === 'admin' || user.vipStatus) {
+                        isAllowed = true;
+                    } else {
+                        const unlockedTx = await db.select()
+                            .from(coinTransactions)
+                            .where(and(
+                                eq(coinTransactions.userId, user.id),
+                                eq(coinTransactions.reference, `unlock_ep_${episode.id}`)
+                            ))
+                            .limit(1).then((r: any[]) => r[0]);
+                        if (unlockedTx) isAllowed = true;
+                    }
+                }
+            } catch {}
+
+            if (!isAllowed) {
+                return c.json({
+                    ...episode,
+                    videoUrl: '',
+                    videoUrl540p: null,
+                    isLocked: true,
+                });
+            }
+        }
+
+        return c.json({
+            ...episode,
+            isLocked: false,
+        });
     } catch (error) {
         console.error('Get episode error:', error);
         return c.json({ error: 'Failed to get episode' }, 500);

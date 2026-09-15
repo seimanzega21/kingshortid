@@ -619,6 +619,70 @@ rewardsRoute.post('/exchange-vip', async (c) => {
     }
 });
 
+// POST /api/rewards/spend — Spend coins to unlock VIP episode or other features
+rewardsRoute.post('/spend', async (c) => {
+    try {
+        const userId = c.get('user').id;
+        const { amount, description = 'Buka Episode VIP', episodeId } = await c.req.json();
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        const coinAmount = parseInt(amount);
+        if (isNaN(coinAmount) || coinAmount <= 0) {
+            return c.json({ error: 'Jumlah koin tidak valid' }, 400);
+        }
+
+        const user = await db.select().from(users).where(eq(users.id, userId)).limit(1).then((r: any[]) => r[0]);
+        if (!user) return c.json({ error: 'User tidak ditemukan' }, 404);
+
+        const totalCoins = (user.coins || 0) + (user.purchasedCoins || 0);
+        if (totalCoins < coinAmount) {
+            return c.json({ error: 'Saldo koin tidak mencukupi', currentCoins: totalCoins, required: coinAmount }, 400);
+        }
+
+        // Deduct from purchasedCoins first, then regular bonus coins
+        let remainToDeduct = coinAmount;
+        let newPurchased = user.purchasedCoins || 0;
+        let newBonus = user.coins || 0;
+
+        if (newPurchased >= remainToDeduct) {
+            newPurchased -= remainToDeduct;
+            remainToDeduct = 0;
+        } else {
+            remainToDeduct -= newPurchased;
+            newPurchased = 0;
+            newBonus = Math.max(0, newBonus - remainToDeduct);
+        }
+
+        const now = new Date();
+        await db.update(users).set({
+            purchasedCoins: newPurchased,
+            coins: newBonus,
+            updatedAt: now,
+        }).where(eq(users.id, userId));
+
+        const newBalance = newPurchased + newBonus;
+
+        await db.insert(coinTransactions).values({
+            userId,
+            type: 'spend',
+            amount: -coinAmount,
+            description,
+            reference: episodeId ? `unlock_ep_${episodeId}` : undefined,
+            balanceAfter: newBalance,
+        });
+
+        return c.json({
+            success: true,
+            newBalance,
+            spent: coinAmount,
+            episodeId,
+        });
+    } catch (error) {
+        console.error('Spend coins error:', error);
+        return c.json({ error: 'Gagal memotong koin' }, 500);
+    }
+});
+
 rewardsRoute.post('/watch-video', watchVideoHandler);
 rewardsRoute.post('/redeem-vip', redeemVipHandler);
 
