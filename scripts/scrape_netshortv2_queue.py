@@ -148,6 +148,7 @@ def save_queue(queue):
     except: pass
 
 def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
     prefix = f"netshortv2/{slug}"
     detail_url = f"{VIDRAMA_API}/detail/{vidrama_id}?lang=id_ID"
     print(f"[*] Mengambil detail metadata: {vidrama_id}")
@@ -239,6 +240,7 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
 
         try:
             download_success = False
+            TEMP_DIR.mkdir(parents=True, exist_ok=True)
             for vurl in vurls:
                 if download_success: break
                 for dl_attempt in range(2):
@@ -270,7 +272,8 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
                                 if size_kb > 50:
                                     download_success = True
                                     break
-                    except: pass
+                    except Exception as err:
+                        print(f" [EXC: {err}]", end="", flush=True)
                     time.sleep(1)
 
             if not download_success:
