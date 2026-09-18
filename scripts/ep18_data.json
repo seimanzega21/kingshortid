@@ -1,0 +1,25 @@
+{
+  "episodeNo": 18,
+  "episodeId": "2099742471412740102",
+  "videos": [
+    {
+      "quality": "540p",
+      "url": "https://video.netshort.com/oMTobbOXVAgMU8Bf4FUFCafEEtDQiMf76VfVC8?a=0&auth_key=1790316772-a2e4c73c4d394c68a2cfa5177b915ace-0-7e88d14b817acb3883f723b97aca2aa2&br=585&bt=585&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=6f86a575ac624273af0e5dc9171b5a24&er=0&l=20260915060950A865BBAC307023916C81&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M21xaXk5cnhnZDozMzZoNEApNTg0NGY4M2Q6NzlkOmQ7OWc0ajJlMmRrc2hhMi1kXjVzczFeXzQ2YWJjMC8vYDIyM2M6Yw%3D%3D&vl=&vr="
+    },
+    {
+      "quality": "720p",
+      "url": "https://video.netshort.com/oMTobbOXVAgMU8Bf4FUFCafEEtDQiMf76VfVC8?a=0&auth_key=1790316772-a2e4c73c4d394c68a2cfa5177b915ace-0-7e88d14b817acb3883f723b97aca2aa2&br=585&bt=585&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=6f86a575ac624273af0e5dc9171b5a24&er=0&l=20260915060950A865BBAC307023916C81&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M21xaXk5cnhnZDozMzZoNEApNTg0NGY4M2Q6NzlkOmQ7OWc0ajJlMmRrc2hhMi1kXjVzczFeXzQ2YWJjMC8vYDIyM2M6Yw%3D%3D&vl=&vr="
+    },
+    {
+      "quality": "1080p",
+      "url": "https://video.netshort.com/oMTobbOXVAgMU8Bf4FUFCafEEtDQiMf76VfVC8?a=0&auth_key=1790316772-a2e4c73c4d394c68a2cfa5177b915ace-0-7e88d14b817acb3883f723b97aca2aa2&br=585&bt=585&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=6f86a575ac624273af0e5dc9171b5a24&er=0&l=20260915060950A865BBAC307023916C81&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M21xaXk5cnhnZDozMzZoNEApNTg0NGY4M2Q6NzlkOmQ7OWc0ajJlMmRrc2hhMi1kXjVzczFeXzQ2YWJjMC8vYDIyM2M6Yw%3D%3D&vl=&vr="
+    }
+  ],
+  "subtitles": [
+    {
+      "language": "id_ID",
+      "format": "webvtt",
+      "url": "https://video.netshort.com/313c0a60f2b547f5b11fef39d077fecb?auth_key=1790392929-b4015d5e661a4df48004ef742061e1af-0-e6981b5f4fee886655d064c1924f638b&mime_type=text_plain"
+    }
+  ]
+}
