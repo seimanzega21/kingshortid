@@ -32,28 +32,28 @@
     "title": "Mangsa Adipati Iblis",
     "slug": "mangsa-adipati-iblis",
     "totalEpisodes": 30,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "2100049998805438466",
     "title": "Semua Kulakukan Demi Anak",
     "slug": "semua-kulakukan-demi-anak",
     "totalEpisodes": 35,
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": "2099785083586842626",
     "title": "Rebut Kembali Takdirku",
     "slug": "rebut-kembali-takdirku",
     "totalEpisodes": 42,
-    "status": "pending"
+    "status": "failed"
   },
   {
     "id": "2099777715314585601",
     "title": "Kusembunyikan Anak Rahasia CEO",
     "slug": "kusembunyikan-anak-rahasia-ceo",
     "totalEpisodes": 30,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "2099713353006678017",

@@ -15,7 +15,7 @@ interface DramaData {
     id: string; title: string; description: string; cover: string;
     banner: string | null; genres: string[]; status: string;
     country: string; language: string; totalEpisodes: number;
-    views: number; rating: number; isActive: boolean; isVip: boolean; isFeatured: boolean;
+    views: number; likes: number; rating: number; isActive: boolean; isVip: boolean; isFeatured: boolean;
     createdAt: string; updatedAt: string;
 }
 
@@ -64,7 +64,8 @@ export default function DramaDetailPage() {
     const coverInputRef = useRef<HTMLInputElement>(null);
 
     const [formData, setFormData] = useState({
-        title: "", description: "", status: "", isVip: false, isFeatured: false, genres: [] as string[]
+        title: "", description: "", status: "", isVip: false, isFeatured: false, genres: [] as string[],
+        views: 0, likes: 0, rating: 0
     });
 
     useEffect(() => { if (id) fetchData(); }, [id]);
@@ -96,6 +97,9 @@ export default function DramaDetailPage() {
                 isVip: dataDrama.isVip,
                 isFeatured: dataDrama.isFeatured || false,
                 genres: dataDrama.genres || [],
+                views: Number(dataDrama.views) || 0,
+                likes: Number(dataDrama.likes) || 0,
+                rating: Number(dataDrama.rating) || 0,
             });
         } catch (error) {
             console.error("Failed to load drama:", error);
@@ -581,13 +585,73 @@ export default function DramaDetailPage() {
                             </span>
                             <span className="flex items-center gap-1.5">
                                 <Eye size={14} className="text-zinc-500" />
-                                {(drama.views ?? 0).toLocaleString()} views
+                                {Number(isEditing ? formData.views : drama.views ?? 0).toLocaleString()} views
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <span className="text-zinc-500 text-xs">❤️</span>
+                                {Number(isEditing ? formData.likes : drama.likes ?? 0).toLocaleString()} likes
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <span className="text-amber-500 text-xs">⭐</span>
+                                <span className="text-amber-400 font-medium">{(isEditing ? formData.rating : drama.rating ?? 0).toFixed(1)}</span>
                             </span>
                             <span className="flex items-center gap-1.5">
                                 <Clock size={14} className="text-zinc-500" />
                                 {new Date(drama.createdAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
                             </span>
                         </div>
+
+                        {/* Social Proof Editor (Views, Likes, Rating) in Edit Mode */}
+                        {isEditing && (
+                            <div className="bg-zinc-900/80 border border-zinc-700/80 p-3.5 rounded-xl space-y-2">
+                                <div className="text-xs font-semibold text-cyan-400 flex items-center gap-1.5">
+                                    <span>🔥</span> Form Edit Social Proof (Views, Likes, Rating)
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                                    <div>
+                                        <label className="text-xs text-zinc-400 mb-1 block">Total Views</label>
+                                        <input
+                                            type="number"
+                                            className="w-full bg-[#111] border border-zinc-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-cyan-500"
+                                            value={formData.views}
+                                            onChange={e => setFormData({ ...formData, views: Math.max(0, parseInt(e.target.value) || 0) })}
+                                            min="0"
+                                            placeholder="Contoh: 1500000"
+                                        />
+                                        <span className="text-[10px] text-zinc-500 mt-0.5 block">Format HP: {(formData.views >= 1000000 ? (formData.views/1000000).toFixed(1) + 'M' : formData.views >= 1000 ? (formData.views/1000).toFixed(1) + 'K' : formData.views)}</span>
+                                    </div>
+                                    <div>
+                                        <label className="text-xs text-zinc-400 mb-1 block">Total Likes ❤️</label>
+                                        <input
+                                            type="number"
+                                            className="w-full bg-[#111] border border-zinc-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-pink-500"
+                                            value={formData.likes}
+                                            onChange={e => setFormData({ ...formData, likes: Math.max(0, parseInt(e.target.value) || 0) })}
+                                            min="0"
+                                            placeholder="Contoh: 250000"
+                                        />
+                                        <span className="text-[10px] text-zinc-500 mt-0.5 block">Format HP: {(formData.likes >= 1000000 ? (formData.likes/1000000).toFixed(1) + 'M' : formData.likes >= 1000 ? (formData.likes/1000).toFixed(1) + 'K' : formData.likes)}</span>
+                                    </div>
+                                    <div>
+                                        <label className="text-xs text-zinc-400 mb-1 block">Rating Drama ⭐ (0 - 10)</label>
+                                        <input
+                                            type="number"
+                                            step="0.1"
+                                            className="w-full bg-[#111] border border-zinc-700 rounded-lg px-3 py-1.5 text-sm text-amber-400 font-semibold focus:outline-none focus:border-amber-500"
+                                            value={formData.rating}
+                                            onChange={e => {
+                                                const val = parseFloat(e.target.value) || 0;
+                                                setFormData({ ...formData, rating: Math.min(10, Math.max(0, val)) });
+                                            }}
+                                            min="0"
+                                            max="10"
+                                            placeholder="Contoh: 9.8"
+                                        />
+                                        <span className="text-[10px] text-zinc-500 mt-0.5 block">Format HP: {formData.rating.toFixed(1)} ⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Featured & VIP */}
                         <div className="flex gap-2">
