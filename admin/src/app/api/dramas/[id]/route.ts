@@ -65,7 +65,7 @@ export async function PATCH(
             'title', 'description', 'cover', 'banner', 'genres', 'tagList',
             'status', 'isVip', 'isFeatured', 'isActive', 'ageRating',
             'director', 'cast', 'country', 'language', 'totalEpisodes',
-            'rating', 'views',
+            'rating', 'views', 'likes',
         ];
 
         const updateData: any = {};
