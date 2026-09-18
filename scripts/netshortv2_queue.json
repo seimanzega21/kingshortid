@@ -39,34 +39,34 @@
     "title": "Ratu Mengakhiri Semuanya",
     "slug": "ratu-mengakhiri-semuanya",
     "totalEpisodes": 32,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "2099679645742628865",
     "title": "Ilmu Mendengar Isi Hati Bayi",
     "slug": "ilmu-mendengar-isi-hati-bayi",
     "totalEpisodes": 30,
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": "2099679451235975170",
     "title": "Pernikahan Palsu Pewaris Kaya",
     "slug": "pernikahan-palsu-pewaris-kaya",
     "totalEpisodes": 25,
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": "2099678744680296450",
     "title": "Tinggalkan Keluarga Munafik",
     "slug": "tinggalkan-keluarga-munafik",
     "totalEpisodes": 26,
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": "2099676814960717826",
     "title": "Kembali Sebagai Kembaranku",
     "slug": "kembali-sebagai-kembaranku",
     "totalEpisodes": 28,
-    "status": "pending"
+    "status": "processing"
   }
 ]
