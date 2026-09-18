@@ -70,11 +70,11 @@ def check_duplicate_in_db(title):
     except: pass
     return None
 
-def get_episode_url(drama_id, ep_no, retries=3):
+def get_episode_url(drama_id, ep_no, retries=5):
     url = f"{VIDRAMA_API}/episode/{drama_id}/{ep_no}?lang=id_ID"
     for attempt in range(retries):
         try:
-            r = requests.get(url, headers=WEB_HDRS, timeout=15, verify=False)
+            r = requests.get(url, headers=WEB_HDRS, timeout=20, verify=False)
             data = r.json()
             if data.get('code') == 200:
                 videos = data['data'].get('videos', [])
@@ -92,8 +92,11 @@ def get_episode_url(drama_id, ep_no, retries=3):
                     if v['url'] not in video_urls:
                         video_urls.append(v['url'])
 
-                return video_urls, id_sub
-        except: time.sleep(2)
+                if video_urls:
+                    return video_urls, id_sub
+        except Exception as e:
+            pass
+        time.sleep(1.5 * (attempt + 1))
     return [], None
 
 def api_get_or_create_drama(detail, slug, cover_url):
@@ -307,7 +310,7 @@ def scrape_single_drama(r2, vidrama_id, slug, provided_title=None):
                     except: pass
 
     print(f"\n[DONE] {title}: Sukses {success}/{total_eps} (Gagal: {failed}, Skip: {skipped})")
-    return success > 0 and failed == 0
+    return success == total_eps and failed == 0 and skipped == 0
 
 def run_queue():
     r2 = get_r2()
