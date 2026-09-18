@@ -129,6 +129,12 @@ userRoute.post('/favorites', async (c) => {
         if (existing) return c.json({ success: true, message: 'Already in favorites' });
 
         await db.insert(favorites).values({ userId, dramaId });
+        // Increment drama total likes count
+        await db.update(dramas)
+            .set({ likes: sql`COALESCE(${dramas.likes}, 0) + 1` })
+            .where(eq(dramas.id, dramaId))
+            .catch(() => {});
+
         return c.json({ success: true });
     } catch (error) {
         console.error('Add to favorites error:', error);
@@ -144,6 +150,12 @@ userRoute.delete('/favorites/:dramaId', async (c) => {
 
         await db.delete(favorites)
             .where(and(eq(favorites.userId, userId), eq(favorites.dramaId, dramaId)));
+
+        // Decrement drama total likes count (min 0)
+        await db.update(dramas)
+            .set({ likes: sql`GREATEST(0, COALESCE(${dramas.likes}, 0) - 1)` })
+            .where(eq(dramas.id, dramaId))
+            .catch(() => {});
 
         return c.json({ success: true });
     } catch (error) {
