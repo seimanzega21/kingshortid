@@ -3,6 +3,9 @@ FROM node:20-alpine AS builder
 RUN apk add --no-cache openssl
 WORKDIR /app
 
+# Cache buster to force Docker build without layer caching
+ARG CACHE_BUST=20260918-0725
+
 # Install dependencies
 COPY package*.json ./
 RUN npm ci
