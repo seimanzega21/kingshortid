@@ -305,7 +305,7 @@
     "title": "Kekasih Kontrak",
     "slug": "kekasih-kontrak",
     "totalEpisodes": 89,
-    "status": "failed"
+    "status": "done"
   },
   {
     "id": "7517540339654069249",
@@ -326,7 +326,7 @@
     "title": "Rubah Suci Pembawa Keberuntungan",
     "slug": "rubah-suci-pembawa-keberuntungan",
     "totalEpisodes": 57,
-    "status": "failed"
+    "status": "done"
   },
   {
     "id": "7553983429604281405",
@@ -361,7 +361,7 @@
     "title": "Nama Terukir di Abu Kenangan",
     "slug": "nama-terukir-di-abu-kenangan",
     "totalEpisodes": 76,
-    "status": "failed"
+    "status": "done"
   },
   {
     "id": "7573489495190817797",
@@ -438,6 +438,6 @@
     "title": "(Dub)Cinta Pertamaku",
     "slug": "dub-cinta-pertamaku",
     "totalEpisodes": 100,
-    "status": "processing"
+    "status": "done"
   }
 ]
