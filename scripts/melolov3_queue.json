@@ -361,14 +361,14 @@
     "title": "Nama Terukir di Abu Kenangan",
     "slug": "nama-terukir-di-abu-kenangan",
     "totalEpisodes": 76,
-    "status": "processing"
+    "status": "failed"
   },
   {
     "id": "7573489495190817797",
     "title": "Bibi Pembawa Pisau Jagal",
     "slug": "bibi-pembawa-pisau-jagal",
     "totalEpisodes": 72,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7573593577469529093",
