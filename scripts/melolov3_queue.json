@@ -431,13 +431,13 @@
     "title": "(Dub)Ikatan Cinta",
     "slug": "dub-ikatan-cinta",
     "totalEpisodes": 70,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7660423319681764405",
     "title": "(Dub)Cinta Pertamaku",
     "slug": "dub-cinta-pertamaku",
     "totalEpisodes": 100,
-    "status": "pending"
+    "status": "processing"
   }
 ]
