@@ -536,14 +536,14 @@
     "title": "Balik ke Desa Nelayan 2000",
     "slug": "balik-ke-desa-nelayan-2000",
     "totalEpisodes": 113,
-    "status": "processing"
+    "status": "failed"
   },
   {
     "id": "7679002040357407749",
     "title": "Raja Nelayan, Ikan Tuna Antre Masuk Jaring",
     "slug": "raja-nelayan-ikan-tuna-antre-masuk-jaring",
     "totalEpisodes": 70,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7662695303048334389",
