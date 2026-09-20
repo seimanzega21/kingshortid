@@ -40,7 +40,7 @@ WEB_HDRS    = {
     'Referer': 'https://vidrama.asia/',
 }
 
-TEMP_DIR = Path(tempfile.gettempdir()) / 'melolov2_scraper'
+TEMP_DIR = Path('D:/temp_scraper')
 TEMP_DIR.mkdir(exist_ok=True)
 
 # ── HELPERS ──────────────────────────────────────────────────────────────────
