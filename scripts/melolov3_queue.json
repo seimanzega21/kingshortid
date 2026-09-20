@@ -494,14 +494,14 @@
     "title": "Sistem Informasi Laut Rizal",
     "slug": "sistem-informasi-laut-rizal",
     "totalEpisodes": 84,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7652360175721909301",
     "title": "Nelayan Bangkit",
     "slug": "nelayan-bangkit",
     "totalEpisodes": 60,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7561732989848128565",
