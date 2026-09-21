@@ -641,14 +641,14 @@
     "title": "Info Hasil Laut di Desa Nelayan",
     "slug": "info-hasil-laut-di-desa-nelayan",
     "totalEpisodes": 120,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7679635530761391157",
     "title": "Suara Laut, Jadi Raja Nelayan",
     "slug": "suara-laut-jadi-raja-nelayan",
     "totalEpisodes": 90,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7641162088777255941",
