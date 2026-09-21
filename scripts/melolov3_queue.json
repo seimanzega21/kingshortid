@@ -725,21 +725,21 @@
     "title": "(Dub)Mata Sakti dari Lampu Sakti",
     "slug": "dub-mata-sakti-dari-lampu-sakti",
     "totalEpisodes": 117,
-    "status": "processing"
+    "status": "failed"
   },
   {
     "id": "7679635855358577717",
     "title": "Dewa Nelayan Lautan Biru",
     "slug": "dewa-nelayan-lautan-biru",
     "totalEpisodes": 73,
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": "7665191046011161653",
     "title": "Nelayan Biasa Jadi Raja",
     "slug": "nelayan-biasa-jadi-raja",
     "totalEpisodes": 61,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7668524687655209989",
