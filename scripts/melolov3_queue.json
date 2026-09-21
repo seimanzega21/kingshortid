@@ -746,14 +746,14 @@
     "title": "Legenda Nelayan Desa",
     "slug": "legenda-nelayan-desa",
     "totalEpisodes": 183,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7681629989447404597",
     "title": "Legenda Nelayan Desa 3",
     "slug": "legenda-nelayan-desa-3",
     "totalEpisodes": 95,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7682658829007375365",
