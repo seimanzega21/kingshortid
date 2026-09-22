@@ -774,7 +774,7 @@
     "title": "Memancing Rahasia Tiga Dunia",
     "slug": "memancing-rahasia-tiga-dunia",
     "totalEpisodes": 89,
-    "status": "failed"
+    "status": "done"
   },
   {
     "id": "7665940057173281845",
@@ -788,6 +788,6 @@
     "title": "Kaya Raya dari Laut: Musim 2",
     "slug": "kaya-raya-dari-laut-musim-2",
     "totalEpisodes": 105,
-    "status": "processing"
+    "status": "done"
   }
 ]
