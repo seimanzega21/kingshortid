@@ -781,13 +781,13 @@
     "title": "Legenda Laut Dalam",
     "slug": "legenda-laut-dalam",
     "totalEpisodes": 64,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7673350384710077493",
     "title": "Kaya Raya dari Laut: Musim 2",
     "slug": "kaya-raya-dari-laut-musim-2",
     "totalEpisodes": 105,
-    "status": "pending"
+    "status": "processing"
   }
 ]
