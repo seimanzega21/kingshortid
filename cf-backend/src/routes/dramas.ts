@@ -673,42 +673,70 @@ dramasRoute.delete('/:id', requireAdmin, async (c) => {
         const drama = await db.select().from(dramas).where(eq(dramas.id, id)).limit(1).then((r: any[]) => r[0]);
         if (!drama) return c.json({ error: 'Drama not found' }, 404);
 
-        if (deleteFromR2 && drama.cover && drama.cover.includes('stream.shortlovers.id')) {
+        if (deleteFromR2) {
             try {
-                const url = new URL(drama.cover);
-                const pathParts = url.pathname.substring(1).split('/');
-                if (pathParts.length >= 2) {
-                    const prefix = `${pathParts[0]}/${pathParts[1]}/`; // e.g. "melolo/balas-dendam/"
-                    
-                    const s3Client = new S3Client({
-                        region: 'auto',
-                        endpoint: process.env.R2_ENDPOINT || 'https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com',
-                        credentials: {
-                            accessKeyId: process.env.R2_KEY_ID || '07c99c897986ea52703c1285308d5e2c',
-                            secretAccessKey: process.env.R2_SECRET || '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
-                        }
-                    });
-                    
-                    const listCmd = new ListObjectsV2Command({
-                        Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
-                        Prefix: prefix
-                    });
-                    
-                    const listRes = await s3Client.send(listCmd);
-                    if (listRes.Contents && listRes.Contents.length > 0) {
-                        const deleteCmd = new DeleteObjectsCommand({
-                            Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
-                            Delete: {
-                                Objects: listRes.Contents.map(obj => ({ Key: obj.Key }))
+                // A. Delete specific cover file if in R2 (DO NOT delete prefix if it's dramas/covers/)
+                if (drama.cover && drama.cover.includes('stream.shortlovers.id')) {
+                    try {
+                        const coverUrl = new URL(drama.cover);
+                        const coverKey = coverUrl.pathname.replace(/^\//, '');
+                        const s3Client = new S3Client({
+                            region: 'auto',
+                            endpoint: process.env.R2_ENDPOINT || 'https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com',
+                            credentials: {
+                                accessKeyId: process.env.R2_KEY_ID || '07c99c897986ea52703c1285308d5e2c',
+                                secretAccessKey: process.env.R2_SECRET || '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
                             }
                         });
-                        await s3Client.send(deleteCmd);
-                        console.log(`Deleted ${listRes.Contents.length} files from R2 for prefix: ${prefix}`);
+                        await s3Client.send(new DeleteObjectsCommand({
+                            Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
+                            Delete: { Objects: [{ Key: coverKey }] }
+                        })).catch(() => {});
+                    } catch {}
+                }
+
+                // B. Find drama episode folder prefix to delete episode files safely
+                const firstEp = await db.select({ videoUrl: episodes.videoUrl })
+                    .from(episodes)
+                    .where(and(eq(episodes.dramaId, id), sql`${episodes.videoUrl} IS NOT NULL`))
+                    .limit(1).then((r: any[]) => r[0]);
+
+                if (firstEp?.videoUrl && firstEp.videoUrl.includes('stream.shortlovers.id')) {
+                    const url = new URL(firstEp.videoUrl);
+                    const pathParts = url.pathname.replace(/^\//, '').split('/');
+                    // Protect root / shared folders from prefix deletion
+                    if (pathParts.length >= 2 && pathParts[0] !== 'dramas' || pathParts.length >= 3) {
+                        const prefix = pathParts.slice(0, -1).join('/') + '/';
+                        // Safety check: NEVER delete shared folders like "dramas/covers/" or root
+                        if (!prefix.startsWith('dramas/covers/') && prefix.length > 5) {
+                            const s3Client = new S3Client({
+                                region: 'auto',
+                                endpoint: process.env.R2_ENDPOINT || 'https://a142d3b29a5d64943cb251157e25eaf3.r2.cloudflarestorage.com',
+                                credentials: {
+                                    accessKeyId: process.env.R2_KEY_ID || '07c99c897986ea52703c1285308d5e2c',
+                                    secretAccessKey: process.env.R2_SECRET || '44788d376ffb216e1e73784b6fe1ff1423607928898a87c50819b52cdfc12e44'
+                                }
+                            });
+                            const listCmd = new ListObjectsV2Command({
+                                Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
+                                Prefix: prefix
+                            });
+                            const listRes = await s3Client.send(listCmd);
+                            if (listRes.Contents && listRes.Contents.length > 0) {
+                                const deleteCmd = new DeleteObjectsCommand({
+                                    Bucket: process.env.R2_BUCKET_NAME || 'shortlovers',
+                                    Delete: {
+                                        Objects: listRes.Contents.map(obj => ({ Key: obj.Key! }))
+                                    }
+                                });
+                                await s3Client.send(deleteCmd);
+                                console.log(`Deleted ${listRes.Contents.length} files from R2 for prefix: ${prefix}`);
+                            }
+                        }
                     }
                 }
             } catch (r2Err) {
                 console.error('Error deleting from R2:', r2Err);
-                // Lanjutkan menghapus dari DB meskipun gagal di R2
             }
         }
 
