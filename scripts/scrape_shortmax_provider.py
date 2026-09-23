@@ -41,7 +41,11 @@ WEB_HDRS    = {
     'Referer': 'https://vidrama.asia/',
 }
 
-NEXT_ACTION_EPISODE = '7081ea77aada73681c85542d033db73abd6689d036'
+NEXT_ACTION_EPISODE = '709994d5441abecde9bacba38e5cd465cc608cab85'
+FALLBACK_ACTION_EPISODES = [
+    '709994d5441abecde9bacba38e5cd465cc608cab85',
+    '7081ea77aada73681c85542d033db73abd6689d036'
+]
 
 TEMP_DIR = Path(tempfile.gettempdir()) / 'shortmax_scraper'
 TEMP_DIR.mkdir(exist_ok=True)
@@ -59,9 +63,12 @@ def r2_exists(r2, key):
     except:
         return False
 
-def r2_upload(r2, local_path, key, content_type='video/mp4'):
-    r2.upload_file(str(local_path), R2_BUCKET, key, ExtraArgs={'ContentType': content_type},
-                    Config=boto3.s3.transfer.TransferConfig(multipart_threshold=30*1024*1024, multipart_chunksize=10*1024*1024))
+def r2_upload(r2, local_path, key, content_type='video/mp4', is_bytes=False):
+    if is_bytes:
+        r2.put_object(Bucket=R2_BUCKET, Key=key, Body=local_path, ContentType=content_type, CacheControl='public, max-age=31536000')
+    else:
+        r2.upload_file(str(local_path), R2_BUCKET, key, ExtraArgs={'ContentType': content_type},
+                        Config=boto3.s3.transfer.TransferConfig(multipart_threshold=30*1024*1024, multipart_chunksize=10*1024*1024))
     return f"{R2_PUBLIC}/{key}"
 
 def check_duplicate_in_db(title):
@@ -176,32 +183,34 @@ def encode_720_and_540(inp, out_720, out_540):
     return subprocess.run(cmd_540, timeout=600).returncode == 0
 
 def get_shortmax_episode_stream(movie_id, ep_no, slug_hint='cinta-di-antara-spesies'):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Referer': f'https://vidrama.asia/watch/{slug_hint}--{movie_id}/{ep_no}?provider=shortmax&lang=id',
-        'Next-Action': NEXT_ACTION_EPISODE,
-        'Content-Type': 'text/plain;charset=UTF-8',
-        'Accept': 'text/x-component'
-    }
-    body = json.dumps([str(movie_id), int(ep_no), "id"])
-    url = f'https://vidrama.asia/watch/{slug_hint}--{movie_id}/{ep_no}?provider=shortmax&lang=id'
+    for action_id in FALLBACK_ACTION_EPISODES:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+            'Referer': f'https://vidrama.asia/watch/{slug_hint}--{movie_id}/{ep_no}?provider=shortmax&lang=id',
+            'Next-Action': action_id,
+            'Content-Type': 'text/plain;charset=UTF-8',
+            'Accept': 'text/x-component'
+        }
+        body = json.dumps([str(movie_id), int(ep_no), "id"])
+        url = f'https://vidrama.asia/watch/{slug_hint}--{movie_id}/{ep_no}?provider=shortmax&lang=id'
 
-    for attempt in range(3):
-        try:
-            r = requests.post(url, headers=headers, data=body, timeout=20, verify=False)
-            if r.status_code == 200:
-                lines = r.text.strip().split('\n')
-                for line in lines:
-                    if line.startswith('1:'):
-                        data = json.loads(line[2:])
-                        qualities = data.get('qualities', {})
-                        # Choose best stream: 720 or 1080
-                        m3u8_url = qualities.get('video_720') or qualities.get('video_1080') or qualities.get('video_480')
-                        subs = data.get('subtitles') or []
-                        return m3u8_url, subs
-            time.sleep(2)
-        except Exception as e:
-            time.sleep(2)
+        for attempt in range(2):
+            try:
+                r = requests.post(url, headers=headers, data=body, timeout=20, verify=False)
+                if r.status_code == 200:
+                    lines = r.text.strip().split('\n')
+                    for line in lines:
+                        if line.startswith('1:'):
+                            data = json.loads(line[2:])
+                            qualities = data.get('qualities', {})
+                            # Choose best stream: 720 or 1080
+                            m3u8_url = qualities.get('video_720') or qualities.get('video_1080') or qualities.get('video_480')
+                            subs = data.get('subtitles') or []
+                            if m3u8_url:
+                                return m3u8_url, subs
+                time.sleep(1)
+            except Exception as e:
+                time.sleep(1)
     return None, []
 
 def scrape_shortmax_drama(r2, movie_id, is_test_run=False):
@@ -238,8 +247,8 @@ def scrape_shortmax_drama(r2, movie_id, is_test_run=False):
         if db_id:
             print(f"  -> Title already exists in database (ID: {db_id}). Skipping creation.")
         else:
-            # Create cover JPEG URL
-            cover_key = f"{prefix}/cover_hq.jpg"
+            # Create cover WEBP URL for database
+            cover_key = f"{prefix}/cover.webp"
             r2_cover_url = f"{R2_PUBLIC}/{cover_key}"
 
             # Register in database
@@ -257,19 +266,19 @@ def scrape_shortmax_drama(r2, movie_id, is_test_run=False):
                     if cover_src:
                         cov_res = requests.get(cover_src, timeout=30, verify=False)
                         if cov_res.ok:
-                            p = TEMP_DIR / f"{slug}_cover_raw.tmp"
-                            p.write_bytes(cov_res.content)
+                            import io
+                            from PIL import Image
+                            img = Image.open(io.BytesIO(cov_res.content)).convert('RGB')
+                            img = img.resize((1080, 1440), Image.Resampling.LANCZOS)
 
-                            p_jpg = TEMP_DIR / f"{slug}_cover_hq.jpg"
-                            cmd = ['ffmpeg', '-y', '-i', str(p), '-update', '1', '-loglevel', 'error', str(p_jpg)]
-                            if subprocess.run(cmd).returncode == 0:
-                                r2_upload(r2, p_jpg, cover_key, 'image/jpeg')
-                                print("  -> [R2] Cover uploaded successfully (JPEG)")
-                                p_jpg.unlink()
-                            else:
-                                r2_upload(r2, p, cover_key, 'image/jpeg')
-                                print("  -> [R2] Cover uploaded successfully (raw fallback)")
-                            p.unlink()
+                            buf_jpg = io.BytesIO()
+                            img.save(buf_jpg, format='JPEG', quality=85, optimize=True)
+                            r2_upload(r2, buf_jpg.getvalue(), f"{prefix}/cover_hq.jpg", 'image/jpeg', is_bytes=True)
+
+                            buf_webp = io.BytesIO()
+                            img.save(buf_webp, format='WEBP', quality=85)
+                            r2_upload(r2, buf_webp.getvalue(), cover_key, 'image/webp', is_bytes=True)
+                            print("  -> [R2] Cover uploaded successfully (JPEG & WEBP)")
                 except Exception as e:
                     print(f"  -> [WARN] Failed to upload cover to R2: {e}")
 
