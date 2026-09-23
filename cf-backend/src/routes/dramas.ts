@@ -224,11 +224,28 @@ dramasRoute.get('/feed', async (c) => {
             }
         }
 
+        // Keyword filter untuk mengecualikan konten anime/kartun/donghua dari feed vertikal Untuk Anda
+        const ANIME_EXCLUDE_KEYWORDS = ['anime', 'animasi', 'kartun', 'donghua'];
+        const isAnimeDrama = (d: any) => {
+            const titleLower = (d.title || '').toLowerCase();
+            const descLower = (d.description || '').toLowerCase();
+            const genresArr = (Array.isArray(d.genres) ? d.genres : []).map((g: any) => String(g).toLowerCase());
+            return ANIME_EXCLUDE_KEYWORDS.some(kw =>
+                titleLower.includes(kw) ||
+                descLower.includes(kw) ||
+                genresArr.some((g: string) => g.includes(kw))
+            );
+        };
+
         const results = allDramas.map((drama) => {
             const firstEp = firstEpMap.get(drama.id);
             if (!firstEp) return null;
+            const enriched = enrichDrama(drama);
+            // Kecualikan anime/kartun dari feed Untuk Anda karena format videonya landscape (16:9)
+            if (isAnimeDrama(enriched)) return null;
+
             return {
-                ...enrichDrama(drama),
+                ...enriched,
                 episodes: [firstEp],
             };
         });
