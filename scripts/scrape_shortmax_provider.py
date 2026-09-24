@@ -394,7 +394,18 @@ def scrape_shortmax_drama(r2, movie_id, is_test_run=False):
 
 if __name__ == '__main__':
     r2 = get_r2()
-    targets = ['859525', '858108', '863857', '863622', '856528']
+    targets = [
+        '868774',  # Cinta yang Terlambat (25 eps)
+        '858374',  # Di Bawah Samudra, di Atas Takhta (30 eps)
+        '851210',  # Kebangkitan Setelah Reinkarnasi (30 eps)
+        '845654',  # Pengkhianatan Berdarah (84 eps)
+        '808286',  # [Dijuluki]Jadi Cucu Kaya Raya Setelah Cerai (101 eps)
+        '864754',  # Yayasan Anti-Perundungan (50 eps)
+        '755796',  # [Dijuluki] Dulu Dibuang, Sekarang Diminta Kembali (61 eps)
+        '844471',  # Penikahan di Ambang Pemisahan (70 eps)
+        '845524',  # [Dubbing]Ayahku sang Kurir Hebat (73 eps)
+        '842827'   # [Dubbing] Selir Ajaib Kaisar (67 eps)
+    ]
 
     if len(sys.argv) > 1:
         if sys.argv[1] == '--test':
