@@ -816,20 +816,20 @@
     "title": "Pekerja dari Dunia Lain",
     "slug": "pekerja-dari-dunia-lain",
     "totalEpisodes": 80,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7672781212099824645",
     "title": "Menantu Dari Kandang Sapi",
     "slug": "menantu-dari-kandang-sapi",
     "totalEpisodes": 35,
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": "7631462961319529477",
     "title": "Kutukan Sapi Tua",
     "slug": "kutukan-sapi-tua",
     "totalEpisodes": 30,
-    "status": "pending"
+    "status": "processing"
   }
 ]
