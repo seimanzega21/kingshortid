@@ -264,13 +264,13 @@ export default function DramaManagement() {
             {/* ============ STICKY TOP ============ */}
             <div className="sticky top-0 z-30 bg-[#09090b]">
                 {/* Header */}
-                <div className="px-8 pt-6 pb-4">
-                    <div className="flex items-center justify-between mb-5">
+                <div className="px-4 md:px-8 pt-4 md:pt-6 pb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 md:mb-5">
                         <div>
-                            <h1 className="text-2xl font-bold text-white">Manajemen Drama</h1>
-                            <p className="text-zinc-500 text-sm mt-0.5">Kelola katalog, publikasi ke mobile, dan atur konten drama.</p>
+                            <h1 className="text-xl md:text-2xl font-bold text-white">Manajemen Drama</h1>
+                            <p className="text-zinc-500 text-xs md:text-sm mt-0.5">Kelola katalog, publikasi ke mobile, dan atur konten drama.</p>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                             <button
                                 onClick={async () => {
                                     const ongoing = dramas.filter(d => d.status === 'ongoing').length;
@@ -286,48 +286,48 @@ export default function DramaManagement() {
                                     setCompleting(false);
                                 }}
                                 disabled={completing}
-                                className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-emerald-500/10 disabled:opacity-50 transition-colors"
+                                className="flex-1 sm:flex-none justify-center flex items-center gap-1.5 md:gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm shadow-lg shadow-emerald-500/10 disabled:opacity-50 transition-colors"
                             >
-                                <CheckCircle size={16} className={completing ? 'animate-spin' : ''} />
-                                {completing ? 'Memproses...' : 'Komplit Semua'}
+                                <CheckCircle size={15} className={completing ? 'animate-spin' : ''} />
+                                <span>{completing ? 'Memproses...' : 'Komplit Semua'}</span>
                             </button>
-                            <Link href="/dramas/new" className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-cyan-500/10">
-                                <Plus size={16} /> Tambah Drama
+                            <Link href="/dramas/new" className="flex-1 sm:flex-none justify-center flex items-center gap-1.5 md:gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm shadow-lg shadow-cyan-500/10">
+                                <Plus size={15} /> <span>Tambah Drama</span>
                             </Link>
                         </div>
                     </div>
 
-                    {/* Navigation Tabs for Separation */}
-                    <div className="flex border-b border-zinc-800/80 mb-5">
-                        <button 
-                            onClick={() => setPublishFilter("all")} 
-                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "all" ? "border-cyan-500 text-cyan-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                    {/* Navigation Tabs for Separation - Horizontal Scrollable on Mobile */}
+                    <div className="flex border-b border-zinc-800/80 mb-4 md:mb-5 overflow-x-auto no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+                        <button
+                            onClick={() => setPublishFilter("all")}
+                            className={`px-4 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex gap-1.5 md:gap-2 items-center flex-shrink-0 ${publishFilter === "all" ? "border-cyan-500 text-cyan-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
-                            Total Semua Drama <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "all" ? "bg-cyan-500/20 text-cyan-300" : "bg-zinc-800 text-zinc-400"}`}>{totalAll}</span>
+                            Total Semua Drama <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "all" ? "bg-cyan-500/20 text-cyan-300" : "bg-zinc-800 text-zinc-400"}`}>{totalAll}</span>
                         </button>
-                        <button 
-                            onClick={() => setPublishFilter("tayang")} 
-                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "tayang" ? "border-emerald-500 text-emerald-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        <button
+                            onClick={() => setPublishFilter("tayang")}
+                            className={`px-4 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex gap-1.5 md:gap-2 items-center flex-shrink-0 ${publishFilter === "tayang" ? "border-emerald-500 text-emerald-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
-                            Sedang Tayang <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "tayang" ? "bg-emerald-500/20 text-emerald-300" : "bg-zinc-800 text-zinc-400"}`}>{healthyCount}</span>
+                            Sedang Tayang <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "tayang" ? "bg-emerald-500/20 text-emerald-300" : "bg-zinc-800 text-zinc-400"}`}>{healthyCount}</span>
                         </button>
-                        <button 
-                            onClick={() => setPublishFilter("pending")} 
-                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "pending" ? "border-amber-500 text-amber-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        <button
+                            onClick={() => setPublishFilter("pending")}
+                            className={`px-4 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex gap-1.5 md:gap-2 items-center flex-shrink-0 ${publishFilter === "pending" ? "border-amber-500 text-amber-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
-                            Pending (Belum Tayang) <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "pending" ? "bg-amber-500/20 text-amber-300" : "bg-zinc-800 text-zinc-400"}`}>{pendingCount}</span>
+                            Pending (Belum Tayang) <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "pending" ? "bg-amber-500/20 text-amber-300" : "bg-zinc-800 text-zinc-400"}`}>{pendingCount}</span>
                         </button>
-                        <button 
-                            onClick={() => setPublishFilter("anime")} 
-                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "anime" ? "border-purple-500 text-purple-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        <button
+                            onClick={() => setPublishFilter("anime")}
+                            className={`px-4 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex gap-1.5 md:gap-2 items-center flex-shrink-0 ${publishFilter === "anime" ? "border-purple-500 text-purple-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
-                            Khusus Anime <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "anime" ? "bg-purple-500/20 text-purple-300" : "bg-zinc-800 text-zinc-400"}`}>{animeCount}</span>
+                            Khusus Anime <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "anime" ? "bg-purple-500/20 text-purple-300" : "bg-zinc-800 text-zinc-400"}`}>{animeCount}</span>
                         </button>
-                        <button 
-                            onClick={() => setPublishFilter("vip")} 
-                            className={`px-6 py-3 text-sm font-semibold border-b-2 transition-colors flex gap-2 items-center ${publishFilter === "vip" ? "border-yellow-500 text-yellow-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
+                        <button
+                            onClick={() => setPublishFilter("vip")}
+                            className={`px-4 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex gap-1.5 md:gap-2 items-center flex-shrink-0 ${publishFilter === "vip" ? "border-yellow-500 text-yellow-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
-                            Khusus VIP <span className={`px-2 py-0.5 rounded-full text-xs ${publishFilter === "vip" ? "bg-yellow-500/20 text-yellow-300" : "bg-zinc-800 text-zinc-400"}`}>{vipCount}</span>
+                            Khusus VIP <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "vip" ? "bg-yellow-500/20 text-yellow-300" : "bg-zinc-800 text-zinc-400"}`}>{vipCount}</span>
                         </button>
                     </div>
 
@@ -388,24 +388,26 @@ export default function DramaManagement() {
 
                 {/* Table Header — hanya tampil di List View */}
                 {viewMode === 'list' && (
-                <div className="px-8 py-3 bg-[#0c0c0c] border-y border-zinc-800/70">
-                    <div className="grid grid-cols-[36px_56px_1fr_100px_72px_100px_80px_80px_44px] gap-4 items-center">
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">No</span>
-                        <span></span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">Drama</span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">Publikasi</span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">Episode</span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">Status</span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">Tayang</span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase">Tanggal</span>
-                        <span className="text-xs font-semibold text-zinc-500 uppercase text-center">Aksi</span>
+                <div className="overflow-x-auto no-scrollbar">
+                    <div className="min-w-[760px] px-4 md:px-8 py-3 bg-[#0c0c0c] border-y border-zinc-800/70">
+                        <div className="grid grid-cols-[36px_56px_1fr_100px_72px_100px_80px_80px_44px] gap-4 items-center">
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">No</span>
+                            <span></span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">Drama</span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">Publikasi</span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">Episode</span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">Status</span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">Tayang</span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase">Tanggal</span>
+                            <span className="text-xs font-semibold text-zinc-500 uppercase text-center">Aksi</span>
+                        </div>
                     </div>
                 </div>
                 )}
             </div>
 
             {/* ============ TABLE BODY ============ */}
-            <div className="px-8">
+            <div className="px-4 md:px-8 overflow-x-auto">
                 {isLoading ? (
                     viewMode === 'grid' ? (
                         // Grid skeleton
@@ -461,12 +463,13 @@ export default function DramaManagement() {
                         </div>
                     ) : (
                         // ============ LIST VIEW ============
-                        filteredDramas.map((item, idx) => {
-                            const isHealthy = item.isActive !== false && item.cover && item.cover.length > 5 && item.description && item.description.length > 10 && item.totalEpisodes > 0;
-                            return (
-                                <div key={item.id}
-                                    className={`grid grid-cols-[36px_56px_1fr_100px_72px_100px_80px_80px_44px] gap-4 items-center py-3 border-b border-zinc-800/30 hover:bg-white/[0.02] transition-colors cursor-pointer group ${!isHealthy ? 'opacity-60' : ''} ${menuOpenId === item.id ? 'relative z-50' : ''}`}
-                                    onClick={(e) => {
+                        <div className="min-w-[760px]">
+                            {filteredDramas.map((item, idx) => {
+                                const isHealthy = item.isActive !== false && item.cover && item.cover.length > 5 && item.description && item.description.length > 10 && item.totalEpisodes > 0;
+                                return (
+                                    <div key={item.id}
+                                        className={`grid grid-cols-[36px_56px_1fr_100px_72px_100px_80px_80px_44px] gap-4 items-center py-3 border-b border-zinc-800/30 hover:bg-white/[0.02] transition-colors cursor-pointer group ${!isHealthy ? 'opacity-60' : ''} ${menuOpenId === item.id ? 'relative z-50' : ''}`}
+                                        onClick={(e) => {
                                         const target = e.target as HTMLElement;
                                         if (target.closest('[data-menu-area]')) return;
                                         router.push(`/dramas/${item.id}`);
@@ -595,7 +598,8 @@ export default function DramaManagement() {
                                     </div>
                                 </div>
                             );
-                        })
+                        })}
+                        </div>
                     )
                 ) : (
                     <div className="py-24 text-center">

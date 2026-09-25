@@ -3,8 +3,8 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Sidebar } from "@/components/Sidebar";
 import { Toaster } from "sonner";
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Film } from "lucide-react";
 
 export default function ClientLayoutWrapper({
     children,
@@ -15,6 +15,11 @@ export default function ClientLayoutWrapper({
     const router = useRouter();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isAuthorized, setIsAuthorized] = useState(false);
+
+    // Touch gesture tracking for pulling sidebar in/out
+    const touchStartX = useRef<number | null>(null);
+    const touchStartY = useRef<number | null>(null);
+    const touchCurrentX = useRef<number | null>(null);
 
     // Define full-screen auth routes that should NOT have a sidebar
     const authRoutes = ["/register", "/forgot-password", "/login"];
@@ -42,6 +47,45 @@ export default function ClientLayoutWrapper({
         setSidebarOpen(false);
     }, [pathname, isAuthPage, router]);
 
+    // Touch handlers for swipe to open/close sidebar on mobile
+    const handleTouchStart = (e: React.TouchEvent) => {
+        const touch = e.touches[0];
+        touchStartX.current = touch.clientX;
+        touchStartY.current = touch.clientY;
+        touchCurrentX.current = touch.clientX;
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        if (touchStartX.current === null) return;
+        const touch = e.touches[0];
+        touchCurrentX.current = touch.clientX;
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        if (touchStartX.current === null || touchCurrentX.current === null) return;
+
+        const deltaX = touchCurrentX.current - touchStartX.current;
+        const deltaY = (touchStartY.current !== null && e.changedTouches[0])
+            ? Math.abs(e.changedTouches[0].clientY - touchStartY.current)
+            : 0;
+
+        // Ensure swipe is predominantly horizontal (not vertical scroll)
+        if (deltaY < Math.abs(deltaX) * 1.5) {
+            // Swipe right from left edge (within 40px of screen edge) -> Open sidebar
+            if (!sidebarOpen && touchStartX.current < 45 && deltaX > 50) {
+                setSidebarOpen(true);
+            }
+            // Swipe left anywhere when sidebar is open -> Close sidebar
+            else if (sidebarOpen && deltaX < -50) {
+                setSidebarOpen(false);
+            }
+        }
+
+        touchStartX.current = null;
+        touchStartY.current = null;
+        touchCurrentX.current = null;
+    };
+
     // Prevent hydration mismatch or flash of protected content
     if (!isAuthorized && !isAuthPage && typeof window !== 'undefined' && !localStorage.getItem('token')) {
         return null; // or a loading spinner
@@ -57,31 +101,56 @@ export default function ClientLayoutWrapper({
     }
 
     return (
-        <div className="flex min-h-screen bg-[#09090b]">
-            {/* Mobile Menu Button */}
-            <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="fixed top-4 right-4 z-50 p-2 bg-zinc-900 border border-zinc-800 rounded-lg text-white md:hidden hover:bg-zinc-800 transition-colors shadow-lg"
-            >
-                {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+        <div
+            className="min-h-screen bg-[#09090b] flex flex-col md:flex-row relative"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
+            {/* Mobile Header Bar - Fixed at top on mobile */}
+            <header className="sticky top-0 z-30 flex md:hidden items-center justify-between h-14 px-4 bg-black/90 backdrop-blur-md border-b border-zinc-800 w-full">
+                <button
+                    onClick={() => setSidebarOpen(true)}
+                    className="p-2 -ml-1 text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors focus:outline-none"
+                    aria-label="Buka Menu"
+                >
+                    <Menu size={22} />
+                </button>
+                <div className="flex items-center gap-2 font-bold text-lg text-yellow-500">
+                    <Film className="h-5 w-5" />
+                    <span>KingShort</span>
+                </div>
+                <div className="w-8" /> {/* spacer to balance title */}
+            </header>
 
-            {/* Sidebar - Hidden on mobile unless toggled */}
-            <div className={`fixed inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out md:translate-x-0 md:sticky md:top-0 md:h-screen ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-                }`}>
-                <Sidebar />
-            </div>
-
-            {/* Overlay for mobile when sidebar is open */}
-            {sidebarOpen && (
+            {/* Edge Swipe Hint Zone: subtle indicator on left edge for swiping */}
+            {!sidebarOpen && (
                 <div
-                    className="fixed inset-0 z-30 bg-black/80 md:hidden backdrop-blur-sm"
-                    onClick={() => setSidebarOpen(false)}
+                    className="fixed inset-y-0 left-0 w-4 z-20 md:hidden pointer-events-auto"
+                    aria-hidden="true"
                 />
             )}
 
-            {/* Main Content - No margin left on mobile default */}
-            <main className="flex-1 min-h-screen bg-[#09090b] w-full">
+            {/* Sidebar Container */}
+            <div
+                className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-out md:translate-x-0 md:sticky md:top-0 md:h-screen ${
+                    sidebarOpen ? 'translate-x-0 shadow-2xl shadow-black/80' : '-translate-x-full'
+                }`}
+            >
+                <Sidebar onClose={() => setSidebarOpen(false)} />
+            </div>
+
+            {/* Backdrop Overlay for mobile when sidebar is open */}
+            {sidebarOpen && (
+                <div
+                    className="fixed inset-0 z-40 bg-black/80 md:hidden backdrop-blur-sm transition-opacity duration-300"
+                    onClick={() => setSidebarOpen(false)}
+                    aria-label="Tutup Menu"
+                />
+            )}
+
+            {/* Main Content Area */}
+            <main className="flex-1 min-h-screen bg-[#09090b] w-full overflow-x-hidden">
                 {children}
             </main>
 

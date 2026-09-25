@@ -65,42 +65,42 @@ export default function Dashboard() {
   const dbConnected = health?.database?.connected;
 
   return (
-    <div className="p-6 lg:p-8 space-y-6">
+    <div className="p-4 md:p-6 lg:p-8 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-white">Dashboard</h1>
-          <p className="text-zinc-400 mt-1 text-sm">Overview statistik KingShort.</p>
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white">Dashboard</h1>
+          <p className="text-zinc-400 mt-0.5 md:mt-1 text-xs md:text-sm">Overview statistik KingShort.</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3 flex-wrap">
           {/* Database Connection Status */}
-          <div className={`flex items-center gap-2 rounded-full px-4 py-2 border transition-colors ${health === null
+          <div className={`flex items-center gap-1.5 md:gap-2 rounded-full px-3 md:px-4 py-1.5 md:py-2 border transition-colors ${health === null
               ? 'bg-zinc-900 border-zinc-800'
               : dbConnected
                 ? 'bg-emerald-500/5 border-emerald-500/20'
                 : 'bg-red-500/5 border-red-500/20'
             }`}>
-            <Database size={14} className={
+            <Database size={13} className={
               health === null ? 'text-zinc-500' : dbConnected ? 'text-emerald-500' : 'text-red-500'
             } />
-            <span className={`text-sm font-medium ${health === null ? 'text-zinc-500' : dbConnected ? 'text-emerald-500' : 'text-red-500'
+            <span className={`text-xs md:text-sm font-medium ${health === null ? 'text-zinc-500' : dbConnected ? 'text-emerald-500' : 'text-red-500'
               }`}>
               {health === null ? 'Checking...' : dbConnected ? 'Supabase' : 'DB Error'}
             </span>
             {health?.database?.latency !== undefined && (
-              <span className="text-[10px] text-zinc-500 flex items-center gap-0.5">
+              <span className="text-[9px] md:text-[10px] text-zinc-500 flex items-center gap-0.5">
                 <Zap size={8} /> {health.database.latency}ms
               </span>
             )}
           </div>
           {/* Source Badge */}
           {data?.source && (
-            <div className="flex items-center gap-2 bg-zinc-900 rounded-full px-4 py-2 border border-zinc-800">
+            <div className="flex items-center gap-1.5 md:gap-2 bg-zinc-900 rounded-full px-3 md:px-4 py-1.5 md:py-2 border border-zinc-800">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              <span className="text-sm font-medium text-green-500">Live</span>
+              <span className="text-xs md:text-sm font-medium text-green-500">Live</span>
             </div>
           )}
         </div>

@@ -347,18 +347,18 @@ export default function DramaDetailPage() {
     const currentGenres = isEditing ? formData.genres : (drama.genres as string[]);
 
     return (
-        <div className="p-6 lg:p-8 space-y-6 max-w-none">
+        <div className="p-4 md:p-6 lg:p-8 space-y-4 md:space-y-6 max-w-none">
             {/* Back + Actions */}
-            <div className="flex items-center justify-between">
-                <button onClick={() => router.back()} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <button onClick={() => router.back()} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors self-start">
                     <ChevronLeft size={20} />
                     <span className="text-sm font-medium">Kembali</span>
                 </button>
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                     {!isEditing && drama && (
-                        <button 
-                            onClick={toggleActive} 
-                            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-lg transition-colors border ${drama.isActive ? 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:bg-zinc-700' : 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-700'}`}
+                        <button
+                            onClick={toggleActive}
+                            className={`flex items-center gap-1.5 px-3 md:px-4 py-2 text-xs md:text-sm font-semibold rounded-lg transition-colors border ${drama.isActive ? 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:bg-zinc-700' : 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-700'}`}
                         >
                             {drama.isActive ? <ToggleRight size={16} className="text-emerald-400" /> : <ToggleLeft size={16} />}
                             {drama.isActive ? 'Sedang Tayang' : 'Tayangkan Drama'}
@@ -366,16 +366,16 @@ export default function DramaDetailPage() {
                     )}
                     {isEditing ? (
                         <>
-                            <button onClick={() => { setIsEditing(false); resetCoverState(); setEpisodesToDelete([]); fetchData(); }} className="px-4 py-2 text-sm text-zinc-400 border border-zinc-700 rounded-lg hover:bg-zinc-800">
+                            <button onClick={() => { setIsEditing(false); resetCoverState(); setEpisodesToDelete([]); fetchData(); }} className="px-3 md:px-4 py-2 text-xs md:text-sm text-zinc-400 border border-zinc-700 rounded-lg hover:bg-zinc-800">
                                 Batal
                             </button>
-                            <button onClick={handleSave} disabled={isSaving} className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg font-semibold text-sm">
-                                {isSaving ? <Loader2 className="animate-spin" size={16} /> : <Save size={16} />}
+                            <button onClick={handleSave} disabled={isSaving} className="flex items-center gap-1.5 md:gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-4 md:px-5 py-2 rounded-lg font-semibold text-xs md:text-sm">
+                                {isSaving ? <Loader2 className="animate-spin" size={15} /> : <Save size={15} />}
                                 Simpan
                             </button>
                         </>
                     ) : (
-                        <button onClick={() => setIsEditing(true)} className="px-4 py-2 text-sm text-zinc-300 bg-zinc-800 hover:bg-zinc-700 hover:text-white border border-zinc-700 rounded-lg font-semibold">
+                        <button onClick={() => setIsEditing(true)} className="px-3 md:px-4 py-2 text-xs md:text-sm text-zinc-300 bg-zinc-800 hover:bg-zinc-700 hover:text-white border border-zinc-700 rounded-lg font-semibold">
                             Edit Data
                         </button>
                     )}
@@ -751,9 +751,9 @@ export default function DramaDetailPage() {
                     )}
                 </div>
 
-                <div className="p-4">
+                <div className="p-3 md:p-4">
                     {sortedEpisodes.length > 0 ? (
-                        <div className="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-10 gap-3">
+                        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
                             {sortedEpisodes.map(ep => (
                                 <div
                                     key={ep.id}
