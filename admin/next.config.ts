@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 // All data API routes are proxied to the backend
 // Local-only routes: /api/dashboard, /api/health, /api/admin/auth/*, /api/scraper/*, /api/uploads/*
-const VPS_API = 'https://api.shortlovers.id';
+const VPS_API = 'http://127.0.0.1:8000';
 
 const nextConfig: NextConfig = {
   turbopack: {},

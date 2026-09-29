@@ -82,7 +82,7 @@ export default function DramaDetailPage() {
                     headers: { 'Cache-Control': 'no-cache' }
                 }),
             ]);
-            const dataDrama = await resDrama.json();
+            const text = await resDrama.text(); console.log("ADMIN PANEL FETCH TEXT:", text.substring(0, 500)); const dataDrama = JSON.parse(text);
             const dataCats = await resCats.json();
 
             setDrama(dataDrama);
@@ -110,7 +110,8 @@ export default function DramaDetailPage() {
     };
 
     const playEpisode = async (ep: Episode) => {
-        if (!ep.videoUrl) return;
+        const computedVideoUrl = ep.videoUrl || (dataDrama?.slug ? `https://stream.shortlovers.id/dramas/netshort/${dataDrama.slug}/ep${String(ep.episodeNumber).padStart(3, '0')}_720p.mp4` : null);
+        if (!computedVideoUrl) return;
         try {
             // Hit our own Next.js internal API proxy to bypass CORS
             const res = await fetch(`/api/episodes/${ep.id}/subtitles`);
@@ -132,7 +133,7 @@ export default function DramaDetailPage() {
             setPreviewEpisode({
                 id: ep.id,
                 title: ep.title || `Episode ${ep.episodeNumber}`,
-                videoUrl: ep.videoUrl,
+                videoUrl: computedVideoUrl,
                 subtitleUrl: subUrl ? `/api/proxy-vtt?url=${encodeURIComponent(subUrl)}&cb=${Date.now()}` : null
             });
         } catch (e: any) {
@@ -141,7 +142,7 @@ export default function DramaDetailPage() {
             setPreviewEpisode({
                 id: ep.id,
                 title: ep.title || `Episode ${ep.episodeNumber}`,
-                videoUrl: ep.videoUrl,
+                videoUrl: computedVideoUrl,
                 subtitleUrl: null
             });
         }
@@ -754,11 +755,13 @@ export default function DramaDetailPage() {
                 <div className="p-3 md:p-4">
                     {sortedEpisodes.length > 0 ? (
                         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
-                            {sortedEpisodes.map(ep => (
+                            {sortedEpisodes.map(ep => {
+                                const hasComputedVideoUrl = ep.videoUrl || dataDrama?.slug;
+                                return (
                                 <div
                                     key={ep.id}
-                                    onClick={() => isEditing ? toggleEpisodeDelete(ep.id) : ep.videoUrl && playEpisode(ep)}
-                                    className={`group relative aspect-[2/1] rounded-lg border transition-all min-h-[52px] flex items-center justify-center ${episodesToDelete.includes(ep.id) ? 'border-red-500 bg-red-500/10 opacity-70' : 'border-emerald-500/40 bg-[#1a1a1a]'} ${isEditing ? 'cursor-pointer hover:border-red-400' : ep.videoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
+                                    onClick={() => isEditing ? toggleEpisodeDelete(ep.id) : hasComputedVideoUrl && playEpisode(ep)}
+                                    className={`group relative aspect-[2/1] rounded-lg border transition-all min-h-[52px] flex items-center justify-center ${episodesToDelete.includes(ep.id) ? 'border-red-500 bg-red-500/10 opacity-70' : 'border-emerald-500/40 bg-[#1a1a1a]'} ${isEditing ? 'cursor-pointer hover:border-red-400' : hasComputedVideoUrl ? 'cursor-pointer hover:border-emerald-400 hover:bg-emerald-500/5' : 'cursor-default opacity-60'}`}
                                 >
                                     <span className={`${episodesToDelete.includes(ep.id) ? 'text-red-400 line-through' : 'text-emerald-400'} font-bold text-base`}>{ep.episodeNumber}</span>
 
@@ -796,7 +799,8 @@ export default function DramaDetailPage() {
                                         </div>
                                     )}
                                 </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     ) : (
                         <div className="p-8 text-center text-zinc-500">
