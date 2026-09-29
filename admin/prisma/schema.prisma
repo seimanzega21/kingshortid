@@ -121,11 +121,6 @@ model Drama {
   country     String    @default("China")
   language    String    @default("Mandarin")
 
-  // --- HYBRID STREAMING FIELDS ---
-  providerName  String? @map("provider_name")   // e.g. "melolov3", "reelshort"
-  sourceMovieId String? @map("source_movie_id") // e.g. "7664444328231586869"
-  realViews     Int     @default(0) @map("real_views")  // organic system views
-
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -157,12 +152,8 @@ model Episode {
   title         String
   description   String? @db.Text
   thumbnail     String?
-  
-  // --- HYBRID STREAMING FIELDS ---
-  videoUrl      String? @map("video_url")     // R2 URL (Can be null now)
+  videoUrl      String @map("video_url")
   videoUrl540p  String? @map("video_url_540p")
-  sourceEpisodeId String? @map("source_episode_id") // Provider's unique episode ID (if any)
-  
   duration      Int     @default(0) // in seconds
 
   isVip     Boolean @default(false) @map("is_vip")

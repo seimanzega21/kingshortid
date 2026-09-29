@@ -151,7 +151,7 @@ dramasRoute.get('/trending', async (c) => {
             result.map(async (drama) => {
                 const firstEp = await db.select()
                     .from(episodes)
-                    .where(eq(episodes.dramaId, drama.id))
+                    .where(and(eq(episodes.dramaId, drama.id), sql`${episodes.videoUrl} IS NOT NULL`))
                     .orderBy(asc(episodes.episodeNumber))
                     .limit(1).then((r: any[]) => r[0]);
 
@@ -348,7 +348,7 @@ dramasRoute.get('/new', async (c) => {
             result.map(async (drama) => {
                 const firstEp = await db.select({ videoUrl: episodes.videoUrl })
                     .from(episodes)
-                    .where(eq(episodes.dramaId, drama.id))
+                    .where(and(eq(episodes.dramaId, drama.id), sql`${episodes.videoUrl} IS NOT NULL`))
                     .orderBy(asc(episodes.episodeNumber))
                     .limit(1).then((r: any[]) => r[0]);
                 return {
@@ -477,7 +477,7 @@ dramasRoute.get('/:id', async (c) => {
         const eps = await db.select().from(episodes)
             .where(and(
                 eq(episodes.dramaId, id),
-                eq(episodes.isActive, true)
+                sql`${episodes.videoUrl} IS NOT NULL`
             ))
             .orderBy(asc(episodes.episodeNumber));
 
@@ -514,7 +514,7 @@ dramasRoute.get('/:id/episodes', async (c) => {
         const eps = await db.select().from(episodes)
             .where(and(
                 eq(episodes.dramaId, dramaId),
-                eq(episodes.isActive, true)
+                sql`${episodes.videoUrl} IS NOT NULL`
             ))
             .orderBy(asc(episodes.episodeNumber));
 
@@ -652,7 +652,7 @@ dramasRoute.get('/:id/seasons', async (c) => {
         if (seasonList.length === 0) {
             // No seasons, return all episodes as single season
             const eps = await db.select().from(episodes)
-                .where(eq(episodes.dramaId, dramaId))
+                .where(and(eq(episodes.dramaId, dramaId), sql`${episodes.videoUrl} IS NOT NULL`))
                 .orderBy(asc(episodes.episodeNumber));
 
             return c.json([{
@@ -670,7 +670,7 @@ dramasRoute.get('/:id/seasons', async (c) => {
                     .where(and(
                         eq(episodes.dramaId, dramaId),
                         eq(episodes.seasonId, season.id),
-                        
+                        sql`${episodes.videoUrl} IS NOT NULL`,
                     ))
                     .orderBy(asc(episodes.episodeNumber));
                 return { ...season, episodes: eps };
@@ -719,7 +719,7 @@ dramasRoute.delete('/:id', requireAdmin, async (c) => {
                 // B. Find drama episode folder prefix to delete episode files safely
                 const firstEp = await db.select({ videoUrl: episodes.videoUrl })
                     .from(episodes)
-                    .where(eq(episodes.dramaId, id))
+                    .where(and(eq(episodes.dramaId, id), sql`${episodes.videoUrl} IS NOT NULL`))
                     .limit(1).then((r: any[]) => r[0]);
 
                 if (firstEp?.videoUrl && firstEp.videoUrl.includes('stream.shortlovers.id')) {
@@ -904,4 +904,3 @@ dramasRoute.post('/bulk-publish', requireAdmin, async (c) => {
 });
 
 export default dramasRoute;
-
