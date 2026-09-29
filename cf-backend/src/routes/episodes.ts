@@ -76,7 +76,7 @@ episodesRoute.post('/', requireAdmin, async (c) => {
         return c.json(episode, 201);
     } catch (error) {
         console.error('Create episode error:', error);
-        return c.json({ error: 'Failed to create episode' }, 500);
+        return c.json({ error: 'Failed to create episode', details: error instanceof Error ? error.message : String(error) }, 500);
     }
 });
 
