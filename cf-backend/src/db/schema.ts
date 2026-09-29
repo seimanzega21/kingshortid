@@ -79,6 +79,11 @@ export const dramas = pgTable('dramas', {
     country: text('country').notNull().default('China'),
     language: text('language').notNull().default('Mandarin'),
 
+    // --- HYBRID STREAMING FIELDS ---
+    providerName: text('provider_name'),
+    sourceMovieId: text('source_movie_id'),
+    realViews: integer('real_views').notNull().default(0),
+
     createdAt: timestampNow('created_at'),
     updatedAt: timestampNow('updated_at'),
 });
@@ -92,8 +97,12 @@ export const episodes = pgTable('episodes', {
     title: text('title').notNull(),
     description: text('description'),
     thumbnail: text('thumbnail'),
-    videoUrl: text('video_url').notNull(),
+    
+    // --- HYBRID STREAMING FIELDS ---
+    videoUrl: text('video_url'), // R2 URL (No longer notNull)
     videoUrl540p: text('video_url_540p'),
+    sourceEpisodeId: text('source_episode_id'),
+    
     duration: integer('duration').notNull().default(0),
 
     isVip: boolean('is_vip').notNull().default(false),

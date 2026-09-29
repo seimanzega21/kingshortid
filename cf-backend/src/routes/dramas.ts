@@ -30,7 +30,7 @@ function enrichDrama(d: typeof dramas.$inferSelect) {
 dramasRoute.post('/', requireAdmin, async (c) => {
     try {
         const body = await c.req.json();
-        const { title, description, cover, genres, status, country, language } = body;
+        const { title, description, cover, genres, status, country, language, providerName, sourceMovieId } = body;
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
         if (!title) return c.json({ error: 'Title is required' }, 400);
@@ -60,6 +60,8 @@ dramasRoute.post('/', requireAdmin, async (c) => {
                     // Never let scraper overwrite admin-set status — admin controls publishing
                     country: country || existing.country,
                     language: language || existing.language,
+                    providerName: providerName !== undefined ? providerName : existing.providerName,
+                    sourceMovieId: sourceMovieId !== undefined ? sourceMovieId : existing.sourceMovieId,
                     updatedAt: new Date(),
                 })
                 .where(eq(dramas.id, existing.id))
@@ -77,6 +79,8 @@ dramasRoute.post('/', requireAdmin, async (c) => {
             status: 'pending',
             country: country || 'China',
             language: language || 'Indonesia',
+            providerName: providerName || null,
+            sourceMovieId: sourceMovieId || null,
             isActive: false, // Never auto-activate from scraper
             views: 0,
             rating: 0,

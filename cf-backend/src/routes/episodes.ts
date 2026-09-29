@@ -4,6 +4,7 @@ import { getDb } from '../db';
 import { episodes, dramas, subtitles } from '../db/schema';
 import { requireAdmin, getAuthUser } from '../middleware/auth';
 import type { Env } from '../middleware/auth';
+import { fetchFreshStreamUrl } from '../services/stream-provider';
 
 const episodesRoute = new Hono<Env>();
 
@@ -13,12 +14,12 @@ episodesRoute.post('/', requireAdmin, async (c) => {
         const { dramaId, episodeNumber, title, videoUrl, videoUrl540p, duration } = await c.req.json();
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        if (!dramaId || !episodeNumber || !videoUrl) {
-            return c.json({ error: 'dramaId, episodeNumber, and videoUrl are required' }, 400);
+        if (!dramaId || !episodeNumber) {
+            return c.json({ error: 'dramaId and episodeNumber are required' }, 400);
         }
 
         // Validate video URL (skip for R2 URLs - we control those uploads)
-        if (!videoUrl.includes('.r2.dev') && !videoUrl.includes('.r2.cloudflarestorage.com') && !videoUrl.includes('stream.shortlovers.id')) {
+        if (videoUrl && !videoUrl.includes('.r2.dev') && !videoUrl.includes('.r2.cloudflarestorage.com') && !videoUrl.includes('stream.shortlovers.id')) {
             try {
                 const videoCheck = await fetch(videoUrl, { method: 'HEAD', signal: AbortSignal.timeout(10000) });
                 if (!videoCheck.ok) {
@@ -112,14 +113,34 @@ episodesRoute.get('/:id/stream', async (c) => {
             .set({ views: sql`${episodes.views} + 1` })
             .where(eq(episodes.id, id));
 
-        // Get drama title
-        const drama = await db.select({ title: dramas.title }).from(dramas)
+        // Get drama title and provider info
+        const drama = await db.select({ 
+            title: dramas.title,
+            providerName: dramas.providerName,
+            sourceMovieId: dramas.sourceMovieId
+        }).from(dramas)
             .where(eq(dramas.id, episode.dramaId)).limit(1).then((r: any[]) => r[0]);
 
         const expiresAt = new Date(Date.now() + 4 * 60 * 60 * 1000);
 
+        // --- HYBRID STREAMING LOGIC ---
+        let finalStreamUrl = episode.videoUrl;
+        
+        // If there's no R2 video URL, but we have provider data, fetch on the fly!
+        if (!finalStreamUrl && drama?.providerName && drama?.sourceMovieId) {
+            const freshUrl = await fetchFreshStreamUrl(
+                drama.providerName, 
+                drama.sourceMovieId, 
+                episode.episodeNumber, 
+                episode.sourceEpisodeId
+            );
+            if (freshUrl) {
+                finalStreamUrl = freshUrl;
+            }
+        }
+
         return c.json({
-            url: episode.videoUrl,
+            url: finalStreamUrl,
             url540p: episode.videoUrl540p || null,
             expiresAt: expiresAt.toISOString(),
             duration: episode.duration,
