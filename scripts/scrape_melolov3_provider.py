@@ -276,20 +276,29 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
                     if cover_src:
                         cov_res = requests.get(cover_src, timeout=30, verify=False)
                         if cov_res.ok:
-                            p = TEMP_DIR / f"{slug}_cover.jpg"
+                            p = TEMP_DIR / f"{slug}_cover_raw.tmp"
                             p.write_bytes(cov_res.content)
-                            
-                            # Convert to webp using ffmpeg
+
+                            # Convert and upscale to HD webp using ffmpeg lanczos
                             p_webp = TEMP_DIR / f"{slug}_cover.webp"
-                            cmd = ['ffmpeg', '-y', '-i', str(p), '-loglevel', 'error', str(p_webp)]
+                            cmd = ['ffmpeg', '-y', '-i', str(p), '-vf', 'scale=720:-1:flags=lanczos', '-qscale', '90', '-loglevel', 'error', str(p_webp)]
                             if subprocess.run(cmd).returncode == 0:
                                 r2_upload(r2, p_webp, cover_key, 'image/webp')
-                                print("  -> [R2] Cover uploaded successfully")
+                                print("  -> [R2] Cover uploaded successfully (HD WebP 720px)")
+                                try:
+                                    shutil.copy2(p_webp, local_save_dir / "cover.webp")
+                                    print(f"  -> [Local] Saved cover to {local_save_dir / 'cover.webp'}")
+                                except Exception as e:
+                                    print(f"  -> [WARN] Failed saving local cover: {e}")
                                 p_webp.unlink()
                             else:
                                 # Fallback direct upload if webp conversion fails
                                 r2_upload(r2, p, cover_key, 'image/jpeg')
-                                print("  -> [R2] Cover uploaded successfully (fallback jpeg)")
+                                print("  -> [R2] Cover uploaded successfully (fallback raw)")
+                                try:
+                                    shutil.copy2(p, local_save_dir / "cover.jpg")
+                                except:
+                                    pass
                             p.unlink()
                 except Exception as e:
                     print(f"  -> [WARN] Failed to upload cover to R2: {e}")
