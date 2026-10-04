@@ -894,5 +894,61 @@
     "slug": "taktik-modern-di-era-kuno-2",
     "totalEpisodes": 100,
     "status": "done"
+  },
+  {
+    "id": "7681245838273711157",
+    "title": "Koki Ini Tak Sederhana",
+    "slug": "koki-ini-tak-sederhana",
+    "totalEpisodes": 58,
+    "status": "done"
+  },
+  {
+    "id": "7684546976179850245",
+    "title": "Ayo Patahkan Joran, Si Pemancing",
+    "slug": "ayo-patahkan-joran-si-pemancing",
+    "totalEpisodes": 82,
+    "status": "processing"
+  },
+  {
+    "id": "7686764712477903877",
+    "title": "Kakek Sakti Pulang ke Bumi 1",
+    "slug": "kakek-sakti-pulang-ke-bumi-1",
+    "totalEpisodes": 81,
+    "status": "pending"
+  },
+  {
+    "id": "7667054547742936117",
+    "title": "Seni Budidaya Anggur",
+    "slug": "seni-budidaya-anggur",
+    "totalEpisodes": 35,
+    "status": "pending"
+  },
+  {
+    "id": "7683449645988596789",
+    "title": "Kurir Air yang Tak Biasa",
+    "slug": "kurir-air-yang-tak-biasa",
+    "totalEpisodes": 56,
+    "status": "pending"
+  },
+  {
+    "id": "7673350378687056949",
+    "title": "Mata Nilai: Dari Pemulung Jadi Orang Terkaya",
+    "slug": "mata-nilai-dari-pemulung-jadi-orang-terkaya",
+    "totalEpisodes": 60,
+    "status": "pending"
+  },
+  {
+    "id": "7675952594258414645",
+    "title": "Petani Semangka Hebat",
+    "slug": "petani-semangka-hebat",
+    "totalEpisodes": 56,
+    "status": "pending"
+  },
+  {
+    "id": "7681995885458230277",
+    "title": "Tempayan Pembawa Rezeki",
+    "slug": "tempayan-pembawa-rezeki",
+    "totalEpisodes": 81,
+    "status": "pending"
   }
 ]
