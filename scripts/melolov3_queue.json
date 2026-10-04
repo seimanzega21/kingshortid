@@ -942,13 +942,13 @@
     "title": "Petani Semangka Hebat",
     "slug": "petani-semangka-hebat",
     "totalEpisodes": 56,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7681995885458230277",
     "title": "Tempayan Pembawa Rezeki",
     "slug": "tempayan-pembawa-rezeki",
     "totalEpisodes": 81,
-    "status": "pending"
+    "status": "processing"
   }
 ]
