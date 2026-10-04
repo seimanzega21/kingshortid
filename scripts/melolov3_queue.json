@@ -907,14 +907,14 @@
     "title": "Ayo Patahkan Joran, Si Pemancing",
     "slug": "ayo-patahkan-joran-si-pemancing",
     "totalEpisodes": 82,
-    "status": "processing"
+    "status": "failed"
   },
   {
     "id": "7686764712477903877",
     "title": "Kakek Sakti Pulang ke Bumi 1",
     "slug": "kakek-sakti-pulang-ke-bumi-1",
     "totalEpisodes": 81,
-    "status": "pending"
+    "status": "processing"
   },
   {
     "id": "7667054547742936117",
