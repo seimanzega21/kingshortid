@@ -963,13 +963,13 @@
     "title": "Guru Bawa Kelas ke Puncak 3",
     "slug": "guru-bawa-kelas-ke-puncak-3",
     "totalEpisodes": 125,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7689662645078674437",
     "title": "Menjadi Raja Pemungut",
     "slug": "menjadi-raja-pemungut",
     "totalEpisodes": 88,
-    "status": "pending"
+    "status": "processing"
   }
 ]
