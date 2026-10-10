@@ -273,33 +273,61 @@ def scrape_single_drama(r2, movie_id, is_test_run=False):
             if not r2_exists(r2, cover_key):
                 try:
                     cover_src = detail.get('cover')
+                    cov_bytes = None
                     if cover_src:
-                        cov_res = requests.get(cover_src, timeout=30, verify=False)
-                        if cov_res.ok:
-                            p = TEMP_DIR / f"{slug}_cover_raw.tmp"
-                            p.write_bytes(cov_res.content)
+                        try:
+                            cov_res = requests.get(cover_src, timeout=20, verify=False)
+                            if cov_res.ok and len(cov_res.content) > 1000:
+                                cov_bytes = cov_res.content
+                        except Exception:
+                            pass
 
-                            # Convert and upscale to HD webp using ffmpeg lanczos
-                            p_webp = TEMP_DIR / f"{slug}_cover.webp"
-                            cmd = ['ffmpeg', '-y', '-i', str(p), '-vf', 'scale=720:-1:flags=lanczos', '-qscale', '90', '-loglevel', 'error', str(p_webp)]
-                            if subprocess.run(cmd).returncode == 0:
-                                r2_upload(r2, p_webp, cover_key, 'image/webp')
-                                print("  -> [R2] Cover uploaded successfully (HD WebP 720px)")
-                                try:
-                                    shutil.copy2(p_webp, local_save_dir / "cover.webp")
-                                    print(f"  -> [Local] Saved cover to {local_save_dir / 'cover.webp'}")
-                                except Exception as e:
-                                    print(f"  -> [WARN] Failed saving local cover: {e}")
-                                p_webp.unlink()
-                            else:
-                                # Fallback direct upload if webp conversion fails
-                                r2_upload(r2, p, cover_key, 'image/jpeg')
-                                print("  -> [R2] Cover uploaded successfully (fallback raw)")
-                                try:
-                                    shutil.copy2(p, local_save_dir / "cover.jpg")
-                                except:
-                                    pass
-                            p.unlink()
+                    # Fallback to movie webpage if cover_src failed (e.g. unsigned ibyteimg url)
+                    if not cov_bytes:
+                        try:
+                            page_url = f"https://vidrama.asia/movie/{slug}--{movie_id}?provider=melolov3&lang=id"
+                            r_page = requests.get(page_url, headers=WEB_HDRS, timeout=15, verify=False)
+                            if r_page.ok:
+                                m = re.search(r'url=(https%3A%2F%2Fp\d+-novel-sign\.fizzopic\.org%2F[^&"\']+)', r_page.text)
+                                if m:
+                                    signed_url = urllib.parse.unquote(m.group(1))
+                                    r_cov = requests.get(signed_url, headers=WEB_HDRS, timeout=15, verify=False)
+                                    if r_cov.ok and len(r_cov.content) > 1000:
+                                        cov_bytes = r_cov.content
+                                if not cov_bytes:
+                                    m2 = re.search(r'(https://p\d+-novel-sign\.fizzopic\.org/[^"\'>\s]+)', r_page.text)
+                                    if m2:
+                                        r_cov2 = requests.get(m2.group(1), headers=WEB_HDRS, timeout=15, verify=False)
+                                        if r_cov2.ok and len(r_cov2.content) > 1000:
+                                            cov_bytes = r_cov2.content
+                        except Exception as pe:
+                            print(f"  -> [WARN] Webpage cover fallback error: {pe}")
+
+                    if cov_bytes:
+                        p = TEMP_DIR / f"{slug}_cover_raw.tmp"
+                        p.write_bytes(cov_bytes)
+
+                        # Convert and upscale to HD webp using ffmpeg lanczos
+                        p_webp = TEMP_DIR / f"{slug}_cover.webp"
+                        cmd = ['ffmpeg', '-y', '-i', str(p), '-vf', 'scale=720:-1:flags=lanczos', '-qscale', '90', '-loglevel', 'error', str(p_webp)]
+                        if subprocess.run(cmd).returncode == 0:
+                            r2_upload(r2, p_webp, cover_key, 'image/webp')
+                            print("  -> [R2] Cover uploaded successfully (HD WebP 720px)")
+                            try:
+                                shutil.copy2(p_webp, local_save_dir / "cover.webp")
+                                print(f"  -> [Local] Saved cover to {local_save_dir / 'cover.webp'}")
+                            except Exception as e:
+                                print(f"  -> [WARN] Failed saving local cover: {e}")
+                            p_webp.unlink()
+                        else:
+                            # Fallback direct upload if webp conversion fails
+                            r2_upload(r2, p, cover_key, 'image/jpeg')
+                            print("  -> [R2] Cover uploaded successfully (fallback raw)")
+                            try:
+                                shutil.copy2(p, local_save_dir / "cover.jpg")
+                            except:
+                                pass
+                        p.unlink()
                 except Exception as e:
                     print(f"  -> [WARN] Failed to upload cover to R2: {e}")
                     
