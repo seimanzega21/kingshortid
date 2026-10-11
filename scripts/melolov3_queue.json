@@ -1005,7 +1005,7 @@
     "title": "Panen dari Laut Terbuang",
     "slug": "panen-dari-laut-terbuang",
     "totalEpisodes": 80,
-    "status": "failed"
+    "status": "done"
   },
   {
     "id": "7654083766985427973",
@@ -1019,6 +1019,6 @@
     "title": "Koperasi Udang Jadi Kaya",
     "slug": "koperasi-udang-jadi-kaya",
     "totalEpisodes": 40,
-    "status": "processing"
+    "status": "done"
   }
 ]
