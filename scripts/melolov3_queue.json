@@ -984,13 +984,13 @@
     "title": "Jodoh Si Pemburu",
     "slug": "jodoh-si-pemburu",
     "totalEpisodes": 185,
-    "status": "processing"
+    "status": "done"
   },
   {
     "id": "7673831421957377077",
     "title": "Cinta Di Jalur Pendakian",
     "slug": "cinta-di-jalur-pendakian",
     "totalEpisodes": 41,
-    "status": "pending"
+    "status": "done"
   }
 ]
