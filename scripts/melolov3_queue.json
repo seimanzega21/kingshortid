@@ -1012,6 +1012,13 @@
     "title": "Penjaga Ladang Obat",
     "slug": "penjaga-ladang-obat",
     "totalEpisodes": 32,
+    "status": "done"
+  },
+  {
+    "id": "7665933079399124021",
+    "title": "Koperasi Udang Jadi Kaya",
+    "slug": "koperasi-udang-jadi-kaya",
+    "totalEpisodes": 40,
     "status": "processing"
   }
 ]
