@@ -1,0 +1,404 @@
+[
+  {
+    "ep": 1,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oI2kEQXH1wAudrgqAziiKgBQ1FvGaVAEIofksU?a=0&auth_key=1792102147-b438cc9a61d84e5aa46270382d92aa25-0-226a7f480ab0b08b3cdbb609b9317fb7&br=968&bt=968&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=ad0e789622ac4d548915cbc056677c13&er=0&l=20261003040752A42B81CB15D87CADE6B7&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cjs8OzozMzZoNEApNDo5OGZmNDs4N2Q1PDozZGcwNmhoMmRjLWlhMi1kXjVzczBgNDMtXzI2MWFgLzM1YmE6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 2,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/osqEIqkqfDE5fqrQhkuCfFGhBAwTOEXNNpKKBQ?a=0&auth_key=1792737433-012cb7800089410eae762f22dd2894a1-0-8330345410ae85f2b8d590742c880860&br=779&bt=779&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=a1c1499f444f4119b94d278f44d357f0&er=0&l=20261012184717C279E91C311EE57E9248&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajdvZGo5cm08OzozMzZoNEApaThnNzs1N2U0Nzc3PDdmZGdkc3BnMmRrLWlhMi1kXjVzcy00MDFjNGE2Ni5jMWM2Li46Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 3,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oYcpgf1FDAAqFe2qEqEkprQGKCwIl2GqhJNaBf?a=0&auth_key=1792245799-de5dfdd75953426b82927c5da1f14813-0-fc34a1b581509a915577cebdde134704&br=846&bt=846&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=f58b3385f0a241a38d6b6f9d267c6a1c&er=0&l=20261004192258F36693578268B36C9D89&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anRmO2o5cms8OzozMzZoNEApNDk6NTw5OTtkN2RpOzY7aWdxM2ttMmQ0LWlhMi1kXjVzc2BeYDNhY19hMC4vLTIwXzI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 4,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oE2FGqCGQeNwBBZQHfhlVIp2qMPIFDuJKgEqfA?a=0&auth_key=1792555293-102dce099d7b42bfa2e2e11b2f3f6ab7-0-d72e8c019483783389666b9a48c814ad&br=905&bt=905&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=0fc2d7331ba6495bb44cdc608b069e25&er=0&l=202610071846384C07489DC9C9A058F2C0&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anVmO2o5cm48OzozMzZoNEApNTwzOzlnN2U4N2Q0NmdmM2cuM2ttMmQ0LWlhMi1kXjVzczJiM18tYGAxXzYzXzA0L2M6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 5,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oQwCKGXfIpKDONhPQKvNCbfAqkAFqkEqqIMEf9?a=0&auth_key=1792620268-94484f1601cd465dbf714db479e5dc32-0-8fbbd2c2d5a470fe5118e2463c23c60e&br=787&bt=787&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=6e00ac244beb45ce9fd794e14ab900cf&er=0&l=20261010030636517136DBBF6CE102D1CE&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cjk8OzozMzZoNEApZjNlN2g8ZzxmN2g3NWQzOWczc3BnMmRzLWlhMi1kXjVzc2MtNl4uMTRjYjJfXzFgLWI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 6,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocIqqFqxpCIOAsDtEfFDlwQqEkkUbKf6sUAfNE?a=0&auth_key=1792844407-19da5acf2b0c4dca952af32c4f832f29-0-18809cbd54ea88d2d4f895eea09121ad&br=913&bt=913&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=b2f49dec66ad4c59b1a438048b6bb47d&er=0&l=202610100406495CABFCA0575DBE9124CA&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cmg8OzozMzZoNEApOmU5OzM2ZGU4N2Q5aDxpZWdhbDJsMmRrLWlhMi1kXjVzc2ExX18xNTEuNmBhM2BhMS86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 7,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o0DtiEngAIIKkFPqWw9fZBfGnJNQCNqRVqQpfA?a=0&auth_key=1792971251-d85e30b2e37a4c8e9a5ec157d5683258-0-af6cbcbf4f0addc6dc2d88c73efc16bc&br=765&bt=765&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=9eed62ac7f244bb6be4f29a592420b42&er=0&l=20261010200558CADA7B77CDE93A929052&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cjw8OzozMzZoNEApNzM3PGQ1N2VlNzU6ZDloPGcxNmhoMmQ0LWlhMi1kXjVzcy9fLy8yNmNiM18xY2AvYWI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 8,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oEkwbiy1iEAIKkFDUqfgCKnvGaiP1Bs7AQgGAV?a=0&auth_key=1792892437-081d478a6cb84ee89ca70edc6e28cd8b-0-3c020df67d65dbf0799508e7c1b5d997&br=734&bt=734&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=5891a7b816a54a5b8c5bce6d01a144ff&er=0&l=20261013023040F480D37E230D93BC803F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3VmO2o5cm08OzozMzZoNEApaTdkMzlmODs4N2Q0ZWQ8OGcuM2ttMmRzLWlhMi1kXjVzc2MxLi5hYl9gX14yMzU0LjU6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 9,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oEWBFMaqX8iAFlwyApi64iaQIDQwkq7EjPiBR?a=0&auth_key=1792245778-bedcfa0d9fd24f7e903f74eed734f87c-0-37102ddea6f2de36d364201a37226eb1&br=851&bt=851&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=3308b37b80ed4c8ea2ee01ddedc71caf&er=0&l=20261004192256F36693578268B36C9D82&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3RmO2o5cms8OzozMzZoNEApZDRmaGczaGQ7N2g7OmUzNmdyM2ttMmQ0LWlhMi1kXjVzc2NgNGFhLmIvYmBhLV8wNTA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 10,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ooSUFqUMILDLYEkfuVEQVWiebBpZGBgfUeUIcg?a=0&auth_key=1792555252-af8c1f6e606c4735a2cff0684292d5ed-0-c6ea9db2a16e6a5a1fc74ef69440455e&br=723&bt=723&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=cfa5cc63c8f74b4aa9acff46621cc099&er=0&l=202610071846384C07489DC9C9A058F2BF&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cjw8OzozMzZoNEApPGY0OTdpZGQ3N2lmOWZkZmcybDJsMmRjLWlhMi1kXjVzczYtYC8zY2A2Xl80NTBgMmM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 11,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oYrzk1TYfvAiQ2BP1DoqgoEKgiGVUFlKksiIAG?a=0&auth_key=1792971284-d892a5b0d24f46fa9d691a6f03f32977-0-e03cbd22a5f075285dc33484e888aae0&br=790&bt=790&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=96c3b88bc23148a7b2bdefc77c22216a&er=0&l=20261010200557CADA7B77CDE93A929043&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cjo8OzozMzZoNEApOTU1OmZoZWVkNzZmO2VmPGcwNmhoMmRzLWlhMi1kXjVzc14uL2A0Y2EvNDUuL181MDM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 12,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oAIqUfpVJqXNDSbIgBnEfqCwIAKFQfltqWARpR?a=0&auth_key=1792892453-f3612ee516614d6da7d582604d5f840f-0-603b043a40b990960cfb1d81440998b3&br=862&bt=862&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=5b5bdc8ea21641b08d1a7f20fa943da7&er=0&l=20261013023041F480D37E230D93BC804C&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cmQ8OzozMzZoNEApZDY8aTU6NDtlNzRkO2c4OGcyNmhoMmRrLWlhMi1kXjVzczRhMV4tY15hLS4zL2JgX186Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 13,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oMQfiNCq9KVIBFJpnqBDLqgqwWAffJRWBIYtEp?a=0&auth_key=1792245768-70fe373265884bb3b6a0cfef38969976-0-e778c23eec7defeca9fe06a06bbe1c88&br=916&bt=916&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=c6de04a4b0a44373a4b4252958781cb5&er=0&l=202610041922596016D5F775AA50627719&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cmw8OzozMzZoNEApZTQ6ODU1ZWQ6N2RlZDNnZmdeNmhoMmRjLWlhMi1kXjVzczJgNTU2MjExMDAxLTExYjM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 14,
+    "kind": "ok",
+    "url": "https://awscdn.netshort.com/oMENKiEqhsLXimDfCqfZFNfwQAIkFMM5ApKqkq?a=0&auth_key=1792972268-247ba2aabc364b9487824afccead25ab-0-c22ffb2412b2875f96b4c546a1a1a2af&br=940&bt=940&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=16e9967220d548d0878858b34816769e&er=0&l=202610141855187032E6ECCCC6BFBC3D3E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajdvZGo5cmg8OzozMzZoNEApPDo0N2U4OztnN2c1OjxoNGdgc3BnMmRjLWlhMi1kXjVzc2IzMzUwNTU0LTUyLS8zNjM6Yw%3D%3D&vl=&vr=&Expires=1792500135&Signature=HgteZMeGBU~xJEl8uMBLgYupeO99v4Rf9VnKhqjG~W7wvaRNFEt54297MLw0eL0EZkqHQyf1F3OL1aUqx6CZWOwqFA83qwkrP~I1YYXsqKW-t7KJ2J1kGAMv6hs6fcdD6HIceW-rSgwGf6sLyWtAVexsgIiN6pLpdCT0kZ8GVEkfg1hl7LeFG3Eee956HKVd~qUn9phTXEaeLp8mcNyJtlFs4EXVlNl~cBq-K5mzwxsKHOl2Gj9Qn0~dupZJqnGfaWKXVKePkviFTfbUFfB66Gc-APzqr9HdzVD6DvHD0PhR5I6T07kWr-kS5NTwSTRHaqJb-K49f2moy2Cf0mjBnQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+    "sub": null
+  },
+  {
+    "ep": 15,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okPqxNBIXebPQEuIqFLUfk8GVegnIBMEeSVU1F?a=0&auth_key=1792452361-44f2d73944cd4c71937c20c504c61c73-0-af9bd44eebb985d5566fef5500267db3&br=837&bt=837&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=f104273177a3476b84c9dc1cc564e4b3&er=0&l=20261009022939D41A8FD8FE19B1706E8D&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzp5cWs5cmg8OzozMzZoNEApZWg5ZjRnZjs5N2Q6NjUzaWdzaWw2MmQ0LWlhMi1kXjVzczAxMTJgYDYxXzQwNC40MS46Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 16,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oobFBLBAgeTexFVNHUeRf2gV4pQUIR1PGSIPIV?a=0&auth_key=1792737340-da0931b16497440b9b5a4867e8b79d35-0-e7001576033c9ae31bbe384167112eac&br=871&bt=871&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=77b7d37aaed548f5b8063740f5627c97&er=0&l=20261012184716DE1942047AB2CA1A23AC&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajp5cWs5cmQ8OzozMzZoNEApPDo5aTc2M2VpN2dkOmdlOmdxaWw2MmRjLWlhMi1kXjVzczRgLzItNDM1MjUyYl4wNDQ6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 17,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oMCyjDyaQBuAgXGwL75qPpIQi6iiaEkGWFqEi?a=0&auth_key=1792520913-d5ed98d024df451ebf6766f0c87ac60f-0-fa1226c5b79b043861bd313b47d9de42&br=809&bt=809&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=42981333e2c8431f902cd7d8c0bd87a4&er=0&l=20261005050923C01C8712F63FB2B77A61&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3RmO2o5cjk8OzozMzZoNEApZDtlZmdnNTw0N2ZoNjQ8N2drM2ttMmQ0LWlhMi1kXjVzczE0YS01NGAtYzA1LzAwNS86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 18,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okwDYI4OE8HQEEFqqiOfskpfxAfNC3qKqIAkUs?a=0&auth_key=1792491023-4b3b5ec0725245048e6c62bdb6a452cc-0-b5446e7250917ba49fa696e3b57f829f&br=685&bt=685&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=a82477cf4c6b4aeb9deb38d1f4514355&er=0&l=2026100802314449F1A8A586807A6D4F3E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2hsb3k5cmc8OzozMzZoNEApODc4aWc2aDxoNzk3Zjo1ZGdgbDJsMmRzLWlhMi1kXjVzczIwLjEuNV9hX15fYGM0MTU6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 19,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocaqRygi7iG7QEKIUAi1vkkBKzs1GACDfUF1Dw?a=0&auth_key=1792737320-a5a4e7db857944ab9151c2d945abb4c4-0-d5e5f633b975424a1408b88083422ff1&br=929&bt=929&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=cf006784f75540cca140557afa4cfef5&er=0&l=20261012184718F544D4D1F827848CC79B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anRmO2o5cjs8OzozMzZoNEApaWk3aTo4N2RmNzhpOzkzZmdtM2ttMmRzLWlhMi1kXjVzczJiYF5eMi0uYC0yNDE0LWM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 20,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oQaOkQq2tIojrzEliFEiWAgqBvTkAIiq6QGXQ?a=0&auth_key=1792555280-3925dd138fb44ff6ab344282e92a68ae-0-7a6be1da6c3079a32f075efdc8613c70&br=685&bt=685&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=8e84a0d82e3f4098a7950689c3fda321&er=0&l=20261007184637CC85DE9068826971DDC4&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cmg8OzozMzZoNEApNWRpZjszPGQ8NzY1Z2Q7O2c2NmhoMmRrLWlhMi1kXjVzcy4wYTA2MzI0NS1jYjUtMWI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 21,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ogfgNkDIpqXmIqEBkKfFNq1DChINKENqAhwfQA?a=0&auth_key=1792454583-d350c72904cd46549f06d64018e94704-0-26875ca5c99031ed8dc21b0e9efd76c2&br=916&bt=916&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=49e8e6f0fd3c4425abafc85817972344&er=0&l=2026100419224996689D66B2B5BC731783&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajdvZGo5cjs8OzozMzZoNEApNzU8NDhmZGQ1NzZpaWhoN2czc3BnMmQ0LWlhMi1kXjVzczEwNDQ1NWNfMjFgYS0zNTY6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 22,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o8DpoDKDEfwqxOQqfAkEGsAKtIcNqFFsqqCUPf?a=0&auth_key=1792245773-992cfeb869bb401f8730353de6af4a00-0-11f274166043833999edab7384d8913e&br=741&bt=741&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=3ccadf2a064f4e4096668ebbb32a4018&er=0&l=20261004192301EABD724F8CDE0E65CD43&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cmQ8OzozMzZoNEApNDc1ZWU7OTw3NzczNWdmNmc0bDJsMmRrLWlhMi1kXjVzczUtXjBfYjMzLWJjM15jXmA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 23,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oQC0NIDkKwpfBJOHqmkfwCgEQNiFIqq6AEqfHo?a=0&auth_key=1792925706-4d4dd7d1877a41c991d7434e0a90a5d1-0-7bc312e626d836cd48d2a3efb13a02fa&br=875&bt=875&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=5b10857cf7914830bd72ffdf0646cfed&er=0&l=20261010022940A92B791A2549079942F7&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajt5cWs5cnI8OzozMzZoNEApaGY3M2dpOmU2NzxpOjs0OGczaWw2MmQ0LWlhMi1kXjVzc2FjMzNjYy9hLTUuNGAyLV86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 24,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okWqUOkifxBqpfwqNGqCAssNHEEbIQFq5oKKfD?a=0&auth_key=1792901244-300aeb8f75c74d90b834de262c09250b-0-d3bc55c4626a33829e9da42c87c8920d&br=909&bt=909&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=354d07acb9154dbabd577be66c699cf0&er=0&l=202610090507452CAB4305559FA856FABB&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2hsb3k5cnI8OzozMzZoNEApaTw5OWg6OGVlNzRlZDM3NmdpbDJsMmRrLWlhMi1kXjVzcy1gNmAzXzRhXmEyNmA0YTI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 25,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oUNIVAoKfhlEkQDqQpwFEAfKICXfsI0qpqDkqN?a=0&auth_key=1792737342-06276b1d9df94c75b0bf2bb50c764f5e-0-cddbcfa1e60deaee2cdbc7e88f042e4d&br=812&bt=812&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=c9b2d2960be342e6b6e327932453f9c9&er=0&l=20261012184715DE1942047AB2CA1A23A3&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cmQ8OzozMzZoNEApZmk4NTw1aGVoN2gzPGdlZmc1c3BnMmQ0LWlhMi1kXjVzczY2MDEwNDAzMy8wXzMvLzY6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 26,
+    "kind": "ok",
+    "url": "https://awscdn.netshort.com/oIHiXWEbwv6DQkFAQIiAUi4FP795qVyBEqaji?a=0&auth_key=1792454604-3d415c04ba2046b193c2dfcdb30059bd-0-8b7205716ee6ba7a5998fb6ae237f07e&br=661&bt=661&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=c18e7a6f40fa4c2d91a3f59164902213&er=0&l=2026100419224896689D66B2B5BC731777&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3VmO2o5cm48OzozMzZoNEApNDU8OTxpZDw1N2k3OTo7ZmcvM2ttMmQ0LWlhMi1kXjVzczAvLTEuMjAuYWBeLWNeYi46Yw%3D%3D&vl=&vr=&Expires=1792500135&Signature=alwNvZEHvPI5-Ln8GFURrOnxzP9FYzjnTSOqXZwpn5PTUx9r6EDS5w26i1CXjmheUyMo2zLusISY~SCP3WNU-U8Rv6akwiWLd9ef08QlCd9LFw2b3giaGXM9LHR1BMAFzENnJayzrcU-moBAsCsv1ab3WP3NW84roMAmrzonjtZmHo1hjo9cb9MwuNjE8Row~qL9nUrybU7RrgX2drSlneP5mD-~0raNo19KJ3RlkK9Sw1wjmzustt3ddAzbPyen~692vPZffYIR8vgIVoYQQ48Rv7sTne~WhkNxRGqOk~VwbZ6Zy0DsBGL7UAUteV8A62abB6Rxy9trfDJvXJ80rw__&Key-Pair-Id=K15WUQYEZKHKVU",
+    "sub": null
+  },
+  {
+    "ep": 27,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ooiHtqBEpnIoKTIqfmQENkfFjfcZrhqwADTCq6?a=0&auth_key=1792245814-7e73b47283a444339f0190fd09231ca6-0-9fcdee69e5d11396b8b5adec89fc125b&br=1066&bt=1066&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=0f76c218186c40d48e2ca7ea52f34d5a&er=0&l=20261004192302EABD724F8CDE0E65CD48&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajt5cWs5cnM8OzozMzZoNEApODdpOGhkNTtnNzk0NGY6M2c2aWw2MmRzLWlhMi1kXjVzc15hMC9eNGBiMS1gNTUvM2M6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 28,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ogqjEF6iLJgAoQri2kkaLWX6QEcUBqizvNIlC?a=0&auth_key=1792348469-8b8845c5c560439fa58d0b09d27338ad-0-2d52f5a16a88bed493a2ea7684e3a977&br=1031&bt=1031&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=b9f4766b20414db89e59ae5cb66890cc&er=0&l=202610051907446A1C921166CDD04AE08D&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cmU8OzozMzZoNEApZjw5ZThkODxlNzc1OTppZWcyNmhoMmRrLWlhMi1kXjVzc2AtNTNgYjZiNWEuLV8zMTY6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 29,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o8YPay4GrIqEWQii7AjiibItqqLQXXwLB6FkD?a=0&auth_key=1792158766-af1276e377504467999119e3dfd1ba86-0-a17f8075f023948b563661f808dfcb7c&br=950&bt=950&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=d6b9a9a75cdf49db83be5ed46e1d69c4&er=0&l=20260930185731F407B9623348F63BE570&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anVmO2o5cnE8OzozMzZoNEApZjk0OWc4ZTtnN2c4ZGRlZ2cyM2ttMmQ0LWlhMi1kXjVzczE2YWIxYmIwXzZjYDQ2NjM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 30,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocEKEw7fpEnIHKqNvkKqmQFA85uDfYqAf6iFqC?a=0&auth_key=1792925716-b7597d627b5e4bc0abd850db3cf45961-0-4ca3dced0e4f271aa221824bca5a3719&br=936&bt=936&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=0b0f3e9e24b84083b9780c17c1da4dc3&er=0&l=20261010022940F3D0976E14479A848320&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzp5cWs5cmU8OzozMzZoNEApZjdnZjQzOmU7N2U1PDYzM2dyaWw2MmRzLWlhMi1kXjVzczBhXi40YDU2MC01MWJiY186Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 31,
+    "kind": "ok",
+    "url": "https://awscdn.netshort.com/ooL2IphlDIxPkVhBfGFgwGNm2CfmqVAQEfqFqK?a=0&auth_key=1792682334-f828a5557cb14a37bbfa2e7deed296ac-0-9657c494cadc257c51c115c16a81318c&br=853&bt=853&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=6a35e47c62ed4f938b3227872e861b18&er=0&l=202610120606126CAE1C1BE8C57A17500F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3VmO2o5cnM8OzozMzZoNEApNDQ7NTs1Njs8N2g5Omg2OWc2M2ttMmRrLWlhMi1kXjVzczVfM2I0NC9fMGNhL2AxMl46Yw%3D%3D&vl=&vr=&Expires=1792303211&Signature=yi31fcmm7MmJeI-UkUK22XwOkHxJZWUMMT7SNeW8Yu60WUMRXe3iIS7F58z70-KViCJ4~T6uXTQSZ4xoEv-BBXvIoOAT8KRjcJOCJ5jSWisMfWwLUQDLyZPc9IuH-FRrWH~L5UWGxbOiCLtrWSvSteobg-YiFFWiocFHROHwAwk9gD9Yw-4izSgongipjAHyBH8~DmyOxq3vB5qVvwgYpl~vvyne1fXi-dZ-6FQfkBthjiwB5OHKrx8R0OBDnDkLtR5cmkxP7DaJxftqBi14RFp1j873rgzA5G0x81XPLkuxD4oK7y4iZtmQsWpV0oL2bHoWhCKioEHDUgOg4ReXfQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+    "sub": null
+  },
+  {
+    "ep": 32,
+    "kind": "ok",
+    "url": "https://video.netshort.com/oEsq2qrimBHWkQaIXJkogEgQvki6jzyYAQiWF?a=0&auth_key=1792744883-e2526150ccc74d62b6c49afcfc00925d-0-92db6f587fc1cb76c6eca8efae7b6455&br=893&bt=893&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=73175fabe3674f50b057bb0abffe33ee&er=0&l=20261010184754DD6CD13F501661700A2E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cnI8OzozMzZoNEApaDZpZTNlOGU4NzloZDg0OmdkNmhoMmRrLWlhMi1kXjVzc2IwYmNeXzQtLWM0MF9jNDA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 33,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oMOfkq38ffCpQUDkqHCqBxEqsFN8pKWMswEIAt?a=0&auth_key=1792744920-c997c3e543e34962a9bff459e70b1a11-0-fce838b7090ca538dea77dc319508da7&br=847&bt=847&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=6e1359815f0740b9aff5ac4458f34634&er=0&l=20261010184755DD6CD13F501661700A3B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cnM8OzozMzZoNEApNjdpODdkaWRlNzM4Ozg0OWdqbDJsMmQ0LWlhMi1kXjVzczEzMDUxYDJjNi00Yy42MGI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 34,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/osX54RkGAiEE0goqOaB2FWPQ2jziQqkr6irIg?a=0&auth_key=1792184663-6475447feaa8448c8db9dfa09a02a726-0-ed90310f7f833bb163fc404b528a1fe9&br=733&bt=733&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=4b75e1b63f5747e1a403d8956ecf927c&er=0&l=202610061010056AB19D99A9E51A064264&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cmg8OzozMzZoNEApOjxmOTxnM2RoNzg2ZWg6N2c1NmhoMmQ0LWlhMi1kXjVzc2AvY2IyNTAxLjQ0YzMuMl86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 35,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okEGUVQFmP3SUFfNTsBB010fIwgEqPGIeVeLbk?a=0&auth_key=1792371624-c06e71896cdd4006ad09bb70f249a124-0-63eb6e52fb52961039a065aa6161fd3b&br=717&bt=717&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=e3cef2de8f944df4870f2a578f2d9a0e&er=0&l=2026100807060699F95A9465F1896C478C&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajp5cWs5cmg8OzozMzZoNEApMzw1Ozg1MztpNzw7Z2lmaGdzaWw2MmRzLWlhMi1kXjVzc2JeYWM0XmM0MWExY2IvYjA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 36,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okIHkS9mDEoEFqiBf6FQggbfoFfmUJBIE8VfUV?a=0&auth_key=1792371642-7b909cc2cbe74364a74e818de982f399-0-fbec21e469a2734931f3ae1dcd34a37f&br=778&bt=778&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=f2e9bbdbafb8430b9e9d2961d658308e&er=0&l=2026100807060599F95A9465F1896C4785&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajt5cWs5cmk8OzozMzZoNEApOzY4Zzk1PDwzN2VkZ2VoaWcvaWw2MmRzLWlhMi1kXjVzc2ItNTMuNmFiXzA1Y19fNi86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 37,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/owfezOEcSUU6IVE3kssFxUvDF7GcVEbqBfgfQB?a=0&auth_key=1792184666-ca1c49cee59c48168e17b7b7418c7409-0-3a5cec3c63ab2f08f620e91f3b7a1050&br=701&bt=701&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=175c3867b6814d8595c0536dc7184fbf&er=0&l=20261006101006EB6AD80DF869F7480C7B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2hsb3k5cmk8OzozMzZoNEApZTc0Zjk4Zjw7NztlOTY4NGdibDJsMmRrLWlhMi1kXjVzc2NjNTRhMC0yMmEuMzQ1YDQ6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 38,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocYQSEHeqfUfph5kUZEaFFVUbBGDxVCgsIfosO?a=0&auth_key=1792417751-fa2f554bba0648d397b21120dc68b0de-0-7cf002718a37714ebfd7539ac6ea7173&br=764&bt=764&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=6f914adf70534e9482c6d3a943628b2a&er=0&l=20261006100951C95262CBE6D21152FF8E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cnE8OzozMzZoNEApNTs5N2RnZjs8Nzg6Zzc8OWdobDJsMmRrLWlhMi1kXjVzc15fLzA2MDMvMWIwLWNeLmM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 39,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oUOqbSdjUIgHUaBfkFVF90BEEsDQx7fsfVftEU?a=0&auth_key=1792520916-c4887a92e6d64605991d4a8d91f01a81-0-941a566256acda037f6cf52de661bb23&br=856&bt=856&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=ec206d2600bc4901a0aedfcfbad1b370&er=0&l=20261005050925C01C8712F63FB2B77A76&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cmk8OzozMzZoNEApOmVnZWZnZGQzN2UzNTk1aGdibDJsMmRzLWlhMi1kXjVzcy0wLl5jY2ItLjZgLTNhLWA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 40,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oYVeVVGgUIUQLx1D4geFbNLePFQWISUPfIBglQ?a=0&auth_key=1792371632-a4ebc47e3a7f4d3fbd37ef41389ae901-0-436c64a11185977bff19e51bbce21236&br=782&bt=782&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=cd627306d57848ddbf1cfa6a6a8fe444&er=0&l=2026100807060699F95A9465F1896C478E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzt5cWs5cnM8OzozMzZoNEApN2g7OTlpNGVnNzpnMzo5Zmc1aWw2MmRjLWlhMi1kXjVzczExY15eXmBjYTU1MjMwL2E6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 41,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o4GDIMisDisugbUqAQBvEgFwGy1KkAU1HUi7fN?a=0&auth_key=1792874501-39e99b60eff045d997a9bc3524de47cf-0-fe00e0c024f1a32bd4c3f4ab357742ef&br=718&bt=718&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=279bc31a2fdb464aa93c9c46a56e537f&er=0&l=20261011023020F36693578268B3A0BE23&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3VmO2o5cnE8OzozMzZoNEApOjg5ZDc8NmQ3N2c1NGY8NWczM2ttMmRjLWlhMi1kXjVzc2MwYjIzYGA2XjNfY14wXzQ6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 42,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/osAXHqpCNfBEqbFNVkEQlTfwKkqfcDhqakKIFD?a=0&auth_key=1792874496-502e0e6b8fae472186f76e485c6fda56-0-0b226e29ddf806b05eaf73fe2e25ddcf&br=805&bt=805&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=8624642d607645829cfaaccba9112f9f&er=0&l=20261011023020F36693578268B3A0BE24&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cmo8OzozMzZoNEApPDU0ZGZkaTw7Nzo5NTk1O2dic3BnMmRzLWlhMi1kXjVzc2NjLjZfYF5gLzIzLWExMTM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 43,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oEU1AqQIi0Iik4kvMKBIFlo7Gg2gBAQz1fEErs?a=0&auth_key=1792860426-43e25c8d62d8483fb5bdd18a2a6dc850-0-97fa84ebef368a459dd6faf4bd34cd7e&br=758&bt=758&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=23a1c70c36764cb39b16db4f5c06365a&er=0&l=20261012190529839B92B2906FA0953F74&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cnQ8OzozMzZoNEApODYzODdnNDxlNzo2M2ZkNWdmNmhoMmRjLWlhMi1kXjVzc14zM2BjXzNfMGAzM2A0LjA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 44,
+    "kind": "ok",
+    "url": "https://awscdn.netshort.com/ooLBPCUegIbQIJNULSfRLQIGVVIgVK1FOHeeLF?a=0&auth_key=1792971246-af90b801d4ee405c9cdde5010edd5e47-0-41d5bf1e331d697d2aa473dc2b648aac&br=687&bt=687&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=8277cfa547e14395adc6e85078dbbca9&er=0&l=202610102005599A9252C67D4D506641D4&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajt5cWs5cms8OzozMzZoNEApZGVnOjhoZmQ8N2g3ZGY6O2cwaWw2MmQ0LWlhMi1kXjVzczZgXzUtNTNhMjAuNDJjNC86Yw%3D%3D&vl=&vr=&Expires=1792500135&Signature=TnFsh7g1qxyPR~hCvojeKyvfRDGX0-MrtuvYdehWVl6oxN3evt89pz98jNfEYsj~KwVDBCorSFXk9TeUSH4noc7sHVOrQsS3FnWOR5qJIOO9xdx2iwyiCPRTVZQwpdZ93DRxVNrX9dYXknQAaPRO4BgdhMLk-J8qaWTrAMSWWZEDCQ8weOtjlB4v6w4BWCTg-fimp4st8lXKf7OPdZaqnR77WWKltxkl-fE8qrsxyeNfz3MW1hl34VCqJIkTI14a1J0cLhqNxCb4maj4QsTCoxlQ8TbTd7Sg9y~v2vqQ2nQjhxPW~yIvhuFL61eDtEYLPqmwT-XAAaorw60RTReN7w__&Key-Pair-Id=K15WUQYEZKHKVU",
+    "sub": null
+  },
+  {
+    "ep": 45,
+    "kind": "ok",
+    "url": "https://awscdn.netshort.com/osebCVIIVGaiXqgFUuCPkyVIGefmLBQIfFoUSE?a=0&auth_key=1792907520-f3a4b69790a6492ea353555413712dea-0-e9066eab15c6f033449f766111587cf2&br=768&bt=768&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=907fcbc2970d4eaa82910e3882d6f501&er=0&l=202610102004492A7B03EF45176F6858A5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cms8OzozMzZoNEApM2lnOzYzPDtkNzM8ZmY6PGdjc3BnMmRzLWlhMi1kXjVzcy4yMy81Yi4vXmJhNC9fYy06Yw%3D%3D&vl=&vr=&Expires=1792500135&Signature=YwyrKKb7jieFYfMNXZL8xBKCpY~chRtBxa8bbaQsxPv4-7HO6KIvc2Y82~4RhpphtTit1v3KXe0I0-~dgm30ntFGNOkUgAdpJ~BRiBrG0rgT5gf8O8ilGtI3MabjrJ2e1ypqKLutH-vFHDPxbkkcbIqIIiU9rOFLpU7PAOZWiWCb3qR-1fv2z9XPiYpSE35SHoZuRNoDOU6G92q-7MY0x7F9tOAnnLtIF75yQVJOYTRIPIqTYGqhstaoNYOarMqmWedJ4E-lLzUR8OAF6IchD~dDCKg3FWe7VbLYZgHa9Hlr6152CKt-Pstmqd8EU3e9~mTFXbRkuUrpusT5DbMneQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+    "sub": null
+  },
+  {
+    "ep": 46,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o4ByqHfgQ7bU1iH1PPwAvxsQiFEAkIiKGDQNMq?a=0&auth_key=1792971262-feb3b1e5bdae4d079065d67632461948-0-137bd4b864708473268dd03c4330ad8f&br=721&bt=721&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=52294cd7675b41be9d680fc52494a2f7&er=0&l=20261010200600CADA7B77CDE93A929067&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3VmO2o5cnI8OzozMzZoNEApaWQ8NWYzOTxlNzg5Zzc1OGc1M2ttMmRzLWlhMi1kXjVzczQvMTEyYzVhYi5fNDRgNi86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 47,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o0VffFISFUGHbWVICa4fLjqBeCgQcUEUkVIRuT?a=0&auth_key=1792907531-32f5a6b213be457da6db15c46cb3f40f-0-590e917958b3c7fa8a417af86dd64b94&br=799&bt=799&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=e92a099b8f5b4b9089afa8acb57500be&er=0&l=202610102004502A7B03EF45176F6858B7&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajdvZGo5cmw8OzozMzZoNEApZTM6ZWRkZDs8Nzg7PDM1aGdjc3BnMmQ0LWlhMi1kXjVzc2ItMjJgNWM2LV9fY182XjY6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 48,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okxCEmsGb10UogBkAIKirFH2Ifkg10iA2Qgzqv?a=0&auth_key=1792907536-3743ef34a10e49268e508a9f116c0f1e-0-c28338582904d05b21d6b9d3c7b2f36d&br=819&bt=819&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=a8c1d0252ab04f5a8190397a920d15e4&er=0&l=2026101020045131C1F667E4BE8B8857E1&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cnQ8OzozMzZoNEApaDQzPDo2PDs4N2U1NWdmZGdnNmhoMmRjLWlhMi1kXjVzczEyYS9eNi0uXmMtXjItLjU6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 49,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oEfGAAJ3bYedQxffOksUC2oACoVrCLlqif4vqg?a=0&auth_key=1792907530-2bd7d4a027da4521a8f91800d0ae7c78-0-236bb5d4e281b96f5f3f7ce1a1def9ce&br=825&bt=825&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=c5a3435118384d808f1d74d45d8b93a8&er=0&l=2026101020045231C1F667E4BE8B8857EE&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajt5cWs5cnM8OzozMzZoNEApZDw7OGc6NDs7NzY0ODdkZmc1aWw2MmRrLWlhMi1kXjVzczUwX2ExMWFjLWE1NS4wMDI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 50,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o4AmvkrFGi8Ko1UQI1iBzGfXEUFFKgg2AsqmkG?a=0&auth_key=1792148293-1b3729f3008c417ab99e095912381d0e-0-b6e772609aec93805b9d20ae8dc24a92&br=782&bt=782&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=36d0ab2c08bd4727843db52be61bff02&er=0&l=202610031907242DAF6DA6FBE5E0FAA9D5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cm08OzozMzZoNEApM2k0aDVlNjs1N2UzNWRnNmdfNmhoMmRjLWlhMi1kXjVzcy9jXzNfMmExNDRhNWBfLTM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 51,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oYENscEqf4gUWaDsCqflFxfwQBIOGMaQApKqkq?a=0&auth_key=1792907604-37d12f0b548b4be08d1962acc8b0adb1-0-196db84ae82a5227f84b9da63f1cb28a&br=673&bt=673&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=fe18aa3474cb4b91a2accc57826641d8&er=0&l=2026101020045331C1F667E4BE8B8857F5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cm48OzozMzZoNEApZzc5OzhmZGQ8N2Y6NmQ0aWdmbDJsMmQ0LWlhMi1kXjVzczUuMy80YGAvLl9fMTFeNWI6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 52,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o8QIwEkTqfBEANhkNFfXpqDCXJKJiEqfGHKSQq?a=0&auth_key=1792874537-ee807754528c4acd96a7e0cc67828570-0-921539369548ed0ad3be49347dd928d6&br=645&bt=645&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=37f0b41dcfd045e1b650ca4a592f3b29&er=0&l=202610110230217032E6ECCCC6BF9B1D68&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cm48OzozMzZoNEApNTY1ODdmOGVoN2dmNGVpNmdlc3BnMmRrLWlhMi1kXjVzczZfYzZeXi0zLjItY2ExLTQ6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 53,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocHqtoqKffIONBshQDNqfICWkEAwFqI6mpKEZi?a=0&auth_key=1792744918-c27984d487cb4dae914a26d618ed6329-0-80dcfab5608bd6a49a56372bce6b14f0&br=688&bt=688&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=7745b92466004285a4b272edc970179d&er=0&l=20261010184757DD6CD13F501661700A49&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzt5cWs5cnU8OzozMzZoNEApPDQ6Zmg6ZWQ7NzM5NWU3OmdfaWw2MmRjLWlhMi1kXjVzc2E0LTZhLy8xMi8tMzE2MjQ6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 54,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o0l1gzQpIirg0GLAUk11qBHAFEa2skFfKvoigG?a=0&auth_key=1792744920-963cb598f11c44b29209d5728b7d219e-0-56b0bb71991fa23388e587064a2e0d6e&br=746&bt=746&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=1be89488484941189c27970cf9786b91&er=0&l=20261010184758DD6CD13F501661700A5A&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cnQ8OzozMzZoNEApPDk6aTM8NTw0Nzc3OzxoNGdoNmhoMmRzLWlhMi1kXjVzcy5fNTZgNDRgNS42NTUxNV86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 55,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o0jBpQwDqCkhkNfFEMDphfINqAKqfKrqXNEGcV?a=0&auth_key=1792610206-b3055be6aba7412ebd88acff1755f397-0-fd3d2ebf921df217cb4eb25d67f06836&br=810&bt=810&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=c9507a7392b04b42a11f6811d4d1fbbf&er=0&l=20261011050644AC54A11A932BDD7DD4F9&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajdvZGo5cm88OzozMzZoNEApZWlnZzQ5NGQ3N2U8Ojo4Zmdlc3BnMmRjLWlhMi1kXjVzc2NfLjEuNWMuL18tLzBeLTY6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 56,
+    "kind": "ok",
+    "url": "https://video.netshort.com/oUU12FQ8oikovAsVg1z1GEKLgiIxfArBEqkILJ?a=0&auth_key=1792907586-584364ebcf1341b8bc4e53b8ee83b459-0-bb86a047109fbc733b47520acee59dfb&br=701&bt=701&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&eid=b4e1d6188a7045bdac84aea01ac0f1eb&er=0&l=2026101020045331C1F667E4BE8B8857F9&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cnQ8OzozMzZoNEApaGlmNGRkO2RlNzo7NGdoZWdoNmhoMmRzLWlhMi1kXjVzc18uLV4tYjFgYTItXjUzLjE6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 57,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o0kquNBEoXNKQEYIACFqfkgDquwVLAkIfpKqfh?a=0&auth_key=1792610211-f39638c6353f4d399ebcee1a51edf5c3-0-3874da538a731e3a06f70977d8f3338a&br=759&bt=759&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=b79dc4d29a554222a5ddc60d6123e319&er=0&l=20261011050645AC54A11A932BDD7DD501&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cnU8OzozMzZoNEApNGg1OTNmZ2Q1Nzg8Z2Y8ZWdrc3BnMmRrLWlhMi1kXjVzczYwMC5hM2EyLy8yXi8xYTQ6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 58,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o8qNIUwN4qfpRJDJAZqFXKQtQfIBquECtgBnVf?a=0&auth_key=1792688340-fe29835680644d9693b6fd6bd5ee5d34-0-d960c9b430d9372218b1ca11faf5fa77&br=727&bt=727&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=9dd351bfb69d478d89f3d30c7291c269&er=0&l=2026101105063400F23AFCE0C998749E51&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1Z205cnU8OzozMzZoNEApOWY8OjNnaTs7NzxlZThnPGdpNmhoMmRrLWlhMi1kXjVzczYvLi9gMDA2YTRhM2MuMGE6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 59,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oEJLYUFfQObgxDcbpeCaVISVUQNIuGoeVgIVfB?a=0&auth_key=1792907594-612483ac77734db88cafe62342eb5d5b-0-d409cc2f2ca5046da710a50355636dde&br=826&bt=826&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=3fc7553f002a466db8bde7e549f52eca&er=0&l=2026101020045431C1F667E4BE8B885800&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzdvZGo5cnU8OzozMzZoNEApZjVpN2hoZWU5NzUzNjhmNmdqc3BnMmRjLWlhMi1kXjVzc15iMjYyNGE1YTNeLWMyNGM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 60,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/oooq4mBELfNHQE7ISCFqfkkDqZw4QAYIfpKq6i?a=0&auth_key=1792907618-7cc5b6eaef1e44d9863703ce80f38997-0-98ffbbad43afa0ad90fe48eb78767350&br=815&bt=815&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=bdbf2ef8e74049d8817f355c294d5f44&er=0&l=20261010200455CADA7B77CDE93A928D68&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajt5cWs5cng8OzozMzZoNEApNzg3NTg2OjtnNzdoaTVlZWdgaWw2MmQ0LWlhMi1kXjVzczFjYTZgMmMuNTYtNDViY2E6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 61,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okPqDQab6ZAwjFWQLqsyi1k6MiPXiBIiEIRQ7?a=0&auth_key=1792907621-3d713bb0f58446ebbfb45e44a359c3b7-0-0d1063551b8baf8910c3a8f7a8156dac&br=808&bt=808&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=efe1ff6b363849be9b3d5342c04c24d4&er=0&l=20261010200456C055A8520F981269FCA2&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anVmO2o5cnM8OzozMzZoNEApZzU3Zjc4NjxlNzY2OWloaGc1M2ttMmQ0LWlhMi1kXjVzczExYC0vMGFfYjY1M19jLmM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 62,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocIqEQAyNksKfVDqxFwQfOiUwBfqsEPqwspICN?a=0&auth_key=1792454658-5ecdfbd3b71d45d98b4bbead5af18d3b-0-ae83d37bebb4dd95f3e1b27199c9eca6&br=882&bt=882&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=6bcdda3a3ca94735b391cc2253f24d3f&er=0&l=2026100419225196689D66B2B5BC7317B5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2hsb3k5cnU8OzozMzZoNEApNjdpODVmPGU2N2Q2NmdmOWdsbDJsMmQ0LWlhMi1kXjVzc2NhLzAvYC4wMjQ2YF5eYV86Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 63,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/osZgkUjoBE4IrqzgvkiQsDG4rAfb1QAIiBK21F?a=0&auth_key=1793140742-9ff5b58319304a128674db4fc306f97b-0-c1e9789b5e47c719ce73a73d4f091ba6&br=897&bt=897&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=bd13e571b044470c80fe9028fe02fa1f&er=0&l=20261013023032E991AE406BABBE888932&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amU1Z205cnY8OzozMzZoNEApNGkzaTU8aTszNzdlOmg0ZWdpNmhoMmRjLWlhMi1kXjVzc2NeL2I1LWItYDQxLS4yMGE6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 64,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/okvQqiDegFyJBk8RGPiAUd1wKsiHAQKEb1i7Ia?a=0&auth_key=1792454676-94302737e50c4e2f875e785d35063eff-0-2c3b0358a87b26707db70889ace4e08e&br=868&bt=868&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=76cad13162184baa8c9b729dea2cfbf8&er=0&l=20261004192254FEEC613AF5290174BFCD&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3VmO2o5cng8OzozMzZoNEApaWk1aDw6PDtkNzQ5NmdmOmdhM2ttMmQ0LWlhMi1kXjVzczVfYF5hL19gXl81Ly4uXjM6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 65,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ooaNiKEQHTm3SqwJqfB5ktqIDffJFAQo6CsqpE?a=0&auth_key=1792907651-d35b3ed0056f4d079756cc55f29b1a54-0-12b7da9381bfe287575769e53fcd2e53&br=833&bt=833&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=d32414b135cd4e7f8aaadcc287021851&er=0&l=2026101020045731C1F667E4BE8B885837&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzt5cWs5cng8OzozMzZoNEApODQzO2ZnZDs6N2Y2ZTQ1Z2dhaWw2MmRjLWlhMi1kXjVzcy41LzQvYF5eY2JhMi4xMTA6Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 66,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/ocEGsQNqIAffJEsqQqdqU0xswCFBOkKDpvv5Cf?a=0&auth_key=1792454659-87d5e3769ef44957a07712a696868b7c-0-6748e3ebeb39d458ebf735dd480667f5&br=919&bt=919&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=ba117598f735446183420b6495037b1b&er=0&l=20261004192252FEEC613AF5290174BFC7&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2hsb3k5cng8OzozMzZoNEApNDozPDkzNzs5NzZpPDo0ZWdubDJsMmRjLWlhMi1kXjVzc19fMDIxXy8wLjEyNDUyLl46Yw%3D%3D&vl=&vr=",
+    "sub": null
+  },
+  {
+    "ep": 67,
+    "kind": "ok",
+    "url": "https://ns-aws-cdn.netshort.com/o8zNfKEEsOxA0qwIqUB4k7qIDffnFAQOsCWqpE?a=0&auth_key=1792907611-beb4ef24f121491da12a4ea65d3e62dc-0-10648d3ba3c46a8292dcdd7322fba7fc&br=771&bt=771&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=6&ds=6&eid=aacd0791b9d44dfb8ae51e63c0919090&er=0&l=2026101020045808E09A81B81454819076&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amhsb3k5cng8OzozMzZoNEApPDw8Zjk0aDtpN2dlPDNmZGdtbDJsMmQ0LWlhMi1kXjVzcy0tLi0wYjJeX2ExNi40YV46Yw%3D%3D&vl=&vr=",
+    "sub": null
+  }
+]
