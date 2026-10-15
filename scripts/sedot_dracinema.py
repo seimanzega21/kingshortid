@@ -51,10 +51,8 @@ DESCRIPTION       = 'Dibuang ke tahanan remaja, Astra diselamatkan ayah kandung 
 TEMP_DIR    = Path("D:/temp_scraper") / SLUG
 TEMP_DIR.mkdir(parents=True, exist_ok=True)
 
-LOCAL_DIR_FB = Path("D:/Video Drama/Facebook") / TITLE
-LOCAL_DIR_VD = Path("D:/Video Drama") / TITLE
-LOCAL_DIR_FB.mkdir(parents=True, exist_ok=True)
-LOCAL_DIR_VD.mkdir(parents=True, exist_ok=True)
+LOCAL_DIR = Path("D:/Video Drama/Facebook") / TITLE
+LOCAL_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── R2 CLIENT ─────────────────────────────────────────────────────────────────
 s3 = boto3.client('s3', endpoint_url=R2_ENDPOINT,
@@ -176,8 +174,7 @@ def ensure_cover():
 def process_episode(drama_id, ep_num, m3u8_url):
     k720 = f"{PREFIX}/ep{ep_num:03d}.mp4"
     k540 = f"{PREFIX}/ep{ep_num:03d}_540p.mp4"
-    local_fb = LOCAL_DIR_FB / f"ep{ep_num:03d}.mp4"
-    local_vd = LOCAL_DIR_VD / f"ep{ep_num:03d}.mp4"
+    local_file = LOCAL_DIR / f"ep{ep_num:03d}.mp4"
 
     # 1. Cek apakah sudah ada di R2
     if r2_exists(k720) and r2_exists(k540):
@@ -186,14 +183,13 @@ def process_episode(drama_id, ep_num, m3u8_url):
         u540 = f"{R2_PUBLIC}/{k540}"
         upsert_episode(drama_id, ep_num, u720, u540)
         # Cek local
-        if not local_fb.exists():
+        if not local_file.exists():
             try:
                 r_dl = requests.get(u720, stream=True, timeout=60)
                 if r_dl.ok:
-                    with open(local_fb, 'wb') as f:
+                    with open(local_file, 'wb') as f:
                         for chunk in r_dl.iter_content(chunk_size=1024*1024):
                             if chunk: f.write(chunk)
-                    shutil.copy2(local_fb, local_vd)
             except Exception:
                 pass
         print(" [OK]")
@@ -221,10 +217,9 @@ def process_episode(drama_id, ep_num, m3u8_url):
     u720 = r2_upload(raw_mp4, k720)
     u540 = r2_upload(out_540, k540)
 
-    # Simpan ke folder lokal
+    # Simpan ke folder lokal (hanya 1 tempat)
     try:
-        shutil.copy2(raw_mp4, local_fb)
-        shutil.copy2(raw_mp4, local_vd)
+        shutil.copy2(raw_mp4, local_file)
     except Exception as e:
         print(f" [WARN local copy: {e}]", end="")
 
@@ -273,8 +268,7 @@ def main():
     print(f"\n[HASIL] Berhasil memproses {success}/{len(ep_urls)} episode!")
     print(f"Video tersimpan di:")
     print(f"  - Cloudflare R2: {R2_PUBLIC}/{PREFIX}/")
-    print(f"  - Local FB: {LOCAL_DIR_FB}")
-    print(f"  - Local VD: {LOCAL_DIR_VD}")
+    print(f"  - Local Storage: {LOCAL_DIR}")
     print("=" * 60)
 
 if __name__ == "__main__":

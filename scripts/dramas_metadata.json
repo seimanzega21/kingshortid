@@ -1,0 +1,72 @@
+{
+  "drama1": {
+    "title": "Penguasa Sihir",
+    "slug": "penguasa-sihir",
+    "movie_key": "penguasa-sihir-ns_2108502039932768257",
+    "total_eps": 51,
+    "cover_url": "https://img.mebilu.com/uXiko9HaTvP1DXRnKx6w7kXiSIOdXLxdCacNtK6LXBofGaFNLpFqj6izCrpWMJ5JKkZyosKiv5RcrA.webp",
+    "genres": [
+      "Fantasi",
+      "Kekuatan Sakti",
+      "Drama"
+    ],
+    "prefix": "dracinema/penguasa-sihir",
+    "local_dir": "D:/Video Drama/Facebook/Penguasa Sihir"
+  },
+  "drama2": {
+    "title": "Pengasuh Penakluk Bos Mafia",
+    "slug": "pengasuh-penakluk-bos-mafia",
+    "movie_key": "pengasuh-penakluk-bos-mafia-ns_2108386528716472322",
+    "total_eps": 30,
+    "cover_url": "https://img.mebilu.com/6WI3M6Nx0-XMtvzYa0qo9Q_sMLEnJFIzGOO9Fx_RfoSVosTpmV28-7GNKKk-3ey-x58iJ6CnMza57A.webp",
+    "genres": [
+      "Bos Mafia",
+      "Romantis",
+      "Drama"
+    ],
+    "prefix": "dracinema/pengasuh-penakluk-bos-mafia",
+    "local_dir": "D:/Video Drama/Facebook/Pengasuh Penakluk Bos Mafia"
+  },
+  "drama3": {
+    "title": "Ibu Tiri Bayaran Bos Mafia",
+    "slug": "ibu-tiri-bayaran-bos-mafia",
+    "movie_key": "ibu-tiri-bayaran-bos-mafia-ns_2102973763346890753",
+    "total_eps": 30,
+    "cover_url": "https://img.mebilu.com/m2nSavvmwQ6nh68AyQIMnmps6MSFKDFyTjAs1_ysbrfGo-2r202aO6NjxMxAbtgZusvAQXWFKA2jUg.webp",
+    "genres": [
+      "Bos Mafia",
+      "Keluarga",
+      "Drama"
+    ],
+    "prefix": "dracinema/ibu-tiri-bayaran-bos-mafia",
+    "local_dir": "D:/Video Drama/Facebook/Ibu Tiri Bayaran Bos Mafia"
+  },
+  "drama4": {
+    "title": "Kebangkitan Gadis Jelek",
+    "slug": "kebangkitan-gadis-jelek",
+    "movie_key": "kebangkitan-gadis-jelek-fr_5499",
+    "total_eps": 80,
+    "cover_url": "https://img.mebilu.com/3mPmUsYc8nrYV9c_Ak7yLZB9kWv9ghaEmf2ezSiufXk2GYw7-BL-gav8_g.webp",
+    "genres": [
+      "Pembalasan",
+      "Romantis",
+      "Drama"
+    ],
+    "prefix": "dracinema/kebangkitan-gadis-jelek",
+    "local_dir": "D:/Video Drama/Facebook/Kebangkitan Gadis Jelek"
+  },
+  "drama5": {
+    "title": "Jangan Usik Dia,Dia Raja L.A.",
+    "slug": "jangan-usik-dia-dia-raja-l-a",
+    "movie_key": "jangan-usik-dia-dia-raja-l-a-ft_14886",
+    "total_eps": 60,
+    "cover_url": "https://img.mebilu.com/ZdIpllKIcCNw2a08BmzQ9QvIiwfB5RoB08eUXDm73pk0HxTjagYoWtCLHAc.webp",
+    "genres": [
+      "Aksi",
+      "Penguasa",
+      "Drama"
+    ],
+    "prefix": "dracinema/jangan-usik-dia-dia-raja-l-a",
+    "local_dir": "D:/Video Drama/Facebook/Jangan Usik Dia,Dia Raja L.A."
+  }
+}
