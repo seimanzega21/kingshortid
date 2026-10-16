@@ -171,6 +171,10 @@ def download_video(url, out_mp4):
         headers_list.append("Referer: https://dramapetir.com/")
     elif "mydramawave.com" in url:
         headers_list.append("Referer: https://mydramawave.com/")
+    elif "shorttv.live" in url:
+        headers_list.append("Referer: https://shorttv.live/")
+    elif "farsunpteltd.net" in url:
+        headers_list.append("Referer: https://freereels.com/")
 
     header_str = "\r\n".join(headers_list) + "\r\n"
 
@@ -292,6 +296,10 @@ def process_episode(drama_id, meta, ep_num, temp_dir):
                 sub_hdrs = {'User-Agent': 'Mozilla/5.0'}
                 if 'dramapetir.com' in sub_url:
                     sub_hdrs['Referer'] = 'https://dramapetir.com/'
+                elif 'mydramawave.com' in sub_url:
+                    sub_hdrs['Referer'] = 'https://mydramawave.com/'
+                elif 'shorttv.live' in sub_url:
+                    sub_hdrs['Referer'] = 'https://shorttv.live/'
                 else:
                     sub_hdrs['Referer'] = 'https://www.dracinema.com/'
                 r_sub = requests.get(sub_url, headers=sub_hdrs, timeout=15)
