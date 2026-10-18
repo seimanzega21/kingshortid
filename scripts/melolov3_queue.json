@@ -1020,5 +1020,19 @@
     "slug": "koperasi-udang-jadi-kaya",
     "totalEpisodes": 40,
     "status": "done"
+  },
+  {
+    "id": "7683811399138561077",
+    "title": "Diusir dari Rumah, Dia Menjadi Sang Dewa Laut",
+    "slug": "diusir-dari-rumah-dia-menjadi-sang-dewa-laut",
+    "totalEpisodes": 80,
+    "status": "processing"
+  },
+  {
+    "id": "7695228663121366069",
+    "title": "Aku Panen Ikan di Laut dan Membuka Gerbang Surga",
+    "slug": "aku-panen-ikan-di-laut-dan-membuka-gerbang-surga",
+    "totalEpisodes": 78,
+    "status": "pending"
   }
 ]
