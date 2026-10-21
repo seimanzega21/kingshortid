@@ -1,0 +1,15 @@
+import paramiko
+
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect('141.11.160.187', username='root', password='Surya123!', timeout=10)
+
+stdin, stdout, stderr = ssh.exec_command('docker ps --filter "name=kingshort" --format "table {{.Names}}\t{{.Ports}}\t{{.Status}}"')
+print("=== KSHORT DOCKER PORTS ===")
+print(stdout.read().decode())
+
+stdin, stdout, stderr = ssh.exec_command('ufw status verbose')
+print("=== UFW STATUS ===")
+print(stdout.read().decode())
+
+ssh.close()
