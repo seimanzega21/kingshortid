@@ -982,16 +982,28 @@ export default function DramaDetailPage() {
                                     font-weight: 500 !important;
                                 }
                             `}} />
-                            <video 
-                                src={previewEpisode.videoUrl} 
-                                controls 
-                                autoPlay 
+                            <video
+                                src={previewEpisode.videoUrl}
+                                controls
+                                autoPlay
                                 className="w-full h-full outline-none"
                                 crossOrigin="anonymous"
+                                onPlay={(e) => {
+                                    const tracks = e.currentTarget.textTracks;
+                                    for (let i = 0; i < tracks.length; i++) {
+                                        tracks[i].mode = 'showing';
+                                    }
+                                }}
+                                onTimeUpdate={(e) => {
+                                    const tracks = e.currentTarget.textTracks;
+                                    for (let i = 0; i < tracks.length; i++) {
+                                        if (tracks[i].mode !== 'showing') {
+                                            tracks[i].mode = 'showing';
+                                        }
+                                    }
+                                }}
                                 ref={(videoEl) => {
                                     if (!videoEl || !previewEpisode.subtitleUrl) return;
-                                    // Force-enable the subtitle track after a short delay
-                                    // because the `default` attribute is unreliable in Chromium
                                     const enableTrack = () => {
                                         const tracks = videoEl.textTracks;
                                         for (let i = 0; i < tracks.length; i++) {
@@ -1000,18 +1012,23 @@ export default function DramaDetailPage() {
                                             }
                                         }
                                     };
-                                    // Try immediately and after tracks load
                                     enableTrack();
                                     videoEl.addEventListener('loadedmetadata', enableTrack, { once: true });
                                 }}
                             >
                                 {previewEpisode.subtitleUrl && (
-                                    <track 
-                                        src={previewEpisode.subtitleUrl} 
-                                        kind="subtitles" 
-                                        srcLang="id" 
-                                        label="Indonesian" 
-                                        default 
+                                    <track
+                                        src={previewEpisode.subtitleUrl}
+                                        kind="subtitles"
+                                        srcLang="id"
+                                        label="Indonesian"
+                                        default
+                                        onLoad={(e) => {
+                                            const trackEl = e.currentTarget as HTMLTrackElement;
+                                            if (trackEl && trackEl.track) {
+                                                trackEl.track.mode = 'showing';
+                                            }
+                                        }}
                                     />
                                 )}
                             </video>

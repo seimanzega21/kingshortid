@@ -52,6 +52,15 @@ class BridgeHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b'OK')
 
+        # Browser posts batch dump here
+        elif self.path == '/dump':
+            with open('D:/temp_scraper/kelahiran_dump.json', 'w', encoding='utf-8') as f:
+                json.dump(body, f, ensure_ascii=False, indent=2)
+            self.send_response(200)
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(b'OK')
+
         # Python client asks for playback here
         elif self.path == '/request':
             req_id = body.get('id')
