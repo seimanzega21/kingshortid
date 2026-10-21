@@ -83,44 +83,49 @@ def r2_upload(local_path, key, content_type='video/mp4'):
                    Config=boto3.s3.transfer.TransferConfig(multipart_threshold=30*1024*1024, multipart_chunksize=10*1024*1024))
     return f"{R2_PUBLIC}/{key}"
 
-# ── SUBTITLE POSITIONING & PROCESSING ─────────────────────────────────────────
-LINE_SETTING = "line:88% position:50% align:center"
-
+# ── SUBTITLE CLEANING & PROCESSING ───────────────────────────────────────────
 def format_vtt_with_positioning(raw_text):
     """
-    Format WebVTT subtitle and ensure each cue has line:88% position:50% align:center
-    so it renders cleanly beneath the Chinese hardsub.
+    Format WebVTT subtitle cleanly with empty lines between cues and clean timestamps.
+    Position is controlled on the player side via bottomOffset (20%).
     """
     if not raw_text or not raw_text.strip():
         return ""
 
     raw_text = raw_text.replace('\r\n', '\n').replace('\r', '\n')
     lines = raw_text.split('\n')
-    out_lines = ["WEBVTT\n"]
-
-    time_re = re.compile(r'(\d{2}:)?(\d{2}:\d{2}[.,]\d{3})\s*-->\s*(\d{2}:)?(\d{2}:\d{2}[.,]\d{3})(.*)')
+    cues = []
+    cur_time = None
+    cur_text = []
+    time_re = re.compile(r'(\d{2}:)?(\d{2}:\d{2}[.,]\d{3})\s*-->\s*(\d{2}:)?(\d{2}:\d{2}[.,]\d{3})')
 
     for line in lines:
-        stripped = line.strip()
-        if not stripped or stripped.startswith("WEBVTT") or stripped.startswith("NOTE"):
+        s = line.strip()
+        if not s or s.startswith("WEBVTT") or s.startswith("NOTE") or s.startswith("Kind:") or s.startswith("Language:"):
             continue
+        m = time_re.search(s)
+        if m:
+            if cur_time and cur_text:
+                cues.append((cur_time, "\n".join(cur_text)))
+            s1 = m.group(1) or "00:"
+            s2 = m.group(2).replace(',', '.')
+            e1 = m.group(3) or "00:"
+            e2 = m.group(4).replace(',', '.')
+            cur_time = f"{s1}{s2} --> {e1}{e2}"
+            cur_text = []
+        elif not s.isdigit():
+            clean_s = re.sub(r'line:\d+%.*$', '', s).strip()
+            clean_s = re.sub(r'<[^>]+>', '', clean_s)
+            if clean_s:
+                cur_text.append(clean_s)
 
-        match = time_re.search(stripped)
-        if match:
-            # Reconstruct start and end time
-            start_prefix = match.group(1) or "00:"
-            start_rest = match.group(2).replace(',', '.')
-            start_time = f"{start_prefix}{start_rest}"
+    if cur_time and cur_text:
+        cues.append((cur_time, "\n".join(cur_text)))
 
-            end_prefix = match.group(3) or "00:"
-            end_rest = match.group(4).replace(',', '.')
-            end_time = f"{end_prefix}{end_rest}"
-
-            out_lines.append(f"{start_time} --> {end_time} {LINE_SETTING}")
-        else:
-            out_lines.append(line)
-
-    return "\n".join(out_lines).strip() + "\n"
+    out = ["WEBVTT\n"]
+    for i, (ctime, ctext) in enumerate(cues, 1):
+        out.append(f"{i}\n{ctime}\n{ctext}\n")
+    return "\n".join(out).strip() + "\n"
 
 def generate_subtitles_ai(audio_path):
     """
@@ -134,10 +139,9 @@ def generate_subtitles_ai(audio_path):
             "Transcribe the dialogue in this Chinese audio clip and translate it into natural, fluent Indonesian in WebVTT subtitle format.\n"
             "Requirements:\n"
             "1. Output MUST start with 'WEBVTT'.\n"
-            f"2. Every cue timing line MUST include: '--> <end_time> {LINE_SETTING}'.\n"
-            "3. Translate accurately into everyday natural Indonesian suitable for short drama dubbing/subtitles.\n"
-            "4. Output ONLY the Indonesian translation text (do NOT include any Chinese characters).\n"
-            "5. Output pure WebVTT text directly, no markdown formatting (no ```vtt blocks)."
+            "2. Translate accurately into everyday natural Indonesian suitable for short drama dubbing/subtitles.\n"
+            "3. Output ONLY the Indonesian translation text (do NOT include any Chinese characters).\n"
+            "4. Output pure WebVTT text directly, no markdown formatting (no ```vtt blocks)."
         )
 
         headers = {
@@ -289,6 +293,24 @@ def ensure_cover():
     except Exception as e:
         print(f"  -> [WARN] Cover error: {e}")
 
+# ── BRIDGE CLIENT FOR FRESH URLS ──────────────────────────────────────────────
+def get_fresh_playback_from_bridge(ep_num):
+    for attempt in range(3):
+        try:
+            payload = {
+                'id': str(uuid.uuid4()),
+                'movieKey': MOVIE_KEY,
+                'episode': ep_num
+            }
+            r = requests.post('http://127.0.0.1:20199/request', json=payload, timeout=30)
+            if r.status_code == 200:
+                res = r.json()
+                if res.get('ok') and res.get('data', {}).get('kind') == 'ok':
+                    return res['data']
+        except Exception:
+            time.sleep(2)
+    return None
+
 # ── LOAD METADATA DUMP ────────────────────────────────────────────────────────
 def load_dump_items():
     if DUMP_FILE.exists():
@@ -341,9 +363,18 @@ def process_episode(drama_id, ep_num, ep_meta):
     audio_mp3 = TEMP_DIR / f"audio_{ep_num:03d}.mp3"
 
     if not download_hls_video(video_url, raw_mp4):
-        print(" [GAGAL DOWNLOAD]")
-        if raw_mp4.exists(): raw_mp4.unlink()
-        return False
+        print(" [Expired/Gagal - Ambil URL Fresh via Bridge...]", end="", flush=True)
+        fresh = get_fresh_playback_from_bridge(ep_num)
+        if fresh and fresh.get('url'):
+            video_url = fresh['url']
+            if not download_hls_video(video_url, raw_mp4):
+                print(" [GAGAL RETRY DOWNLOAD]")
+                if raw_mp4.exists(): raw_mp4.unlink()
+                return False
+        else:
+            print(" [GAGAL DAPAT URL FRESH]")
+            if raw_mp4.exists(): raw_mp4.unlink()
+            return False
 
     size_mb = raw_mp4.stat().st_size / (1024 * 1024)
     print(f" ({size_mb:.1f} MB) 540p...", end="", flush=True)
@@ -438,6 +469,15 @@ def main():
         if ep_meta and process_episode(drama_id, ep, ep_meta):
             success += 1
         time.sleep(0.5)
+
+    # Check if any episode is missing, and retry it
+    missing = [e for e in range(1, TOTAL_EPS + 1) if not (LOCAL_DIR / f"ep{e:03d}.mp4").exists()]
+    if missing:
+        print(f"\n[RETRY] Memproses episode yang belum lengkap: {missing}...")
+        for ep in missing:
+            ep_meta = dump_items.get(ep, {})
+            if process_episode(drama_id, ep, ep_meta):
+                success += 1
 
     print("\n" + "=" * 60)
     print(f"[HASIL] Selesai {TITLE}: {success}/{TOTAL_EPS} episode.")
