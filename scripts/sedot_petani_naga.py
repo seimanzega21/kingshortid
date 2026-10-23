@@ -239,10 +239,11 @@ def get_feather_mask(w, h):
 
     mask_path = TEMP_DIR / f"mask_{w}_{h}.png"
     mask = np.zeros((h, w), dtype=np.float32)
-    y1 = int(0.64 * h)
-    y2 = int(0.67 * h)
-    y3 = int(0.71 * h)
-    y4 = int(0.74 * h)
+    # Wider mask to generously cover both single-line and multi-line subtitles
+    y1 = int(0.58 * h)
+    y2 = int(0.63 * h)
+    y3 = int(0.76 * h)
+    y4 = int(0.81 * h)
 
     for y in range(y1, y2):
         mask[y, :] = (y - y1) / (y2 - y1)
@@ -276,7 +277,7 @@ def apply_feathered_blur(raw_file, out_file):
         'ffmpeg', '-y',
         '-i', str(raw_file),
         '-loop', '1', '-i', str(mask_file),
-        '-filter_complex', '[0:v]boxblur=30:8[b];[0:v][b][1:v]maskedmerge[v]',
+        '-filter_complex', '[0:v]gblur=sigma=30[b];[0:v][b][1:v]maskedmerge[v]',
         '-map', '[v]', '-map', '0:a?',
         '-c:v', 'libx264', '-crf', '23', '-preset', 'fast',
         '-c:a', 'copy',
@@ -379,6 +380,8 @@ def generate_subtitles_ai(audio_path):
     return None
 
 # ── PROCESS EPISODE ───────────────────────────────────────────────────────────
+FORCE_REBLUR = True
+
 def process_episode(drama_id, ep_num, cached_urls):
     k720 = f"{PREFIX}/ep{ep_num:03d}.mp4"
     k540 = f"{PREFIX}/ep{ep_num:03d}_540p.mp4"
@@ -387,8 +390,8 @@ def process_episode(drama_id, ep_num, cached_urls):
     local_file = LOCAL_DIR / f"ep{ep_num:03d}.mp4"
     local_vtt = LOCAL_DIR / f"ep{ep_num:03d}.vtt"
 
-    # 1. Cek jika sudah lengkap di R2
-    if r2_exists(k720) and r2_exists(k540) and r2_exists(kvtt):
+    # 1. Cek jika sudah lengkap di R2 dan tidak dipaksa re-blur
+    if not FORCE_REBLUR and r2_exists(k720) and r2_exists(k540) and r2_exists(kvtt):
         print(f"  -> Ep {ep_num:02d}: Sudah lengkap di R2. Link DB...", end="", flush=True)
         u720 = f"{R2_PUBLIC}/{k720}"
         u540 = f"{R2_PUBLIC}/{k540}"
@@ -421,7 +424,6 @@ def process_episode(drama_id, ep_num, cached_urls):
     try:
         r_vid = requests.get(video_url, headers={'User-Agent': 'Mozilla/5.0'}, stream=True, timeout=60)
         if not r_vid.ok:
-            # Coba fresh url jika 403 / expired
             video_url = fetch_fresh_video_url(ep_num)
             r_vid = requests.get(video_url, headers={'User-Agent': 'Mozilla/5.0'}, stream=True, timeout=60)
             if not r_vid.ok:
@@ -437,9 +439,9 @@ def process_episode(drama_id, ep_num, cached_urls):
         return False
 
     size_mb = raw_mp4.stat().st_size / (1024 * 1024)
-    print(f" ({size_mb:.1f} MB) FeatherBlur...", end="", flush=True)
+    print(f" ({size_mb:.1f} MB) FeatherBlur(Wide)...", end="", flush=True)
 
-    # 3. Feathered Blur
+    # 3. Feathered Blur (Wide mask + Gaussian Blur)
     if not apply_feathered_blur(raw_mp4, blur_mp4):
         print(" [GAGAL BLUR]")
         raw_mp4.unlink(missing_ok=True)
@@ -455,20 +457,23 @@ def process_episode(drama_id, ep_num, cached_urls):
         out_540.unlink(missing_ok=True)
         return False
 
-    # 5. Extract audio & Generate Subtitle AI
-    print(" Sub AI...", end="", flush=True)
-    cmd_aud = ['ffmpeg', '-y', '-i', str(raw_mp4), '-vn', '-c:a', 'mp3', '-b:a', '64k', '-ar', '16000', '-loglevel', 'error', str(audio_mp3)]
-    vtt_content = None
-    if subprocess.run(cmd_aud).returncode == 0 and audio_mp3.exists():
-        vtt_content = generate_subtitles_ai(audio_mp3)
-        audio_mp3.unlink(missing_ok=True)
-
-    if vtt_content and len(vtt_content) > 30:
-        local_vtt.write_text(vtt_content, encoding='utf-8')
-        s3.upload_file(str(local_vtt), R2_BUCKET, kvtt, ExtraArgs={'ContentType': 'text/vtt'})
+    # 5. Extract audio & Generate Subtitle AI if needed
+    if local_vtt.exists() and local_vtt.stat().st_size > 30:
         print(" [VTT OK]", end="", flush=True)
     else:
-        print(" [No Sub]", end="", flush=True)
+        print(" Sub AI...", end="", flush=True)
+        cmd_aud = ['ffmpeg', '-y', '-i', str(raw_mp4), '-vn', '-c:a', 'mp3', '-b:a', '64k', '-ar', '16000', '-loglevel', 'error', str(audio_mp3)]
+        vtt_content = None
+        if subprocess.run(cmd_aud).returncode == 0 and audio_mp3.exists():
+            vtt_content = generate_subtitles_ai(audio_mp3)
+            audio_mp3.unlink(missing_ok=True)
+
+        if vtt_content and len(vtt_content) > 30:
+            local_vtt.write_text(vtt_content, encoding='utf-8')
+            s3.upload_file(str(local_vtt), R2_BUCKET, kvtt, ExtraArgs={'ContentType': 'text/vtt'})
+            print(" [VTT Generated]", end="", flush=True)
+        else:
+            print(" [No Sub]", end="", flush=True)
 
     # 6. Upload R2
     print(" R2...", end="", flush=True)
@@ -485,6 +490,13 @@ def process_episode(drama_id, ep_num, cached_urls):
     ep_id = upsert_episode(drama_id, ep_num, u720, u540)
     if ep_id and local_vtt.exists():
         link_subtitle_to_episode(ep_id, f"{R2_PUBLIC}/{kvtt}")
+
+    # Clean temp
+    raw_mp4.unlink(missing_ok=True)
+    blur_mp4.unlink(missing_ok=True)
+    out_540.unlink(missing_ok=True)
+    print(" [SELESAI]")
+    return True
 
     # Clean temp
     raw_mp4.unlink(missing_ok=True)
