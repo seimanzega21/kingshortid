@@ -277,7 +277,7 @@ def apply_feathered_blur(raw_file, out_file):
         'ffmpeg', '-y',
         '-i', str(raw_file),
         '-loop', '1', '-i', str(mask_file),
-        '-filter_complex', '[0:v]gblur=sigma=30[b];[0:v][b][1:v]maskedmerge[v]',
+        '-filter_complex', '[0:v]boxblur=luma_radius=45:luma_power=4:chroma_radius=45:chroma_power=4[b];[b][1:v]alphamerge[bm];[0:v][bm]overlay=0:0[v]',
         '-map', '[v]', '-map', '0:a?',
         '-c:v', 'libx264', '-crf', '23', '-preset', 'fast',
         '-c:a', 'copy',
