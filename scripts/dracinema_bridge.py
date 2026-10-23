@@ -54,7 +54,9 @@ class BridgeHandler(BaseHTTPRequestHandler):
 
         # Browser posts batch dump here
         elif self.path == '/dump':
-            with open('D:/temp_scraper/kelahiran_dump.json', 'w', encoding='utf-8') as f:
+            filename = body.get('filename', 'dump.json')
+            filepath = os.path.join('D:/temp_scraper', filename)
+            with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(body, f, ensure_ascii=False, indent=2)
             self.send_response(200)
             self.send_header('Access-Control-Allow-Origin', '*')
