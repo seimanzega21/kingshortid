@@ -16,10 +16,65 @@ export const R2_BUCKET = process.env.R2_BUCKET_NAME || 'shortlovers';
 export const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL;
 
 /**
+ * Protected shared prefixes that must NEVER be deleted via prefix matching
+ */
+export const PROTECTED_R2_PREFIXES = [
+    '',
+    '/',
+    'dramas/',
+    'dramas/covers/',
+    'covers/',
+    'uploads/',
+    'melolo/',
+    'melolov3/',
+    'dramawave/',
+    'dramawavev2/',
+    'reelshort/',
+    'dracinema/',
+    'dramas/netshort/',
+    'dramas/microdrama/'
+];
+
+/**
+ * Delete specific objects from R2 by exact keys (safe & atomic)
+ */
+export async function deleteR2Objects(keys: string[]): Promise<number> {
+    if (!keys || keys.length === 0 || !isR2Configured()) return 0;
+    try {
+        let totalDeleted = 0;
+        // Batch in chunks of 1000 (S3 limit)
+        for (let i = 0; i < keys.length; i += 1000) {
+            const chunk = keys.slice(i, i + 1000).map(k => ({ Key: k }));
+            await r2Client.send(new DeleteObjectsCommand({
+                Bucket: R2_BUCKET,
+                Delete: { Objects: chunk, Quiet: true }
+            }));
+            totalDeleted += chunk.length;
+        }
+        return totalDeleted;
+    } catch (err) {
+        console.error('[R2] Failed to delete specific objects:', err);
+        return 0;
+    }
+}
+
+/**
  * Delete all files in R2 associated with a drama prefix or key list
  */
 export async function deleteR2FilesByPrefix(prefix: string): Promise<number> {
     if (!prefix || !isR2Configured()) return 0;
+
+    const cleanPrefix = prefix.replace(/^\/+/, '');
+    // Safety check: Never delete root or protected shared prefixes
+    if (
+        PROTECTED_R2_PREFIXES.includes(cleanPrefix) ||
+        PROTECTED_R2_PREFIXES.includes(cleanPrefix + '/') ||
+        cleanPrefix.split('/').filter(Boolean).length < 2
+    ) {
+        console.error(`[R2 SAFETY REJECT] Refused to delete protected or overly broad prefix: "${prefix}"`);
+        return 0;
+    }
+
     try {
         let continuationToken: string | undefined = undefined;
         let totalDeleted = 0;
