@@ -15,7 +15,8 @@ class BridgeHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type, *')
+        self.send_header('Access-Control-Allow-Private-Network', 'true')
         self.end_headers()
 
     # Browser polls this to get pending playback requests
@@ -26,11 +27,13 @@ class BridgeHandler(BaseHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.send_header('Access-Control-Allow-Origin', '*')
+                self.send_header('Access-Control-Allow-Private-Network', 'true')
                 self.end_headers()
                 self.wfile.write(json.dumps(task).encode('utf-8'))
             except queue.Empty:
                 self.send_response(204) # No Content
                 self.send_header('Access-Control-Allow-Origin', '*')
+                self.send_header('Access-Control-Allow-Private-Network', 'true')
                 self.end_headers()
         else:
             self.send_response(404)
@@ -49,6 +52,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
                 result_events[req_id].set()
             self.send_response(200)
             self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Access-Control-Allow-Private-Network', 'true')
             self.end_headers()
             self.wfile.write(b'OK')
 
@@ -60,6 +64,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
                 json.dump(body, f, ensure_ascii=False, indent=2)
             self.send_response(200)
             self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Access-Control-Allow-Private-Network', 'true')
             self.end_headers()
             self.wfile.write(b'OK')
 
@@ -75,6 +80,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Access-Control-Allow-Private-Network', 'true')
             self.end_headers()
 
             if got_res and req_id in result_map:
