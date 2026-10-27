@@ -217,10 +217,8 @@ export default function DramaManagement() {
     };
 
     const totalAll = dramas.length;
-    const healthyCount = dramas.filter(d =>
-        d.isActive !== false && d.cover && d.cover.length > 5 && d.description && d.description.length > 10 && d.totalEpisodes > 0
-    ).length;
-    const pendingCount = totalAll - healthyCount;
+    const tayangCount = dramas.filter(d => d.isActive !== false).length;
+    const pendingCount = dramas.filter(d => d.isActive === false).length;
 
     const isAnime = (d: Drama) => {
         const ANIME_KW = ['anime', 'animasi', 'kartun', 'donghua'];
@@ -309,7 +307,7 @@ export default function DramaManagement() {
                             onClick={() => setPublishFilter("tayang")}
                             className={`px-4 md:px-6 py-2.5 md:py-3 text-xs md:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex gap-1.5 md:gap-2 items-center flex-shrink-0 ${publishFilter === "tayang" ? "border-emerald-500 text-emerald-400" : "border-transparent text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"}`}
                         >
-                            Sedang Tayang <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "tayang" ? "bg-emerald-500/20 text-emerald-300" : "bg-zinc-800 text-zinc-400"}`}>{healthyCount}</span>
+                            Sedang Tayang <span className={`px-1.5 py-0.5 rounded-full text-[10px] md:text-xs ${publishFilter === "tayang" ? "bg-emerald-500/20 text-emerald-300" : "bg-zinc-800 text-zinc-400"}`}>{tayangCount}</span>
                         </button>
                         <button
                             onClick={() => setPublishFilter("pending")}
