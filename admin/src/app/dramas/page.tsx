@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Search, Plus, Film, CheckCircle, Eye, MoreVertical, Smartphone, Trash2, Loader2, AlertTriangle, Bell, LayoutGrid, List, Lock } from "lucide-react";
+import { Search, Plus, Film, CheckCircle, Eye, MoreVertical, Smartphone, Trash2, Loader2, AlertTriangle, Bell, LayoutGrid, List, Lock, Languages } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -214,6 +214,21 @@ export default function DramaManagement() {
             }
         } catch { toast.error("Terjadi kesalahan sistem"); }
         finally { setPublishingId(null); }
+    };
+
+    const handleDeleteSubtitles = async (id: string, title?: string) => {
+        if (!confirm(`Hapus semua relasi subtitle (.vtt) untuk drama "${title || id}"?\n\nGunakan ini jika video drama aslinya sudah memiliki subtitle bawaan (hardsub) agar aplikasi mobile tidak menampilkan subtitle ganda.`)) return;
+        try {
+            const res = await fetch(`/api/dramas/${id}/subtitles`, { method: "DELETE" });
+            const data = await res.json();
+            if (res.ok) {
+                toast.success(data.message || "Subtitle .vtt berhasil dihapus dari drama ini.");
+            } else {
+                toast.error(data.message || data.error || "Gagal menghapus subtitle");
+            }
+        } catch {
+            toast.error("Terjadi kesalahan jaringan");
+        }
     };
 
     const totalAll = dramas.length;
@@ -580,6 +595,18 @@ export default function DramaManagement() {
                                                         </button>
                                                     )}
                                                     <div className="border-t border-zinc-600 my-0.5" />
+                                                    <button
+                                                        onMouseDown={(e) => {
+                                                            e.stopPropagation();
+                                                            e.preventDefault();
+                                                            setMenuOpenId(null);
+                                                            handleDeleteSubtitles(item.id, item.title);
+                                                        }}
+                                                        className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-rose-500/10 text-rose-300 transition-colors cursor-pointer"
+                                                    >
+                                                        <Languages size={16} className="text-rose-400" />
+                                                        <span>Hapus Subtitle (.vtt)</span>
+                                                    </button>
                                                     <button
                                                         onMouseDown={(e) => {
                                                             e.stopPropagation();

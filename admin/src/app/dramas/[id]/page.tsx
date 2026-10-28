@@ -376,6 +376,27 @@ export default function DramaDetailPage() {
         }
     };
 
+    const [isDeletingSubtitles, setIsDeletingSubtitles] = useState(false);
+
+    const handleDeleteSubtitles = async () => {
+        if (!confirm(`Hapus semua relasi subtitle (.vtt) untuk drama "${drama?.title || ''}"?\n\nGunakan fitur ini jika video aslinya sudah memiliki subtitle bawaan (hardsub) agar aplikasi mobile tidak menampilkan subtitle ganda.`)) return;
+        setIsDeletingSubtitles(true);
+        try {
+            const res = await fetch(`/api/dramas/${id}/subtitles`, { method: "DELETE" });
+            const data = await res.json();
+            if (res.ok) {
+                toast.success(data.message || "Semua relasi subtitle .vtt berhasil dihapus!");
+                fetchData();
+            } else {
+                toast.error(data.message || data.error || "Gagal menghapus subtitle");
+            }
+        } catch {
+            toast.error("Terjadi kesalahan jaringan saat menghapus subtitle");
+        } finally {
+            setIsDeletingSubtitles(false);
+        }
+    };
+
     const updateSelectedVip = async () => {
         if (episodesToDelete.length === 0) return;
         setIsUpdatingVip(true);
@@ -483,13 +504,24 @@ export default function DramaDetailPage() {
                 </button>
                 <div className="flex items-center gap-2 flex-wrap">
                     {!isEditing && drama && (
-                        <button
-                            onClick={toggleActive}
-                            className={`flex items-center gap-1.5 px-3 md:px-4 py-2 text-xs md:text-sm font-semibold rounded-lg transition-colors border ${drama.isActive ? 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:bg-zinc-700' : 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-700'}`}
-                        >
-                            {drama.isActive ? <ToggleRight size={16} className="text-emerald-400" /> : <ToggleLeft size={16} />}
-                            {drama.isActive ? 'Sedang Tayang' : 'Tayangkan Drama'}
-                        </button>
+                        <>
+                            <button
+                                onClick={handleDeleteSubtitles}
+                                disabled={isDeletingSubtitles}
+                                className="flex items-center gap-1.5 px-3 md:px-4 py-2 text-xs md:text-sm font-semibold rounded-lg transition-colors border bg-rose-950/40 text-rose-300 border-rose-800/60 hover:bg-rose-900/50 hover:text-rose-200 cursor-pointer"
+                                title="Hapus semua relasi subtitle .vtt jika video sudah memiliki hardsub bawaan agar tidak tampil dobel di mobile"
+                            >
+                                {isDeletingSubtitles ? <Loader2 size={16} className="animate-spin" /> : <Languages size={16} className="text-rose-400" />}
+                                Hapus Subtitle (.VTT)
+                            </button>
+                            <button
+                                onClick={toggleActive}
+                                className={`flex items-center gap-1.5 px-3 md:px-4 py-2 text-xs md:text-sm font-semibold rounded-lg transition-colors border ${drama.isActive ? 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:bg-zinc-700' : 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-700'}`}
+                            >
+                                {drama.isActive ? <ToggleRight size={16} className="text-emerald-400" /> : <ToggleLeft size={16} />}
+                                {drama.isActive ? 'Sedang Tayang' : 'Tayangkan Drama'}
+                            </button>
+                        </>
                     )}
                     {isEditing ? (
                         <>

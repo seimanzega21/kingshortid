@@ -952,6 +952,38 @@ dramasRoute.patch('/:id', requireAdmin, async (c) => {
     }
 });
 
+// DELETE /api/dramas/:id/subtitles - Delete all subtitle relations for this drama
+dramasRoute.delete('/:id/subtitles', requireAdmin, async (c) => {
+    try {
+        const dramaId = c.req.param('id');
+        const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
+
+        // Find all episode IDs for this drama
+        const dramaEpisodes = await db.select({ id: episodes.id })
+            .from(episodes)
+            .where(eq(episodes.dramaId, dramaId));
+
+        const epIds = dramaEpisodes.map(e => e.id);
+        if (epIds.length === 0) {
+            return c.json({ count: 0, message: 'Tidak ada episode ditemukan untuk drama ini' });
+        }
+
+        // Delete all subtitles for these episodes
+        const deleted = await db.delete(subtitles)
+            .where(inArray(subtitles.episodeId, epIds))
+            .returning({ id: subtitles.id });
+
+        return c.json({
+            success: true,
+            count: deleted.length,
+            message: `Berhasil menghapus ${deleted.length} relasi subtitle .vtt dari drama ini`,
+        });
+    } catch (error: any) {
+        console.error('Delete drama subtitles error:', error);
+        return c.json({ error: 'Gagal menghapus subtitle', details: error.message }, 500);
+    }
+});
+
 // POST /api/dramas/bulk-complete - Mark all ongoing → completed
 dramasRoute.post('/bulk-complete', requireAdmin, async (c) => {
     try {
