@@ -415,6 +415,70 @@ dramasRoute.get('/banners', async (c) => {
     }
 });
 
+function escapeRegExp(str: string): string {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function computeRelevance(d: { title?: string | null; description?: string | null }, query: string, words: string[]): number {
+    const title = (d.title || '').trim().toLowerCase();
+    const desc = (d.description || '').trim().toLowerCase();
+    const q = query.trim().toLowerCase();
+    if (!q) return 0;
+
+    // 1. Exact match 100% on title
+    if (title === q) return 2000;
+
+    // 2. Starts with query
+    if (title.startsWith(q)) return 600;
+
+    let score = 0;
+
+    // 3. Contains full phrase in title
+    if (title.includes(q)) {
+        score += 350;
+    }
+
+    // 4. Token matches in title
+    let titleWordsMatched = 0;
+    for (const w of words) {
+        if (title.includes(w)) {
+            titleWordsMatched++;
+            let isWordBoundary = false;
+            try {
+                isWordBoundary = new RegExp(`\\b${escapeRegExp(w)}\\b`, 'i').test(title);
+            } catch {
+                isWordBoundary = false;
+            }
+            score += isWordBoundary ? 80 : 40;
+        }
+    }
+
+    // Huge bonus if ALL query words are in the title (order independent)
+    if (words.length > 1 && titleWordsMatched === words.length) {
+        score += 300;
+    } else if (words.length > 1 && titleWordsMatched > 0) {
+        score += Math.round((titleWordsMatched / words.length) * 100);
+    }
+
+    // 5. Matches in description
+    if (desc.includes(q)) {
+        score += 30;
+    }
+    for (const w of words) {
+        if (w.length >= 3 && desc.includes(w)) {
+            let isWordBoundary = false;
+            try {
+                isWordBoundary = new RegExp(`\\b${escapeRegExp(w)}\\b`, 'i').test(desc);
+            } catch {
+                isWordBoundary = false;
+            }
+            score += isWordBoundary ? 10 : 3;
+        }
+    }
+
+    return score;
+}
+
 // GET /api/dramas/search
 dramasRoute.get('/search', async (c) => {
     try {
@@ -423,30 +487,54 @@ dramasRoute.get('/search', async (c) => {
         const limit = parseInt(c.req.query('limit') || '20');
         const db = getDb(c.env.SUPABASE_URL, c.env.SUPABASE_DB_PASSWORD);
 
-        if (!query) return c.json({ dramas: [], total: 0, page });
+        if (!query.trim()) return c.json({ dramas: [], total: 0, page });
 
-        const searchTerm = `%${query}%`;
+        const cleanQuery = query.trim();
+        const words = cleanQuery.toLowerCase().split(/\s+/).filter(w => w.length > 0);
+        if (words.length === 0) return c.json({ dramas: [], total: 0, page });
+
+        const orConditions = [
+            ilike(dramas.title, `%${cleanQuery}%`),
+            ilike(dramas.description, `%${cleanQuery}%`),
+        ];
+
+        for (const w of words) {
+            if (w.length >= 2) {
+                orConditions.push(ilike(dramas.title, `%${w}%`));
+                orConditions.push(ilike(dramas.description, `%${w}%`));
+            } else {
+                orConditions.push(ilike(dramas.title, `%${w}%`));
+            }
+        }
+
         const whereClause = and(
             eq(dramas.isActive, true),
-            or(
-                ilike(dramas.title, searchTerm),
-                ilike(dramas.description, searchTerm),
-            ),
+            or(...orConditions),
         );
 
-        const [results, totalResult] = await Promise.all([
-            db.select().from(dramas)
-                .where(whereClause!)
-                .orderBy(desc(dramas.views))
-                .limit(limit)
-                .offset((page - 1) * limit),
-            db.select({ count: sql<number>`count(*)` }).from(dramas)
-                .where(whereClause!),
-        ]);
+        // Prioritize title matches in SQL so title-matching dramas appear first in candidate pool
+        const titleMatchSort = sql<number>`CASE WHEN lower(${dramas.title}) LIKE ${'%' + cleanQuery.toLowerCase() + '%'} THEN 0 ELSE 1 END`;
+
+        const candidateDramas = await db.select().from(dramas)
+            .where(whereClause!)
+            .orderBy(asc(titleMatchSort), desc(dramas.views))
+            .limit(500);
+
+        const scoredDramas = candidateDramas
+            .map(d => ({
+                drama: d,
+                score: computeRelevance(d, cleanQuery, words),
+            }))
+            .filter(x => x.score > 0)
+            .sort((a, b) => b.score - a.score || (b.drama.views || 0) - (a.drama.views || 0));
+
+        const total = scoredDramas.length;
+        const startIndex = (page - 1) * limit;
+        const pageItems = scoredDramas.slice(startIndex, startIndex + limit).map(x => enrichDrama(x.drama));
 
         return c.json({
-            dramas: results.map(enrichDrama),
-            total: Number(totalResult[0]?.count || 0),
+            dramas: pageItems,
+            total,
             page,
         });
     } catch (error) {
