@@ -147,27 +147,104 @@ export default function DramaDetailPage() {
         }
     };
 
+    // Helper to compress image client-side to max 1080x1620, quality 0.85 (JPEG)
+    // Instantly drops an 8-15MB upscaled photo down to ~150-250KB for instant upload
+    const compressImage = async (file: File): Promise<File> => {
+        if (file.type === 'image/svg+xml' || file.type === 'image/gif') {
+            return file;
+        }
+        return new Promise((resolve) => {
+            const img = new window.Image();
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                img.src = e.target?.result as string;
+            };
+            img.onload = () => {
+                const MAX_WIDTH = 1080;
+                const MAX_HEIGHT = 1620;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > MAX_WIDTH || height > MAX_HEIGHT) {
+                    if (width / height > MAX_WIDTH / MAX_HEIGHT) {
+                        height = Math.round((height * MAX_WIDTH) / width);
+                        width = MAX_WIDTH;
+                    } else {
+                        width = Math.round((width * MAX_HEIGHT) / height);
+                        height = MAX_HEIGHT;
+                    }
+                }
+
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    resolve(file);
+                    return;
+                }
+
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(0, 0, width, height);
+                ctx.drawImage(img, 0, 0, width, height);
+
+                canvas.toBlob(
+                    (blob) => {
+                        if (!blob) {
+                            resolve(file);
+                            return;
+                        }
+                        const cleanName = file.name.replace(/\.[^/.]+$/, "") + ".jpg";
+                        const optimized = new File([blob], cleanName, {
+                            type: 'image/jpeg',
+                            lastModified: Date.now()
+                        });
+                        resolve(optimized);
+                    },
+                    'image/jpeg',
+                    0.85
+                );
+            };
+            img.onerror = () => resolve(file);
+            reader.readAsDataURL(file);
+        });
+    };
+
     // Handle cover file selection
-    const handleCoverSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCoverSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
         if (!file.type.startsWith('image/')) {
             toast.error('File harus berupa gambar');
             return;
         }
-        if (file.size > 10 * 1024 * 1024) {
-            toast.error('Ukuran file maksimal 10MB');
+        if (file.size > 25 * 1024 * 1024) {
+            toast.error('Ukuran file maksimal 25MB');
             return;
         }
-        setCoverFile(file);
-        setCoverPreview(URL.createObjectURL(file));
-        setCoverUrl("");
-        setShowCoverUrlInput(false);
+
+        try {
+            // Instantly compress in browser
+            const compressed = await compressImage(file);
+            setCoverFile(compressed);
+            setCoverPreview(URL.createObjectURL(compressed));
+            setCoverUrl("");
+            setShowCoverUrlInput(false);
+
+            if (file.size > 1024 * 1024) {
+                toast.success(`Gambar dioptimasi: ${(file.size / 1024 / 1024).toFixed(1)}MB ➔ ${(compressed.size / 1024).toFixed(0)}KB`);
+            }
+        } catch {
+            setCoverFile(file);
+            setCoverPreview(URL.createObjectURL(file));
+        } finally {
+            e.target.value = '';
+        }
     };
 
     // Reset cover edit state
     const resetCoverState = () => {
-        if (coverPreview) URL.revokeObjectURL(coverPreview);
+        if (coverPreview && coverPreview.startsWith('blob:')) URL.revokeObjectURL(coverPreview);
         setCoverFile(null);
         setCoverPreview(null);
         setCoverUrl("");
@@ -176,22 +253,57 @@ export default function DramaDetailPage() {
 
     const handleSave = async () => {
         setIsSaving(true);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
         try {
             let newCoverUrl: string | undefined;
 
-            // Upload cover file if selected
+            // 1. Upload cover file if selected
             if (coverFile) {
                 setIsUploadingCover(true);
                 const uploadData = new FormData();
                 uploadData.append('file', coverFile);
                 uploadData.append('folder', 'dramas');
-                const uploadRes = await fetch('/api/upload', { method: 'POST', body: uploadData });
-                if (!uploadRes.ok) throw new Error('Cover upload failed');
+
+                const uploadRes = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: uploadData,
+                    signal: controller.signal
+                });
+
+                if (!uploadRes.ok) {
+                    const errJson = await uploadRes.json().catch(() => ({}));
+                    throw new Error(errJson.message || 'Gagal mengunggah gambar ke server');
+                }
                 const uploadResult = await uploadRes.json();
                 newCoverUrl = uploadResult.url;
                 setIsUploadingCover(false);
             } else if (coverUrl.trim()) {
-                newCoverUrl = coverUrl.trim();
+                const trimmed = coverUrl.trim();
+                // If user pasted a base64 data URL, convert it to blob and upload to R2
+                if (trimmed.startsWith('data:image/')) {
+                    setIsUploadingCover(true);
+                    const base64Res = await fetch(trimmed);
+                    const blob = await base64Res.blob();
+                    const fileFromBase64 = new File([blob], 'cover_pasted.jpg', { type: blob.type || 'image/jpeg' });
+                    const compressed = await compressImage(fileFromBase64);
+
+                    const uploadData = new FormData();
+                    uploadData.append('file', compressed);
+                    uploadData.append('folder', 'dramas');
+                    const uploadRes = await fetch('/api/upload', {
+                        method: 'POST',
+                        body: uploadData,
+                        signal: controller.signal
+                    });
+                    if (!uploadRes.ok) throw new Error('Gagal mengunggah gambar base64');
+                    const uploadResult = await uploadRes.json();
+                    newCoverUrl = uploadResult.url;
+                    setIsUploadingCover(false);
+                } else {
+                    newCoverUrl = trimmed;
+                }
             }
 
             const patchBody = {
@@ -203,15 +315,30 @@ export default function DramaDetailPage() {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(patchBody),
+                signal: controller.signal
             });
+
             if (res.ok) {
-                toast.success("Perubahan disimpan");
+                toast.success("Perubahan drama & cover berhasil disimpan! 🚀");
                 setIsEditing(false);
                 resetCoverState();
                 fetchData();
-            } else throw new Error("Failed");
-        } catch { toast.error("Gagal menyimpan"); }
-        finally { setIsSaving(false); setIsUploadingCover(false); }
+            } else {
+                const errData = await res.json().catch(() => ({}));
+                throw new Error(errData.message || "Gagal memperbarui data drama");
+            }
+        } catch (err: any) {
+            console.error("Save error:", err);
+            if (err.name === 'AbortError') {
+                toast.error("Waktu koneksi habis (timeout). Silakan periksa jaringan internet.");
+            } else {
+                toast.error(err.message || "Gagal menyimpan");
+            }
+        } finally {
+            clearTimeout(timeoutId);
+            setIsSaving(false);
+            setIsUploadingCover(false);
+        }
     };
 
     const deleteEpisode = async (epId: string) => {
@@ -454,7 +581,12 @@ export default function DramaDetailPage() {
                                     placeholder="https://... cover URL"
                                     className="w-full bg-zinc-800 text-white text-xs px-2 py-1.5 rounded border border-zinc-700 focus:border-cyan-500 focus:outline-none"
                                     value={coverUrl}
-                                    onChange={e => { setCoverUrl(e.target.value); setCoverFile(null); setCoverPreview(null); }}
+                                    onChange={e => {
+                                        const val = e.target.value;
+                                        setCoverUrl(val);
+                                        setCoverFile(null);
+                                        setCoverPreview(val.trim() || null);
+                                    }}
                                 />
                             </div>
                         )}

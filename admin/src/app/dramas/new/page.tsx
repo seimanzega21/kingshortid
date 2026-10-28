@@ -36,11 +36,60 @@ export default function NewDramaPage() {
         setGenres(genres.filter(g => g !== genre));
     };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const compressImage = async (file: File): Promise<File> => {
+        if (file.type === 'image/svg+xml' || file.type === 'image/gif') return file;
+        return new Promise((resolve) => {
+            const img = new window.Image();
+            const reader = new FileReader();
+            reader.onload = (e) => { img.src = e.target?.result as string; };
+            img.onload = () => {
+                const MAX_WIDTH = 1080;
+                const MAX_HEIGHT = 1620;
+                let width = img.width;
+                let height = img.height;
+                if (width > MAX_WIDTH || height > MAX_HEIGHT) {
+                    if (width / height > MAX_WIDTH / MAX_HEIGHT) {
+                        height = Math.round((height * MAX_WIDTH) / width);
+                        width = MAX_WIDTH;
+                    } else {
+                        width = Math.round((width * MAX_HEIGHT) / height);
+                        height = MAX_HEIGHT;
+                    }
+                }
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) { resolve(file); return; }
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(0, 0, width, height);
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob(
+                    (blob) => {
+                        if (!blob) { resolve(file); return; }
+                        const cleanName = file.name.replace(/\.[^/.]+$/, "") + ".jpg";
+                        resolve(new File([blob], cleanName, { type: 'image/jpeg', lastModified: Date.now() }));
+                    },
+                    'image/jpeg',
+                    0.85
+                );
+            };
+            img.onerror = () => resolve(file);
+            reader.readAsDataURL(file);
+        });
+    };
+
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
             const file = e.target.files[0];
-            setCoverFile(file);
-            setCoverPreview(URL.createObjectURL(file));
+            try {
+                const compressed = await compressImage(file);
+                setCoverFile(compressed);
+                setCoverPreview(URL.createObjectURL(compressed));
+            } catch {
+                setCoverFile(file);
+                setCoverPreview(URL.createObjectURL(file));
+            }
         }
     };
 

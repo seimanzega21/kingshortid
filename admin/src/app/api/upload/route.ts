@@ -62,12 +62,14 @@ export async function POST(request: NextRequest) {
         }
 
         const key = `dramas/covers/${filename}`;
+        const contentType = file.type || getContentType(file.name);
         await client.send(
             new PutObjectCommand({
                 Bucket: bucket,
                 Key: key,
                 Body: buffer,
-                ContentType: getContentType(file.name),
+                ContentType: contentType,
+                CacheControl: "public, max-age=31536000, immutable",
             })
         );
 
